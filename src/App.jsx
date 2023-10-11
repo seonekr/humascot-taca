@@ -1,8 +1,8 @@
-import Links from "./component/link/Links";
+import UserLink from "./component/link/UserLink";
 function App() {
   return (
     <div>
-      <Links/>
+      <Link/>
     </div>
   )
 }
