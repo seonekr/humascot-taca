@@ -3,7 +3,12 @@ name: Teset-Repo
 on:
   push:
     branches:
-      - main
+    - main
+    - 'releases/**'
+  pull_request:
+    branches:
+    - main
+    - 'releases/**'
 
 jobs:
   build:
