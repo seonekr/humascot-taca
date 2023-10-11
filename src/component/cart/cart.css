@@ -1,0 +1,116 @@
+
+#cart .cart-items {
+    margin-top: 5rem;
+}
+
+/*payment page*/
+#payment .adress-payment { 
+    display: grid;
+    margin-top: 5rem;
+}
+
+#payment .adress-payment .box {
+    display: grid;
+    text-align: left;
+    padding: 2rem 0;
+}
+
+#payment .adress-payment .box a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.3rem;
+    padding: 0.3rem 0;
+}
+
+/* Address title */
+#payment .adress-payment .box  p {
+    padding: 0 0.3rem;
+    margin: 0 2.7rem;
+    font-family: "saysettha ot";
+    color: #1589FF;
+    border: 1px solid #ccc;
+}
+
+#payment .adress-payment .box .address {
+    background-color: #3498DB;
+    font-size: 1.3rem;
+    width:80%;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 4px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+/* payment method */
+#payment .adress-payment .box .transfer {
+    display: flex;
+    margin: 0 1rem;
+    font-size: 1.3rem;
+    align-items: center;
+}
+
+#payment .adress-payment .box .transfer .select-option, 
+#payment .adress-payment .box .transfer .select-option input {
+    display: flex;
+    margin: 0 auto;
+    font-size: 1.2rem;
+}
+
+#payment .adress-payment .box .transfer .select-option label {
+    padding-left: 0.4rem;
+}
+
+/* transfer method */
+
+#payment .adress-payment .box .qr {
+    width: 70%;
+    margin: 0 auto;
+}
+
+#payment .adress-payment .box .qr img {
+    margin-top: 5rem;
+    width: 100%;
+    height: 300px;
+}
+
+/* Submit button */
+.submit .save {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+ .submit .save button {
+    cursor: pointer;
+    border: none;
+    background: #2E86C1;
+    border-radius: 10px;
+    padding: 0.5rem 3rem;
+    color: #fff;
+    font-size: 1.3rem;
+}
+
+/* Address shipping */
+#address form {
+    margin-top: 5rem;
+    font-size: 1.3rem;
+}
+
+#address form .box {
+    display: flex;
+    padding: 1.25rem 1.3rem;
+    width: 100%;
+    justify-content: space-between;
+}
+
+#address form .box input {
+    width: 70%;
+    font-size: 1rem;
+    padding: 0 1rem;
+    border: none;
+    border-bottom: 1px solid #ccc;
+}
+
+#address form .box input:focus {
+    outline: none;
+}

@@ -1,35 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
+import { BrowserRouter as Router, Routes , Route } from "react-router-dom";
+import Home from "./component/homepage/Home";
+import Account from "./component/account/Account";
+import General from "./component/account/General";
+import Contact from "./component/account/Contact";
+import Password from "./component/account/Password";
+import Payment from "./component/cart/Payment";
+import Cart from "./component/cart/Cart";
+import Address from "./component/cart/Address";
+import Chatuser from "./component/chat/Chatuser";
+import Chatroom from "./component/chat/Chatroom";
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div id="font">
+      <Router>
+        <Routes >
+          <Route exact path="/humascot-taca" Component={Home}/>
+          <Route exact path="/humascot-taca/account/" Component={Account}/>
+          <Route exact path="/humascot-taca/account/general/" Component={General}/>
+          <Route exact path="/humascot-taca/account/contact/" Component={Contact}/>
+          <Route exact path="/humascot-taca/account/password/" Component={Password}/>
+          <Route exact path="/humascot-taca/payment/" Component={Payment}/>
+          <Route exact path="/humascot-taca/cart/" Component={Cart}/>
+          <Route exact path="/humascot-taca/cart/address/" Component={Address}/>
+          <Route exact path="/humascot-taca/chatuser/" Component={Chatuser}/>
+          <Route exact path="/humascot-taca/chatuser/chatroom/" Component={Chatroom}/>
+        </Routes>
+      </Router>
+    </div>
   )
 }
 
-export default App
+export default App 
