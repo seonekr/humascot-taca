@@ -3,7 +3,7 @@ import "./App.css";
 function App() {
   return (
     <>
-      <h1>Hello Humascot!</h1>
+      <h1>Hello Humascot-Taca!</h1>
     </>
   );
 }
