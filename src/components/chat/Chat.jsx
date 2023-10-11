@@ -31,7 +31,7 @@ const Chat = () => {
                     <input placeholder='Search...'/>
                 </div>
             </div>
-            <Link to="/" className='container_chat_message'>
+            <Link to="/components/chat/Function_delete" className='container_chat_message'>
                 <div className='container_chat_text'>
                     <img src='https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Photos.png' alt='#'></img>
                     <div className='container_chat_name'>
@@ -43,30 +43,7 @@ const Chat = () => {
                     <Link to="/"><box-icon name='dots-vertical-rounded' id="dots_icon"></box-icon></Link>
                 </div>
             </Link>
-            <Link to="/" className='container_chat_message'>
-                <div className='container_chat_text'>
-                    <img src='https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Photos.png' alt='#'></img>
-                    <div className='container_chat_name'>
-                        <h4>Sompong</h4>
-                        <p>New message...</p>
-                    </div>
-                </div>
-                <div className='container_chat_icon'>
-                    <Link to="/"><box-icon name='dots-vertical-rounded' id="dots_icon"></box-icon></Link>
-                </div>
-            </Link>
-            <Link to="/" className='container_chat_message'>
-                <div className='container_chat_text'>
-                    <img src='https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Photos.png' alt='#'></img>
-                    <div className='container_chat_name'>
-                        <h4>Sompong</h4>
-                        <p>New message...</p>
-                    </div>
-                </div>
-                <div className='container_chat_icon'>
-                    <Link to="/"><box-icon name='dots-vertical-rounded' id="dots_icon"></box-icon></Link>
-                </div>
-            </Link>
+            
             
 
         </div>

@@ -7,7 +7,7 @@ import Register from './components/login_register/Register'
 import Product_search from "./components/products/Product_search";
 import Cart from './components/cart/Cart'
 import Order from "./components/order/Order";
-import Product_buy from "./components/products/Product_buy";
+import ProductDetails from "./components/products/ProductDetails";
 
 function App() {
 
@@ -22,8 +22,8 @@ function App() {
           <Route path='/humascot-taca/components/login_register/Register' element={<Register/>}/>
           <Route path='/humascot-taca/cart' element={<Cart/>}/>
           <Route path='/humascot-taca/order' element={<Order/>}/>
+          <Route path='/humascot-taca/productDetails' element={<ProductDetails/>}/>
           <Route path='/humascot-taca/product_search' element={<Product_search/>}/>
-          <Route path='/humascot-taca/product_buy' element={<Product_buy/>}/>
 
       </Routes>
     </Router>

@@ -7,10 +7,10 @@ const Function_delete = () => {
     <section className='box_container_function_delete'>
         <div className='container_function_delete' >
             <Link to="/" className='box_delete'>
-                Hello
+                Delete User
             </Link>
-            <Link to="/" className='box_cleat_chat'>
-
+            <Link to="/" className='box_delete'>
+              Cleat chat
             </Link>
         </div>
     </section>
