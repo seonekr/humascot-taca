@@ -1,6 +1,6 @@
 import { FaArrowLeft } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-import Menu from "../menu/menu";
+import Menu from "../menu/Menu";
 import './bill.css';
 const Bill = () => {
     return(
