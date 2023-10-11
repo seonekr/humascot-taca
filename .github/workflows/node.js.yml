@@ -1,4 +1,4 @@
-name: Deploy
+name: Teset-Repo
 
 on:
   push:
