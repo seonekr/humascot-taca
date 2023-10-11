@@ -10,7 +10,7 @@ const Chatuser = () => {
     <>
         <section id='chatuser-header'>
             <div className='container_chat_search'>
-                <Link to="/taca-app"><box-icon name='chevron-left' id="cancel_icon"></box-icon></Link>
+                <Link to="/humascot-taca"><box-icon name='chevron-left' id="cancel_icon"></box-icon></Link>
                 <div className='input-wrapper'>
                     <FaSearch id="search-icon"/>
                     <input placeholder='Search...'/>
@@ -20,7 +20,7 @@ const Chatuser = () => {
         </section>
         <section id='user'>
             <div className='container_chat_box'>
-                <Link to="/taca-app/chatuser/chatroom/" className='container_chat_message'>
+                <Link to="/humascot-taca/chatuser/chatroom/" className='container_chat_message'>
                     <div className='container_chat_text'>
                         <img src='https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Photos.png' alt=''></img>
                         <div className='container_chat_name'>
@@ -32,7 +32,7 @@ const Chatuser = () => {
                     <box-icon name='dots-vertical-rounded' id="dots_icon"/>
                     </div>
                 </Link>
-                <Link to="/taca-app/chatuser/chatroom/" className='container_chat_message'>
+                <Link to="/humascot-taca/chatuser/chatroom/" className='container_chat_message'>
                     <div className='container_chat_text'>
                         <img src='https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Photos.png' alt=''></img>
                         <div className='container_chat_name'>
@@ -44,7 +44,7 @@ const Chatuser = () => {
                     <box-icon name='dots-vertical-rounded' id="dots_icon"/>
                     </div>
                 </Link>
-                <Link to="/taca-app/chatuser/chatroom/" className='container_chat_message'>
+                <Link to="/humascot-taca/chatuser/chatroom/" className='container_chat_message'>
                     <div className='container_chat_text'>
                         <img src='https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Photos.png' alt=''></img>
                         <div className='container_chat_name'>
@@ -56,7 +56,7 @@ const Chatuser = () => {
                     <box-icon name='dots-vertical-rounded' id="dots_icon"/>
                     </div>
                 </Link>
-                <Link to="/taca-app/chatuser/chatroom/" className='container_chat_message'>
+                <Link to="/humascot-taca/chatuser/chatroom/" className='container_chat_message'>
                     <div className='container_chat_text'>
                         <img src='https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Photos.png' alt=''></img>
                         <div className='container_chat_name'>
@@ -68,7 +68,7 @@ const Chatuser = () => {
                     <box-icon name='dots-vertical-rounded' id="dots_icon"/>
                     </div>
                 </Link>
-                <Link to="/taca-app/chatuser/chatroom/" className='container_chat_message'>
+                <Link to="/humascot-taca/chatuser/chatroom/" className='container_chat_message'>
                     <div className='container_chat_text'>
                         <img src='https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Photos.png' alt=''></img>
                         <div className='container_chat_name'>
@@ -80,7 +80,7 @@ const Chatuser = () => {
                     <box-icon name='dots-vertical-rounded' id="dots_icon"/>
                     </div>
                 </Link>
-                <Link to="/taca-app/chatuser/chatroom/" className='container_chat_message'>
+                <Link to="/humascot-taca/chatuser/chatroom/" className='container_chat_message'>
                     <div className='container_chat_text'>
                         <img src='https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Photos.png' alt=''></img>
                         <div className='container_chat_name'>
@@ -92,7 +92,7 @@ const Chatuser = () => {
                     <box-icon name='dots-vertical-rounded' id="dots_icon"/>
                     </div>
                 </Link>
-                <Link to="/taca-app/chatuser/chatroom/" className='container_chat_message'>
+                <Link to="/humascot-taca/chatuser/chatroom/" className='container_chat_message'>
                     <div className='container_chat_text'>
                         <img src='https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Photos.png' alt=''></img>
                         <div className='container_chat_name'>
@@ -104,7 +104,7 @@ const Chatuser = () => {
                     <box-icon name='dots-vertical-rounded' id="dots_icon"/>
                     </div>
                 </Link>
-                <Link to="/taca-app/chatuser/chatroom/" className='container_chat_message'>
+                <Link to="/humascot-taca/chatuser/chatroom/" className='container_chat_message'>
                     <div className='container_chat_text'>
                         <img src='https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Photos.png' alt=''></img>
                         <div className='container_chat_name'>
@@ -116,7 +116,7 @@ const Chatuser = () => {
                     <box-icon name='dots-vertical-rounded' id="dots_icon"/>
                     </div>
                 </Link>
-                <Link to="/taca-app/chatuser/chatroom/" className='container_chat_message'>
+                <Link to="/humascot-taca/chatuser/chatroom/" className='container_chat_message'>
                     <div className='container_chat_text'>
                         <img src='https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Photos.png' alt=''></img>
                         <div className='container_chat_name'>
@@ -128,7 +128,7 @@ const Chatuser = () => {
                     <box-icon name='dots-vertical-rounded' id="dots_icon"/>
                     </div>
                 </Link>
-                <Link to="/taca-app/chatuser/chatroom/" className='container_chat_message'>
+                <Link to="/humascot-taca/chatuser/chatroom/" className='container_chat_message'>
                     <div className='container_chat_text'>
                         <img src='https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Photos.png' alt=''></img>
                         <div className='container_chat_name'>

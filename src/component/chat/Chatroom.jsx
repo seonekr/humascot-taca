@@ -29,7 +29,7 @@ const Chatroom = () => {
             <section id="chatroom">
                 <div className="header">
                     <div className="header-box">
-                        <Link to="/taca-app/chatuser"><FaArrowLeft/></Link>
+                        <Link to="/humascot-taca/chatuser"><FaArrowLeft/></Link>
                         <div className="user">
                             <span className="profile"><img src={user} alt="" /></span>
                             <span><p>name</p><p className="status">status</p></span></div>
