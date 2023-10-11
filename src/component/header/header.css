@@ -3,7 +3,6 @@
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid #dadada;
-    /* background-color: #FF5733; */
     background-color: #fff;
     padding: 0.5rem 1.5rem;
     position: fixed;
@@ -28,6 +27,11 @@
     font-size: 1.5rem;
 }
 
+/* Banner */
+#banner div{
+    margin-top: 2rem;
+}
+
 @media (max-width: 768px) {
 
     #header{
@@ -48,6 +52,6 @@
         margin: 0;
     }
     #banner div{
-        margin-top: 1.5rem;
+        margin-top: 2rem;
     }
 }
