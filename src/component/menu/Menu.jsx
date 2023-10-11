@@ -11,7 +11,7 @@ const Menu = () => {
                 <Link to="/humascot-taca" className="box-menu">
                     <span><FaStore/></span><span>Shopping</span>
                 </Link>
-                <Link to="/humascot-taca" className="box-menu">
+                <Link to="/humascot-taca/order" className="box-menu">
                     <span><FaMoneyBillTrendUp/></span><span>Order</span>
                 </Link>
                 <Link to="/humascot-taca/chatuser" className="box-menu">
