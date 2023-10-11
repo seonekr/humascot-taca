@@ -1,3 +1,4 @@
+
 import { BrowserRouter as Router, Routes , Route } from "react-router-dom";
 import Cart from "./component/cart/Cart";
 import Chat from './components/chat/Chat';
@@ -25,6 +26,7 @@ function App() {
       </Routes>
     </Router>
     </>
+
   )
 }
 

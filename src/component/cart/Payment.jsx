@@ -1,6 +1,6 @@
 import { FaArrowLeft } from "react-icons/fa6";
 import { FiPlus } from "react-icons/fi";
-import "./cart.css"
+import "./payment.css"
 import qrcode from "../img/QRCODE.png";
 import wechat from "../img/WeChat.png";
 import Menu from "../menu/Menu";
@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 const Payment = () => {
 
     // state payment method
-    const [selectedOption, setSelectedOption] = useState('');
+    const [selectedOption, setSelectedOption] = useState('onePay');
 
     // get address state 
     const location = useLocation();                       // Here mean if "empty"
@@ -40,7 +40,7 @@ const Payment = () => {
         <>
             <section id="header-account">
                 <div className="account-navbar">
-                    <div className="header-box"><Link to="/taca-app/cart"><FaArrowLeft/></Link></div>
+                    <div className="header-box"><Link to="/humascot-taca/cart"><FaArrowLeft/></Link></div>
                     <div className="header-box middle">Payment</div>
                     <div className="header-box"></div>
                 </div>
@@ -49,7 +49,7 @@ const Payment = () => {
                 <form onSubmit={handleSubmit}>
                     <div className="adress-payment">
                         <div className="box">
-                            <Link to="/taca-app/cart/address" className="address">
+                            <Link to="/humascot-taca/cart/address" className="address">
                                 <FiPlus/> Update address
                             </Link>
                             <p>{province} {city} {companny} {branch}</p>
@@ -77,16 +77,19 @@ const Payment = () => {
                                     <label htmlFor="wechat">WeChat</label>
                                 </div>
                             </div>
-
                             { selectedOption === 'onePay' && (
                                 <div className="qr">
                                     <img src={qrcode} alt="" />
                                 </div>
                             )}
-
                             { selectedOption === 'wechat' && (
                                 <div className="qr">
                                     <img src={wechat} alt="" />
+                                </div>
+                            )}
+                            { (!selectedOption) && (
+                                <div className="qr">
+                                    <img src={qrcode} alt="" />
                                 </div>
                             )}
                         </div>

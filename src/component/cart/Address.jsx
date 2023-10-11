@@ -24,7 +24,7 @@ const Address = () => {
         setCompanny(''),
         setBranch('')
 
-        navigate('/taca-app/payment/',{ // Navigate to the payment page with the address props
+        navigate('/humascot-taca/payment/',{ // Navigate to the payment page with the address props
             state: {
                 province: province+ ',',
                 city: city + ',',
@@ -56,7 +56,7 @@ const Address = () => {
         <>
             <section id="header-account">
                 <div className="account-navbar">
-                    <div className="header-box"><Link to="/taca-app/payment"><FaArrowLeft/></Link></div>
+                    <div className="header-box"><Link to="/humascot-taca/payment"><FaArrowLeft/></Link></div>
                     <div className="header-box middle">Address</div>
                     <div className="header-box"></div>
                 </div>
