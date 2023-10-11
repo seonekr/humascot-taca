@@ -1,0 +1,134 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+.container_order_item{
+    width: 80%;
+    margin: auto;
+    background-color: #FFF;
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.10);
+    
+}
+
+.headerr_positoin_order{
+    display: flex;
+    width: 100%;
+    height: 71px;
+    position: fixed;
+    align-items: center;
+    justify-content: space-between;
+    top: 0;
+    padding: 10px 14px;
+    background-color: #FFF;
+    z-index: 99;
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.10);
+}
+  
+.heaRight {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+
+.container_order_all{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-top: 1rem;
+    padding: 15px 0;
+
+}
+.box_item_order{
+    width: 100%;
+    height: 188px;
+    display: flex;
+    gap: 1.9rem;
+    margin-top: 0.6rem;
+    padding: 20px 20px 0 20px;
+    background-color: #fff;
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
+}
+.box_item_order img{
+    width: 165px;
+    height: 148px;
+    background-color: #7777;
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
+}
+.box_item_order_text p{
+    margin-top: 0.3rem;
+}
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 820px) {
+    .container_order_item{
+        width: 100%;
+    }
+    
+}
+@media screen and (max-width: 431px) {
+    .container_order_item{
+        width: 100%;
+    }
+    .box_item_order{
+        height: 150px;
+    }
+    .box_item_order img{
+        width: 125px;
+        height: 118px;
+    }
+    .box_item_order{
+        padding: 15px 15px 0 15px;
+        
+    }
+    
+}
+@media screen and (max-width: 371px) {
+    .container_order_item{
+        width: 100%;
+    }
+    .box_item_order{
+        height: 120px;
+    }
+    .box_item_order img{
+        width: 105px;
+        height: 98px;
+    }
+    .box_item_order{
+        padding: 10px 10px 0 10px;
+        
+    }
+    
+}
+@media screen and (max-width: 321px) {
+    .container_order_item{
+        width: 100%;
+    }
+    .box_item_order{
+        height: 105px;
+    }
+    .box_item_order img{
+        width: 95px;
+        height: 85px;
+    }
+    .box_item_order{
+        padding: 10px 10px 0 10px;
+        
+    }
+    
+}

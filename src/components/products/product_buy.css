@@ -1,0 +1,280 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+}
+
+/* ============ body container_buy ============*/
+
+.container_buy{
+    width: 80%;
+    margin: auto;
+    
+}
+.container_box_buy{
+    width: 80%;
+    margin: auto;
+    background-color: #FFF;
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.10);
+}
+.container_icon{
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin-top: 3rem;
+    padding: 20px 10px;
+}
+
+
+
+#icon_left{
+    width: 30px;
+    height: 30px;
+}
+.container_image{
+    display: grid;
+    gap: 1rem;
+    padding: 0 0 20px 0;
+}
+
+/* ============ Box_img ============*/
+
+.container_image img{
+    width: 500px;
+    height: auto;
+    margin: auto;
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.10);
+}
+.container_image p{
+    text-align: center;
+    font-size: 18px;
+    font-weight: 550;
+}
+.container_image h2{
+    text-align: center;
+
+}
+
+
+/* ================= Box Choose Color and Size ==============*/
+
+.container_color_size{
+    display: grid;
+    gap: 2rem;
+    align-items: center;
+    padding: 20px 30px;
+}
+.container_color{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+.container_color h3{
+    font-size: 18px;
+    font-weight: 500;
+}
+.color_icon{
+    width: 18px;
+    height: 18px;
+    background-color: blue;
+    border-radius: 100px;
+}
+.color_icon1{
+    width: 18px;
+    height: 18px;
+    background-color: red;
+    border-radius: 100px;
+}
+.color_icon2{
+    width: 18px;
+    height: 18px;
+    background-color: rgb(246, 166, 215);
+    border-radius: 100px;
+}
+.color_icon3{
+    width: 18px;
+    height: 18px;
+    background-color: rgb(118, 211, 239);
+    border-radius: 100px;
+}
+.color_icon:hover{
+    border: 3px solid #444;
+}
+.color_icon1:hover{
+    border: 3px solid #444;
+}
+.color_icon2:hover{
+    border: 3px solid #444;
+}
+.color_icon3:hover{
+    border: 3px solid #444;
+}
+.container_size{
+    display: flex;
+    gap: 1.8rem;
+    align-items: center;
+}
+.container_size h3{
+    font-size: 18px;
+    font-weight: 500;
+}
+.container_size p{
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container_size_text{
+    width: 30px;
+    height: 30px;
+    border: 1px solid #6666;
+    border-radius: 5px;
+}
+.container_size_text:hover{
+    transition: 0.2s;
+    background-color: #0E64D2;
+    color: #FFF;
+    border: none;
+}
+
+.container_quantity{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 20px;
+}
+.container_quantity_icon{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+#icon_plus{
+    width: 25px;
+    height: 25px;
+    background-color: #d4d3d366;
+}
+
+/* =============== Button buy now and add tyo cart ==================*/
+
+.quantity_btn {
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 50px;
+}
+.quantity_btn a{
+    padding: 13px 30px;
+    border-radius: 7px;
+}
+  .quantity_btn_buynow a{
+    background-color: #0E64D2;
+    color: #FFF;
+  
+}
+  
+  .quantity_btn_buynow a:hover{
+    color: #FFF;
+  
+}
+  
+  .quantity_btn_addtocart a{ 
+    border-radius: 7px;
+    color: #0E64D2;
+    border: 1px solid #0E64D2;
+}
+
+
+/* =============== Responsive ==================*/
+
+@media screen and (max-width: 820px) {
+    .container_buy{
+        width: 100%;
+    }
+    .container_box_buy{
+        width: 100%;
+        height: auto;
+    }
+    .container_image img{
+        width: 500px;
+        height: auto;
+    }
+    
+}
+@media screen and (max-width: 431px) {
+    .container_buy{
+        width: 100%;
+    }
+    .container_box_buy{
+        width: 100%;
+        height: auto;
+    }
+    .container_image img{
+        width: 250px;
+        height: auto;
+    }
+    
+}
+@media screen and (max-width: 371px) {
+    .container_buy{
+        width: 100%;
+    }
+    .container_box_buy{
+        width: 100%;
+        height: auto;
+    }
+    .container_image img{
+        width: 250px;
+        height: auto;
+    }
+    .container_size{
+        gap: 1rem;
+    }
+    .container_size p{
+        font-size: 12px;
+    }
+    .container_size_text{
+        width: 25px;
+        height: 25px;
+    }
+    
+    .quantity_btn a{
+        padding: 8px 18px;
+        border-radius: 7px;
+    }
+      
+    
+}
+@media screen and (max-width: 321px) {
+    .container_buy{
+        width: 100%;
+    }
+    .container_box_buy{
+        width: 100%;
+        height: auto;
+    }
+    .container_image img{
+        width: 250px;
+        height: auto;
+    }
+    .container_size{
+        gap: 1rem;
+    }
+    .container_size p{
+        font-size: 12px;
+    }
+    .container_size_text{
+        width: 25px;
+        height: 25px;
+    }
+    
+    .quantity_btn a{
+        padding: 8px 10px;
+        border-radius: 7px;
+    }
+      
+    
+}
