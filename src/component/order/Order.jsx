@@ -2,7 +2,7 @@ import React from 'react'
 import { FaArrowLeft } from "react-icons/fa6";
 import './order.css'
 import { Link } from 'react-router-dom'
-import Menu from '../menu/menu'
+import Menu from '../menu/Menu'
 
 const Order = () => {
   return (
