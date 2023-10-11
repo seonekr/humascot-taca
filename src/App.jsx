@@ -15,7 +15,6 @@ import Menu from "./components/header_menu/Menu";
 import Login from './components/login_register/Login';
 import Register from './components/login_register/Register'
 import Product_search from "./components/products/Product_search";
-import Cart from './components/cart/Cart'
 import Order from "./components/order/Order";
 import Product_buy from "./components/products/Product_buy";
 function App() {
