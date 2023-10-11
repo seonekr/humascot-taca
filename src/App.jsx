@@ -32,14 +32,13 @@ function App() {
           <Route exact path="/humascot-taca/cart/address/" Component={Address}/>
           <Route exact path="/humascot-taca/chatuser/" Component={Chatuser}/>
           <Route exact path="/humascot-taca/chatuser/chatroom/" Component={Chatroom}/>
-          <Route path='/humascot-taca/chat' element={<Chat/>}/>
-          <Route path='/humascot-taca/' element={<Login/>}/>
-          <Route path='/humascot-taca/menu' element={<Menu/>}/>
-          <Route path='/humascot-taca/components/login_register/Register' element={<Register/>}/>
-          <Route path='/humascot-taca/cart' element={<Cart/>}/>
-          <Route path='/humascot-taca/order' element={<Order/>}/>
-          <Route path='/humascot-taca/product_search' element={<Product_search/>}/>
-          <Route path='/humascot-taca/product_buy' element={<Product_buy/>}/>
+          <Route path='/humascot-taca/chat' element={Chat}/>
+          <Route path='/humascot-taca/' element={Login}/>
+          <Route path='/humascot-taca/menu' element={Menu}/>
+          <Route path='/humascot-taca/components/login_register/Register' element={Register}/>
+          <Route path='/humascot-taca/order' element={Order}/>
+          <Route path='/humascot-taca/product_search' element={Product_search}/>
+          <Route path='/humascot-taca/product_buy' element={Product_buy}/>
         </Routes>
       </Router>
     </div>
