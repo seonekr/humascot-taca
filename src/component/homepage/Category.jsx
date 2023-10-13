@@ -1,5 +1,5 @@
 import "./category.css";
-import womenfashion from "../img/womenfashion.png";
+import womenfashion from "../../img/womenfashion.png";
 import { Link } from "react-router-dom";
 
 const Category = () =>{

@@ -157,20 +157,16 @@
     border-radius: 50%;
     overflow: hidden;
 }
-
 #account .personal-info .contact-info .box-image label {
     position: absolute;
     left: 50%;
     transform: translate(-50%, 850%);
 }
-
-
 #account .personal-info .contact-info .box-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-
 #account .personal-info .contact-info .box-image  #choose-image {
     display: none;
 }
