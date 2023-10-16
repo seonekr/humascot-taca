@@ -121,7 +121,7 @@ const Product_search = () => {
                 </div>
 
                 <div className='btn_more'>
-                    <a className="loadmore_btn_more" href="#">View More</a>
+                    <Link to="#" className="loadmore_btn_more" href="#">View More</Link>
                 </div>
             </div>
         </div>

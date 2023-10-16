@@ -132,14 +132,14 @@ a{
 .login_btn{
     width: 450px;
     height: 58px;
-    background: #0E64D2;
+    background: #FA442C;
     color: #ffffff;
     border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     border: 1px;
-    font-size: 17px;
+    font-size: 18px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.20);
 }
 .login_btn:hover{

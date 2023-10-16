@@ -36,17 +36,17 @@ const Login = () => {
           <input className="input_form" type="email" placeholder='Enter Your Email' value={email} onChange={handleEmail} />
           <input className="input_form" type="password" placeholder='Enter Your Password' value={pass} onChange={handlePass} />
 
-          <Link to="/" className="forgot_pass" >Forgot Password?</Link>
+          <Link to="#" className="forgot_pass" >Forgot Password?</Link>
 
           <div className='loginbtn_login'>
-            <Link to="/" type="submit" className="login_btn" >Login</Link>
+            <Link to="#" type="submit" className="login_btn" >Login</Link>
           </div>
 
           <p>Don't have an account? <Link to="/components/login_register/Register">Signup</Link></p>
 
           <p>Or</p>
           <div className='googlebtn_btn'>
-            <Link to="/" className="google_btn" >
+            <Link to="#" className="google_btn" >
               <img src="https://assets.stickpng.com/images/5847f9cbcef1014c0b5e48c8.png" alt="Google Logo" />
               <p>Login with Google</p>
             </Link>
