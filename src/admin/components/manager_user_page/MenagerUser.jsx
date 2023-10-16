@@ -98,20 +98,20 @@ const MenagerUser = () => {
 
                         <div className='box_users_chat'>
                             
-                            <div className='container_chat_text'>
+                            <Link to="" className='box_chat_text'>
                                 <img src='https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Photos.png' alt='#'></img>
                                 <div className='container_chat_name'>
                                     <h4>Sompong</h4>
                                     <p>New message...</p>
                                 </div>
-                            </div>
+                            </Link>
                             <div className='container_chat_icon'>
-                                <div className='btn_edit'>
+                                <Link to="#" className='btn_edit'>
                                     <MdOutlineEdit id='icon_edit_delete'/>
-                                </div>
-                                <div className='btn_delete'>
+                                </Link>
+                                <Link to="#" className='btn_delete'>
                                     <AiOutlineDelete id='icon_edit_delete'/>
-                                </div>
+                                </Link>
                             </div>
                             
                         </div>
