@@ -54,7 +54,6 @@ const Post = () => {
 
     // image handle
     const handleImage = (e) => {
-
         const file = e.target.files[0];
 
         if (file) {

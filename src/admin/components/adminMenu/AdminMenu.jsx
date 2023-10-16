@@ -20,7 +20,7 @@ const AdminMenu = () => {
                         <Link to="/humascot-taca/admin/post" className='link'><IoDocumentText/><p>Products</p></Link>
                         <Link to="/humascot-taca/admin/gallery" className='link'><MdOutlineSell/><p>Orders</p></Link>
                         <Link to="/humascot-taca/admin" className='link'><BiUser/><p>User</p></Link>
-                        <Link to="/humascot-taca/admin" className='link'><LiaUserCogSolid/><p>Admin</p></Link>
+                        <Link to="/humascot-taca/admin/addadmin" className='link'><LiaUserCogSolid/><p>Admin</p></Link>
                         <Link to="/humascot-taca/admin" className='link'><BiMessageDetail/><p>Message</p></Link>
                         <Link to="/humascot-taca/admin" className='link'><IoSettingsOutline/><p>Setting</p></Link>
                         <Link to="/humascot-taca/admin" className='link'><IoLogOutOutline/><p>Log Out</p></Link>
