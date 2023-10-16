@@ -8,6 +8,7 @@ import { MdOutlineEdit } from 'react-icons/md';
 import { BsFilter,BsPlusLg } from 'react-icons/bs';
 import { BiLogOut } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
+// import people from '../../img/people.png';
 
 const MenagerUser = () => {
   return (
@@ -74,7 +75,7 @@ const MenagerUser = () => {
                             <FaSearch id="search-icon" />
                             <input placeholder='Search.' />
                         </div>
-                        <img src='https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Photos.png' alt='#'></img>
+                        <img src='https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Photos.png' alt='img'></img>
                     </div>
                     <div className='container_box_users'>
                         <div className='box_users'>

@@ -74,6 +74,18 @@
     justify-content: space-between;
 }
 
+.input_wrapper{
+    margin: auto;
+    background-color: #F5F6F2;
+    width: 600px;
+    height: 45px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 15px;
+}
+
 .box_filter{
     display: flex;
     gap: 1rem;

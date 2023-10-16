@@ -12,7 +12,7 @@ import ProductDetails from '../components/products/ProductDetails'
 import MenagerUser from "../admin/components/manager_user_page/MenagerUser";
 
 
-const LinkRoutes = () => {
+const Links = () => {
     return(
         <Router>
             <Routes >
@@ -31,4 +31,4 @@ const LinkRoutes = () => {
     )
 }
 
-export default LinkRoutes;
+export default Links;
