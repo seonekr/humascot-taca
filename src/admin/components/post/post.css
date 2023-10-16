@@ -115,6 +115,7 @@
 #post .post-form .submit button {
     position: absolute;
     background-color: #3498DB;
+    color: #fff;
     border-radius: 4px;
     font-size: 1.3rem;
     margin-left: -4.5rem;

@@ -1,18 +1,19 @@
 import { BrowserRouter as Router, Routes , Route } from "react-router-dom";
-import Home from "../component/homepage/Home";
-import Account from "../component/account/Account";
-import General from "../component/account/General";
-import Contact from "../component/account/Contact";
-import Password from "../component/account/Password";
-import Payment from "../component/cart/Payment";
-import Cart from "../component/cart/Cart";
-import Address from "../component/cart/Address";
-import Chatuser from "../component/chat/Chatuser";
-import Chatroom from "../component/chat/Chatroom";
-import Order from "../component/order/Order";
-import Bill from "../component/order/Bill";
+import Home from "../components/homepage/Home";
+import Account from "../components/account/Account";
+import General from "../components/account/General";
+import Contact from "../components/account/Contact";
+import Password from "../components/account/Password";
+import Payment from "../components/cart/Payment";
+import Cart from "../components/cart/Cart";
+import Address from "../components/cart/Address";
+import Chatuser from "../components/chat/Chatuser";
+import Chatroom from "../components/chat/Chatroom";
+import Order from "../components/order/Order";
+import Bill from "../components/order/Bill";
 import Dashboard from "../admin/Dashboard";
-import Post from "../admin/component/post/Post";
+import Post from "../admin/components/post/Post";
+import AddAdmin from "../admin/components/addAdmin/AddAdmin";
 
 const UserLink = () => {
     return(
@@ -34,6 +35,7 @@ const UserLink = () => {
                 {/* Admin routes */}
                 <Route exact path="/humascot-taca/admin" Component={Dashboard}/>
                 <Route exact path="/humascot-taca/admin/post" Component={Post}/>
+                <Route exact path="/humascot-taca/admin/addadmin" Component={AddAdmin}/>
             </Routes>
         </Router>
     );
