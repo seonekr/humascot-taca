@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes , Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "../components/homepage/Home";
 import Account from "../components/account/Account";
 import General from "../components/account/General";
@@ -9,11 +9,19 @@ import Cart from "../components/cart/Cart";
 import Address from "../components/cart/Address";
 import Chatuser from "../components/chat/Chatuser";
 import Chatroom from "../components/chat/Chatroom";
-import Order from "../components/order/Order";
 import Bill from "../components/order/Bill";
 import Dashboard from "../admin/Dashboard";
 import Post from "../admin/components/post/Post";
 import AddAdmin from "../admin/components/addAdmin/AddAdmin";
+import Header from "../components/header_menu/Header";
+import Chat from "../components/chat/Chat";
+import Login from "../components/login_register/Login";
+import Menu from "../components/header_menu/Menu";
+import Register from "../components/login_register/Register";
+import Order from "../components/order/Order";
+import Product_search from "../components/products/Product_search";
+import ProductDetails from "../components/products/ProductDetails";
+import MenagerUser from "../admin/components/manager_user_page/MenagerUser";
 
 const Links = () => {
     return(
@@ -31,14 +39,5 @@ const Links = () => {
                 <Route exact path="/humascot-taca/chatuser/chatroom/" Component={Chatroom}/>
                 <Route exact path="/humascot-taca/order" Component={Order}/>
                 <Route exact path="/humascot-taca/order/bill" Component={Bill}/>
-
-                {/* Admin routes */}
-                <Route exact path="/humascot-taca/admin" Component={Dashboard}/>
-                <Route exact path="/humascot-taca/admin/post" Component={Post}/>
-                <Route exact path="/humascot-taca/admin/addadmin" Component={AddAdmin}/>
-            </Routes>
-        </Router>
-    );
-};
 
 export default Links;
