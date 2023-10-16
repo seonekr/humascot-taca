@@ -19,8 +19,6 @@ import Chat from "../components/chat/Chat";
 import Login from "../components/login_register/Login";
 import Menu from "../components/header_menu/Menu";
 import Register from "../components/login_register/Register";
-import Cart from "../components/cart/Cart";
-import Order from "../components/order/Order";
 import Product_search from "../components/products/Product_search";
 import ProductDetails from "../components/products/ProductDetails";
 import MenagerUser from "../admin/components/manager_user_page/MenagerUser";
