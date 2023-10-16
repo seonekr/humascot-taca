@@ -1,5 +1,5 @@
-import AdminMenu from "./component/adminMenu/AdminMenu"
-import Board from "./component/board/Board"
+import AdminMenu from "./components/adminMenu/AdminMenu"
+import Board from "./components/board/Board"
 
 const Dashboard = () => {
     return(
