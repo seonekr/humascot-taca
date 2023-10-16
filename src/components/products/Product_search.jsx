@@ -37,82 +37,82 @@ const Product_search = () => {
 
                         <div className='box_container_img'>
                             <div className='box_container_img'>
-                            <Link to="#"><img src='https://sw.cool3c.com/user/29442/2020/c9146c0c-460f-4389-be1e-74c415a8f153.png?fit=max&w=1400&q=80' alt=''/></Link>                             
-                                <div className="txtOfProduct">
-                                    <h4>Acer Swift 5</h4>
-                                    <p className='txtP_width'>something of product </p>
-                                    <p>800 KIP</p>
-                                </div>
+                                <Link to="#"><img src='https://sw.cool3c.com/user/29442/2020/c9146c0c-460f-4389-be1e-74c415a8f153.png?fit=max&w=1400&q=80' alt=''/></Link>                             
+                                    <div className="txtOfProduct">
+                                        <h4>Acer Swift 5</h4>
+                                        <p className='txtP_width'>something of product </p>
+                                        <p>800 KIP</p>
+                                    </div>
                             </div>
                         </div>
                         <div className='box_container_img'>
                             <div className='box_container_img'>
-                            <Link to="#"><img src='https://sw.cool3c.com/user/29442/2020/c9146c0c-460f-4389-be1e-74c415a8f153.png?fit=max&w=1400&q=80' alt=''/></Link>                             
-                                <div className="txtOfProduct">
-                                    <h4>Acer Swift 5</h4>
-                                    <p className='txtP_width'>something of product </p>
-                                    <p>800 KIP</p>
-                                </div>
+                                <Link to="#"><img src='https://sw.cool3c.com/user/29442/2020/c9146c0c-460f-4389-be1e-74c415a8f153.png?fit=max&w=1400&q=80' alt=''/></Link>                             
+                                    <div className="txtOfProduct">
+                                        <h4>Acer Swift 5</h4>
+                                        <p className='txtP_width'>something of product </p>
+                                        <p>800 KIP</p>
+                                    </div>
                             </div>
                         </div>
                         <div className='box_container_img'>
                             <div className='box_container_img'>
-                            <Link to="#"><img src='https://sw.cool3c.com/user/29442/2020/c9146c0c-460f-4389-be1e-74c415a8f153.png?fit=max&w=1400&q=80' alt=''/></Link>                             
-                                <div className="txtOfProduct">
-                                    <h4>Acer Swift 5</h4>
-                                    <p className='txtP_width'>something of product </p>
-                                    <p>800 KIP</p>
-                                </div>
+                                <Link to="#"><img src='https://sw.cool3c.com/user/29442/2020/c9146c0c-460f-4389-be1e-74c415a8f153.png?fit=max&w=1400&q=80' alt=''/></Link>                             
+                                    <div className="txtOfProduct">
+                                        <h4>Acer Swift 5</h4>
+                                        <p className='txtP_width'>something of product </p>
+                                        <p>800 KIP</p>
+                                    </div>
                             </div>
                         </div>
                         <div className='box_container_img'>
                             <div className='box_container_img'>
-                            <Link to="#"><img src='https://sw.cool3c.com/user/29442/2020/c9146c0c-460f-4389-be1e-74c415a8f153.png?fit=max&w=1400&q=80' alt=''/></Link>                             
-                                <div className="txtOfProduct">
-                                    <h4>Acer Swift 5</h4>
-                                    <p className='txtP_width'>something of product </p>
-                                    <p>800 KIP</p>
-                                </div>
+                                <Link to="#"><img src='https://sw.cool3c.com/user/29442/2020/c9146c0c-460f-4389-be1e-74c415a8f153.png?fit=max&w=1400&q=80' alt=''/></Link>                             
+                                    <div className="txtOfProduct">
+                                        <h4>Acer Swift 5</h4>
+                                        <p className='txtP_width'>something of product </p>
+                                        <p>800 KIP</p>
+                                    </div>
                             </div>
                         </div>
                         <div className='box_container_img'>
                             <div className='box_container_img'>
-                            <Link to="#"><img src='https://sw.cool3c.com/user/29442/2020/c9146c0c-460f-4389-be1e-74c415a8f153.png?fit=max&w=1400&q=80' alt=''/></Link>                             
-                                <div className="txtOfProduct">
-                                    <h4>Acer Swift 5</h4>
-                                    <p className='txtP_width'>something of product </p>
-                                    <p>800 KIP</p>
-                                </div>
+                                <Link to="#"><img src='https://sw.cool3c.com/user/29442/2020/c9146c0c-460f-4389-be1e-74c415a8f153.png?fit=max&w=1400&q=80' alt=''/></Link>                             
+                                    <div className="txtOfProduct">
+                                        <h4>Acer Swift 5</h4>
+                                        <p className='txtP_width'>something of product </p>
+                                        <p>800 KIP</p>
+                                    </div>
                             </div>
                         </div>
                         <div className='box_container_img'>
                             <div className='box_container_img'>
-                            <Link to="#"><img src='https://sw.cool3c.com/user/29442/2020/c9146c0c-460f-4389-be1e-74c415a8f153.png?fit=max&w=1400&q=80' alt=''/></Link>                             
-                                <div className="txtOfProduct">
-                                    <h4>Acer Swift 5</h4>
-                                    <p className='txtP_width'>something of product </p>
-                                    <p>800 KIP</p>
-                                </div>
+                                <Link to="#"><img src='https://sw.cool3c.com/user/29442/2020/c9146c0c-460f-4389-be1e-74c415a8f153.png?fit=max&w=1400&q=80' alt=''/></Link>                             
+                                    <div className="txtOfProduct">
+                                        <h4>Acer Swift 5</h4>
+                                        <p className='txtP_width'>something of product </p>
+                                        <p>800 KIP</p>
+                                    </div>
                             </div>
                         </div>
                         <div className='box_container_img'>
                             <div className='box_container_img'>
-                            <Link to="#"><img src='https://sw.cool3c.com/user/29442/2020/c9146c0c-460f-4389-be1e-74c415a8f153.png?fit=max&w=1400&q=80' alt=''/></Link>                             
-                                <div className="txtOfProduct">
-                                    <h4>Acer Swift 5</h4>
-                                    <p className='txtP_width'>something of product </p>
-                                    <p>800 KIP</p>
-                                </div>
+                                <Link to="#"><img src='https://sw.cool3c.com/user/29442/2020/c9146c0c-460f-4389-be1e-74c415a8f153.png?fit=max&w=1400&q=80' alt=''/></Link>                             
+                                    <div className="txtOfProduct">
+                                        <h4>Acer Swift 5</h4>
+                                        <p className='txtP_width'>something of product </p>
+                                        <p>800 KIP</p>
+                                    </div>
                             </div>
                         </div>
                         <div className='box_container_img'>
                             <div className='box_container_img'>
-                            <Link to="#"><img src='https://sw.cool3c.com/user/29442/2020/c9146c0c-460f-4389-be1e-74c415a8f153.png?fit=max&w=1400&q=80' alt=''/></Link>                             
-                                <div className="txtOfProduct">
-                                    <h4>Acer Swift 5</h4>
-                                    <p className='txtP_width'>something of product </p>
-                                    <p>800 KIP</p>
-                                </div>
+                                <Link to="#"><img src='https://sw.cool3c.com/user/29442/2020/c9146c0c-460f-4389-be1e-74c415a8f153.png?fit=max&w=1400&q=80' alt=''/></Link>                             
+                                    <div className="txtOfProduct">
+                                        <h4>Acer Swift 5</h4>
+                                        <p className='txtP_width'>something of product </p>
+                                        <p>800 KIP</p>
+                                    </div>
                             </div>
                         </div>
                         
