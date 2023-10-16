@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 const AdminMenu = () => {
     return(
         <>
-            <section>
+            <section id="dashboard">
                 <div className="left">
                     <Link to="/humascot-taca/admin">
                         <div className='logo'><span><img src={cart} alt="" /></span></div>

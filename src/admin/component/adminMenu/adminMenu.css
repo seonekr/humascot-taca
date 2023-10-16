@@ -1,5 +1,5 @@
 /* Left bar */
-.left {
+#dashboard .left {
     position: fixed;
     text-align: center;
     justify-content: center;
@@ -12,12 +12,12 @@
     padding: 0 auto;
     overflow: hidden;
 }
-.left .logo span img {
+#dashboard .left .logo span img {
     width: 30%;
 }
  
 /* menu */
-.left .menu .link {
+#dashboard .left .menu .link {
     display: flex;
     flex-wrap: wrap;
     margin: 3rem 1rem;
@@ -25,12 +25,12 @@
     font-size: 1.3rem;
 }
 
-.left .menu .link p {
+#dashboard .left .menu .link p {
     margin-left: 1rem;
 }
 
 /* Right bar */
-.right{
+#dashboard .right{
     position: fixed;
     left: 49.5%;
     transform: translate(-41%, 0%);
@@ -40,28 +40,28 @@
 }
 
 /* form */
-.right form {
+#dashboard .right form {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.right .search {
+#dashboard .right .search {
     padding: 1rem 1rem;
 }
 
 /* input search box */
-.right .search-box {
+#dashboard .right .search-box {
     display: flex;
     width: 50%;
 }
-.right .search-box input {
+#dashboard .right .search-box input {
     border: 1px solid #ccc;
     padding: 0.5rem 1rem;
     width: 100%;
     margin: auto;
     border-radius: 7px 0 0 7px;
 }
-.right .search-box button {
+#dashboard .right .search-box button {
     padding: 0 1rem;
     border-radius: 0 7px 7px 0;
     border: 1px solid #ccc;
