@@ -1,7 +1,7 @@
 import "./account.css"
 import { FaArrowLeft, FaAngleRight } from "react-icons/fa6";
 import { BiLogOut } from "react-icons/bi";
-import user from "../img/user.png";
+import user from "../../img/user.png";
 import Menu from "../menu/Menu"
 import { Link } from "react-router-dom";
 const Account = () => {
