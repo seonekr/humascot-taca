@@ -9,7 +9,7 @@ import Product_search from "./components/products/Product_search";
 import Order from "./components/order/Order";
 import Header from "./components/header_menu/Header";
 import ProductDetails from "./components/products/ProductDetails";
-import MenagerUser from "./components/manager_user_page/MenagerUser";
+import MenagerUser from "./admin/components/manager_user_page/MenagerUser";
 
 function App() {
   return (
