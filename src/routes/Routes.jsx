@@ -15,7 +15,7 @@ import Dashboard from "../admin/Dashboard";
 import Post from "../admin/components/post/Post";
 import AddAdmin from "../admin/components/addAdmin/AddAdmin";
 
-const UserLink = () => {
+const Links = () => {
     return(
         <Router>
             <Routes>
@@ -41,4 +41,4 @@ const UserLink = () => {
     );
 };
 
-export default UserLink;
+export default Links;
