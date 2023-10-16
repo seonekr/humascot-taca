@@ -9,8 +9,8 @@ import Cart from "../user/components/cart/Cart";
 import Address from "../user/components/cart/Address";
 import Chatuser from "../user/components/chat/Chatuser";
 import Chatroom from "../user/components/chat/Chatroom";
-import Order from "../user/components/order/Order"
-import Bill from "../user//components/order/Bill";
+import Order from "../user/components/order/Order";
+import Bill from "../user/components/order/Bill";
 import Dashboard from "../admin/Dashboard";
 import Post from "../admin/components/post/Post";
 import AddAdmin from "../admin/components/addAdmin/AddAdmin";

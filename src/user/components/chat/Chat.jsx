@@ -40,7 +40,13 @@ const Chat = () => {
                     </div>
                 </div>
                 <div className='container_chat_icon'>
-                    <Link to="/"><box-icon name='dots-vertical-rounded' id="dots_icon"></box-icon></Link>
+                    {/* <from className="container_chat_icon_delete">
+                        <section className='function_delete'>
+                            <button className='btn_delete'>Delete</button>
+                            <button className='btn_delete'>Clea chat</button>
+                        </section>
+                    </from> */}
+                    <Link to="#"><box-icon name='dots-vertical-rounded' id="dots_icon"></box-icon></Link>
                 </div>
             </div>
             
