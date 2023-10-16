@@ -1,12 +1,12 @@
 import React from 'react'
 import "./menagerUser.css"
 import { AiFillDashboard,AiOutlineUser,AiOutlineSetting,AiFillProfile,AiOutlineDelete } from 'react-icons/ai';
-import { FaBook } from 'react-icons/fa';
+import { FaBook,FaSearch } from 'react-icons/fa';
 import { TbUserCog } from 'react-icons/tb';
 import { RiMessage2Line } from 'react-icons/ri';
 import { MdOutlineEdit } from 'react-icons/md';
 import { BsFilter,BsPlusLg } from 'react-icons/bs';
-import { BiLogOut,BiSolidChevronDown } from 'react-icons/bi';
+import { BiLogOut } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 
 const MenagerUser = () => {
@@ -70,7 +70,11 @@ const MenagerUser = () => {
 
                 <div className='container_body'>
                     <div className='box_search'>
-                        
+                        <div className='input_wrapper'>
+                            <FaSearch id="search-icon" />
+                            <input placeholder='Search.' />
+                        </div>
+                        <img src='https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Photos.png' alt='#'></img>
                     </div>
                     <div className='container_box_users'>
                         <div className='box_users'>
