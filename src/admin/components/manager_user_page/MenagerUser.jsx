@@ -70,9 +70,7 @@ const MenagerUser = () => {
 
                 <div className='container_body'>
                     <div className='box_search'>
-                        <div className='container_head_search'>
-                            <div>Search</div>
-                        </div>
+                        
                     </div>
                     <div className='container_box_users'>
                         <div className='box_users'>
@@ -114,6 +112,67 @@ const MenagerUser = () => {
                                 </Link>
                             </div>
                             
+                        </div>
+                        <div className='box_users_chat'>
+                            
+                            <Link to="" className='box_chat_text'>
+                                <img src='https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Photos.png' alt='#'></img>
+                                <div className='container_chat_name'>
+                                    <h4>Sompong</h4>
+                                    <p>New message...</p>
+                                </div>
+                            </Link>
+                            <div className='container_chat_icon'>
+                                <Link to="#" className='btn_edit'>
+                                    <MdOutlineEdit id='icon_edit_delete'/>
+                                </Link>
+                                <Link to="#" className='btn_delete'>
+                                    <AiOutlineDelete id='icon_edit_delete'/>
+                                </Link>
+                            </div>
+                            
+                        </div>
+                        <div className='box_users_chat'>
+                            
+                            <Link to="" className='box_chat_text'>
+                                <img src='https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Photos.png' alt='#'></img>
+                                <div className='container_chat_name'>
+                                    <h4>Sompong</h4>
+                                    <p>New message...</p>
+                                </div>
+                            </Link>
+                            <div className='container_chat_icon'>
+                                <Link to="#" className='btn_edit'>
+                                    <MdOutlineEdit id='icon_edit_delete'/>
+                                </Link>
+                                <Link to="#" className='btn_delete'>
+                                    <AiOutlineDelete id='icon_edit_delete'/>
+                                </Link>
+                            </div>
+                            
+                        </div>
+                        <div className='box_users_chat'>
+                            
+                            <Link to="" className='box_chat_text'>
+                                <img src='https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Photos.png' alt='#'></img>
+                                <div className='container_chat_name'>
+                                    <h4>Sompong</h4>
+                                    <p>New message...</p>
+                                </div>
+                            </Link>
+                            <div className='container_chat_icon'>
+                                <Link to="#" className='btn_edit'>
+                                    <MdOutlineEdit id='icon_edit_delete'/>
+                                </Link>
+                                <Link to="#" className='btn_delete'>
+                                    <AiOutlineDelete id='icon_edit_delete'/>
+                                </Link>
+                            </div>
+                            
+                        </div>
+
+                        <div className='box_next'>
+
                         </div>
                     </div>
                 </div>
