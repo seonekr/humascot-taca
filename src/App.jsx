@@ -1,15 +1,13 @@
-import "./App.css";
-import {BrowserRouter, Routes, Route} from "react-router-dom"
-import Signup from "./Signup";
 
+import Routes from "./routes/Routes"
 function App() {
   return (
-    <BrowserRouter>
-    <Routes>
-      <Route path="/humascot-taca" element={<Signup/>}/>
-    </Routes>
-    </BrowserRouter>
-  );
+    
+    <>
+      <Routes/>
+    </>
+
+  )
 }
 
-export default App;
+export default App 
