@@ -1,10 +1,14 @@
 import "./App.css";
+import {BrowserRouter, Routes, Route} from "react-router-dom"
+import Signup from "./Signup";
 
 function App() {
   return (
-    <>
-      <h1>Hello Humascot-Taca!</h1>
-    </>
+    <BrowserRouter>
+    <Routes>
+      <Route path="/humascot-taca" element={<Signup/>}/>
+    </Routes>
+    </BrowserRouter>
   );
 }
 

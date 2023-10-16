@@ -150,23 +150,6 @@ app.get("/countAdmin", (req, res) => {
 
 // ==================== Customer Management =====================
 
-// app.post("/register2", jsonParser, (req, res) => {
-//   bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
-//     connection.execute(
-//       "INSERT INTO customers (email, tel, fname, lname, password) VALUES (?,?,?,?,?)",
-//       [req.body.email, req.body.tel, req.body.fname, req.body.lname, hash],
-//       (err, result, fields) => {
-//         if (err) {
-//           res.json({ Status: "Error", Message: err });
-//           return;
-//         } else {
-//           res.json({ Status: "Success" });
-//         }
-//       }
-//     );
-//   });
-// });
-
 app.post("/register", jsonParser, (req, res) => {
   bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
     const sql =
