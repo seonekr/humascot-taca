@@ -4,11 +4,11 @@ import Cart from "./component/cart/Cart";
 import Chat from './components/chat/Chat';
 import Menu from "./components/header_menu/Menu";
 import Login from './components/login_register/Login';
-import Register from './components/login_register/Register'
+import Register from './components/login_register/Register';
 import Product_search from "./components/products/Product_search";
 import Order from "./components/order/Order";
-import Header from "./components/header_menu/Header"
-// import ProductDetails from "./components/products/ProductDetails"
+import Header from "./components/header_menu/Header";
+// import ProductDetails from "./components/products/ProductDetails";
 
 function App() {
   return (

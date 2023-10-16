@@ -1,5 +1,5 @@
 import React from 'react'
-import './product_search1.css'
+import './product_search.css'
 import { Link } from 'react-router-dom';
 
 import { FaSearch } from "react-icons/fa"

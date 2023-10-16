@@ -138,6 +138,8 @@ input:focus{
     align-items: center;
 }
 
+/* ================== Responsive ==============*/
+
 @media screen and (max-width: 821px) {
     .container_home{
         width: 85%;
