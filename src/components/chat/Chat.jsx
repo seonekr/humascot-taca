@@ -24,14 +24,14 @@ const Chat = () => {
             </header>
 
             <div className='container_chat_search'>
-                <Link to="/back"><box-icon name='chevron-left' id="cancel_icon"></box-icon></Link>
+                <Link to="#"><box-icon name='chevron-left' id="cancel_icon"></box-icon></Link>
             
                 <div className='input-wrapper'>
                     <FaSearch id="search-icon"/>
                     <input placeholder='Search...'/>
                 </div>
             </div>
-            <Link to="/components/chat/Function_delete" className='container_chat_message'>
+            <div className='container_chat_message'>
                 <div className='container_chat_text'>
                     <img src='https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Photos.png' alt='#'></img>
                     <div className='container_chat_name'>
@@ -42,7 +42,7 @@ const Chat = () => {
                 <div className='container_chat_icon'>
                     <Link to="/"><box-icon name='dots-vertical-rounded' id="dots_icon"></box-icon></Link>
                 </div>
-            </Link>
+            </div>
             
             
 
