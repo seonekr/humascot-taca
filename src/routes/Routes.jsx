@@ -1,18 +1,30 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-
-import Header from '../components/header_menu/Header'
-import Chat from '../components/chat/Chat'
-import Login from '../components/login_register/Login'
-import Menu from '../components/header_menu/Menu'
-import Register from '../components/login_register/Register'
-import Cart from '../components/cart/Cart'
-import Order from '../components/order/Order'
-import Product_search from '../components/products/Product_search'
-import ProductDetails from '../components/products/ProductDetails'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "../components/homepage/Home";
+import Account from "../components/account/Account";
+import General from "../components/account/General";
+import Contact from "../components/account/Contact";
+import Password from "../components/account/Password";
+import Payment from "../components/cart/Payment";
+import Cart from "../components/cart/Cart";
+import Address from "../components/cart/Address";
+import Chatuser from "../components/chat/Chatuser";
+import Chatroom from "../components/chat/Chatroom";
+import Bill from "../components/order/Bill";
+import Dashboard from "../admin/Dashboard";
+import Post from "../admin/components/post/Post";
+import AddAdmin from "../admin/components/addAdmin/AddAdmin";
+import Header from "../components/header_menu/Header";
+import Chat from "../components/chat/Chat";
+import Login from "../components/login_register/Login";
+import Menu from "../components/header_menu/Menu";
+import Register from "../components/login_register/Register";
+import Order from "../components/order/Order";
+import Product_search from "../components/products/Product_search";
+import ProductDetails from "../components/products/ProductDetails";
 import MenagerUser from "../admin/components/manager_user_page/MenagerUser";
 
 
-const Links = () => {
+const LinkRoutes = () => {
     return(
         <Router>
             <Routes >
@@ -31,4 +43,4 @@ const Links = () => {
     )
 }
 
-export default Links;
+export default LinkRoutes;
