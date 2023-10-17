@@ -1,14 +1,8 @@
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "../components/header_menu/Header";
-import Chat from "../components/chat/Chat";
-import Login from "../components/login_register/Login";
 import Menu from "../components/header_menu/Menu";
-import Register from "../components/login_register/Register";
-import Order from "../components/order/Order";
-import Product_search from "../components/products/Product_search";
 import ProductDetails from "../components/products/ProductDetails";
-import MenagerUser from "../admin/components/manager_user_page/MenagerUser";
 import Cart from '../user/components/cart/Cart';
 import Login from '../user/components/login_register/Login';
 import Register from '../user/components/login_register/Register'
