@@ -8,7 +8,7 @@ const Menu = () => {
                 <Link to="/humascot-taca" className="box-menu">
                     <span><FaHouse/></span><span>Home</span>
                 </Link>
-                <Link to="/humascot-taca" className="box-menu">
+                <Link to="/humascot-taca/product_search" className="box-menu">
                     <span><FaStore/></span><span>Shopping</span>
                 </Link>
                 <Link to="/humascot-taca/order" className="box-menu">
