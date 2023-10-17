@@ -1,8 +1,9 @@
 import React from 'react'
-import "./menagerUser.css"
-import { AiFillDashboard,AiOutlineUser,AiOutlineSetting,AiFillProfile,AiOutlineDelete } from 'react-icons/ai';
+import "./menagerAdmin.css"
+import { AiFillDashboard,AiOutlineUser,AiOutlineSetting,AiFillProfile,AiOutlineDelete,AiOutlineLeft,AiOutlineRight  } from 'react-icons/ai';
 import { FaBook,FaSearch } from 'react-icons/fa';
 import { TbUserCog } from 'react-icons/tb';
+import { PiEyeSlashLight } from 'react-icons/pi';
 import { RiMessage2Line } from 'react-icons/ri';
 import { MdOutlineEdit } from 'react-icons/md';
 import { BsFilter,BsPlusLg } from 'react-icons/bs';
@@ -79,7 +80,7 @@ const MenagerUser = () => {
                     </div>
                     <div className='container_box_users'>
                         <div className='box_users'>
-                            <h2>Users</h2>
+                            <h2>Admin</h2>
                             <div className='box_filter'>
                                 <Link to="#" className='btn_adduser'>
                                     <BsPlusLg id='icon_plus'/>
@@ -99,16 +100,19 @@ const MenagerUser = () => {
                             </div>
                         </div>
 
-                        <div className='box_users_chat'>
+                        <div className='box_users_admin'>
                             
-                            <Link to="" className='box_chat_text'>
+                            <Link to="" className='box_admin_text'>
                                 <img src='https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Photos.png' alt='#'></img>
                                 <div className='container_chat_name'>
-                                    <h4>Sompong</h4>
-                                    <p>New message...</p>
+                                    <p>Name: Sompong</p>
+                                    <p>Eamil: Sompong@gmail.com</p>
                                 </div>
                             </Link>
-                            <div className='container_chat_icon'>
+                            <div className='container_admin_icon'>
+                                <Link to="#" className='btn_eyes'>
+                                    <PiEyeSlashLight id='icon_edit_delete'/>
+                                </Link>
                                 <Link to="#" className='btn_edit'>
                                     <MdOutlineEdit id='icon_edit_delete'/>
                                 </Link>
@@ -118,16 +122,19 @@ const MenagerUser = () => {
                             </div>
                             
                         </div>
-                        <div className='box_users_chat'>
+                        <div className='box_users_admin'>
                             
-                            <Link to="" className='box_chat_text'>
+                            <Link to="" className='box_admin_text'>
                                 <img src='https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Photos.png' alt='#'></img>
                                 <div className='container_chat_name'>
-                                    <h4>Sompong</h4>
-                                    <p>New message...</p>
+                                    <p>Name: Sompong</p>
+                                    <p>Eamil: Sompong@gmail.com</p>
                                 </div>
                             </Link>
-                            <div className='container_chat_icon'>
+                            <div className='container_admin_icon'>
+                                <Link to="#" className='btn_eyes'>
+                                    <PiEyeSlashLight id='icon_edit_delete'/>
+                                </Link>
                                 <Link to="#" className='btn_edit'>
                                     <MdOutlineEdit id='icon_edit_delete'/>
                                 </Link>
@@ -137,16 +144,19 @@ const MenagerUser = () => {
                             </div>
                             
                         </div>
-                        <div className='box_users_chat'>
+                        <div className='box_users_admin'>
                             
-                            <Link to="" className='box_chat_text'>
+                            <Link to="" className='box_admin_text'>
                                 <img src='https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Photos.png' alt='#'></img>
                                 <div className='container_chat_name'>
-                                    <h4>Sompong</h4>
-                                    <p>New message...</p>
+                                    <p>Name: Sompong</p>
+                                    <p>Eamil: Sompong@gmail.com</p>
                                 </div>
                             </Link>
-                            <div className='container_chat_icon'>
+                            <div className='container_admin_icon'>
+                                <Link to="#" className='btn_eyes'>
+                                    <PiEyeSlashLight id='icon_edit_delete'/>
+                                </Link>
                                 <Link to="#" className='btn_edit'>
                                     <MdOutlineEdit id='icon_edit_delete'/>
                                 </Link>
@@ -156,16 +166,19 @@ const MenagerUser = () => {
                             </div>
                             
                         </div>
-                        <div className='box_users_chat'>
+                        <div className='box_users_admin'>
                             
-                            <Link to="" className='box_chat_text'>
+                            <Link to="" className='box_admin_text'>
                                 <img src='https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Photos.png' alt='#'></img>
                                 <div className='container_chat_name'>
-                                    <h4>Sompong</h4>
-                                    <p>New message...</p>
+                                    <p>Name: Sompong</p>
+                                    <p>Eamil: Sompong@gmail.com</p>
                                 </div>
                             </Link>
-                            <div className='container_chat_icon'>
+                            <div className='container_admin_icon'>
+                                <Link to="#" className='btn_eyes'>
+                                    <PiEyeSlashLight id='icon_edit_delete'/>
+                                </Link>
                                 <Link to="#" className='btn_edit'>
                                     <MdOutlineEdit id='icon_edit_delete'/>
                                 </Link>
@@ -175,9 +188,23 @@ const MenagerUser = () => {
                             </div>
                             
                         </div>
+                       
 
-                        <div className='box_next'>
-
+                        <div className='box_next_admin'>
+                            <Link to="#" className='box_prev_next_admin'>
+                                <AiOutlineLeft id="box_prev_next_icon"/>
+                                <p>Prev</p>
+                            </Link>
+                            <Link to="#" className='box_num_admin'>
+                                <p className='num_admin'>1</p>
+                                <p className='num_admin'>2</p>
+                                <p className='num_admin'>3</p>
+                            </Link>
+                            
+                            <Link to="#" className='box_prev_nexts_admin'>
+                                <p>Next</p>
+                                <AiOutlineRight id="box_prev_next_icon"/>
+                            </Link>
                         </div>
                     </div>
                 </div>
