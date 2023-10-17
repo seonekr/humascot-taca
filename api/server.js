@@ -445,6 +445,66 @@ app.get("/countProduct", (req, res) => {
   });
 });
 
+// ==================== Cart Management =====================
+app.post("/addToCart", jsonParser, (req, res) => {
+  const sql =
+    "INSERT INTO carts (product_id, customer_id, size, color, quantity) VALUES (?)";
+  const values = [
+    req.body.product_id,
+    req.body.customer_id,
+    req.body.size,
+    req.body.color,
+    req.body.quantity,
+  ];
+  connection.query(sql, [values], (err, result) => {
+    if (err) {
+      return res.json({
+        Status: "Error",
+        Message: "Errer in running sql",
+      });
+    }
+    return res.json({ Status: "Success" });
+  });
+});
+
+app.get("/getProductsInCart/:id", (req, res) => {
+  const id = req.params.id;
+  const sql = "SELECT * FROM carts WHERE customer_id = ?";
+  connection.query(sql, [id], (err, result) => {
+    if (err)
+      return res.json({
+        Status: "Error",
+        Message: "Errer in running sql",
+      });
+    return res.json({ Status: "Success", Result: result });
+  });
+});
+
+app.get("/deleteProductInCart/:id", (req, res) => {
+  const id = req.params.id;
+  const sql = "DELETE FROM carts WHERE id = ?";
+
+  connection.query(sql, [id], (err, result) => {
+    if (err)
+      return res.json({
+        Status: "Error",
+        Message: "Errer in running sql",
+      });
+    return res.json({ Status: "Success" });
+  });
+});
+
+app.get("/countProduct", (req, res) => {
+  const sql = "SELECT count(id) as products FROM products";
+
+  connection.query(sql, (err, result) => {
+    if (err)
+      return res.json({ Status: "Error", Message: "Errer in running sql" });
+    return res.json({ result });
+  });
+});
+
+
 app.listen(3001, () => {
   console.log("CORS-enabled web server listening on port 3001");
 });
