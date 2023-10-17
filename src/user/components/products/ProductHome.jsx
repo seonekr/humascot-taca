@@ -1,5 +1,5 @@
 import "./productHome.css";
-import dress from "../../img/dress.png";
+import dress from "../../../img/dress.png";
 import { Link } from "react-router-dom";
 const ProductHome = () => {
     return(

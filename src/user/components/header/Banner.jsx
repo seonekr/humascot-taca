@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./banner.css";
-import card from "../../img/card.png";
-import banner from "../../img/banner.jpg";
-import jcb from "../../img/jcb.png";
+import card from "../../../img/card.png";
+import banner from "../../../img/banner.jpg";
+import jcb from "../../../img/jcb.png";
 
 
 const Banner = () => {

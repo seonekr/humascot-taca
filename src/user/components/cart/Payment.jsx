@@ -1,8 +1,8 @@
 import { FaArrowLeft } from "react-icons/fa6";
 import { FiPlus } from "react-icons/fi";
 import "./payment.css"
-import qrcode from "../../img/QRCODE.png";
-import wechat from "../../img/WeChat.png";
+import qrcode from "../../../img/QRCODE.png";
+import wechat from "../../../img/WeChat.png";
 import Menu from "../menu/Menu";
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";

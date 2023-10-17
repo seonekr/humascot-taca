@@ -1,7 +1,7 @@
 import "./account.css"
 import { FaArrowLeft } from "react-icons/fa6";
 import React, { useState } from 'react';
-import user from "../../img/user.png";
+import user from "../../../img/user.png";
 import Menu from "../menu/Menu";
 import { Link } from "react-router-dom";
 
