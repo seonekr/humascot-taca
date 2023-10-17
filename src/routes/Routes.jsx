@@ -31,10 +31,8 @@ const Links = () => {
         <Router>
             <Routes >
                 <Route  exact  path='/humascot-taca/chat' Component={Chat}/>
-                <Route  exact  path='/humascot-taca' Component={Login}/>
+                <Route  exact  path='/humascot-taca/login' Component={Login}/>
                 <Route  exact  path='/humascot-taca/register' Component={Register}/>
-                <Route  exact  path='/humascot-taca/cart' Component={Cart}/>
-                <Route  exact  path='/humascot-taca/order' Component={Order}/>
                 <Route  exact  path='/humascot-taca/product_search' Component={Product_search}/>
                 <Route  exact  path='/humascot-taca/productDetails' Component={ProductDetails}/>
                 <Route  exact  path='/humascot-taca/menagerUser' Component={MenagerUser}/>
@@ -44,15 +42,15 @@ const Links = () => {
 
                 {/* Sam */}
                 <Route exact path="/humascot-taca" Component={Home}/>
-                <Route exact path="/humascot-taca/account/" Component={Account}/>
-                <Route exact path="/humascot-taca/account/general/" Component={General}/>
-                <Route exact path="/humascot-taca/account/contact/" Component={Contact}/>
-                <Route exact path="/humascot-taca/account/password/" Component={Password}/>
-                <Route exact path="/humascot-taca/payment/" Component={Payment}/>
-                <Route exact path="/humascot-taca/cart/" Component={Cart}/>
-                <Route exact path="/humascot-taca/cart/address/" Component={Address}/>
-                <Route exact path="/humascot-taca/chatuser/" Component={Chatuser}/>
-                <Route exact path="/humascot-taca/chatuser/chatroom/" Component={Chatroom}/>
+                <Route exact path="/humascot-taca/account" Component={Account}/>
+                <Route exact path="/humascot-taca/account/general" Component={General}/>
+                <Route exact path="/humascot-taca/account/contact" Component={Contact}/>
+                <Route exact path="/humascot-taca/account/password" Component={Password}/>
+                <Route exact path="/humascot-taca/payment" Component={Payment}/>
+                <Route exact path="/humascot-taca/cart" Component={Cart}/>
+                <Route exact path="/humascot-taca/cart/address" Component={Address}/>
+                <Route exact path="/humascot-taca/chatuser" Component={Chatuser}/>
+                <Route exact path="/humascot-taca/chatuser/chatroom" Component={Chatroom}/>
                 <Route exact path="/humascot-taca/order" Component={Order}/>
                 <Route exact path="/humascot-taca/order/bill" Component={Bill}/>
 
