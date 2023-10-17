@@ -1,12 +1,16 @@
 import React from 'react'
 import './product_search.css'
 import { Link } from 'react-router-dom';
-
+import Menu from '../menu/Menu';
+import Header from '../header/Header';
 import { FaSearch } from "react-icons/fa"
 
 const Product_search = () => {
     return (
+        <>
+        <Header/>
         <div className='container_home'>
+            
             <div className="content_Box">
                 <div className='container_head_search'>
                     <a href="#"><box-icon name='chevron-left' id="cancel_icon"></box-icon></a>
@@ -124,7 +128,10 @@ const Product_search = () => {
                     <Link to="#" className="loadmore_btn_more" href="#">View More</Link>
                 </div>
             </div>
+            
         </div>
+        <Menu/>
+        </>
     )
 }
 
