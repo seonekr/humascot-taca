@@ -69,8 +69,8 @@ const MenagerUser = () => {
                     </div>
                 </div>
 
-                <div className='container_body'>
-                    <div className='box_search'>
+                <div className='container_body_user'>
+                    <div className='box_search_user'>
                         <div className='input_wrapper'>
                             <FaSearch id="search-icon" />
                             <input placeholder='Search.' />
