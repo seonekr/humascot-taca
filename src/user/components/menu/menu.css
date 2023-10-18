@@ -1,0 +1,41 @@
+#menu {
+    width: 90%;
+}
+
+#menu .menubar {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    border-top: 1px solid #d4d4d4;
+    background-color: #fff;
+    padding: 0.5rem 1rem;
+    position: fixed;
+    margin: 0 auto;
+    bottom: 0;
+}
+
+#menu .menubar a {
+    text-decoration: none;
+    color: #000;
+}
+
+#menu .box-menu {
+    padding: 0 0.3rem;
+    display: grid;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    #menu {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    #menu .menubar {
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
