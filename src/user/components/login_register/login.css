@@ -121,12 +121,7 @@ a{
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.10);
 }
 
-
-
-
-
 /* ============= Button Login ===============*/
-
 
 .loginbtn_login{
     display: flex;
@@ -150,13 +145,7 @@ a{
 .login_btn:hover{
     color: #FFF;
 }
-
-
-
-
 /*============== Responsive =====================*/
-
-
 
 @media screen and (max-width: 1024px) {
     .box_container_login{

@@ -61,10 +61,10 @@ const Links = () => {
                 <Route exact path="/humascot-taca/cart/" Component={Cart}/>
 
                  {/* Admin routes */}
-                 <Route exact path="/humascot-taca/admin/menagerUser" Component={MenagerUser}/>
-                 <Route exact path="/humascot-taca/admin/orderPage" Component={OrderPage}/>
-                 <Route exact path="/humascot-taca/admin/menagerAdmin" Component={MenagerAdmin}/>
-                 <Route exact path="/humascot-taca/admin/orderPaid" Component={OrderPaid}/>
+                 <Route exact path="/humascot-taca/admin/menageruser" Component={MenagerUser}/>
+                 <Route exact path="/humascot-taca/admin/orderpage" Component={OrderPage}/>
+                 <Route exact path="/humascot-taca/admin/menageradmin" Component={MenagerAdmin}/>
+                 <Route exact path="/humascot-taca/admin/orderpaid" Component={OrderPaid}/>
                  <Route exact path="/humascot-taca/admin" Component={LoginAdmin}/>
 
             </Routes>

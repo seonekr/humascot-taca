@@ -1,12 +1,16 @@
-#category {
+#category form {
     display: flex;
     text-align: center;
     padding: 1rem 0;
     justify-content: space-evenly;
 }
 
-#category .box-category {
+#category form .box-category {
     margin-top: 1rem;
+}
+
+#category form .box-category input {
+    display: none;
 }
 
 #category .box-category a {
