@@ -1,56 +1,59 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "../components/homepage/Home";
-import Account from "../components/account/Account";
-import General from "../components/account/General";
-import Contact from "../components/account/Contact";
-import Password from "../components/account/Password";
-import Payment from "../components/cart/Payment";
-import Cart from "../components/cart/Cart";
-import Address from "../components/cart/Address";
-import Chatuser from "../components/chat/Chatuser";
-import Chatroom from "../components/chat/Chatroom";
-import Bill from "../components/order/Bill";
+import Home from "../user/components/homepage/Home";
+import Account from "../user/components/account/Account";
+import General from "../user/components/account/General";
+import Contact from "../user/components/account/Contact";
+import Password from "../user/components/account/Password";
+import Payment from "../user/components/cart/Payment";
+import Cart from "../user/components/cart/Cart";
+import Address from "../user/components/cart/Address";
+import Chatuser from "../user/components/chat/Chatuser";
+import Chatroom from "../user/components/chat/Chatroom";
+import Bill from "../user/components/order/Bill";
 import Dashboard from "../admin/Dashboard";
 import Post from "../admin/components/post/Post";
 import AddAdmin from "../admin/components/addAdmin/AddAdmin";
-import Header from "../components/header_menu/Header";
-import Chat from "../components/chat/Chat";
-import Login from "../components/login_register/Login";
-import Menu from "../components/header_menu/Menu";
-import Register from "../components/login_register/Register";
-import Order from "../components/order/Order";
-import Product_search from "../components/products/Product_search";
-import ProductDetails from "../components/products/ProductDetails";
-import MenagerUser from "../admin/components/manager_user_page/MenagerUser";
 
-const UserLink = () => {
+/* ========= Phukeo ========= */
+import Login from "../user/components/login_register/Login";
+import Register from "../user/components/login_register/Register";
+// import Chat from "../user/components/chat/Chat";
+import Order from "../user/components/order/Order";
+import Product_search from "../user/components/products/Product_search";
+import ProductDetails from "../user/components/products/ProductDetails";
+import MenagerUser from "../admin/components/menagerUser/MenagerUser";
+import OrderPage from "../admin/components/orderPage/OrderPage";
+import MenagerAdmin from "../admin/components/menagerAdmin/MenagerAdmin";
+import OrderPaid from "../admin/components/orderPage/OrderPaid";
+
+const Links = () => {
   return (
     <Router>
       <Routes>
         <Route exact path="/humascot-taca" Component={Home} />
-        <Route exact path="/humascot-taca/account/" Component={Account} />
+        <Route exact path="/humascot-taca/account" Component={Account} />
         <Route
           exact
-          path="/humascot-taca/account/general/"
+          path="/humascot-taca/account/general"
           Component={General}
         />
         <Route
           exact
-          path="/humascot-taca/account/contact/"
+          path="/humascot-taca/account/contact"
           Component={Contact}
         />
         <Route
           exact
-          path="/humascot-taca/account/password/"
+          path="/humascot-taca/account/password"
           Component={Password}
         />
-        <Route exact path="/humascot-taca/payment/" Component={Payment} />
-        <Route exact path="/humascot-taca/cart/" Component={Cart} />
-        <Route exact path="/humascot-taca/cart/address/" Component={Address} />
-        <Route exact path="/humascot-taca/chatuser/" Component={Chatuser} />
+        <Route exact path="/humascot-taca/payment" Component={Payment} />
+        <Route exact path="/humascot-taca/cart" Component={Cart} />
+        <Route exact path="/humascot-taca/cart/address" Component={Address} />
+        <Route exact path="/humascot-taca/chatuser" Component={Chatuser} />
         <Route
           exact
-          path="/humascot-taca/chatuser/chatroom/"
+          path="/humascot-taca/chatuser/chatroom"
           Component={Chatroom}
         />
         <Route exact path="/humascot-taca/order" Component={Order} />
@@ -65,14 +68,7 @@ const UserLink = () => {
           Component={AddAdmin}
         />
 
-        {/* Pukeo */}
-        <Route exact path="/humascot-taca/header" Component={Header} />
-        <Route exact path="/humascot-taca/chat" Component={Chat} />
-        <Route exact path="/humascot-taca" Component={Login} />
-        <Route exact path="/humascot-taca/menu" Component={Menu} />
-        <Route exact path="/humascot-taca/register" Component={Register} />
-        <Route exact path="/humascot-taca/cart" Component={Cart} />
-        <Route exact path="/humascot-taca/order" Component={Order} />
+        {/*==== phukeo ==== */}
         <Route
           exact
           path="/humascot-taca/product_search"
@@ -80,17 +76,36 @@ const UserLink = () => {
         />
         <Route
           exact
-          path="/humascot-taca/productDetails"
+          path="/humascot-taca/product_search/productdetails"
           Component={ProductDetails}
+        />
+        <Route exact path="/humascot-taca/login" Component={Login} />
+        <Route exact path="/humascot-taca/register" Component={Register} />
+
+        {/* Admin routes */}
+        <Route
+          exact
+          path="/humascot-taca/admin/menagerUser"
+          Component={MenagerUser}
         />
         <Route
           exact
-          path="/humascot-taca/menagerUser"
-          Component={MenagerUser}
+          path="/humascot-taca/admin/orderPage"
+          Component={OrderPage}
+        />
+        <Route
+          exact
+          path="/humascot-taca/admin/menagerAdmin"
+          Component={MenagerAdmin}
+        />
+        <Route
+          exact
+          path="/humascot-taca/admin/orderPaid"
+          Component={OrderPaid}
         />
       </Routes>
     </Router>
   );
 };
 
-export default UserLink;
+export default Links;
