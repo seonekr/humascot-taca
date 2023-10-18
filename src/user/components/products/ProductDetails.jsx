@@ -30,7 +30,7 @@ function ProductDetails() {
 
   return (
     <div className='container_boxx'>
-      <header className='header_boxx'>
+      {/* <header className='header_boxx'>
         <div className="headerr_positoinn">
           <div className="heaLeft">
             <h2>TACA</h2>
@@ -50,7 +50,7 @@ function ProductDetails() {
             </svg>
           </div>
         </div>
-      </header>
+      </header> */}
 
       <div className="contentBody">
         <div className="boxProduct_deteils">

@@ -7,21 +7,6 @@ const Chat = () => {
   return (
     <>
         <div className='container_chat_box'>
-            <header className='box_container_header'>
-                <div className='box_header'>
-                    <div className='logo'>
-                        {/* <a href="#"><box-icon name='align-left'></box-icon></a> */}
-                        <h1>TACA</h1>
-                    </div>
-                    
-                    <div className='icon'>
-                    <Link to="/"><box-icon name='search' id="boc_container_icon"></box-icon></Link>
-                    <Link to="/cart"><box-icon name='cart' id="boc_container_icon"></box-icon></Link>
-                    <Link to="/"><box-icon name='user' id="boc_container_icon"></box-icon></Link>
-                    </div>
-                </div>
-            
-            </header>
 
             <div className='container_chat_search'>
                 <Link to="#"><box-icon name='chevron-left' id="cancel_icon"></box-icon></Link>

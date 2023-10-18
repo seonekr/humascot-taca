@@ -2,6 +2,7 @@ import { FaArrowLeft } from "react-icons/fa6";
 import Menu from "../menu/Menu";
 import Header from "../header/Header";
 import { Link } from "react-router-dom";
+import acer from '../../../img/acer.png'
 import './cart.css';
 
 const Cart = () => {
@@ -12,61 +13,53 @@ const Cart = () => {
     <div className='box_container_cart'>
         <div className='container_cart_item'>
             <div className='box_item'>
-                <img src='https://sw.cool3c.com/user/29442/2020/c9146c0c-460f-4389-be1e-74c415a8f153.png?fit=max&w=1400&q=80' alt=''></img>
-                <div className='box_item_text'>
-                    <h2>Acer Swift 5</h2>
-                    <p>RAM...</p>
-                    <p>$800.00</p>
+                <div className="box_item_image">
+                    <img src={acer} alt='img'></img>
+                    <div className='box_item_text'>
+                        <h2>Acer Swift 5</h2>
+                        <p>RAM...</p>
+                        <p>$800.00</p>
+                    </div>
                 </div>
-                <a href="#" className='box_item_icon'>
+                
+                <Link to="#" className='box_item_icon'>
                     <box-icon name='minus' id="icon_minus_plus"></box-icon>
                     <p>10</p>
                     <box-icon name='plus' id="icon_minus_plus"></box-icon>
-                </a>
+                </Link>
             </div>
-            <br/>
             <div className='box_item'>
-                <img src='https://sw.cool3c.com/user/29442/2020/c9146c0c-460f-4389-be1e-74c415a8f153.png?fit=max&w=1400&q=80' alt=''></img>
-                <div className='box_item_text'>
-                    <h2>Acer Swift 5</h2>
-                    <p>RAM...</p>
-                    <p>$800.00</p>
+                <div className="box_item_image">
+                    <img src={acer} alt='img'></img>
+                    <div className='box_item_text'>
+                        <h2>Acer Swift 5</h2>
+                        <p>RAM...</p>
+                        <p>$800.00</p>
+                    </div>
                 </div>
-                <a href="#" className='box_item_icon'>
+                
+                <Link to="#" className='box_item_icon'>
                     <box-icon name='minus' id="icon_minus_plus"></box-icon>
                     <p>10</p>
                     <box-icon name='plus' id="icon_minus_plus"></box-icon>
-                </a>
+                </Link>
             </div>
-            <br/>
             <div className='box_item'>
-                <img src='https://sw.cool3c.com/user/29442/2020/c9146c0c-460f-4389-be1e-74c415a8f153.png?fit=max&w=1400&q=80' alt=''></img>
-                <div className='box_item_text'>
-                    <h2>Acer Swift 5</h2>
-                    <p>RAM...</p>
-                    <p>$800.00</p>
+                <div className="box_item_image">
+                    <img src={acer} alt='img'></img>
+                    <div className='box_item_text'>
+                        <h2>Acer Swift 5</h2>
+                        <p>RAM...</p>
+                        <p>$800.00</p>
+                    </div>
                 </div>
-                <a href="#" className='box_item_icon'>
+                
+                <Link to="#" className='box_item_icon'>
                     <box-icon name='minus' id="icon_minus_plus"></box-icon>
                     <p>10</p>
                     <box-icon name='plus' id="icon_minus_plus"></box-icon>
-                </a>
+                </Link>
             </div>
-            <br/>
-            <div className='box_item'>
-                <img src='https://sw.cool3c.com/user/29442/2020/c9146c0c-460f-4389-be1e-74c415a8f153.png?fit=max&w=1400&q=80' alt=''></img>
-                <div className='box_item_text'>
-                    <h2>Acer Swift 5</h2>
-                    <p>RAM...</p>
-                    <p>$800.00</p>
-                </div>
-                <a href="#" className='box_item_icon'>
-                    <box-icon name='minus' id="icon_minus_plus"></box-icon>
-                    <p>10</p>
-                    <box-icon name='plus' id="icon_minus_plus"></box-icon>
-                </a>
-            </div>
-            <br/>
         
             
             <div className='box_item_total'>

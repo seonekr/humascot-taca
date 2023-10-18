@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import './register.css';
 import 'boxicons';
+import google from '../../../img/google.png';
 import { Link } from 'react-router-dom';
+import { AiOutlineClose } from "react-icons/ai"
 
 const Register = () => {
   const [firstName, setFirstName] = useState('');
@@ -49,6 +51,9 @@ const Register = () => {
 
   return (
     <div className="box_container">
+        <div className='box_cancel_register'>
+          <Link to="/humascot-taca"><AiOutlineClose id="icon_cancel"/></Link>
+        </div>
       <div className="container_register">
         <h2 className="text_register">Register</h2>
         <form onSubmit={handleSubmit} className="box_form">
@@ -96,22 +101,20 @@ const Register = () => {
             value={confirmPassword}
             onChange={handleConfirmPasswordChange}
           />
-          <Link to="/humascot-taca" type="submit" className="signup_btn">
+          <Link to="//humascot-taca/login" type="submit" className="signup_btn">
             Signup
           </Link>
         </form>
 
         <div>
           <p>
-            Already have an account? <Link to="/humascot-taca">Login</Link>
+            Already have an account? <Link to="/humascot-taca/login">Login</Link>
           </p>
         </div>
         <p>Or</p>
         <br />
         <a className="google_btn" href="#">
-          <img
-            src="https://assets.stickpng.com/images/5847f9cbcef1014c0b5e48c8.png"
-            alt="Google logo"
+          <img src={google} alt="img"
           />
           <p>Login with Google</p>
         </a>

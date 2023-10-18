@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import './login.css';
 import 'boxicons';
 import { Link } from 'react-router-dom';
+import { AiOutlineClose } from "react-icons/ai"
+import google from '../../../img/google.png';
 
 
 
@@ -31,6 +33,10 @@ const Login = () => {
   return (
     <section>
       <form onSubmit={handleSubmit} className="box_container_login">
+        <div className='box_cancel'>
+          <Link to="/humascot-taca"><AiOutlineClose id="icon_cancel"/></Link>
+          
+        </div>
         <div className='cover'>
           <h2 className='box_container_login_text'>Login</h2>
           <input className="input_form" type="email" placeholder='Enter Your Email' value={email} onChange={handleEmail} />
@@ -47,7 +53,7 @@ const Login = () => {
           <p>Or</p>
           <div className='googlebtn_btn'>
             <Link to="#" className="google_btn" >
-              <img src="https://assets.stickpng.com/images/5847f9cbcef1014c0b5e48c8.png" alt="Google Logo" />
+              <img src={google} alt="img" />
               <p>Login with Google</p>
             </Link>
           </div>
