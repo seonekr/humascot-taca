@@ -1,38 +1,12 @@
-.category_container {
-    gap: 5rem;
-    margin-top: 5rem;
-    margin-bottom: 2rem;
-    justify-content: center;
-    width: 100%;
+#category {
     display: flex;
-}
-
-.category_container .box-category {
     text-align: center;
     padding: 1rem 0;
     justify-content: space-evenly;
 }
 
-.category_container .box-category button {
-    border: none;
-    background: none;
-    cursor: pointer;
-}
-
 #category .box-category {
-    background-color: #FFF;
-    width: 9%;
-    padding: 10px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 7px;
-    border: 1px solid #DDDCE1;
-    gap: 10px;
-}
-
-#category .box-category img {
-    width: 50%;
+    margin-top: 1rem;
 }
 
 #category .box-category a {
