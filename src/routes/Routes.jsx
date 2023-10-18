@@ -18,10 +18,6 @@ import AddAdmin from "../admin/components/addAdmin/AddAdmin";
 
 import Login from '../user/components/login_register/Login';
 import Register from '../user/components/login_register/Register';
-import Login from "../user/components/login_register/Login";
-import Register from "../user/components/login_register/Register";
-// import Chat from "../user/components/chat/Chat";
-
 import Order from "../user/components/order/Order";
 import Product_search from "../user/components/products/Product_search";
 import ProductDetails from "../user/components/products/ProductDetails";
@@ -29,7 +25,6 @@ import MenagerUser from "../admin/components/menagerUser/MenagerUser";
 import OrderPage from "../admin/components/orderPage/OrderPage";
 import MenagerAdmin from "../admin/components/menagerAdmin/MenagerAdmin";
 import OrderPaid from "../admin/components/orderPage/OrderPaid";
-import Footer from "../user/components/footer/Footer";
 
 const Links = () => {
   return (
@@ -60,13 +55,6 @@ const Links = () => {
         <Route exact path="/humascot-taca/admin/addadmin" Component={AddAdmin}
         />
 
-
-                {/*==== phukeo ==== */}
-                <Route exact path="/humascot-taca/product_search" Component={Product_search}/>
-                <Route exact path="/humascot-taca/product_search/productdetails" Component={ProductDetails}/>
-                <Route exact path="/humascot-taca/login" Component={Login}/>
-                <Route exact path="/humascot-taca/register" Component={Register}/>
-                <Route exact path="/humascot-taca/footer" Component={Footer}/>
 
         {/*==== phukeo ==== */}
         <Route exact path="/humascot-taca/product_search" Component={Product_search}/>
