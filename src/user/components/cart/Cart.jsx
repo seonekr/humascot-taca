@@ -1,12 +1,15 @@
-
-import React from 'react'
-import './cart.css'
+import { FaArrowLeft } from "react-icons/fa6";
+import Menu from "../menu/Menu";
+import Header from "../header/Header";
+import { Link } from "react-router-dom";
+import './cart.css';
 
 const Cart = () => {
-  return (
-    <div className='box_container_cart'>
-        
 
+  return (
+    <>
+    <Header/>
+    <div className='box_container_cart'>
         <div className='container_cart_item'>
             <div className='box_item'>
                 <img src='https://sw.cool3c.com/user/29442/2020/c9146c0c-460f-4389-be1e-74c415a8f153.png?fit=max&w=1400&q=80' alt=''></img>
@@ -94,7 +97,8 @@ const Cart = () => {
         
         </div>
     </div>
-    
+    <Menu/>
+    </>
   )
 }
 

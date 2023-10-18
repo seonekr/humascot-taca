@@ -4,8 +4,7 @@ import { AiFillDashboard,AiOutlineUser,AiOutlineSetting,AiFillProfile,AiOutlineD
 import { FaBook,FaSearch } from 'react-icons/fa';
 import { TbUserCog } from 'react-icons/tb';
 import { RiMessage2Line } from 'react-icons/ri';
-import { MdOutlineEdit } from 'react-icons/md';
-import { BsFilter,BsPlusLg } from 'react-icons/bs';
+import { PiCheckFatFill } from 'react-icons/pi';
 import { BiLogOut } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 // import people from '../../img/people.png';
@@ -69,17 +68,31 @@ const OrderPaid = () => {
                     </div>
                 </div>
 
-                <div className='container_body'>
+                <div className='container_body_orderpaid'>
                     <div className='box_search'>
-                        <div className='input_wrapper'>
+                        <div className='input_wrapper_orderpaid'>
                             <FaSearch id="search-icon" />
                             <input placeholder='Search.' />
                         </div>
                         <img src='https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Photos.png' alt='img'></img>
                     </div>
-                    <div className='container_box_users'>
-                        
+                    <div className='container_box_orderpaid'>
+                        <div className='boxs_orders'>
+                            <div className='box_orders_text'>
+                                <p>NO: 15</p>
+                                <p>ID: 15</p>
+                                <p>Name: Acer</p>
+                            </div>
+                            <div className='box_lineCheck'>
+                                <PiCheckFatFill id="lineCheck_icon"/>
+                            </div>
+                            <div></div>
+                        </div>
+                        <div className='box_orderpaid_product'>
+                            <h2>Products</h2>
+                            
 
+                        </div>
                         
                     </div>
                 </div>
