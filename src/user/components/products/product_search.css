@@ -24,6 +24,7 @@ a{
 .container_head_search{
     display: flex;
     align-items: center;
+    margin-top: 4rem;
 }
 
 
@@ -92,10 +93,16 @@ input:focus{
 }
 
 .box_container_home{
-    display: grid;
+    /* display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    grid-gap: 30px;
+    margin-bottom: 5rem;
 }
 
 .txtOfProduct{

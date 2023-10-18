@@ -4,6 +4,11 @@
     padding: 0;
 }
 
+section {
+    width: 90%;
+    margin: 0 auto !important;
+}
+
 ::-webkit-scrollbar {
     display: none;
 }
