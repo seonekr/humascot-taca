@@ -3,6 +3,7 @@ import './chatuser.css'
 import { FaSearch } from "react-icons/fa"
 import 'boxicons'
 import Menu from "../menu/Menu";
+import people from '../../../img/people.png';
 import { Link } from 'react-router-dom'
 
 const Chatuser = () => {
@@ -20,138 +21,103 @@ const Chatuser = () => {
         </section>
         <section id='user'>
             <div className='container_chat_box'>
-                <Link to="/humascot-taca/chatuser/chatroom/" className='container_chat_message'>
-                    <div className='container_chat_text'>
-                        <img src='https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Photos.png' alt=''></img>
+                <div className='container_chat_message'>
+                    <Link to="/humascot-taca/chatuser/chatroom/" className='container_chat_text'>
+                        <img src={people} alt='img'></img>
                         <div className='container_chat_name'>
                             <h4>Sompong</h4>
                             <p>New message...</p>
                         </div>
-                    </div>
+                    </Link>
                     <div className='container_chat_icon'>
-                    <box-icon name='dots-vertical-rounded' id="dots_icon"/>
+                        <Link to="#"><box-icon name='dots-vertical-rounded' id="dots_icon"/></Link>
                     </div>
-                </Link>
-                <Link to="/humascot-taca/chatuser/chatroom/" className='container_chat_message'>
-                    <div className='container_chat_text'>
-                        <img src='https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Photos.png' alt=''></img>
+                </div>
+                <div className='container_chat_message'>
+                    <Link to="/humascot-taca/chatuser/chatroom/" className='container_chat_text'>
+                        <img src={people} alt='img'></img>
                         <div className='container_chat_name'>
                             <h4>Sompong</h4>
                             <p>New message...</p>
                         </div>
-                    </div>
+                    </Link>
                     <div className='container_chat_icon'>
-                    <box-icon name='dots-vertical-rounded' id="dots_icon"/>
+                        <Link to="#"><box-icon name='dots-vertical-rounded' id="dots_icon"/></Link>
                     </div>
-                </Link>
-                <Link to="/humascot-taca/chatuser/chatroom/" className='container_chat_message'>
-                    <div className='container_chat_text'>
-                        <img src='https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Photos.png' alt=''></img>
+                </div>
+                <div className='container_chat_message'>
+                    <Link to="/humascot-taca/chatuser/chatroom/" className='container_chat_text'>
+                        <img src={people} alt='img'></img>
                         <div className='container_chat_name'>
                             <h4>Sompong</h4>
                             <p>New message...</p>
                         </div>
-                    </div>
+                    </Link>
                     <div className='container_chat_icon'>
-                    <box-icon name='dots-vertical-rounded' id="dots_icon"/>
+                        <Link to="#"><box-icon name='dots-vertical-rounded' id="dots_icon"/></Link>
                     </div>
-                </Link>
-                <Link to="/humascot-taca/chatuser/chatroom/" className='container_chat_message'>
-                    <div className='container_chat_text'>
-                        <img src='https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Photos.png' alt=''></img>
+                </div>
+                <div className='container_chat_message'>
+                    <Link to="/humascot-taca/chatuser/chatroom/" className='container_chat_text'>
+                        <img src={people} alt='img'></img>
                         <div className='container_chat_name'>
                             <h4>Sompong</h4>
                             <p>New message...</p>
                         </div>
-                    </div>
+                    </Link>
                     <div className='container_chat_icon'>
-                    <box-icon name='dots-vertical-rounded' id="dots_icon"/>
+                        <Link to="#"><box-icon name='dots-vertical-rounded' id="dots_icon"/></Link>
                     </div>
-                </Link>
-                <Link to="/humascot-taca/chatuser/chatroom/" className='container_chat_message'>
-                    <div className='container_chat_text'>
-                        <img src='https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Photos.png' alt=''></img>
+                </div>
+                <div className='container_chat_message'>
+                    <Link to="/humascot-taca/chatuser/chatroom/" className='container_chat_text'>
+                        <img src={people} alt='img'></img>
                         <div className='container_chat_name'>
                             <h4>Sompong</h4>
                             <p>New message...</p>
                         </div>
-                    </div>
+                    </Link>
                     <div className='container_chat_icon'>
-                    <box-icon name='dots-vertical-rounded' id="dots_icon"/>
+                        <Link to="#"><box-icon name='dots-vertical-rounded' id="dots_icon"/></Link>
                     </div>
-                </Link>
-                <Link to="/humascot-taca/chatuser/chatroom/" className='container_chat_message'>
-                    <div className='container_chat_text'>
-                        <img src='https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Photos.png' alt=''></img>
+                </div>
+                <div className='container_chat_message'>
+                    <Link to="/humascot-taca/chatuser/chatroom/" className='container_chat_text'>
+                        <img src={people} alt='img'></img>
                         <div className='container_chat_name'>
                             <h4>Sompong</h4>
                             <p>New message...</p>
                         </div>
-                    </div>
+                    </Link>
                     <div className='container_chat_icon'>
-                    <box-icon name='dots-vertical-rounded' id="dots_icon"/>
+                        <Link to="#"><box-icon name='dots-vertical-rounded' id="dots_icon"/></Link>
                     </div>
-                </Link>
-                <Link to="/humascot-taca/chatuser/chatroom/" className='container_chat_message'>
-                    <div className='container_chat_text'>
-                        <img src='https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Photos.png' alt=''></img>
+                </div>
+                <div className='container_chat_message'>
+                    <Link to="/humascot-taca/chatuser/chatroom/" className='container_chat_text'>
+                        <img src={people} alt='img'></img>
                         <div className='container_chat_name'>
                             <h4>Sompong</h4>
                             <p>New message...</p>
                         </div>
-                    </div>
+                    </Link>
                     <div className='container_chat_icon'>
-                    <box-icon name='dots-vertical-rounded' id="dots_icon"/>
+                        <Link to="#"><box-icon name='dots-vertical-rounded' id="dots_icon"/></Link>
                     </div>
-                </Link>
-                <Link to="/humascot-taca/chatuser/chatroom/" className='container_chat_message'>
-                    <div className='container_chat_text'>
-                        <img src='https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Photos.png' alt=''></img>
+                </div>
+                <div className='container_chat_message'>
+                    <Link to="/humascot-taca/chatuser/chatroom/" className='container_chat_text'>
+                        <img src={people} alt='img'></img>
                         <div className='container_chat_name'>
                             <h4>Sompong</h4>
                             <p>New message...</p>
                         </div>
-                    </div>
+                    </Link>
                     <div className='container_chat_icon'>
-                    <box-icon name='dots-vertical-rounded' id="dots_icon"/>
+                        <Link to="#"><box-icon name='dots-vertical-rounded' id="dots_icon"/></Link>
                     </div>
-                </Link>
-                <Link to="/humascot-taca/chatuser/chatroom/" className='container_chat_message'>
-                    <div className='container_chat_text'>
-                        <img src='https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Photos.png' alt=''></img>
-                        <div className='container_chat_name'>
-                            <h4>Sompong</h4>
-                            <p>New message...</p>
-                        </div>
-                    </div>
-                    <div className='container_chat_icon'>
-                    <box-icon name='dots-vertical-rounded' id="dots_icon"/>
-                    </div>
-                </Link>
-                <Link to="/humascot-taca/chatuser/chatroom/" className='container_chat_message'>
-                    <div className='container_chat_text'>
-                        <img src='https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Photos.png' alt=''></img>
-                        <div className='container_chat_name'>
-                            <h4>Sompong</h4>
-                            <p>New message...</p>
-                        </div>
-                    </div>
-                    <div className='container_chat_icon'>
-                    <box-icon name='dots-vertical-rounded' id="dots_icon"/>
-                    </div>
-                </Link>
-                <Link to="/taca-app/chatuser/chatroom/" className='container_chat_message'>
-                    <div className='container_chat_text'>
-                        <img src='https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Photos.png' alt=''></img>
-                        <div className='container_chat_name'>
-                            <h4>Sompong</h4>
-                            <p>New message...</p>
-                        </div>
-                    </div>
-                    <div className='container_chat_icon'>
-                    <box-icon name='dots-vertical-rounded' id="dots_icon"/>
-                    </div>
-                </Link>
+                </div>
+
             </div>
         </section>
         <Menu/>

@@ -3,6 +3,7 @@ import './product_search.css'
 import { Link } from 'react-router-dom';
 import acer from '../../../img/acer.png'
 import Header from '../header/Header';
+import Menu from '../menu/Menu';
 import { FaSearch } from "react-icons/fa"
 
 const Product_search = () => {
@@ -130,6 +131,7 @@ const Product_search = () => {
             </div>
             
         </div>
+        <Menu/>
         </>
     )
 }

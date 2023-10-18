@@ -1,13 +1,14 @@
 import React from 'react'
 import './footer.css'
+import QRCODE from '../../../img/QRCODE.png';
 import {Link} from "react-router-dom";
+import { BsGooglePlay, BsApple } from "react-icons/bs"
 
 const Footer = () => {
   return (
     <>
-    <section className='container_footer'>
-        <footer>
-            <div className='box_container'>
+        <footer className='box_footer'>
+            <section className='box_container_footer'>
                 <div className='box_customer'>
                     <h2>Customer Card</h2>
                     <Link to="#" className='box_customer_text'>
@@ -32,27 +33,27 @@ const Footer = () => {
                     </Link>
                 </div>
                 <div className='box_app'>
-                    <h2>Download <App></App></h2>
+                    <h2>Download App</h2>
                     <div className='container_QR'>
-                        <img src='#' alt="img" />
+                        <img src={QRCODE} alt="img" />
                         <Link to="#" className='box_play_app'>
                             <div className='box_playstore_app'>
-                                <img src='#' alt="img" />
+                                <BsGooglePlay/>
                                 <p>Play Store</p>
                             </div>
                             <div className='box_playstore_app'>
-                                <img src='#' alt="img" />
+                                <BsApple/>
                                 <p>App Store</p>
                             </div>
                         </Link>
 
                     </div>
                 </div>
-                <hr />
-                <div className='container_copy'>@ TACA 2023</div>
-            </div>
+                
+            </section>    
+            <hr />
+            <div className='container_copy'>@ TACA 2023</div>
         </footer>
-    </section>
     </>
   )
 }
