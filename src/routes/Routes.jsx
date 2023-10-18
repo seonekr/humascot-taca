@@ -31,29 +31,29 @@ const Links = () => {
     <Router>
       <Routes>
         <Route exact path="/humascot-taca" Component={Home} />
-        <Route exact path="/humascot-taca/account/" Component={Account} />
+        <Route exact path="/humascot-taca/account" Component={Account} />
         <Route
           exact
-          path="/humascot-taca/account/general/"
+          path="/humascot-taca/account/general"
           Component={General}
         />
         <Route
           exact
-          path="/humascot-taca/account/contact/"
+          path="/humascot-taca/account/contact"
           Component={Contact}
         />
         <Route
           exact
-          path="/humascot-taca/account/password/"
+          path="/humascot-taca/account/password"
           Component={Password}
         />
-        <Route exact path="/humascot-taca/payment/" Component={Payment} />
-        <Route exact path="/humascot-taca/cart/" Component={Cart} />
-        <Route exact path="/humascot-taca/cart/address/" Component={Address} />
-        <Route exact path="/humascot-taca/chatuser/" Component={Chatuser} />
+        <Route exact path="/humascot-taca/payment" Component={Payment} />
+        <Route exact path="/humascot-taca/cart" Component={Cart} />
+        <Route exact path="/humascot-taca/cart/address" Component={Address} />
+        <Route exact path="/humascot-taca/chatuser" Component={Chatuser} />
         <Route
           exact
-          path="/humascot-taca/chatuser/chatroom/"
+          path="/humascot-taca/chatuser/chatroom"
           Component={Chatroom}
         />
         <Route exact path="/humascot-taca/order" Component={Order} />
