@@ -14,7 +14,7 @@ const Header = () => {
                     <ul>
                         <li><Link to="/humascot-taca"><FaMagnifyingGlass/></Link></li>
                         <li><Link to="/humascot-taca/cart"><FaCartShopping/></Link></li>
-                        <li><Link to="/humascot-taca/account"><FaRegUser/></Link></li>
+                        <li><Link to="/humascot-taca/login"><FaRegUser/></Link></li>
                     </ul>
                 </div>
             </section>
