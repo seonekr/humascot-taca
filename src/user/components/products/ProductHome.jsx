@@ -1,98 +1,56 @@
 import "./productHome.css";
 import dress from "../../../img/dress.png";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 const ProductHome = () => {
+    const [products, setProducts] = useState([
+        { id: 1, name: 'Product 1', description: 'This is product 1', price: 10, images: [dress] },
+        { id: 2, name: 'Product 2', description: 'This is product 2', price: 20, images: [dress] },
+        { id: 3, name: 'Product 3', description: 'This is product 3', price: 30, images: [dress] },
+      ]);
+
+    // Handle inputChange
+    const handleInputChange = (e, index, field) => {
+        const updatedProducts = [...products];
+        updatedProducts[index][field] = e.target.value;
+        setProducts(updatedProducts);
+    }
+
     return(
         <section id="product">
             <div className="product-area">
-                <div className="box-product">
-                    <Link to="#"><img src={dress} alt="image" /></Link>
-                    <ul>
-                        <li className="name">Name</li>
-                        <li className="desc">descriptions</li>
-                        <li className="price">price</li>
-                    </ul>
-                </div>
-                <div className="box-product">
-                    <Link to="#"><img src={dress} alt="image" /></Link>
-                    <ul>
-                        <li className="name">Name</li>
-                        <li className="desc">descriptions</li>
-                        <li className="price">price</li>
-                    </ul>
-                </div>
-                <div className="box-product">
-                    <Link to="#"><img src={dress} alt="image" /></Link>
-                    <ul>
-                        <li className="name">Name</li>
-                        <li className="desc">descriptions</li>
-                        <li className="price">price</li>
-                    </ul>
-                </div>
-                <div className="box-product">
-                    <Link to="#"><img src={dress} alt="image" /></Link>
-                    <ul>
-                        <li className="name">Name</li>
-                        <li className="desc">descriptions</li>
-                        <li className="price">price</li>
-                    </ul>
-                </div>
-                <div className="box-product">
-                    <Link to="#"><img src={dress} alt="image" /></Link>
-                    <ul>
-                        <li className="name">Name</li>
-                        <li className="desc">descriptions</li>
-                        <li className="price">price</li>
-                    </ul>
-                </div>
-                <div className="box-product">
-                    <Link to="#"><img src={dress} alt="image" /></Link>
-                    <ul>
-                        <li className="name">Name</li>
-                        <li className="desc">descriptions</li>
-                        <li className="price">price</li>
-                    </ul>
-                </div>
-                <div className="box-product">
-                    <Link to="#"><img src={dress} alt="image" /></Link>
-                    <ul>
-                        <li className="name">Name</li>
-                        <li className="desc">descriptions</li>
-                        <li className="price">price</li>
-                    </ul>
-                </div>
-                <div className="box-product">
-                    <Link to="#"><img src={dress} alt="image" /></Link>
-                    <ul>
-                        <li className="name">Name</li>
-                        <li className="desc">descriptions</li>
-                        <li className="price">price</li>
-                    </ul>
-                </div>
-                <div className="box-product">
-                    <Link to="#"><img src={dress} alt="image" /></Link>
-                    <ul>
-                        <li className="name">Name</li>
-                        <li className="desc">descriptions</li>
-                        <li className="price">price</li>
-                    </ul>
-                </div>
-                <div className="box-product">
-                    <Link to="#"><img src={dress} alt="image" /></Link>
-                    <ul>
-                        <li className="name">Name</li>
-                        <li className="desc">descriptions</li>
-                        <li className="price">price</li>
-                    </ul>
-                </div>
-                <div className="box-product">
-                    <Link to="#"><img src={dress} alt="image" /></Link>
-                    <ul>
-                        <li className="name">Name</li>
-                        <li className="desc">descriptions</li>
-                        <li className="price">price</li>
-                    </ul>
-                </div>
+
+                {products.map((product, index) => (
+                <form className="box-product" key={index}>
+                        <Link to="#"><img src={product.images[0]} alt="image" /></Link>
+                        <ul>
+                            <li>
+                                <input
+                                    className="name"
+                                    type="text"
+                                    value={product.name}
+                                    onChange={handleInputChange}
+                                />
+                            </li>
+                            <li>
+                                <input
+                                    className="desc"
+                                    type="text"
+                                    value={product.description}
+                                    onChange={(e) => handleInputChange(e, index, "description")}
+                                />
+                            </li>
+                            <li>
+                                <input
+                                    className="price"
+                                    type="text"
+                                    value={product.price}
+                                    onChange={(e) => handleInputChange(e, index, "price")}
+                                />
+                            </li>
+                        </ul>
+                </form>
+                ))}
             </div>
         </section>
     )

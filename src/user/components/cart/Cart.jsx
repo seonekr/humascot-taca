@@ -60,8 +60,6 @@ const Cart = () => {
                     <box-icon name='plus' id="icon_minus_plus"></box-icon>
                 </Link>
             </div>
-        
-            
             <div className='box_item_total'>
                 <h1>Cart Total</h1>
                 <div className='box_item_total_text'>
@@ -81,13 +79,10 @@ const Cart = () => {
 
 
                 <div className='btn'>
-                    <a class="Continues_btn" href="#">Continues Shopping</a>
-                    <a class="checkout_btn" href="#">Checkout</a>
+                    <Link to="/humascot-taca/product_search" class="Continues_btn" href="#">Continues Shopping</Link>
+                    <Link to="/humascot-taca/cart/payment" class="checkout_btn">Checkout</Link>
                 </div>
-                
             </div>
-        
-        
         </div>
     </div>
     <Menu/>
