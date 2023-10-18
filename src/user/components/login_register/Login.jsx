@@ -5,9 +5,6 @@ import { Link } from 'react-router-dom';
 import { AiOutlineClose } from "react-icons/ai"
 import google from '../../../img/google.png';
 
-
-
-
 const Login = () => {
   const [email, setEmail] = useState('');
   const [pass, setPass] = useState('');
@@ -45,7 +42,7 @@ const Login = () => {
           <Link to="#" className="forgot_pass" >Forgot Password?</Link>
 
           <div className='loginbtn_login'>
-            <Link to="#" type="submit" className="login_btn" >Login</Link>
+            <button to="#" type="submit" className="login_btn" >Login</button>
           </div>
 
           <p>Don't have an account? <Link to="/humascot-taca/register">Signup</Link></p>
