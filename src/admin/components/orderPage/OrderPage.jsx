@@ -14,7 +14,7 @@ const OrderPage = () => {
   return (
     <>
         <section id='menager'>
-            <div className='box_menager'>
+            <div className='box_menager_orderpage'>
                 <div className='container_dashboard'>
                     <div className='taca_dashboard'>
                         <h1>TACA</h1>

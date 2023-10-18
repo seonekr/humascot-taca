@@ -21,10 +21,11 @@ import Register from '../user/components/login_register/Register';
 import Order from "../user/components/order/Order";
 import Product_search from "../user/components/products/Product_search";
 import ProductDetails from "../user/components/products/ProductDetails";
-import MenagerUser from "../admin/components/menagerUser/MenagerUser";
-import OrderPage from "../admin/components/orderPage/OrderPage";
-import MenagerAdmin from "../admin/components/menagerAdmin/MenagerAdmin";
+import MenagerUser from "../admin/components/menageruser/MenagerUser";
+import OrderPage from "../admin/components/orderpage/OrderPage";
 import OrderPaid from "../admin/components/orderPage/OrderPaid";
+import MenagerAdmin from "../admin/components/menageradmin/MenagerAdmin";
+
 
 const Links = () => {
   return (
@@ -32,20 +33,14 @@ const Links = () => {
       <Routes>
         <Route exact path="/humascot-taca" Component={Home} />
         <Route exact path="/humascot-taca/account" Component={Account} />
-        <Route exact path="/humascot-taca/account/general" Component={General}
-        />
-        <Route
-          exact path="/humascot-taca/account/contact" Component={Contact}
-        />
-        <Route
-          exact path="/humascot-taca/account/password" Component={Password}
-        />
+        <Route exact path="/humascot-taca/account/general" Component={General}/>
+        <Route exact path="/humascot-taca/account/contact" Component={Contact}/>
+        <Route exact path="/humascot-taca/account/password" Component={Password}/>
         <Route exact path="/humascot-taca/payment" Component={Payment} />
         <Route exact path="/humascot-taca/cart" Component={Cart} />
         <Route exact path="/humascot-taca/cart/address" Component={Address} />
         <Route exact path="/humascot-taca/chatuser" Component={Chatuser} />
-        <Route exact path="/humascot-taca/chatuser/chatroom" Component={Chatroom}
-        />
+        <Route exact path="/humascot-taca/chatuser/chatroom" Component={Chatroom}/>
         <Route exact path="/humascot-taca/order" Component={Order} />
         <Route exact path="/humascot-taca/order/bill" Component={Bill} />
 
@@ -65,9 +60,9 @@ const Links = () => {
 
         {/* Admin routes */}
         <Route exact path="/humascot-taca/admin/menagerUser" Component={MenagerUser} />
-        <Route exact path="/humascot-taca/admin/orderPage" Component={OrderPage} />
-        <Route exact path="/humascot-taca/admin/menagerAdmin" Component={MenagerAdmin} />
-        <Route exact path="/humascot-taca/admin/orderPaid" Component={OrderPaid}/>
+        <Route exact path="/humascot-taca/admin/orderpage" Component={OrderPage} />
+        <Route exact path="/humascot-taca/admin/orderpaid" Component={OrderPaid} />
+        <Route exact path="/humascot-taca/admin/menageradmin" Component={MenagerAdmin} />
       </Routes>
     </Router>
   );
