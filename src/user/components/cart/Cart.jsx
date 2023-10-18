@@ -63,7 +63,7 @@ const Cart = () => {
         
             
             <div className='box_item_total'>
-                <h1>Cart Total</h1>
+                <h2>Cart Total</h2>
                 <div className='box_item_total_text'>
                     <p>Subtotal: </p>
                     <p>$400.00</p>
@@ -81,8 +81,8 @@ const Cart = () => {
 
 
                 <div className='btn'>
-                    <a class="Continues_btn" href="#">Continues Shopping</a>
-                    <a class="checkout_btn" href="#">Checkout</a>
+                    <a class="Continues_btn" href="/humascot-taca/product_search">Continues Shopping</a>
+                    <a class="checkout_btn" href="/humascot-taca/payment">Checkout</a>
                 </div>
                 
             </div>

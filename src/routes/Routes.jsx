@@ -25,6 +25,8 @@ import MenagerUser from "../admin/components/menageruser/MenagerUser";
 import OrderPage from "../admin/components/orderpage/OrderPage";
 import OrderPaid from "../admin/components/orderPage/OrderPaid";
 import MenagerAdmin from "../admin/components/menageradmin/MenagerAdmin";
+import LoginAdmin from "../admin/components/registeradmin/LoginAdmin"
+import RegisterAdmin from "../admin/components/registeradmin/RegisterAdmin"
 
 
 const Links = () => {
@@ -45,7 +47,7 @@ const Links = () => {
         <Route exact path="/humascot-taca/order/bill" Component={Bill} />
 
         {/* Admin routes */}
-        <Route exact path="/humascot-taca/admin" Component={Dashboard} />
+        <Route exact path="/humascot-taca/admin/dashboard" Component={Dashboard} />
         <Route exact path="/humascot-taca/admin/post" Component={Post} />
         <Route exact path="/humascot-taca/admin/addadmin" Component={AddAdmin}
         />
@@ -63,6 +65,8 @@ const Links = () => {
         <Route exact path="/humascot-taca/admin/orderpage" Component={OrderPage} />
         <Route exact path="/humascot-taca/admin/orderpaid" Component={OrderPaid} />
         <Route exact path="/humascot-taca/admin/menageradmin" Component={MenagerAdmin} />
+        <Route exact path="/humascot-taca/admin" Component={LoginAdmin} />
+        <Route exact path="/humascot-taca/admin/registeradmin" Component={RegisterAdmin} />
       </Routes>
     </Router>
   );
