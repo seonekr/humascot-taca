@@ -6,7 +6,7 @@ const Category = () =>{
     return(
         <section id="category">
             <div className="box-category">
-                <Link to="/" className="box">
+                <Link to="/humascot-taca/categories" className="box">
                     <img src={womenfashion} alt="img" />
                     <h1>name</h1>
                 </Link>

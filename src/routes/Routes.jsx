@@ -14,10 +14,9 @@ import Dashboard from "../admin/Dashboard";
 import Post from "../admin/components/post/Post";
 import AddAdmin from "../admin/components/addAdmin/AddAdmin";
 import Message from "../admin/components/messages/Message";
+import Categories from "../user/components/categories/Categories";
 
 /* ========= Phukeo ========= */
-
-
 import Login from '../user/components/login_register/Login';
 import Register from '../user/components/login_register/Register';
 // import Chat from "../user/components/chat/Chat";
@@ -46,6 +45,7 @@ const Links = () => {
                 <Route exact path="/humascot-taca/chatuser/chatroom/" Component={Chatroom}/>
                 <Route exact path="/humascot-taca/order" Component={Order}/>
                 <Route exact path="/humascot-taca/order/bill" Component={Bill}/>
+                <Route exact path="/humascot-taca/categories" Component={Categories}/>
 
                 {/* Admin routes */}
                 <Route exact path="/humascot-taca/admin" Component={Dashboard}/>

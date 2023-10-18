@@ -1,7 +1,6 @@
 import "./header.css";
 import { FaStore, FaMagnifyingGlass, FaCartShopping, FaRegUser } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-import Banner from "./Banner";
 
 const Header = () => {
     return (

@@ -109,7 +109,7 @@ const Product_search = () => {
                                             <input
                                                 type="text"
                                                 value={product.name}
-                                                onChange={handleInputChange}
+                                                onChange={(e) => handleInputChange(e, index, "name")}
                                             />
                                         </h4>
                                         <p className='txtP_width'>
