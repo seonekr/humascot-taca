@@ -3,9 +3,6 @@ import './login.css';
 import 'boxicons';
 import { Link } from 'react-router-dom';
 
-
-
-
 const Login = () => {
   const [email, setEmail] = useState('');
   const [pass, setPass] = useState('');
@@ -39,7 +36,7 @@ const Login = () => {
           <Link to="#" className="forgot_pass" >Forgot Password?</Link>
 
           <div className='loginbtn_login'>
-            <Link to="#" type="submit" className="login_btn" >Login</Link>
+            <button to="#" type="submit" className="login_btn" >Login</button>
           </div>
 
           <p>Don't have an account? <Link to="/components/login_register/Register">Signup</Link></p>
