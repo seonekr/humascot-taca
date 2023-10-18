@@ -39,7 +39,7 @@ const Login = () => {
             <button to="#" type="submit" className="login_btn" >Login</button>
           </div>
 
-          <p>Don't have an account? <Link to="/components/login_register/Register">Signup</Link></p>
+          <p>Don't have an account? <Link to="/humascot-taca/register">Signup</Link></p>
 
           <p>Or</p>
           <div className='googlebtn_btn'>
