@@ -12,6 +12,9 @@
 #category form .box-category input {
     display: none;
 }
+#category form .box-category label {
+    cursor: pointer;
+}
 
 #category .box-category a {
     text-decoration: none;
