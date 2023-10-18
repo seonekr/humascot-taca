@@ -84,41 +84,41 @@ function ProductDetails() {
 
             <div className="color_product">
               <p>Color:</p>
-              <a href="#" className="echColor colB"></a>
-              <a href="#" className="echColor colW"></a>
-              <a href="#" className="echColor colBlue"></a>
+              <Link to="#" className="echColor colB"></Link>
+              <Link to="#" className="echColor colW"></Link>
+              <Link to="#" className="echColor colBlue"></Link>
             </div>
 
             <div className="size_product">
               <p>Size:</p>
-              <a href="#" className="echSize">S</a>
-              <a href="#" className="echSize">M</a>
-              <a href="#" className="echSize">L</a>
-              <a href="#" className="echSize">XL</a>
+              <Link to="#" className="echSize">S</Link>
+              <Link to="#" className="echSize">M</Link>
+              <Link to="#" className="echSize">L</Link>
+              <Link to="#" className="echSize">XL</Link>
             </div>
-            <div className="echCount">
-              <a href="#" className="minusBox borderCount">
+            <Link to="#" className="echCount">
+              <div className="minusBox borderCount">
                 <box-icon name='minus'></box-icon>
-              </a>
+              </div>
               <p className="CountcenterNumber">2</p>
-              <a href="#" className="plusBox borderCount">
+              <div className="plusBox borderCount">
                 <box-icon name='plus'></box-icon>
-              </a>
-            </div>
-            <div className="Count_product">
-                <a href="#" className="echbtn btnBut">Buy Now</a>
-                <a href="#" className="echbtn btnAdd">Add To Cart</a>
-            </div>
+              </div>
+            </Link>
+            <Link t0="#" className="Count_product">
+                <div className="echbtn btnBut">Buy Now</div>
+                <div className="echbtn btnAdd">Add To Cart</div>
+            </Link>
           </div>
         </div>
       </div>
 
       <footer className='footer_boxx'>
         <div className="btn_foot Buy_Now">
-          <a href="#">Buy Now</a>
+          <Link to="#">Buy Now</Link>
         </div>
         <div className="btn_foot Add_To_Cart">
-          <a href="#">Add To Cart</a>
+          <Link to="#">Add To Cart</Link>
         </div>
       </footer>
 
