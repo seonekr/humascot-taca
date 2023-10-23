@@ -8,7 +8,7 @@ import Logo1 from '../../../../public/Logo1.png';
 
 const Header = () => {
     return (
-        <>
+       
             <section id="header">
                 <div className="navbar">
 
@@ -31,7 +31,7 @@ const Header = () => {
                     </div>
                 </div>
                 
-
+                <div>
                     <ul>
                         <li><Link to="/humascot-taca"><FaStore/></Link></li>
                     </ul>
@@ -43,7 +43,7 @@ const Header = () => {
                 </div>
 
             </section>
-        </>
+
     )
 };
 
