@@ -21,9 +21,6 @@ import Categories from "../user/components/categories/Categories";
 
 import Login from '../user/components/login_register/Login';
 import Register from '../user/components/login_register/Register';
-
-// import Chat from "../user/components/chat/Chat";
-
 import Order from "../user/components/order/Order";
 import Product_search from "../user/components/products/Product_search";
 import ProductDetails from "../user/components/products/ProductDetails";
@@ -32,7 +29,6 @@ import OrderPage from "../admin/components/orderPage/OrderPage";
 import OrderPaid from "../admin/components/orderPage/OrderPaid";
 
 import MenagerAdmin from "../admin/components/menagerAdmin/MenagerAdmin";
-// import MenagerAdmin from "../admin/components/menagerAdmin/MenagerAdmin";
 
 
 const Links = () => {
@@ -71,7 +67,7 @@ const Links = () => {
                  <Route exact path="/humascot-taca/admin/orderpage" Component={OrderPage}/>
                  <Route exact path="/humascot-taca/admin/menageradmin" Component={MenagerAdmin}/>
                  <Route exact path="/humascot-taca/admin/orderpaid" Component={OrderPaid}/>
-                 {/* <Route exact path="/humascot-taca/admin" Component={LoginAdmin}/> */}
+                 <Route exact path="/humascot-taca/admin" Component={LoginAdmin}/>
 
             </Routes>
         </Router>
