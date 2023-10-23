@@ -32,7 +32,7 @@
     height: 30px;
     margin-top: 1.8rem;
     margin-left: 42rem;
-}
+  }
   
   .container_register{
     width: 370px;
@@ -78,7 +78,10 @@
     padding: 20px 15px;
   }
   
-  .box_form1_register{
+  .box_form1{
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
   }
   .box_form1 input{ 
     width: 220px;
@@ -90,7 +93,7 @@
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
   }
   
-  .box_form1{
+  .input_form1{
     padding: 20px 15px;
   }
 
