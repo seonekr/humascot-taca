@@ -14,9 +14,9 @@ const Header = () => {
                             <li><Link to="/humascot-taca"><img src={Logo1} alt="Logo" /></Link></li>
                             <div className="boxLiMenu">
                                 <li><Link to="/humascot-taca" className="linkLi active">Home</Link></li>
-                                <li><Link to="/humascot-taca" className="linkLi">Shop</Link></li>
-                                <li><Link to="/humascot-taca" className="linkLi">Order</Link></li>
-                                <li><Link to="/humascot-taca" className="linkLi">Chat</Link></li>
+                                <li><Link to="/humascot-taca/product_search" className="linkLi">Shop</Link></li>
+                                <li><Link to="/humascot-taca/order" className="linkLi">Order</Link></li>
+                                <li><Link to="/humascot-taca/chatuser" className="linkLi">Chat</Link></li>
                                 <li><Link to="/humascot-taca" className="linkLi">Login</Link></li>
                             </div>
                         </ul>
@@ -28,12 +28,6 @@ const Header = () => {
                     </div>
                 </div>
                 
-            </section>
-
-            <section id="banner">
-                <div>
-                    <Banner />
-                </div>
             </section>
         </>
     )
