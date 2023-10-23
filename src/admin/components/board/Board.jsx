@@ -6,7 +6,6 @@ import { Link, useNavigate } from "react-router-dom";
 import graph from "../../../img/graph.png";
 import { useEffect } from "react";
 import axios from "axios";
-import graph from "../../../img/graph.png";
 
 const Board = () => {
   const navigate = useNavigate();
