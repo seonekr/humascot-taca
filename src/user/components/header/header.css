@@ -27,11 +27,6 @@
     font-size: 1.5rem;
 }
 
-/* Banner */
-#banner div{
-    margin-top: 2rem;
-}
-
 @media (max-width: 768px) {
 
     #header{
@@ -45,13 +40,5 @@
         padding: 0.3rem 0;
         flex-direction: row;
         align-items: center;
-    }
-
-    #banner {
-        width: 100%;
-        margin: 0;
-    }
-    #banner div{
-        margin-top: 2rem;
     }
 }
