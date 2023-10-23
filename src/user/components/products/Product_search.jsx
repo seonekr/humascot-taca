@@ -1,135 +1,144 @@
 import React from 'react'
 import './product_search.css'
 import { Link } from 'react-router-dom';
-import Menu from '../menu/Menu';
+import acer from '../../../img/acer.png'
 import Header from '../header/Header';
+import Menu from '../menu/Menu';
 import { FaSearch } from "react-icons/fa"
+import { useState } from 'react';
 
 const Product_search = () => {
+    const [products, setProducts] = useState([
+        { id: 1, name: 'Product 1', description: 'This is product 1', price: 10, images: [acer] },
+        { id: 2, name: 'Product 2', description: 'This is product 2', price: 20, images: [acer] },
+        { id: 3, name: 'Product 3', description: 'This is product 3', price: 30, images: [acer] },
+        { id: 4, name: 'Product 4', description: 'This is product 4', price: 40, images: [acer] },
+        { id: 5, name: 'Product 5', description: 'This is product 5', price: 50, images: [acer] },
+        { id: 6, name: 'Product 6', description: 'This is product 6', price: 60, images: [acer] },
+        { id: 7, name: 'Product 7', description: 'This is product 7', price: 70, images: [acer] },
+        { id: 8, name: 'Product 8', description: 'This is product 8', price: 80, images: [acer] },
+    ]);
+
+    const [searchTerm, setSearchTerm] = useState("");
+    const [minPrice, setMinPrice] = useState("");
+    const [maxPrice, setMaxPrice] = useState("");
+    const [price, setPrice] = useState("");
+    const [priceFilter, setPriceFilter] = useState("");
+
+    // Filter products based on search term and price range
+    const filteredProducts = products.filter((product) => {
+        const nameMatch = product.name.toLowerCase().includes(searchTerm.toLowerCase());
+        const minPriceMatch = minPrice !== "" ? product.price <= minPrice : true;
+        const maxPriceMatch = maxPrice !== "" ? product.price >= maxPrice : true;
+        const priceMatch = priceFilter !== "" ? product.price === parseInt(priceFilter) : true;
+        return nameMatch && minPriceMatch && maxPriceMatch && priceMatch;
+    });
+
+    // Handle filter by category
+    const handleFilter = (price) => {
+        setPriceFilter(price); // Please change this to category
+    };
+
+    // Handle inputChange
+    const handleInputChange = (e, index, field) => {
+        const updatedProducts = [...products];
+        updatedProducts[index][field] = e.target.value;
+        setProducts(updatedProducts);
+    }
+
+    // Handle select by category
+    const handleSelectChange = (e) => {
+        setPrice(e.target.value); // Please change this to category
+        handleFilter(e.target.value); // Please change this to category
+    };
+
     return (
         <>
-        <Header/>
-        <div className='container_home'>
-            
-            <div className="content_Box">
-                <div className='container_head_search'>
-                    <a href="#"><box-icon name='chevron-left' id="cancel_icon"></box-icon></a>
-                    <div className='input_wrapper'>
-                        <FaSearch id="search-icon" />
-                        <input placeholder='Search for a product' />
-                    </div>
-                </div>
-                <div className="content_itemBox">
-                    <div className='container_product'>
-                        <h3>Product</h3>
-                        <div className='product_fillter'>
-                            <div className='container_product_category'>
-                                <form className='cetegory_form'>
-                                    <label>Product Type:</label>
-                                    <select className='categoryFilter'>
-                                        <option className='listOption' value="Something">Something</option>
-                                        <option className='listOption' value="Something">Something</option>
-                                        <option className='listOption' value="Something">Something</option>
-                                        <option className='listOption' value="Something">Something</option>
-                                    </select>
-                                </form>
-                                <div><box-icon name='filter'></box-icon></div>
-                            </div>
+            <Header/>
+            <div className='container_home'>
+                <div className="content_Box">
+                    <div className='container_head_search'>
+                        <div className='input_wrapper'>
+                            <FaSearch id="search-icon" />
+                            <input
+                                type="text"
+                                placeholder="Search products"
+                                value={searchTerm}
+                                onChange={(e) => setSearchTerm(e.target.value)}
+                            />
+                             <input
+                                type="number"
+                                placeholder="Min Price"
+                                value={minPrice}
+                                onChange={(e) => setMinPrice(e.target.value)}
+                            />
+                            <input
+                                type="number"
+                                placeholder="Max Price"
+                                value={maxPrice}
+                                onChange={(e) => setMaxPrice(e.target.value)}
+                            />
                         </div>
                     </div>
-                    <div className='box_container_home'>
-
-                        <div className='box_container_img'>
-                            <div className='box_container_img'>
-                                <Link to="/humascot-taca/product_search/productdetails"><img src='https://sw.cool3c.com/user/29442/2020/c9146c0c-460f-4389-be1e-74c415a8f153.png?fit=max&w=1400&q=80' alt=''/></Link>                             
-                                    <div className="txtOfProduct">
-                                        <h4>Acer Swift 5</h4>
-                                        <p className='txtP_width'>something of product </p>
-                                        <p>800 KIP</p>
-                                    </div>
+                    <div className="content_itemBox">
+                        <div className='container_product'>
+                            <h3>Product</h3>
+                            <div className='product_fillter'>
+                                <div className="container_product_category">
+                                    <form className="category_form" >
+                                        <label>Product Type:</label>
+                                        <select className="categoryFilter" value={price} onChange={handleSelectChange}>
+                                        <option className="listOption" value="">All</option>
+                                        <option className="listOption" value="30">30</option>
+                                        <option className="listOption" value="40">40</option>
+                                        <option className="listOption" value="50">50</option>
+                                        </select>
+                                    </form>
+                                </div>
                             </div>
                         </div>
-                        <div className='box_container_img'>
-                            <div className='box_container_img'>
-                                <Link to="/humascot-taca/product_search/productdetails"><img src='https://sw.cool3c.com/user/29442/2020/c9146c0c-460f-4389-be1e-74c415a8f153.png?fit=max&w=1400&q=80' alt=''/></Link>                             
+                        <div className='box_container_home'>
+                            {filteredProducts.map((product, index) => (
+                            <form key={index}>
+                                <div className='box_container_img' >
+                                    <Link to="/humascot-taca/product_search/productdetails">
+                                        <img src={product.images[0]} alt='img'/>
+                                    </Link>                             
                                     <div className="txtOfProduct">
-                                        <h4>Acer Swift 5</h4>
-                                        <p className='txtP_width'>something of product </p>
-                                        <p>800 KIP</p>
+                                        <h4>
+                                            <input
+                                                type="text"
+                                                value={product.name}
+                                                onChange={handleInputChange}
+                                            />
+                                        </h4>
+                                        <p className='txtP_width'>
+                                            <input
+                                                type="text"
+                                                value={product.description}
+                                                onChange={(e) => handleInputChange(e, index, "description")}
+                                            />
+                                        </p>
+                                        <p>
+                                            <input
+                                                type="text"
+                                                value={product.price}
+                                                onChange={(e) => handleInputChange(e, index, "price")}
+                                            />
+                                        </p>
                                     </div>
-                            </div>
+                                </div>
+                            </form>
+                            ))}
                         </div>
-                        <div className='box_container_img'>
-                            <div className='box_container_img'>
-                                <Link to="/humascot-taca/product_search/productdetails"><img src='https://sw.cool3c.com/user/29442/2020/c9146c0c-460f-4389-be1e-74c415a8f153.png?fit=max&w=1400&q=80' alt=''/></Link>                             
-                                    <div className="txtOfProduct">
-                                        <h4>Acer Swift 5</h4>
-                                        <p className='txtP_width'>something of product </p>
-                                        <p>800 KIP</p>
-                                    </div>
-                            </div>
-                        </div>
-                        <div className='box_container_img'>
-                            <div className='box_container_img'>
-                                <Link to="/humascot-taca/product_search/productdetails"><img src='https://sw.cool3c.com/user/29442/2020/c9146c0c-460f-4389-be1e-74c415a8f153.png?fit=max&w=1400&q=80' alt=''/></Link>                             
-                                    <div className="txtOfProduct">
-                                        <h4>Acer Swift 5</h4>
-                                        <p className='txtP_width'>something of product </p>
-                                        <p>800 KIP</p>
-                                    </div>
-                            </div>
-                        </div>
-                        <div className='box_container_img'>
-                            <div className='box_container_img'>
-                                <Link to="/humascot-taca/product_search/productdetails"><img src='https://sw.cool3c.com/user/29442/2020/c9146c0c-460f-4389-be1e-74c415a8f153.png?fit=max&w=1400&q=80' alt=''/></Link>                             
-                                    <div className="txtOfProduct">
-                                        <h4>Acer Swift 5</h4>
-                                        <p className='txtP_width'>something of product </p>
-                                        <p>800 KIP</p>
-                                    </div>
-                            </div>
-                        </div>
-                        <div className='box_container_img'>
-                            <div className='box_container_img'>
-                                <Link to="/humascot-taca/product_search/productdetails"><img src='https://sw.cool3c.com/user/29442/2020/c9146c0c-460f-4389-be1e-74c415a8f153.png?fit=max&w=1400&q=80' alt=''/></Link>                             
-                                    <div className="txtOfProduct">
-                                        <h4>Acer Swift 5</h4>
-                                        <p className='txtP_width'>something of product </p>
-                                        <p>800 KIP</p>
-                                    </div>
-                            </div>
-                        </div>
-                        <div className='box_container_img'>
-                            <div className='box_container_img'>
-                                <Link to="/humascot-taca/product_search/productdetails"><img src='https://sw.cool3c.com/user/29442/2020/c9146c0c-460f-4389-be1e-74c415a8f153.png?fit=max&w=1400&q=80' alt=''/></Link>                             
-                                    <div className="txtOfProduct">
-                                        <h4>Acer Swift 5</h4>
-                                        <p className='txtP_width'>something of product </p>
-                                        <p>800 KIP</p>
-                                    </div>
-                            </div>
-                        </div>
-                        <div className='box_container_img'>
-                            <div className='box_container_img'>
-                                <Link to="/humascot-taca/product_search/productdetails"><img src='https://sw.cool3c.com/user/29442/2020/c9146c0c-460f-4389-be1e-74c415a8f153.png?fit=max&w=1400&q=80' alt=''/></Link>                             
-                                    <div className="txtOfProduct">
-                                        <h4>Acer Swift 5</h4>
-                                        <p className='txtP_width'>something of product </p>
-                                        <p>800 KIP</p>
-                                    </div>
-                            </div>
-                        </div>
-                        
-
+                    </div>
+                    <div className='btn_more'>
+                        <Link to="#" className="loadmore_btn_more">View More</Link>
                     </div>
                 </div>
-
-                <div className='btn_more'>
-                    <Link to="#" className="loadmore_btn_more" href="#">View More</Link>
-                </div>
+                
             </div>
-            
-        </div>
+            <Menu/>
         </>
     )
 }
