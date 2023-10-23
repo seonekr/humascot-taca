@@ -19,7 +19,8 @@
 #header .navbar,
 .headWithBox,
 .headMenu,
-.ulHead_box {
+.ulHead_box,
+.boxLiMenu {
     display: flex;
     align-items: center;
 }
@@ -66,17 +67,6 @@
     color: #FF4F16;
 }
 
-.btnLogoin{
-    padding: 10px 40px;
-    color: #fff;
-    background-color: #FF4F16;
-    border-radius: 10px;
-    font-size: 20px;
-}
-.btnLogoin:Hover{
-    background-color: #f54c14;
-}
-
 /* Banner */
 #banner div {
     margin-top: 2rem;
@@ -84,7 +74,9 @@
 
 
 @media (max-width: 768px) {
-
+    .headWithBox {
+        width: 100%;
+    }
     #header {
         width: 100%;
         margin: 0;
@@ -106,4 +98,11 @@
     #banner div {
         margin-top: 2rem;
     }
+}
+
+@media screen and (max-width: 420px) {
+    .boxLiMenu{
+        display: none;
+    }
+    
 }

@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./Banner.css";
-import card from "../../../img/card.png";
-import banner from "../../../img/banner.jpg";
-import jcb from "../../../img/jcb.png";
-
+import banner1 from "../../../img/banner1.svg";
+import banner2 from "../../../img/banner2.svg";
+import banner3 from "../../../img/banner3.svg";
 
 const Banner = () => {
-  const [slides, setSlides] = useState([card, banner, jcb]);
+  const [slides, setSlides] = useState([banner1, banner2, banner3]);
   const [activeSlide, setActiveSlide] = useState(0);
   const [direction, setDirection] = useState("right");
 

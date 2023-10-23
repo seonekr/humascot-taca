@@ -2,25 +2,21 @@ import "./category.css";
 import womenfashion from "../../../img/womenfashion.png";
 import { Link } from "react-router-dom";
 
-const Category = () =>{
-    return(
+const Category = () => {
+    return (
         <section id="category">
-            <div className="box-category">
-                <Link to="/" className="box">
+            <div className="category_container">
+                <Link to="/" className="box-category">
                     <img src={womenfashion} alt="img" />
-                    <h1>name</h1>
+                    <p>name</p>
                 </Link>
-            </div>
-            <div className="box-category">
-                <Link to="/" className="box">
+                <Link to="/" className="box-category">
                     <img src={womenfashion} alt="img" />
-                    <h1>name</h1>
+                    <p>name</p>
                 </Link>
-            </div>
-            <div className="box-category">
-                <Link to="/" className="box">
+                <Link to="/" className="box-category">
                     <img src={womenfashion} alt="img" />
-                    <h1>name</h1>
+                    <p>name</p>
                 </Link>
             </div>
         </section>

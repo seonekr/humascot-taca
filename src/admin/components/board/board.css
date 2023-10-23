@@ -12,7 +12,7 @@ body {
     width: 84%;
     overflow: hidden;
     margin: auto;
-    margin-left: 16%;
+    margin-left: 15%;
 }
 
 /* manage and target */
@@ -105,7 +105,7 @@ body {
 /* Target */
 .board .manage-target .target {
     padding: 25px 18px 0 19px;
-    width: 465px;
+    width: 450px;
     height: 351px;
     border-radius: 20px;
     border: 1px solid #F8F9FA;
@@ -178,7 +178,7 @@ body {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
+    gap: 1rem;
     margin-top: 0.5rem;
 }
 
@@ -246,7 +246,7 @@ body {
 /* Visit */
 .products-visit .visit {
     padding: 24px 29px;
-    width: 512.744px;
+    width: 510px;
     height: 351px;
     border-radius: 20px;
     border: 1px solid #F8F9FA;
