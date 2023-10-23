@@ -1,18 +1,34 @@
 import "./category.css";
 import womenfashion from "../../../img/womenfashion.png";
-// import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 const Category = () =>{
-    // const [searchTerm, setSearchTerm] = useState("");
+    const [searchCate, setSearchCate] = useState("");
+
+    const navigate = useNavigate();
+
+    // Submit the category
+    const handleSearch = (e) => {
+        e.preventDefault();
+
+        navigate('/humascot-taca/categories/',{ // Navigate to the payment page with the address props
+            state: {
+                searchCate: searchCate
+            }
+        });
+
+      };
 
     return(
         <section id="category">
-            <form>
+            <form onSubmit={handleSearch}>
                 <div className="box-category">
                     <input
                         type="text"
                         id="clothes"
+                        value="30"
+                        onChange={(e) => setSearchCate(e.target.value)}
                     />
                     <label htmlFor="clothes" className="box">
                         <img src={womenfashion} alt="img" />

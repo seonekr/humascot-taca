@@ -2,7 +2,7 @@ import '../products/product_search.css';
 import Header from '../header/Header';
 import Menu from '../menu/Menu';
 import { FaSearch } from "react-icons/fa"
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import acer from '../../../img/acer.png'
 import { useState } from 'react';
 
@@ -17,13 +17,26 @@ const Categories = () => {
         { id: 7, name: 'Product 7', description: 'This is product 7', price: 70, category: "7", images: [acer] },
         { id: 8, name: 'Product 8', description: 'This is product 8', price: 80, category: "8", images: [acer] },
     ]);
-    // const [searchTerm, setSearchTerm] = useState("");
+
+    const location = useLocation();   
+    const { searchCate } = location.state || {};
+
+    const [searchTerm, setSearchTerm] = useState('');
 
     // Filter products based on search term and price range
-    // const filteredProducts = products.filter((product) => {
-    //     const nameMatch = product.name.toLowerCase().includes(searchTerm.toLowerCase());
-    //     return nameMatch && minPriceMatch && maxPriceMatch && priceMatch;
-    // });
+    const filteredProducts = products.filter((product) => {
+        const cateMatch = product.name.toLowerCase().includes(searchTerm.toLowerCase());
+        return cateMatch;
+    });
+    
+
+    // Handle inputChange
+    const handleInputChange = (e, index, field) => {
+        const updatedProducts = [...products];
+        updatedProducts[index][field] = e.target.value;
+        setProducts(updatedProducts);
+    }
+
     
 
     return(
@@ -34,42 +47,48 @@ const Categories = () => {
                     <div className='container_head_search'>
                         <div className='input_wrapper'>
                             <FaSearch id="search-icon" />
+                            <input
+                                type="text"
+                                placeholder="Search products"
+                                value={searchCate}
+                                onChange={(e) => setSearchTerm(e.target.value)}
+                            />
                         </div>
                     </div>
                     <div className="content_itemBox">
                         <div className='box_container_home'>
-                            {/* {filteredProducts.map((product, index) => ( key={index}{product.images[0]}*/}
+                            {filteredProducts.map((product, index) => (
                             <form>
                                 <div className='box_container_img' >
                                     <Link to="/humascot-taca/product_search/productdetails">
-                                        <img src={acer} alt='img'/>
+                                        <img src={product.images[0]} alt='img'/>
                                     </Link>                             
                                     <div className="txtOfProduct">
                                         <h4>
                                             <input
                                                 type="text"
-                                                // value={product.name}
-                                                // onChange={(e) => handleInputChange(e, index, "name")}
+                                                value={product.name}
+                                                onChange={(e) => handleInputChange(e, index, "name")}
                                             />
                                         </h4>
                                         <p className='txtP_width'>
                                             <input
                                                 type="text"
-                                                // value={product.description}
-                                                // onChange={(e) => handleInputChange(e, index, "description")}
+                                                value={product.description}
+                                                onChange={(e) => handleInputChange(e, index, "description")}
                                             />
                                         </p>
                                         <p>
                                             <input
                                                 type="text"
-                                                // value={product.price}
-                                                // onChange={(e) => handleInputChange(e, index, "price")}
+                                                value={product.price}
+                                                onChange={(e) => handleInputChange(e, index, "price")}
                                             />
                                         </p>
                                     </div>
                                 </div>
                             </form>
-                            {/* ))} */}
+                            ))}
                         </div>
                     </div>
                     <div className='btn_more'>
