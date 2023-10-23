@@ -3,6 +3,25 @@ import womenfashion from "../../../img/womenfashion.png";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
+
+const Category = () => {
+    return (
+        <section id="category">
+            <div className="category_container">
+                <Link to="/" className="box-category">
+                    <img src={womenfashion} alt="img" />
+                    <p>name</p>
+                </Link>
+                <Link to="/" className="box-category">
+                    <img src={womenfashion} alt="img" />
+                    <p>name</p>
+                </Link>
+                <Link to="/" className="box-category">
+                    <img src={womenfashion} alt="img" />
+                    <p>name</p>
+                </Link>
+            </div>
+
 const Category = () =>{
     const [searchCate, setSearchCate] = useState("");
 
@@ -48,6 +67,7 @@ const Category = () =>{
                     </Link>
                 </div>
             </form>
+
         </section>
     )
 }

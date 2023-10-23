@@ -8,7 +8,7 @@ import graph from '../../../img/graph.png';
 const Board = () => {
     return (
         <>
-            <section className='containerG_p'>
+            <section>
                 <div className="boxspentainer"></div>
                 <div className="board">
                     <div className="manage-target">

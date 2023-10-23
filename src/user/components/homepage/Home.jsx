@@ -2,11 +2,16 @@ import Header from "../header/Header";
 import Category from "./Category";
 import ProductHome from "../products/ProductHome";
 import Menu from "../menu/Menu";
+
+import "./home.css"
+import Banner from "../header/Banner";
+
 import Banner from "../header/Banner";
 import "./home.css";
 import { useEffect } from "react";
 // import axios from "axios";
 import { useNavigate } from "react-router-dom";
+
 
 const Home = () => {
   // const navigate = useNavigate();
