@@ -7,16 +7,17 @@ const bcrypt = require("bcrypt");
 const saltRounds = 10;
 var jwt = require("jsonwebtoken");
 const secret = "Humascot-TACA2023";
+require('dotenv').config()
 
 app.use(cors());
 
 const mysql = require("mysql2");
 // create the connection database
 const connection = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "",
-  database: "taca_db",
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DATABASE,
 });
 
 // ==================== Admin Management =====================
