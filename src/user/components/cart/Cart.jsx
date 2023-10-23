@@ -60,10 +60,8 @@ const Cart = () => {
                     <box-icon name='plus' id="icon_minus_plus"></box-icon>
                 </Link>
             </div>
-        
-            
             <div className='box_item_total'>
-                <h2>Cart Total</h2>
+                <h1>Cart Total</h1>
                 <div className='box_item_total_text'>
                     <p>Subtotal: </p>
                     <p>$400.00</p>
@@ -81,13 +79,10 @@ const Cart = () => {
 
 
                 <div className='btn'>
-                    <a class="Continues_btn" href="/humascot-taca/product_search">Continues Shopping</a>
-                    <a class="checkout_btn" href="/humascot-taca/payment">Checkout</a>
+                    <Link to="/humascot-taca/product_search" class="Continues_btn" href="#">Continues Shopping</Link>
+                    <Link to="/humascot-taca/cart/payment" class="checkout_btn">Checkout</Link>
                 </div>
-                
             </div>
-        
-        
         </div>
     </div>
     <Menu/>
