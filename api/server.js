@@ -56,10 +56,10 @@ app.post("/admin", jsonParser, (req, res) => {
         (err, response) => {
           if (err) return res.json({ Error: "Password error" });
           if (response) {
-            const token = jwt.sign({ email: result[0].email }, secret, {
+            const token = jwt.sign({id: result[0].id, email: result[0].email }, secret, {
               expiresIn: "1d",
             });
-            return res.json({ Status: "Success", Token: token });
+            return res.json({ Status: "Success", Token: token, id: result[0].id});
           } else {
             return res.json({
               Status: "Error",
