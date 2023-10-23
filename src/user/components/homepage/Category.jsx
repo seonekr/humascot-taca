@@ -1,41 +1,90 @@
 import "./category.css";
 import womenfashion from "../../../img/womenfashion.png";
-import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const Category = () =>{
-    const [searchCate, setSearchCate] = useState("");
+    const [clothes, setClothes] = useState('1')
+    const [electronic, setElectronic] = useState('2')
+    const [ll, setLl] = useState('3')
 
     const navigate = useNavigate();
 
-    // Submit the category
-    const handleSearch = (e) => {
-        e.preventDefault();
+        // submit
+        const handleSubmit = (e) => {
+            e.preventDefault();
+    
+            setClothes('');
+            setElectronic('');
+            setLl('');
+    
+            navigate('/humascot-taca/categories',{ // Navigate to the payment page with the address props
+                state: {
+                    clothes: clothes,
+                    electronic: electronic,
+                    ll: ll
+                }
+            });
+        }
 
-        navigate('/humascot-taca/categories/',{ // Navigate to the payment page with the address props
-            state: {
-                searchCate: searchCate
-            }
-        });
-
-      };
-
+    const handleClothes = (e) => {
+        const value = e.target.value;
+        setClothes(value);
+    };
+    const handleElectronic = (e) => {
+        const value = e.target.value;
+        setClothes(value);
+    };
+    const handleLl = (e) => {
+        const value = e.target.value;
+        setClothes(value);
+    };
     return(
         <section id="category">
-            <form onSubmit={handleSearch}>
+            <form onSubmit={handleSubmit}>
                 <div className="box-category">
                     <input
                         type="text"
                         id="clothes"
-                        value="30"
-                        onChange={(e) => setSearchCate(e.target.value)}
+                        value={clothes}
+                        onChange={handleClothes}
                     />
-                    <label htmlFor="clothes" className="box">
-                        <img src={womenfashion} alt="img" />
-                        <h1>names</h1>
-                    </label>
+                    <button type="submit">
+                        <label htmlFor="clothes" className="box">
+                            <img src={womenfashion} alt="img" />
+                            <h1>name</h1>
+                        </label>
+                    </button>
                 </div>
                 <div className="box-category">
+                    <input
+                        type="text"
+                        id="electronic"
+                        value={electronic}
+                        onChange={handleElectronic}
+                    />
+                    <button type="submit">
+                        <label htmlFor="electronic" className="box">
+                            <img src={womenfashion} alt="img" />
+                            <h1>name</h1>
+                        </label>
+                    </button>
+                </div>
+                <div className="box-category">
+                    <input
+                        type="text"
+                        id="ll"
+                        value={ll}
+                        onChange={handleLl}
+                    />
+                    <button type="submit">
+                        <label htmlFor="ll" className="box">
+                            <img src={womenfashion} alt="img" />
+                            <h1>name</h1>
+                        </label>
+                    </button>
+                </div>
+                {/* <div className="box-category">
                     <Link to="/" className="box">
                         <img src={womenfashion} alt="img" />
                         <h1>name</h1>
@@ -46,7 +95,7 @@ const Category = () =>{
                         <img src={womenfashion} alt="img" />
                         <h1>name</h1>
                     </Link>
-                </div>
+                </div> */}
             </form>
         </section>
     )

@@ -92,17 +92,22 @@ input:focus{
     border-radius: 5px;
 }
 
-.box_container_home{
+.box_container_home {
     /* display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     justify-content: center;
     align-items: center; */
+    margin-top: 5rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     text-align: center;
     grid-gap: 30px;
     margin-bottom: 5rem;
+}
+
+.box_container_home .searchBycate {
+    display: none;
 }
 
 .txtOfProduct{

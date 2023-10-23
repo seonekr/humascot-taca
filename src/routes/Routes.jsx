@@ -16,6 +16,7 @@ import AddAdmin from "../admin/components/addAdmin/AddAdmin";
 import Message from "../admin/components/messages/Message";
 import Categories from "../user/components/categories/Categories";
 
+
 /* ========= Phukeo ========= */
 
 
@@ -50,7 +51,7 @@ const Links = () => {
                 <Route exact path="/humascot-taca/chatuser/chatroom/" Component={Chatroom}/>
                 <Route exact path="/humascot-taca/order" Component={Order}/>
                 <Route exact path="/humascot-taca/order/bill" Component={Bill}/>
-                <Route exact path="/humascot-taca/categories" Component={Categories}/>
+                <Route exact path="/humascot-taca/categories/" Component={Categories}/>
 
                 {/* Admin routes */}
                 <Route exact path="/humascot-taca/admin/dashboard" Component={Dashboard}/>

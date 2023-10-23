@@ -5,14 +5,19 @@
     justify-content: space-evenly;
 }
 
-#category form .box-category {
+#category .box-category {
     margin-top: 1rem;
 }
 
-#category form .box-category input {
+#category .box-category button {
+    border: none;
+    background: none;
+}
+
+#category .box-category input {
     display: none;
 }
-#category form .box-category label {
+#category .box-category label {
     cursor: pointer;
 }
 
