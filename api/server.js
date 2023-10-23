@@ -6,7 +6,7 @@ var jsonParser = bodyParser.json();
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 var jwt = require("jsonwebtoken");
-const secret = "Humascot-TACA-@2023";
+const secret = "Humascot-TACA2023";
 
 app.use(cors());
 
@@ -34,7 +34,7 @@ app.post("/admin/register", jsonParser, (req, res) => {
     ];
     connection.query(sql, [values], (err, result) => {
       if (err) {
-        res.json({ Status: "Error", Message: "Errer in running sql" });
+        res.json({ Status: "Error", Error: "Errer in running sql" });
         return;
       } else {
         res.json({ Status: "Success" });
@@ -47,7 +47,7 @@ app.post("/admin", jsonParser, (req, res) => {
   const sql = "SELECT * FROM admins WHERE email = ?";
   connection.query(sql, [req.body.email], (err, result) => {
     if (err) {
-      return res.json({ Status: "Error", Message: "Errer in running sql" });
+      return res.json({ Status: "Error", Error: "Errer in running sql" });
     }
     if (result.length > 0) {
       bcrypt.compare(
@@ -69,7 +69,7 @@ app.post("/admin", jsonParser, (req, res) => {
         }
       );
     } else {
-      return res.json({ Status: "Error", Message: "Wrong Email or Password" });
+      return res.json({ Status: "Error", Error: "Wrong Email or Password" });
     }
   });
 });
@@ -80,7 +80,7 @@ app.post("/authen", jsonParser, (req, res) => {
     var decoded = jwt.verify(token, secret);
     res.json({ Status: "Success", decoded });
   } catch (err) {
-    res.json({ Status: "Error", Message: err.message });
+    res.json({ Status: "Error", Error: err.message });
   }
 });
 
@@ -88,7 +88,7 @@ app.get("/allAdmins", (req, res) => {
   const sql = "SELECT * FROM admins";
   connection.query(sql, (err, result) => {
     if (err)
-      return res.json({ Status: "Error", Message: "Errer in running query" });
+      return res.json({ Status: "Error", Error: "Errer in running query" });
     return res.json({ Status: "Success", Result: result });
   });
 });
@@ -98,7 +98,7 @@ app.get("/getAdmin/:id", (req, res) => {
   const sql = "SELECT * FROM admins WHERE id = ?";
   connection.query(sql, [id], (err, result) => {
     if (err)
-      return res.json({ Status: "Error", Message: "Errer in running query" });
+      return res.json({ Status: "Error", Error: "Errer in running query" });
     return res.json({ Status: "Success", Result: result });
   });
 });
@@ -120,7 +120,7 @@ app.put("/updateAdmin/:id", jsonParser, (req, res) => {
     ];
 
     connection.query(sql, [...values, id], (err, data) => {
-      if (err) res.json({ Status: "Error", Message: "Errer in running sql" });
+      if (err) res.json({ Status: "Error", Error: "Errer in running sql" });
       return res.json({ Status: "Success", data });
     });
   });
@@ -134,7 +134,7 @@ app.get("/deleteAdmin/:id", (req, res) => {
     if (err)
       return res.json({
         Status: "Error",
-        Message: "Errer in running sql",
+        Error: "Errer in running sql",
       });
     return res.json({ Status: "Success" });
   });
@@ -145,7 +145,7 @@ app.get("/countAdmin", (req, res) => {
 
   connection.query(sql, (err, result) => {
     if (err)
-      return res.json({ Status: "Error", Message: "Errer in running sql" });
+      return res.json({ Status: "Error", Error: "Errer in running sql" });
     return res.json({ result });
   });
 });
@@ -167,7 +167,7 @@ app.post("/register", jsonParser, (req, res) => {
       if (err) {
         return res.json({
           Status: "Error",
-          Message: "Errer in running sql",
+          Error: "Errer in running sql",
         });
       }
       return res.json({ Status: "Success" });
@@ -179,7 +179,7 @@ app.post("/login", jsonParser, (req, res) => {
   const sql = "SELECT * FROM customers WHERE email = ?";
   connection.query(sql, [req.body.email], (err, result) => {
     if (err) {
-      return res.json({ Status: "Error", Message: "Errer in running sql" });
+      return res.json({ Status: "Error", Error: "Errer in running sql" });
     }
     if (result.length > 0) {
       bcrypt.compare(
@@ -201,7 +201,7 @@ app.post("/login", jsonParser, (req, res) => {
         }
       );
     } else {
-      return res.json({ Status: "Error", Message: "Wrong Email or Password" });
+      return res.json({ Status: "Error", Error: "Wrong Email or Password" });
     }
   });
 });
@@ -210,7 +210,7 @@ app.get("/allCustomers", (req, res) => {
   const sql = "SELECT * FROM customers";
   connection.query(sql, (err, result) => {
     if (err)
-      return res.json({ Status: "Error", Message: "Errer in running sql" });
+      return res.json({ Status: "Error", Error: "Errer in running sql" });
     return res.json({ Status: "Success", Result: result });
   });
 });
@@ -220,7 +220,7 @@ app.get("/getCustomer/:id", (req, res) => {
   const sql = "SELECT * FROM customers WHERE id = ?";
   connection.query(sql, [id], (err, result) => {
     if (err)
-      return res.json({ Status: "Error", Message: "Errer in running sql" });
+      return res.json({ Status: "Error", Error: "Errer in running sql" });
     return res.json({ Status: "Success", Result: result });
   });
 });
@@ -241,7 +241,7 @@ app.put("/updateCustomer/:id", jsonParser, (req, res) => {
     ];
 
     connection.query(sql, [...values, id], (err, data) => {
-      if (err) res.json({ Status: "Error", Message: "Errer in running sql" });
+      if (err) res.json({ Status: "Error", Error: "Errer in running sql" });
       return res.json({ Status: "Success", data });
     });
   });
@@ -255,7 +255,7 @@ app.get("/deleteCustomer/:id", (req, res) => {
     if (err)
       return res.json({
         Status: "Error",
-        Message: "Errer in running sql",
+        Error: "Errer in running sql",
       });
     return res.json({ Status: "Success" });
   });
@@ -266,7 +266,7 @@ app.get("/countCustomer", (req, res) => {
 
   connection.query(sql, (err, result) => {
     if (err)
-      return res.json({ Status: "Error", Message: "Errer in running sql" });
+      return res.json({ Status: "Error", Error: "Errer in running sql" });
     return res.json({ result });
   });
 });
@@ -280,7 +280,7 @@ app.post("/addCategory", jsonParser, (req, res) => {
     if (err) {
       return res.json({
         Status: "Error",
-        Message: "Errer in running sql",
+        Error: "Errer in running sql",
       });
     }
     return res.json({ Status: "Success" });
@@ -293,7 +293,7 @@ app.get("/allCategories", (req, res) => {
     if (err)
       return res.json({
         Status: "Error",
-        Message: "Errer in running sql",
+        Error: "Errer in running sql",
       });
     return res.json({ Status: "Success", Result: result });
   });
@@ -306,7 +306,7 @@ app.get("/getCategory/:id", (req, res) => {
     if (err)
       return res.json({
         Status: "Error",
-        Message: "Errer in running sql",
+        Error: "Errer in running sql",
       });
     return res.json({ Status: "Success", Result: result });
   });
@@ -320,7 +320,7 @@ app.put("/updateCategory/:id", jsonParser, (req, res) => {
   const values = [req.body.name];
 
   connection.query(sql, [...values, id], (err, data) => {
-    if (err) res.json({ Status: "Error", Message: "Errer in running sql" });
+    if (err) res.json({ Status: "Error", Error: "Errer in running sql" });
     return res.json({ Status: "Success", data });
   });
 });
@@ -333,7 +333,7 @@ app.get("/deleteCategory/:id", (req, res) => {
     if (err)
       return res.json({
         Status: "Error",
-        Message: "Errer in running sql",
+        Error: "Errer in running sql",
       });
     return res.json({ Status: "Success" });
   });
@@ -344,7 +344,7 @@ app.get("/countCategory", (req, res) => {
 
   connection.query(sql, (err, result) => {
     if (err)
-      return res.json({ Status: "Error", Message: "Errer in running sql" });
+      return res.json({ Status: "Error", Error: "Errer in running sql" });
     return res.json({ result });
   });
 });
@@ -367,7 +367,7 @@ app.post("/addProduct", jsonParser, (req, res) => {
     if (err) {
       return res.json({
         Status: "Error",
-        Message: "Errer in running sql",
+        Error: "Errer in running sql",
       });
     }
     return res.json({ Status: "Success" });
@@ -380,7 +380,7 @@ app.get("/allProducts", (req, res) => {
     if (err)
       return res.json({
         Status: "Error",
-        Message: "Errer in running sql",
+        Error: "Errer in running sql",
       });
     return res.json({ Status: "Success", Result: result });
   });
@@ -393,7 +393,7 @@ app.get("/getProduct/:id", (req, res) => {
     if (err)
       return res.json({
         Status: "Error",
-        Message: "Errer in running sql",
+        Error: "Errer in running sql",
       });
     return res.json({ Status: "Success", Result: result });
   });
@@ -416,7 +416,7 @@ app.put("/updateProduct/:id", jsonParser, (req, res) => {
   ];
 
   connection.query(sql, [...values, id], (err, data) => {
-    if (err) res.json({ Status: "Error", Message: "Errer in running sql" });
+    if (err) res.json({ Status: "Error", Error: "Errer in running sql" });
     return res.json({ Status: "Success", data });
   });
 });
@@ -429,7 +429,7 @@ app.get("/deleteProduct/:id", (req, res) => {
     if (err)
       return res.json({
         Status: "Error",
-        Message: "Errer in running sql",
+        Error: "Errer in running sql",
       });
     return res.json({ Status: "Success" });
   });
@@ -440,7 +440,7 @@ app.get("/countProduct", (req, res) => {
 
   connection.query(sql, (err, result) => {
     if (err)
-      return res.json({ Status: "Error", Message: "Errer in running sql" });
+      return res.json({ Status: "Error", Error: "Errer in running sql" });
     return res.json({ result });
   });
 });
@@ -460,7 +460,7 @@ app.post("/addToCart", jsonParser, (req, res) => {
     if (err) {
       return res.json({
         Status: "Error",
-        Message: "Errer in running sql",
+        Error: "Errer in running sql",
       });
     }
     return res.json({ Status: "Success" });
@@ -474,7 +474,7 @@ app.get("/getProductsInCart/:id", (req, res) => {
     if (err)
       return res.json({
         Status: "Error",
-        Message: "Errer in running sql",
+        Error: "Errer in running sql",
       });
     return res.json({ Status: "Success", Result: result });
   });
@@ -488,7 +488,7 @@ app.get("/deleteProductInCart/:id", (req, res) => {
     if (err)
       return res.json({
         Status: "Error",
-        Message: "Errer in running sql",
+        Error: "Errer in running sql",
       });
     return res.json({ Status: "Success" });
   });
@@ -499,12 +499,12 @@ app.get("/countProduct", (req, res) => {
 
   connection.query(sql, (err, result) => {
     if (err)
-      return res.json({ Status: "Error", Message: "Errer in running sql" });
+      return res.json({ Status: "Error", Error: "Errer in running sql" });
     return res.json({ result });
   });
 });
 
 
 app.listen(3001, () => {
-  console.log("CORS-enabled web server listening on port 3001");
+  console.log("Web server listening on port 3001");
 });
