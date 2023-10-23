@@ -27,12 +27,9 @@
     background-color: #FFF;
     box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.10);
   }
-  #box_cancel_register{
-    width: 30px;
-    height: 30px;
-    margin-top: 1.8rem;
-    margin-left: 42rem;
-  }
+  
+
+
   
   .container_register{
     width: 370px;
@@ -78,12 +75,12 @@
     padding: 20px 15px;
   }
   
-  .box_form1{
+  .box_form1_register{
     display: flex;
     gap: 0.5rem;
     justify-content: center;
   }
-  .box_form1 input{ 
+  .box_form1_register input{ 
     width: 220px;
     height: 58px;
     margin-top: 1rem;
@@ -93,7 +90,7 @@
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
   }
   
-  .input_form1{
+  .box_form1_register{
     padding: 20px 15px;
   }
 

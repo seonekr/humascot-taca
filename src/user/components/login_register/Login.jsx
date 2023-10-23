@@ -12,7 +12,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const navigate = useNavigate();
+  
 
   const handleEmail = (e) => {
     const value = e.target.value;
@@ -50,7 +50,7 @@ const Login = () => {
     <section>
 
       <form className="box_container_login">
-        <div className='box_cancel_register'>
+        <div className='box_cancel_login'>
           <Link to="/humascot-taca"><AiOutlineClose id="icon_cancel"/></Link>
         </div>
         <div className="cover">
