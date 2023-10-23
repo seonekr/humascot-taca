@@ -1,8 +1,13 @@
-import React, { useState } from "react";
-import "./login.css";
-import "boxicons";
+
+import React, { useState } from 'react';
+import './login.css';
+import 'boxicons';
+import { Link } from 'react-router-dom';
+import { AiOutlineClose } from "react-icons/ai"
+import google from '../../../img/google.png';
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -45,6 +50,7 @@ const Login = () => {
 
   return (
     <section>
+
       <form className="box_container_login">
         <div className="cover">
           <h2 className="box_container_login_text">Login</h2>
@@ -80,12 +86,10 @@ const Login = () => {
           </p>
 
           <p>Or</p>
-          <div className="googlebtn_btn">
-            <Link to="#" className="google_btn">
-              <img
-                src="https://assets.stickpng.com/images/5847f9cbcef1014c0b5e48c8.png"
-                alt="Google Logo"
-              />
+
+          <div className='googlebtn_btn'>
+            <Link to="#" className="google_btn" >
+              <img src={google} alt="img" />
               <p>Login with Google</p>
             </Link>
           </div>

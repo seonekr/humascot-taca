@@ -18,11 +18,6 @@ const Header = () => {
                     </ul>
                 </div>
             </section>
-            <section id="banner">
-                <div>
-                    <Banner/>
-                </div>
-            </section>
         </>
     )
 };
