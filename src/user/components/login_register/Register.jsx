@@ -102,25 +102,25 @@ const Register = () => {
             value={confirmPassword}
             onChange={handleConfirmPasswordChange}
           />
-          <Link to="/humascot-taca" type="submit" className="signup_btn">
+          <Link to="/humascot-taca/login" type="submit" className="signup_btn">
             Signup
           </Link>
         </form>
 
         <div>
           <p>
-            Already have an account? <Link to="/humascot-taca">Login</Link>
+            Already have an account? <Link to="/humascot-taca/login">Login</Link>
           </p>
         </div>
         <p>Or</p>
         <br />
-        <a className="google_btn" href="#">
+        <Link to="#" className="google_btn">
           <img
             src={google}
             alt="img"
           />
           <p>Login with Google</p>
-        </a>
+        </Link>
       </div>
     </div>
   );

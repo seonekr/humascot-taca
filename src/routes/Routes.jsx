@@ -18,7 +18,7 @@ import Categories from "../user/components/categories/Categories";
 
 /* ========= Phukeo ========= */
 import Login from '../user/components/login_register/Login';
-import Register from '../user/components/login_register/Register';
+import Register from "../user/components/login_register/Register";
 import Order from "../user/components/order/Order";
 import Product_search from "../user/components/products/Product_search";
 import ProductDetails from "../user/components/products/ProductDetails";
