@@ -57,16 +57,16 @@ const Register = () => {
       <div className="container_register">
         <h2 className="text_register">Register</h2>
         <form onSubmit={handleSubmit} className="box_form">
-          <div className="box_form1">
+          <div className="box_form1_register">
             <input
-              className="input_form1"
+              className="box_form1_register"
               type="name"
               placeholder="First name"
               value={firstName}
               onChange={handleFirstNameChange}
             />
             <input
-              className="input_form1"
+              className="box_form1_register"
               type="name"
               placeholder="Last name"
               value={lastName}

@@ -16,7 +16,7 @@ const Category = () =>{
                     />
                     <label htmlFor="clothes" className="box">
                         <img src={womenfashion} alt="img" />
-                        <h1>name</h1>
+                        <h1>names</h1>
                     </label>
                 </div>
                 <div className="box-category">
