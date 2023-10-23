@@ -27,15 +27,19 @@ const Banner = () => {
   }, [activeSlide]);
 
   return (
-    <div className="slider slider_ImageBox">
-      <div className={`slide ${direction}`} style={{backgroundImage: `url(${slides[activeSlide]})`}}></div>
-      <div className="navigation but1">
-        <div className="nav-btn " onClick={handlePrevSlide}>&#8249;</div>
-      </div>
-      <div className="navigation but2">
-        <div className="nav-btn " onClick={handleNextSlide}>&#8250;</div>
-      </div>
-    </div>
+
+      <section>
+        <div className="slider">
+          <div className={`slide ${direction}`} style={{backgroundImage: `url(${slides[activeSlide]})`}}></div>
+          <div className="navigation but1">
+            <div className="nav-btn " onClick={handlePrevSlide}>&#8249;</div>
+          </div>
+          <div className="navigation but2">
+            <div className="nav-btn " onClick={handleNextSlide}>&#8250;</div>
+          </div>
+        </div>
+      </section>
+
   );
 };
 

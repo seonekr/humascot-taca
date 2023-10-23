@@ -24,7 +24,7 @@ const Address = () => {
         setCompanny(''),
         setBranch('')
 
-        navigate('/humascot-taca/payment/',{ // Navigate to the payment page with the address props
+        navigate('/humascot-taca/cart/payment/',{ // Navigate to the payment page with the address props
             state: {
                 province: province+ ',',
                 city: city + ',',

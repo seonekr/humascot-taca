@@ -1,14 +1,17 @@
 import "./header.css";
 import { FaStore, FaMagnifyingGlass, FaCartShopping, FaRegUser } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+
 import Banner from "./Banner";
 import Logo1 from '../../../../public/Logo1.png';
+
 
 const Header = () => {
     return (
         <>
             <section id="header">
                 <div className="navbar">
+
                     <div className="headWithBox">
                         <ul className="headMenu">
                             <li><Link to="/humascot-taca"><img src={Logo1} alt="Logo" /></Link></li>
@@ -28,6 +31,17 @@ const Header = () => {
                     </div>
                 </div>
                 
+
+                    <ul>
+                        <li><Link to="/humascot-taca"><FaStore/></Link></li>
+                    </ul>
+                    <ul>
+                        <li><Link to="/humascot-taca"><FaMagnifyingGlass/></Link></li>
+                        <li><Link to="/humascot-taca/cart"><FaCartShopping/></Link></li>
+                        <li><Link to="/humascot-taca/login"><FaRegUser/></Link></li>
+                    </ul>
+                </div>
+
             </section>
         </>
     )

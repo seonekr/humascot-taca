@@ -22,9 +22,14 @@ a{
     height: 15rem;
     display: flex;
     gap: 1.8rem;
-    padding: 20px 0 0 20px;
+    margin-top: 0.8rem;
+    justify-content: space-between;
+    padding: 20px 120px 0 120px;
     background-color: #fff;
     box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
+}
+.box_item_image{
+    display: flex;
 }
 .box_item img{
     width: 250px;
@@ -49,7 +54,7 @@ a{
     align-items: center;
     justify-content: center;
     gap: 1.5rem;
-    padding: 8rem 0 0 28rem;
+    margin-top: 8rem;
 }
 .box_item_icon p{
     font-size: 20px;
