@@ -50,6 +50,9 @@ const Login = () => {
     <section>
 
       <form className="box_container_login">
+        <div className='box_cancel_register'>
+          <Link to="/humascot-taca"><AiOutlineClose id="icon_cancel"/></Link>
+        </div>
         <div className="cover">
           <h2 className="box_container_login_text">Login</h2>
           <h1>{error && error}</h1>
