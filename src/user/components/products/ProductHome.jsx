@@ -1,4 +1,5 @@
 import "./productHome.css";
+import { useState } from "react";
 import dress from "../../../img/dress.png";
 import productImage from "../../../img/productImage.png";
 import image1 from "../../../img/image1.png";
@@ -186,8 +187,8 @@ const ProductHome = () => {
             <Link to="#" className="btnViewProduct">View More</Link>
 
 
-import { useState } from "react";
-const ProductHome = () => {
+
+    const ProductHome = () => {
     const [products, setProducts] = useState([
         { id: 1, name: 'Product 1', description: 'This is product 1', price: 10, images: [dress] },
         { id: 2, name: 'Product 2', description: 'This is product 2', price: 20, images: [dress] },
