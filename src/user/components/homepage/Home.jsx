@@ -5,8 +5,6 @@ import Menu from "../menu/Menu";
 
 import "./home.css"
 import Banner from "../header/Banner";
-
-import Banner from "../header/Banner";
 import "./home.css";
 import { useEffect } from "react";
 // import axios from "axios";
