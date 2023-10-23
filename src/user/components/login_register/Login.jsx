@@ -1,12 +1,11 @@
 
-import React, { useState } from 'react';
-import './login.css';
-import 'boxicons';
-import { AiOutlineClose } from "react-icons/ai"
-import google from '../../../img/google.png';
+import React, { useState } from "react";
+import "./login.css";
+import "boxicons";
+import { AiOutlineClose } from "react-icons/ai";
+import google from "../../../img/google.png";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -35,7 +34,7 @@ const Login = () => {
       .then((res) => {
         console.log(res);
         if (res.data.Status === "Success") {
-          localStorage.setItem("token", res.data.Token)
+          localStorage.setItem("token", res.data.Token);
           console.log("login token: " + res.data.Token);
           navigate("/humascot-taca/");
         } else {
@@ -49,7 +48,6 @@ const Login = () => {
 
   return (
     <section>
-
       <form className="box_container_login">
         <div className="cover">
           <h2 className="box_container_login_text">Login</h2>
@@ -86,8 +84,8 @@ const Login = () => {
 
           <p>Or</p>
 
-          <div className='googlebtn_btn'>
-            <Link to="#" className="google_btn" >
+          <div className="googlebtn_btn">
+            <Link to="#" className="google_btn">
               <img src={google} alt="img" />
               <p>Login with Google</p>
             </Link>
