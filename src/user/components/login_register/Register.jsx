@@ -52,7 +52,7 @@ const Register = () => {
   return (
     <div className="box_container">
         <div className='box_cancel_register'>
-          <Link to="/humascot-taca"><AiOutlineClose id="icon_cancel"/></Link>
+          <Link to="/"><AiOutlineClose id="icon_cancel"/></Link>
         </div>
       <div className="container_register">
         <h2 className="text_register">Register</h2>
@@ -101,14 +101,14 @@ const Register = () => {
             value={confirmPassword}
             onChange={handleConfirmPasswordChange}
           />
-          <Link to="//humascot-taca/login" type="submit" className="signup_btn">
+          <Link to="/login" type="submit" className="signup_btn">
             Signup
           </Link>
         </form>
 
         <div>
           <p>
-            Already have an account? <Link to="/humascot-taca/login">Login</Link>
+            Already have an account? <Link to="/login">Login</Link>
           </p>
         </div>
         <p>Or</p>
