@@ -2,12 +2,19 @@
 body {
     background-color: #F5F5F5;
 }
+
 .boxspentainer{
-    height: 14vh;
+    height: 10vh;
 }
+
 .board{
+    padding: 2rem;
+    width: 84%;
+    overflow: hidden;
+    margin: auto;
     margin-left: 16%;
 }
+
 /* manage and target */
 .containerBox_db {
     display: grid;

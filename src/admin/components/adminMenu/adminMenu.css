@@ -2,9 +2,10 @@
 body {
     background-color: #F5F5F5;
 }
+
 /* Left bar */
 .container_boxD {
-    width: 100%;
+    width: 90%;
     display: flex;
     position: fixed;
 }
