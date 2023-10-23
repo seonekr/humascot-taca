@@ -52,6 +52,13 @@ const Product_search = () => {
         handleFilter(e.target.value); // Please change this to category
     };
 
+
+    const [noOfElement, setnoOfElement] = useState(4);
+    const loadMore = () =>{
+        setnoOfElement(noOfElement + noOfElement);
+    }
+    // const slice = products.carddata.slice(0, noOfElement);
+
     return (
         <>
             <Header/>
@@ -133,7 +140,12 @@ const Product_search = () => {
                         </div>
                     </div>
                     <div className='btn_more'>
-                        <Link to="#" className="loadmore_btn_more">View More</Link>
+                        <Link to="#" className="loadmore_btn_more"
+                        onClick={() => loadMore()}
+                        >
+                            View More
+                        </Link>
+                         
                     </div>
                 </div>
                 

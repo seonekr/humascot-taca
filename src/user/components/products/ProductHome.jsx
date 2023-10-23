@@ -1,5 +1,7 @@
 import "./productHome.css";
 import dress from "../../../img/dress.png";
+import productImage from "../../../img/productImage.png";
+import image1 from "../../../img/image1.png";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 const ProductHome = () => {
@@ -56,6 +58,7 @@ const ProductHome = () => {
                     </div>
                     ))}
                 </form>
+
         </section>
     )
 }

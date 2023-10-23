@@ -1,4 +1,4 @@
-#category form {
+#category {
     display: flex;
     text-align: center;
     padding: 1rem 0;
@@ -9,15 +9,10 @@
     margin-top: 1rem;
 }
 
-#category .box-category button {
-    border: none;
-    background: none;
-}
-
-#category .box-category input {
+#category form .box-category input {
     display: none;
 }
-#category .box-category label {
+#category form .box-category label {
     cursor: pointer;
 }
 

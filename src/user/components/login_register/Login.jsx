@@ -33,7 +33,6 @@ const Login = () => {
       <form onSubmit={handleSubmit} className="box_container_login">
         <div className='box_cancel'>
           <Link to="/humascot-taca"><AiOutlineClose id="icon_cancel"/></Link>
-          
         </div>
         <div className='cover'>
           <h2 className='box_container_login_text'>Login</h2>

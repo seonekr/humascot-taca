@@ -84,19 +84,8 @@ const Category = () =>{
                         </label>
                     </button>
                 </div>
-                {/* <div className="box-category">
-                    <Link to="/" className="box">
-                        <img src={womenfashion} alt="img" />
-                        <h1>name</h1>
-                    </Link>
-                </div>
-                <div className="box-category">
-                    <Link to="/" className="box">
-                        <img src={womenfashion} alt="img" />
-                        <h1>name</h1>
-                    </Link>
-                </div> */}
             </form>
+
         </section>
     )
 }
