@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './register.css';
 import 'boxicons';
-import google from '../../../img/google.png';
 import { Link } from 'react-router-dom';
+import google from '../../../img/google.png';
 import { AiOutlineClose } from "react-icons/ai"
 
 const Register = () => {
@@ -51,22 +51,23 @@ const Register = () => {
 
   return (
     <div className="box_container">
-        <div className='box_cancel_register'>
+      <div className='box_cancel_register'>
           <Link to="/humascot-taca"><AiOutlineClose id="icon_cancel"/></Link>
-        </div>
+      </div>
+
       <div className="container_register">
         <h2 className="text_register">Register</h2>
         <form onSubmit={handleSubmit} className="box_form">
-          <div className="box_form1_register">
+          <div className="box_form1">
             <input
-              className="box_form1_register"
+              className="input_form1"
               type="name"
               placeholder="First name"
               value={firstName}
               onChange={handleFirstNameChange}
             />
             <input
-              className="box_form1_register"
+              className="input_form1"
               type="name"
               placeholder="Last name"
               value={lastName}
@@ -101,22 +102,25 @@ const Register = () => {
             value={confirmPassword}
             onChange={handleConfirmPasswordChange}
           />
-          <Link to="//humascot-taca/login" type="submit" className="signup_btn">
+          <Link to="/humascot-taca" type="submit" className="signup_btn">
             Signup
           </Link>
         </form>
 
         <div>
           <p>
-            Already have an account? <Link to="/humascot-taca/login">Login</Link>
+            Already have an account? <Link to="/humascot-taca">Login</Link>
           </p>
         </div>
         <p>Or</p>
         <br />
-        <Link to="#" className="google_btn">
-          <img src={google} alt="img"/>
+        <a className="google_btn" href="#">
+          <img
+            src={google}
+            alt="img"
+          />
           <p>Login with Google</p>
-        </Link>
+        </a>
       </div>
     </div>
   );
