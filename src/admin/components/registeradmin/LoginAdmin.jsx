@@ -51,7 +51,7 @@ const Login = () => {
     <section>
       <form className="box_container_login">
         <div className="box_cancel">
-          <Link to="/humascot-taca">
+          <Link to="/">
             <AiOutlineClose id="icon_cancel" />
           </Link>
         </div>
@@ -73,27 +73,10 @@ const Login = () => {
             onChange={handlePassword}
           />
 
-          <Link to="#" className="forgot_pass">
-            Forgot Password?
-          </Link>
-
           <div className="loginbtn_login">
           <button type="button" className="login_btn" onClick={handleSubmit}>
               Login
             </button>
-          </div>
-
-          <p>
-            Don't have an account?{" "}
-            <Link to="/humascot-taca/admin/registeradmin">Signup</Link>
-          </p>
-
-          <p>Or</p>
-          <div className="googlebtn_btn">
-            <Link to="#" className="google_btn">
-              <img src={google} alt="img" />
-              <p>Login with Google</p>
-            </Link>
           </div>
         </div>
       </form>

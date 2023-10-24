@@ -52,6 +52,13 @@ const Product_search = () => {
         handleFilter(e.target.value); // Please change this to category
     };
 
+
+    const [noOfElement, setnoOfElement] = useState(4);
+    const loadMore = () =>{
+        setnoOfElement(noOfElement + noOfElement);
+    }
+    // const slice = products.carddata.slice(0, noOfElement);
+
     return (
         <>
             <Header/>
@@ -66,18 +73,18 @@ const Product_search = () => {
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
                             />
-                             <input
-                                type="number"
-                                placeholder="Min Price"
-                                value={minPrice}
-                                onChange={(e) => setMinPrice(e.target.value)}
-                            />
                             <input
                                 type="number"
                                 placeholder="Max Price"
                                 value={maxPrice}
                                 onChange={(e) => setMaxPrice(e.target.value)}
                             />
+                             <input
+                                type="number"
+                                placeholder="Min Price"
+                                value={minPrice}
+                                onChange={(e) => setMinPrice(e.target.value)}
+                            />  
                         </div>
                     </div>
                     <div className="content_itemBox">
@@ -109,7 +116,7 @@ const Product_search = () => {
                                             <input
                                                 type="text"
                                                 value={product.name}
-                                                onChange={handleInputChange}
+                                                onChange={(e) => handleInputChange(e, index, "name")}
                                             />
                                         </h4>
                                         <p className='txtP_width'>
@@ -133,7 +140,12 @@ const Product_search = () => {
                         </div>
                     </div>
                     <div className='btn_more'>
-                        <Link to="#" className="loadmore_btn_more">View More</Link>
+                        <Link to="#" className="loadmore_btn_more"
+                        onClick={() => loadMore()}
+                        >
+                            View More
+                        </Link>
+                         
                     </div>
                 </div>
                 
