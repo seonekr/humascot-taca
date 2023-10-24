@@ -1,6 +1,6 @@
 .category_container {
-    margin: 1rem 0;
-    gap: 3rem;
+    gap: 5rem;
+    margin: 1.5rem 0;
 }
 
 .category_container,
@@ -14,7 +14,7 @@
 #category .box-category {
     background-color: #FFF;
     width: 9%;
-    padding: 15px 0;
+    padding: 10px 0;
     display: flex;
     flex-direction: column;
     align-items: center;

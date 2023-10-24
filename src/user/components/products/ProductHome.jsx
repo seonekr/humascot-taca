@@ -30,6 +30,7 @@ const ProductHome = () => {
                     {products.map((product, index) => (
                     <div className="box-product"  key={index}>
                         <Link to="#"><img src={product.images[0]} alt="image" /></Link>
+                        
                         <ul>
                             <li>
                                 <input
