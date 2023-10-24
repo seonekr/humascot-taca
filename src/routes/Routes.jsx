@@ -48,10 +48,10 @@ const Links = () => {
                 <Route exact path="/humascot-taca/categories/" Component={Categories}/>
 
                 {/* Admin routes */}
-                <Route exact path="/admin/dashboard/" Component={Dashboard}/>
-                <Route exact path="/admin/post/" Component={Post}/>
-                <Route exact path="/admin/addadmin/" Component={AddAdmin}/>
-                <Route exact path="/admin/message/" Component={Message}/>
+                <Route exact path="/humascot-taca/admin/dashboard/" Component={Dashboard}/>
+                <Route exact path="/humascot-taca/admin/post/" Component={Post}/>
+                <Route exact path="/humascot-taca/admin/addadmin/" Component={AddAdmin}/>
+                <Route exact path="/humascot-taca/admin/message/" Component={Message}/>
 
                 {/*==== phukeo ==== */}
                 <Route exact path="/humascot-taca/product_search/" Component={Product_search}/>
