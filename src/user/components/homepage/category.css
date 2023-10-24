@@ -66,10 +66,11 @@
 @media screen and (max-width: 420px) {
     .category_container {
         gap: 3rem;
+        
         width: 100%;
     }
     #category .box-category {
         width: 100%;
-        
+
     }
 }
