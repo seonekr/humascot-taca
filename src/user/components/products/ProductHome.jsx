@@ -53,9 +53,9 @@ const ProductHome = () => {
                                 />
                             </li>
                         </ul>
+                    </div>
+                    ))}
                 </form>
-                ))}
-            </div>
         </section>
     )
 }
