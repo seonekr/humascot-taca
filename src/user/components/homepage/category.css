@@ -1,6 +1,8 @@
 .category_container {
+    display: flex;
     gap: 5rem;
-    margin: 1.5rem 0;
+    margin: 1.5rem auto;
+    width: 50%;
 }
 
 .category_container,
@@ -11,9 +13,15 @@
     justify-content: space-evenly;
 }
 
+.category_container .box-category button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
 #category .box-category {
     background-color: #FFF;
-    width: 9%;
+    width: 50%;
     padding: 10px 0;
     display: flex;
     flex-direction: column;

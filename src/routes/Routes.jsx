@@ -16,7 +16,6 @@ import AddAdmin from "../admin/components/addAdmin/AddAdmin";
 import Message from "../admin/components/messages/Message";
 import Categories from "../user/components/categories/Categories";
 
-
 /* ========= Phukeo ========= */
 import Login from '../user/components/login_register/Login';
 import Register from "../user/components/login_register/Register";
