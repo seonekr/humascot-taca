@@ -6,23 +6,13 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 const ProductHome = () => {
     const [products, setProducts] = useState([
-        { id: 1, name: 'Product 1', description: 'This is product 1', price: '100.000 Kip', images: [dress] },
-        { id: 2, name: 'Product 2', description: 'This is product 2', price: '200.000 Kip', images: [productImage] },
-        { id: 3, name: 'Product 3', description: 'This is product 3', price: '300.000 Kip', images: [image1] },
-        { id: 4, name: 'Product 1', description: 'This is product 1', price: '100.000 Kip', images: [dress] },
-        { id: 5, name: 'Product 2', description: 'This is product 2', price: '200.000 Kip', images: [dress] },
-        { id: 6, name: 'Product 3', description: 'This is product 3', price: '300.000 Kip', images: [dress] },
-        { id: 7, name: 'Product 3', description: 'This is product 3', price: '300.000 Kip', images: [dress] },
-        { id: 8, name: 'Product 3', description: 'This is product 3', price: '300.000 Kip', images: [dress] },
-        { id: 9, name: 'Product 3', description: 'This is product 3', price: '300.000 Kip', images: [dress] },
-        { id: 10, name: 'Product 3', description: 'This is product 3', price: '300.000 Kip', images: [dress] },
-        { id: 11, name: 'Product 3', description: 'This is product 3', price: '300.000 Kip', images: [dress] },
-        { id: 12, name: 'Product 3', description: 'This is product 3', price: '300.000 Kip', images: [dress] },
-        { id: 13, name: 'Product 3', description: 'This is product 3', price: '300.000 Kip', images: [dress] },
-        { id: 14, name: 'Product 3', description: 'This is product 3', price: '300.000 Kip', images: [dress] },
-        { id: 15, name: 'Product 3', description: 'This is product 3', price: '300.000 Kip', images: [dress] },
-        { id: 16, name: 'Product 3', description: 'This is product 3', price: '300.000 Kip', images: [dress] },
-    ]);
+        { id: 1, name: 'Product 1', description: 'This is product 1', price: 10, images: [dress] },
+        { id: 2, name: 'Product 2', description: 'This is product 2', price: 20, images: [dress] },
+        { id: 3, name: 'Product 3', description: 'This is product 3', price: 30, images: [dress] },
+        { id: 4, name: 'Product 1', description: 'This is product 1', price: 10, images: [dress] },
+        { id: 5, name: 'Product 2', description: 'This is product 2', price: 20, images: [dress] },
+        { id: 6, name: 'Product 3', description: 'This is product 3', price: 30, images: [dress] },
+      ]);
 
     // Handle inputChange
     const handleInputChange = (e, index, field) => {
