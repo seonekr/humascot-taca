@@ -102,7 +102,7 @@ const Register = () => {
             value={confirmPassword}
             onChange={handleConfirmPasswordChange}
           />
-          <Link to="//humascot-taca/login" type="submit" className="signup_btn">
+          <Link to="/humascot-taca/login" type="submit" className="signup_btn">
             Signup
           </Link>
         </form>
