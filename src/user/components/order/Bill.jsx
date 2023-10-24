@@ -1,13 +1,12 @@
 import { FaAngleLeft} from "react-icons/fa6";
-import { AiFillCheckCircle } from "react-icons/Ai";
 import { Link } from "react-router-dom";
 import Menu from "../menu/Menu";
-import Header from "../header/Header";
+import Header from "../Header/Header";
 import './bill.css';
 const Bill = () => {
     return (
         <>
-            <Header></Header>
+            <Header/>
             <section id="bill">
 
                 <div className="account-navbar">
@@ -23,7 +22,6 @@ const Bill = () => {
                             <p>ID: 4</p>
                             <p>Name: Sam</p>
                         </div>
-                        <div className="iconnboxx"><AiFillCheckCircle /></div>
                         <div className="iconnboxx"></div>
                     </div>
 
