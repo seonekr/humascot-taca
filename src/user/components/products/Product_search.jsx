@@ -104,14 +104,14 @@ const Product_search = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className='box_container_home'>
+                        <div className='product-area'>
                             {filteredProducts.map((product, index) => (
                             <form key={index}>
-                                <div className='box_container_img' >
+                                <div className='box-product' >
                                     <Link to="/humascot-taca/product_search/productdetails">
                                         <img src={product.images[0]} alt='img'/>
-                                    </Link>                             
-                                    <div className="txtOfProduct">
+                                    </Link>
+                                    <div className="txtOFproduct">
                                         <h4>
                                             <input
                                                 type="text"
