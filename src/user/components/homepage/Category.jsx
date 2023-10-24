@@ -15,26 +15,21 @@ const Category = () => {
 
     return (
         <section id="category">
-                <div className="category_container">
-                    <div className="box-category">
-                        <button onClick={() => handleCategoryChange('clothes')}>
-                            <img src={womenfashion} alt="img" />
-                            <p>names</p>
-                        </button>
-                    </div>
-                    <div className="box-category">
-                        <button onClick={() => handleCategoryChange('electronich device')}>
-                            <img src={womenfashion} alt="img" />
-                            <p>names</p>
-                        </button>
-                    </div>
-                    <div className="box-category">
-                        <button onClick={() => handleCategoryChange('cosmetics')}>
-                            <img src={womenfashion} alt="img" />
-                            <p>names</p>
-                        </button>
-                    </div>
-                </div>
+            <div className="category_container">
+                <Link to="/" className="box-category">
+                    <img src={womenfashion} alt="img" />
+                    <p>names</p>
+                </Link>
+                <Link to="/" className="box-category">
+                    <img src={womenfashion} alt="img" />
+                    <p>names</p>
+                </Link>
+                <Link to="/" className="box-category">
+                    <img src={womenfashion} alt="img" />
+                    <p>names</p>
+                </Link>
+            </div>
+
         </section>
     )
 }
