@@ -36,7 +36,7 @@ const Login = () => {
         if (res.data.Status === "Success") {
           localStorage.setItem("token", res.data.Token);
           console.log("login token: " + res.data.Token);
-          navigate("/");
+          navigate("/humascot-taca/");
         } else {
           setError(res.data.Error);
         }
@@ -79,7 +79,7 @@ const Login = () => {
 
           <p>
             Don't have an account?{" "}
-            <Link to="/register">Signup</Link>
+            <Link to="/humascot-taca/register">Signup</Link>
           </p>
 
           <p>Or</p>
