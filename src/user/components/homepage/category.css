@@ -53,8 +53,9 @@
     #category{
         width: 100%;
     }
+
     #category .box-category {
-        width: 50%;
+        width: 100%;
     }
     
     #category .box-category a {

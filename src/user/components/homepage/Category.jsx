@@ -19,19 +19,19 @@ const Category = () => {
                     <div className="box-category">
                         <button onClick={() => handleCategoryChange('clothes')}>
                             <img src={womenfashion} alt="img" />
-                            <p>names</p>
+                            <p>Womwn's fashion</p>
                         </button>
                     </div>
                     <div className="box-category">
                         <button onClick={() => handleCategoryChange('electronich device')}>
                             <img src={womenfashion} alt="img" />
-                            <p>names</p>
+                            <p>Electronich device</p>
                         </button>
                     </div>
                     <div className="box-category">
                         <button onClick={() => handleCategoryChange('cosmetics')}>
                             <img src={womenfashion} alt="img" />
-                            <p>names</p>
+                            <p>Cosmetics</p>
                         </button>
                     </div>
                 </div>
