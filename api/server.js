@@ -7,16 +7,17 @@ const bcrypt = require("bcrypt");
 const saltRounds = 10;
 var jwt = require("jsonwebtoken");
 const secret = "Humascot-TACA2023";
+require('dotenv').config()
 
 app.use(cors());
 
 const mysql = require("mysql2");
 // create the connection database
 const connection = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "",
-  database: "taca_db",
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DATABASE,
 });
 
 // ==================== Admin Management =====================
@@ -56,10 +57,10 @@ app.post("/admin", jsonParser, (req, res) => {
         (err, response) => {
           if (err) return res.json({ Error: "Password error" });
           if (response) {
-            const token = jwt.sign({ email: result[0].email }, secret, {
+            const token = jwt.sign({id: result[0].id, email: result[0].email }, secret, {
               expiresIn: "1d",
             });
-            return res.json({ Status: "Success", Token: token });
+            return res.json({ Status: "Success", Token: token, id: result[0].id});
           } else {
             return res.json({
               Status: "Error",

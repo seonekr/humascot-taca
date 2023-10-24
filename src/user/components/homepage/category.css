@@ -1,13 +1,13 @@
 .category_container {
-    display: flex;
     gap: 5rem;
-    margin: 1.5rem auto;
-    width: 50%;
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+    justify-content: center;
+    width: 100%;
+    display: flex;
 }
 
-.category_container,
-.box-category {
-    display: flex;
+.category_container .box-category {
     text-align: center;
     padding: 1rem 0;
     justify-content: space-evenly;
@@ -21,7 +21,7 @@
 
 #category .box-category {
     background-color: #FFF;
-    width: 50%;
+    width: 9%;
     padding: 10px 0;
     display: flex;
     flex-direction: column;
