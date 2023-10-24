@@ -2,13 +2,9 @@ import "./header.css";
 import { FaStore, FaMagnifyingGlass, FaCartShopping, FaRegUser } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
-import Banner from "./Banner";
-import Logo1 from '../../../../public/Logo1.png';
-
-
 const Header = () => {
     return (
-       
+        <>
             <section id="header">
                 <div className="navbar">
                     <div className="headWithBox">
@@ -31,7 +27,7 @@ const Header = () => {
                     </div>
                 </div>
             </section>
-
+        </>
     )
 };
 
