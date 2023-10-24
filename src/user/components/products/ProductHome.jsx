@@ -47,10 +47,10 @@ const ProductHome = () => {
                 <h1 className="htxthead"><span className="spennofStyle"></span>Product</h1>
                 <form>
                     <select className="filter_priceProduct" value={price} onChange={handleSelectChange}>
-                        <option value="">All</option>
-                        <option value="10">Price low to high</option>
-                        <option value="20">Price low</option>
-                        <option value="30">Price high</option>
+                        <option value="">Price</option>
+                        <option value="10">$10</option>
+                        <option value="20">$20</option>
+                        <option value="30">$30</option>
                     </select>
                 </form>
             </div>

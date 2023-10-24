@@ -10,16 +10,16 @@ import axios from "axios";
 
 const Login = () => {
   const [email, setEmail] = useState('');
-  const [pass, setPass] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleEmail = (e) => {
     const value = e.target.value;
     setEmail(value); 
   };
 
-  const handlePass = (e) => {
+  const handlePassword = (e) => {
     const value = e.target.value;
-    setPass(value);
+    setPassword(value);
   };
 
   const handleSubmit = (e) => {
@@ -36,7 +36,7 @@ const Login = () => {
           console.log("login token: " + res.data.Token);
           navigate("/");
         } else {
-          setError(res.data.Error);
+          setError(res.data.err);
         }
       })
       .catch((err) => {
@@ -46,10 +46,10 @@ const Login = () => {
 
   return (
     <section>
-      <form className="box_container_login">
+      <form onSubmit={handleSubmit} className="box_container_login">
         <div className="cover">
           <h2 className="box_container_login_text">Login</h2>
-          <h1>{error && error}</h1>
+          <h1>{err && err}</h1>
           <input
             className="input_form"
             type="email"
