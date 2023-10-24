@@ -5,7 +5,7 @@ import Menu from "../menu/Menu";
 import Banner from "../header/Banner";
 import "./home.css";
 import { useEffect } from "react";
-// import axios from "axios";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
@@ -38,6 +38,7 @@ const Home = () => {
   return (
     <>
         <Header/>
+        <Banner/>
         <Category/>
         <ProductHome/>
         <Menu/>
