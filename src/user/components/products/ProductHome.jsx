@@ -60,7 +60,7 @@ const ProductHome = () => {
                     <div className="box-product" key={index}>
                         <Link to="#"><img src={product.images[0]} alt="image" /></Link>
                         <ul className="txtOFproduct">
-                            <li >
+                            <li>
                                 <input
                                     className="name"
                                     type="text"
