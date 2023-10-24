@@ -1,27 +1,25 @@
 
-import React, { useState } from "react";
-import "./login.css";
-import "boxicons";
-import { AiOutlineClose } from "react-icons/ai";
-import google from "../../../img/google.png";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import './login.css';
+import 'boxicons';
+import { Link } from 'react-router-dom';
+import { AiOutlineClose } from "react-icons/ai"
+import google from '../../../img/google.png';
 import axios from "axios";
 
-const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
 
-  const navigate = useNavigate();
+const Login = () => {
+  const [email, setEmail] = useState('');
+  const [pass, setPass] = useState('');
 
   const handleEmail = (e) => {
     const value = e.target.value;
-    setEmail(value);
+    setEmail(value); 
   };
 
-  const handlePassword = (e) => {
+  const handlePass = (e) => {
     const value = e.target.value;
-    setPassword(value);
+    setPass(value);
   };
 
   const handleSubmit = (e) => {
@@ -71,29 +69,24 @@ const Login = () => {
             Forgot Password?
           </Link>
 
-          <div className="loginbtn_login">
-            <button type="button" className="login_btn" onClick={handleSubmit}>
-              Login
-            </button>
+          <div className='loginbtn_login'>
+            <Link to="#" type="submit" className="login_btn" >Login</Link>
           </div>
 
-          <p>
-            Don't have an account?{" "}
-            <Link to="/register">Signup</Link>
-          </p>
+          <p>Don't have an account? <Link to="/humascot-taca/register">Signup</Link></p>
 
           <p>Or</p>
-
-          <div className="googlebtn_btn">
-            <Link to="#" className="google_btn">
+          <div className='googlebtn_btn'>
+            <Link to="#" className="google_btn" >
               <img src={google} alt="img" />
               <p>Login with Google</p>
             </Link>
           </div>
+
         </div>
       </form>
     </section>
-  );
-};
+  )
+}
 
 export default Login;

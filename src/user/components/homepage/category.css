@@ -1,4 +1,10 @@
-#category {
+.category_container {
+    gap: 5rem;
+    margin: 1.5rem 0;
+}
+
+.category_container,
+.box-category {
     display: flex;
     text-align: center;
     padding: 1rem 0;
@@ -6,7 +12,19 @@
 }
 
 #category .box-category {
-    margin-top: 1rem;
+    background-color: #FFF;
+    width: 9%;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 7px;
+    border: 1px solid #DDDCE1;
+    gap: 10px;
+}
+
+#category .box-category img {
+    width: 50%;
 }
 
 #category .box-category a {

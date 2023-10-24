@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './register.css';
 import 'boxicons';
-import google from '../../../img/google.png';
 import { Link } from 'react-router-dom';
+import google from '../../../img/google.png';
 import { AiOutlineClose } from "react-icons/ai"
 
 const Register = () => {
@@ -51,9 +51,10 @@ const Register = () => {
 
   return (
     <div className="box_container">
-        <div className='box_cancel_register'>
-          <Link to="/"><AiOutlineClose id="icon_cancel"/></Link>
-        </div>
+      <div className='box_cancel_register'>
+          <Link to="/humascot-taca"><AiOutlineClose id="icon_cancel"/></Link>
+      </div>
+
       <div className="container_register">
         <h2 className="text_register">Register</h2>
         <form onSubmit={handleSubmit} className="box_form">
@@ -101,7 +102,8 @@ const Register = () => {
             value={confirmPassword}
             onChange={handleConfirmPasswordChange}
           />
-          <Link to="/login" type="submit" className="signup_btn">
+          <Link to="/humascot-taca/login" type="submit" className="signup_btn">
+
             Signup
           </Link>
         </form>
@@ -113,11 +115,13 @@ const Register = () => {
         </div>
         <p>Or</p>
         <br />
-        <a className="google_btn" href="#">
-          <img src={google} alt="img"
+        <Link to="#" className="google_btn">
+          <img
+            src={google}
+            alt="img"
           />
           <p>Login with Google</p>
-        </a>
+        </Link>
       </div>
     </div>
   );
