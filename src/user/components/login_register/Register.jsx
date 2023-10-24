@@ -102,7 +102,7 @@ const Register = () => {
             value={confirmPassword}
             onChange={handleConfirmPasswordChange}
           />
-          <Link to="/login" type="submit" className="signup_btn">
+          <Link  type="submit" className="signup_btn">
             Signup
           </Link>
         </form>

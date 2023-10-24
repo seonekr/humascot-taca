@@ -75,7 +75,7 @@ const Login = () => {
 
           <p>
             Don't have an account?{" "}
-            <Link to="/register">Signup</Link>
+            <Link to="/humascot-taca/register">Signup</Link>
           </p>
 
           <p>Or</p>
