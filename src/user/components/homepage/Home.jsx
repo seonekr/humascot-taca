@@ -1,4 +1,6 @@
+import React from 'react'
 import Header from "../header/Header";
+import Banner from "../header/Banner";
 import Category from "./Category";
 import ProductHome from "../products/ProductHome";
 import Menu from "../menu/Menu";
@@ -9,6 +11,7 @@ const Home = () => {
   return (
     <>
         <Header/>
+        <Banner/>
         <Category/>
         <ProductHome/>
         <Menu/>

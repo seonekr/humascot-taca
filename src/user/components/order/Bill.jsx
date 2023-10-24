@@ -1,39 +1,69 @@
-import { FaArrowLeft } from "react-icons/fa6";
+import { FaAngleLeft} from "react-icons/fa6";
+import { AiFillCheckCircle } from "react-icons/Ai";
 import { Link } from "react-router-dom";
 import Menu from "../menu/Menu";
+import Header from "../header/Header";
 import './bill.css';
 const Bill = () => {
-    return(
+    return (
         <>
-            <section id="header-account">
+            <Header></Header>
+            <section id="bill">
+
                 <div className="account-navbar">
-                    <div className="header-box"><Link to="/humascot-taca/order"><FaArrowLeft/></Link></div>
+                    <div className="header-box"><Link to="/humascot-taca/order" className='guopIconbAck'><FaAngleLeft className='iconnBack' />Back</Link></div>
                     <div className="header-box middle">Bill</div>
                     <div className="header-box"></div>
                 </div>
-            </section>
-            <section id="bill">
+
                 <div className="bill-detial">
-                    <div className="id">
-                        <span><p>NO:</p><p>15</p></span>
-                        <span><p>ID:</p><p>4</p></span>
-                        <span><p>Name:</p><p>Sam</p></span>
+                    <div className="guopoidHead">
+                        <div className="idf">
+                            <p>NO: 15</p>
+                            <p>ID: 4</p>
+                            <p>Name: Sam</p>
+                        </div>
+                        <div className="iconnboxx"><AiFillCheckCircle /></div>
+                        <div className="iconnboxx"></div>
                     </div>
-                    <div className="detial">
-                        <span><h3>Product name</h3><h3>Price</h3><h3>Amount</h3></span>
-                        <span><p>name...</p><p>12,0...</p><p>3</p></span>
-                        <span><p>name...</p><p>12,0...</p><p>3</p></span>
-                        <span><p>name...</p><p>12,0...</p><p>3</p></span>
+
+
+                    <hr />
+
+                    <div className="billGopBox">
+                        <div className="detial">
+                            <h5>Product Name</h5>
+                            <p>name...</p>
+                            <p>name...</p>
+                            <p>name...</p>
+                        </div>
+                        <div className="detial">
+                            <h5>Price</h5>
+                            <p>name...</p>
+                            <p>name...</p>
+                            <p>name...</p>
+                        </div>
+                        <div className="detial">
+                            <h5>Amount</h5>
+                            <p>name...</p>
+                            <p>name...</p>
+                            <p>name...</p>
+                        </div>
+                    </div>
+                    <hr />
+                    <div className="titlePrice">
+                        <p>Title:</p>
+                        <p>100,000 Kip</p>
                     </div>
                     <div className="place-on">
-                        <span><p>Place on:</p><p>15/09/2023</p></span>
-                        <span><p>Payment method:</p><p>Bcel One</p></span>
-                        <span><p>Status:</p><p>completed</p></span>
-                        <span><p>Delivery by:</p><p>Anousit</p></span>
+                        <p>Place on: 15/09/2023</p>
+                        <p>Payment method: Bcel One</p>
+                        <p>Status: completed</p>
+                        <p>Delivery by: Anousit</p>
                     </div>
                 </div>
             </section>
-            <Menu/>
+            <Menu />
         </>
     );
 }

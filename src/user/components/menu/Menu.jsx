@@ -42,6 +42,7 @@ const Menu = () => {
                 </div>
                 <hr />
                 <p className="lastFooter">
+                    Copyright &#169;
                     TACA 2023
                 </p>
             </footer>
