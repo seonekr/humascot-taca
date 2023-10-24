@@ -16,7 +16,7 @@ const Header = () => {
                                 <li><Link to="/humascot-taca/product_search" className="linkLi">Shop</Link></li>
                                 <li><Link to="/humascot-taca/order" className="linkLi">Order</Link></li>
                                 <li><Link to="/humascot-taca/chatuser" className="linkLi">Chat</Link></li>
-                                <li><Link to="/humascot-taca" className="linkLi">Login</Link></li>
+                                <li><Link to="/humascot-taca/login" className="linkLi">Login</Link></li>
                             </div>
                         </ul>
 
