@@ -12,6 +12,16 @@ const ProductHome = () => {
         { id: 4, name: 'Product 1', description: 'This is product 1', price: 10, images: [dress] },
         { id: 5, name: 'Product 2', description: 'This is product 2', price: 20, images: [dress] },
         { id: 6, name: 'Product 3', description: 'This is product 3', price: 30, images: [dress] },
+        { id: 6, name: 'Product 3', description: 'This is product 3', price: 30, images: [dress] },
+        { id: 6, name: 'Product 3', description: 'This is product 3', price: 30, images: [dress] },
+        { id: 6, name: 'Product 3', description: 'This is product 3', price: 30, images: [dress] },
+        { id: 6, name: 'Product 3', description: 'This is product 3', price: 30, images: [dress] },
+        { id: 6, name: 'Product 3', description: 'This is product 3', price: 30, images: [dress] },
+        { id: 6, name: 'Product 3', description: 'This is product 3', price: 30, images: [dress] },
+        { id: 6, name: 'Product 3', description: 'This is product 3', price: 30, images: [dress] },
+        { id: 6, name: 'Product 3', description: 'This is product 3', price: 30, images: [dress] },
+        { id: 6, name: 'Product 3', description: 'This is product 3', price: 30, images: [dress] },
+        { id: 6, name: 'Product 3', description: 'This is product 3', price: 30, images: [dress] },
       ]);
 
     // Handle inputChange
