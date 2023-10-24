@@ -1,28 +1,27 @@
 import "./category.css";
 import womenfashion from "../../../img/womenfashion.png";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
-const Category = () =>{
-    return(
+const Category = () => {
+    return (
+
         <section id="category">
-            <div className="box-category">
-                <Link to="/" className="box">
+            <div className="category_container">
+                <Link to="/" className="box-category">
                     <img src={womenfashion} alt="img" />
-                    <h1>name</h1>
+                    <p>names</p>
+                </Link>
+                <Link to="/" className="box-category">
+                    <img src={womenfashion} alt="img" />
+                    <p>names</p>
+                </Link>
+                <Link to="/" className="box-category">
+                    <img src={womenfashion} alt="img" />
+                    <p>names</p>
                 </Link>
             </div>
-            <div className="box-category">
-                <Link to="/" className="box">
-                    <img src={womenfashion} alt="img" />
-                    <h1>name</h1>
-                </Link>
-            </div>
-            <div className="box-category">
-                <Link to="/" className="box">
-                    <img src={womenfashion} alt="img" />
-                    <h1>name</h1>
-                </Link>
-            </div>
+
         </section>
     )
 }

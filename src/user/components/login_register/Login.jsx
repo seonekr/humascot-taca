@@ -1,10 +1,9 @@
-
 import React, { useState } from "react";
 import "./login.css";
 import "boxicons";
+import { Link, useNavigate } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
 import google from "../../../img/google.png";
-import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Login = () => {
@@ -72,9 +71,9 @@ const Login = () => {
           </Link>
 
           <div className="loginbtn_login">
-            <button type="button" className="login_btn" onClick={handleSubmit}>
+            <Link to="#" type="submit" className="login_btn" onClick={handleSubmit}>
               Login
-            </button>
+            </Link>
           </div>
 
           <p>
@@ -83,7 +82,6 @@ const Login = () => {
           </p>
 
           <p>Or</p>
-
           <div className="googlebtn_btn">
             <Link to="#" className="google_btn">
               <img src={google} alt="img" />
