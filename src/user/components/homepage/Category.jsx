@@ -19,7 +19,7 @@ const Category = () => {
                     <div className="box-category">
                         <button onClick={() => handleCategoryChange('clothes')}>
                             <img src={womenfashion} alt="img" />
-                            <p>Womwn's fashions</p>
+                            <p>Womwn's fashion</p>
                         </button>
                     </div>
                     <div className="box-category">
