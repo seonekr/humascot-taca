@@ -22,12 +22,14 @@ const Category = () => {
                             <p>Womwn's fashions</p>
                         </button>
                     </div>
+
                     <div className="box-category">
                         <button onClick={() => handleCategoryChange('electronich device')}>
                             <img src={womenfashion} alt="img" />
                             <p>Electronich device</p>
                         </button>
                     </div>
+
                     <div className="box-category">
                         <button onClick={() => handleCategoryChange('cosmetics')}>
                             <img src={womenfashion} alt="img" />
