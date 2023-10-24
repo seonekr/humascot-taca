@@ -27,7 +27,7 @@ const Home = () => {
         if (response.data.Status === "Success") {
           console.log(JSON.stringify(response.data.Status));
         } else {
-          navigate("/login");
+          navigate("/humascot-taca/login");
         }
       })
       .catch((error) => {

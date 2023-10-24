@@ -1,25 +1,26 @@
-
-import React, { useState } from 'react';
-import './login.css';
-import 'boxicons';
-import { Link } from 'react-router-dom';
-import { AiOutlineClose } from "react-icons/ai"
-import google from '../../../img/google.png';
+import React, { useState } from "react";
+import "./login.css";
+import "boxicons";
+import { Link, useNavigate } from "react-router-dom";
+import { AiOutlineClose } from "react-icons/ai";
+import google from "../../../img/google.png";
 import axios from "axios";
 
-
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [pass, setPass] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const navigate = useNavigate();
 
   const handleEmail = (e) => {
     const value = e.target.value;
-    setEmail(value); 
+    setEmail(value);
   };
 
-  const handlePass = (e) => {
+  const handlePassword = (e) => {
     const value = e.target.value;
-    setPass(value);
+    setPassword(value);
   };
 
   const handleSubmit = (e) => {
@@ -69,8 +70,10 @@ const Login = () => {
             Forgot Password?
           </Link>
 
-          <div className='loginbtn_login'>
-            <Link to="#" type="submit" className="login_btn" >Login</Link>
+          <div className="loginbtn_login">
+            <Link to="#" type="submit" className="login_btn" onClick={handleSubmit}>
+              Login
+            </Link>
           </div>
 
           <p>
@@ -79,17 +82,16 @@ const Login = () => {
           </p>
 
           <p>Or</p>
-          <div className='googlebtn_btn'>
-            <Link to="#" className="google_btn" >
+          <div className="googlebtn_btn">
+            <Link to="#" className="google_btn">
               <img src={google} alt="img" />
               <p>Login with Google</p>
             </Link>
           </div>
-
         </div>
       </form>
     </section>
-  )
-}
+  );
+};
 
 export default Login;
