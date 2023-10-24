@@ -42,10 +42,6 @@ const Menu = () => {
                 </div>
                 <hr />
                 <p className="lastFooter">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="19" height="17" viewBox="0 0 19 17" fill="none">
-                        <path d="M9.33333 16.0425C13.9357 16.0425 17.6667 12.6752 17.6667 8.52127C17.6667 4.36739 13.9357 1 9.33333 1C4.73096 1 1 4.36739 1 8.52127C1 12.6752 4.73096 16.0425 9.33333 16.0425Z" stroke="#555555" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M11.8333 6.84981C11.8333 6.84981 10.8039 5.5127 9.08824 5.5127C7.37255 5.5127 6 6.84981 6 8.5212C6 10.1926 7.37255 11.5297 9.08824 11.5297C10.8039 11.5297 11.8333 10.1926 11.8333 10.1926" stroke="#555555" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
                     TACA 2023
                 </p>
             </footer>

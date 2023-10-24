@@ -7,7 +7,6 @@
     background-color: #fff;
     box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.10);
     position: fixed;
-
 }
 
 .headWithBox {
@@ -67,15 +66,10 @@
     color: #FF4F16;
 }
 
-<<<<<<< Kongchan
 /* Banner */
 #banner div {
     margin-top: 2rem;
 }
-
-=======
-@media (max-width: 768px) {
->>>>>>> frontend
 
 @media (max-width: 768px) {
     .headWithBox {
@@ -93,14 +87,12 @@
         flex-direction: row;
         align-items: center;
     }
-<<<<<<< Kongchan
 
     #banner {
         width: 100%;
         margin: 0;
     }
-
-    #banner div {
+    #banner div{
         margin-top: 2rem;
     }
 }
@@ -111,6 +103,3 @@
     }
     
 }
-=======
-}
->>>>>>> frontend
