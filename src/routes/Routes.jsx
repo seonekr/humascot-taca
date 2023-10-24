@@ -16,7 +16,6 @@ import AddAdmin from "../admin/components/addAdmin/AddAdmin";
 import Message from "../admin/components/messages/Message";
 import Categories from "../user/components/categories/Categories";
 
-
 /* ========= Phukeo ========= */
 import Login from '../user/components/login_register/Login';
 import Register from "../user/components/login_register/Register";
@@ -48,10 +47,10 @@ const Links = () => {
                 <Route exact path="/humascot-taca/categories/" Component={Categories}/>
 
                 {/* Admin routes */}
-                <Route exact path="/humascot-taca/admin/dashboard" Component={Dashboard}/>
-                <Route exact path="/humascot-taca/admin/post" Component={Post}/>
-                <Route exact path="/humascot-taca/admin/addadmin" Component={AddAdmin}/>
-                <Route exact path="/humascot-taca/admin/message" Component={Message}/>
+                <Route exact path="/admin/dashboard/" Component={Dashboard}/>
+                <Route exact path="/admin/post/" Component={Post}/>
+                <Route exact path="/admin/addadmin/" Component={AddAdmin}/>
+                <Route exact path="/admin/message/" Component={Message}/>
 
                 {/*==== phukeo ==== */}
                 <Route exact path="/humascot-taca/product_search/" Component={Product_search}/>
@@ -66,6 +65,7 @@ const Links = () => {
                  <Route exact path="/humascot-taca/admin/orderbill" Component={OrderBill}/>
                  <Route exact path="/humascot-taca/admin/menageradmin" Component={MenagerAdmin}/>
                  <Route exact path="/humascot-taca/admin" Component={LoginAdmin}/>
+
 
             </Routes>
         </Router>

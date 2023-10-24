@@ -5,6 +5,7 @@ import acer1 from "/acer1.jpg";
 import acer2 from "/acer2.jpg";
 import acer3 from "/acer3.jpg";
 import Menu from "../menu/Menu";
+import 'boxicons';
 
 function ProductDetails() {
   const [slides, setSlides] = useState([acer1, acer2, acer3]);
@@ -30,26 +31,16 @@ function ProductDetails() {
 
 
 
-  // ============ Add to cart =============
+  // ============ Add to cart =============*/
 
-  const [cart, setCart] = useState([]);
+  
 
-  const handleAddToCart = () => {
-    // Logic to add the item to the cart
-    // For simplicity, we'll just add a dummy item
-    const newItem = {
-      id: 1,
-      name: "Item 1",
-      price: 10.99
-    };
-
-    setCart([...cart, newItem]);
-  };
+  
 
 
   return (
     <>
-      <from>
+      
         <div className="contentBody">
           <div className="boxProduct_deteils">
             <div className="slider">
@@ -58,7 +49,7 @@ function ProductDetails() {
                 <div className="nav-btn " onClick={handlePrevSlide}>&#8249;</div>
               </div>
               <div className="navigation but2">
-                <div div className="nav-btn " onClick={handleNextSlide}>&#8250;</div>
+                <div className="nav-btn " onClick={handleNextSlide}>&#8250;</div>
               </div>
             </div>
 
@@ -82,17 +73,17 @@ function ProductDetails() {
 
               <div className="color_product">
                 <p>Color:</p>
-                <Link to="#" className="echColor colB"></Link>
-                <Link to="#" className="echColor colW"></Link>
-                <Link to="#"className="echColor colBlue"></Link>
+                <div className="echColor colB"></div>
+                <div className="echColor colW"></div>
+                <div className="echColor colBlue"></div>
               </div>
 
               <div className="size_product">
                 <p>Size:</p>
-                <Link to="#" className="echSize">S</Link>
-                <Link to="#" className="echSize">M</Link>
-                <Link to="#" className="echSize">L</Link>
-                <Link to="#" className="echSize">XL</Link>
+                <div className="echSize">S</div>
+                <div className="echSize">M</div>
+                <div className="echSize">L</div>
+                <div className="echSize">XL</div>
               </div>
               <div className="echCount">
                 <div className="minusBox borderCount">
@@ -105,13 +96,13 @@ function ProductDetails() {
               </div>
               <div className="Count_product">
                   <Link to="/humascot-taca/cart/payment" className="echbtn btnBut">Buy Now</Link>
-                  <Link className="echbtn btnAdd" onClick={handleAddToCart}>Add To Cart</Link>
+                  <Link className="echbtn btnAdd">Add To Cart</Link>
               </div>
             </div>
           </div>
         </div>
 
-      </from>
+      
       <Menu/>
     </>
   )
