@@ -33,6 +33,7 @@ const Category = () => {
                     <div className="box-category">
                         <button onClick={() => handleCategoryChange('cosmetics')}>
                             <img src={womenfashion} alt="img" />
+                            
                             <p>Cosmetics</p>
                         </button>
                     </div>
