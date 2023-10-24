@@ -1,8 +1,6 @@
 import "./header.css";
 import { FaStore, FaMagnifyingGlass, FaCartShopping, FaRegUser } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-import Logo1 from '../../../../public/Logo1.png';
-
 
 const Header = () => {
     return (
@@ -12,7 +10,7 @@ const Header = () => {
 
                     <div className="headWithBox">
                         <ul className="headMenu">
-                            <li><Link to="/humascot-taca"><img src={Logo1} alt="Logo" /></Link></li>
+                            {/* <li><Link to="/humascot-taca"><img src={Logo1} alt="Logo" /></Link></li> */}
                             <div className="boxLiMenu">
                                 <li><Link to="/humascot-taca" className="linkLi active">Home</Link></li>
                                 <li><Link to="/humascot-taca/product_search" className="linkLi">Shop</Link></li>
