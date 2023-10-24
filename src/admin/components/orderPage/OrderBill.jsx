@@ -86,7 +86,6 @@ const OrderPaid = () => {
                                         <span><p>ID:</p><p>4</p></span>
                                         <span><p>Name:</p><p>Acer</p></span>
                                     </div>
-
                                     <div className='box_lineCheck'>
                                         <PiCheckFatFill id="lineCheck_icon"/>
                                     </div>

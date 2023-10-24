@@ -52,7 +52,7 @@
     width: 1100px;
     height: 85.5vh;
     margin: auto;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     padding: 30px 100px 30px 100px;
     background: #FFF;
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
@@ -61,11 +61,7 @@
 /* ============ input_wrapper_orderpaid =========== */
 
 
-#lineCheck_icon{
-    width: 30px;
-    height: 30px;
-    color: #FFF;
-}
+
 
 .box_search{
     width: 1000px;
@@ -112,11 +108,20 @@
     border-bottom: 1px solid #eee;
     margin-bottom: 1rem;
 }
+.box_lineCheck{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    background: rgb(75, 239, 94);
+}
 #lineCheck_icon{
     width: 30px;
     height: 30px;
     color: #FFF;
-    background: rgb(75, 75, 239);
+    
 }
 #orderbill .bill-detial h2 {
     text-align: center;
