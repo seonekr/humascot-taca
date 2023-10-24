@@ -29,6 +29,24 @@ function ProductDetails() {
   }, [activeSlide]);
 
 
+
+  // ============ Add to cart =============
+
+  const [cart, setCart] = useState([]);
+
+  const handleAddToCart = () => {
+    // Logic to add the item to the cart
+    // For simplicity, we'll just add a dummy item
+    const newItem = {
+      id: 1,
+      name: "Item 1",
+      price: 10.99
+    };
+
+    setCart([...cart, newItem]);
+  };
+
+
   return (
     <>
       <from>
@@ -66,7 +84,7 @@ function ProductDetails() {
                 <p>Color:</p>
                 <Link to="#" className="echColor colB"></Link>
                 <Link to="#" className="echColor colW"></Link>
-                <Link to="#" className="echColor colBlue"></Link>
+                <Link to="#"className="echColor colBlue"></Link>
               </div>
 
               <div className="size_product">
@@ -86,19 +104,10 @@ function ProductDetails() {
                 </div>
               </div>
               <div className="Count_product">
-                  <Link to="#" className="echbtn btnBut">Buy Now</Link>
-                  <Link to="#" className="echbtn btnAdd">Add To Cart</Link>
+                  <Link to="/humascot-taca/cart/payment" className="echbtn btnBut">Buy Now</Link>
+                  <Link className="echbtn btnAdd" onClick={handleAddToCart}>Add To Cart</Link>
               </div>
             </div>
-          </div>
-        </div>
-
-        <div className='footer_boxx'>
-          <div className="btn_foot Buy_Now">
-            <Link to="#">Buy Now</Link>
-          </div>
-          <div className="btn_foot Add_To_Cart">
-            <Link to="#">Add To Cart</Link>
           </div>
         </div>
 

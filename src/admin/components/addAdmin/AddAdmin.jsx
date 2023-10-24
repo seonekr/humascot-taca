@@ -8,6 +8,8 @@ const AddAdmin = () => {
     const [adminLastName, setAdminLastName] = useState('');
     const [adminEmail, setAdminEmail] = useState('');
     const [adminPhone, setAdminPhone] = useState('');
+    const [adminGender, setAdminGender] = useState('');
+    const [adminDepartment, setAdminDepartment] = useState('');
     const [adminPassword, setAdminPassword] = useState('');
 
     // handle submit
@@ -50,6 +52,16 @@ const AddAdmin = () => {
     const handlePhone = (e) => {
         const value = e.target.value;
         setAdminPhone(value); 
+    }
+    // handle Gender
+    const handleGender = (e) => {
+        const value = e.target.value;
+        setAdminGender(value); 
+    }
+    // handle Department
+    const handleDepartment = (e) => {
+        const value = e.target.value;
+        setAdminDepartment(value); 
     }
     // handle password
     const handlePassowrd = (e) => {
@@ -119,6 +131,28 @@ const AddAdmin = () => {
                                 placeholder='Phone number'
                                 value={adminPhone}
                                 onChange={handlePhone}
+                                required
+                            />
+                        </div>
+                        <div className="add-box">
+                            <label htmlFor="gender">Gender</label>
+                            <input
+                                type="text"
+                                id='gender'
+                                placeholder='Gender'
+                                value={adminGender}
+                                onChange={handleGender}
+                                required
+                            />
+                        </div>
+                        <div className="add-box">
+                            <label htmlFor="department">Department</label>
+                            <input
+                                type="text"
+                                id='department'
+                                placeholder='Department'
+                                value={adminDepartment}
+                                onChange={handleDepartment}
                                 required
                             />
                         </div>
