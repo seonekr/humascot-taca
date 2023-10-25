@@ -112,7 +112,7 @@ function ProductDetails() {
 
               <div className="Count_product">
                   <Link to="/cart/payment" className="echbtn btnBut">Buy Now</Link>
-                  <Link to="#" className="echbtn btnAdd">Add To Cart</Link>
+                  <button className="echbtn btnAdd">Add To Cart</button>
               </div>
             </div>
           </div>
