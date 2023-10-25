@@ -13,7 +13,10 @@ const Product_search = () => {
         { id: 2, name: 'Product 2', description: 'This is product 2', price: 20, images: [acer] },
         { id: 3, name: 'Product 3', description: 'This is product 3', price: 30, images: [acer] },
         { id: 4, name: 'Product 4', description: 'This is product 4', price: 20, images: [acer] },
-        
+        { id: 5, name: 'Product 5', description: 'This is product 5', price: 10, images: [acer] },
+        { id: 6, name: 'Product 6', description: 'This is product 6', price: 20, images: [acer] },
+        { id: 7, name: 'Product 7', description: 'This is product 7', price: 30, images: [acer] },
+        { id: 8, name: 'Product 8', description: 'This is product 8', price: 20, images: [acer] },
     ]);
 
     const [searchTerm, setSearchTerm] = useState("");
@@ -59,13 +62,8 @@ const Product_search = () => {
 
     /*================= View More ================ */
 
-    const [visibleProducts, setVisibleProducts] = useState(1);
 
-    const loadMoreProducts = () => {
-        setVisibleProducts(visibleProducts + 1);
-    };
-
-
+ 
 
     return (
         <>
@@ -111,8 +109,7 @@ const Product_search = () => {
                             {filteredProducts.map((product, index) => (
                                 
                                 <form key={index}>
-                                    {products.slice(0, visibleProducts).map((product) => (
-                                        <div  className='box-product' >
+                                        <div  className='box-product' > 
                                             <Link to="/humascot-taca/product_search/productdetails">
                                                 <img src={product.images[0]} alt='img' />
                                             </Link>
@@ -141,19 +138,17 @@ const Product_search = () => {
                                                 </p>
                                             </div>
                                         </div>
-                                    ))} 
+                                   
                                 </form>
                             ))}
                         </div>
                     </div>
                     <div className='btn_more'>
-                        
 
-                        {visibleProducts < products.length && (
-                            <button className="loadmore_btn_more" onClick={loadMoreProducts}>
-                                View More
-                            </button>
-                        )}
+                    <button className="loadmore_btn_more">
+                        View More
+                    </button>
+                       
                             
                     </div>
                 </div>
