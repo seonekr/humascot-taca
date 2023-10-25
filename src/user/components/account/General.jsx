@@ -8,7 +8,7 @@ const General = () => {
         <>
             <section id="header-account">
                 <div className="account-navbar">
-                    <div className="header-box"><Link to="/humascot-taca/account"><FaArrowLeft/></Link></div>
+                    <div className="header-box"><Link to="/account"><FaArrowLeft/></Link></div>
                     <div className="header-box middle">General</div>
                     <div className="header-box"></div>
                 </div>

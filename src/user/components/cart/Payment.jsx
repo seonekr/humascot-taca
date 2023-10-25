@@ -44,14 +44,14 @@ const Payment = () => {
             <section id="payment">
                 <div className="guopBoxPayment">
                     <div className="account-navbar">
-                        <div className="header-box"><Link to="/humascot-taca/cart" className='guopIconbAck'><FaAngleLeft className='iconnBack' />Back</Link></div>
+                        <div className="header-box"><Link to="/cart" className='guopIconbAck'><FaAngleLeft className='iconnBack' />Back</Link></div>
                         <div className="header-box">Payment</div>
                         <div className="header-box"></div>
                     </div>
                     <form onSubmit={handleSubmit}>
                         <div className="adress-payment">
                             <div className="box">
-                                <Link to="/humascot-taca/cart/address" className="address">
+                                <Link to="/cart/address" className="address">
                                     <FiPlus /> Update address
                                 </Link>
                                 <p>{province} {city} {companny} {branch}</p>

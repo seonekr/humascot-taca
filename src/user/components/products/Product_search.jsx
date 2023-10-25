@@ -112,7 +112,7 @@ const Product_search = () => {
                                 <form key={index}>
                                     {products.slice(0, visibleProducts).map((product) => (
                                         <div  className='box-product' >
-                                            <Link to="/humascot-taca/product_search/productdetails">
+                                            <Link to="/product_search/productdetails">
                                                 <img src={product.images[0]} alt='img' />
                                             </Link>
                                             <div className="txtOFproduct">

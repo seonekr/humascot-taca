@@ -34,7 +34,7 @@ const Login = () => {
     <section>
       <form onSubmit={handleSubmit} className="box_container_login2">
         <div className='box_cancel_login'>
-          <Link to="/humascot-taca"><AiOutlineClose id="icon_cancel_login"/></Link>
+          <Link to="/"><AiOutlineClose id="icon_cancel_login"/></Link>
         </div>
         <div className='cover'>
           <h2 className='box_container_login_text'>Login</h2>
@@ -47,7 +47,7 @@ const Login = () => {
             <Link to="#" type="submit" className="login_btn" >Login</Link>
           </div>
 
-          <p>Don't have an account? <Link to="/humascot-taca/register">Signup</Link></p>
+          <p>Don't have an account? <Link to="/register">Signup</Link></p>
 
           <p>Or</p>
           <div className='googlebtn_btn'>

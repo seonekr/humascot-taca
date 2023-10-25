@@ -55,7 +55,7 @@ function ProductDetails() {
       <Header/>
       
         <div className="contentBody">
-          <Link to="/humascot-taca/product_search/" className='box_container_back_icons_back'>
+          <Link to="/product_search/" className='box_container_back_icons_back'>
             <IoIosArrowBack id="icons_back"/>
             <p>Back</p>
           </Link>
@@ -111,7 +111,7 @@ function ProductDetails() {
               </div>
 
               <div className="Count_product">
-                  <Link to="/humascot-taca/cart/payment" className="echbtn btnBut">Buy Now</Link>
+                  <Link to="/cart/payment" className="echbtn btnBut">Buy Now</Link>
                   <Link to="#" className="echbtn btnAdd">Add To Cart</Link>
               </div>
             </div>

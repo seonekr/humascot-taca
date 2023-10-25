@@ -10,7 +10,7 @@ const Category = () => {
 
     const handleCategoryChange = (newCategory) => {
         setCategory(newCategory);
-        navigate('/humascot-taca/categories/', { state: { categorys : newCategory } });
+        navigate('/categories/', { state: { categorys : newCategory } });
       };
 
     return (

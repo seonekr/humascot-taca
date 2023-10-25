@@ -58,7 +58,7 @@ const Categories = () => {
                     {filteredProducts.map((product, index) => (
                     <form key={index}>
                         <div className='box_container_img' >
-                            <Link to="/humascot-taca/product_search/productdetails">
+                            <Link to="/product_search/productdetails">
                                 <img src={product.images[0]} alt='img'/>
                             </Link>                             
                             <div className="txtOfProduct">

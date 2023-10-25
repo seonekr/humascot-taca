@@ -1,7 +1,7 @@
 import { FaAngleLeft } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import Menu from "../menu/Menu";
-import Header from "../Header/Header";
+import Header from "../header/Header";
 import './bill.css';
 const Bill = () => {
     return (
@@ -10,7 +10,7 @@ const Bill = () => {
             <section id="bill">
 
                 <div className="account-navbar">
-                    <div className="header-box"><Link to="/humascot-taca/order" className='guopIconbAck'><FaAngleLeft className='iconnBack' />Back</Link></div>
+                    <div className="header-box"><Link to="/order" className='guopIconbAck'><FaAngleLeft className='iconnBack' />Back</Link></div>
                     <div className="header-box middle">Bill</div>
                     <div className="header-box"></div>
                 </div>

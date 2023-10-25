@@ -24,7 +24,7 @@ const Cart = () => {
     <div  className='box_container_cart'>
         
         <div className='container_cart_item'>
-            <Link to="#" className='box_icons_back'>
+            <Link to="/" className='box_icons_back'>
                 <IoIosArrowBack id="icons_back"/>
                 <p>Back</p>
             </Link>
@@ -97,8 +97,8 @@ const Cart = () => {
 
 
             <div className='btn'>
-                <Link to="/humascot-taca/product_search/" className="Continues_btn">Continues Shopping</Link>
-                <Link to="/humascot-taca/cart/payment/" className="checkout_btn">Checkout</Link>
+                <Link to="/product_search/" className="Continues_btn">Continues Shopping</Link>
+                <Link to="/cart/payment/" className="checkout_btn">Checkout</Link>
             </div>
                 
         </div>
