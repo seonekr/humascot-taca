@@ -1,0 +1,9 @@
+.categoryBox_container{
+    margin-top: 6rem;
+}
+
+.box_container_home{
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
