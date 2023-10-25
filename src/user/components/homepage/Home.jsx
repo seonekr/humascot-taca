@@ -4,8 +4,6 @@ import Banner from "../header/Banner";
 import Category from "./Category";
 import ProductHome from "../products/ProductHome";
 import Menu from "../menu/Menu";
-const Home = () => {
-import Banner from "../header/Banner";
 import "./home.css";
 // import { useEffect } from "react";
 // import axios from "axios";
