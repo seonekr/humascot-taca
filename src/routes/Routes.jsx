@@ -33,31 +33,34 @@ const Links = () => {
     return(
         <Router>
             <Routes>
-                <Route exact path="/" Component={Home}/>
-                <Route exact path="/account/" Component={Account}/>
-                <Route exact path="/account/general/" Component={General}/>
-                <Route exact path="/account/contact/" Component={Contact}/>
-                <Route exact path="/account/password/" Component={Password}/>
-                <Route exact path="/cart/payment/" Component={Payment}/>
-                <Route exact path="/cart/address/" Component={Address}/>
-                <Route exact path="/chatuser/" Component={Chatuser}/>
-                <Route exact path="/chatuser/chatroom/" Component={Chatroom}/>
-                <Route exact path="/order/" Component={Order}/>
-                <Route exact path="/order/bill/" Component={Bill}/>
-                <Route exact path="/categories/" Component={Categories}/>
+
+                <Route exact path="" Component={Home}/>
+                <Route exact path="/account" Component={Account}/>
+                <Route exact path="/account/general" Component={General}/>
+                <Route exact path="/account/contact" Component={Contact}/>
+                <Route exact path="/account/password" Component={Password}/>
+                <Route exact path="/cart/payment" Component={Payment}/>
+                <Route exact path="/cart/address" Component={Address}/>
+                <Route exact path="/chatuser" Component={Chatuser}/>
+                <Route exact path="/chatuser/chatroom" Component={Chatroom}/>
+                <Route exact path="/order" Component={Order}/>
+                <Route exact path="/order/bill" Component={Bill}/>
+                <Route exact path="/categories" Component={Categories}/>
+
 
                 {/* Admin routes */}
-                <Route exact path="/humascot-taca/admin/dashboard/" Component={Dashboard}/>
-                <Route exact path="/humascot-taca/admin/post/" Component={Post}/>
-                <Route exact path="/humascot-taca/admin/addadmin/" Component={AddAdmin}/>
-                <Route exact path="/humascot-taca/admin/message/" Component={Message}/>
+                <Route exact path="/admin/dashboard" Component={Dashboard}/>
+                <Route exact path="/admin/post" Component={Post}/>
+                <Route exact path="/admin/addadmin" Component={AddAdmin}/>
+                <Route exact path="/admin/message" Component={Message}/>
 
                 {/*==== phukeo ==== */}
-                <Route exact path="/product_search/" Component={Product_search}/>
-                <Route exact path="/product_search/productdetails/" Component={ProductDetails}/>
-                <Route exact path="/login/" Component={Login}/>
-                <Route exact path="/register/" Component={Register}/>
-                <Route exact path="/cart/" Component={Cart}/>
+
+                <Route exact path="/product_search" Component={Product_search}/>
+                <Route exact path="/product_search/productdetails" Component={ProductDetails}/>
+                <Route exact path="/login" Component={Login}/>
+                <Route exact path="/register" Component={Register}/>
+                <Route exact path="/cart" Component={Cart}/>
 
                  {/* Admin routes */}
                  <Route exact path="/admin/menageruser" Component={MenagerUser}/>

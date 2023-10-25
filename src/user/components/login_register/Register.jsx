@@ -109,7 +109,7 @@ const Register = () => {
 
         <div>
           <p>
-            Already have an account? <Link to="/humascot-taca/login">Login</Link>
+            Already have an account? <Link to="/login">Login</Link>
           </p>
         </div>
         <p>Or</p>

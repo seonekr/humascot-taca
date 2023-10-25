@@ -36,7 +36,7 @@ const Login = () => {
           localStorage.setItem("id", res.data.id)
           console.log("login token: " + res.data.Token);
           console.log("login id: " + res.data.id);
-          navigate("/humascot-taca/admin/dashboard");
+          navigate("/admin/dashboard");
         } else {
           setError(res.data.Error);
         }

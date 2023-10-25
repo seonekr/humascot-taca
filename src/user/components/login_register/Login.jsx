@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import "./login.css";
 import "boxicons";
@@ -36,7 +35,7 @@ const Login = () => {
         if (res.data.Status === "Success") {
           localStorage.setItem("token", res.data.Token);
           console.log("login token: " + res.data.Token);
-          navigate("/humascot-taca/");
+          navigate("/");
         } else {
           setError(res.data.Error);
         }
@@ -49,23 +48,46 @@ const Login = () => {
   return (
     <section>
       <form onSubmit={handleSubmit} className="box_container_login2">
-        <div className='box_cancel_login'>
-          <Link to="/"><AiOutlineClose id="icon_cancel_login"/></Link>
+        <div className="box_cancel_login">
+          <Link to="/">
+            <AiOutlineClose id="icon_cancel_login" />
+          </Link>
         </div>
-        <div className='cover'>
-          <h2 className='box_container_login_text'>Login</h2>
-          <input className="input_form" type="email" placeholder='Enter Your Email' value={email} onChange={handleEmail} />
-          <input className="input_form" type="password" placeholder='Enter Your Password' value={password} onChange={handlePassword} />
+        <div className="cover">
+          <h2 className="box_container_login_text">Login</h2>
+          <input
+            className="input_form"
+            type="email"
+            placeholder="Enter Your Email"
+            value={email}
+            onChange={handleEmail}
+          />
+          <input
+            className="input_form"
+            type="password"
+            placeholder="Enter Your Password"
+            value={password}
+            onChange={handlePassword}
+          />
 
-          <Link to="#" className="forgot_password" >Forgot Password?</Link>
+          <Link to="#" className="forgot_password">
+            Forgot Password?
+          </Link>
 
           <div className="loginbtn_login">
-            <Link to="#" type="submit" className="login_btn" onClick={handleSubmit}>
+            <Link
+              to="#"
+              type="submit"
+              className="login_btn"
+              onClick={handleSubmit}
+            >
               Login
             </Link>
           </div>
 
-          <p>Don't have an account? <Link to="/register">Signup</Link></p>
+          <p>
+            Don't have an account? <Link to="/register">Signup</Link>
+          </p>
 
           <p>Or</p>
           <div className="googlebtn_btn">
