@@ -4,6 +4,7 @@ import './order.css'
 import { Link } from 'react-router-dom'
 import Menu from '../menu/Menu'
 import Header from '../header/Header';
+import acer from '../../../img/acer.png'
 
 const Order = () => {
     
@@ -18,6 +19,7 @@ const Order = () => {
                 </div>
                 <div className='container_order_all'>
                     <Link to="/humascot-taca/order/bill" className='box_item_order'>
+                        <img src={acer} alt='img'></img>
                         <div className='box_item_order_text'>
                             <p className='txtheadeproductorder'>Acer Swift 5</p>
                             <p>RAM...</p>
@@ -25,6 +27,7 @@ const Order = () => {
                         </div>
                     </Link>
                     <Link to="/humascot-taca/order/bill" className='box_item_order'>
+                        <img src={acer} alt='img'></img>
                         <div className='box_item_order_text'>
                             <p className='txtheadeproductorder'>Acer Swift 5</p>
                             <p>RAM...</p>
