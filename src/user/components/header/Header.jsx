@@ -19,11 +19,10 @@ const Header = () => {
                                 <li><Link to="/login/" className="linkLi">Login</Link></li>
                             </div>
                         </ul>
-
                         <ul className="ulHead_box">
                             <li><Link to="/"><FaMagnifyingGlass className="head_colorr" /></Link></li>
                             <li><Link to="/cart"><FaCartShopping className="head_colorr" /></Link></li>
-                            <li><Link to="/login"><FaRegUser className="head_colorr" /></Link></li>
+                            <li><Link to="/account"><FaRegUser className="head_colorr" /></Link></li>
                         </ul>
                     </div>
                 </div>
