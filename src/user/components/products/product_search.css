@@ -12,7 +12,6 @@ a {
 .container_home {
     width: 75%;
     margin: auto;
-    padding-top: 1rem;
 }
 
 .container_head {
@@ -27,9 +26,17 @@ a {
 .container_head_search {
     display: flex;
     align-items: center;
-    margin-top: 4rem;
+    margin-top: 2rem;
+    position: relative;
+    top: 70px;
 }
 
+.top_headfiltBox {
+
+    background-color: #fff;
+    border-radius: 7px;
+    padding: 0 10px;
+}
 
 .box_container_img {
     background-color: #FFF;
@@ -179,6 +186,11 @@ input:focus {
 
     .box-product img {
         height: 15vh;
+    }
+
+    .container_head_search {
+        margin-top: 5rem;
+        top: 10px;
     }
 
 }

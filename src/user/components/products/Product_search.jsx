@@ -58,18 +58,21 @@ const Product_search = () => {
                         <div className='input_wrapper'>
                             <FaSearch id="search-icon" />
                             <input
+                                className='top_headfiltBox'
                                 type="text"
                                 placeholder="Search products"
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
                             />
                             <input
+                                className='top_headfiltBox'
                                 type="number"
                                 placeholder="Max Price"
                                 value={maxPrice}
                                 onChange={(e) => setMaxPrice(e.target.value)}
                             />
                             <input
+                                className='top_headfiltBox'
                                 type="number"
                                 placeholder="Min Price"
                                 value={minPrice}
