@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import "./login.css";
 import "boxicons";
@@ -47,28 +48,16 @@ const Login = () => {
 
   return (
     <section>
-      <form className="box_container_login">
-        <div className="cover">
-          <h2 className="box_container_login_text">Login</h2>
-          <h1>{error && error}</h1>
-          <input
-            className="input_form"
-            type="email"
-            placeholder="Enter Your Email"
-            value={email}
-            onChange={handleEmail}
-          />
-          <input
-            className="input_form"
-            type="password"
-            placeholder="Enter Your Password"
-            value={password}
-            onChange={handlePassword}
-          />
+      <form onSubmit={handleSubmit} className="box_container_login2">
+        <div className='box_cancel_login'>
+          <Link to="/"><AiOutlineClose id="icon_cancel_login"/></Link>
+        </div>
+        <div className='cover'>
+          <h2 className='box_container_login_text'>Login</h2>
+          <input className="input_form" type="email" placeholder='Enter Your Email' value={email} onChange={handleEmail} />
+          <input className="input_form" type="password" placeholder='Enter Your Password' value={password} onChange={handlePassword} />
 
-          <Link to="#" className="forgot_pass">
-            Forgot Password?
-          </Link>
+          <Link to="#" className="forgot_password" >Forgot Password?</Link>
 
           <div className="loginbtn_login">
             <Link to="#" type="submit" className="login_btn" onClick={handleSubmit}>
@@ -76,10 +65,7 @@ const Login = () => {
             </Link>
           </div>
 
-          <p>
-            Don't have an account?{" "}
-            <Link to="/humascot-taca/register">Signup</Link>
-          </p>
+          <p>Don't have an account? <Link to="/register">Signup</Link></p>
 
           <p>Or</p>
           <div className="googlebtn_btn">

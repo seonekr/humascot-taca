@@ -9,7 +9,7 @@ const Account = () => {
         <>
             <section id="header-account">
                 <div className="account-navbar">
-                    <div className="header-box"><Link to="/humascot-taca"><FaArrowLeft/></Link></div>
+                    <div className="header-box"><Link to="/"><FaArrowLeft/></Link></div>
                     <div className="header-box middle">Account</div>
                     <div className="header-box"></div>
                 </div>
@@ -21,13 +21,13 @@ const Account = () => {
                         <span className="name">Name<p>.....</p></span>
                     </div>
                     <div className="text-info">
-                        <Link to="/humascot-taca/account/general">
+                        <Link to="/account/general">
                             <span>General</span><FaAngleRight/>
                         </Link>
-                        <Link to="/humascot-taca/account/contact">
+                        <Link to="/account/contact">
                             <span>Contact</span><FaAngleRight/>
                         </Link>
-                        <Link to="/humascot-taca/account/password">
+                        <Link to="/account/password">
                             <span>Password</span><FaAngleRight/>
                         </Link>
                     </div>

@@ -3,7 +3,6 @@ import "./loginadmin.css";
 import "boxicons";
 import { Link, useNavigate } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
-import google from "../../../img/google.png";
 import axios from "axios";
 
 const Login = () => {
@@ -50,12 +49,12 @@ const Login = () => {
   return (
     <section>
       <form className="box_container_login">
-        <div className="box_cancel">
-          <Link to="/">
-            <AiOutlineClose id="icon_cancel" />
+        <div className="box_cancel_admin">
+          <Link to="/humascot-taca/">
+            <AiOutlineClose id="icon_cancel_admin" />
           </Link>
         </div>
-        <div className="cover">
+        <div className="cover_admin">
           <h2 className="box_container_login_text">Login</h2>
           <h1>{error && error}</h1>
           <input
@@ -74,9 +73,9 @@ const Login = () => {
           />
 
           <div className="loginbtn_login">
-          <button type="button" className="login_btn" onClick={handleSubmit}>
+          <Link to="/humascot-taca/admin/dashboard/" type="button" className="login_btn" onClick={handleSubmit}>
               Login
-            </button>
+            </Link>
           </div>
         </div>
       </form>

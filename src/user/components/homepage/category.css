@@ -1,14 +1,22 @@
 .category_container {
     gap: 5rem;
-    margin: 1.5rem 0;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    justify-content: center;
+    width: 100%;
+    display: flex;
 }
 
-.category_container,
-.box-category {
-    display: flex;
+.category_container .box-category {
     text-align: center;
     padding: 1rem 0;
     justify-content: space-evenly;
+}
+
+.category_container .box-category button {
+    border: none;
+    background: none;
+    cursor: pointer;
 }
 
 #category .box-category {
@@ -51,5 +59,21 @@
     
     #category .box-category a {
         font-size: 1rem;
+    }
+}
+
+
+@media screen and (max-width: 420px) {
+    #category{
+        width: 100%;
+    }
+    #category .box-category {
+        width: 50%;
+    }
+    .category_container {
+        gap: 2rem;
+        width: 90%;
+        margin: auto;
+        padding: 2rem 0;
     }
 }
