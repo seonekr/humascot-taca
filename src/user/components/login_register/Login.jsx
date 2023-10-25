@@ -1,33 +1,49 @@
 
-import React, { useState } from 'react';
-import './login.css';
-import 'boxicons';
-import { Link } from 'react-router-dom';
-import { AiOutlineClose } from "react-icons/ai"
-import google from '../../../img/google.png';
-
-
+import React, { useState } from "react";
+import "./login.css";
+import "boxicons";
+import { Link, useNavigate } from "react-router-dom";
+import { AiOutlineClose } from "react-icons/ai";
+import google from "../../../img/google.png";
+import axios from "axios";
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const navigate = useNavigate();
 
   const handleEmail = (e) => {
     const value = e.target.value;
-    setEmail(value); 
+    setEmail(value);
   };
 
   const handlePassword = (e) => {
-    const value = e.target.value
-    setPassword(value)
+    const value = e.target.value;
+    setPassword(value);
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault(); // Prevent the default form submission behavsior 
-    // Handle form submission logic here
-    console.log('Form submitted');
-    console.log('Email:', email);
-    console.log('Password:', password);
+    e.preventDefault(); // Prevent the default form submission behavsior
+    axios
+      .post("http://localhost:3001/login", {
+        email: email,
+        password: password,
+      })
+      .then((res) => {
+        console.log(res);
+        if (res.data.Status === "Success") {
+          localStorage.setItem("token", res.data.Token);
+          console.log("login token: " + res.data.Token);
+          navigate("/humascot-taca/");
+        } else {
+          setError(res.data.Error);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -43,24 +59,25 @@ const Login = () => {
 
           <Link to="#" className="forgot_password" >Forgot Password?</Link>
 
-          <div className='loginbtn_login'>
-            <Link to="#" type="submit" className="login_btn" >Login</Link>
+          <div className="loginbtn_login">
+            <Link to="#" type="submit" className="login_btn" onClick={handleSubmit}>
+              Login
+            </Link>
           </div>
 
           <p>Don't have an account? <Link to="/register">Signup</Link></p>
 
           <p>Or</p>
-          <div className='googlebtn_btn'>
-            <Link to="#" className="google_btn" >
+          <div className="googlebtn_btn">
+            <Link to="#" className="google_btn">
               <img src={google} alt="img" />
               <p>Login with Google</p>
             </Link>
           </div>
-
         </div>
       </form>
     </section>
-  )
-}
+  );
+};
 
 export default Login;

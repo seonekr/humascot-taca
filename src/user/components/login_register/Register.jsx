@@ -103,14 +103,13 @@ const Register = () => {
             onChange={handleConfirmPasswordChange}
           />
           <Link to="/login" type="submit" className="signup_btn">
-
             Signup
           </Link>
         </form>
 
         <div>
           <p>
-            Already have an account? <Link to="/login">Login</Link>
+            Already have an account? <Link to="/humascot-taca/login">Login</Link>
           </p>
         </div>
         <p>Or</p>
