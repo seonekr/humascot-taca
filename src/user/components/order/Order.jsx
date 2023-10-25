@@ -4,7 +4,6 @@ import './order.css'
 import { Link } from 'react-router-dom'
 import Menu from '../menu/Menu'
 import Header from '../header/Header';
-import acer from '../../../img/acer.png'
 
 const Order = () => {
     

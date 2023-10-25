@@ -88,7 +88,8 @@ const ProductHome = () => {
                     </div>
                 ))}
             </form>
-            <Link to='/' className="btnViewProduct">View More</Link>
+
+            <button className="btnViewProduct">View More</button>
         </section>
     )
 }

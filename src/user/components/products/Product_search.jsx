@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
-import './product_search.css';
+import React from 'react'
+import './product_search.css'
 import { Link } from 'react-router-dom';
-import acer from '../../../img/acer.png';
+import acer from '../../../img/acer.png'
 import Header from '../header/Header';
 import Menu from '../menu/Menu';
 import { FaSearch } from "react-icons/fa"
+import { useState } from 'react';
 
 const Product_search = () => {
     const [products, setProducts] = useState([
@@ -48,24 +49,6 @@ const Product_search = () => {
         handleFilter(e.target.value); // Please change this to category
     };
 
-
-    const [noOfElement, setnoOfElement] = useState(4);
-    const loadMore = () => {
-        setnoOfElement(noOfElement + noOfElement);
-    }
-    // const slice = products.carddata.slice(0, noOfElement);
-
-
-    /*================= View More ================ */
-
-    const [visibleProducts, setVisibleProducts] = useState(1);
-
-    const loadMoreProducts = () => {
-        setVisibleProducts(visibleProducts + 1);
-    };
-
-
-
     return (
         <>
             <Header />
@@ -108,52 +91,44 @@ const Product_search = () => {
                         </div>
                         <div className='product-area'>
                             {filteredProducts.map((product, index) => (
-                                
                                 <form key={index}>
-                                    {products.slice(0, visibleProducts).map((product) => (
-                                        <div  className='box-product' >
-                                            <Link to="/product_search/productdetails">
-                                                <img src={product.images[0]} alt='img' />
-                                            </Link>
-                                            <div className="txtOFproduct">
-                                                <h4>
-                                                    <input
-                                                        type="text"
-                                                        value={product.name}
-                                                        onChange={(e) => handleInputChange(e, index, "name")}
-                                                    />
-                                                </h4>
-                                                <p>
-                                                    <input
-                                                        className='priceProduct'
-                                                        type="text"
-                                                        value={product.price}
-                                                        onChange={(e) => handleInputChange(e, index, "price")}
-                                                    />
-                                                </p>
-                                                <p className='txtP_width'>
-                                                    <input
-                                                        type="text"
-                                                        value={product.description}
-                                                        onChange={(e) => handleInputChange(e, index, "description")}
-                                                    />
-                                                </p>
-                                            </div>
+                                    <div  className='box-product' >
+                                        <Link to="/product_search/productdetails">
+                                            <img src={product.images[0]} alt='img' />
+                                        </Link>
+                                        <div className="txtOFproduct">
+                                            <h4>
+                                                <input
+                                                    type="text"
+                                                    value={product.name}
+                                                    onChange={(e) => handleInputChange(e, index, "name")}
+                                                />
+                                            </h4>
+                                            <p>
+                                                <input
+                                                    className='priceProduct'
+                                                    type="text"
+                                                    value={product.price}
+                                                    onChange={(e) => handleInputChange(e, index, "price")}
+                                                />
+                                            </p>
+                                            <p className='txtP_width'>
+                                                <input
+                                                    type="text"
+                                                    value={product.description}
+                                                    onChange={(e) => handleInputChange(e, index, "description")}
+                                                />
+                                            </p>
                                         </div>
-                                    ))} 
+                                    </div>
                                 </form>
                             ))}
                         </div>
                     </div>
                     <div className='btn_more'>
-                        
-
-                        {visibleProducts < products.length && (
-                            <button className="loadmore_btn_more" onClick={loadMoreProducts}>
-                                View More
-                            </button>
-                        )}
-                            
+                        <button className="loadmore_btn_more">
+                            View More
+                        </button>
                     </div>
                 </div>
 
@@ -163,4 +138,4 @@ const Product_search = () => {
     )
 }
 
-export default Product_search;
+export default Product_search

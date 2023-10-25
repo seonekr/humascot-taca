@@ -1,6 +1,5 @@
 import "./menu.css"
 import 'boxicons'
-import { FaHouse, FaStore, FaMoneyBillTrendUp, FaRegMessage } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import QrdownloadApp from '../../../img/QrdownloadApp.png'
 
