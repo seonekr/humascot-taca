@@ -59,10 +59,10 @@ const Product_search = () => {
 
     /*================= View More ================ */
 
-    const [visibleProducts, setVisibleProducts] = useState(1);
+    const [visibleProducts, setVisibleProducts] = useState(3);
 
     const loadMoreProducts = () => {
-        setVisibleProducts(visibleProducts + 1);
+        setVisibleProducts(visibleProducts + 2);
     };
 
 

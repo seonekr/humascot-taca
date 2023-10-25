@@ -35,32 +35,33 @@ const AdminMenu = () => {
                 </span>
               </div>
             </Link>
+
             <div className="menu">
-              <Link to="/humascot-taca/admin/dashboard" className="link active">
+              <Link to="admin/dashboard" className="link active">
                 <RxDashboard />
                 <p>Dashboard</p>
               </Link>
-              <Link to="/humascot-taca/admin/post" className="link">
+              <Link to="/admin/post/" className="link">
                 <IoDocumentText />
                 <p>Products</p>
               </Link>
-              <Link to="/humascot-taca/admin/gallery" className="link">
+              <Link to="/admin/gallery" className="link">
                 <MdOutlineSell />
                 <p>Orders</p>
               </Link>
-              <Link to="/humascot-taca/admin" className="link">
+              <Link to="/admin" className="link">
                 <BiUser />
                 <p>User</p>
               </Link>
-              <Link to="/humascot-taca/admin/addadmin" className="link">
+              <Link to="/admin/addadmin" className="link">
                 <LiaUserCogSolid />
                 <p>Admin</p>
               </Link>
-              <Link to="/humascot-taca/admin/message" className="link">
+              <Link to="/admin/message" className="link">
                 <BiMessageDetail />
                 <p>Message</p>
               </Link>
-              <Link to="/humascot-taca/admin" className="link">
+              <Link to="/admin" className="link">
                 <IoSettingsOutline />
                 <p>Setting</p>
               </Link>
