@@ -20,7 +20,7 @@ const AdminMenu = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("id");
     // window.location = "/humascot-taca/admin";
-    navigate("/admin");
+    navigate("/humascot-taca/admin");
   };
 
   return (
