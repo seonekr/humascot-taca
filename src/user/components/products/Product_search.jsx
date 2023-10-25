@@ -1,11 +1,10 @@
-import React from 'react'
-import './product_search.css'
+import React, { useState } from 'react';
+import './product_search.css';
 import { Link } from 'react-router-dom';
-import acer from '../../../img/acer.png'
+import acer from '../../../img/acer.png';
 import Header from '../header/Header';
 import Menu from '../menu/Menu';
 import { FaSearch } from "react-icons/fa"
-import { useState } from 'react';
 
 const Product_search = () => {
     const [products, setProducts] = useState([
@@ -159,4 +158,4 @@ const Product_search = () => {
     )
 }
 
-export default Product_search
+export default Product_search;

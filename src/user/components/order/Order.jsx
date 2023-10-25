@@ -19,19 +19,17 @@ const Order = () => {
                 </div>
                 <div className='container_order_all'>
                     <Link to="/humascot-taca/order/bill" className='box_item_order'>
-                        <img src={acer} alt='img'></img>
                         <div className='box_item_order_text'>
-                            <p className='txtheadeproductorder'>Acer Swift 5</p>
-                            <p>RAM...</p>
-                            <p>$800.00</p>
+                            <p>No1</p>
+                            <p className='txtheadeproductorder'>Acer Swift 5, Acer Swift 5, Acer Swift 5</p>
+                            <p>3/4/2023 1:32</p>
                         </div>
                     </Link>
                     <Link to="/humascot-taca/order/bill" className='box_item_order'>
-                        <img src={acer} alt='img'></img>
                         <div className='box_item_order_text'>
-                            <p className='txtheadeproductorder'>Acer Swift 5</p>
-                            <p>RAM...</p>
-                            <p>$800.00</p>
+                            <p>No2</p>
+                            <p className='txtheadeproductorder'>Acer Swift 5, Acer Swift 5, Acer Swift 5</p>
+                            <p>3/4/2023 1:32</p>
                         </div>
                     </Link>
                 </div>
