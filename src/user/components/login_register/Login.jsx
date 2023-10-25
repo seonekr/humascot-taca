@@ -23,7 +23,7 @@ const Login = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault(); // Prevent the default form submission behavsior
+    e.preventDefault(); // Prevent the default form submission behavsior 
     // Handle form submission logic here
     console.log('Form submitted');
     console.log('Email:', email);
