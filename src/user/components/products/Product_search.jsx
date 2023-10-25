@@ -137,6 +137,7 @@ const Product_search = () => {
                     </div>
                     <div className='btn_more'>
                         <Link to="#" className="loadmore_btn_more"
+                        
                             onClick={() => loadMore()}
                         >
                             View More
