@@ -13,8 +13,8 @@ a{
 /* ============== body box_container_login ============== */
 
 .box_container_login{
-    width: 800px;
-    height: 700px;
+    width:600px;
+    height: 500px;
     position: relative;
     border-radius: 1em;
     display: grid;
@@ -28,15 +28,18 @@ a{
     background-color: #FFF;
     box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.10);
 }
-#icon_cancel{
-    width: 30px;
-    height: 30px;
-    margin-top: 1.8rem;
-    margin-left: 42rem;
+.box_cancel_admin{
+    padding: 28px 0 0 32rem;
 }
-.cover{
-    width: 400px;
-    height: 565px;
+#icon_cancel_admin{
+    width: 28px;
+    height: 28px;
+    
+}
+
+.cover_admin{
+    width: 300px;
+    height: 365px;
     position: relative;
     border-radius: 1em;
     display: grid;

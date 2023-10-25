@@ -5,7 +5,9 @@ import acer1 from "/acer1.jpg";
 import acer2 from "/acer2.jpg";
 import acer3 from "/acer3.jpg";
 import Menu from "../menu/Menu";
-import 'boxicons';
+import Header from "../header/Header";
+import { IoIosArrowBack } from 'react-icons/io';
+import { AiFillStar, AiOutlineStar} from 'react-icons/ai';
 
 function ProductDetails() {
   const [slides, setSlides] = useState([acer1, acer2, acer3]);
@@ -31,18 +33,34 @@ function ProductDetails() {
 
 
 
-  // ============ Add to cart =============*/
+  // ============ Add to cart =============
 
-  
 
-  
+
+  /*============== minus_plus ============= */
+
+    const [value, setValue] = useState(0);
+
+    const incrementValue = () => {
+        setValue(value + 1);
+    };
+
+    const decrementValue = () => {
+        setValue(value - 1);
+    };
 
 
   return (
     <>
+      <Header/>
       
         <div className="contentBody">
+          <Link to="/humascot-taca/product_search/" className='box_container_back_icons_back'>
+            <IoIosArrowBack id="icons_back"/>
+            <p>Back</p>
+          </Link>
           <div className="boxProduct_deteils">
+            
             <div className="slider">
               <div className={`slide ${direction}`} style={{ backgroundImage: `url(${slides[activeSlide]})` }}></div>
               <div className="navigation but1">
@@ -58,19 +76,19 @@ function ProductDetails() {
               <p className='money_txt'>$192.00</p>
               <div className="startBox">
                 <div className='sartBox_icon'>
-                  <box-icon type='solid' name='star'></box-icon>
-                  <box-icon type='solid' name='star'></box-icon>
-                  <box-icon type='solid' name='star'></box-icon>
-                  <box-icon type='solid' name='star'></box-icon>
-                  <box-icon name='star' ></box-icon>
+                  <AiFillStar id="icon_stars"/>
+                  <AiFillStar id="icon_stars"/>
+                  <AiFillStar id="icon_stars"/>
+                  <AiFillStar id="icon_stars"/>
+                  <AiOutlineStar id="icon_star"/>
                 </div>
 
-                <div >
+                <div>
                   <p>( 150 Reviews )</p>
                 </div>
               </div>
               <p className='txt_description'> Hello PlayStation 5 Controller Skin High quality vinyl with air channel adhesive for easy bubble free install & mess free removal Pressure sensitive.</p>
-
+              <div className="hr"><hr/></div>
               <div className="color_product">
                 <p>Color:</p>
                 <div className="echColor colB"></div>
@@ -85,18 +103,16 @@ function ProductDetails() {
                 <div className="echSize">L</div>
                 <div className="echSize">XL</div>
               </div>
-              <div className="echCount">
-                <div className="minusBox borderCount">
-                  <Link to="#"><box-icon name='minus'></box-icon></Link>
-                </div>
-                <p className="CountcenterNumber">2</p>
-                <div className="plusBox borderCount">
-                  <Link to="#"><box-icon name='plus'></box-icon></Link>
-                </div>
+
+              <div className='container_item_icon'>
+                <div className="container_minus_plus" onClick={decrementValue}>-</div>
+                <span>{parseInt(value)}</span>
+                <div className="container_minus_plus" onClick={incrementValue}>+</div>
               </div>
+
               <div className="Count_product">
                   <Link to="/humascot-taca/cart/payment" className="echbtn btnBut">Buy Now</Link>
-                  <Link className="echbtn btnAdd">Add To Cart</Link>
+                  <Link to="#" className="echbtn btnAdd">Add To Cart</Link>
               </div>
             </div>
           </div>

@@ -27,9 +27,14 @@ a{
   background-color: #FFF;
   box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.10);
 }
-#icon_cancel{
+
+.box_cancel_register{
+  padding: 28px 0 0 42rem;
+}
+#icon_cancel_register{
   width: 30px;
   height: 30px;
+  
 }
 .container_register{
   width: 370px;
@@ -63,11 +68,10 @@ a{
   line-height: normal;
 }
 
-.box_form{
+.box_form_register{
   display: grid;
   justify-content: center;
   gap: 1rem;
-  padding: 0 0 0 0;
 }
 .box_form input{
   width: 450px;

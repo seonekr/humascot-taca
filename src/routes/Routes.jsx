@@ -33,7 +33,7 @@ const Links = () => {
     return(
         <Router>
             <Routes>
-                <Route exact path="/humascot-taca" Component={Home}/>
+                <Route exact path="/humascot-taca/" Component={Home}/>
                 <Route exact path="/humascot-taca/account/" Component={Account}/>
                 <Route exact path="/humascot-taca/account/general/" Component={General}/>
                 <Route exact path="/humascot-taca/account/contact/" Component={Contact}/>
@@ -42,8 +42,8 @@ const Links = () => {
                 <Route exact path="/humascot-taca/cart/address/" Component={Address}/>
                 <Route exact path="/humascot-taca/chatuser/" Component={Chatuser}/>
                 <Route exact path="/humascot-taca/chatuser/chatroom/" Component={Chatroom}/>
-                <Route exact path="/humascot-taca/order" Component={Order}/>
-                <Route exact path="/humascot-taca/order/bill" Component={Bill}/>
+                <Route exact path="/humascot-taca/order/" Component={Order}/>
+                <Route exact path="/humascot-taca/order/bill/" Component={Bill}/>
                 <Route exact path="/humascot-taca/categories/" Component={Categories}/>
 
                 {/* Admin routes */}

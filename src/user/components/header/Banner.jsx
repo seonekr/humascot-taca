@@ -27,8 +27,7 @@ const Banner = () => {
   }, [activeSlide]);
 
   return (
-
-      <section>
+      <div>
         <div className="slider">
           <div className={`slide ${direction}`} style={{backgroundImage: `url(${slides[activeSlide]})`}}></div>
           <div className="navigation but1">
@@ -38,7 +37,7 @@ const Banner = () => {
             <div className="nav-btn " onClick={handleNextSlide}>&#8250;</div>
           </div>
         </div>
-      </section>
+      </div>
 
   );
 };
