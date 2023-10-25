@@ -54,14 +54,14 @@ const Product_search = () => {
 
 
     const [noOfElement, setnoOfElement] = useState(4);
-    const loadMore = () =>{
+    const loadMore = () => {
         setnoOfElement(noOfElement + noOfElement);
     }
     // const slice = products.carddata.slice(0, noOfElement);
 
     return (
         <>
-            <Header/>
+            <Header />
             <div className='container_home'>
                 <div className="content_Box">
                     <div className='container_head_search'>
@@ -79,78 +79,74 @@ const Product_search = () => {
                                 value={maxPrice}
                                 onChange={(e) => setMaxPrice(e.target.value)}
                             />
-                             <input
+                            <input
                                 type="number"
                                 placeholder="Min Price"
                                 value={minPrice}
                                 onChange={(e) => setMinPrice(e.target.value)}
-                            />  
+                            />
                         </div>
                     </div>
                     <div className="content_itemBox">
                         <div className='container_product'>
                             <h3>Product</h3>
-                            <div className='product_fillter'>
-                                <div className="container_product_category">
-                                    <form className="category_form" >
-                                        <label>Product Type: </label>
-                                        <select className="categoryFilter" value={price} onChange={handleSelectChange}>
-                                        <option className="listOption" value="">Categories</option>
-                                        <option className="listOption" value="10">Cate1</option>
-                                        <option className="listOption" value="20">Cate2</option>
-                                        <option className="listOption" value="30">Cate3</option>
-                                        </select>
-                                    </form>
-                                </div>
-                            </div>
+                            <form className="category_form" >
+                                <select className="categoryFilter" value={price} onChange={handleSelectChange}>
+                                    <option className="listOption" value="">Categories</option>
+                                    <option className="listOption" value="10">Cate1</option>
+                                    <option className="listOption" value="20">Cate2</option>
+                                    <option className="listOption" value="30">Cate3</option>
+                                </select>
+                            </form>
                         </div>
                         <div className='product-area'>
                             {filteredProducts.map((product, index) => (
-                            <form key={index}>
-                                <div className='box-product' >
-                                    <Link to="/humascot-taca/product_search/productdetails">
-                                        <img src={product.images[0]} alt='img'/>
-                                    </Link>
-                                    <div className="txtOFproduct">
-                                        <h4>
-                                            <input
-                                                type="text"
-                                                value={product.name}
-                                                onChange={(e) => handleInputChange(e, index, "name")}
-                                            />
-                                        </h4>
-                                        <p className='txtP_width'>
-                                            <input
-                                                type="text"
-                                                value={product.description}
-                                                onChange={(e) => handleInputChange(e, index, "description")}
-                                            />
-                                        </p>
-                                        <p>
-                                            <input
-                                                type="text"
-                                                value={product.price}
-                                                onChange={(e) => handleInputChange(e, index, "price")}
-                                            />
-                                        </p>
+                                <form key={index}>
+                                    <div className='box-product' >
+                                        <Link to="/humascot-taca/product_search/productdetails">
+                                            <img src={product.images[0]} alt='img' />
+                                        </Link>
+                                        <div className="txtOFproduct">
+                                            <h4>
+                                                <input
+                                                    type="text"
+                                                    value={product.name}
+                                                    onChange={(e) => handleInputChange(e, index, "name")}
+                                                />
+                                            </h4>
+                                            <p>
+                                                <input
+                                                    className='priceProduct'
+                                                    type="text"
+                                                    value={product.price}
+                                                    onChange={(e) => handleInputChange(e, index, "price")}
+                                                />
+                                            </p>
+                                            <p className='txtP_width'>
+                                                <input
+                                                    type="text"
+                                                    value={product.description}
+                                                    onChange={(e) => handleInputChange(e, index, "description")}
+                                                />
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                            </form>
+                                </form>
                             ))}
                         </div>
                     </div>
                     <div className='btn_more'>
                         <Link to="#" className="loadmore_btn_more"
-                        onClick={() => loadMore()}
+                            onClick={() => loadMore()}
                         >
                             View More
                         </Link>
-                         
+
                     </div>
                 </div>
-                
+
             </div>
-            <Menu/>
+            <Menu />
         </>
     )
 }
