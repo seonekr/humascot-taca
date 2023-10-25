@@ -83,7 +83,7 @@ function ProductDetails() {
                   <AiOutlineStar id="icon_star"/>
                 </div>
 
-                <div className="box_view" >
+                <div>
                   <p>( 150 Reviews )</p>
                 </div>
               </div>

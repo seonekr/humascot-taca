@@ -5,7 +5,7 @@ import 'boxicons';
 import { Link } from 'react-router-dom';
 import { AiOutlineClose } from "react-icons/ai"
 import google from '../../../img/google.png';
-import axios from "axios";
+
 
 
 const Login = () => {
@@ -32,7 +32,7 @@ const Login = () => {
 
   return (
     <section>
-      <form onSubmit={handleSubmit} className="box_container_login">
+      <form onSubmit={handleSubmit} className="box_container_login2">
         <div className='box_cancel_login'>
           <Link to="/humascot-taca"><AiOutlineClose id="icon_cancel_login"/></Link>
         </div>

@@ -12,7 +12,7 @@ a{
 
 /* ============== body box_container_login ============== */
 
-.box_container_login{
+.box_container_login2{
     width: 800px;
     height: 700px;
     position: relative;
@@ -34,7 +34,6 @@ a{
 #icon_cancel_login{
     width: 30px;
     height: 30px;
-    
 }
 .cover{
     width: 400px;

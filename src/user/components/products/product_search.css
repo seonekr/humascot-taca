@@ -110,6 +110,7 @@ input:focus {
     background-color: #fff;
     overflow: hidden;
     border-radius: 7px;
+    margin-top: 1rem;
 
 }
 
@@ -153,6 +154,7 @@ input:focus {
     color: #ffffff;
     border-radius: 5px;
     border: 1px;
+    cursor: pointer;
     margin: 1rem 0 2rem 0;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.10);
 }

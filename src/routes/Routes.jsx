@@ -42,8 +42,8 @@ const Links = () => {
                 <Route exact path="/humascot-taca/cart/address/" Component={Address}/>
                 <Route exact path="/humascot-taca/chatuser/" Component={Chatuser}/>
                 <Route exact path="/humascot-taca/chatuser/chatroom/" Component={Chatroom}/>
-                <Route exact path="/humascot-taca/order" Component={Order}/>
-                <Route exact path="/humascot-taca/order/bill" Component={Bill}/>
+                <Route exact path="/humascot-taca/order/" Component={Order}/>
+                <Route exact path="/humascot-taca/order/bill/" Component={Bill}/>
                 <Route exact path="/humascot-taca/categories/" Component={Categories}/>
 
                 {/* Admin routes */}
