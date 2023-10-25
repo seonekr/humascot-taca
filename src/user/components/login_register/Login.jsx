@@ -18,8 +18,8 @@ const Login = () => {
   };
 
   const handlePassword = (e) => {
-    const value = e.target.value;
-    setPassword(value);
+    const value = e.target.value
+    setPassword(value)
   };
 
   const handleSubmit = (e) => {
