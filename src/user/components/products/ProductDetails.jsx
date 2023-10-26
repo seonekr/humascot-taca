@@ -15,20 +15,12 @@ function ProductDetails() {
   const [direction, setDirection] = useState("right");
 
   // Checked sizes
-  const [checked, setChecked] = useState({
-    s: false,
-    m: true,
-    l: false,
-    xl: false
-  });
+  const [size, setSize] = useState("m");
 
   // Handle checked sizes
-  const handleCheckboxChange = (event) => {
-    const { id, checked } = event.target;
-    setChecked((prevState) => ({
-      ...prevState,
-      [id]: checked
-    }));
+  const handleSizeChange = (event) => {
+    const { id } = event.target;
+    setSize(id);
   };
 
   // Checked colors
@@ -79,8 +71,7 @@ function ProductDetails() {
   // Handle submitted
   const handleSubmit = (event) => {
     event.preventDefault();
-    const selectedSizes = Object.keys(checked).filter((key) => checked[key]);
-    console.log(selectedSizes); // do something with the selected sizes
+    console.log(size); // do something with the selected sizes
     console.log(value);
     console.log(color);
   };
@@ -163,14 +154,34 @@ function ProductDetails() {
               {/* Checked sizes */}
               <div className="size_product">
                 <p>Size:</p>
-                <label htmlFor="s" className={checked.s ? "echSize active" : "echSize"}>S</label>
-                <input type="checkbox" id="s" value="s" onChange={handleCheckboxChange}/>
-                <label htmlFor="m" className={checked.m ? "echSize active" : "echSize"}>M</label>
-                <input type="checkbox" id="m" value="m" onChange={handleCheckboxChange}/>
-                <label htmlFor="l" className={checked.l ? "echSize active" : "echSize"}>L</label>
-                <input type="checkbox" id="l" value="l" onChange={handleCheckboxChange}/>
-                <label htmlFor="xl" className={checked.xl ? "echSize active" : "echSize"}>XL</label>
-                <input type="checkbox" id="xl" value="xl" onChange={handleCheckboxChange}/>
+                <label htmlFor="s" className={`echSize ${size === "s" ? "active" : ""}`}>S</label>
+                <input
+                  type="radio"
+                  id="s"
+                  checked={size === "s"}
+                  onChange={handleSizeChange}
+                />
+                <label htmlFor="m" className={`echSize ${size === "m" ? "active" : ""}`}>M</label>
+                <input
+                  type="radio"
+                  id="m"
+                  checked={size === "m"}
+                  onChange={handleSizeChange}
+                />
+                <label htmlFor="l" className={`echSize ${size === "l" ? "active" : ""}`}>L</label>
+                <input
+                  type="radio"
+                  id="l"
+                  checked={size === "l"}
+                  onChange={handleSizeChange}
+                />
+                <label htmlFor="xl" className={`echSize ${size === "xl" ? "active" : ""}`}>XL</label>
+                <input
+                  type="radio"
+                  id="xl"
+                  checked={size === "xl"}
+                  onChange={handleSizeChange}
+                />
               </div>
 
               {/* Amount product */}

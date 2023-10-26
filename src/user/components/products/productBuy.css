@@ -159,20 +159,28 @@
     border-radius: 5px;
     font-size: 17px;
 }
+
 .btnBut{
+    background-color: #ff5016ec;
+    color: #FFF;
+}
+
+.btnBut:hover{
     background-color: #FF4F16;
     color: #FFF;
 }
-.btnAdd{
+
+.btnAdd {
     border: #FF4F16 1px solid;
     color: #FF4F16;
+    cursor: pointer;
+}
+.btnAdd:hover{
+    background-color: #FF4F16;
+    color: #fff;
 }
 
-
-
-
 /* ----------- END Text Name, Price and Description ---------------- */
-
 
 .slider {
     position: relative;
