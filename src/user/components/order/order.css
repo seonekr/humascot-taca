@@ -15,12 +15,7 @@
     padding: 15px 0;
 }
 
-#container_order_item .box_item_order img {
-    width: 15%;
-    height: 150px;
-    background-color: #7777;
-    box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
-}
+
 
 .guopIconbAck {
     display: flex;
@@ -35,7 +30,9 @@
     gap: 1.9rem;
     margin-top: 0.6rem;
     padding: 20px 40px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.08);
     background-color: #fff;
+    border-radius: 7px;
 }
 
 .iconnBack {
