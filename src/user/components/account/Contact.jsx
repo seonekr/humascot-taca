@@ -1,16 +1,17 @@
 import "./account.css"
-import { FaArrowLeft } from "react-icons/fa6";
+import { FaAngleLeft } from "react-icons/fa6";
 import React, { useState } from 'react';
 import user from "../../../img/user.png";
 import Menu from "../menu/Menu";
+import Header from "../header/Header";
 import { Link } from "react-router-dom";
 
 const Contact = () => {
 
-    const[email, setEmail] = useState('');
+    const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
-    const[profile, setProfile] = useState([]);
-    const[name, setName] = useState('');
+    const [profile, setProfile] = useState([]);
+    const [name, setName] = useState('');
 
     // This is submit function
     const handleSubmit = (e) => {
@@ -21,12 +22,12 @@ const Contact = () => {
 
         // Set default phone if empty
         const submittedPhone = phone || '02099887878'; // Inside '' fatch phone number from datadase for set old phone number when user doesn't  type a new phone number
-        
+
         // Set default name if empty
         const submittedName = name.trim() || 'Sam'; // fatch name from datadase for set old name when user doesn't type a new name
         // Set default image if empty
         //const submittedProfile = profile || {user}; // Inside { } fatch image from datadase for set old image when user doesn't choose image
-        
+
         const submittedProfile = profile.length > 0 ? profile[0].name : user;
         const submittedProfileName = submittedProfile.split('\\').pop().split('/').pop();
 
@@ -38,9 +39,9 @@ const Contact = () => {
         });
 
         setEmail(''),
-        setPhone(''),
-        setName(''),
-        setProfile([])
+            setPhone(''),
+            setName(''),
+            setProfile([])
     };
 
     const handleEmail = (e) => {
@@ -61,34 +62,33 @@ const Contact = () => {
 
     // Previw image before submit
     const handleImage = (e) => {
-        
+
         const file = e.target.files[0];
 
         if (file) {
-          const reader = new FileReader();
-      
-          reader.onloadend = () => {
-            setProfile([file]);
-          };
-      
-          reader.readAsDataURL(file);
+            const reader = new FileReader();
+
+            reader.onloadend = () => {
+                setProfile([file]);
+            };
+
+            reader.readAsDataURL(file);
         }
 
     };
-    return(
+    return (
         <>
-            <section id="header-account">
-                <div className="account-navbar">
-                    <div className="header-box"><Link to="/account"><FaArrowLeft/></Link></div>
-                    <div className="header-box middle">Contact</div>
-                    <div className="header-box"></div>
-                </div>
-            </section>
+            <Header />
+
             <section id="account">
+                <div className="account_navbarr">
+                    <div className="header_boxBack"><Link to="/account" className='guopIconbAck'><FaAngleLeft className='iconnBack' />Back</Link></div>
+                </div>
+
                 <form onSubmit={handleSubmit} className="personal-info">
                     <div className="contact-info">
                         <div className="box-image">
-                            {profile && profile.length > 0 ? <span><img src={URL.createObjectURL(profile[0])} alt="" /></span>: <span><img src={user} alt="" /></span>}
+                            {profile && profile.length > 0 ? <span><img src={URL.createObjectURL(profile[0])} alt="" /></span> : <span><img src={user} alt="" /></span>}
                             <input
                                 id="choose-image"
                                 type="file"
@@ -108,8 +108,8 @@ const Contact = () => {
                         </div>
                         <div className="contact">
                             <label htmlFor="email">Change email:</label>
-                            <input 
-                                type="email" 
+                            <input
+                                type="email"
                                 id="email"
                                 placeholder="...@example.com"
                                 value={email}
@@ -118,8 +118,8 @@ const Contact = () => {
                         </div>
                         <div className="contact">
                             <label htmlFor="phone">Change phone:</label>
-                            <input 
-                                type="text" 
+                            <input
+                                type="text"
                                 id="phone"
                                 placeholder=".....9972"
                                 value={phone}
@@ -132,10 +132,10 @@ const Contact = () => {
                             <button type="submit" disabled={!email && !phone && !name && (!profile || profile.length === 0)}>Done</button>
                             {/* {(email || phone) && (<button type="submit">Done</button>)} The button will show when user input information */}
                         </div>
-                    </div> 
+                    </div>
                 </form>
             </section>
-            <Menu/>
+            <Menu />
         </>
     )
 };

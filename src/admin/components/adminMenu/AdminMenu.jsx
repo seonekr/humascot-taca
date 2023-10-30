@@ -28,7 +28,7 @@ const AdminMenu = () => {
       <section id="dashboard">
         <div className="container_boxD">
           <div className="left">
-            <Link to="/humascot-taca/admin">
+            <Link to="/admin/">
               <div className="logo">
                 <span>
                   <img src={cart} alt="" />
@@ -37,7 +37,7 @@ const AdminMenu = () => {
             </Link>
 
             <div className="menu">
-              <Link to="admin/dashboard" className="link active">
+              <Link to="/admin/dashboard/" className="link active">
                 <RxDashboard />
                 <p>Dashboard</p>
               </Link>
@@ -45,23 +45,23 @@ const AdminMenu = () => {
                 <IoDocumentText />
                 <p>Products</p>
               </Link>
-              <Link to="/admin/gallery" className="link">
+              <Link to="/admin/orderpage/" className="link">
                 <MdOutlineSell />
                 <p>Orders</p>
               </Link>
-              <Link to="/admin" className="link">
+              <Link to="/admin/menageruser/" className="link">
                 <BiUser />
                 <p>User</p>
               </Link>
-              <Link to="/admin/addadmin" className="link">
+              <Link to="/admin/menagerAdmin/" className="link">
                 <LiaUserCogSolid />
                 <p>Admin</p>
               </Link>
-              <Link to="/admin/message" className="link">
+              <Link to="/admin/message/" className="link">
                 <BiMessageDetail />
                 <p>Message</p>
               </Link>
-              <Link to="/admin" className="link">
+              <Link to="/admin/" className="link">
                 <IoSettingsOutline />
                 <p>Setting</p>
               </Link>
