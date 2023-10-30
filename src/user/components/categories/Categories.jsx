@@ -73,7 +73,6 @@ const Categories = () => {
                 />
             </div>
             <div className='box_container_home'>
-
                 {displayedProducts.map((product, index) => (
                     <form key={index}>
                         <div className='box_container_img' >
