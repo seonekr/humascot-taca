@@ -20,7 +20,6 @@ const ProductHome = () => {
 
     const [price, setPrice] = useState("");
     const [priceFilter, setPriceFilter] = useState("");
-
     const [displayCount, setDisplayCount] = useState(8);
 
 
