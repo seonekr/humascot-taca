@@ -10,17 +10,10 @@ const ProductHome = () => {
         { id: 4, name: 'Product 1', description: 'This is product 1', price: 10, category: "electronich device", images: [dress] },
         { id: 5, name: 'Product 2', description: 'This is product 2', price: 20, category: "cosmetics", images: [dress] },
         { id: 6, name: 'Product 3', description: 'This is product 3', price: 30, category: "cosmetics", images: [dress] },
-        { id: 7, name: 'Product 1', description: 'This is product 1', price: 10, category: "electronich device", images: [dress] },
-        { id: 8, name: 'Product 2', description: 'This is product 2', price: 20, category: "cosmetics", images: [dress] },
-        { id: 9, name: 'Product 3', description: 'This is product 3', price: 30, category: "cosmetics", images: [dress] },
-        { id: 10, name: 'Product 1', description: 'This is product 1', price: 10, category: "electronich device", images: [dress] },
-        { id: 11, name: 'Product 2', description: 'This is product 2', price: 20, category: "cosmetics", images: [dress] },
-        { id: 12, name: 'Product 3', description: 'This is product 3', price: 30, category: "cosmetics", images: [dress] },
-      ]);
+    ]);
 
     const [price, setPrice] = useState("");
     const [priceFilter, setPriceFilter] = useState("");
-    const [displayCount, setDisplayCount] = useState(3);
 
     // Handle inputChange
     const handleInputChange = (e, index, field) => {
@@ -46,30 +39,27 @@ const ProductHome = () => {
         handleFilter(e.target.value); // Please change this to category
     };
 
-    // Read more
-    const displayedProducts = filteredProducts.slice(0, displayCount);
-    const handleViewMore = () => {
-        setDisplayCount(displayCount + 3);
-    };
-
     return (
         <section id="product">
             <div className="productHead_content">
                 <h1 className="htxthead"><span className="spennofStyle"></span>Product</h1>
-                <form>
-                    <select className="filter_priceProduct" value={price} onChange={handleSelectChange}>
-                        <option value="">Price</option>
-                        <option value="10">$10</option>
-                        <option value="20">$20</option>
-                        <option value="30">$30</option>
-                    </select>
-                </form>
+                <div className="categoryBoxfiler">
+                    <form className="category_form" >
+                        <select className="categoryFilter" value={price} onChange={handleSelectChange}>
+                            <option className="listOption" value="">Categories</option>
+                            <option className="listOption" value="10">Cate1</option>
+                            <option className="listOption" value="20">Cate2</option>
+                            <option className="listOption" value="30">Cate3</option>
+                        </select>
+                    </form>
+                    <box-icon name='filter'></box-icon>
+                </div>
             </div>
 
             <form className="product-area">
-            {displayedProducts.map((product, index) => (
+                {filteredProducts.map((product, index) => (
                     <div className="box-product" key={index}>
-                        <Link to="/product_search/"><img src={product.images[0]} alt="image" /></Link>
+                        <Link to="#"><img src={product.images[0]} alt="image" /></Link>
                         <ul className="txtOFproduct">
                             <li>
                                 <input
@@ -96,11 +86,10 @@ const ProductHome = () => {
                                 />
                             </li>
                         </ul>
-                </div>
+                    </div>
                 ))}
             </form>
-
-            <button className="btnViewProduct" onClick={handleViewMore}>View More</button>
+            <button className="btnViewProduct">View More</button>
         </section>
     )
 }
