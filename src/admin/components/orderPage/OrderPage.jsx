@@ -4,15 +4,16 @@ import { AiOutlineLeft,AiOutlineRight } from 'react-icons/ai';
 import { BsFilter } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import AdminMenu from '../adminMenu/AdminMenu';
+import acer from '../../../img/acer.png'
 
 const OrderPage = () => {
   return (
     <>
-    
+        <AdminMenu/>
         <section id='menager'>
-            <AdminMenu/>
+            
             <div className='container_body'>
-                <div className='container_box_users'>
+                <div className='container_box_orderpage'>
                     <div className='box_user'>
                         <div></div>
                         <div className='box_filter'>
@@ -30,7 +31,7 @@ const OrderPage = () => {
                     <div className='box_users_order'>
                         
                         <Link to="#" className='box_order_text'>
-                            <img src='https://sw.cool3c.com/user/29442/2020/c9146c0c-460f-4389-be1e-74c415a8f153.png?fit=max&w=1400&q=80' alt='#'></img>
+                            <img src={acer} alt='img'></img>
                             <div className='container_chat_name'>
                                 <p>NO: 1</p>
                                 <p>ID: 1</p>
@@ -56,7 +57,32 @@ const OrderPage = () => {
                     <div className='box_users_order'>
                         
                         <Link to="" className='box_order_text'>
-                            <img src='https://sw.cool3c.com/user/29442/2020/c9146c0c-460f-4389-be1e-74c415a8f153.png?fit=max&w=1400&q=80' alt='#'></img>
+                            <img src={acer} alt='img'></img>
+                            <div className='container_chat_name'>
+                                <p>NO: 1</p>
+                                <p>ID: 1</p>
+                                <h4>Samsung</h4>
+                            </div>
+                        </Link>
+                        <div className='box_container_time'>
+                            <p>Time: </p>
+                            <p>01/19/2023</p>
+                            <p>8:00 PM</p>
+                        </div>
+                        <div className='container_order_icon'>
+                            <Link to="#" className='btn_paid'>
+                                Paid
+                            </Link>
+                            <Link to="#" className='btn_view'>
+                                View
+                            </Link>
+                        </div>
+                        
+                    </div>
+                    <div className='box_users_order'>
+                        
+                        <Link to="" className='box_order_text'>
+                            <img src={acer} alt='img'></img>
                             <div className='container_chat_name'>
                                 <p>NO: 1</p>
                                 <p>ID: 1</p>
@@ -81,7 +107,7 @@ const OrderPage = () => {
                     <div className='box_users_order'>
                         
                         <Link to="#" className='box_order_text'>
-                            <img src='https://sw.cool3c.com/user/29442/2020/c9146c0c-460f-4389-be1e-74c415a8f153.png?fit=max&w=1400&q=80' alt='#'></img>
+                            <img src={acer} alt='img'></img>
                             <div className='container_chat_name'>
                                 <p>NO: 1</p>
                                 <p>ID: 1</p>
@@ -107,7 +133,7 @@ const OrderPage = () => {
                     <div className='box_users_order'>
                         
                         <Link to="" className='box_order_text'>
-                            <img src='https://sw.cool3c.com/user/29442/2020/c9146c0c-460f-4389-be1e-74c415a8f153.png?fit=max&w=1400&q=80' alt='#'></img>
+                            <img src={acer} alt='img'></img>
                             <div className='container_chat_name'>
                                 <p>NO: 1</p>
                                 <p>ID: 1</p>

@@ -5,6 +5,7 @@ import { MdOutlineEdit } from 'react-icons/md';
 import { BsFilter,BsPlusLg } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import AdminMenu from '../adminMenu/AdminMenu';
+import users from '../../../img/users.png'
 
 const MenagerUser = () => {
   return (
@@ -36,7 +37,7 @@ const MenagerUser = () => {
                     <div className='box_users_user'>
                         
                         <Link to="" className='box_user_text'>
-                            <img src='https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Photos.png' alt='#'></img>
+                            <img src={users} alt='img'></img>
                             <div className='container_chat_name'>
                                 <h4>Sompong</h4>
                                 <p>New message...</p>
@@ -55,7 +56,7 @@ const MenagerUser = () => {
                     <div className='box_users_user'>
                         
                         <Link to="" className='box_user_text'>
-                            <img src='https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Photos.png' alt='#'></img>
+                            <img src={users} alt='img'></img>
                             <div className='container_chat_name'>
                                 <h4>Sompong</h4>
                                 <p>New message...</p>
@@ -74,7 +75,7 @@ const MenagerUser = () => {
                     <div className='box_users_user'>
                         
                         <Link to="" className='box_user_text'>
-                            <img src='https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Photos.png' alt='#'></img>
+                            <img src={users} alt='img'></img>
                             <div className='container_chat_name'>
                                 <h4>Sompong</h4>
                                 <p>New message...</p>
@@ -93,7 +94,7 @@ const MenagerUser = () => {
                     <div className='box_users_user'>
                         
                         <Link to="" className='box_user_text'>
-                            <img src='https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Photos.png' alt='#'></img>
+                            <img src={users} alt='img'></img>
                             <div className='container_chat_name'>
                                 <h4>Sompong</h4>
                                 <p>New message...</p>

@@ -1,12 +1,12 @@
 import React from 'react'
 import "./menagerAdmin.css"
 import { AiOutlineDelete,AiOutlineLeft,AiOutlineRight  } from 'react-icons/ai';
-
 import { PiEyeSlashLight } from 'react-icons/pi';
 import { MdOutlineEdit } from 'react-icons/md';
 import { BsFilter,BsPlusLg } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import AdminMenu from '../adminMenu/AdminMenu';
+import users from '../../../img/users.png'
 
 
 const MenagerUser = () => {
@@ -39,7 +39,7 @@ const MenagerUser = () => {
                     <div className='box_users_admin'>
                         
                         <Link to="" className='box_admin_text'>
-                            <img src='https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Photos.png' alt='#'></img>
+                            <img src={users} alt='img'></img>
                             <div className='container_chat_name'>
                                 <p>Name: Sompong</p>
                                 <p>Eamil: Sompong@gmail.com</p>
@@ -61,7 +61,7 @@ const MenagerUser = () => {
                     <div className='box_users_admin'>
                         
                         <Link to="" className='box_admin_text'>
-                            <img src='https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Photos.png' alt='#'></img>
+                            <img src={users} alt='img'></img>
                             <div className='container_chat_name'>
                                 <p>Name: Sompong</p>
                                 <p>Eamil: Sompong@gmail.com</p>
@@ -83,7 +83,7 @@ const MenagerUser = () => {
                     <div className='box_users_admin'>
                         
                         <Link to="" className='box_admin_text'>
-                            <img src='https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Photos.png' alt='#'></img>
+                            <img src={users} alt='img'></img>
                             <div className='container_chat_name'>
                                 <p>Name: Sompong</p>
                                 <p>Eamil: Sompong@gmail.com</p>
@@ -104,8 +104,8 @@ const MenagerUser = () => {
                     </div>
                     <div className='box_users_admin'>
                         
-                        <Link to="#" className='box_admin_text'>
-                            <img src='https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Photos.png' alt='#'></img>
+                        <Link to="" className='box_admin_text'>
+                            <img src={users} alt='img'></img>
                             <div className='container_chat_name'>
                                 <p>Name: Sompong</p>
                                 <p>Eamil: Sompong@gmail.com</p>
