@@ -12,15 +12,39 @@ import { MdOutlineSell } from "react-icons/md";
 import cart from "../../../img/cart.png";
 import user from "../../../img/user.png";
 import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const AdminMenu = () => {
   const navigate = useNavigate();
+  var isLoggedin = false; //For check login or not
+  const [account, setAccount] = useState("");
+
+  useEffect(() => {
+    const id = localStorage.getItem("id");
+
+    var requestOptions = {
+      method: "GET",
+      redirect: "follow",
+    };
+
+    fetch("http://localhost:3001/getAdmin/" + id, requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        if (result.Status === "Success") {
+          setAccount(result.Result[0].email);
+        }
+        console.log(account);
+        // console.log(result.Result[0].email)
+      })
+      .catch((error) => console.log("error", error));
+  }, []);
+
   const handleLogout = (event) => {
     event.preventDefault();
     localStorage.removeItem("token");
     localStorage.removeItem("id");
-    // window.location = "/humascot-taca/admin";
-    navigate("/humascot-taca/admin");
+    navigate("/admin");
   };
 
   return (
@@ -28,7 +52,7 @@ const AdminMenu = () => {
       <section id="dashboard">
         <div className="container_boxD">
           <div className="left">
-            <Link to="/humascot-taca/admin">
+            <Link to="/admin">
               <div className="logo">
                 <span>
                   <img src={cart} alt="" />
@@ -81,7 +105,15 @@ const AdminMenu = () => {
                 </button>
               </div>
             </form>
-            <div className="userAdminImage"><img src={user} alt="Logo_Profile" /></div>
+            {isLoggedin ? (
+              <div className="userAdminImage">
+                <img src={user} alt="Logo_Profile" />
+              </div>
+            ) : (
+              <div className="userAdminImage">
+                <p>{account}</p>
+              </div>
+            )}
           </div>
         </div>
       </section>

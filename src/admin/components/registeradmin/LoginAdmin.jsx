@@ -50,7 +50,7 @@ const Login = () => {
     <section>
       <form className="box_container_login">
         <div className="box_cancel_admin">
-          <Link to="/humascot-taca/">
+          <Link to="/">
             <AiOutlineClose id="icon_cancel_admin" />
           </Link>
         </div>
@@ -73,7 +73,7 @@ const Login = () => {
           />
 
           <div className="loginbtn_login">
-          <Link to="/humascot-taca/admin/dashboard/" type="button" className="login_btn" onClick={handleSubmit}>
+          <Link to="/admin/dashboard/" type="button" className="login_btn" onClick={handleSubmit}>
               Login
             </Link>
           </div>

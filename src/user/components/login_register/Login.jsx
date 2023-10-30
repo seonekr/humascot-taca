@@ -34,7 +34,7 @@ const Login = () => {
         console.log(res);
         if (res.data.Status === "Success") {
           localStorage.setItem("token", res.data.Token);
-          console.log("login token: " + res.data.Token);
+          localStorage.setItem("id", res.data.id);
           navigate("/");
         } else {
           setError(res.data.Error);
@@ -47,7 +47,7 @@ const Login = () => {
 
   return (
     <section>
-      <form onSubmit={handleSubmit} className="box_container_login2">
+      <form className="box_container_login2">
         <div className="box_cancel_login">
           <Link to="/">
             <AiOutlineClose id="icon_cancel_login" />
@@ -55,6 +55,7 @@ const Login = () => {
         </div>
         <div className="cover">
           <h2 className="box_container_login_text">Login</h2>
+          <h3>{error && error}</h3>
           <input
             className="input_form"
             type="email"

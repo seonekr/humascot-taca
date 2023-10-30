@@ -5,10 +5,36 @@ import {
   FaCartShopping,
   FaRegUser,
 } from "react-icons/fa6";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Logo1 from "../../../img/Logo1.png";
+import { useEffect, useState } from "react";
 
 const Header = () => {
+  const navigate = useNavigate();
+  const [account, setAccount] = useState("");
+  var isLoggedin = true; //For check login or not
+
+  useEffect(() => {
+    const id = localStorage.getItem("id");
+    
+    var requestOptions = {
+      method: "GET",
+      redirect: "follow",
+    };
+
+    fetch("http://localhost:3001/getCustomer/" + id, requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        if (result.Status === "Success") {
+          setAccount(result.Result[0].email);
+        } else {
+          navigate("/");
+        }
+        console.log("2 : " + isLoggedin);
+      })
+      .catch((error) => console.log("error", error));
+  }, []);
+
   return (
     <>
       <section id="header">
@@ -42,11 +68,17 @@ const Header = () => {
                   </Link>
                 </li>
 
-                <li>
-                  <Link to="/login" className="linkLi">
-                    Login
-                  </Link>
-                </li>
+                {isLoggedin ? (
+                  <li>
+                    <p>{account}</p>
+                  </li>
+                ) : (
+                  <li>
+                    <Link to="/login" className="linkLi">
+                      Login
+                    </Link>
+                  </li>
+                )}
               </div>
             </ul>
 
