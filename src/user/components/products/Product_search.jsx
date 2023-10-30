@@ -4,12 +4,14 @@ import { Link } from 'react-router-dom';
 import acer from '../../../img/acer.png'
 import Header from '../header/Header';
 import Menu from '../menu/Menu';
+import image1 from "../../../img/image1.png";
+import productImage from "../../../img/productImage.png";
 import { FaSearch } from "react-icons/fa"
 import { useState } from 'react';
 
 const Product_search = () => {
     const [products, setProducts] = useState([
-        { id: 1, name: 'Product 1', description: 'This is product 1', price: 10, images: [acer] },
+        { id: 1, name: 'Product 1', description: 'This is product 1', price: 10, images: [image1] },
         { id: 2, name: 'Product 2', description: 'This is product 2', price: 20, images: [acer] },
         { id: 3, name: 'Product 3', description: 'This is product 3', price: 30, images: [acer] },
         { id: 4, name: 'Product 4', description: 'This is product 4', price: 20, images: [acer] },
@@ -36,8 +38,6 @@ const Product_search = () => {
         const maxPriceMatch = maxPrice !== "" ? product.price >= maxPrice : true;
         return nameMatch && minPriceMatch && maxPriceMatch;
     });
-
-
 
     // Handle inputChange
     const handleInputChange = (e, index, field) => {
@@ -78,8 +78,9 @@ const Product_search = () => {
                 </div>
                 <div className="content_itemBox">
                     <div className='container_product'>
+
                         <h3>Product</h3>
-                        <form>
+                        <form className='boxfilterseach'>
                             <select className="categoryFilter" value={maxPrice} onChange={handleMaxChange}>
                                 <option className="listOption" value="">Over price</option>
                                 <option className="listOption" value="10">$10</option>
@@ -94,10 +95,11 @@ const Product_search = () => {
                             </select>
                         </form>
                     </div>
-                    <div className='product-area'>
+
+                    <div className='contentImageProducts'>
                         {displayedProducts.map((product, index) => (
                             <form key={index}>
-                                <div  className='box-product' >
+                                <div  className='group_itemBox' >
                                     <Link to="/product_search/productdetails">
                                         <img src={product.images[0]} alt='img' />
                                     </Link>
