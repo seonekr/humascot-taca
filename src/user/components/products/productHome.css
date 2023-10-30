@@ -27,6 +27,7 @@ a {
     font-size: 15px;
     padding: 7px 15px;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .spennofStyle {

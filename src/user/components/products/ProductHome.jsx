@@ -20,7 +20,9 @@ const ProductHome = () => {
 
     const [price, setPrice] = useState("");
     const [priceFilter, setPriceFilter] = useState("");
+
     const [displayCount, setDisplayCount] = useState(8);
+
 
     // Handle inputChange
     const handleInputChange = (e, index, field) => {
@@ -35,15 +37,15 @@ const ProductHome = () => {
         return peiceMatch;
     });
 
-    // Handle filter by category
+    // Handle filter by price
     const handleFilter = (price) => {
-        setPriceFilter(price); // Please change this to category
+        setPriceFilter(price);
     };
 
-    // Handle select by category
+    // Handle select by price
     const handleSelectChange = (e) => {
-        setPrice(e.target.value); // Please change this to category
-        handleFilter(e.target.value); // Please change this to category
+        setPrice(e.target.value);
+        handleFilter(e.target.value);
     };
 
     // Read more
@@ -99,7 +101,6 @@ const ProductHome = () => {
                     </div>
                 ))}
             </form>
-
             <button className="btnViewProduct" onClick={handleViewMore}>View More</button>
         </section>
     )
