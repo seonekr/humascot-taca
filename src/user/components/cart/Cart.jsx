@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import acer from '../../../img/acer.png';
+import Header from '../header/Header';
+import Menu from '../menu/Menu'
+
 import './cart.css';
 
 const Cart = () => {
@@ -8,8 +11,6 @@ const Cart = () => {
     { id: 1, name: 'Product 1', description: 'This is product 1', price: 10, images: [acer] },
     { id: 2, name: 'Product 2', description: 'This is product 2', price: 20, images: [acer] },
     { id: 3, name: 'Product 3', description: 'This is product 3', price: 30, images: [acer] },
-    { id: 4, name: 'Product 4', description: 'This is product 4', price: 20, images: [acer] },
-    { id: 5, name: 'Product 4', description: 'This is product 4', price: 20, images: [acer] },
   ]);
 
   const [productCounts, setProductCounts] = useState(products.reduce((acc, product) => ({ ...acc, [product.id]: 1 }), {}));
@@ -66,6 +67,7 @@ const Cart = () => {
 
   return (
     <>
+    <Header/>
       <form onSubmit={handleSubmit}>
         <div className='box_container_cart'>
           <div className='display_products'>
@@ -130,6 +132,7 @@ const Cart = () => {
           </div>
         </div>
       </form>
+      <Menu/>
     </>
   )
 }
