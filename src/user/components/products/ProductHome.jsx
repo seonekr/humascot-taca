@@ -20,7 +20,7 @@ const ProductHome = () => {
 
     const [price, setPrice] = useState("");
     const [priceFilter, setPriceFilter] = useState("");
-    const [displayCount, setDisplayCount] = useState(3);
+    const [displayCount, setDisplayCount] = useState(8);
 
     // Handle inputChange
     const handleInputChange = (e, index, field) => {
@@ -49,7 +49,7 @@ const ProductHome = () => {
     // Read more
     const displayedProducts = filteredProducts.slice(0, displayCount);
     const handleViewMore = () => {
-        setDisplayCount(displayCount + 3);
+        setDisplayCount(displayCount + 4);
     };
 
     return (
@@ -67,7 +67,7 @@ const ProductHome = () => {
             </div>
 
             <form className="product-area">
-            {displayedProducts.map((product, index) => (
+                {displayedProducts.map((product, index) => (
                     <div className="box-product" key={index}>
                         <Link to="/product_search/"><img src={product.images[0]} alt="image" /></Link>
                         <ul className="txtOFproduct">
@@ -96,7 +96,7 @@ const ProductHome = () => {
                                 />
                             </li>
                         </ul>
-                </div>
+                    </div>
                 ))}
             </form>
 

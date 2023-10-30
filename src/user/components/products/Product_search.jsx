@@ -17,12 +17,17 @@ const Product_search = () => {
         { id: 6, name: 'Product 6', description: 'This is product 6', price: 20, images: [acer] },
         { id: 7, name: 'Product 7', description: 'This is product 7', price: 30, images: [acer] },
         { id: 8, name: 'Product 8', description: 'This is product 8', price: 20, images: [acer] },
+        { id: 9, name: 'Product 5', description: 'This is product 5', price: 10, images: [acer] },
+        { id: 10, name: 'Product 6', description: 'This is product 6', price: 20, images: [acer] },
+        { id: 11, name: 'Product 7', description: 'This is product 7', price: 30, images: [acer] },
+        { id: 12, name: 'Product 8', description: 'This is product 8', price: 20, images: [acer] },
         
     ]);
 
     const [searchTerm, setSearchTerm] = useState("");
     const [minPrice, setMinPrice] = useState("");
     const [maxPrice, setMaxPrice] = useState("");
+    const [displayCount, setDisplayCount] = useState(8);
 
     // Filter products based on search term and price range
     const filteredProducts = products.filter((product) => {
@@ -51,12 +56,10 @@ const Product_search = () => {
     };
 
 
-    /*============= Load More =============== */
-
-    const [visibleProducts, setVisibleProducts] = useState(4);
-
+    // Read more
+    const displayedProducts = filteredProducts.slice(0, displayCount);
     const handleViewMore = () => {
-        setVisibleProducts(prevVisibleProducts => prevVisibleProducts + 4);
+        setDisplayCount(displayCount + 4);
     };
 
     return (
@@ -91,7 +94,7 @@ const Product_search = () => {
                         </form>
                     </div>
                     <div className='product-area'>
-                        {filteredProducts.map((product, index) => (
+                        {displayedProducts.map((product, index) => (
                             <form key={index}>
                                 <div  className='box-product' >
                                     <Link to="/product_search/productdetails">
@@ -127,7 +130,7 @@ const Product_search = () => {
                     </div>
                 </div>
                 <div className='btn_more'>
-                    <button className="loadmore_btn_more">
+                    <button className="loadmore_btn_more" onClick={handleViewMore}>
                         View More
                     </button>
                 </div>

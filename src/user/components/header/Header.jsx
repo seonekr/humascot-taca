@@ -20,7 +20,7 @@ const Header = () => {
                             </div>
                         </ul>
                         <ul className="ulHead_box">
-                            <li><Link to="/"><FaMagnifyingGlass className="head_colorr" /></Link></li>
+                            <li><Link to="/product_search/"><FaMagnifyingGlass className="head_colorr" /></Link></li>
                             <li><Link to="/cart"><FaCartShopping className="head_colorr" /></Link></li>
                             <li><Link to="/account"><FaRegUser className="head_colorr" /></Link></li>
                         </ul>
