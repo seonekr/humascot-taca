@@ -20,6 +20,25 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
+
+/*============ Load More =============*/
+.btn_more_categories {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loadmore_btn__categories {
+    padding: 12px 50px;
+    background: #FF4F16;
+    color: #ffffff;
+    border-radius: 5px;
+    border: 1px;
+    cursor: pointer;
+    margin: 1rem 0 2rem 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.10);
+}
+
 /* ================== Responsive ==============*/
 
 @media screen and (max-width: 821px) {
