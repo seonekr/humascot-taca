@@ -12,7 +12,7 @@ const ProductHome = () => {
         { id: 4, name: 'Product 1', description: 'This is product 1', price: 10, category: "electronich device", images: [dress] },
         { id: 5, name: 'Product 2', description: 'This is product 2', price: 20, category: "cosmetics", images: [dress] },
         { id: 6, name: 'Product 3', description: 'This is product 3', price: 30, category: "cosmetics", images: [dress] },
-      ]);
+    ]);
 
     const [price, setPrice] = useState("");
     const [priceFilter, setPriceFilter] = useState("");
@@ -45,14 +45,17 @@ const ProductHome = () => {
         <section id="product">
             <div className="productHead_content">
                 <h1 className="htxthead"><span className="spennofStyle"></span>Product</h1>
-                <form>
-                    <select className="filter_priceProduct" value={price} onChange={handleSelectChange}>
-                        <option value="">Price</option>
-                        <option value="10">$10</option>
-                        <option value="20">$20</option>
-                        <option value="30">$30</option>
-                    </select>
-                </form>
+                <div className="categoryBoxfiler">
+                    <form className="category_form" >
+                        <select className="categoryFilter" value={price} onChange={handleSelectChange}>
+                            <option className="listOption" value="">Categories</option>
+                            <option className="listOption" value="10">Cate1</option>
+                            <option className="listOption" value="20">Cate2</option>
+                            <option className="listOption" value="30">Cate3</option>
+                        </select>
+                    </form>
+                    <box-icon name='filter'></box-icon>
+                </div>
             </div>
 
             <form className="product-area">

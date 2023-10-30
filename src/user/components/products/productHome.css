@@ -16,7 +16,8 @@ a {
     margin-bottom: 2rem;
 }
 
-.htxthead {
+
+.htxthead,.categoryBoxfiler {
     display: flex;
     align-items: center;
     gap: 10px;
