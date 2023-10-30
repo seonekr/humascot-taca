@@ -20,7 +20,7 @@ const ProductHome = () => {
 
     const [price, setPrice] = useState("");
     const [priceFilter, setPriceFilter] = useState("");
-    const [displayCount, setDisplayCount] = useState(3);
+    const [displayCount, setDisplayCount] = useState(4); // Read more
 
     // Handle inputChange
     const handleInputChange = (e, index, field) => {
@@ -49,7 +49,7 @@ const ProductHome = () => {
     // Read more
     const displayedProducts = filteredProducts.slice(0, displayCount);
     const handleViewMore = () => {
-        setDisplayCount(displayCount + 3);
+        setDisplayCount(displayCount + 4);
     };
 
     return (
@@ -99,7 +99,6 @@ const ProductHome = () => {
                 </div>
                 ))}
             </form>
-
             <button className="btnViewProduct" onClick={handleViewMore}>View More</button>
         </section>
     )
