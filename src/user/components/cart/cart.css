@@ -1,13 +1,15 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: sans-serif;
 }
-a{
+
+a {
     text-decoration: none;
     color: black;
 }
+
 .box_container_cart {
     width: 80%;
     margin: auto;
@@ -20,7 +22,7 @@ a{
     margin-top: 7rem;
 }
 
-.container_cart_item  {
+.container_cart_item {
     height: 12rem;
     width: 100%;
     display: flex;
@@ -31,14 +33,17 @@ a{
     background-color: #fff;
     box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
 }
+
 .box_item_image {
     display: flex;
     width: 100%;
 }
-.box_item_image  img {
+
+.box_item_image img {
     width: 50%;
     background-color: #eee;
 }
+
 .box_item_text {
     display: flex;
     width: 100%;
@@ -60,12 +65,13 @@ a{
 .box_item_icon span {
     width: 10%;
 }
+
 .box_item_icon span input {
     width: 100%;
     text-align: center;
 }
 
-.icon_minus_plus{
+.icon_minus_plus {
     width: 25px;
     height: 25px;
     display: flex;
@@ -78,7 +84,8 @@ a{
 .sub {
     cursor: pointer;
 }
-.box_item_total{
+
+.box_item_total {
     position: fixed;
     width: 45%;
     display: flex;
@@ -93,24 +100,27 @@ a{
     box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
 }
 
-.box_item_total_text{
+.box_item_total_text {
     font-size: 20px;
     width: 100%;
     display: flex;
     padding: 0.5rem 1rem;
     justify-content: space-between;
 }
+
 .box_item_total_text p {
     width: 20%;
 
 }
+
 .box_item_total_text input {
     text-align: right;
     color: #28B463;
     font-size: 1.2rem;
     justify-content: end;
 }
-.btn{
+
+.btn {
     display: flex;
     gap: 5rem;
     align-items: center;
@@ -118,7 +128,7 @@ a{
     justify-content: center;
 }
 
-.checkout_btn{
+.checkout_btn {
     padding: 12px 28px;
     background: #FA442C;
     color: #ffffff;
@@ -131,7 +141,8 @@ a{
     cursor: pointer;
     margin-top: 1rem;
 }
-.Continues_btn{
+
+.Continues_btn {
     padding: 12px 25px;
     border-radius: 5px;
     border: 2px solid #FA442C;
@@ -144,26 +155,7 @@ a{
 }
 
 /*=========== Resposive =============*/
-/* For smartphones with a maximum width of 320px */
-@media only screen and (max-width: 320px) {
-    .box_container_cart {
-        width: 95%;
-    }
-}
 
-/* For smartphones with a maximum width of 480px */
-@media only screen and (max-width: 480px) {
-    .box_container_cart {
-        width: 90%;
-    }
-}
-
-/* For smartphones with a maximum width of 640px */
-@media only screen and (max-width: 640px) {
-    .box_container_cart {
-        width: 85%;
-    }
-}
 
 /* For smartphones with a maximum width of 768px */
 @media only screen and (max-width: 768px) {
@@ -172,23 +164,27 @@ a{
         display: flex;
         width: 95%;
     }
+
     .box_container_cart .display_products {
-        margin-top: 5rem;
         width: 95%;
+        margin: 5rem auto 0 auto;
 
     }
+
     .container_cart_item {
         width: 100%;
         height: auto;
         gap: 1rem;
         padding: 10px;
     }
+
     .box_item_image {
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: space-between;
     }
+
     .box_item_image img {
         width: 60%;
     }
@@ -198,6 +194,7 @@ a{
         font-size: 10px;
         margin-left: 1rem;
     }
+
     .box_item_text .name,
     .box_item_text .description {
         overflow: hidden;
@@ -214,6 +211,7 @@ a{
         margin-top: 3rem;
         font-size: 1.3rem;
     }
+
     .box_item_total {
         position: relative;
         width: 100%;
@@ -222,8 +220,34 @@ a{
         margin-top: 1rem;
         margin-bottom: 7rem;
     }
+
     .btn {
         flex-direction: column;
         gap: 1rem;
+    }
+}
+
+/* For smartphones with a maximum width of 640px */
+@media only screen and (max-width: 640px) {
+    .box_container_cart {
+        width: 85%;
+    }
+}
+
+/* For smartphones with a maximum width of 480px */
+@media only screen and (max-width: 480px) {
+    .box_container_cart {
+        width: 100%;
+    }
+
+    .container_cart_item {
+        width: 100%;
+    }
+}
+
+/* For smartphones with a maximum width of 320px */
+@media only screen and (max-width: 320px) {
+    .box_container_cart {
+        width: 95%;
     }
 }

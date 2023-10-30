@@ -67,7 +67,7 @@ const Cart = () => {
 
   return (
     <>
-    <Header/>
+      <Header />
       <form onSubmit={handleSubmit}>
         <div className='box_container_cart'>
           <div className='display_products'>
@@ -101,7 +101,7 @@ const Cart = () => {
                     <input
                       type="text"
                       value={productCounts[product.id] || 0}
-                      onChange={() => {}}
+                      onChange={() => { }}
                     />
                   </span>
                   <div className="icon_minus_plus" onClick={() => incrementCount(product.id)}>+</div>
@@ -114,17 +114,17 @@ const Cart = () => {
           <h1>Cart Total</h1>
           <div className='box_item_total_text'>
             <p>Subtotal:</p>
-            <p><input type="text" value={"$ " + price} onChange={() => {}} /></p>
+            <p><input type="text" value={"$ " + price} onChange={() => { }} /></p>
           </div>
           <hr />
           <div className='box_item_total_text'>
             <p>Shipping: </p>
-            <p><input type="text" value={"$ " + shipping} onChange={() => {}} /></p>
+            <p><input type="text" value={"$ " + shipping} onChange={() => { }} /></p>
           </div>
           <hr />
           <div className='box_item_total_text'>
             <h3>Total: </h3>
-            <p><input type="text" value={"$ " + grandTotal} onChange={() => {}} /></p>
+            <p><input type="text" value={"$ " + grandTotal} onChange={() => { }} /></p>
           </div>
           <div className='btn'>
             <Link to="/product_search/" className="Continues_btn">Continues Shopping</Link>
@@ -132,7 +132,7 @@ const Cart = () => {
           </div>
         </div>
       </form>
-      <Menu/>
+      <Menu />
     </>
   )
 }
