@@ -57,6 +57,7 @@ const Product_search = () => {
 
 
     // Read more
+    
     const displayedProducts = filteredProducts.slice(0, displayCount);
     const handleViewMore = () => {
         setDisplayCount(displayCount + 4);
