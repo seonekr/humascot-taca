@@ -26,7 +26,7 @@ const Categories = () => {
         { id: 14, name: 'Product 14', description: 'This is product 14', price: 80, category: "cosmetics", images: [acer] },
     ]);
 
-    const [displayCount, setDisplayCount] = useState(4);
+    const [displayCount, setDisplayCount] = useState(2);
 
     const location = useLocation();
     const { categorys } = location.state;
@@ -57,7 +57,7 @@ const Categories = () => {
     
      const displayedProducts = filteredProducts.slice(0, displayCount);
      const handleViewMore = () => {
-        setDisplayCount(displayCount + 4);
+        setDisplayCount(displayCount + 2);
      };
 
     return (
