@@ -1,7 +1,5 @@
 import "./productHome.css";
 import dress from "../../../img/dress.png";
-import productImage from "../../../img/productImage.png";
-import image1 from "../../../img/image1.png";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 const ProductHome = () => {
@@ -23,9 +21,6 @@ const ProductHome = () => {
     const [price, setPrice] = useState("");
     const [priceFilter, setPriceFilter] = useState("");
     const [displayCount, setDisplayCount] = useState(3);
-
-
-
 
     // Handle inputChange
     const handleInputChange = (e, index, field) => {
@@ -51,7 +46,6 @@ const ProductHome = () => {
         handleFilter(e.target.value); // Please change this to category
     };
 
-
     // Read more
     const displayedProducts = filteredProducts.slice(0, displayCount);
     const handleViewMore = () => {
@@ -73,7 +67,7 @@ const ProductHome = () => {
             </div>
 
             <form className="product-area">
-                {displayedProducts.map((product, index) => (
+            {displayedProducts.map((product, index) => (
                     <div className="box-product" key={index}>
                         <Link to="/product_search/"><img src={product.images[0]} alt="image" /></Link>
                         <ul className="txtOFproduct">
@@ -85,15 +79,7 @@ const ProductHome = () => {
                                     onChange={handleInputChange}
                                 />
                             </li>
-                            <li >
-                                <input
-                                    className="priceProduct"
-                                    type="text"
-                                    value={product.price}
-                                    onChange={(e) => handleInputChange(e, index, "price")}
-                                />
-                            </li>
-                            <li className="">
+                            <li>
                                 <input
                                     className="desc"
                                     type="text"
@@ -101,12 +87,22 @@ const ProductHome = () => {
                                     onChange={(e) => handleInputChange(e, index, "description")}
                                 />
                             </li>
+                            <li>
+                                <input
+                                    className="price"
+                                    type="text"
+                                    value={product.price}
+                                    onChange={(e) => handleInputChange(e, index, "price")}
+                                />
+                            </li>
                         </ul>
-                    </div>
+                </div>
                 ))}
             </form>
+
             <button className="btnViewProduct" onClick={handleViewMore}>View More</button>
         </section>
     )
 }
+
 export default ProductHome;

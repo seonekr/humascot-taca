@@ -156,6 +156,7 @@
     padding: 10px 40px;
     border-radius: 5px;
     font-size: 17px;
+    cursor: pointer;
 }
 
 .btnBut{
@@ -347,6 +348,9 @@
         width: 100%;
         padding: 10px;
         margin: 5rem auto 0 auto;
+    }
+    .boxProduct_deteils{
+        gap: 0.2rem;
     }
     .slider {
         position: relative;

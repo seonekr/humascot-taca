@@ -195,7 +195,9 @@ function ProductDetails() {
 
               <div className="Count_product">
                   <Link to="/cart/payment" className="echbtn btnBut">Buy Now</Link>
+
                   <button type="submit" className="echbtn btnAdd">Add To Cart</button>
+
               </div>
             </div>
             </form>
