@@ -1,13 +1,15 @@
 import "./productHome.css";
 import dress from "../../../img/dress.png";
+import image1 from "../../../img/image1.png";
+import productImage from "../../../img/productImage.png";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 const ProductHome = () => {
     const [products, setProducts] = useState([
-        { id: 1, name: 'Product 1', description: 'This is product 1', price: 12, category: "clothes", images: [dress] },
-        { id: 2, name: 'Product 2', description: 'This is product 2', price: 20, category: "clothes", images: [dress] },
-        { id: 3, name: 'Product 3', description: 'This is product 3', price: 30, category: "electronich device", images: [dress] },
-        { id: 4, name: 'Product 1', description: 'This is product 1', price: 10, category: "electronich device", images: [dress] },
+        { id: 1, name: 'Product 1', description: 'This is product 1', price: 12, category: "clothes", images: [image1] },
+        { id: 2, name: 'Product 2', description: 'This is product 2', price: 20, category: "clothes", images: [image1] },
+        { id: 3, name: 'Product 3', description: 'This is product 3', price: 30, category: "electronich device", images: [productImage] },
+        { id: 4, name: 'Product 1', description: 'This is product 1', price: 10, category: "electronich device", images: [productImage] },
         { id: 5, name: 'Product 2', description: 'This is product 2', price: 20, category: "cosmetics", images: [dress] },
         { id: 6, name: 'Product 3', description: 'This is product 3', price: 30, category: "cosmetics", images: [dress] },
         { id: 7, name: 'Product 1', description: 'This is product 1', price: 10, category: "electronich device", images: [dress] },
