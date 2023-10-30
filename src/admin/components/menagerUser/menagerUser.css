@@ -4,31 +4,23 @@
     box-sizing: border-box;
 }
 
-/* ============ box_menager =========== */
-
-.box_menager{
-    width: 90%;
-    height: 100vh;
-    margin: auto;
-    display: flex;
-    background: #FFF;
-    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
-}
-
-
-/* ============ container_body_user =========== */
-.container_body_user{
+/* ============ container_body_adminuser =========== */
+.container_body_adminuser{
     width: 100%;
+    position: relative;
+    z-index: 999;
     padding: 88px 20px 20px 255px;
 }
 
 
-.container_box_users{
-    width: 1100px;
+.container_box_adminusers{
+    width: 100%;
     height: 82vh;
     margin: auto;
     margin-top: 1rem;
     padding: 30px 20px 20px 20px;
+    background: #FFF;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
 }
 
 .box_search_user{
