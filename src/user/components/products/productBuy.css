@@ -83,8 +83,6 @@
     align-items: center;
 }
 
-
-
 .txt_nameP,.money_txt, .startBox,.txt_description,.color_product,.size_product{
     padding: 0.7rem 0;
 
@@ -112,19 +110,11 @@
     align-items: center;
 }
 
-.colB{
-    background-color: black;
-    color: #FFF;
+/* Checkbox size */
+.size_product input {
+    display: none;
 }
-.colW{
-    background-color: fff;
-    color: #000;
-}
-.colBlue{
-    background-color: blue;
-    color: #FFF;
-    
-}
+
 .echColor{
     width: 25px;
     height: 25px;
@@ -139,10 +129,20 @@
     border: 2px solid rgba(0, 0, 0, 0.50);
     border-radius: 5px;
 }
+
+/* Acctive sizes */
+.echSize.active{
+    cursor: pointer;
+    padding: 7px 17px;
+    border: 2px solid rgba(0, 0, 0, 0.50);
+    border-radius: 5px;
+    background-color: #FF4F16;
+    color: #FFF;
+}
+
 .echSize:hover{
     background-color: #FF4F16;
     color: #FFF;
-    border: #FF4F16 2px solid;
 }
 
 
@@ -158,20 +158,28 @@
     font-size: 17px;
     cursor: pointer;
 }
+
 .btnBut{
+    background-color: #ff5016ec;
+    color: #FFF;
+}
+
+.btnBut:hover{
     background-color: #FF4F16;
     color: #FFF;
 }
-.btnAdd{
+
+.btnAdd {
     border: #FF4F16 1px solid;
     color: #FF4F16;
+    cursor: pointer;
+}
+.btnAdd:hover{
+    background-color: #FF4F16;
+    color: #fff;
 }
 
-
-
-
 /* ----------- END Text Name, Price and Description ---------------- */
-
 
 .slider {
     position: relative;
@@ -255,12 +263,21 @@
 
 
 /* ----------- box_item_icon  ---------------- */
-.container_item_icon{
+.container_item_icon {
     display: flex;
     align-items: center;
     gap: 0.8rem;
     margin-top: 1rem;
     font-size: 22px;
+}
+
+.container_item_icon span {
+    width: 5%;
+    text-align: center;
+}
+.container_item_icon span input {
+    width: 100%;
+    text-align: center;
 }
 
 

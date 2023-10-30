@@ -14,6 +14,23 @@ function ProductDetails() {
   const [activeSlide, setActiveSlide] = useState(0);
   const [direction, setDirection] = useState("right");
 
+  // Checked sizes
+  const [size, setSize] = useState("m");
+
+  // Handle checked sizes
+  const handleSizeChange = (event) => {
+    const { id } = event.target;
+    setSize(id);
+  };
+
+  // Checked colors
+  const [color, setColor] = useState("colB");
+
+  const handleRadioChange = (event) => {
+    const { id } = event.target;
+    setColor(id);
+  };
+
   const handlePrevSlide = () => {
     setDirection("left");
     setActiveSlide(activeSlide === 0 ? slides.length - 1 : activeSlide - 1);
@@ -32,23 +49,32 @@ function ProductDetails() {
   }, [activeSlide]);
 
 
-
-  // ============ Add to cart =============
-
-
-
   /*============== minus_plus ============= */
+  const [value, setValue] = useState(1);
+  const decrementValue = () => {
+    if (value > 1) {
+      setValue(value - 1);
+    }
+  };
 
-    const [value, setValue] = useState(0);
+  const incrementValue = () => {
+    setValue(value + 1);
+  };
 
-    const incrementValue = () => {
-        setValue(value + 1);
-    };
+  const handleChange = (event) => {
+    const newValue = parseInt(event.target.value);
+    if (!isNaN(newValue)) {
+      setValue(newValue);
+    }
+  };
 
-    const decrementValue = () => {
-        setValue(value - 1);
-    };
-
+  // Handle submitted
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(size); // do something with the selected sizes
+    console.log(value);
+    console.log(color);
+  };
 
   return (
     <>
@@ -71,6 +97,7 @@ function ProductDetails() {
               </div>
             </div>
 
+            <form onSubmit={handleSubmit}>
             <div className="txtContentproduct">
               <h1 className="txt_nameP">Havic HV G-92 Gamepad</h1>
               <p className='money_txt'>$192.00</p>
@@ -87,34 +114,93 @@ function ProductDetails() {
                   <p>( 150 Reviews )</p>
                 </div>
               </div>
-              <p className='txt_description'> Hello PlayStation 5 Controller Skin High quality vinyl with air channel adhesive for easy bubble free install & mess free removal Pressure sensitive.</p>
+              <p className='txt_description'>
+                Hello PlayStation 5 Controller Skin High quality vinyl with air channel adhesive for easy 
+                bubble free install & mess free removal Pressure sensitive.
+              </p>
               <div className="hr"><hr/></div>
+
+              {/* Checked colors */}
               <div className="color_product">
                 <p>Color:</p>
-                <div className="echColor colB"></div>
-                <div className="echColor colW"></div>
-                <div className="echColor colBlue"></div>
+                <label htmlFor="colB">Black</label>
+                <input
+                  className="echColor"
+                  type="radio"
+                  id="colB"
+                  checked={color === "colB"}
+                  onChange={handleRadioChange}
+                />
+
+                <label htmlFor="colW">White</label>
+                <input
+                  className="echColor"
+                  type="radio"
+                  id="colW"
+                  checked={color === "colW"}
+                  onChange={handleRadioChange}
+                />
+
+                <label htmlFor="colBlue">Blue</label>
+                <input
+                  className="echColor"
+                  type="radio"
+                  id="colBlue"
+                  checked={color === "colBlue"}
+                  onChange={handleRadioChange}
+                />
               </div>
 
+              {/* Checked sizes */}
               <div className="size_product">
                 <p>Size:</p>
-                <div className="echSize">S</div>
-                <div className="echSize">M</div>
-                <div className="echSize">L</div>
-                <div className="echSize">XL</div>
+                <label htmlFor="s" className={`echSize ${size === "s" ? "active" : ""}`}>S</label>
+                <input
+                  type="radio"
+                  id="s"
+                  checked={size === "s"}
+                  onChange={handleSizeChange}
+                />
+                <label htmlFor="m" className={`echSize ${size === "m" ? "active" : ""}`}>M</label>
+                <input
+                  type="radio"
+                  id="m"
+                  checked={size === "m"}
+                  onChange={handleSizeChange}
+                />
+                <label htmlFor="l" className={`echSize ${size === "l" ? "active" : ""}`}>L</label>
+                <input
+                  type="radio"
+                  id="l"
+                  checked={size === "l"}
+                  onChange={handleSizeChange}
+                />
+                <label htmlFor="xl" className={`echSize ${size === "xl" ? "active" : ""}`}>XL</label>
+                <input
+                  type="radio"
+                  id="xl"
+                  checked={size === "xl"}
+                  onChange={handleSizeChange}
+                />
               </div>
 
-              <div className='container_item_icon'>
+              {/* Amount product */}
+              <div className="container_item_icon">
                 <div className="container_minus_plus" onClick={decrementValue}>-</div>
-                <span>{parseInt(value)}</span>
+                <span>
+                  <input type="text" value={value} onChange={handleChange} />
+                </span>
                 <div className="container_minus_plus" onClick={incrementValue}>+</div>
               </div>
 
               <div className="Count_product">
                   <Link to="/cart/payment" className="echbtn btnBut">Buy Now</Link>
-                  <button className="echbtn btnAdd">Add To Cart</button>
+
+                  <button type="submit" className="echbtn btnAdd">Add To Cart</button>
+
               </div>
             </div>
+            </form>
           </div>
         </div>
 
