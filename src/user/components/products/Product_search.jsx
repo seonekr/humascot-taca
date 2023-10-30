@@ -13,6 +13,10 @@ const Product_search = () => {
         { id: 2, name: 'Product 2', description: 'This is product 2', price: 20, images: [acer] },
         { id: 3, name: 'Product 3', description: 'This is product 3', price: 30, images: [acer] },
         { id: 4, name: 'Product 4', description: 'This is product 4', price: 20, images: [acer] },
+        { id: 5, name: 'Product 5', description: 'This is product 5', price: 10, images: [acer] },
+        { id: 6, name: 'Product 6', description: 'This is product 6', price: 20, images: [acer] },
+        { id: 7, name: 'Product 7', description: 'This is product 7', price: 30, images: [acer] },
+        { id: 8, name: 'Product 8', description: 'This is product 8', price: 20, images: [acer] },
         
     ]);
 
@@ -44,6 +48,15 @@ const Product_search = () => {
     // Handle select by peice
     const handleMinChange = (e) => {
         setMinPrice(e.target.value); // Please change this to category
+    };
+
+
+    /*============= Load More =============== */
+
+    const [visibleProducts, setVisibleProducts] = useState(4);
+
+    const handleViewMore = () => {
+        setVisibleProducts(prevVisibleProducts => prevVisibleProducts + 4);
     };
 
     return (

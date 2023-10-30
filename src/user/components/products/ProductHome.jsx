@@ -61,7 +61,7 @@ const ProductHome = () => {
             <form className="product-area">
                 {filteredProducts.map((product, index) => (
                     <div className="box-product" key={index}>
-                        <Link to="#"><img src={product.images[0]} alt="image" /></Link>
+                        <Link to="/product_search/productdetails/"><img src={product.images[0]} alt="image" /></Link>
                         <ul className="txtOFproduct">
                             <li>
                                 <input
