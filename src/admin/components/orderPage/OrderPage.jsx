@@ -8,146 +8,143 @@ import AdminMenu from '../adminMenu/AdminMenu';
 const OrderPage = () => {
   return (
     <>
+    
         <section id='menager'>
             <AdminMenu/>
-            <div className='box_menager_orderpage'>
-                <div className='container_body'>
-                    <div className='container_box_users'>
-                        <div className='box_user'>
-                            <div></div>
-                            <div className='box_filter'>
-                                <form className='cetegory_form'>
-                                    <select className='categoryFilter'>
-                                        <option className='listOption' value="Something">Filter users</option>
-                                        <option className='listOption' value="Something">Filter users</option>
-                                        <option className='listOption' value="Something">Filter users</option>
-                                        <option className='listOption' value="Something">Filter users</option>
-                                    </select>
-                                </form>
-                            <BsFilter id='filter_icon'/>
-                            </div>
+            <div className='container_body'>
+                <div className='container_box_users'>
+                    <div className='box_user'>
+                        <div></div>
+                        <div className='box_filter'>
+                            <form className='cetegory_form'>
+                                <select className='categoryFilter'>
+                                    <option className='listOption' value="Something">Filter users</option>
+                                    <option className='listOption' value="Something">Filter users</option>
+                                    <option className='listOption' value="Something">Filter users</option>
+                                    <option className='listOption' value="Something">Filter users</option>
+                                </select>
+                            </form>
+                        <BsFilter id='filter_icon'/>
                         </div>
-
-                        <div className='box_users_order'>
-                            
-                            <Link to="#" className='box_order_text'>
-                                <img src='https://sw.cool3c.com/user/29442/2020/c9146c0c-460f-4389-be1e-74c415a8f153.png?fit=max&w=1400&q=80' alt='#'></img>
-                                <div className='container_chat_name'>
-                                    <p>NO: 1</p>
-                                    <p>ID: 1</p>
-                                    <h4>Samsung</h4>
-                                </div>
+                    </div>
+                    <div className='box_users_order'>
+                        
+                        <Link to="#" className='box_order_text'>
+                            <img src='https://sw.cool3c.com/user/29442/2020/c9146c0c-460f-4389-be1e-74c415a8f153.png?fit=max&w=1400&q=80' alt='#'></img>
+                            <div className='container_chat_name'>
+                                <p>NO: 1</p>
+                                <p>ID: 1</p>
+                                <h4>Samsung</h4>
+                            </div>
+                        </Link>
+                        <div className='box_container_time'>
+                            <p>Time: </p>
+                            <p>01/19/2023</p>
+                            <p>8:00 PM</p>
+                        </div>
+                        <div className='container_order_icon'>
+                            <Link to="#" className='btn_pending'>
+                                Pending
                             </Link>
-                            <div className='box_container_time'>
-                                <p>Time: </p>
-                                <p>01/19/2023</p>
-                                <p>8:00 PM</p>
-                            </div>
-                            <div className='container_order_icon'>
-                                <button className='btn_pending'>
-                                    Pending
-                                </button>
-                                <button className='btn_view'>
-                                    View
-                                </button>
-                            </div>
-                            
+                            <Link to="#" className='btn_view'>
+                                View
+                            </Link>
                         </div>
                         
-                        <div className='box_users_order'>
-                            
-                            <Link to="" className='box_order_text'>
-                                <img src='https://sw.cool3c.com/user/29442/2020/c9146c0c-460f-4389-be1e-74c415a8f153.png?fit=max&w=1400&q=80' alt='#'></img>
-                                <div className='container_chat_name'>
-                                    <p>NO: 1</p>
-                                    <p>ID: 1</p>
-                                    <h4>Samsung</h4>
-                                </div>
-                            </Link>
-                            <div className='box_container_time'>
-                                <p>Time: </p>
-                                <p>01/19/2023</p>
-                                <p>8:00 PM</p>
+                    </div>
+                    
+                    <div className='box_users_order'>
+                        
+                        <Link to="" className='box_order_text'>
+                            <img src='https://sw.cool3c.com/user/29442/2020/c9146c0c-460f-4389-be1e-74c415a8f153.png?fit=max&w=1400&q=80' alt='#'></img>
+                            <div className='container_chat_name'>
+                                <p>NO: 1</p>
+                                <p>ID: 1</p>
+                                <h4>Samsung</h4>
                             </div>
-                            <div className='container_order_icon'>
-                                <button className='btn_paid'>
-                                    Paid
-                                </button>
-                                <button className='btn_view'>
-                                    View
-                                </button>
-                            </div>
-                            
+                        </Link>
+                        <div className='box_container_time'>
+                            <p>Time: </p>
+                            <p>01/19/2023</p>
+                            <p>8:00 PM</p>
                         </div>
-                        <div className='box_users_order'>
-                            
-                            <Link to="#" className='box_order_text'>
-                                <img src='https://sw.cool3c.com/user/29442/2020/c9146c0c-460f-4389-be1e-74c415a8f153.png?fit=max&w=1400&q=80' alt='#'></img>
-                                <div className='container_chat_name'>
-                                    <p>NO: 1</p>
-                                    <p>ID: 1</p>
-                                    <h4>Samsung</h4>
-                                </div>
+                        <div className='container_order_icon'>
+                            <Link to="#" className='btn_paid'>
+                                Paid
                             </Link>
-                            <div className='box_container_time'>
-                                <p>Time: </p>
-                                <p>01/19/2023</p>
-                                <p>8:00 PM</p>
-                            </div>
-                            <div className='container_order_icon'>
-                                <button className='btn_pending'>
-                                    Pending
-                                </button>
-                                <button className='btn_view'>
-                                    View
-                                </button>
-                            </div>
-                            
+                            <Link to="#" className='btn_view'>
+                                View
+                            </Link>
                         </div>
                         
-                        <div className='box_users_order'>
-                            
-                            <Link to="" className='box_order_text'>
-                                <img src='https://sw.cool3c.com/user/29442/2020/c9146c0c-460f-4389-be1e-74c415a8f153.png?fit=max&w=1400&q=80' alt='#'></img>
-                                <div className='container_chat_name'>
-                                    <p>NO: 1</p>
-                                    <p>ID: 1</p>
-                                    <h4>Samsung</h4>
-                                </div>
+                    </div>
+                    <div className='box_users_order'>
+                        
+                        <Link to="#" className='box_order_text'>
+                            <img src='https://sw.cool3c.com/user/29442/2020/c9146c0c-460f-4389-be1e-74c415a8f153.png?fit=max&w=1400&q=80' alt='#'></img>
+                            <div className='container_chat_name'>
+                                <p>NO: 1</p>
+                                <p>ID: 1</p>
+                                <h4>Samsung</h4>
+                            </div>
+                        </Link>
+                        <div className='box_container_time'>
+                            <p>Time: </p>
+                            <p>01/19/2023</p>
+                            <p>8:00 PM</p>
+                        </div>
+                        <div className='container_order_icon'>
+                            <Link to="#" className='btn_pending'>
+                                Pending
                             </Link>
-                            <div className='box_container_time'>
-                                <p>Time: </p>
-                                <p>01/19/2023</p>
-                                <p>8:00 PM</p>
-                            </div>
-                            <div className='container_order_icon'>
-                                <button className='btn_paid'>
-                                    Paid
-                                </button>
-                                <button className='btn_view'>
-                                    View
-                                </button>
-                            </div>
-                            
+                            <Link to="#" className='btn_view'>
+                                View
+                            </Link>
                         </div>
                         
-                       
-
-                        <div className='box_next_order'>
-                            <button className='box_prev_next_order'>
-                                <AiOutlineLeft id="box_prev_next_icon"/>
-                                <p>Prev</p>
-                            </button>
-                            <div className='box_num_order'>
-                                <p className='num_admin'>1</p>
-                                <p className='num_admin'>2</p>
-                                <p className='num_admin'>3</p>
+                    </div>
+                    
+                    <div className='box_users_order'>
+                        
+                        <Link to="" className='box_order_text'>
+                            <img src='https://sw.cool3c.com/user/29442/2020/c9146c0c-460f-4389-be1e-74c415a8f153.png?fit=max&w=1400&q=80' alt='#'></img>
+                            <div className='container_chat_name'>
+                                <p>NO: 1</p>
+                                <p>ID: 1</p>
+                                <h4>Samsung</h4>
                             </div>
-                            <button className='box_prev_nexts_order'>
-                                <p>Next</p>
-                                <AiOutlineRight id="box_prev_next_icon"/>
-                            </button>
+                        </Link>
+                        <div className='box_container_time'>
+                            <p>Time: </p>
+                            <p>01/19/2023</p>
+                            <p>8:00 PM</p>
                         </div>
+                        <div className='container_order_icon'>
+                            <Link to="#" className='btn_paid'>
+                                Paid
+                            </Link>
+                            <Link to="#" className='btn_view'>
+                                View
+                            </Link>
+                        </div>
+                        
+                    </div>
+                    
+                   
+                    <div className='box_next_order'>
+                        <button className='box_prev_next_order'>
+                            <AiOutlineLeft id="box_prev_next_icon"/>
+                            <p>Prev</p>
+                        </button>
+                        <div className='box_num_order'>
+                            <p className='num_admin'>1</p>
+                            <p className='num_admin'>2</p>
+                            <p className='num_admin'>3</p>
+                        </div>
+                        <button className='box_prev_nexts_order'>
+                            <p>Next</p>
+                            <AiOutlineRight id="box_prev_next_icon"/>
+                        </button>
                     </div>
                 </div>
             </div>
