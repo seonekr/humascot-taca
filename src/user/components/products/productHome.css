@@ -42,6 +42,9 @@ a {
     gap: 1rem;
 }
 
+#product .box-product:hover {
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+}
 #product .box-product {
     width: 100%;
     height: auto;

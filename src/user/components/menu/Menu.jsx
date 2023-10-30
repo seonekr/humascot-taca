@@ -39,7 +39,7 @@ const Menu = () => {
                         </div>
                     </div>
                 </div>
-                <hr />
+                <hr className="hrfoo"/>
                 <p className="lastFooter">
                     Copyright &#169;
                     TACA 2023

@@ -3,6 +3,7 @@
     width: 100%;
     background-color: #fff;
     margin-top: 2rem;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
 }   
 
 .footer_Container {
@@ -66,7 +67,9 @@
     font-size: 15px;
     padding: 10px 0;
 }
-
+.hrfoo{
+    border: 0.5px solid #dddce18f;
+}
 
 /*---------- Menu For Mobile ----------*/
 .menubar {
