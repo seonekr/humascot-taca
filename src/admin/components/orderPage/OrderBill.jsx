@@ -6,10 +6,10 @@ import { ImCheckmark } from 'react-icons/im';
 const OrderBill = () => {
   return (
     <>
-        <form id='menager'>
+        <section id='menager'>
              <AdminMenu/>
             <div className='container_body'>
-                <div className='container_box_orderBill'>
+                <form className='container_box_orderBill'>
                     <div className="box_guopoidHead">
                         <div className="idf">
                             <p>NO: 15</p>
@@ -62,9 +62,9 @@ const OrderBill = () => {
                     </div>
                     
                 
-                </div>
+                </form>
             </div>
-        </form>
+        </section>
     </>
   )
 }
