@@ -5,7 +5,7 @@ import { useState } from "react";
 import AdminMenu from "../adminMenu/AdminMenu";
 import { BiPlus } from 'react-icons/bi';
 import { MdOutlineEdit } from 'react-icons/md';
-import { AiOutlineDelete } from 'react-icons/ai';
+import { AiOutlineDelete, AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 
 const Product = () => {
     const [products, setProducts] = useState([
@@ -108,7 +108,7 @@ const Product = () => {
                                         />
                                     </li>
                                     <div className="box_btn_edit_delete">
-                                        
+
                                         <button className="btn_icon_delete_user">
                                             <AiOutlineDelete id="btn_icon_edit"/>
                                         </button>
@@ -122,7 +122,22 @@ const Product = () => {
                             </div>
                         ))}
                     </form>
-                    <div>...</div>
+                    <div className='box_container_next_product'>
+                        <button className='box_prev_left_product'>
+                            <AiOutlineLeft id="box_icon_left_right_product" />
+                            <p>Prev</p>
+                        </button>
+
+                        <div className='box_num_product'>
+                            <p className='num_admin_product'>1</p>
+                            <p className='num_admin_product'>2</p>
+                            <p className='num_admin_product'>3</p>
+                        </div>
+                        <button className='box_prev_right_product'>
+                            <p>Next</p>
+                            <AiOutlineRight id="box_icon_left_right_product" />
+                        </button>
+                    </div>
                 </div>
                     
             </section>

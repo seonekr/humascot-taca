@@ -49,7 +49,7 @@ a {
     padding: 7px 15px;
     border-radius: 5px;
     color: #FFFFFF;
-    background-color: #40e682;
+    background-color: #15c65c;
 }
 #icon_add_product{
     width: 25px;
@@ -139,6 +139,77 @@ a {
     justify-content: center;
     background: #27A7EF;
     border-radius: 8px;
+}
+
+/* ============ box_prev_next =========== */
+
+
+.box_container_next_product{
+    display: flex;
+    gap: 1rem;
+    cursor: pointer;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.5rem;
+    bottom: 0;
+}
+.box_prev_left_product{
+    width: 80px;
+    height: 40px;
+    display: flex;
+    gap: 0.3rem;
+    color: #FFF;
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    align-items: center;
+    justify-content: center;
+    background: #FA442C;
+}
+.box_prev_right_product{
+    width: 80px;
+    height: 40px;
+    display: flex;
+    gap: 0.3rem;
+    color: #FFF;
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    align-items: center;
+    justify-content: center;
+    background: #27A7EF;
+}
+
+#box_icon_left_right_product{
+    width: 22px;
+    height: 22px;
+}
+
+.num_admin_product{
+    width: 70px;
+    height: 40px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #444;
+}
+.box_prev_left_product p{
+    font-size: 14px;
+}
+.box_prev_right_product p{
+    font-size: 14px;
+}
+.box_num_product p{
+    font-size: 16px;
+}
+
+.box_num_product{
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
 }
 
 
