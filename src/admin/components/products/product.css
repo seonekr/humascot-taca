@@ -49,7 +49,7 @@ a {
     padding: 7px 15px;
     border-radius: 5px;
     color: #FFFFFF;
-    background-color: #40e682;
+    background-color: #15c65c;
 }
 #icon_add_product{
     width: 25px;
@@ -62,6 +62,7 @@ a {
     border-radius: 5px;
     cursor: pointer;
 }
+
 
 .spennofStyleadmin {
     width: 20px;
@@ -141,57 +142,77 @@ a {
     border-radius: 8px;
 }
 
+/* ============ box_prev_next =========== */
+
+
+.box_container_next_product{
+    display: flex;
+    gap: 1rem;
+    cursor: pointer;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.5rem;
+    bottom: 0;
+}
+.box_prev_left_product{
+    width: 80px;
+    height: 40px;
+    display: flex;
+    gap: 0.3rem;
+    color: #FFF;
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    align-items: center;
+    justify-content: center;
+    background: #FA442C;
+}
+.box_prev_right_product{
+    width: 80px;
+    height: 40px;
+    display: flex;
+    gap: 0.3rem;
+    color: #FFF;
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    align-items: center;
+    justify-content: center;
+    background: #27A7EF;
+}
+
+#box_icon_left_right_product1{
+    width: 20px;
+    height: 20px;
+}
+
+.num_admin_product{
+    width: 70px;
+    height: 40px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #444;
+}
+.box_prev_left_product p{
+    font-size: 14px;
+}
+.box_prev_right_product p{
+    font-size: 14px;
+}
+.box_num_product p{
+    font-size: 16px;
+}
+
+.box_num_product{
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+}
+
 
 /* =========== Responsive ============*/
 
-
-@media screen and (max-width: 820px) {
-    #product {
-        width: 85%;
-    }
-
-    #product .box-product img {
-        width: 100%;
-        height: 14vh;
-    }
-}
-
-@media screen and (max-width: 420px) {
-    #product {
-        width: 100%;
-        padding: 0 10px;
-    }
-
-    #product .product-area {
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-    }
-
-    .imageBox {
-        height: 190px;
-    }
-
-    #product .box-product img {
-        width: 100%;
-        height: 20vh;
-    }
-
-    .txtOFproduct {
-        padding: 10px;
-        gap: 5px;
-    }
-
-    .btnViewProduct {
-        padding: 15px 0;
-        margin: 2rem auto 7rem auto;
-    }
-
-}
-
-
-@media screen and (max-width: 376px) {
-    #product {
-        padding: 0 15px;
-    }
-
-}
