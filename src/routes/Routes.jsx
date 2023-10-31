@@ -5,6 +5,7 @@ import General from "../user/components/account/General";
 import Contact from "../user/components/account/Contact";
 import Password from "../user/components/account/Password";
 import Payment from "../user/components/cart/Payment";
+import SuccessfulBuy from "../user/components/cart/SuccessfulBuy";
 import Cart from "../user/components/cart/Cart";
 import Address from "../user/components/cart/Address";
 import Chatuser from "../user/components/chat/Chatuser";
@@ -47,6 +48,7 @@ const Links = () => {
                 <Route exact path="/order/" Component={Order}/>
                 <Route exact path="/order/bill/" Component={Bill}/>
                 <Route exact path="/categories/" Component={Categories}/>
+                <Route exact path="/cart/successfulBuy/" Component={SuccessfulBuy}/>
 
                 {/* Admin routes */}
                 <Route exact path="/admin/dashboard/" Component={Dashboard}/>
