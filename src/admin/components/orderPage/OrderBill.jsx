@@ -10,8 +10,8 @@ const OrderBill = () => {
         <>
             <AdminMenu />
             <form id='menager'>
-                <div className='container_body'>
-                    <div className='container_box_orderBill'>
+                <div className='container_box_orderBill'>
+                    <div className="content_box_orderBill">
                         <div className="header-box"><Link to="/admin/orderpage/" className='guopIconbAck'><FaAngleLeft className='iconnBack' />Back</Link></div>
                         <div className="group_lisblecackk">
                             <div className="box_guopoidHead">

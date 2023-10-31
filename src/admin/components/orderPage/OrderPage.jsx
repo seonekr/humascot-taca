@@ -40,7 +40,7 @@ const OrderPage = () => {
                             <p>8:00 PM</p>
                         </div>
                         <div className='container_order_icon'>
-                            <Link to="#" className='btn_pending'>
+                            <Link to="/admin/OrderWrong" className='btn_pending'>
                                 Pending
                             </Link>
                             <Link to="/admin/orderbill" className='btn_view'>
