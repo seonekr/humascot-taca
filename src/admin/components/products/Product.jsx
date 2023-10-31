@@ -10,13 +10,13 @@ import { AiOutlineDelete, AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 const Product = () => {
     const [products, setProducts] = useState([
         { id: 1, name: 'Product 1', description: 'This is product 1', price: 10, category: "clothes", images: [image1] },
-        { id: 1, name: 'Product 1', description: 'This is product 1', price: 11, category: "clothes", images: [image1] },
-        { id: 1, name: 'Product 1', description: 'This is product 1', price: 12, category: "clothes", images: [image1] },
-        { id: 1, name: 'Product 1', description: 'This is product 1', price: 10, category: "clothes", images: [image1] },
-        { id: 1, name: 'Product 1', description: 'This is product 1', price: 11, category: "clothes", images: [image1] },
-        { id: 1, name: 'Product 1', description: 'This is product 1', price: 12, category: "clothes", images: [image1] },
-        { id: 1, name: 'Product 1', description: 'This is product 1', price: 10, category: "clothes", images: [image1] },
-        { id: 1, name: 'Product 1', description: 'This is product 1', price: 11, category: "clothes", images: [image1] },
+        { id: 1, name: 'Product 2', description: 'This is product 1', price: 11, category: "clothes", images: [image1] },
+        { id: 1, name: 'Product 3', description: 'This is product 1', price: 12, category: "clothes", images: [image1] },
+        { id: 1, name: 'Product 4', description: 'This is product 1', price: 10, category: "clothes", images: [image1] },
+        { id: 1, name: 'Product 5', description: 'This is product 1', price: 11, category: "clothes", images: [image1] },
+        { id: 1, name: 'Product 6', description: 'This is product 1', price: 12, category: "clothes", images: [image1] },
+        { id: 1, name: 'Product 7', description: 'This is product 1', price: 10, category: "clothes", images: [image1] },
+        { id: 1, name: 'Product 8', description: 'This is product 1', price: 11, category: "clothes", images: [image1] },
     ]);
 
     const [price, setPrice] = useState("");
@@ -68,7 +68,7 @@ const Product = () => {
                             </Link>
                             <form>
                                 <select className="filter_priceProduct" value={price} onChange={handleSelectChange}>
-                                    <option value="">Price</option>
+                                    <option value="">Filter Price</option>
                                     <option value="10">$10</option>
                                     <option value="11">$11</option>
                                     <option value="12">$12</option>
