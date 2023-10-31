@@ -4,66 +4,21 @@
     box-sizing: border-box;
 }
 
-
-
-
 /* ============ container_body =========== */
-.container_body{
-    width: 100%;
-    height: auto;
-    position: relative;
-    z-index: 999;
-}
-
 
 .container_box_orderpage{
-    width: 100%;
-    height: auto;
-    margin: auto;
-    margin-top: 1rem;
+    position: absolute;
+    width: 85%;
+    right: 0;
+    margin-top: 5rem;
     padding: 30px 50px 20px 50px;
     background: #FFF;
-    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
-}
-
-.box_search{
-    width: 1126px;
-    height: 90px;
-    display: flex;
-    align-items: center;
-    padding: 0 40px 0 0;
-    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
-}
-.box_search img{
-    width: 55px;
-    height: 55px;
-}
-
-
-
-.box_user{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.input_wrapper{
-    margin: auto;
-    background-color: #F5F6F2;
-    width: 600px;
-    height: 45px;
-    border-radius: 30px;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 0 15px;
 }
 
 .box_filter{
     display: flex;
     gap: 1rem;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: end;
 }
 #filter_icon{
     width: 20px;
