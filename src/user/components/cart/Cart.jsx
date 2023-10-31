@@ -139,7 +139,7 @@ const Cart = () => {
           </div>
           <div className='btn'>
             <Link to="/product_search/" className="Continues_btn">Continues Shopping</Link>
-            <Link to="/cart/payment/"><button type='submit' className="checkout_btn">Checkout</button></Link>
+            <button type='submit' className="checkout_btn">Checkout</button>
           </div>
         </div>
       </form>
