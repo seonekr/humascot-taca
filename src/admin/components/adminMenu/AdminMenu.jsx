@@ -31,7 +31,7 @@ const AdminMenu = () => {
               <RxDashboard />
               <p>Dashboard</p>
             </Link>
-            <Link to="/admin/post/" className="link">
+            <Link to="/admin/product/" className="link">
               <IoDocumentText />
               <p>Products</p>
             </Link>

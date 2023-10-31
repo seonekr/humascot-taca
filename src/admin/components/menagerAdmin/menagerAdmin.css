@@ -91,7 +91,7 @@
     background: #67A7EF;
     cursor: pointer;
     border: none;
-    border-radius: 12px;
+    border-radius: 8px;
 }
 .btn_edit{
     width: 40px;
@@ -102,7 +102,7 @@
     background: #27A7EF;
     cursor: pointer;
     border: none;
-    border-radius: 12px;
+    border-radius: 8px;
 }
 .btn_delete{
     width: 40px;
@@ -113,7 +113,7 @@
     background: #FA442C;
     cursor: pointer;
     border: none;
-    border-radius: 12px;
+    border-radius: 8px;
 }
 
 
