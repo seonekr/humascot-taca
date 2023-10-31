@@ -77,6 +77,7 @@ const Post = () => {
         <>
             <AdminMenu/>
             <section id="post">
+                <div className="boxcontainerSpan_Box"></div>
                 <form onSubmit={handleSubmit} className="post-form">
                     <div className="input-box">
                         <div className="box">
