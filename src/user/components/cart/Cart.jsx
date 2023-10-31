@@ -13,6 +13,9 @@ const Cart = () => {
     { id: 3, name: 'Product 3', description: 'This is product 3', price: 30, images: [acer] },
   ]);
 
+  // userID
+  const [userID, setUserID] = useState(2);
+
   const [productCounts, setProductCounts] = useState(products.reduce((acc, product) => ({ ...acc, [product.id]: 1 }), {}));
 
   useEffect(() => {
@@ -50,19 +53,27 @@ const Cart = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     setProducts([]);
-    setProductCounts({});
-    setPrice(0);
-    setShipping(0);
-    setGrandTotal(0);
+    setPrice('');
+    setShipping('');
+    setGrandTotal('');
+    const selectedProducts = products.map((product) => ({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      productCounts: productCounts[product.id] || 0,
 
-    console.log(products);
-    console.log(price);
-    console.log(shipping);
-    console.log(grandTotal);
-    console.log(productCounts);
+    }));
+
+      // Submit the selected products with userID
+    const order = {
+      userID: userID,
+      products: selectedProducts,
+    };
+
+    console.log(order);
   };
 
   return (
