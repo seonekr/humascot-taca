@@ -9,8 +9,8 @@ import { BiUser, BiMessageDetail } from "react-icons/bi";
 import { LiaUserCogSolid } from "react-icons/lia";
 import { RxDashboard } from "react-icons/rx";
 import { MdOutlineSell } from "react-icons/md";
-import cart from "../../../img/cart.png";
 import user from "../../../img/user.png";
+import Logo1 from '../../../img/Logo1.png'
 import { Link, useNavigate } from "react-router-dom";
 
 const AdminMenu = () => {
@@ -26,56 +26,50 @@ const AdminMenu = () => {
   return (
     <>
       <section id="dashboard">
-        <div className="container_boxD">
-          <div className="left">
-            <Link to="/admin/">
-              <div className="logo">
-                <span>
-                  <img src={cart} alt="" />
-                </span>
-              </div>
+        <div className="left">
+          <div className="menu">
+            <Link to="/admin/dashboard/" className="link active">
+              <RxDashboard />
+              <p>Dashboard</p>
             </Link>
-
-            <div className="menu">
-              <Link to="/admin/dashboard/" className="link active">
-                <RxDashboard />
-                <p>Dashboard</p>
-              </Link>
-              <Link to="/admin/post/" className="link">
-                <IoDocumentText />
-                <p>Products</p>
-              </Link>
-              <Link to="/admin/orderpage/" className="link">
-                <MdOutlineSell />
-                <p>Orders</p>
-              </Link>
-              <Link to="/admin/menageruser/" className="link">
-                <BiUser />
-                <p>User</p>
-              </Link>
-              <Link to="/admin/menagerAdmin/" className="link">
-                <LiaUserCogSolid />
-                <p>Admin</p>
-              </Link>
-              <Link to="/admin/message/" className="link">
-                <BiMessageDetail />
-                <p>Message</p>
-              </Link>
-              <Link to="/admin/" className="link">
-                <IoSettingsOutline />
-                <p>Setting</p>
-              </Link>
-              <Link className="link" onClick={handleLogout}>
-                <IoLogOutOutline />
-                <p>Log Out</p>
-              </Link>
-            </div>
+            <Link to="/admin/post/" className="link">
+              <IoDocumentText />
+              <p>Products</p>
+            </Link>
+            <Link to="/admin/orderpage/" className="link">
+              <MdOutlineSell />
+              <p>Orders</p>
+            </Link>
+            <Link to="/admin/menageruser/" className="link">
+              <BiUser />
+              <p>User</p>
+            </Link>
+            <Link to="/admin/menagerAdmin/" className="link">
+              <LiaUserCogSolid />
+              <p>Admin</p>
+            </Link>
+            <Link to="/admin/message/" className="link">
+              <BiMessageDetail />
+              <p>Message</p>
+            </Link>
+            <Link to="/admin/" className="link">
+              <IoSettingsOutline />
+              <p>Setting</p>
+            </Link>
+            <Link className="link" onClick={handleLogout}>
+              <IoLogOutOutline />
+              <p>Log Out</p>
+            </Link>
           </div>
           <div className="right">
-            <h3>Dashboard</h3>
+            <Link to="/admin/dashboard/" className="logo">
+              <span>
+                <img src={Logo1} alt="" />
+              </span>
+            </Link>
             <form className="search">
               <div className="search-box">
-                <input type="text" placeholder="search ..." />
+                <input type="text" placeholder="Search ..." />
                 <button type="submit">
                   <IoSearchOutline />
                 </button>

@@ -3,39 +3,18 @@ body {
 }
 
 /* Left bar */
-.container_boxD {
-    width: 100%;
-    display: flex;
-    position: fixed;
-}
-
 #dashboard .left {
-    text-align: center;
-    justify-content: center;
-    left: 11%;
+    position: fixed;
+    left: 0;
     width: 235px;
     height: 830px;
-    flex-shrink: 0;
     z-index: 999;
-    padding: 0 auto;
-    overflow: hidden;
-    background: #FFF;
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
-#dashboard .left .logo img {
-    width: 30%;
-    display: flex;
-    justify-content: center;
-    margin: 1rem auto;
-
-
-}
-
-
 /* menu */
 #dashboard .left .menu {
-    margin-top: 1rem;
+    margin-top: 7rem;
     display: grid;
     gap: 2.2rem;
     justify-content: center;
@@ -76,27 +55,34 @@ body {
 
 /* Right bar */
 #dashboard .right {
+    position: fixed;
     top: 0;
+    left: 1;
+    z-index: 999;
     width: 100%;
-    height: 90px;
-    background: #FFF;
-    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
-}
-
-/* form */
-#dashboard .right {
     display: grid;
     align-items: center;
     grid-template-columns: 1fr 1fr 1fr;
-    justify-content: center;
-    text-align: center;
+    height: 90px;
+    background: #FFF;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
     padding: 0 2rem;
+}
+
+/* form */
+.logo {
+    width: 40%;
+    margin-left: 1cm;
+}
+.logo img {
+    width: 100%;
 }
 
 /* input search box */
 #dashboard .right .search-box {
     display: flex;
-    width: 50%;
+    width: 70%;
+    margin: auto;
 }
 
 #dashboard .right .titleNname {
@@ -109,30 +95,24 @@ body {
     border: 2px solid rgba(14, 100, 210, 0.50);
     background: #FFF;
     padding: 0 1rem;
-    border-radius: 7px;
+    border-radius: 5px 0 0 5px;
 }
 
 #dashboard .right .search-box button {
     background: #0E64D2;
     color: #FFF;
-    width: 120px;
+    width: 110px;
     height: 45px;
     border: 2px solid rgba(14, 100, 210, 0.50);
-    border-radius: 7px;
     font-size: 1.7rem;
     cursor: pointer;
+    border-radius: 0 5px 5px 0;
 }
 
-#dashboard .right .search .target-graph img {
-    width: 90%;
-    height: 90%;
+.userAdminImage {
+    text-align: end;
+    padding-right: 3rem;
 }
-
-.spenBox {
-    padding-top: 7%;
-    margin-left: 16.5%;
-}
-
-.userAdminImage img{
-    width: 30%;
+.userAdminImage img {
+    width: 20%;
 }
