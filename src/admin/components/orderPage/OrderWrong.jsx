@@ -1,11 +1,12 @@
-import React from 'react'
-import "./orderBill.css";
+import React from 'react';
+import './orderBill.css';
 import { FaAngleLeft } from "react-icons/fa6";
 import AdminMenu from '../adminMenu/AdminMenu';
+import { MdClose } from 'react-icons/md';
 import { Link } from "react-router-dom";
-import { ImCheckmark } from 'react-icons/im';
 
-const OrderBill = () => {
+
+const OrderWrong = () => {
     return (
         <>
             <AdminMenu />
@@ -20,8 +21,8 @@ const OrderBill = () => {
                                     <p>ID: 4</p>
                                     <p>Name: Acer</p>
                                 </div>
-                                <div className='box_icon_Check'>
-                                    <ImCheckmark id='icon_ImCheckmark' />
+                                <div className='box_icon_Check_wrong'>
+                                    <MdClose id='icon_MdClose' />
                                 </div>
                             </div>
 
@@ -71,4 +72,4 @@ const OrderBill = () => {
     )
 }
 
-export default OrderBill
+export default OrderWrong

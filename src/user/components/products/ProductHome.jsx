@@ -18,12 +18,15 @@ const ProductHome = () => {
         { id: 10, name: 'Product 1', description: 'This is product 1', price: 10, category: "electronich device", images: [dress] },
         { id: 11, name: 'Product 2', description: 'This is product 2', price: 20, category: "cosmetics", images: [dress] },
         { id: 12, name: 'Product 3', description: 'This is product 3', price: 30, category: "cosmetics", images: [dress] },
+        { id: 13, name: 'Product 1', description: 'This is product 1', price: 10, category: "electronich device", images: [dress] },
+        { id: 14, name: 'Product 2', description: 'This is product 2', price: 20, category: "cosmetics", images: [dress] },
+        { id: 15, name: 'Product 3', description: 'This is product 3', price: 30, category: "cosmetics", images: [dress] },
+        { id: 16, name: 'Product 3', description: 'This is product 3', price: 30, category: "cosmetics", images: [dress] },
     ]);
 
     const [price, setPrice] = useState("");
     const [priceFilter, setPriceFilter] = useState("");
-    const [displayCount, setDisplayCount] = useState(8);
-
+    const [displayCount, setDisplayCount] = useState(12);
 
     // Handle inputChange
     const handleInputChange = (e, index, field) => {

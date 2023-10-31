@@ -1,4 +1,3 @@
-import { FaArrowLeft } from "react-icons/fa6";
 import { FaAngleLeft } from "react-icons/fa6";
 import { FiPlus } from "react-icons/fi";
 import "./payment.css"
@@ -44,7 +43,7 @@ const Payment = () => {
             <section id="payment">
                 <div className="guopBoxPayment">
                     <div className="account-navbar">
-                        <div className="header-box"><Link to="/cart" className='guopIconbAck'><FaAngleLeft className='iconnBack' />Back</Link></div>
+                        <div className="header-box"><Link to="/product_search/productdetails/" className='guopIconbAck'><FaAngleLeft className='iconnBack' />Back</Link></div>
                         <div className="header-box">Payment</div>
                         <div className="header-box"></div>
                     </div>
@@ -98,7 +97,9 @@ const Payment = () => {
                                 </div>
                             </div>
                             <div className="save">
-                                <button type="submit" disabled={!selectedOption}>Confirm</button> {/* The button will show when user input information */}
+                                <Link to="/cart/successfulBuy/">
+                                     <button type="submit" disabled={!selectedOption}>Confirm</button>{/* The button will show when user input information */}
+                                </Link> 
                             </div>
                         </div>
                     </form>

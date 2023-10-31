@@ -110,6 +110,44 @@ const MenagerUser = () => {
                         </div>
                         
                     </div>
+                    <div className='box_users_user'>
+                        
+                        <Link to="" className='box_user_text'>
+                            <img src={users} alt='img'></img>
+                            <div className='container_chat_name'>
+                                <h4>Sompong</h4>
+                                <p>New message...</p>
+                            </div>
+                        </Link>
+                        <div className='container_user_icon'>
+                            <button className='btn_edit_user'>
+                                <MdOutlineEdit id='icon_edit_delete'/>
+                            </button>
+                            <button className='btn_delete_user'>
+                                <AiOutlineDelete id='icon_edit_delete'/>
+                            </button>
+                        </div>
+                        
+                    </div>
+                    <div className='box_users_user'>
+                        
+                        <Link to="" className='box_user_text'>
+                            <img src={users} alt='img'></img>
+                            <div className='container_chat_name'>
+                                <h4>Sompong</h4>
+                                <p>New message...</p>
+                            </div>
+                        </Link>
+                        <div className='container_user_icon'>
+                            <button className='btn_edit_user'>
+                                <MdOutlineEdit id='icon_edit_delete'/>
+                            </button>
+                            <button className='btn_delete_user'>
+                                <AiOutlineDelete id='icon_edit_delete'/>
+                            </button>
+                        </div>
+                        
+                    </div>
                     
                     <div className='box_next_user'>
                         <button className='box_prev_next_user'>

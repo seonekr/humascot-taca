@@ -115,7 +115,7 @@
 /* Address shipping */
 #address form {
     font-size: 1.3rem;
-    margin: 5rem 30rem;
+    margin: 2rem 30rem 5rem 30rem;
     border-radius: 12px;
     border: 1px solid #ccc;
 }
