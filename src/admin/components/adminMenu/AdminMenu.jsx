@@ -1,7 +1,6 @@
 import "./adminMenu.css";
 import {
   IoDocumentText,
-  IoSettingsOutline,
   IoLogOutOutline,
   IoSearchOutline,
 } from "react-icons/io5";
@@ -52,11 +51,7 @@ const AdminMenu = () => {
               <BiMessageDetail />
               <p>Message</p>
             </Link>
-            <Link to="/admin/" className="link">
-              <IoSettingsOutline />
-              <p>Setting</p>
-            </Link>
-            <Link className="link" onClick={handleLogout}>
+            <Link to="/" className="link" onClick={handleLogout}>
               <IoLogOutOutline />
               <p>Log Out</p>
             </Link>

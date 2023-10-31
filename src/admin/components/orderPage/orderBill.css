@@ -1,26 +1,28 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-
-
-
 /* ============ container_body =========== */
-.container_body{
+.container_body {
     width: 100%;
     height: auto;
     position: relative;
     z-index: 999;
 }
 
+.group_lisblecackk {
+    width: 90%;
+    margin: auto;
+    padding: 2rem 0;
+}
 
-.container_box_orderBill{
-    height: 80vh;
+.container_box_orderBill {
+    height: auto;
     margin: auto;
     margin-top: 1rem;
-    padding: 3rem 10rem 20px 10rem;
+    padding: 1rem;
     background: #FFF;
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
 }
@@ -28,24 +30,26 @@
 
 /* bill no: id: name: */
 
-.box_guopoidHead{
+.box_guopoidHead {
     width: 55%;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.iconnboxx{
+
+.iconnboxx {
     text-align: center;
     font-size: 45px;
     color: #347FFF;
 }
 
-.idf{
+.idf {
     display: grid;
     gap: 1rem;
     padding-bottom: 1rem;
 }
-.box_icon_Check{
+
+.box_icon_Check {
     width: 50px;
     height: 50px;
     display: flex;
@@ -54,43 +58,45 @@
     border-radius: 50%;
     background-color: #06d151;
 }
-#icon_ImCheckmark{
+
+#icon_ImCheckmark {
     width: 30px;
     height: 30px;
     color: #FFF;
 }
 
-.box_bill_product{
+.box_bill_product {
     padding: 0 9rem 0 9rem;
 }
-.bill_product_name h2{
+
+.bill_product_name h2 {
     text-align: center;
     padding: 20px 0;
 }
 
 
-.order_billGopBox{
+.order_billGopBox {
     display: flex;
-    align-items: center;
-    justify-content: center;
     justify-content: space-between;
     grid-template-columns: 1fr 1fr 1fr;
     padding: 0 0 20px;
 }
-.detial{
+
+.detial {
     display: grid;
     justify-content: center;
     gap: 1.25rem;
 }
 
 
-.box_titlePrice{
+.box_titlePrice {
     display: flex;
     padding: 1rem 0;
     align-items: center;
     justify-content: space-between;
 }
-.box_place-on{
+
+.box_place-on {
     display: grid;
     gap: 1rem;
 }
