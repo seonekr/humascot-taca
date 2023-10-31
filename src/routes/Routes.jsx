@@ -69,9 +69,6 @@ const Links = () => {
                  <Route exact path="/admin/menageradmin/" Component={MenagerAdmin}/>
                  <Route exact path="/admin/" Component={LoginAdmin}/>
                  <Route exact path="/admin/product/" Component={Product}/>
-
-
-
             </Routes>
         </Router>
     );

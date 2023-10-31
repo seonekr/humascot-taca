@@ -14,7 +14,7 @@ const MenagerUser = () => {
     <>
         <section id='menager'>
             <AdminMenu/>
-            <div className='container_body'>
+            <div className='container_body_adminuser'>
                 <div className='container_box_users'>
                     <div className='box_users'>
                         <h2>Admin</h2>

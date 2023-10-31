@@ -5,13 +5,6 @@
 }
 
 /* ============ container_body =========== */
-.container_body{
-    width: 100%;
-    position: relative;
-    z-index: 999;
-    padding: 88px 20px 20px 255px;
-}
-
 
 .container_box_users{
     width: 100%;
