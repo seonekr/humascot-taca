@@ -1,23 +1,23 @@
-import React from 'react'
-import "./orderBill.css";
+import React from 'react';
+import './orderWrong.css';
 import AdminMenu from '../adminMenu/AdminMenu';
-import { ImCheckmark } from 'react-icons/im';
+import { MdClose } from 'react-icons/md';
 
-const OrderBill = () => {
+const OrderWrong = () => {
   return (
     <>
-        <form id='menager'>
+        <section className='menager'>
              <AdminMenu/>
-            <div className='container_body'>
-                <div className='container_box_orderBill'>
+            <form className='container_body'>
+                <div className='container_box_orderWrong'>
                     <div className="box_guopoidHead">
                         <div className="idf">
                             <p>NO: 15</p>
                             <p>ID: 4</p>
                             <p>Name: Acer</p>
                         </div>
-                        <div className='box_icon_Check'>
-                            <ImCheckmark id='icon_ImCheckmark'/>
+                        <div className='box_icon_Check_wrong'>
+                            <MdClose id='icon_MdClose'/>
                         </div>
                     </div>
                     
@@ -63,10 +63,10 @@ const OrderBill = () => {
                     
                 
                 </div>
-            </div>
-        </form>
+            </form>
+        </section>
     </>
   )
 }
 
-export default OrderBill
+export default OrderWrong

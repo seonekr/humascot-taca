@@ -9,9 +9,8 @@ import acer from '../../../img/acer.png'
 const OrderPage = () => {
   return (
     <>
-        <AdminMenu/>
         <section id='menager'>
-            
+            <AdminMenu/>
             <div className='container_body'>
                 <div className='container_box_orderpage'>
                     <div className='box_user'>
@@ -130,6 +129,31 @@ const OrderPage = () => {
                         
                     </div>
                     
+                    <div className='box_users_order'>
+                        
+                        <Link to="" className='box_order_text'>
+                            <img src={acer} alt='img'></img>
+                            <div className='container_chat_name'>
+                                <p>NO: 1</p>
+                                <p>ID: 1</p>
+                                <h4>Samsung</h4>
+                            </div>
+                        </Link>
+                        <div className='box_container_time'>
+                            <p>Time: </p>
+                            <p>01/19/2023</p>
+                            <p>8:00 PM</p>
+                        </div>
+                        <div className='container_order_icon'>
+                            <Link to="#" className='btn_paid'>
+                                Paid
+                            </Link>
+                            <Link to="#" className='btn_view'>
+                                View
+                            </Link>
+                        </div>
+                        
+                    </div>
                     <div className='box_users_order'>
                         
                         <Link to="" className='box_order_text'>
