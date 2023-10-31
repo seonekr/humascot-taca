@@ -124,6 +124,72 @@ const MenagerUser = () => {
                         </div>
                         
                     </div>
+                    <div className='box_users_admin'>
+                        
+                        <Link to="" className='box_admin_text'>
+                            <img src={users} alt='img'></img>
+                            <div className='container_chat_name'>
+                                <p>Name: Sompong</p>
+                                <p>Eamil: Sompong@gmail.com</p>
+                            </div>
+                        </Link>
+                        <div className='container_admin_icon'>
+                            <button className='btn_eyes'>
+                                <PiEyeSlashLight id='icon_edit_delete'/>
+                            </button>
+                            <button className='btn_edit'>
+                                <MdOutlineEdit id='icon_edit_delete'/>
+                            </button>
+                            <button className='btn_delete'>
+                                <AiOutlineDelete id='icon_edit_delete'/>
+                            </button>
+                        </div>
+                        
+                    </div>
+                    <div className='box_users_admin'>
+                        
+                        <Link to="" className='box_admin_text'>
+                            <img src={users} alt='img'></img>
+                            <div className='container_chat_name'>
+                                <p>Name: Sompong</p>
+                                <p>Eamil: Sompong@gmail.com</p>
+                            </div>
+                        </Link>
+                        <div className='container_admin_icon'>
+                            <button className='btn_eyes'>
+                                <PiEyeSlashLight id='icon_edit_delete'/>
+                            </button>
+                            <button className='btn_edit'>
+                                <MdOutlineEdit id='icon_edit_delete'/>
+                            </button>
+                            <button className='btn_delete'>
+                                <AiOutlineDelete id='icon_edit_delete'/>
+                            </button>
+                        </div>
+                        
+                    </div>
+                    <div className='box_users_admin'>
+                        
+                        <Link to="" className='box_admin_text'>
+                            <img src={users} alt='img'></img>
+                            <div className='container_chat_name'>
+                                <p>Name: Sompong</p>
+                                <p>Eamil: Sompong@gmail.com</p>
+                            </div>
+                        </Link>
+                        <div className='container_admin_icon'>
+                            <button className='btn_eyes'>
+                                <PiEyeSlashLight id='icon_edit_delete'/>
+                            </button>
+                            <button className='btn_edit'>
+                                <MdOutlineEdit id='icon_edit_delete'/>
+                            </button>
+                            <button className='btn_delete'>
+                                <AiOutlineDelete id='icon_edit_delete'/>
+                            </button>
+                        </div>
+                        
+                    </div>
                     
                     <div className='box_next_admin'>
                         <button className='box_prev_next_admin'>

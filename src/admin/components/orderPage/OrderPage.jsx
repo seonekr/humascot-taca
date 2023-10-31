@@ -7,10 +7,12 @@ import AdminMenu from '../adminMenu/AdminMenu';
 import acer from '../../../img/acer.png'
 
 const OrderPage = () => {
-    return (
-        <>
-            <AdminMenu />
-            <section id='menager'>
+  return (
+    <>
+        <AdminMenu/>
+        <section id='menager'>
+            
+            <div className='container_body'>
                 <div className='container_box_orderpage'>
                     <div className='box_user'>
                         <form className='cetegory_form'>
@@ -124,7 +126,7 @@ const OrderPage = () => {
                         </div>
 
                     </div>
-
+                    
                     <div className='box_users_order'>
 
                         <Link to="" className='box_order_text'>

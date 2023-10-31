@@ -5,6 +5,14 @@
 }
 
 /* ============ container_body =========== */
+.container_body{
+    width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 999;
+}
+
+
 .container_box_orderpage{
     width: 80%;
     margin-top: 1rem;
