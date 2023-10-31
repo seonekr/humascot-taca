@@ -1,8 +1,10 @@
-import { FaArrowLeft } from "react-icons/fa6";
+import { FaAngleLeft } from "react-icons/fa6";
+import Header from "../header/Header";
 import React, { useState } from "react";
 import Menu from "../menu/Menu";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import './address.css';
 
 const Address = () => {
 
@@ -20,13 +22,13 @@ const Address = () => {
         e.preventDefault();
 
         setProvince(''),
-        setCity(''),
-        setCompanny(''),
-        setBranch('')
+            setCity(''),
+            setCompanny(''),
+            setBranch('')
 
-        navigate('/cart/payment/',{ // Navigate to the payment page with the address props
+        navigate('/cart/payment/', { // Navigate to the payment page with the address props
             state: {
-                province: province+ ',',
+                province: province + ',',
                 city: city + ',',
                 companny: companny + ',',
                 branch
@@ -52,16 +54,13 @@ const Address = () => {
         setBranch(value);
     };
 
-    return(
+    return (
         <>
-            <section id="header-account">
-                <div className="account-navbar">
-                    <div className="header-box"><Link to="/payment"><FaArrowLeft/></Link></div>
-                    <div className="header-box middle">Address</div>
-                    <div className="header-box"></div>
-                </div>
-            </section>
+            <Header />
             <section id="address">
+                <div className="gobackaddress">
+                    <div className="header-box"><Link to="/cart/payment/" className='guopIconbAck'><FaAngleLeft className='iconnBack' />Back</Link></div>
+                </div>
                 <form onSubmit={handleSubmit}>
                     <div className="box">
                         <label htmlFor="prov">Province:</label>
@@ -107,10 +106,10 @@ const Address = () => {
                         <div className="save">
                             <button type="submit" disabled={!province && !city && !companny && !branch}>Confirm</button> {/* The button will show when user input information */}
                         </div>
-                    </div> 
+                    </div>
                 </form>
             </section>
-            <Menu/>
+            <Menu />
         </>
     )
 }
