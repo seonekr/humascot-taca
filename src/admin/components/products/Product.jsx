@@ -7,7 +7,7 @@ import { BiPlus } from 'react-icons/bi';
 import { MdOutlineEdit } from 'react-icons/md';
 import { AiOutlineDelete, AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 
-const Product = () => {
+const Product = ({ product, onDelete }) => {
     const [products, setProducts] = useState([
         { id: 1, name: 'Product 1', description: 'This is product 1', price: 10, category: "clothes", images: [image1] },
         { id: 1, name: 'Product 2', description: 'This is product 1', price: 11, category: "clothes", images: [image1] },
@@ -52,6 +52,9 @@ const Product = () => {
     const handleViewMore = () => {
         setDisplayCount(displayCount + 4);
     };
+
+    // Delete
+
 
     return (
         <>
