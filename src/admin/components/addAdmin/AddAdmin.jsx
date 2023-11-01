@@ -1,6 +1,8 @@
 import './addAmin.css';
 import AdminMenu from '../adminMenu/AdminMenu';
 import { useState } from 'react';
+import { FaAngleLeft } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const AddAdmin = () => {
     const [adminImage, setAdminImage] = useState([]);
@@ -88,105 +90,94 @@ const AddAdmin = () => {
         <>
             <AdminMenu/>
             <section id='addAmin'>
-                <form onSubmit={handleSubmit}>
-                    <div className='container_add_admin'>
-
+                
+                <div className='box_addAdmin'>
+                    <div className='container_add_admin'> 
+                        <Link to="/admin/menageradmin/" className='box_guopIconbAck'>
+                            <FaAngleLeft id='box_icon_Back' />
+                            <p>Back</p>
+                        </Link>
+                        <h2>Add Admin</h2>
+                        <div></div>
                     </div>
-                    <div className="addAdminForm">
-                        <div className="add-box">
-                            <label htmlFor="fname">First name</label>
-                            <input
-                                type="text"
-                                id='fname'
-                                placeholder='Fist name'
-                                value={adminFirstName}
-                                onChange={handleFirstName}
-                                required
-                            />
+                    
+                    <form onSubmit={handleSubmit}>
+                        <div className="addAdminForm">
+                            <div className="add-box">
+                                <label htmlFor="fname">First name</label>
+                                <input
+                                    type="text"
+                                    id='fname'
+                                    placeholder='Fist name'
+                                    value={adminFirstName}
+                                    onChange={handleFirstName}
+                                    required
+                                />
+                            </div>
+                            <div className="add-box">
+                                <label htmlFor="lname">Last name</label>
+                                <input
+                                    type="text"
+                                    id='lname'
+                                    placeholder='last name'
+                                    value={adminLastName}
+                                    onChange={handleLastName}
+                                    required
+                                />
+                            </div>
+                            <div className="add-box">
+                                <label htmlFor="email">Email</label>
+                                <input
+                                    type="email"
+                                    id='email'
+                                    placeholder='Email address'
+                                    value={adminEmail}
+                                    onChange={handleEmail}
+                                    required
+                                />
+                            </div>
+                            <div className="add-box">
+                                <label htmlFor="phone">Phone</label>
+                                <input
+                                    type="text"
+                                    id='phone'
+                                    placeholder='Phone number'
+                                    value={adminPhone}
+                                    onChange={handlePhone}
+                                    required
+                                />
+                            </div>
+                            <div className="add-box">
+                                <label htmlFor="password">Password</label>
+                                <input
+                                    type="password"
+                                    id='password'
+                                    placeholder='Password'
+                                    value={adminPassword}
+                                    onChange={handlePassowrd}
+                                    required
+                                />
+                            </div>
                         </div>
-                        <div className="add-box">
-                            <label htmlFor="lname">Last name</label>
-                            <input
-                                type="text"
-                                id='lname'
-                                placeholder='last name'
-                                value={adminLastName}
-                                onChange={handleLastName}
-                                required
-                            />
+                        <div className="imageAdmin">
+                            <div className='submit'>
+                                <button type='submit'>Post</button>
+                            </div>
+                            <div className="image">
+                                <input 
+                                    type="file"
+                                    id='adminImage'
+                                    onChange={handleAdminImage}
+                                />
+                                <label htmlFor="adminImage">
+                                {(adminImage && adminImage.length > 0) ? <img src={URL.createObjectURL(adminImage[0])}/>:<p>choose image</p>}
+                                </label>
+                            </div>
                         </div>
-                        <div className="add-box">
-                            <label htmlFor="email">Email</label>
-                            <input
-                                type="email"
-                                id='email'
-                                placeholder='email address'
-                                value={adminEmail}
-                                onChange={handleEmail}
-                                required
-                            />
-                        </div>
-                        <div className="add-box">
-                            <label htmlFor="phone">Phone</label>
-                            <input
-                                type="text"
-                                id='phone'
-                                placeholder='Phone number'
-                                value={adminPhone}
-                                onChange={handlePhone}
-                                required
-                            />
-                        </div>
-                        <div className="add-box">
-                            <label htmlFor="gender">Gender</label>
-                            <input
-                                type="text"
-                                id='gender'
-                                placeholder='Gender'
-                                value={adminGender}
-                                onChange={handleGender}
-                                required
-                            />
-                        </div>
-                        <div className="add-box">
-                            <label htmlFor="department">Department</label>
-                            <input
-                                type="text"
-                                id='department'
-                                placeholder='Department'
-                                value={adminDepartment}
-                                onChange={handleDepartment}
-                                required
-                            />
-                        </div>
-                        <div className="add-box">
-                            <label htmlFor="password">Password</label>
-                            <input
-                                type="password"
-                                id='password'
-                                placeholder='Password'
-                                value={adminPassword}
-                                onChange={handlePassowrd}
-                                required
-                            />
-                        </div>
-                    </div>
-                    <div className="imageAdmin">
-                        <div className='submit'>
-                            <button type='submit'>Add</button>
-                        </div>
-                        <div className="image">
-                            <input 
-                                type="file"
-                                id='adminImage'
-                                onChange={handleAdminImage}
-                            />
-                            <label htmlFor="adminImage">
-                            {(adminImage && adminImage.length > 0) ? <img src={URL.createObjectURL(adminImage[0])}/>:<p>choose image</p>}
-                            </label>
-                        </div>
-                    </div>
-                </form>
+                    </form>
+                    
+                    
+                </div>
             </section>
         </>
     )
