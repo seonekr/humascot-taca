@@ -10,18 +10,17 @@ import { AiOutlineDelete, AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 const Product = () => {
     const [products, setProducts] = useState([
         { id: 1, name: 'Product 1', description: 'This is product 1', price: 10, category: "clothes", images: [image1] },
-        { id: 1, name: 'Product 2', description: 'This is product 1', price: 11, category: "clothes", images: [image1] },
-        { id: 1, name: 'Product 3', description: 'This is product 1', price: 12, category: "clothes", images: [image1] },
-        { id: 1, name: 'Product 4', description: 'This is product 1', price: 10, category: "clothes", images: [image1] },
-        { id: 1, name: 'Product 5', description: 'This is product 1', price: 11, category: "clothes", images: [image1] },
-        { id: 1, name: 'Product 6', description: 'This is product 1', price: 12, category: "clothes", images: [image1] },
-        { id: 1, name: 'Product 7', description: 'This is product 1', price: 10, category: "clothes", images: [image1] },
-        { id: 1, name: 'Product 8', description: 'This is product 1', price: 11, category: "clothes", images: [image1] },
+        { id: 2, name: 'Product 2', description: 'This is product 1', price: 11, category: "clothes", images: [image1] },
+        { id: 3, name: 'Product 3', description: 'This is product 1', price: 12, category: "clothes", images: [image1] },
+        { id: 4, name: 'Product 4', description: 'This is product 1', price: 10, category: "clothes", images: [image1] },
+        { id: 5, name: 'Product 5', description: 'This is product 1', price: 11, category: "clothes", images: [image1] },
+        { id: 6, name: 'Product 6', description: 'This is product 1', price: 12, category: "clothes", images: [image1] },
+        { id: 7, name: 'Product 7', description: 'This is product 1', price: 10, category: "clothes", images: [image1] },
+        { id: 8, name: 'Product 8', description: 'This is product 1', price: 11, category: "clothes", images: [image1] },
     ]);
 
     const [price, setPrice] = useState("");
     const [priceFilter, setPriceFilter] = useState("");
-    const [displayCount, setDisplayCount] = useState(12);
 
     // Handle inputChange
     const handleInputChange = (e, index, field) => {
@@ -47,11 +46,13 @@ const Product = () => {
         handleFilter(e.target.value);
     };
 
-    // Read more
-    const displayedProducts = filteredProducts.slice(0, displayCount);
-    const handleViewMore = () => {
-        setDisplayCount(displayCount + 4);
+    // Delete
+
+    const handleDelete = (productId) => {
+        const updatedProducts = products.filter((product) => product.id !== productId);
+        setProducts(updatedProducts);
     };
+
 
     return (
         <>
@@ -79,8 +80,8 @@ const Product = () => {
                     </div>
 
                     <form className="product-area">
-                        {displayedProducts.map((product, index) => (
-                            <div className="box-product" key={index}>
+                        {filteredProducts.map((product, index) => (
+                            <div className="box-product" key={ product.id}>
                                 <Link to="#"><img src={product.images[0]} alt="image" /></Link>
                                 <ul className="txtOFproduct">
                                     <li>
@@ -109,7 +110,7 @@ const Product = () => {
                                     </li>
                                     <div className="box_btn_edit_delete">
 
-                                        <button className="btn_icon_delete_user">
+                                        <button className="btn_icon_delete_user" onClick={() => handleDelete(product.id)}>
                                             <AiOutlineDelete id="btn_icon_edit"/>
                                         </button>
                                         <button className="btn_icon_edit_user">

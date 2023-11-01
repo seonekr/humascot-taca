@@ -27,6 +27,7 @@
     width: 100%;
     height: auto;
     display: flex;
+    text-align: left;
     gap: 1.9rem;
     margin-top: 0.6rem;
     padding: 20px 40px;
@@ -47,6 +48,7 @@
 
 .txtheadeproductorder{
     font-weight: 600;
+    text-align: left;
 }
 @media screen and (max-width: 768px) {
     #container_order_item {
