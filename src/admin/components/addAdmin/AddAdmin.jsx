@@ -89,6 +89,9 @@ const AddAdmin = () => {
             <AdminMenu/>
             <section id='addAmin'>
                 <form onSubmit={handleSubmit}>
+                    <div className='container_add_admin'>
+
+                    </div>
                     <div className="addAdminForm">
                         <div className="add-box">
                             <label htmlFor="fname">First name</label>
