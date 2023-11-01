@@ -1,28 +1,30 @@
 import React from 'react'
 import './product_search.css'
 import { Link } from 'react-router-dom';
-import acer from '../../../img/acer.png'
+import dress from "../../../img/dress.png";
+import image1 from "../../../img/image1.png";
+import acer from '../../../img/acer.png';
+import productImage from "../../../img/productImage.png";
 import Header from '../header/Header';
 import Menu from '../menu/Menu';
-import image1 from "../../../img/image1.png";
-import productImage from "../../../img/productImage.png";
 import { FaSearch } from "react-icons/fa"
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 
 const Product_search = () => {
     const [products, setProducts] = useState([
-        { id: 1, name: 'Product 1', description: 'This is product 1', price: 10, images: [image1] },
-        { id: 2, name: 'Product 2', description: 'This is product 2', price: 20, images: [acer] },
-        { id: 3, name: 'Product 3', description: 'This is product 3', price: 30, images: [acer] },
-        { id: 4, name: 'Product 4', description: 'This is product 4', price: 20, images: [acer] },
-        { id: 5, name: 'Product 5', description: 'This is product 5', price: 10, images: [acer] },
-        { id: 6, name: 'Product 6', description: 'This is product 6', price: 20, images: [acer] },
-        { id: 7, name: 'Product 7', description: 'This is product 7', price: 30, images: [acer] },
-        { id: 8, name: 'Product 8', description: 'This is product 8', price: 20, images: [acer] },
-        { id: 9, name: 'Product 5', description: 'This is product 5', price: 10, images: [acer] },
-        { id: 10, name: 'Product 6', description: 'This is product 6', price: 20, images: [acer] },
-        { id: 11, name: 'Product 7', description: 'This is product 7', price: 30, images: [acer] },
-        { id: 12, name: 'Product 8', description: 'This is product 8', price: 20, images: [acer] },
+        {productID: 1, productName: "pro1", productType: "clothes", price: 10, description: "desc for this product", images: [acer]},
+        {productID: 2, productName: "pro2", productType: "clothes", price: 10, description: "desc for this product", images: [dress]},
+        {productID: 3, productName: "pro3", productType: "clothes", price: 10, description: "desc for this product", images: [acer]},
+        {productID: 4, productName: "pro4", productType: "clothes", price: 10, description: "desc for this product", images: [dress]},
+        {productID: 5, productName: "pro5", productType: "clothes", price: 10, description: "desc for this product", images: [image1]},
+        {productID: 6, productName: "pro6", productType: "clothes", price: 10, description: "desc for this product", images: [image1]},
+        {productID: 7, productName: "pro7", productType: "clothes", price: 10, description: "desc for this product", images: [productImage]},
+        {productID: 8, productName: "pro8", productType: "clothes", price: 10, description: "desc for this product", images: [acer]},
+        {productID: 9, productName: "pro9", productType: "clothes", price: 10, description: "desc for this product", images: [productImage]},
+        {productID: 10, productName: "pro10", productType: "clothes", price: 10, description: "desc for this product", images: [acer]},
+        {productID: 11, productName: "pro11", productType: "clothes", price: 10, description: "desc for this product", images: [productImage]}
         
     ]);
 
@@ -33,7 +35,7 @@ const Product_search = () => {
 
     // Filter products based on search term and price range
     const filteredProducts = products.filter((product) => {
-        const nameMatch = product.name.toLowerCase().includes(searchTerm.toLowerCase());
+        const nameMatch = product.productName.toLowerCase().includes(searchTerm.toLowerCase());
         const minPriceMatch = minPrice !== "" ? product.price <= minPrice : true;
         const maxPriceMatch = maxPrice !== "" ? product.price >= maxPrice : true;
         return nameMatch && minPriceMatch && maxPriceMatch;
@@ -55,13 +57,20 @@ const Product_search = () => {
         setMinPrice(e.target.value); // Please change this to category
     };
 
-
     // Read more
-    
     const displayedProducts = filteredProducts.slice(0, displayCount);
     const handleViewMore = () => {
         setDisplayCount(displayCount + 4);
     };
+
+    // Get send ID
+    const [sendProductID, setSendProductID] = useState();
+    const navigate = useNavigate();
+
+    // Handle product
+    const handleProduct = (sendProductID) => {
+        navigate('/product_search/productdetails/', { state: { sendProductID : sendProductID } });
+    }
 
     return (
         <>
@@ -95,19 +104,16 @@ const Product_search = () => {
                             </select>
                         </form>
                     </div>
-
                     <div className='contentImageProducts'>
                         {displayedProducts.map((product, index) => (
-                            <form key={index}>
-                                <div  className='group_itemBox' >
-                                    <Link to="/product_search/productdetails">
-                                        <img src={product.images[0]} alt='img' />
-                                    </Link>
+                            <div key={index}>
+                                <div  className='group_itemBox' onClick={() => handleProduct(product.productID)}>
+                                    <img src={product.images[0]} alt='img' />
                                     <div className="txtOFproduct">
                                         <h4>
                                             <input
                                                 type="text"
-                                                value={product.name}
+                                                value={product.productName}
                                                 onChange={(e) => handleInputChange(e, index, "name")}
                                             />
                                         </h4>
@@ -128,7 +134,7 @@ const Product_search = () => {
                                         </p>
                                     </div>
                                 </div>
-                            </form>
+                            </div>
                         ))}
                     </div>
                 </div>

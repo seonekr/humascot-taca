@@ -8,9 +8,9 @@ import './cart.css';
 
 const Cart = () => {
   const [products, setProducts] = useState([
-    { id: 1, name: 'Product 1', description: 'This is product 1', price: 10, images: [acer] },
-    { id: 2, name: 'Product 2', description: 'This is product 2', price: 20, images: [acer] },
-    { id: 3, name: 'Product 3', description: 'This is product 3', price: 30, images: [acer] },
+    { id: 1, name: 'Product 1', type: "clothes", description: 'This is product 1', color: "colB", price: 10, images: [acer], size: "m"},
+    { id: 2, name: 'Product 2', type: "clothes", description: 'This is product 2', color: "colW", price: 20, images: [acer], size: "l" },
+    { id: 3, name: 'Product 3', type: "clothes", description: 'This is product 3', color: "colBlue", price: 30, images: [acer], size: "xl" },
   ]);
 
   // userID
@@ -62,11 +62,13 @@ const Cart = () => {
     const selectedProducts = products.map((product) => ({
       id: product.id,
       name: product.name,
+      type: product.type,
+      color: product.color,
       price: product.price,
+      size: product.size,
       productCounts: productCounts[product.id] || 0,
 
     }));
-
       // Submit the selected products with userID
     const order = {
       userID: userID,

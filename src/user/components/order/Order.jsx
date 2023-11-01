@@ -60,15 +60,10 @@ const Order = () => {
         <>
             <Header/>
             <section id='container_order_item'>
-                <div className="account-navbar">
-                    <div className="header-box"><Link to="/" className='guopIconbAck'><FaAngleLeft className='iconnBack'/>Back</Link></div>
-                    <h3 className="header-box ">Orders</h3>
-                    <div className="header-box"></div>
-                </div>
                 <div className='container_order_all'>
                 {filteredOrders.map(order => (
                     <div key={order.orderID}>
-                        <button onClick={() => handleOrder(order.orderID)} className='box_item_order' >
+                        <div onClick={() => handleOrder(order.orderID)} className='box_item_order' >
                             <div className='box_item_order_text'>
                                 <p>No: {order.orderID}</p>
                                 <p className='txtheadeproductorder'>
@@ -81,7 +76,7 @@ const Order = () => {
                                 </p>
                                 <p>{order.orderDate}</p>
                             </div>
-                        </button>
+                        </div>
                     </div>
                 ))}
                 </div>

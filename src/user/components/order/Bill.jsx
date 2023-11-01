@@ -4,7 +4,7 @@ import Menu from "../menu/Menu";
 import Header from "../header/Header";
 import dress from "../../../img/dress.png";
 import { useState } from "react";
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 
 import './bill.css';
@@ -57,18 +57,13 @@ const Bill = () => {
         <>
             <Header></Header>
             <section id="bill">
-                <div className="account-navbar">
-                    <div className="header-box"><Link to="/order" className='guopIconbAck'><FaAngleLeft className='iconnBack' />Back</Link></div>
-                    <div className="header-box middle">Bill</div>
-                    <div className="header-box"></div>
-                </div>
                 <div >
                 {filteredOrders.map(order => (
                     <div className="bill-detial" key={order.orderID} >
                         <div className="guopoidHead">
                             <div className="idf">
-                                <p>NO: {order.orderID}</p>
-                                <p>ID: {order.userID}</p>
+                                <p>OrderID: {order.orderID}</p>
+                                <p>UserID: {order.userID}</p>
                                 <p>Name: {order.userName}</p>
                             </div>
                         </div>
