@@ -33,6 +33,7 @@
 }
 
 .box_icon_Check_wrong {
+    margin: auto;
     width: 50px;
     height: 50px;
     display: flex;
@@ -52,10 +53,10 @@
 /* bill no: id: name: */
 
 .box_guopoidHead {
-    width: 55%;
+    width: 100%;
+    padding: 0 7rem;
     display: flex;
     align-items: center;
-    justify-content: space-between;
 }
 
 .iconnboxx {
@@ -78,6 +79,7 @@
     justify-content: center;
     border-radius: 50%;
     background-color: #06d151;
+    margin: auto;
 }
 
 #icon_ImCheckmark {
@@ -125,3 +127,14 @@
 
 
 /* ================ Responsive ==================*/
+/* For smartphones with a maximum width of 480px */
+@media only screen and (max-width: 480px) {
+    .box_guopoidHead{
+        padding: 0;
+    }
+    
+    .box_icon_Check {
+        display: flex;
+        margin-left: 4rem;
+    }
+}

@@ -21,7 +21,6 @@ const Product = () => {
 
     const [price, setPrice] = useState("");
     const [priceFilter, setPriceFilter] = useState("");
-    const [displayCount, setDisplayCount] = useState(12);
 
     // Handle inputChange
     const handleInputChange = (e, index, field) => {
@@ -45,12 +44,6 @@ const Product = () => {
     const handleSelectChange = (e) => {
         setPrice(e.target.value);
         handleFilter(e.target.value);
-    };
-
-    // Read more
-    const displayedProducts = filteredProducts.slice(0, displayCount);
-    const handleViewMore = () => {
-        setDisplayCount(displayCount + 4);
     };
 
     // Delete
@@ -87,7 +80,7 @@ const Product = () => {
                     </div>
 
                     <form className="product-area">
-                        {displayedProducts.map((product, index) => (
+                        {filteredProducts.map((product, index) => (
                             <div className="box-product" key={ product.id}>
                                 <Link to="#"><img src={product.images[0]} alt="image" /></Link>
                                 <ul className="txtOFproduct">

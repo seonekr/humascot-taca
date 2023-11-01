@@ -76,9 +76,10 @@
 /* ============ box_users_user =========== */
 
 .box_users_user {
-    width: 100%;
+    width: 94%;
     height: 90px;
     display: flex;
+    margin: auto;
     align-items: center;
     justify-content: space-between;
     margin-top: 1rem;
