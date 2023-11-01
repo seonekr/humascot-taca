@@ -1,17 +1,15 @@
-import './addAmin.css';
+import './adduser.css';
 import AdminMenu from '../adminMenu/AdminMenu';
 import { useState } from 'react';
 import { FaAngleLeft } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
-const AddAdmin = () => {
+const AddUser = () => {
     const [adminImage, setAdminImage] = useState([]);
     const [adminFirstName, setAdminFirstName] = useState('');
     const [adminLastName, setAdminLastName] = useState('');
     const [adminEmail, setAdminEmail] = useState('');
     const [adminPhone, setAdminPhone] = useState('');
-    const [adminGender, setAdminGender] = useState('');
-    const [adminDepartment, setAdminDepartment] = useState('');
     const [adminPassword, setAdminPassword] = useState('');
 
     // handle submit
@@ -97,7 +95,7 @@ const AddAdmin = () => {
                             <FaAngleLeft id='box_icon_Back' />
                             <p>Back</p>
                         </Link>
-                        <h2>Add Admin</h2>
+                        <h2>Add User</h2>
                         <div></div>
                     </div>
                     
@@ -161,7 +159,7 @@ const AddAdmin = () => {
                         </div>
                         <div className="imageAdmin">
                             <div className='submit'>
-                                <button type='submit'>Add Admin</button>
+                                <button type='submit'>Add User</button>
                             </div>
                             <div className="image">
                                 <input 
@@ -183,4 +181,4 @@ const AddAdmin = () => {
     )
 }
 
-export default AddAdmin
+export default AddUser;

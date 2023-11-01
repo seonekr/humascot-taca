@@ -30,6 +30,8 @@ import OrderWrong from "../admin/components/orderPage/OrderWrong";
 import LoginAdmin from "../admin/components/registeradmin/LoginAdmin"
 import MenagerAdmin from "../admin/components/menagerAdmin/MenagerAdmin";
 import Product from "../admin/components/products/Product";
+import Admin from "../admin/components/addAdmin/Admin";
+import AddUser from "../admin/components/addUser/AddUser";
 
 
 const Links = () => {
@@ -71,6 +73,8 @@ const Links = () => {
                  <Route exact path="/admin/menageradmin/" Component={MenagerAdmin}/>
                  <Route exact path="/admin/" Component={LoginAdmin}/>
                  <Route exact path="/admin/product/" Component={Product}/>
+                 <Route exact path="/admin/admin/" Component={Admin}/>
+                 <Route exact path="/admin/adduser/" Component={AddUser}/>
             </Routes>
         </Router>
     );

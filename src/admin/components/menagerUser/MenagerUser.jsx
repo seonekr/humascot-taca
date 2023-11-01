@@ -17,7 +17,7 @@ const MenagerUser = () => {
                     <div className='box_users'>
                         <h2>Users</h2>
                         <div className='box_filter'>
-                            <Link to="#" className='btn_adduser'>
+                            <Link to="/admin/adduser/" className='btn_adduser'>
                                 <BsPlusLg id='icon_plus'/>
                                 <div>Add Users</div>
                             </Link>
