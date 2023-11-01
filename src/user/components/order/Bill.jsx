@@ -1,57 +1,58 @@
 import { FaAngleLeft } from "react-icons/fa6";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Menu from "../menu/Menu";
 import Header from "../header/Header";
 import dress from "../../../img/dress.png";
 import { useState } from "react";
+import { Link, useLocation } from 'react-router-dom';
+
+
 import './bill.css';
 const Bill = () => {
 
     // Orders
     const [orders, setOrders] = useState([
-        { id: 1, userID: 1, productID: 1, amout: 12, orderDate: "10/12/2023", deliveryStatus: "pending"},
-        { id: 2, userID: 2, productID: 2, amout: 12, orderDate: "10/12/2023", deliveryStatus: "pending"},
-        { id: 3, userID: 2, productID: 4, amout: 12, orderDate: "10/12/2023", deliveryStatus: "pending"},
+        { orderID: 1, userID: 2, products: [{productID: 1, productName: "pro1", amount: 2, price: 10}, {productID: 2, productName: "pro1", amount: 2, price: 10}], orderDate: "10/12/2023", status: "pending", payment: "Bcel One", delivery: "Houngaloun"},
+        { orderID: 2, userID: 1, products: [{productID: 1, productName: "pro1", amount: 2, price: 10}, {productID: 2, productName: "pro2", amount: 2, price: 10}, {productID: 3, productName: "pro3", amount: 2, price: 10}], orderDate: "15/12/2023", status: "pending", payment: "Bcel One", delivery: "Anousit"},
+        { orderID: 3, userID: 1, products: [{productID: 1, productName: "pro1", amount: 2, price: 10}, {productID: 2, productName: "pro1", amount: 2, price: 10}], orderDate: "10/12/2023", status: "pending", payment: "Bcel One", delivery: "Houngaloun"},
+        { orderID: 4, userID: 3, products: [{productID: 1, productName: "pro1", amount: 2, price: 10}, {productID: 2, productName: "pro1", amount: 2, price: 10}], orderDate: "10/12/2023", status: "pending", payment: "Bcel One", delivery: "Anousit"},
     ]);
 
-    //   Products
-    const [products, setProducts] = useState([
-      { id: 1, name: 'Product 1', description: 'This is product 1', price: 12, category: "clothes", images: [dress] },
-      { id: 2, name: 'Product 2', description: 'This is product 2', price: 20, category: "clothes", images: [dress] },
-      { id: 3, name: 'Product 3', description: 'This is product 3', price: 30, category: "electronich device", images: [dress] },
-      { id: 4, name: 'Product 1', description: 'This is product 1', price: 10, category: "electronich device", images: [dress] },
-      { id: 5, name: 'Product 2', description: 'This is product 2', price: 20, category: "cosmetics", images: [dress] },
-      { id: 6, name: 'Product 3', description: 'This is product 3', price: 30, category: "cosmetics", images: [dress] },
-      { id: 7, name: 'Product 1', description: 'This is product 1', price: 10, category: "electronich device", images: [dress] },
-      { id: 8, name: 'Product 2', description: 'This is product 2', price: 20, category: "cosmetics", images: [dress] },
-      { id: 9, name: 'Product 3', description: 'This is product 3', price: 30, category: "cosmetics", images: [dress] },
-      { id: 10, name: 'Product 1', description: 'This is product 1', price: 10, category: "electronich device", images: [dress] },
-      { id: 11, name: 'Product 2', description: 'This is product 2', price: 20, category: "cosmetics", images: [dress] },
-      { id: 12, name: 'Product 3', description: 'This is product 3', price: 30, category: "cosmetics", images: [dress] },
-    ]);
-
-    // Users
+    // users
     const [users, setUsers] = useState([
-        { id: 1, userName: "Sam", email: "sam@gmail.com", phone: "02099878787"},
-        { id: 2, userName: "Wil", email: "sam@gmail.com", phone: "02099878787"},
-        { id: 3, userName: "Dom", email: "sam@gmail.com", phone: "02099878787"},
+        {userID: 1, name:'John Doe', email: 'john@gmail.com'},
+        {userID: 2, name:'Sam', email: 'sam@gmail.com'},
+        {userID: 3, name: "Will", email: "wil@gmail.com"}
     ]);
 
-    // Filter orders by userID
-    const urOrders = orders.filter(order => order.userID === 1);
+    // Get order ID
+    const location = useLocation();
+    const { id } = location.state;
+    const [getId, setGetId] = useState(id)
 
-    // Join orders, products, and users data
-    const ordersData = urOrders.map(order => {
-        const product = products.find(product => product.id === order.productID);
-        const user = users.find(user => user.id === order.userID);
-        return {
-        orderID: order.id,
+    const filteredOrders = orders
+    .filter(order => order.orderID === getId) // Filter orders by userID = 2 (Sam)
+    .map(order => {
+      const user = users.find(user => user.userID === order.userID); // Find user details for the order
+
+      // Calculate total price
+      const totalPrice = order.products.reduce((total, product) => {
+        return total + product.price * product.amount;
+      }, 0);
+
+      return {
+        orderID: order.orderID,
+        userID: order.userID,
+        userName: user.name,
+        products: order.products,
         orderDate: order.orderDate,
-        productName: product.name,
-        userName: user.userName,
-        userID: user.id,
-        };
+        status: order.status,
+        payment: order.payment,
+        delivery: order.delivery,
+        totalPrice: totalPrice
+      };
     });
+
     return (
         <>
             <Header></Header>
@@ -62,8 +63,8 @@ const Bill = () => {
                     <div className="header-box"></div>
                 </div>
                 <div >
-                {ordersData.map(order => (
-                    <div className="bill-detial" key={order.orderID}>
+                {filteredOrders.map(order => (
+                    <div className="bill-detial" key={order.orderID} >
                         <div className="guopoidHead">
                             <div className="idf">
                                 <p>NO: {order.orderID}</p>
@@ -72,35 +73,40 @@ const Bill = () => {
                             </div>
                         </div>
                         <hr />
-                        <div className="billGopBox">
-                            <div className="detial">
-                                <h5>Product Name</h5>
-                                <p>{order.productName}</p>
-                            </div>
-                            <div className="detial">
-                                <h5>Price</h5>
-                                <p>$10</p>
-  
-                            </div>
-                            <div className="detial">
-                                <h5>Amount</h5>
-                                <p>12</p>
-                            </div>
+                        
+                        <div className="billGopBox" >
+                            <table>
+                            <thead>
+                                <tr>
+                                    <th>Product Name</th>
+                                    <th>Price</th>
+                                    <th>Amount</th>
+                                </tr>
+                            </thead>
+                                {order.products.map(product => (
+                                    <tbody key={product.productID}>
+                                        <tr>
+                                            <td>{product.productName}</td>
+                                            <td>${product.price}</td>
+                                            <td>{product.amount}</td>
+                                        </tr>
+                                    </tbody>
+                                ))}
+                            </table>
                         </div>
                         <hr />
                         <div className="titlePrice">
-                            <p>Title:</p>
-                            <p>100,000 Kip</p>
+                            <p>Total:</p>
+                            <p>${order.totalPrice}</p>
                         </div>
                         <div className="place-on">
                             <p>Place on: {order.orderDate}</p>
-                            <p>Payment method: Bcel One</p>
-                            <p>Status: completed</p>
-                            <p>Delivery by: Anousit</p>
+                            <p>Payment method: {order.payment}</p>
+                            <p>Status: {order.status}</p>
+                            <p>Delivery: {order.delivery}</p>
                         </div>
                     </div>
-                ))}
-                    
+                    ))}
                 </div>
             </section>
             <Menu />
