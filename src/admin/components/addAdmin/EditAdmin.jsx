@@ -6,7 +6,7 @@ import { AiOutlineDelete } from "react-icons/ai";
 import { MdOutlineEdit } from "react-icons/md";
 import { Link } from 'react-router-dom';
 
-const Admin = () => {
+const EditAdmin = () => {
     const [adminImage, setAdminImage] = useState([]);
     const [adminFirstName, setAdminFirstName] = useState('');
     const [adminId, setAdminId] = useState('');
@@ -104,7 +104,7 @@ const Admin = () => {
                             <FaAngleLeft id='box_icon_Back' />
                             <p>Back</p>
                         </Link>
-                        <h2>Admin</h2>
+                        <h2>Edit Admin</h2>
                         <div></div>
                     </div>
                     
@@ -214,4 +214,4 @@ const Admin = () => {
     )
 }
 
-export default Admin
+export default EditAdmin;

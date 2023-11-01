@@ -88,7 +88,6 @@ const AddUser = () => {
         <>
             <AdminMenu/>
             <section id='addAmin'>
-                
                 <div className='box_addAdmin'>
                     <div className='container_add_admin'> 
                         <Link to="/admin/menageruser/" className='box_guopIconbAck'>
