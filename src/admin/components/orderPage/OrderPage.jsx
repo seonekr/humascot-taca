@@ -5,8 +5,12 @@ import { BsFilter } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import AdminMenu from '../adminMenu/AdminMenu';
 import acer from '../../../img/acer.png'
+import { useState } from "react";
 
 const OrderPage = () => {
+    
+
+
     return (
         <>
             <AdminMenu />
@@ -24,8 +28,7 @@ const OrderPage = () => {
                         </form>
                         <BsFilter id='filter_icon' />
                     </div>
-                    <div className='box_users_order'>
-
+                    <form className='box_users_order'>
                         <Link to="#" className='box_order_text'>
                             <img src={acer} alt='img'></img>
                             <div className='container_chat_name'>
@@ -47,60 +50,8 @@ const OrderPage = () => {
                                 View
                             </Link>
                         </div>
-
-                    </div>
-
-                    <div className='box_users_order'>
-
-                        <Link to="" className='box_order_text'>
-                            <img src={acer} alt='img'></img>
-                            <div className='container_chat_name'>
-                                <p>NO: 1</p>
-                                <p>ID: 1</p>
-                                <h4>Samsung</h4>
-                            </div>
-                        </Link>
-                        <div className='box_container_time'>
-                            <p>Time: </p>
-                            <p>01/19/2023</p>
-                            <p>8:00 PM</p>
-                        </div>
-                        <div className='container_order_icon'>
-                            <Link to="#" className='btn_paid'>
-                                Paid
-                            </Link>
-                            <Link to="/admin/orderbill" className='btn_view'>
-                                View
-                            </Link>
-                        </div>
-
-                    </div>
-                    <div className='box_users_order'>
-
-                        <Link to="" className='box_order_text'>
-                            <img src={acer} alt='img'></img>
-                            <div className='container_chat_name'>
-                                <p>NO: 1</p>
-                                <p>ID: 1</p>
-                                <h4>Samsung</h4>
-                            </div>
-                        </Link>
-                        <div className='box_container_time'>
-                            <p>Time: </p>
-                            <p>01/19/2023</p>
-                            <p>8:00 PM</p>
-                        </div>
-                        <div className='container_order_icon'>
-                            <Link to="#" className='btn_paid'>
-                                Paid
-                            </Link>
-                            <Link to="/admin/orderbill" className='btn_view'>
-                                View
-                            </Link>
-                        </div>
-                    </div>
-
-                    <div className='box_users_order'>
+                    </form>
+                    <form className='box_users_order'>
                         <Link to="#" className='box_order_text'>
                             <img src={acer} alt='img'></img>
                             <div className='container_chat_name'>
@@ -115,40 +66,14 @@ const OrderPage = () => {
                             <p>8:00 PM</p>
                         </div>
                         <div className='container_order_icon'>
-                            <Link to="#" className='btn_pending'>
-                                Pending
-                            </Link>
-                            <Link to="/admin/orderbill" className='btn_view'>
-                                View
-                            </Link>
-                        </div>
-
-                    </div>
-
-                    <div className='box_users_order'>
-
-                        <Link to="" className='box_order_text'>
-                            <img src={acer} alt='img'></img>
-                            <div className='container_chat_name'>
-                                <p>NO: 1</p>
-                                <p>ID: 1</p>
-                                <h4>Samsung</h4>
-                            </div>
-                        </Link>
-                        <div className='box_container_time'>
-                            <p>Time: </p>
-                            <p>01/19/2023</p>
-                            <p>8:00 PM</p>
-                        </div>
-                        <div className='container_order_icon'>
-                            <Link to="#" className='btn_paid'>
+                            <Link to="/admin/OrderWrong" className='btn_paid'>
                                 Paid
                             </Link>
                             <Link to="/admin/orderbill" className='btn_view'>
                                 View
                             </Link>
                         </div>
-                    </div>
+                    </form>
 
                     <div className='box_next_order'>
                         <button className='box_prev_next_order'>
