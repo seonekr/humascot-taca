@@ -5,7 +5,7 @@ import qrcode from "../../../img/QRCODE.png";
 import wechat from "../../../img/WeChat.png";
 import Menu from "../menu/Menu";
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Header from "../header/Header";
 
@@ -17,20 +17,17 @@ const Payment = () => {
 
     // get address state 
     const location = useLocation();                       // Here mean if "empty"
-    const { province, city, companny, branch } = location.state || {};
-
-    // get product
-    const { products, userID, date } = location.state;
+    const { address = [],  products = [], userID, date } = location?.state || {};
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
         console.log('Form Data:', { // Here you can insert informatio to database
             "Selected option": selectedOption,
-            "province": province,
-            "city": city,
-            "companny": companny,
-            "branch": branch
+            "province": address.province,
+            "city": address.city,
+            "companny": address.companny,
+            "branch":address. branch
         });
 
         setSelectedOption('');
@@ -39,6 +36,23 @@ const Payment = () => {
     const handleRadioChange = (event) => {
         setSelectedOption(event.target.value);
     };
+
+    // handle address
+    const navigate = useNavigate();
+
+    const handleAddAddress = () => {
+        if ((products.length > 0) && (userID != 0) && (date != 0)) {
+            navigate('/cart/address', {
+              state: {
+                products,
+                userID,
+                date,
+              }
+            });
+        }else {
+            navigate('/cart/address')
+        }
+      }
 
     return (
         <>
@@ -53,32 +67,32 @@ const Payment = () => {
                     <form onSubmit={handleSubmit}>
                         <div className="adress-payment">
                             <div className="box">
-                                <Link to="/cart/address" className="address">
+                                <div className="address" onClick={handleAddAddress}>
                                     <FiPlus /> Update address
-                                </Link>
-                                <p>{province} {city} {companny} {branch}</p>
+                                </div>
+                                <p>{address.province} {address.city} {address.companny} {address.branch}</p> {/* Get from address */}
                             </div>
                             {/* procuts */}
-                            <div>
-                            <ul>
-                            <div>User ID: {userID}</div>
-                                <div>Date: {date}</div>
-                                {products.map((product) => (
-                                <li key={product.productID}>
-                                    <div>Product ID: {product.productID}</div>
-                                    <div>Product Name: {product.productName}</div>
-                                    <div>Size: {product.size}</div>
-                                    <div>Color: {product.color}</div>
-                                    <div>Type: {product.type}</div>
-                                    <div>Price: {product.price}</div>
-                                    <div>Product Counts: {product.productCounts}</div>
-                                    <div>Have to pay: {product.productCounts * product.price}</div>
-                                </li>
-                                ))}
-                            </ul>
-                            </div>
-
-
+                            {products.length > 0 ?
+                            (   <div>
+                                <ul>
+                                <div>User ID: {userID}</div>
+                                    <div>Date: {date}</div>
+                                    {products.map((product) => (
+                                    <li key={product.productID}>
+                                        <div>Product ID: {product.productID}</div>
+                                        <div>Product Name: {product.productName}</div>
+                                        <div>Size: {product.size}</div>
+                                        <div>Color: {product.color}</div>
+                                        <div>Type: {product.type}</div>
+                                        <div>Price: {product.price}</div>
+                                        <div>Product Counts: {product.productCounts}</div>
+                                        <div>Have to pay: {product.productCounts * product.price}</div>
+                                    </li>
+                                    ))}           
+                                </ul>
+                                </div>): (<p></p>)
+                        }
                             <div className="box">
                                 <div className="transfer">
                                     <div className="select-option">
@@ -121,9 +135,9 @@ const Payment = () => {
                                 </div>
                             </div>
                             <div className="save">
-                                <Link to="/cart/successfulBuy/">
+                                {/* <Link to="/cart/successfulBuy/"> */}
                                      <button type="submit" disabled={!selectedOption}>Confirm</button>{/* The button will show when user input information */}
-                                </Link> 
+                                {/* </Link>  */}
                             </div>
                         </div>
                     </form>

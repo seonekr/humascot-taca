@@ -2,7 +2,7 @@ import { FaAngleLeft } from "react-icons/fa6";
 import Header from "../header/Header";
 import React, { useState } from "react";
 import Menu from "../menu/Menu";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import './address.css';
 
@@ -16,6 +16,9 @@ const Address = () => {
     const [companny, setCompanny] = useState('');
     const [branch, setBranch] = useState('');
 
+    // From detaiils products
+    const location = useLocation(); 
+    const { products = [], userID, date } = location?.state || {};
 
     // submit
     const handleSubmit = (e) => {
@@ -25,15 +28,33 @@ const Address = () => {
             setCity(''),
             setCompanny(''),
             setBranch('')
-
-        navigate('/cart/payment/', { // Navigate to the payment page with the address props
-            state: {
-                province: province + ',',
-                city: city + ',',
-                companny: companny + ',',
-                branch
-            }
-        });
+        if ((products.length > 0) && (userID != 0) && (date != 0)){
+            navigate('/cart/payment/', { // Navigate to the payment page with the address props
+                state: {
+                    products,
+                    userID,
+                    date,
+                    address: {
+                      province: province + ',',
+                      city: city + ',',
+                      companny: companny + ',',
+                      branch,
+                    }
+                  }
+            });
+        }else{
+            navigate('/cart/payment/', { // Navigate to the payment page with the address props
+                state: {
+                    address: {
+                      province: province + ',',
+                      city: city + ',',
+                      companny: companny + ',',
+                      branch,
+                    }
+                  }
+                  
+            });
+        }
     }
 
     const handleProvince = (e) => {
