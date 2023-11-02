@@ -1,6 +1,5 @@
 import React from 'react'
 import './product_search.css'
-import { Link } from 'react-router-dom';
 import dress from "../../../img/dress.png";
 import image1 from "../../../img/image1.png";
 import acer from '../../../img/acer.png';
@@ -87,7 +86,6 @@ const Product_search = () => {
                 </div>
                 <div className="content_itemBox">
                     <div className='container_product'>
-
                         <h3>Product</h3>
                         <form className='boxfilterseach'>
                             <select className="categoryFilter" value={maxPrice} onChange={handleMaxChange}>
@@ -108,7 +106,9 @@ const Product_search = () => {
                         {displayedProducts.map((product, index) => (
                             <div key={index}>
                                 <div  className='group_itemBox' onClick={() => handleProduct(product.productID)}>
-                                    <img src={product.images[0]} alt='img' />
+                                    <div className='img'>
+                                        <img src={product.images[0]} alt='img' />
+                                    </div>
                                     <div className="txtOFproduct">
                                         <h4>
                                             <input

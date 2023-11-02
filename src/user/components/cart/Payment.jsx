@@ -19,6 +19,9 @@ const Payment = () => {
     const location = useLocation();                       // Here mean if "empty"
     const { province, city, companny, branch } = location.state || {};
 
+    // get product
+    const { products, userID, date } = location.state;
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -55,6 +58,27 @@ const Payment = () => {
                                 </Link>
                                 <p>{province} {city} {companny} {branch}</p>
                             </div>
+                            {/* procuts */}
+                            <div>
+                            <ul>
+                            <div>User ID: {userID}</div>
+                                <div>Date: {date}</div>
+                                {products.map((product) => (
+                                <li key={product.productID}>
+                                    <div>Product ID: {product.productID}</div>
+                                    <div>Product Name: {product.productName}</div>
+                                    <div>Size: {product.size}</div>
+                                    <div>Color: {product.color}</div>
+                                    <div>Type: {product.type}</div>
+                                    <div>Price: {product.price}</div>
+                                    <div>Product Counts: {product.productCounts}</div>
+                                    <div>Have to pay: {product.productCounts * product.price}</div>
+                                </li>
+                                ))}
+                            </ul>
+                            </div>
+
+
                             <div className="box">
                                 <div className="transfer">
                                     <div className="select-option">

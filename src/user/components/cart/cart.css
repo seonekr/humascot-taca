@@ -154,6 +154,13 @@ a {
     margin-top: 1rem;
 }
 
+/* cart empty */
+.cart {
+    text-align: center;
+    font-size: 1.3rem;
+    color: #ff0000;
+}
+
 /*=========== Resposive =============*/
 
 
@@ -224,6 +231,13 @@ a {
     .btn {
         flex-direction: column;
         gap: 1rem;
+    }
+
+    .cart {
+        text-align: center;
+        font-size: 1.3rem;
+        margin-top: 14rem;
+        color: #ff0000;
     }
 }
 

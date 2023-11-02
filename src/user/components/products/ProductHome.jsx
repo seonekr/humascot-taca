@@ -86,7 +86,9 @@ const ProductHome = () => {
                 {displayedProducts.map((product, index) => (
                     <div className="box-product" key={index}>
                         <div onClick={() => handleProduct(product.productID)}>
-                            <img src={product.images[0]} alt="image" />
+                            <div className='img'>
+                                <img src={product.images[0]} alt="image" />
+                            </div>
                             <ul className="txtOFproduct">
                                 <li>
                                     <input
