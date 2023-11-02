@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import acer from '../../../img/acer.png';
 import Header from '../header/Header';
@@ -12,9 +13,6 @@ const Cart = () => {
     { productID: 2, productName: 'Product 2', productType: "clothes", description: 'This is product 2', color: "colW", price: 20, images: [acer], size: "l" },
     { productID: 3, productName: 'Product 3', productType: "clothes", description: 'This is product 3', color: "colBlue", price: 30, images: [acer], size: "xl" },
   ]);
-
-  // userID
-  const [userID, setUserID] = useState(2);
 
   const [productCounts, setProductCounts] = useState(products.reduce((acc, product) => ({ ...acc, [product.id]: 1 }), {}));
 
@@ -52,6 +50,10 @@ const Cart = () => {
     }));
   };
 
+  // send to checkout
+  const navigate = useNavigate();
+
+
   const handleSubmit = (e) => {
     e.preventDefault()
 
@@ -67,15 +69,18 @@ const Cart = () => {
       price: product.price,
       size: product.size,
       productCounts: productCounts[product.id] || 0,
-
     }));
-      // Submit the selected products with userID
-    const order = {
-      userID: userID,
-      products: selectedProducts,
-    };
 
-    console.log(order);
+
+    // Submit the selected products with userID
+    // Send to checkout
+    navigate('/cart/payment/', {
+      state: {
+        productsCart: selectedProducts,
+        }
+  });
+
+
   };
 
   return (

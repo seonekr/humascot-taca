@@ -166,15 +166,8 @@ function ProductDetails() {
 
   // Buy now
   const [getProductID, setGetProductID] = useState(getId);
-  const [userID, setUserID] = useState(2);
   // const [totalPrice, setTotalPrice] = useState(0);
   const navigate = useNavigate();
-
-  // Get date tody
-  const today = new Date();
-  const date = today.getDate();
-  const month = today.getMonth() + 1; // January is month 0 in JavaScript
-  const year = today.getFullYear();
 
   // Match productID
   const filteredProducts = products.filter(
@@ -195,21 +188,11 @@ function ProductDetails() {
         type: product.productType,
         price: product.price,
         productCounts: productCounts,
-        
       }));
-
-      // Date
-      const dateTody = `${month}/${date}/${year}`;
-      // console.log("Buy Now");
-      // console.log(selectedProducts);
-      // console.log("userID:", userID);
-      // console.log("Place on:", dateTody);
 
       navigate('/cart/payment/', {
         state: {
           products: selectedProducts,
-          userID: userID,
-          date: dateTody,
         },
       });
     } else {
