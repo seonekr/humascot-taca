@@ -42,6 +42,17 @@ const Payment = () => {
     console.log("branch:", address.branch)
     console.log("date:", dateTody)
     console.log("userID:", userID)
+    products.forEach((item) => {
+      console.log("prodictID:",item.productID);
+      console.log("productName:",item.productName);
+      console.log("productSize:",item.size);
+      console.log("productColor:",item.color);
+      console.log("productType:",item.type);
+      console.log("productPrice:",item.price);
+      console.log("productAmount:",item.productCounts);
+
+    });
+    
   };
 
   const handleRadioChange = (event) => {``
