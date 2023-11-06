@@ -160,7 +160,7 @@ body {
 }
 
 .echbtn {
-    padding: 10px 40px;
+    padding: 10px 30px;
     border-radius: 5px;
     font-size: 17px;
     cursor: pointer;
@@ -484,6 +484,7 @@ body {
     .nav-btn {
         margin-top: -4rem;
     }
+  
 }
 
 

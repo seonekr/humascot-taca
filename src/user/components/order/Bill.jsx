@@ -31,8 +31,12 @@ const Bill = () => {
           color: "colW",
           size: "l",
         },
+<<<<<<< HEAD
         {
           productID: 2,
+=======
+        { productID: 3,
+>>>>>>> e0d6722dceca6387f16810c88716aee7d8b2e2bc
           productName: "pro3",
           productType: "clothes",
           amount: 2,
