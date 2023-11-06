@@ -2,7 +2,6 @@ import React from 'react'
 import "./menagerUser.css"
 import { AiOutlineDelete,AiOutlineLeft,AiOutlineRight } from 'react-icons/ai';
 import { IoSearchOutline } from 'react-icons/io5';
-import { BsFilter,BsPlusLg } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import AdminMenu from '../adminMenu/AdminMenu';
 import users from '../../../img/users.png'

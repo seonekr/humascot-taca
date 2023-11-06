@@ -16,41 +16,14 @@
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
 }
 
-/*======== box_filter =========*/
-
-.box_filter{
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-}
-#filter_icon{
-    width: 20px;
-    height: 20px;
-}
-
-.btn_adduser{
-    width: 129px;
-    height: 35px;
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    justify-content: center;
-    border-radius: 5px;
-    background-color: #35B869;
-    color: #FFF;
-}
-#icon_plus{
-    width: 18px;
-    height: 18px;
-    color: #FFF;
-}
 
 /* ============ box_users_admin =========== */
 
 .box_users_admin{
-    width: 100%;
+    width: 94%;
     height: 90px;
     display: flex;
+    margin: auto;
     align-items: center;
     justify-content: space-between;
     margin-top: 1rem;

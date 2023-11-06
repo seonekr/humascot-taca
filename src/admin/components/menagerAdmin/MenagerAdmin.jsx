@@ -1,9 +1,8 @@
 import React from 'react'
 import "./menagerAdmin.css"
 import { AiOutlineDelete,AiOutlineLeft,AiOutlineRight  } from 'react-icons/ai';
-import { PiEyeSlashLight } from 'react-icons/pi';
+import { IoSearchOutline } from 'react-icons/io5';
 import { MdOutlineEdit } from 'react-icons/md';
-import { BsFilter,BsPlusLg } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import AdminMenu from '../adminMenu/AdminMenu';
 import users from '../../../img/users.png'
@@ -18,26 +17,16 @@ const MenagerUser = () => {
                 <div className='container_box_users'>
                     <div className='box_users'>
                         <h2>Admin</h2>
-                        <div className='box_filter'>
-                            <Link to="/admin/addadmin/" className='btn_adduser'>
-                                <BsPlusLg id='icon_plus'/>
-                                <div>Add Admin</div>
-                            </Link>
-                            <div className='btn_filter'>
-                                <form className='cetegory_form'>
-                                    <select className='categoryFilter'>
-                                        <option className='listOption' value="Something">Filter users</option>
-                                        <option className='listOption' value="Something">Filter users</option>
-                                        <option className='listOption' value="Something">Filter users</option>
-                                        <option className='listOption' value="Something">Filter users</option>
-                                    </select>
-                                </form>
+                        <form className="search">
+                            <div className="search-box_menageruser">
+                                <input type="text" placeholder="Search ..." />
+                                <button type="submit">
+                                <IoSearchOutline />
+                                </button>
                             </div>
-                            <BsFilter id='filter_icon'/>
-                        </div>
+                        </form>
                     </div>
                     <div className='box_users_admin'>
-                        
                         <Link to="#" className='box_admin_text'>
                             <img src={users} alt='img'></img>
                             <div className='container_chat_name'>
@@ -46,9 +35,7 @@ const MenagerUser = () => {
                             </div>
                         </Link>
                         <div className='container_admin_icon'>
-                            <button className='btn_eyes'>
-                                <PiEyeSlashLight id='icon_edit_delete'/>
-                            </button>
+                            
                             <Link to="/admin/editadmin/" className='btn_edit'>
                                 <MdOutlineEdit id='icon_edit_delete'/>
                             </Link>
@@ -56,10 +43,8 @@ const MenagerUser = () => {
                                 <AiOutlineDelete id='icon_edit_delete'/>
                             </button>
                         </div>
-                        
                     </div>
                     <div className='box_users_admin'>
-                        
                         <Link to="#" className='box_admin_text'>
                             <img src={users} alt='img'></img>
                             <div className='container_chat_name'>
@@ -68,9 +53,7 @@ const MenagerUser = () => {
                             </div>
                         </Link>
                         <div className='container_admin_icon'>
-                            <button className='btn_eyes'>
-                                <PiEyeSlashLight id='icon_edit_delete'/>
-                            </button>
+                            
                             <Link to="/admin/editadmin/" className='btn_edit'>
                                 <MdOutlineEdit id='icon_edit_delete'/>
                             </Link>
@@ -78,10 +61,8 @@ const MenagerUser = () => {
                                 <AiOutlineDelete id='icon_edit_delete'/>
                             </button>
                         </div>
-                        
                     </div>
                     <div className='box_users_admin'>
-                        
                         <Link to="#" className='box_admin_text'>
                             <img src={users} alt='img'></img>
                             <div className='container_chat_name'>
@@ -90,9 +71,7 @@ const MenagerUser = () => {
                             </div>
                         </Link>
                         <div className='container_admin_icon'>
-                            <button className='btn_eyes'>
-                                <PiEyeSlashLight id='icon_edit_delete'/>
-                            </button>
+                            
                             <Link to="/admin/editadmin/" className='btn_edit'>
                                 <MdOutlineEdit id='icon_edit_delete'/>
                             </Link>
@@ -100,10 +79,8 @@ const MenagerUser = () => {
                                 <AiOutlineDelete id='icon_edit_delete'/>
                             </button>
                         </div>
-                        
                     </div>
                     <div className='box_users_admin'>
-                        
                         <Link to="#" className='box_admin_text'>
                             <img src={users} alt='img'></img>
                             <div className='container_chat_name'>
@@ -112,9 +89,7 @@ const MenagerUser = () => {
                             </div>
                         </Link>
                         <div className='container_admin_icon'>
-                            <button className='btn_eyes'>
-                                <PiEyeSlashLight id='icon_edit_delete'/>
-                            </button>
+                            
                             <Link to="/admin/editadmin/" className='btn_edit'>
                                 <MdOutlineEdit id='icon_edit_delete'/>
                             </Link>
@@ -122,10 +97,8 @@ const MenagerUser = () => {
                                 <AiOutlineDelete id='icon_edit_delete'/>
                             </button>
                         </div>
-                        
                     </div>
                     <div className='box_users_admin'>
-                        
                         <Link to="#" className='box_admin_text'>
                             <img src={users} alt='img'></img>
                             <div className='container_chat_name'>
@@ -134,9 +107,7 @@ const MenagerUser = () => {
                             </div>
                         </Link>
                         <div className='container_admin_icon'>
-                            <button className='btn_eyes'>
-                                <PiEyeSlashLight id='icon_edit_delete'/>
-                            </button>
+                            
                             <Link to="/admin/editadmin/" className='btn_edit'>
                                 <MdOutlineEdit id='icon_edit_delete'/>
                             </Link>
@@ -144,29 +115,6 @@ const MenagerUser = () => {
                                 <AiOutlineDelete id='icon_edit_delete'/>
                             </button>
                         </div>
-                        
-                    </div>
-                    <div className='box_users_admin'>
-                        
-                        <Link to="#" className='box_admin_text'>
-                            <img src={users} alt='img'></img>
-                            <div className='container_chat_name'>
-                                <p>Name: Sompong</p>
-                                <p>Eamil: Sompong@gmail.com</p>
-                            </div>
-                        </Link>
-                        <div className='container_admin_icon'>
-                            <button className='btn_eyes'>
-                                <PiEyeSlashLight id='icon_edit_delete'/>
-                            </button>
-                            <Link to="/admin/editadmin/" className='btn_edit'>
-                                <MdOutlineEdit id='icon_edit_delete'/>
-                            </Link>
-                            <button className='btn_delete'>
-                                <AiOutlineDelete id='icon_edit_delete'/>
-                            </button>
-                        </div>
-                        
                     </div>
                     
                     <div className='box_next_admin'>
