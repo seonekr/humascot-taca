@@ -25,7 +25,7 @@
 #post .edit-product-form .input-box {
     width: 80%;
     display: grid;
-    gap: 2rem;
+    gap: 3rem;
     padding: 0 2rem;
 }
 
@@ -135,6 +135,41 @@
     display: none;
 }
 
+
+.box_size_product{
+    margin-top: 8rem;
+}
+.color_box{
+    width: 100%;
+    height: 165px;
+    display: flex;
+    gap: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px 20px 20px 20px;
+}
+.box_choose_color{
+    width: 68px;
+    height: 28px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.choose{
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.size_box{
+    width: 100%;
+    height: 165px;
+    margin-top: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
 /* Submit button */
 #post .edit-product-form .submit1 {
     margin-top: -1.5rem;
@@ -154,6 +189,3 @@
 
 /*============ Color ==========*/
 
-.box_color_product{
-    
-}

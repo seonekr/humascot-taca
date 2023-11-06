@@ -150,6 +150,14 @@ const EditProduct = () => {
                             
                             <div className="box_color_product">
                                 <h3>Color:</h3>
+                                <div className="color_box">
+                                    <div className="box_choose_color">
+                                        <div className="choose_color">
+                                            <div className="choose"></div>
+                                            <p>Red</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         
@@ -182,8 +190,12 @@ const EditProduct = () => {
                                     }
                                 </div>
                             </div>
+
                             <div className="box_size_product">
                                 <h3>Size:</h3>
+                                <div className="size_box">
+                                    
+                                </div>
                             </div>
                         </div>
                         <div className="submit1">
