@@ -61,16 +61,14 @@ const Product = () => {
             <section id="product_admin">
                 
                 <div className="container_body_admin_product">
-
                     <form className="search">
-                        <div className="search-box">
+                        <div className="search-box_product">
                             <input type="text" placeholder="Search ..." />
                             <button type="submit">
                             <IoSearchOutline />
                             </button>
                         </div>
                     </form>
-
                     <div className="productHead_content">
                         <h1 className="htxthead"><span className="spennofStyleadmin"></span>Product</h1>
                         <div className="categoryBoxfiler">
