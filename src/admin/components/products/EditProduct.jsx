@@ -87,7 +87,7 @@ const EditProduct = () => {
 
     return(
         <>
-            {/* <AdminMenu/> */}
+            <AdminMenu/>
             <section id="post">
                 <div className="boxcontainerSpan_Box"></div>
                 <div className="box_container_product">
@@ -157,39 +157,6 @@ const EditProduct = () => {
                                             <div className="choose_color">
                                                 <div className="choose"></div>
                                                 <p>Red</p>
-                                            </div>
-                                        </div>
-                                        
-                                        <div>
-                                            <div className="box_choose_color">
-                                                <div className="choose_color">
-                                                    <div className="choose"></div>
-                                                    <p>Red</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div className="box_choose_color">
-                                                <div className="choose_color">
-                                                    <div className="choose"></div>
-                                                    <p>Red</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div className="box_choose_color">
-                                                <div className="choose_color">
-                                                    <div className="choose"></div>
-                                                    <p>Red</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div className="box_choose_color">
-                                                <div className="choose_color">
-                                                    <div className="choose"></div>
-                                                    <p>Red</p>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
