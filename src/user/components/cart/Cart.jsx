@@ -14,6 +14,11 @@ const Cart = () => {
     { productID: 3, productName: 'Product 3', productType: "clothes", description: 'This is product 3', color: "colBlue", price: 30, images: [acer], size: "xl" },
   ]);
 
+  const [price, setPrice] = useState(0);
+  const [shipping, setShipping] = useState(0);
+  const [grandTotal, setGrandTotal] = useState(0);
+
+
   const [productCounts, setProductCounts] = useState(products.reduce((acc, product) => ({ ...acc, [product.id]: 1 }), {}));
 
   useEffect(() => {
@@ -26,10 +31,7 @@ const Cart = () => {
     setGrandTotal(grandTotal);
   }, [products, productCounts]);
 
-  const [price, setPrice] = useState(0);
-  const [shipping, setShipping] = useState(0);
-  const [grandTotal, setGrandTotal] = useState(0);
-
+  
   const handleInputChange = (e, index, field) => {
     const updatedProducts = [...products];
     updatedProducts[index][field] = e.target.value;
