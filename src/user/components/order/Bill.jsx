@@ -57,7 +57,7 @@ const Bill = () => {
           color: "colW",
           size: "l"
         },
-        { productID: 2,
+        { productID: 3,
           productName: "pro3",
           productType: "clothes",
           amount: 2,

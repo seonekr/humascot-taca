@@ -5,7 +5,7 @@ import qrcode from "../../../img/QRCODE.png";
 import wechat from "../../../img/WeChat.png";
 import Menu from "../menu/Menu";
 import React, { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate  } from "react-router-dom";
 
 import { Link } from "react-router-dom";
 import Header from "../header/Header";
@@ -16,6 +16,8 @@ const Payment = () => {
 
   // get address state
   const location = useLocation();
+  const navigate = useNavigate();
+
   const {
     address = [],
     products = [],
@@ -48,16 +50,13 @@ const Payment = () => {
       console.log(products)
     }else if(productsCart.length > 0){
       console.log(productsCart)
-      location.state.productsCart = [];
     }
+    navigate('/cart/payment/')
   };
 
   const handleRadioChange = (event) => {
     setSelectedOption(event.target.value);
   };
-
-  // handle to address
-  const navigate = useNavigate();
 
   const handleAddAddress = () => {
     if (products.length > 0) {
