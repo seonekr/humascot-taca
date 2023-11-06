@@ -214,5 +214,39 @@ a {
 }
 
 
+
+/* input search box */
+
+.search-box_product {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    margin: auto;
+    padding: 10px 0 25px 0;
+}
+
+
+
+.search-box_product input {
+    width: 700px;
+    height: 45px;
+    border: 1px solid #ccc;
+    background: #FFF;
+    padding: 0 1rem;
+    border-radius: 5px 0 0 5px;
+}
+
+.search-box_product button {
+    background: #0E64D2;
+    color: #FFF;
+    width: 80px;
+    height: 45px;
+    border: 1px solid #ccc;
+    font-size: 1.7rem;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+}
+
+
 /* =========== Responsive ============*/
 

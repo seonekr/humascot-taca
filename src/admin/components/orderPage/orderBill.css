@@ -124,7 +124,17 @@
     gap: 1rem;
 }
 
+/* ========= Filter Status ============*/
 
+.box_filter_status{
+    display: flex;
+    align-items: center;
+}
+.statusFilter{
+    padding: 4px 10px;
+    font-size: 16px;
+    border: none;
+}
 
 /* ================ Responsive ==================*/
 /* For smartphones with a maximum width of 480px */

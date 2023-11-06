@@ -41,37 +41,36 @@
     justify-content: space-between;
 }
 
+/*====== input search box ========*/
 
-/*========== Filter ===========*/
-
-.box_filter {
+.search-box_menageruser {
     display: flex;
-    gap: 1rem;
-    align-items: center;
+    width: 100%;
+    padding: 10px 30px 10px 0;
 }
 
-#filter_icon {
-    width: 20px;
-    height: 20px;
+
+
+.search-box_menageruser input {
+    width: 500px;
+    height: 45px;
+    border: 1px solid #ccc;
+    background: #FFF;
+    padding: 0 1rem;
+    border-radius: 5px 0 0 5px;
 }
 
-.btn_adduser {
-    width: 129px;
-    height: 35px;
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    justify-content: center;
-    border-radius: 5px;
-    background-color: #35B869;
+.search-box_menageruser button {
+    background: #0E64D2;
     color: #FFF;
+    width: 70px;
+    height: 45px;
+    border: 1px solid #ccc;
+    font-size: 1.7rem;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
 }
 
-#icon_plus {
-    width: 18px;
-    height: 18px;
-    color: #FFF;
-}
 
 /* ============ box_users_user =========== */
 

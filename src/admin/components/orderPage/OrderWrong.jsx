@@ -59,7 +59,15 @@ const OrderWrong = () => {
                                     <div className="box_place-on">
                                         <p>Place on: 15/09/2023</p>
                                         <p>Payment method: Bcel One</p>
-                                        <p>Status: completed</p>
+                                        <div className='box_filter_status'>
+                                            <p>Status: </p>
+                                            <form>
+                                                <select className='statusFilter'>
+                                                    <option className='listOption_status' value="Something">Pending</option>
+                                                    <option className='listOption_status' value="Something">Completed</option>
+                                                </select>
+                                            </form>
+                                        </div>
                                         <p>Delivery by: Anousit</p>
                                     </div>
                                 </div>

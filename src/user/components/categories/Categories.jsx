@@ -1,32 +1,32 @@
-import './categories.css';
+import React from 'react'
+import dress from "../../../img/dress.png";
+import image1 from "../../../img/image1.png";
+import acer from '../../../img/acer.png';
+import productImage from "../../../img/productImage.png";
+import { Link, useLocation } from 'react-router-dom';
 import Header from '../header/Header';
 import Menu from '../menu/Menu';
 import { FaSearch } from "react-icons/fa"
-import { Link, useLocation } from 'react-router-dom';
-import acer from '../../../img/acer.png'
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import "./categories.css";
+
 
 const Categories = () => {
     const [products, setProducts] = useState([
-        { id: 1, name: 'Product 1',  description: 'This is product 1', price: 10, category: "clothes", images: [acer] },
-        { id: 2, name: 'Product 2',  description: 'This is product 2', price: 20, category: "clothes", images: [acer] },
-        { id: 3, name: 'Product 3',  description: 'This is product 3', price: 30, category: "clothes", images: [acer] },
-        { id: 4, name: 'Product 4',  description: 'This is product 4', price: 30, category: "clothes", images: [acer] },
-        { id: 5, name: 'Product 5',  description: 'This is product 5', price: 40, category: "electronich device", images: [acer] },
-        { id: 6, name: 'Product 6',  description: 'This is product 6', price: 50, category: "electronich device", images: [acer] },
-        { id: 7, name: 'Product 7',  description: 'This is product 7', price: 60, category: "cosmetics", images: [acer] },
-        { id: 8, name: 'Product 8',  description: 'This is product 8', price: 70, category: "cosmetics", images: [acer] },
-        { id: 9, name: 'Product 9',  description: 'This is product 9', price: 80, category: "cosmetics", images: [acer] },
-        { id: 10, name: 'Product 10', description: 'This is product 10', price: 40, category: "electronich device", images: [acer] },
-        { id: 11, name: 'Product 11', description: 'This is product 11', price: 50, category: "electronich device", images: [acer] },
-        { id: 12, name: 'Product 12', description: 'This is product 12', price: 60, category: "cosmetics", images: [acer] },
-        { id: 13, name: 'Product 13', description: 'This is product 13', price: 70, category: "cosmetics", images: [acer] },
-        { id: 14, name: 'Product 14', description: 'This is product 14', price: 80, category: "cosmetics", images: [acer] },
-        { id: 13, name: 'Product 13', description: 'This is product 13', price: 70, category: "cosmetics", images: [acer] },
-        { id: 14, name: 'Product 14', description: 'This is product 14', price: 80, category: "cosmetics", images: [acer] },
+        { id: 1, productID: 1, productName: "pro1", productType: "clothes", price: 10, category: "clothes", description: "desc for this product", images: [acer] },
+        { id: 2, productID: 2, productName: "pro2", productType: "clothes", price: 10, category: "clothes", description: "desc for this product", images: [dress] },
+        { id: 3, productID: 3, productName: "pro3", productType: "clothes", price: 10, category: "clothes", description: "desc for this product", images: [acer] },
+        { id: 4, productID: 4, productName: "pro4", productType: "clothes", price: 10, category: "electronich device", description: "desc for this product", images: [dress] },
+        { id: 5, productID: 5, productName: "pro5", productType: "clothes", price: 10, category: "electronich device", description: "desc for this product", images: [image1] },
+        { id: 6, productID: 6, productName: "pro6", productType: "clothes", price: 10, category: "cosmetics", description: "desc for this product", images: [image1] },
+        { id: 7, productID: 7, productName: "pro7", productType: "clothes", price: 10, category: "cosmetics", description: "desc for this product", images: [productImage] },
+        { id: 8, productID: 8, productName: "pro8", productType: "clothes", price: 10, category: "clothes", description: "desc for this product", images: [acer] },
+        { id: 9, productID: 9, productName: "pro9", productType: "clothes", price: 10, category: "clothes", description: "desc for this product", images: [productImage] },
+        { id: 10, productID: 10, productName: "pro10", productType: "clothes", price: 10, category: "clothes", description: "desc for this product", images: [acer] },
+        { id: 11, productID: 11, productName: "pro11", productType: "clothes", price: 10, category: "clothes", description: "desc for this product", images: [productImage] }
     ]);
 
-    const [displayCount, setDisplayCount] = useState(2);
 
     const location = useLocation();
     const { categorys } = location.state;
@@ -34,12 +34,19 @@ const Categories = () => {
 
     const [category, setCategory] = useState(categorys);
 
+    const [searchTerm, setSearchTerm] = useState("");
+    const [minPrice, setMinPrice] = useState("");
+    const [maxPrice, setMaxPrice] = useState("");
+    const [displayCount, setDisplayCount] = useState(8);
+
     // Filter products based on search term and price range
     const filteredProducts = products.filter((product) => {
         const cateMatch = category !== "" ? product.category === category : true;
-        return cateMatch;
+        const nameMatch = product.productName.toLowerCase().includes(searchTerm.toLowerCase());
+        const minPriceMatch = minPrice !== "" ? product.price <= minPrice : true;
+        const maxPriceMatch = maxPrice !== "" ? product.price >= maxPrice : true;
+        return nameMatch && minPriceMatch && maxPriceMatch && cateMatch;
     });
-
 
     // Handle inputChange
     const handleInputChange = (e, index, field) => {
@@ -48,77 +55,119 @@ const Categories = () => {
         setProducts(updatedProducts);
     }
 
+    // Handle select by price
+    const handleMaxChange = (e) => {
+        setMaxPrice(e.target.value); // Please change this to category
+    };
+    // Handle select by peice
+    const handleMinChange = (e) => {
+        setMinPrice(e.target.value); // Please change this to category
+    };
+
     const handleSelectChange = (e) => {
         setCategory(e.target.value); // Please change this to category
     };
 
+    // Read more
+    const displayedProducts = filteredProducts.slice(0, displayCount);
+    const handleViewMore = () => {
+        setDisplayCount(displayCount + 4);
+    };
 
-     // Read more
-    
-     const displayedProducts = filteredProducts.slice(0, displayCount);
-     const handleViewMore = () => {
-        setDisplayCount(displayCount + 2);
-     };
+    // Get send ID
+    const [sendProductID, setSendProductID] = useState();
+    const navigate = useNavigate();
+
+    // Handle product
+    const handleProduct = (sendProductID) => {
+        navigate('/product_search/productdetails/', { state: { sendProductID: sendProductID } });
+    }
 
     return (
-        <div className='categoryBox_container'>
+        <>
             <Header />
-            <div className='searchBycate'>
-                <input
-                    className='txtheadcateg'
-                    type="text"
-                    placeholder="Category"
-                    value={category}
-                    onChange={handleSelectChange}
-                />
-            </div>
-            <div className='box_container_home'>
-                {displayedProducts.map((product, index) => (
-                    <form key={index}>
-                        <div className='box_container_img' >
-                            <Link to="/product_search/productdetails">
-                                <img src={product.images[0]} alt='img' />
-                            </Link>
-                            <div className="txtOFproduct">
-                                <h4>
-                                    <input
-                                        type="text"
-                                        value={product.name}
-                                        onChange={(e) => handleInputChange(e, index, "name")}
-                                    />
-                                </h4>
-                                <p>
-                                    <input
-                                        className='priceProduct'
-                                        type="text"
-                                        value={product.price}
-                                        onChange={(e) => handleInputChange(e, index, "price")}
-                                    />
-                                </p>
-                                <p className='txtP_width'>
-                                    <input
-                                        type="text"
-                                        value={product.description}
-                                        onChange={(e) => handleInputChange(e, index, "description")}
-                                    />
-                                </p>
-                                
-                            </div>
-                            
+            <div className='container_home'>
+                <div className='container_head_search'>
+                    <FaSearch id="search-icon" />
+                    <input
+                        type="text"
+                        placeholder="Search products"
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                    />
+                </div>
+                <div className="content_itemBox">
+                    <div className='container_product'>
+                        <div className='searchBycate'>
+                            <h3 className="htxthead"><span className="spennofStyle"></span>
+                                <input
+                                    className='txtheadcateg'
+                                    type="text"
+                                    placeholder="Category"
+                                    value={category}
+                                    onChange={handleSelectChange}
+                                />
+                            </h3>
                         </div>
-                        
-                    </form>
-                    
-                ))}
-                
-            </div>
-            <div className='btn_more_categories'>
-                <button className="loadmore_btn__categories" onClick={handleViewMore}>
-                    View More
-                </button>
+                        <form className='boxfilterseach'>
+                            <select className="categoryFilter" value={maxPrice} onChange={handleMaxChange}>
+                                <option className="listOption" value="">Over price</option>
+                                <option className="listOption" value="10">$10</option>
+                                <option className="listOption" value="20">$20</option>
+                                <option className="listOption" value="30">$30</option>
+                            </select>
+                            <select className="categoryFilter" value={minPrice} onChange={handleMinChange}>
+                                <option className="listOption" value="">lower price</option>
+                                <option className="listOption" value="10">$10</option>
+                                <option className="listOption" value="20">$20</option>
+                                <option className="listOption" value="30">$30</option>
+                            </select>
+                        </form>
+                    </div>
+                    <div className='contentImageProducts'>
+                        {displayedProducts.map((product, index) => (
+                            <div key={index}>
+                                <div className='group_itemBox' onClick={() => handleProduct(product.productID)}>
+                                    <div className='img'>
+                                        <img src={product.images[0]} alt='img' />
+                                    </div>
+                                    <div className="txtOFproduct">
+                                        <h4>
+                                            <input
+                                                type="text"
+                                                value={product.productName}
+                                                onChange={(e) => handleInputChange(e, index, "name")}
+                                            />
+                                        </h4>
+                                        <p>
+                                            <input
+                                                className='priceProduct'
+                                                type="text"
+                                                value={product.price}
+                                                onChange={(e) => handleInputChange(e, index, "price")}
+                                            />
+                                        </p>
+                                        <p className='txtP_width'>
+                                            <input
+                                                type="text"
+                                                value={product.description}
+                                                onChange={(e) => handleInputChange(e, index, "description")}
+                                            />
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+                <div className='btn_more'>
+                    <button className="loadmore_btn_more" onClick={handleViewMore}>
+                        View More
+                    </button>
+                </div>
             </div>
             <Menu />
-        </div>
+        </>
     )
 }
 

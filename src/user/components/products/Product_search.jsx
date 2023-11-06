@@ -86,7 +86,7 @@ const Product_search = () => {
                 </div>
                 <div className="content_itemBox">
                     <div className='container_product'>
-                        <h3>Product</h3>
+                        <h3 className="htxthead"><span className="spennofStyle"></span>Product</h3>
                         <form className='boxfilterseach'>
                             <select className="categoryFilter" value={maxPrice} onChange={handleMaxChange}>
                                 <option className="listOption" value="">Over price</option>

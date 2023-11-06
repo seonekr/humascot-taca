@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import AdminMenu from "../adminMenu/AdminMenu";
 import { BiPlus } from 'react-icons/bi';
+import { IoSearchOutline } from 'react-icons/io5';
 import { MdOutlineEdit } from 'react-icons/md';
 import { AiOutlineDelete, AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 
@@ -60,6 +61,14 @@ const Product = () => {
             <section id="product_admin">
                 
                 <div className="container_body_admin_product">
+                    <form className="search">
+                        <div className="search-box_product">
+                            <input type="text" placeholder="Search ..." />
+                            <button type="submit">
+                            <IoSearchOutline />
+                            </button>
+                        </div>
+                    </form>
                     <div className="productHead_content">
                         <h1 className="htxthead"><span className="spennofStyleadmin"></span>Product</h1>
                         <div className="categoryBoxfiler">
