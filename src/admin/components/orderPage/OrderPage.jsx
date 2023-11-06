@@ -5,6 +5,7 @@ import { BsFilter } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import AdminMenu from '../adminMenu/AdminMenu';
 import acer from '../../../img/acer.png'
+import { IoSearchOutline } from 'react-icons/io5';
 import { useState } from "react";
 
 const OrderPage = () => {
@@ -16,21 +17,20 @@ const OrderPage = () => {
             <AdminMenu />
             <section id='menager'>
                 <div className='container_box_orderpage'>
-                    <h3>Order</h3>
-                    <div className='box_filter'>
-                        <form className='cetegory_form'>
-                            <select className='categoryFilter'>
-                                <option className='listOption' value="Something">Filter users</option>
-                                <option className='listOption' value="Something">Filter users</option>
-                                <option className='listOption' value="Something">Filter users</option>
-                                <option className='listOption' value="Something">Filter users</option>
-                            </select>
-                        </form>
-                        <BsFilter id='filter_icon' />
+                    <div className='box_head_search'>
+                        <h2>Order</h2>
+                        {/* <form className="search">
+                            <div className="search-box_order">
+                                <input type="text" placeholder="Search ..." />
+                                <button type="submit">
+                                <IoSearchOutline />
+                                </button>
+                            </div>
+                        </form> */}
                     </div>
+
                     <form className='box_users_order'>
                         <Link to="#" className='box_order_text'>
-                            <img src={acer} alt='img'></img>
                             <div className='container_chat_name'>
                                 <p>NO: 1</p>
                                 <p>ID: 1</p>
@@ -53,7 +53,6 @@ const OrderPage = () => {
                     </form>
                     <form className='box_users_order'>
                         <Link to="#" className='box_order_text'>
-                            <img src={acer} alt='img'></img>
                             <div className='container_chat_name'>
                                 <p>NO: 1</p>
                                 <p>ID: 1</p>

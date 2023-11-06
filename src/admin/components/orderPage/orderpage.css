@@ -9,38 +9,20 @@
 .container_box_orderpage{
     position: absolute;
     width: 85%;
+    height: auto;
     right: 0;
     margin-top: 5rem;
     padding: 30px 50px 20px 50px;
     background: #FFF;
+    
 }
-
-.box_filter{
+.box_head_search{
     display: flex;
-    gap: 1rem;
-    justify-content: end;
-}
-#filter_icon{
-    width: 20px;
-    height: 20px;
-}
-
-.btn_adduser{
-    width: 129px;
-    height: 35px;
-    display: flex;
-    gap: 1rem;
     align-items: center;
-    justify-content: center;
-    border-radius: 5px;
-    background-color: #35B869;
-    color: #FFF;
+    justify-content: space-between;
 }
-#icon_plus{
-    width: 18px;
-    height: 18px;
-    color: #FFF;
-}
+
+
 
 /* ============ box_users_chat =========== */
 
@@ -177,5 +159,35 @@
     align-items: center;
     justify-content: center;
 }
+
+/* input search box */
+
+/* .search-box_order {
+    display: flex;
+    width: 100%;
+    padding: 10px 30px 10px 0;
+}
+
+
+
+.search-box_order input {
+    width: 700px;
+    height: 45px;
+    border: 1px solid #ccc;
+    background: #FFF;
+    padding: 0 1rem;
+    border-radius: 5px 0 0 5px;
+}
+
+.search-box_order button {
+    background: #0E64D2;
+    color: #FFF;
+    width: 80px;
+    height: 45px;
+    border: 1px solid #ccc;
+    font-size: 1.7rem;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+} */
 
 /* ================ Responsive ==================*/

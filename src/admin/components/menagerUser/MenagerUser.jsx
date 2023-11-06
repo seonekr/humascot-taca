@@ -1,7 +1,7 @@
 import React from 'react'
 import "./menagerUser.css"
 import { AiOutlineDelete,AiOutlineLeft,AiOutlineRight } from 'react-icons/ai';
-import { MdOutlineEdit } from 'react-icons/md';
+import { IoSearchOutline } from 'react-icons/io5';
 import { BsFilter,BsPlusLg } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import AdminMenu from '../adminMenu/AdminMenu';
@@ -16,26 +16,16 @@ const MenagerUser = () => {
                 <div className='container_box_adminusers'>
                     <div className='box_users'>
                         <h2>Users</h2>
-                        <div className='box_filter'>
-                            <Link to="/admin/adduser/" className='btn_adduser'>
-                                <BsPlusLg id='icon_plus'/>
-                                <div>Add Users</div>
-                            </Link>
-                            <div className='btn_filter'>
-                                <form className='cetegory_form'>
-                                    <select className='categoryFilter'>
-                                        <option className='listOption' value="Something">Filter users</option>
-                                        <option className='listOption' value="Something">Filter users</option>
-                                        <option className='listOption' value="Something">Filter users</option>
-                                        <option className='listOption' value="Something">Filter users</option>
-                                    </select>
-                                </form>
+                        <form className="search">
+                            <div className="search-box_menageruser">
+                                <input type="text" placeholder="Search ..." />
+                                <button type="submit">
+                                <IoSearchOutline />
+                                </button>
                             </div>
-                            <BsFilter id='filter_icon'/>
-                        </div>
+                        </form>
                     </div>
                     <div className='box_users_user'>
-                        
                         <Link to="#" className='box_user_text'>
                             <img src={users} alt='img'></img>
                             <div className='container_chat_name'>
@@ -44,9 +34,6 @@ const MenagerUser = () => {
                             </div>
                         </Link>
                         <div className='container_user_icon'>
-                            <Link to="/admin/edituser/" className='btn_edit_user'>
-                                <MdOutlineEdit id='icon_edit_delete'/>
-                            </Link>
                             <button className='btn_delete_user'>
                                 <AiOutlineDelete id='icon_edit_delete'/>
                             </button>
@@ -54,7 +41,6 @@ const MenagerUser = () => {
                         
                     </div>
                     <div className='box_users_user'>
-                        
                         <Link to="#" className='box_user_text'>
                             <img src={users} alt='img'></img>
                             <div className='container_chat_name'>
@@ -63,9 +49,6 @@ const MenagerUser = () => {
                             </div>
                         </Link>
                         <div className='container_user_icon'>
-                            <Link to="/admin/edituser/" className='btn_edit_user'>
-                                <MdOutlineEdit id='icon_edit_delete'/>
-                            </Link>
                             <button className='btn_delete_user'>
                                 <AiOutlineDelete id='icon_edit_delete'/>
                             </button>
@@ -73,7 +56,6 @@ const MenagerUser = () => {
                         
                     </div>
                     <div className='box_users_user'>
-                        
                         <Link to="#" className='box_user_text'>
                             <img src={users} alt='img'></img>
                             <div className='container_chat_name'>
@@ -82,9 +64,6 @@ const MenagerUser = () => {
                             </div>
                         </Link>
                         <div className='container_user_icon'>
-                            <Link to="/admin/edituser/" className='btn_edit_user'>
-                                <MdOutlineEdit id='icon_edit_delete'/>
-                            </Link>
                             <button className='btn_delete_user'>
                                 <AiOutlineDelete id='icon_edit_delete'/>
                             </button>
@@ -92,7 +71,6 @@ const MenagerUser = () => {
                         
                     </div>
                     <div className='box_users_user'>
-                        
                         <Link to="#" className='box_user_text'>
                             <img src={users} alt='img'></img>
                             <div className='container_chat_name'>
@@ -101,9 +79,6 @@ const MenagerUser = () => {
                             </div>
                         </Link>
                         <div className='container_user_icon'>
-                            <Link to="/admin/edituser/" className='btn_edit_user'>
-                                <MdOutlineEdit id='icon_edit_delete'/>
-                            </Link>
                             <button className='btn_delete_user'>
                                 <AiOutlineDelete id='icon_edit_delete'/>
                             </button>
@@ -111,7 +86,6 @@ const MenagerUser = () => {
                         
                     </div>
                     <div className='box_users_user'>
-                        
                         <Link to="#" className='box_user_text'>
                             <img src={users} alt='img'></img>
                             <div className='container_chat_name'>
@@ -120,9 +94,6 @@ const MenagerUser = () => {
                             </div>
                         </Link>
                         <div className='container_user_icon'>
-                            <Link to="/admin/edituser/" className='btn_edit_user'>
-                                <MdOutlineEdit id='icon_edit_delete'/>
-                            </Link>
                             <button className='btn_delete_user'>
                                 <AiOutlineDelete id='icon_edit_delete'/>
                             </button>

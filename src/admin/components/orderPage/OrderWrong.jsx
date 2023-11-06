@@ -60,6 +60,17 @@ const OrderWrong = () => {
                                         <p>Place on: 15/09/2023</p>
                                         <p>Payment method: Bcel One</p>
                                         <p>Status: completed</p>
+                                        {/* <div className='box_filter'>
+                                            <form className='cetegory_form'>
+                                                <select className='categoryFilter'>
+                                                    <option className='listOption' value="Something">Filter users</option>
+                                                    <option className='listOption' value="Something">Filter users</option>
+                                                    <option className='listOption' value="Something">Filter users</option>
+                                                    <option className='listOption' value="Something">Filter users</option>
+                                                </select>
+                                            </form>
+                                            <BsFilter id='filter_icon' />
+                                        </div> */}
                                         <p>Delivery by: Anousit</p>
                                     </div>
                                 </div>

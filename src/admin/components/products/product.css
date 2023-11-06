@@ -213,6 +213,38 @@ a {
     justify-content: center;
 }
 
+/* input search box */
+.search-box {
+    display: flex;
+    width: 50%;
+    margin: auto;
+    padding: 10px 0 25px 0;
+}
+
+.titleNname {
+    color: #151D48;
+}
+
+.search-box input {
+    width: 700px;
+    height: 45px;
+    border: 2px solid rgba(14, 100, 210, 0.50);
+    background: #FFF;
+    padding: 0 1rem;
+    border-radius: 5px 0 0 5px;
+}
+
+.search-box button {
+    background: #0E64D2;
+    color: #FFF;
+    width: 90px;
+    height: 45px;
+    border: 2px solid rgba(14, 100, 210, 0.50);
+    font-size: 1.7rem;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+}
+
 
 /* =========== Responsive ============*/
 
