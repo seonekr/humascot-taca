@@ -53,7 +53,6 @@ const Cart = () => {
   // send to checkout
   const navigate = useNavigate();
 
-
   const handleSubmit = (e) => {
     e.preventDefault()
 
@@ -70,7 +69,6 @@ const Cart = () => {
       size: product.size,
       productCounts: productCounts[product.id] || 0,
     }));
-
 
     // Submit the selected products with userID
     // Send to checkout

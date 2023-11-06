@@ -6,6 +6,7 @@ import wechat from "../../../img/WeChat.png";
 import Menu from "../menu/Menu";
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+
 import { Link } from "react-router-dom";
 import Header from "../header/Header";
 
@@ -14,12 +15,12 @@ const Payment = () => {
   const [selectedOption, setSelectedOption] = useState("onePay");
 
   // get address state
-  const location = useLocation(); // Here mean if "empty"
+  const location = useLocation();
   const {
     address = [],
     products = [],
     productsCart = [],
-  } = location?.state || {};
+  } = location?.state || {}; // Here mean if "empty"
 
   // Get date tody
   const today = new Date();
@@ -42,20 +43,16 @@ const Payment = () => {
     console.log("branch:", address.branch)
     console.log("date:", dateTody)
     console.log("userID:", userID)
-    products.forEach((item) => {
-      console.log("prodictID:",item.productID);
-      console.log("productName:",item.productName);
-      console.log("productSize:",item.size);
-      console.log("productColor:",item.color);
-      console.log("productType:",item.type);
-      console.log("productPrice:",item.price);
-      console.log("productAmount:",item.productCounts);
-
-    });
     
+    if (products.length > 0) {
+      console.log(products)
+    }else if(productsCart.length > 0){
+      console.log(productsCart)
+      location.state.productsCart = [];
+    }
   };
 
-  const handleRadioChange = (event) => {``
+  const handleRadioChange = (event) => {
     setSelectedOption(event.target.value);
   };
 
