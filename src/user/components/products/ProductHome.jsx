@@ -1,27 +1,25 @@
 import "./productHome.css";
 import dress from "../../../img/dress.png";
 import image1 from "../../../img/image1.png";
+import acer from '../../../img/acer.png';
 import productImage from "../../../img/productImage.png";
-import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
+
+
 const ProductHome = () => {
     const [products, setProducts] = useState([
-        { id: 1, name: 'Product 1', description: 'This is product 1', price: 12, category: "clothes", images: [image1] },
-        { id: 2, name: 'Product 2', description: 'This is product 2', price: 20, category: "clothes", images: [image1] },
-        { id: 3, name: 'Product 3', description: 'This is product 3', price: 30, category: "electronich device", images: [productImage] },
-        { id: 4, name: 'Product 1', description: 'This is product 1', price: 10, category: "electronich device", images: [productImage] },
-        { id: 5, name: 'Product 2', description: 'This is product 2', price: 20, category: "cosmetics", images: [dress] },
-        { id: 6, name: 'Product 3', description: 'This is product 3', price: 30, category: "cosmetics", images: [dress] },
-        { id: 7, name: 'Product 1', description: 'This is product 1', price: 10, category: "electronich device", images: [dress] },
-        { id: 8, name: 'Product 2', description: 'This is product 2', price: 20, category: "cosmetics", images: [dress] },
-        { id: 9, name: 'Product 3', description: 'This is product 3', price: 30, category: "cosmetics", images: [dress] },
-        { id: 10, name: 'Product 1', description: 'This is product 1', price: 10, category: "electronich device", images: [dress] },
-        { id: 11, name: 'Product 2', description: 'This is product 2', price: 20, category: "cosmetics", images: [dress] },
-        { id: 12, name: 'Product 3', description: 'This is product 3', price: 30, category: "cosmetics", images: [dress] },
-        { id: 13, name: 'Product 1', description: 'This is product 1', price: 10, category: "electronich device", images: [dress] },
-        { id: 14, name: 'Product 2', description: 'This is product 2', price: 20, category: "cosmetics", images: [dress] },
-        { id: 15, name: 'Product 3', description: 'This is product 3', price: 30, category: "cosmetics", images: [dress] },
-        { id: 16, name: 'Product 3', description: 'This is product 3', price: 30, category: "cosmetics", images: [dress] },
+        {productID: 1, productName: "pro1", productType: "clothes", price: 10, description: "desc for this product", images: [acer]},
+        {productID: 2, productName: "pro2", productType: "clothes", price: 10, description: "desc for this product", images: [dress]},
+        {productID: 3, productName: "pro3", productType: "clothes", price: 10, description: "desc for this product", images: [acer]},
+        {productID: 4, productName: "pro4", productType: "clothes", price: 10, description: "desc for this product", images: [dress]},
+        {productID: 5, productName: "pro5", productType: "clothes", price: 10, description: "desc for this product", images: [image1]},
+        {productID: 6, productName: "pro6", productType: "clothes", price: 10, description: "desc for this product", images: [image1]},
+        {productID: 7, productName: "pro7", productType: "clothes", price: 10, description: "desc for this product", images: [productImage]},
+        {productID: 8, productName: "pro8", productType: "clothes", price: 10, description: "desc for this product", images: [acer]},
+        {productID: 9, productName: "pro9", productType: "clothes", price: 10, description: "desc for this product", images: [productImage]},
+        {productID: 10, productName: "pro10", productType: "clothes", price: 10, description: "desc for this product", images: [acer]},
+        {productID: 11, productName: "pro11", productType: "clothes", price: 10, description: "desc for this product", images: [productImage]}
     ]);
 
     const [price, setPrice] = useState("");
@@ -58,6 +56,15 @@ const ProductHome = () => {
         setDisplayCount(displayCount + 4);
     };
 
+    // Get send ID
+    const [sendProductID, setSendProductID] = useState();
+    const navigate = useNavigate();
+
+    // Handle product
+    const handleProduct = (sendProductID) => {
+        navigate('/product_search/productdetails/', { state: { sendProductID : sendProductID } });
+    }
+
     return (
         <section id="product">
             <div className="productHead_content">
@@ -75,39 +82,43 @@ const ProductHome = () => {
                 </div>
             </div>
 
-            <form className="product-area">
+            <div className="product-area">
                 {displayedProducts.map((product, index) => (
                     <div className="box-product" key={index}>
-                        <Link to="/product_search/productdetails/"><img src={product.images[0]} alt="image" /></Link>
-                        <ul className="txtOFproduct">
-                            <li>
-                                <input
-                                    className="name"
-                                    type="text"
-                                    value={product.name}
-                                    onChange={handleInputChange}
-                                />
-                            </li>
-                            <li>
-                                <input
-                                    className="desc"
-                                    type="text"
-                                    value={product.description}
-                                    onChange={(e) => handleInputChange(e, index, "description")}
-                                />
-                            </li>
-                            <li>
-                                <input
-                                    className="price"
-                                    type="text"
-                                    value={product.price}
-                                    onChange={(e) => handleInputChange(e, index, "price")}
-                                />
-                            </li>
-                        </ul>
+                        <div onClick={() => handleProduct(product.productID)}>
+                            <div className='img'>
+                                <img src={product.images[0]} alt="image" />
+                            </div>
+                            <ul className="txtOFproduct">
+                                <li>
+                                    <input
+                                        className="name"
+                                        type="text"
+                                        value={product.productName}
+                                        onChange={handleInputChange}
+                                    />
+                                </li>
+                                <li>
+                                    <input
+                                        className="desc"
+                                        type="text"
+                                        value={product.description}
+                                        onChange={(e) => handleInputChange(e, index, "description")}
+                                    />
+                                </li>
+                                <li>
+                                    <input
+                                        className="price"
+                                        type="text"
+                                        value={product.price}
+                                        onChange={(e) => handleInputChange(e, index, "price")}
+                                    />
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 ))}
-            </form>
+            </div>
             <button className="btnViewProduct" onClick={handleViewMore}>View More</button>
         </section>
     )

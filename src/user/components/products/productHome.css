@@ -41,26 +41,36 @@ a {
 #product .product-area {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 1rem;
+    gap: 0.5rem;
 }
 
 
 #product .box-product {
     width: 100%;
     display: flex;
-    /* border: 1px solid #DDDCE1; */
+    border: 1px solid #eee;
     flex-direction: column;
     align-items: center;
     border-radius: 7px;
+    cursor: pointer;
 }
 
 #product .box-product:hover {
     box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
 }
 
-#product .box-product img {
+#product .box-product .img {
+    display: flex;
+    width: 250px;
+    height: 255px;
+    align-items: center;
+    overflow: hidden;
+}
+
+#product .box-product .img img {
     width: 100%;
-    height: 30vh;
+    height: 100%;
+    object-fit: contain;
     padding: 10px;
 }
 
@@ -111,7 +121,7 @@ a {
 
     #product .product-area {
         grid-template-columns: 1fr 1fr;
-        gap: 1rem;
+        gap: 0.5rem;
     }
 
     .imageBox {

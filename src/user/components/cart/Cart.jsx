@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import acer from '../../../img/acer.png';
 import Header from '../header/Header';
@@ -8,13 +9,10 @@ import './cart.css';
 
 const Cart = () => {
   const [products, setProducts] = useState([
-    { id: 1, name: 'Product 1', description: 'This is product 1', price: 10, images: [acer] },
-    { id: 2, name: 'Product 2', description: 'This is product 2', price: 20, images: [acer] },
-    { id: 3, name: 'Product 3', description: 'This is product 3', price: 30, images: [acer] },
+    { productID: 1, productName: 'Product 1', productType: "clothes", description: 'This is product 1', color: "colB", price: 10, images: [acer], size: "m"},
+    { productID: 2, productName: 'Product 2', productType: "clothes", description: 'This is product 2', color: "colW", price: 20, images: [acer], size: "l" },
+    { productID: 3, productName: 'Product 3', productType: "clothes", description: 'This is product 3', color: "colBlue", price: 30, images: [acer], size: "xl" },
   ]);
-
-  // userID
-  const [userID, setUserID] = useState(2);
 
   const [productCounts, setProductCounts] = useState(products.reduce((acc, product) => ({ ...acc, [product.id]: 1 }), {}));
 
@@ -52,6 +50,10 @@ const Cart = () => {
     }));
   };
 
+  // send to checkout
+  const navigate = useNavigate();
+
+
   const handleSubmit = (e) => {
     e.preventDefault()
 
@@ -60,20 +62,25 @@ const Cart = () => {
     setShipping('');
     setGrandTotal('');
     const selectedProducts = products.map((product) => ({
-      id: product.id,
-      name: product.name,
+      productID: product.productID,
+      productName: product.productName,
+      productType: product.productType,
+      color: product.color,
       price: product.price,
+      size: product.size,
       productCounts: productCounts[product.id] || 0,
-
     }));
 
-      // Submit the selected products with userID
-    const order = {
-      userID: userID,
-      products: selectedProducts,
-    };
 
-    console.log(order);
+    // Submit the selected products with userID
+    // Send to checkout
+    navigate('/cart/payment/', {
+      state: {
+        productsCart: selectedProducts,
+        }
+  });
+
+
   };
 
   return (
@@ -89,7 +96,7 @@ const Cart = () => {
                   <div className='box_item_text'>
                     <input
                       type="text"
-                      value={product.name}
+                      value={product.productName}
                       onChange={(e) => handleInputChange(e, index, "name")}
                       className='name'
                     />
@@ -121,6 +128,7 @@ const Cart = () => {
             ))}
           </div>
         </div>
+            {products.length > 0 ?
         <div className='box_item_total'>
           <h1>Cart Total</h1>
           <div className='box_item_total_text'>
@@ -141,7 +149,7 @@ const Cart = () => {
             <Link to="/product_search/" className="Continues_btn">Continues Shopping</Link>
             <button type='submit' className="checkout_btn">Checkout</button>
           </div>
-        </div>
+        </div>: <p className='cart'>Your cart is empty</p> }
       </form>
       <Menu />
     </>
