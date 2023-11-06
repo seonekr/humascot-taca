@@ -135,39 +135,92 @@
     display: none;
 }
 
-
+.box_color_product{
+    width: 100;
+}
 .box_size_product{
     margin-top: 8rem;
 }
 .color_box{
     width: 100%;
     height: 165px;
-    display: flex;
-    gap: 1rem;
-    cursor: pointer;
     margin-top: 1rem;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 4px;
     padding: 20px 20px 20px 20px;
 }
+
 .box_choose_color{
-    width: 68px;
+    width: 70px;
     height: 28px;
+    display: flex;
+    gap: 1.5rem;
     border: 1px solid #ccc;
     border-radius: 5px;
+}
+.choose_color{
+    display: flex;
+    gap: 0.3rem;
+    align-items: center;
+    margin-left: 0.2rem;
 }
 .choose{
     width: 20px;
     height: 20px;
+    cursor: pointer;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
 .size_box{
     width: 100%;
     height: 165px;
+    display: flex;
+    gap: 1.5rem;
     margin-top: 1rem;
     border: 1px solid #ccc;
+    border-radius: 5px;padding: 20px 20px 20px 20px;
+}
+.box_size_color{
+    width: 60px;
+    height: 28px;
+    display: flex;
+    border: 1px solid #ccc;
     border-radius: 5px;
+    
+}
+.color_choose{
+    display: flex;
+    gap: 1rem;
+}
+.choose_size{
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin-left: 0.2rem;
+    justify-content: center;
+}
+
+/* Search add color */
+
+.search_color{
+    padding: 3px 8px;
+    margin-top: 5rem;
+    margin-bottom: 0;
+    display: flex;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.icon_add{
+    padding: 3px 8px;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    background-color: #3498DB;
+    border-radius: 3px;
+    color: #fff;
 }
 
 /* Submit button */
@@ -186,6 +239,8 @@
     cursor: pointer;
     border: none;
 }
+
+
 
 /*============ Color ==========*/
 
