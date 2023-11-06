@@ -153,7 +153,7 @@ const EditProduct = () => {
                                 <div className="color_box">
                                     <div className="box_choose_color">
                                         <div className="choose_color">
-                                            <div className=""></div>
+                                            <div className="choose"></div>
                                             <p>Red</p>
                                         </div>
                                     </div>
