@@ -113,9 +113,9 @@ const Product = () => {
                                         <button className="btn_icon_delete_user" onClick={() => handleDelete(product.id)}>
                                             <AiOutlineDelete id="btn_icon_edit"/>
                                         </button>
-                                        <button className="btn_icon_edit_user">
+                                        <Link to="/admin/editproduct/" className="btn_icon_edit_user">
                                             <MdOutlineEdit id="btn_icon_edit"/>
-                                        </button>
+                                        </Link>
                                         
                                     </div>
                                 </ul>
