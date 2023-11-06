@@ -126,33 +126,15 @@
 
 /* ========= Filter Status ============*/
 
-/* .box_filter{
+.box_filter_status{
     display: flex;
-    gap: 1rem;
-    justify-content: end;
-}
-#filter_icon{
-    width: 20px;
-    height: 20px;
-}
-
-.btn_adduser{
-    width: 129px;
-    height: 35px;
-    display: flex;
-    gap: 1rem;
     align-items: center;
-    justify-content: center;
-    border-radius: 5px;
-    background-color: #35B869;
-    color: #FFF;
 }
-#icon_plus{
-    width: 18px;
-    height: 18px;
-    color: #FFF;
-} */
-
+.statusFilter{
+    padding: 4px 10px;
+    font-size: 16px;
+    border: none;
+}
 
 /* ================ Responsive ==================*/
 /* For smartphones with a maximum width of 480px */
