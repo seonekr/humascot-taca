@@ -15,7 +15,7 @@ const Header = () => {
                                 <li><Link to="/" className="linkLi active">Home</Link></li>
                                 <li><Link to="/product_search" className="linkLi">Shop</Link></li>
                                 <li><Link to="/order" className="linkLi">Order</Link></li>
-                                <li><Link to="/chatuser" className="linkLi">Chat</Link></li>
+                                <li><Link to="/chatuser" className="linkLi">Contact</Link></li>
                                 <li><Link to="/login/" className="linkLi">Login</Link></li>
                             </div>
                         </ul>
