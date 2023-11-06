@@ -19,10 +19,10 @@ const Cart = () => {
   const [grandTotal, setGrandTotal] = useState(0);
 
 
-  const [productCounts, setProductCounts] = useState(products.reduce((acc, product) => ({ ...acc, [product.id]: 1 }), {}));
+  const [productCounts, setProductCounts] = useState(products.reduce((acc, product) => ({ ...acc, [product.productID]: 1 }), {}));
 
   useEffect(() => {
-    const totalPrice = products.reduce((accumulator, product) => accumulator + product.price * (productCounts[product.id] || 0), 0);
+    const totalPrice = products.reduce((accumulator, product) => accumulator + product.price * (productCounts[product.productID] || 0), 0);
     const shipping = 0;
     const grandTotal = totalPrice + shipping;
 
@@ -38,17 +38,17 @@ const Cart = () => {
     setProducts(updatedProducts);
   };
 
-  const incrementCount = (productId) => {
+  const incrementCount = (productID) => {
     setProductCounts((prevCounts) => ({
       ...prevCounts,
-      [productId]: (prevCounts[productId] || 0) + 1,
+      [productID]: (prevCounts[productID] || 0) + 1,
     }));
   };
 
-  const decrementCount = (productId) => {
+  const decrementCount = (productID) => {
     setProductCounts((prevCounts) => ({
       ...prevCounts,
-      [productId]: Math.max(0, (prevCounts[productId] || 0) - 1),
+      [productID]: Math.max(0, (prevCounts[productID] || 0) - 1),
     }));
   };
 
@@ -69,7 +69,8 @@ const Cart = () => {
       color: product.color,
       price: product.price,
       size: product.size,
-      productCounts: productCounts[product.id] || 0,
+      productCounts: productCounts[product.productID] || 0,
+      totalPrice: grandTotal,
     }));
 
     // Submit the selected products with userID
@@ -114,15 +115,15 @@ const Cart = () => {
                   </div>
                 </div>
                 <div className='box_item_icon'>
-                  <div className="icon_minus_plus" onClick={() => decrementCount(product.id)}>-</div>
+                  <div className="icon_minus_plus" onClick={() => decrementCount(product.productID)}>-</div>
                   <span>
                     <input
                       type="text"
-                      value={productCounts[product.id] || 0}
+                      value={productCounts[product.productID] || 0}
                       onChange={() => { }}
                     />
                   </span>
-                  <div className="icon_minus_plus" onClick={() => incrementCount(product.id)}>+</div>
+                  <div className="icon_minus_plus" onClick={() => incrementCount(product.productID)}>+</div>
                 </div>
               </div>
             ))}
