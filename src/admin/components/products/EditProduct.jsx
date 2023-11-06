@@ -2,6 +2,7 @@ import { useState } from "react";
 import AdminMenu from "../adminMenu/AdminMenu";
 import './editproduct.css'
 import { FaAngleLeft } from "react-icons/fa";
+import { BiPlus } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
 const EditProduct = () => {
@@ -86,7 +87,7 @@ const EditProduct = () => {
 
     return(
         <>
-            <AdminMenu/>
+            {/* <AdminMenu/> */}
             <section id="post">
                 <div className="boxcontainerSpan_Box"></div>
                 <div className="box_container_product">
@@ -151,13 +152,59 @@ const EditProduct = () => {
                             <div className="box_color_product">
                                 <h3>Color:</h3>
                                 <div className="color_box">
-                                    <div className="box_choose_color">
-                                        <div className="choose_color">
-                                            <div className="choose"></div>
-                                            <p>Red</p>
+                                    <div className="color_choose">
+                                        <div className="box_choose_color">
+                                            <div className="choose_color">
+                                                <div className="choose"></div>
+                                                <p>Red</p>
+                                            </div>
+                                        </div>
+                                        
+                                        <div>
+                                            <div className="box_choose_color">
+                                                <div className="choose_color">
+                                                    <div className="choose"></div>
+                                                    <p>Red</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div className="box_choose_color">
+                                                <div className="choose_color">
+                                                    <div className="choose"></div>
+                                                    <p>Red</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div className="box_choose_color">
+                                                <div className="choose_color">
+                                                    <div className="choose"></div>
+                                                    <p>Red</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div className="box_choose_color">
+                                                <div className="choose_color">
+                                                    <div className="choose"></div>
+                                                    <p>Red</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div className="search_color">
+                                        <div className="search-box_color">
+                                            <input type="text" placeholder="Add Color..." />
+                                        </div>
+                                        <div className="icon_add">
+                                            <BiPlus id="icon_add_product"/>
+                                            <p>Color</p>
                                         </div>
                                     </div>
                                 </div>
+                                
                             </div>
                         </div>
                         
@@ -188,13 +235,6 @@ const EditProduct = () => {
                                         <label htmlFor="gallery" className="add-more">Add</label>:
                                         <label htmlFor="gallery" className="add-gallery">Choose gallery</label>
                                     }
-                                </div>
-                            </div>
-
-                            <div className="box_size_product">
-                                <h3>Size:</h3>
-                                <div className="size_box">
-                                    
                                 </div>
                             </div>
                         </div>
