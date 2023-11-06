@@ -57,7 +57,6 @@ const ProductHome = () => {
     };
 
     // Get send ID
-    const [sendProductID, setSendProductID] = useState();
     const navigate = useNavigate();
 
     // Handle product
@@ -119,6 +118,7 @@ const ProductHome = () => {
                     </div>
                 ))}
             </div>
+
             <button className="btnViewProduct" onClick={handleViewMore}>View More</button>
         </section>
     )
