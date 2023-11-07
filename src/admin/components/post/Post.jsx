@@ -1,9 +1,6 @@
 import { useState } from "react";
 import AdminMenu from "../adminMenu/AdminMenu";
 import './post.css'
-import { FaAngleLeft } from "react-icons/fa";
-import { BiPlus } from "react-icons/bi";
-import { Link } from "react-router-dom";
 
 const Post = () => {
     const [image, setImage] = useState([])
@@ -12,6 +9,33 @@ const Post = () => {
     const [productType, setProductType] = useState('');
     const [price, setPrice] = useState('');
     const [details, setDetails] = useState('');
+
+    //Add Color Box
+    const [tags, setTags] = useState([]);
+    const [tagInput, setTagInput] = useState("");
+
+    const handleInputChange = (e) => {
+        setTagInput(e.target.value);
+    };
+
+    const handleEnterClick = () => {
+        if (tagInput.trim() !== "") {
+            setTags([...tags, tagInput]);
+            setTagInput("");
+        }
+    };
+
+    const handleKeyPress = (e) => {
+        if (e.key === "Enter") {
+            handleEnterClick();
+        }
+    };
+
+    const handleTagDelete = (index) => {
+        const newTags = tags.filter((_, i) => i !== index);
+        setTags(newTags);
+        
+    };
 
 
     // Hanle submit
@@ -24,15 +48,17 @@ const Post = () => {
             "Product price": price,
             "Product details": details,
             "Image": image,
-            "Gallery": images
+            "Gallery": images,
+            "TagInput": tagInput
         });
 
         setProductName('');
         setProductType('');
-        setPrice('');
+        setPrice('');6
         setDetails('')
         setImage([]);
         setImages([]);
+        setTagInput([]);
     };
 
     // handle Product name
@@ -50,7 +76,6 @@ const Post = () => {
         const value = e.target.value
         setPrice(value)
     };
-    
     // handle Product details
     const handleProductDetails = (e) => {
         const value = e.target.value
@@ -62,132 +87,126 @@ const Post = () => {
         const file = e.target.files[0];
 
         if (file) {
-          const reader = new FileReader();
+            const reader = new FileReader();
 
-          reader.onloadend = () => {
-            setImage([file]);
-          };
+            reader.onloadend = () => {
+                setImage([file]);
+            };
 
-          reader.readAsDataURL(file);
+            reader.readAsDataURL(file);
         }
     };
 
     // image handle gallery
     const handleImageUpload = (e) => {
-      const uploadedImages = Array.from(e.target.files);
-      setImages([...images, ...uploadedImages]);
+        const uploadedImages = Array.from(e.target.files);
+        setImages([...images, ...uploadedImages]);
     };
 
-    return(
+    return (
         <>
-            <AdminMenu/>
+            <AdminMenu />
             <section id="post">
                 <div className="boxcontainerSpan_Box"></div>
-                <div className="box_container_product">
-                    <div className="box_text">
-                        <h2>Post Product</h2>
-                    </div>
-                    
-                    <form onSubmit={handleSubmit} className="edit-product-form">
+                <form onSubmit={handleSubmit} className="post-form">
+                    <div className="input-box">
+                        <div className="box">
+                            <label htmlFor="productName">Product name</label>
+                            <input
+                                type="text"
+                                id="productName"
+                                placeholder="name"
+                                value={productName}
+                                onChange={handleProductName}
+                            />
+                        </div>
+                        <div className="box">
+                            <label htmlFor="productType">Product type</label>
+                            <input
+                                type="text"
+                                id="productType"
+                                placeholder="type"
+                                value={productType}
+                                onChange={handleProductType}
+                            />
+                        </div>
+                        <div className="box">
+                            <label htmlFor="price">Price</label>
+                            <input
+                                type="text"
+                                id="price"
+                                placeholder="price"
+                                value={price}
+                                onChange={handleProductPrice}
+                            />
+                        </div>
+                        <div>
+                            <div className="box">
+                                <label htmlFor="details">Details</label>
+                                <textarea id="details" rows="10" value={details} onChange={handleProductDetails}></textarea>
+                            </div>
+                        </div>
 
-                        <div className="input-box">
-                            <div className="box">
-                                <label htmlFor="productName">Product name</label>
-                                <input
-                                    type="text"
-                                    id="productName"
-                                    placeholder="Name"
-                                    value={productName}
-                                    onChange={handleProductName}
-                                />
-                            </div>
-                            <div className="box">
-                                <label htmlFor="productType">Product type</label>
-                                <input
-                                    type="text"
-                                    id="productType"
-                                    placeholder="Type"
-                                    value={productType}
-                                    onChange={handleProductType}
-                                />
-                            </div>
-                            <div className="box">
-                                <label htmlFor="price">Price</label>
-                                <input
-                                    type="text"
-                                    id="price"
-                                    placeholder="Price"
-                                    value={price}
-                                    onChange={handleProductPrice}
-                                />
-                            </div>
-                            
-                            <div>
-                                <div className="box">
-                                    <label htmlFor="details">Details</label>
-                                    <textarea id="details" rows="5" value={details} onChange={handleProductDetails}></textarea>
-                                </div>
-                            </div>
-                            
-                            <div className="box_color_product">
-                                <h3>Color:</h3>
-                                <div className="color_box">
-                                    <div className="box_choose_color_post">
-                                        <p>Red</p>
-                                        <p>Red</p>
-                                        <p>Red</p>
+                        {/* Add Color Box */}
+                        <div className="colorBox_chContainer">
+                            <h1>Custom Tags Generator</h1>
+                            <div className="tag-container">
+                                {tags.map((tag, index) => (
+                                    <div className="tag" key={index}>
+                                        {tag}
+                                        <button onClick={() => handleTagDelete(index)}>×</button>
                                     </div>
-                                    
-                                    <div className="search_color_post">
-                                        <div className="search_box_post">
-                                            <input type="text" placeholder="Add Color..." />
-                                        </div>
-                                        <button className="icon_add_post">
-                                            <BiPlus id="icon_add_product"/>
-                                            <p>Color</p>
+                                ))}
+                            </div>
+                            <input
+                                type="text"
+                                value={tagInput}
+                                onChange={handleInputChange}
+                                onKeyPress={handleKeyPress}
+                                placeholder="Enter a tag"
+                            />
+                            <button onClick={handleEnterClick}>
+                                Enter
+                            </button>
+                        </div>
+                        {/* End Add Color Box */}
+
+                    </div>
+
+                    <div className="input-img">
+                        <div className="image">
+                            <label htmlFor="img">
+                                {(image && image.length > 0) ? <img src={URL.createObjectURL(image[0])} /> : <p>choose image</p>}
+                            </label>
+                            <input
+                                type="file"
+                                id="img"
+                                onChange={handleImage}
+                            />
+                        </div>
+                        <div className="gallery">
+                            <h1>Gallery</h1>
+                            <div className="gallery-box">
+                                <input type="file" id="gallery" multiple onChange={handleImageUpload} />
+                                {images.map((image, index) => (
+                                    <div key={index}>
+                                        <img src={URL.createObjectURL(image)} alt={`Image ${index}`} />
+                                        <button onClick={() => setImages(images.filter((_, i) => i !== index))}>
+                                            Remove
                                         </button>
                                     </div>
-                                </div>
-                                
+                                ))}
+                                {(images && images.length > 0) ?
+                                    <label htmlFor="gallery" className="add-more">Add</label> :
+                                    <label htmlFor="gallery" className="add-gallery">choose gallery</label>
+                                }
                             </div>
                         </div>
-                        
-                        <div className="input-img">
-                            <div className="image">
-                                <label htmlFor="img">
-                                {(image && image.length > 0) ? <img src={URL.createObjectURL(image[0])}/>:<p>Choose image</p>}
-                                </label>
-                                <input
-                                    type="file"
-                                    id="img"
-                                    onChange={handleImage}
-                                />
-                            </div>
-                            <div className="gallery">
-                                <h3>Image gallery</h3>
-                                <div className="gallery-box">
-                                    <input type="file" id="gallery" multiple onChange={handleImageUpload} />
-                                    {images.map((image, index) => (
-                                        <div key={index}>
-                                        <img src={URL.createObjectURL(image)} alt={`Image ${index}`} />
-                                            <button onClick={() => setImages(images.filter((_, i) => i !== index))}>
-                                                Remove
-                                            </button>
-                                        </div>
-                                    ))}
-                                    { (images && images.length > 0) ? 
-                                        <label htmlFor="gallery" className="add-more">Add</label>:
-                                        <label htmlFor="gallery" className="add-gallery">Choose gallery</label>
-                                    }
-                                </div>
-                            </div>
-                        </div>
-                        <div className="submit1">
-                            <button type="submit">Post</button>
-                        </div>
-                    </form>
-                </div>
-                
+                    </div>
+                    <div className="submit">
+                        <button type="submit">Post</button>
+                    </div>
+                </form>
             </section>
         </>
     )

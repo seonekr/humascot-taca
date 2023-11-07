@@ -23,14 +23,17 @@ function ProductDetails() {
       price: 10,
       description: "desc for this product",
       images: [acer],
+      colors: [{colorID: 1, colorName: "black"}, {colorID: 2, colorName: "blue"}, {colorID: 3, colorName: "red"}, {colorID: 4, colorName: "green"}]
     },
     {
       productID: 2,
       productName: "pro2",
       productType: "clothes",
+      
       price: 10,
       description: "desc for this product",
       images: [dress],
+      colors: [{colorID: 1, colorName: "black"}, {colorID: 2, colorName: "blue"}, {colorID: 3, colorName: "red"}, {colorID: 4, colorName: "green"}]
     },
     {
       productID: 3,
@@ -39,6 +42,7 @@ function ProductDetails() {
       price: 10,
       description: "desc for this product",
       images: [acer],
+      colors: [{colorID: 1, colorName: "black"}, {colorID: 2, colorName: "blue"}, {colorID: 3, colorName: "red"}, {colorID: 4, colorName: "green"}]
     },
     {
       productID: 4,
@@ -47,6 +51,7 @@ function ProductDetails() {
       price: 10,
       description: "desc for this product",
       images: [dress],
+      colors: [{colorID: 1, colorName: "black"}, {colorID: 2, colorName: "blue"}, {colorID: 3, colorName: "red"}, {colorID: 4, colorName: "green"}]
     },
     {
       productID: 5,
@@ -55,6 +60,7 @@ function ProductDetails() {
       price: 10,
       description: "desc for this product",
       images: [image1],
+      colors: [{colorID: 1, colorName: "black"}, {colorID: 2, colorName: "blue"}, {colorID: 3, colorName: "red"}, {colorID: 4, colorName: "green"}]
     },
     {
       productID: 6,
@@ -63,6 +69,7 @@ function ProductDetails() {
       price: 10,
       description: "desc for this product",
       images: [image1],
+      colors: [{colorID: 1, colorName: "black"}, {colorID: 2, colorName: "blue"}, {colorID: 3, colorName: "red"}, {colorID: 4, colorName: "green"}]
     },
     {
       productID: 7,
@@ -71,6 +78,7 @@ function ProductDetails() {
       price: 10,
       description: "desc for this product",
       images: [productImage],
+      colors: [{colorID: 1, colorName: "black"}, {colorID: 2, colorName: "blue"}, {colorID: 3, colorName: "red"}, {colorID: 4, colorName: "green"}]
     },
     {
       productID: 8,
@@ -79,6 +87,7 @@ function ProductDetails() {
       price: 10,
       description: "desc for this product",
       images: [acer],
+      colors: [{colorID: 1, colorName: "black"}, {colorID: 2, colorName: "blue"}, {colorID: 3, colorName: "red"}, {colorID: 4, colorName: "green"}]
     },
     {
       productID: 9,
@@ -87,6 +96,7 @@ function ProductDetails() {
       price: 10,
       description: "desc for this product",
       images: [productImage],
+      colors: [{colorID: 1, colorName: "black"}, {colorID: 2, colorName: "blue"}, {colorID: 3, colorName: "red"}, {colorID: 4, colorName: "green"}]
     },
     {
       productID: 10,
@@ -95,6 +105,7 @@ function ProductDetails() {
       price: 10,
       description: "desc for this product",
       images: [acer],
+      colors: [{colorID: 1, colorName: "black"}, {colorID: 2, colorName: "blue"}, {colorID: 3, colorName: "red"}, {colorID: 4, colorName: "green"}]
     },
     {
       productID: 11,
@@ -103,6 +114,7 @@ function ProductDetails() {
       price: 10,
       description: "desc for this product",
       images: [productImage],
+      colors: [{colorID: 1, colorName: "red"}, {colorID: 2, colorName: "green"}]
     },
   ]);
   const [activeSlide, setActiveSlide] = useState(0);
@@ -115,14 +127,6 @@ function ProductDetails() {
   const handleSizeChange = (event) => {
     const { id } = event.target;
     setSize(id);
-  };
-
-  // Checked colors
-  const [color, setColor] = useState("colB");
-
-  const handleRadioChange = (event) => {
-    const { id } = event.target;
-    setColor(id);
   };
 
   const handlePrevSlide = () => {
@@ -172,8 +176,18 @@ function ProductDetails() {
   // Match productID
   const filteredProducts = products.filter(
     (product) => product.productID === getProductID
-
   );
+
+  // Checked colors
+  const proID = products.find(item => item.productID === getProductID);
+  const colID = proID.colors.find(item => item.colorID === 1);
+  const colorName = colID.colorName;
+  const [color, setColor] = useState(colorName);
+
+  const handleRadioChange = (event) => {
+    const { id } = event.target;
+    setColor(id);
+  };
 
   // Handle submitted
   const handleSubmit = (e) => {
@@ -260,35 +274,21 @@ function ProductDetails() {
                   <hr />
                 </div>
 
+
                 {/* Checked colors */}
                 <div className="color_product">
-                  <p>Color:</p>
-                  <label htmlFor="colB">Black</label>
-                  <input
-                    className="echColor"
-                    type="radio"
-                    id="colB"
-                    checked={color === "colB"}
-                    onChange={handleRadioChange}
-                  />
-
-                  <label htmlFor="colW">White</label>
-                  <input
-                    className="echColor"
-                    type="radio"
-                    id="colW"
-                    checked={color === "colW"}
-                    onChange={handleRadioChange}
-                  />
-
-                  <label htmlFor="colBlue">Blue</label>
-                  <input
-                    className="echColor"
-                    type="radio"
-                    id="colBlue"
-                    checked={color === "colBlue"}
-                    onChange={handleRadioChange}
-                  />
+                  {product.colors.map((colors) => (
+                    <div key={colors.colorID}>
+                      <label htmlFor={colors.colorName}>{colors.colorName}</label>
+                      <input
+                        className="echColor"
+                        type="radio"
+                        id={colors.colorName}
+                        checked={colors.colorName === color}
+                        onChange={ handleRadioChange }
+                      />
+                    </div>
+                  ))}
                 </div>
 
                 {/* Checked sizes */}

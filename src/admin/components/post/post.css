@@ -56,6 +56,13 @@
     border-radius: 5px;
     font-size: 1rem;
 }
+/* ------------ Add color Box ------------ */
+.colorBox_chContainer{
+
+}
+/* ------------End Add color Box ------------ */
+
+
 
 /* input image */
 #post .edit-product-form .input-img {

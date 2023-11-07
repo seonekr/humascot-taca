@@ -116,6 +116,19 @@ body {
     align-items: center;
 }
 
+/* Checked radio color */
+.color_product label {
+    cursor: pointer;
+}
+.color_product div {
+    display: flex;
+    align-items: center;
+}
+
+.color_product div input {
+    margin-left: 0.3rem;
+}
+
 /* Checkbox size */
 .size_product input {
     display: none;
