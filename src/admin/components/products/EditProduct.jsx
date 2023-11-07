@@ -1,9 +1,7 @@
 import { useState } from "react";
 import AdminMenu from "../adminMenu/AdminMenu";
 import './editproduct.css'
-import { FaAngleLeft } from "react-icons/fa";
 import { BiPlus } from "react-icons/bi";
-import { Link } from "react-router-dom";
 
 const EditProduct = () => {
     const [image, setImage] = useState([])
@@ -85,7 +83,7 @@ const EditProduct = () => {
                 <div className="boxcontainerSpan_Box"></div>
                 <div className="box_container_product">
                     <div className="box_text">
-                        <h2>Edit Product</h2>
+                        <h2>Update Product</h2>
                     </div>
                     
                     <form onSubmit={handleSubmit} className="edit-product-form">
@@ -132,15 +130,10 @@ const EditProduct = () => {
                             <div className="box_color_product">
                                 <h3>Color:</h3>
                                 <div className="color_box">
-                                    <div className="color_choose">
-                                        <div className="box_choose_color">
-                                            <div className="choose_color">
-                                                <div className="choose"></div>
-                                                <p>Red</p>
-                                            </div>
-                                        </div>
+                                    <div className="choose_color">
+                                        <p>Red</p>
                                     </div>
-                                    
+                                        
                                     <div className="search_color">
                                         <div className="search-box_color">
                                             <input type="text" placeholder="Add Color..." />

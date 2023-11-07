@@ -1,7 +1,6 @@
 import { useState } from "react";
 import AdminMenu from "../adminMenu/AdminMenu";
 import './post.css'
-
 const Post = () => {
     const [image, setImage] = useState([])
     const [images, setImages] = useState([]);
@@ -76,6 +75,7 @@ const Post = () => {
         const value = e.target.value
         setPrice(value)
     };
+    
     // handle Product details
     const handleProductDetails = (e) => {
         const value = e.target.value
@@ -140,43 +140,15 @@ const Post = () => {
                                 onChange={handleProductPrice}
                             />
                         </div>
-                        <div>
-                            <div className="box">
-                                <label htmlFor="details">Details</label>
-                                <textarea id="details" rows="10" value={details} onChange={handleProductDetails}></textarea>
-                            </div>
+                        <div className="box">
+                            <label htmlFor="details">Details</label>
+                            <textarea id="details" rows="10" value={details} onChange={handleProductDetails}></textarea>
                         </div>
-
-                        {/* Add Color Box */}
-                        <div className="colorBox_chContainer">
-                            <h1>Custom Tags Generator</h1>
-                            <div className="tag-container">
-                                {tags.map((tag, index) => (
-                                    <div className="tag" key={index}>
-                                        {tag}
-                                        <button onClick={() => handleTagDelete(index)}>×</button>
-                                    </div>
-                                ))}
-                            </div>
-                            <input
-                                type="text"
-                                value={tagInput}
-                                onChange={handleInputChange}
-                                onKeyPress={handleKeyPress}
-                                placeholder="Enter a tag"
-                            />
-                            <button onClick={handleEnterClick}>
-                                Enter
-                            </button>
-                        </div>
-                        {/* End Add Color Box */}
-
                     </div>
-
                     <div className="input-img">
                         <div className="image">
                             <label htmlFor="img">
-                                {(image && image.length > 0) ? <img src={URL.createObjectURL(image[0])} /> : <p>choose image</p>}
+                            {(image && image.length > 0) ? <img src={URL.createObjectURL(image[0])}/>:<p>choose image</p>}
                             </label>
                             <input
                                 type="file"
@@ -190,23 +162,24 @@ const Post = () => {
                                 <input type="file" id="gallery" multiple onChange={handleImageUpload} />
                                 {images.map((image, index) => (
                                     <div key={index}>
-                                        <img src={URL.createObjectURL(image)} alt={`Image ${index}`} />
+                                    <img src={URL.createObjectURL(image)} alt={`Image ${index}`} />
                                         <button onClick={() => setImages(images.filter((_, i) => i !== index))}>
                                             Remove
                                         </button>
                                     </div>
                                 ))}
-                                {(images && images.length > 0) ?
-                                    <label htmlFor="gallery" className="add-more">Add</label> :
+                                { (images && images.length > 0) ? 
+                                    <label htmlFor="gallery" className="add-more">Add</label>:
                                     <label htmlFor="gallery" className="add-gallery">choose gallery</label>
                                 }
                             </div>
                         </div>
-                    </div>
-                    <div className="submit">
-                        <button type="submit">Post</button>
-                    </div>
-                </form>
+                        <div className="submit1">
+                            <button type="submit">Post</button>
+                        </div>
+                    </form>
+                </div>
+                
             </section>
         </>
     )
