@@ -74,18 +74,16 @@ const Payment = () => {
     }
   };
 
-  // Toatal products cart
-  const calculateTotalPrice = () => {
-    let totalPrice = 0;
-
+  const totalProductPrice = () => {
+    let  total = 0;
     productsCart.forEach((product) => {
-      totalPrice += product.price;
+      total = product.totalPrice;
     });
 
-    return totalPrice;
-  };
+    return total;
+  }
 
-  const totalProductPrice = calculateTotalPrice();
+  const totalPrice = totalProductPrice();
 
   return (
     <>
@@ -156,7 +154,7 @@ const Payment = () => {
                       </li>
                     ))}
                     <div>
-                          Have to pay: {totalProductPrice}
+                          Have to pay: {totalPrice}
                     </div>
                   </ul>
                 </div>
