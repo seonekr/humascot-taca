@@ -1,24 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import AdminMenu from "../adminMenu/AdminMenu";
 import './editproduct.css'
 import { BiPlus } from "react-icons/bi";
-import { useParams } from "react-router-dom";
-import axios from "axios";
 
-const EditProduct = () => {
-    const [image, setImage] = useState([])
+const EditProduct = (product) => {
+    const [image, setImage] = useState([]);
     const [images, setImages] = useState([]);
-    const [productName, setProductName] = useState('');
-    const [productType, setProductType] = useState('');
-    const [price, setPrice] = useState('');
-    const [details, setDetails] = useState('');
+    const [productName, setProductName] = useState("productName");
+    const [productType, setProductType] = useState("productType");
+    const [price, setPrice] = useState("product.price");
+    const [details, setDetails] = useState("product.details");
 
 
     // Hanle submit
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        console.log('Form Data:', { // Here you can insert informatio to database
+        console.log('Form Data', { // Here you can insert informatio to database
             "Product name": productName,
             "Product type": productType,
             "Product price": price,
@@ -50,7 +48,7 @@ const EditProduct = () => {
         const value = e.target.value
         setPrice(value)
     };
-    
+
     // handle Product details
     const handleProductDetails = (e) => {
         const value = e.target.value
@@ -79,24 +77,18 @@ const EditProduct = () => {
     };
 
     // Update......
+    
+    const handleUpdate = () => {
+        const editProduct = {
+        id:product.id,
+        productName,
+        productType,
+        price,
+        details
+      };
+    };
 
-    const {id} = useParams();
-    const [values, setValues] = useState({
-        id: id,
-        productName: '',
-        productType: '',
-        price: '',
-        details: ''
-    })
-
-    useEffect(()=> {
-        axios.get('http://localhost:5173/admin/product/'+id)
-        .then(res => {
-            setValues({...values, productName: res.product.productName, productType: res.product.productType, price: res.product.price, details: res.product.details})
-
-        })
-        .catch(err => console.log(err))
-    }, [])
+    
 
     return(
         <>
@@ -118,7 +110,7 @@ const EditProduct = () => {
                                     type="text"
                                     id="productName"
                                     placeholder="Name"
-                                    value={values.productName}
+                                    value={productName}
                                     onChange={handleProductName}
                                 />
                             </div>
@@ -128,7 +120,7 @@ const EditProduct = () => {
                                     type="text"
                                     id="productType"
                                     placeholder="Type"
-                                    value={values.productType}
+                                    value={productType}
                                     onChange={handleProductType}
                                 />
                             </div>
@@ -138,7 +130,7 @@ const EditProduct = () => {
                                     type="text"
                                     id="price"
                                     placeholder="Price"
-                                    value={values.price}
+                                    value={price}
                                     onChange={handleProductPrice}
                                 />
                             </div>
@@ -146,7 +138,7 @@ const EditProduct = () => {
                             <div>
                                 <div className="box">
                                     <label htmlFor="details">Details</label>
-                                    <textarea id="details" rows="5" value={values.details} onChange={handleProductDetails}></textarea>
+                                    <textarea id="details" rows="5" value={details} onChange={handleProductDetails}></textarea>
                                 </div>
                             </div>
                             
@@ -202,7 +194,7 @@ const EditProduct = () => {
                             </div>
                         </div>
                         <div className="submit1">
-                            <button type="submit" onClick={() => handleEditProduct(product.id)}>Update</button>
+                            <button type="submit" onClick={handleUpdate}>Update</button>
                         </div>
                     </form>
                 </div>
