@@ -11,83 +11,126 @@ const OrderPage = () => {
     //OrderPage
     const [orders, setOrders] = useState([
         {
-            orderID: 1,
-            userID: 2,
-            products: [
-              {
-                productID: 1,
-                productName: "Samsung1",
-                amount: 2,
-                price: 10,
-              },
-              {
-                productID: 2,
-                productName: "Samsung2",
-                amount: 2,
-                price: 10,
-              },
-            ],
-            orderDate: "10/12/2023",
-            status: "pending",
-            payment: "Bcel One",
-            delivery: "Houngaloun",
+          orderID: 1,
+          userID: 2,
+          products: [
+            {
+              productID: 1,
+              productName: "pro1",
+              productType: "clothes",
+              amount: 2,
+              price: 10,
+              size: "m",
+            },
+            {
+              productID: 2,
+              productName: "pro1",
+              productType: "clothes",
+              amount: 2,
+              price: 10,
+              size: "m",
+            },
+          ],
+          orderDate: "10/12/2023",
+          status: "pending",
+          payment: "Bcel One",
+          delivery: "Houngaloun",
         },
         {
-            orderID: 2,
-            userID: 1,
-            products: [
-              {
-                productID: 1,
-                productName: "Samsung1",
-                amount: 2,
-                price: 10,
-              },
-              {
-                productID: 2,
-                productName: "Samsung2",
-                amount: 2,
-                price: 10,
-              },
-              { productID: 2,
-                productName: "Samsung3",
-                amount: 2,
-                price: 10,
-              },
-            ],
-            orderDate: "10/12/2023",
-            status: "pending",
-            payment: "Bcel One",
-            delivery: "Anousit",
+          orderID: 2,
+          userID: 1,
+          products: [
+            {
+              productID: 1,
+              productName: "pro1",
+              productType: "clothes",
+              amount: 2,
+              price: 10,
+              color: "colB",
+              size: "m",
+            },
+            {
+              productID: 2,
+              productName: "pro2",
+              productType: "clothes",
+              amount: 2,
+              price: 10,
+              color: "colW",
+              size: "l",
+            },
+    
+            {
+              productID: 3,
+              productName: "pro3",
+              productType: "clothes",
+              amount: 2,
+              price: 10,
+              color: "colBlue",
+              size: "xl",
+            },
+          ],
+          orderDate: "10/12/2023",
+          status: "pending",
+          payment: "Bcel One",
+          delivery: "Anousit",
+        },
+        {
+          orderID: 3,
+          userID: 1,
+          products: [
+            {
+              productID: 1,
+              productName: "pro1",
+              productType: "clothes",
+              amount: 2,
+              price: 10,
+              color: "colB",
+              size: "m",
+            },
+            {
+              productID: 2,
+              productName: "pro1",
+              productType: "clothes",
+              amount: 2,
+              price: 10,
+              color: "colBlue",
+              size: "m",
+            },
+          ],
+          orderDate: "10/12/2023",
+          status: "pending",
+          payment: "Bcel One",
+          delivery: "Houngaloun",
+        },
+        {
+          orderID: 4,
+          userID: 3,
+          products: [
+            {
+              productID: 1,
+              productName: "pro1",
+              productType: "clothes",
+              amount: 2,
+              price: 10,
+              color: "colB",
+              size: "m",
+            },
+            {
+              productID: 2,
+              productName: "pro1",
+              productType: "clothes",
+              amount: 2,
+              price: 10,
+              color: "colBlue",
+              size: "m",
+            },
+          ],
+          orderDate: "10/12/2023",
+          status: "pending",
+          payment: "Bcel One",
+          delivery: "Anousit",
         },
     ]);
-    // user
-    const [users, setUsers] = useState([
-        { userID: 1, name: "Sengphachan", email: "Sengphachan@gmail.com" },
-        { userID: 2, name: "Sompong", email: "Sompong@gmail.com" },
-    ]);
-
-    const filteredOrders = orders
-    .filter((order) => order.userID === 1) // Filter orders by userID = 2 (Sam)
-    .map((order) => {
-      const user = users.find((user) => user.userID === order.userID); // Find user details for the order
-
-      // Calculate total price
-      const totalPrice = order.products.reduce((total, product) => {
-        return total + product.price * product.amount;
-      }, 0);
-
-      return {
-        orderID: order.orderID,
-        userID: order.userID,
-        userName: user.name,
-        products: order.products,
-        orderDate: order.orderDate,
-        status: order.status,
-        payment: order.payment,
-        delivery: order.delivery,
-        totalPrice: totalPrice,
-      };
-    });
 
     // Get order ID
     const [id, setId] = useState();
@@ -105,9 +148,9 @@ const OrderPage = () => {
             <section id='menager'>
                 <div className='container_box_orderpage'>
                     <h2>Order</h2>
-                    {filteredOrders.map((order) => (
+                    {orders.map((order) => (
                         <div key={order.orderID}>
-                            <form className='box_users_order' onClick={() => handleOrder(order.orderID)}>
+                            <form className='box_users_order'>
                                 <div className='box_order_text'>
                                     <p>No: {order.orderID}</p>
                                     <div className='container_chat_name'>
@@ -125,39 +168,16 @@ const OrderPage = () => {
                                     <p>{order.orderDate}</p>
                                 </div>
                                 <div className='container_order_icon'>
-                                    <Link to="/admin/OrderWrong" className='btn_pending'>
+                                    <div className='btn_pending'>
                                         Pending
-                                    </Link>
-                                    <Link to="/admin/orderbill" className='btn_view'>
+                                    </div>
+                                    <div className='btn_view' onClick={() => handleOrder(order.orderID)}>
                                         View
-                                    </Link>
+                                    </div>
                                 </div>
                             </form>
                         </div>
                     ))}
-                    <form className='box_users_order'>
-                        <Link to="#" className='box_order_text'>
-                            <div className='container_chat_name'>
-                                <p>NO: 1</p>
-                                <p>ID: 1</p>
-                                <h4>Samsung</h4>
-                            </div>
-                        </Link>
-                        <div className='box_container_time'>
-                            <p>Time: </p>
-                            <p>01/19/2023</p>
-                            <p>8:00 PM</p>
-                        </div>
-                        <div className='container_order_icon'>
-                            <Link to="/admin/OrderWrong" className='btn_paid'>
-                                Paid
-                            </Link>
-                            <Link to="/admin/orderbill" className='btn_view'>
-                                View
-                            </Link>
-                        </div>
-                    </form>
-
                     <div className='box_next_order'>
                         <button className='box_prev_next_order'>
                             <AiOutlineLeft id="box_prev_next_icon" />

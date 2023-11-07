@@ -9,12 +9,34 @@ import "./bill.css";
 const Bill = () => {
   // Orders
   const [orders, setOrders] = useState([
-    { orderID: 1, userID: 2,
+    {
+      orderID: 1,
+      userID: 2,
       products: [
-        { productID: 1, productName: "pro1", productType: "clothes",amount: 2, price: 10,size: "m",},
-        {productID: 2, productName: "pro1", productType: "clothes",amount: 2, price: 10,size: "m", }],
-      orderDate: "10/12/2023", status: "pending", payment: "Bcel One",delivery: "Houngaloun",},
-    { orderID: 2,
+        {
+          productID: 1,
+          productName: "pro1",
+          productType: "clothes",
+          amount: 2,
+          price: 10,
+          size: "m",
+        },
+        {
+          productID: 2,
+          productName: "pro1",
+          productType: "clothes",
+          amount: 2,
+          price: 10,
+          size: "m",
+        },
+      ],
+      orderDate: "10/12/2023",
+      status: "pending",
+      payment: "Bcel One",
+      delivery: "Houngaloun",
+    },
+    {
+      orderID: 2,
       userID: 1,
       products: [
         {
@@ -36,7 +58,8 @@ const Bill = () => {
           size: "l",
         },
 
-        { productID: 3,
+        {
+          productID: 3,
           productName: "pro3",
           productType: "clothes",
           amount: 2,
@@ -147,58 +170,55 @@ const Bill = () => {
     <>
       <Header></Header>
       <section id="bill">
-        <div>
-          {filteredOrders.map((order) => (
-            <div className="bill-detial" key={order.orderID}>
-              <div className="guopoidHead">
-                <div className="idf">
-                  <p>OrderID: {order.orderID}</p>
-                  <p>UserID: {order.userID}</p>
-                  <p>Name: {order.userName}</p>
-                </div>
-              </div>
-              <hr />
-
-              <div className="billGopBox">
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Product Name</th>
-                      <th>Product Type</th>
-                      <th>Price</th>
-                      <th>Amount</th>
-                      <th>Color</th>
-                      <th>Size</th>
-                    </tr>
-                  </thead>
-                  {order.products.map((product) => (
-                    <tbody key={product.productID}>
-                      <tr>
-                        <td>{product.productName}</td>
-                        <td>{product.productType}</td>
-                        <td>${product.price}</td>
-                        <td>{product.amount}</td>
-                        <td>{product.color}</td>
-                        <td>{product.size}</td>
-                      </tr>
-                    </tbody>
-                  ))}
-                </table>
-              </div>
-              <hr />
-              <div className="titlePrice">
-                <p>Total:</p>
-                <p>${order.totalPrice}</p>
-              </div>
-              <div className="place-on">
-                <p>Place on: {order.orderDate}</p>
-                <p>Payment method: {order.payment}</p>
-                <p>Status: {order.status}</p>
-                <p>Delivery: {order.delivery}</p>
+        {filteredOrders.map((order) => (
+          <div className="bill-detial" key={order.orderID}>
+            <div className="guopoidHead">
+              <div className="idf">
+                <p>OrderID: {order.orderID}</p>
+                <p>UserID: {order.userID}</p>
+                <p>Name: {order.userName}</p>
               </div>
             </div>
-          ))}
-        </div>
+            <hr />
+            <div className="billGopBox">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Product Name</th>
+                    <th>Product Type</th>
+                    <th>Price</th>
+                    <th>Amount</th>
+                    <th>Color</th>
+                    <th>Size</th>
+                  </tr>
+                </thead>
+                {order.products.map((product) => (
+                  <tbody key={product.productID}>
+                    <tr>
+                      <td>{product.productName}</td>
+                      <td>{product.productType}</td>
+                      <td>${product.price}</td>
+                      <td>{product.amount}</td>
+                      <td>{product.color}</td>
+                      <td>{product.size}</td>
+                    </tr>
+                  </tbody>
+                ))}
+              </table>
+            </div>
+            <hr />
+            <div className="titlePrice">
+              <p>Total:</p>
+              <p>${order.totalPrice}</p>
+            </div>
+            <div className="place-on">
+              <p>Place on: {order.orderDate}</p>
+              <p>Payment method: {order.payment}</p>
+              <p>Status: {order.status}</p>
+              <p>Delivery: {order.delivery}</p>
+            </div>
+          </div>
+        ))}
       </section>
       <Menu />
     </>

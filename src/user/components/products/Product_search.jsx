@@ -49,11 +49,11 @@ const Product_search = () => {
 
     // Handle select by price
     const handleMaxChange = (e) => {
-        setMaxPrice(e.target.value); // Please change this to category
+        setMaxPrice(e.target.value);
     };
     // Handle select by peice
     const handleMinChange = (e) => {
-        setMinPrice(e.target.value); // Please change this to category
+        setMinPrice(e.target.value);
     };
 
     // Read more

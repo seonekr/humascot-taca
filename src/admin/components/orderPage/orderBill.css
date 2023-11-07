@@ -4,7 +4,6 @@
     box-sizing: border-box;
 }
 
-/* ============ container_body =========== */
 .container_body {
     width: 100%;
     height: auto;
@@ -49,8 +48,6 @@
     color: #FFF;
 }
 
-
-/* bill no: id: name: */
 
 .box_guopoidHead {
     width: 100%;
@@ -146,9 +143,6 @@
     color: #FFF;
 }
 
-
-/* ========= Filter Status ============*/
-
 .box_filter_status{
     display: flex;
     align-items: center;
@@ -159,9 +153,88 @@
     border: none;
 }
 
+
+
+
+
+
+
+/* Bill */
+#bill {
+    width: 80%;
+    margin: 6rem auto 0 auto;
+    padding-top: 2rem;
+    padding-left: 7rem;
+}
+
+.account-navbar {
+    padding-bottom: 2rem;
+}
+
+/* bill no: id: name: */
+.guopoidHead{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.iconnboxx{
+    text-align: center;
+    font-size: 45px;
+    color: #347FFF;
+}
+.bill-detial{
+    padding: 25px 40px ;
+    background: #FFF;
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.15);
+}
+.idf{
+    display: grid;
+    gap: 1rem;
+    padding-bottom: 1rem;
+}
+
+.billGopBox{
+    display: grid; 
+    width: 100%;
+    margin: auto;
+    padding: 30px 0;
+  
+}
+
+
+.billGopBox table {
+    width: 100%;
+}
+
+.billGopBox table tr {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0.5rem 0;
+}
+
+.billGopBox table tr th {
+    width: 15%;
+    text-align: center;
+}
+.billGopBox table tr td {
+    width: 15%;
+    text-align: center;
+}
+
+.titlePrice{
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+.place-on{
+    display: grid;
+    gap: 1rem;
+    padding: 0 2rem;
+}
+
 /* ================ Responsive ==================*/
 /* For smartphones with a maximum width of 480px */
-@media only screen and (max-width: 480px) {
+/* @media only screen and (max-width: 480px) {
     .box_guopoidHead{
         padding: 0;
     }
@@ -170,4 +243,4 @@
         display: flex;
         margin-left: 4rem;
     }
-}
+} */

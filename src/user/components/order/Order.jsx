@@ -20,7 +20,7 @@ const Order = () => {
           productType: "clothes",
           amount: 2,
           price: 10,
-          size: "m"
+          size: "m",
         },
         {
           productID: 2,
@@ -28,7 +28,7 @@ const Order = () => {
           productType: "clothes",
           amount: 2,
           price: 10,
-          size: "m"
+          size: "m",
         },
       ],
       orderDate: "10/12/2023",
@@ -47,7 +47,7 @@ const Order = () => {
           amount: 2,
           price: 10,
           color: "colB",
-          size: "m"
+          size: "m",
         },
         {
           productID: 2,
@@ -56,15 +56,16 @@ const Order = () => {
           amount: 2,
           price: 10,
           color: "colW",
-          size: "l"
+          size: "l",
         },
-        { productID: 2,
+        {
+          productID: 2,
           productName: "pro3",
           productType: "clothes",
           amount: 2,
           price: 10,
           color: "colBlue",
-          size: "xl"
+          size: "xl",
         },
       ],
       orderDate: "10/12/2023",
@@ -83,7 +84,7 @@ const Order = () => {
           amount: 2,
           price: 10,
           color: "colB",
-          size: "m"
+          size: "m",
         },
         {
           productID: 2,
@@ -92,7 +93,7 @@ const Order = () => {
           amount: 2,
           price: 10,
           color: "colBlue",
-          size: "m"
+          size: "m",
         },
       ],
       orderDate: "10/12/2023",
@@ -111,7 +112,7 @@ const Order = () => {
           amount: 2,
           price: 10,
           color: "colB",
-          size: "m"
+          size: "m",
         },
         {
           productID: 2,
@@ -120,7 +121,7 @@ const Order = () => {
           amount: 2,
           price: 10,
           color: "colBlue",
-          size: "m"
+          size: "m",
         },
       ],
       orderDate: "10/12/2023",
