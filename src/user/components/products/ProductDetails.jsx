@@ -29,6 +29,7 @@ function ProductDetails() {
       productID: 2,
       productName: "pro2",
       productType: "clothes",
+      
       price: 10,
       description: "desc for this product",
       images: [dress],
