@@ -27,7 +27,6 @@ import MenagerUser from "../admin/components/menagerUser/MenagerUser";
 import OrderPage from "../admin/components/orderPage/OrderPage";
 import OrderBill from "../admin/components/orderPage/OrderBill"
 import OrderWrong from "../admin/components/orderPage/OrderWrong";
-import LoginAdmin from "../admin/components/registeradmin/LoginAdmin"
 import MenagerAdmin from "../admin/components/menagerAdmin/MenagerAdmin";
 import Product from "../admin/components/products/Product";
 import EditAdmin from "../admin/components/addAdmin/EditAdmin";
@@ -55,10 +54,10 @@ const Links = () => {
                 <Route exact path="/cart/successfulBuy/" Component={SuccessfulBuy}/>
 
                 {/* Admin routes */}
-                <Route exact path="/admin/dashboard/" Component={Dashboard}/>
-                <Route exact path="/admin/post/" Component={Post}/>
-                <Route exact path="/admin/addadmin/" Component={AddAdmin}/>
-                <Route exact path="/admin/message/" Component={Message}/>
+                <Route exact path="/dashboard/" Component={Dashboard}/>
+                <Route exact path="/post/" Component={Post}/>
+                <Route exact path="/addadmin/" Component={AddAdmin}/>
+                <Route exact path="/message/" Component={Message}/>
 
                 {/*==== phukeo ==== */}
                 <Route exact path="/product_search/" Component={Product_search}/>
@@ -68,17 +67,17 @@ const Links = () => {
                 <Route exact path="/cart/" Component={Cart}/>
 
                  {/* Admin routes */}
-                 <Route exact path="/admin/menageruser/" Component={MenagerUser}/>
-                 <Route exact path="/admin/orderpage/" Component={OrderPage}/>
-                 <Route exact path="/admin/orderbill/" Component={OrderBill}/>
-                 <Route exact path="/admin/orderwrong/" Component={OrderWrong}/>
-                 <Route exact path="/admin/menageradmin/" Component={MenagerAdmin}/>
-                 <Route exact path="/admin/" Component={LoginAdmin}/>
-                 <Route exact path="/admin/product/" Component={Product}/>
-                 <Route exact path="/admin/editadmin/" Component={EditAdmin}/>
-                 <Route exact path="/admin/adduser/" Component={AddUser}/>
-                 <Route exact path="/admin/edituser/" Component={EditUser}/>
-                 <Route exact path="/admin/editproduct/" Component={EditProduct}/>
+                 <Route exact path="/menageruser/" Component={MenagerUser}/>
+                 <Route exact path="/orderpage/" Component={OrderPage}/>
+                 <Route exact path="/orderbill/" Component={OrderBill}/>
+                 <Route exact path="/orderwrong/" Component={OrderWrong}/>
+                 <Route exact path="/menageradmin/" Component={MenagerAdmin}/>
+                 
+                 <Route exact path="/product/" Component={Product}/>
+                 <Route exact path="/editadmin/" Component={EditAdmin}/>
+                 <Route exact path="/adduser/" Component={AddUser}/>
+                 <Route exact path="/edituser/" Component={EditUser}/>
+                 <Route exact path="/editproduct/" Component={EditProduct}/>
             </Routes>
         </Router>
     );

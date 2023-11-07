@@ -100,7 +100,7 @@ const EditAdmin = () => {
                 
                 <div className='box_addAdmin'>
                     <div className='container_add_admin'> 
-                        <Link to="/admin/menageradmin/" className='box_guopIconbAck'>
+                        <Link to="/menageradmin/" className='box_guopIconbAck'>
                             <FaAngleLeft id='box_icon_Back' />
                             <p>Back</p>
                         </Link>

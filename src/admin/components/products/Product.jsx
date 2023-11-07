@@ -20,6 +20,7 @@ const Product = () => {
         { id: 8, name: 'Product 8', description: 'This is product 1', price: 11, category: "clothes", images: [image1] },
     ]);
 
+    const [searchTerm, setSearchTerm] = useState("");
     const [price, setPrice] = useState("");
     const [priceFilter, setPriceFilter] = useState("");
 
@@ -32,6 +33,7 @@ const Product = () => {
 
     // Filter products based on search term and price range
     const filteredProducts = products.filter((product) => {
+        
         const peiceMatch = priceFilter !== "" ? product.price === parseInt(priceFilter) : true;
         return peiceMatch;
     });
@@ -59,20 +61,23 @@ const Product = () => {
         <>
             <AdminMenu/>
             <section id="product_admin">
-                
                 <div className="container_body_admin_product">
-                    <form className="search">
-                        <div className="search-box_product">
-                            <input type="text" placeholder="Search ..." />
-                            <button type="submit">
-                            <IoSearchOutline />
-                            </button>
-                        </div>
-                    </form>
+                    <div className="search-box_product">
+                        <input 
+                            type="text" 
+                            placeholder="Search ..." 
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                        />
+                        <button type="submit">
+                        <IoSearchOutline />
+                        </button>
+                    </div>
+
                     <div className="productHead_content">
                         <h1 className="htxthead"><span className="spennofStyleadmin"></span>Product</h1>
                         <div className="categoryBoxfiler">
-                            <Link to="/admin/post/" className="box_add_product">
+                            <Link to="/post/" className="box_add_product">
                                 <BiPlus id="icon_add_product"/>
                                 <p>Add Product</p>
                             </Link>
@@ -122,7 +127,7 @@ const Product = () => {
                                         <button className="btn_icon_delete_user" onClick={() => handleDelete(product.id)}>
                                             <AiOutlineDelete id="btn_icon_edit"/>
                                         </button>
-                                        <Link to="/admin/editproduct/" className="btn_icon_edit_user">
+                                        <Link to="/editproduct/" className="btn_icon_edit_user">
                                             <MdOutlineEdit id="btn_icon_edit"/>
                                         </Link>
                                         

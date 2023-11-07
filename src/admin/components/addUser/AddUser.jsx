@@ -90,7 +90,7 @@ const AddUser = () => {
             <section id='addAmin'>
                 <div className='box_addAdmin'>
                     <div className='container_add_admin'> 
-                        <Link to="/admin/menageruser/" className='box_guopIconbAck'>
+                        <Link to="/menageruser/" className='box_guopIconbAck'>
                             <FaAngleLeft id='box_icon_Back' />
                             <p>Back</p>
                         </Link>

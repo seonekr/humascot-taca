@@ -95,7 +95,7 @@ const OrderPage = () => {
 
     const handleOrder = (id) => {
         setId(id);
-        navigate("/admin/orderbill/", { state: { id: id } });
+        navigate("/orderbill/", { state: { id: id } });
     };
 
 
@@ -123,10 +123,10 @@ const OrderPage = () => {
                                     <p>{order.orderDate}</p>
                                 </div>
                                 <div className='container_order_icon'>
-                                    <Link to="/admin/OrderWrong" className='btn_pending'>
+                                    <Link to="/OrderWrong" className='btn_pending'>
                                         Pending
                                     </Link>
-                                    <Link to="/admin/orderbill" className='btn_view'>
+                                    <Link to="/orderbill" className='btn_view'>
                                         View
                                     </Link>
                                 </div>
@@ -151,10 +151,10 @@ const OrderPage = () => {
                                     <p>{order.orderDate}</p>
                                 </div>
                                 <div className='container_order_icon'>
-                                    <Link to="/admin/OrderWrong" className='btn_paid'>
+                                    <Link to="/OrderWrong" className='btn_paid'>
                                         Paid
                                     </Link>
-                                    <Link to="/admin/orderbill" className='btn_view'>
+                                    <Link to="/orderbill" className='btn_view'>
                                         View
                                     </Link>
                                 </div>
