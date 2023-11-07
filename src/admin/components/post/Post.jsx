@@ -11,6 +11,32 @@ const Post = () => {
     const [price, setPrice] = useState('');
     const [details, setDetails] = useState('');
 
+    //Add Color Box
+    const [addColor, setaddColor] = useState([]);
+    const [colorInput, setcolorInput] = useState("");
+
+    const handleInputChange = (e) => {
+        setcolorInput(e.target.value);
+    };
+
+    const handleEnterClick = () => {
+        if (colorInput.trim() !== "") {
+            setaddColor([...addColor, colorInput]);
+            setcolorInput("");
+        }
+    };
+
+    const handleKeyPress = (e) => {
+        if (e.key === "Enter") {
+            handleEnterClick();
+        }
+    };
+
+    const handleTagDelete = (index) => {
+        const newTags = addColor.filter((_, i) => i !== index);
+        setaddColor(newTags);
+
+    };
 
     // Hanle submit
     const handleSubmit = (e) => {
@@ -21,8 +47,10 @@ const Post = () => {
             "Product type": productType,
             "Product price": price,
             "Product details": details,
+            "Color": addColor,
             "Image": image,
             "Gallery": images
+
         });
 
         setProductName('');
@@ -31,6 +59,8 @@ const Post = () => {
         setDetails('')
         setImage([]);
         setImages([]);
+        setImages([]);
+        
     };
 
     // handle Product name
@@ -48,7 +78,7 @@ const Post = () => {
         const value = e.target.value
         setPrice(value)
     };
-    
+
     // handle Product details
     const handleProductDetails = (e) => {
         const value = e.target.value
@@ -60,37 +90,37 @@ const Post = () => {
         const file = e.target.files[0];
 
         if (file) {
-          const reader = new FileReader();
+            const reader = new FileReader();
 
-          reader.onloadend = () => {
-            setImage([file]);
-          };
+            reader.onloadend = () => {
+                setImage([file]);
+            };
 
-          reader.readAsDataURL(file);
+            reader.readAsDataURL(file);
         }
     };
 
     // image handle gallery
     const handleImageUpload = (e) => {
-      const uploadedImages = Array.from(e.target.files);
-      setImages([...images, ...uploadedImages]);
+        const uploadedImages = Array.from(e.target.files);
+        setImages([...images, ...uploadedImages]);
     };
 
     // Update......
 
-    return(
+    return (
         <>
-            <AdminMenu/>
+            <AdminMenu />
             <section id="post">
-                
+
                 <div className="boxcontainerSpan_Box"></div>
                 <div className="box_container_product">
                     <div className="box_text">
                         <h2>Post Product</h2>
                     </div>
-                    
+
                     <form onSubmit={handleSubmit} className="edit-product-form">
-                        
+
                         <div className="input-box">
                             <div className="box">
                                 <label htmlFor="productName">Product name</label>
@@ -122,39 +152,40 @@ const Post = () => {
                                     onChange={handleProductPrice}
                                 />
                             </div>
-                            
+
                             <div>
                                 <div className="box">
                                     <label htmlFor="details">Details</label>
                                     <textarea id="details" rows="5" value={details} onChange={handleProductDetails}></textarea>
                                 </div>
                             </div>
-                            
-                            <div className="box_color_product">
-                                <h3>Color:</h3>
-                                <div className="color_box">
-                                    <div className="choose_color">
-                                        <p>Red</p>
-                                    </div>
-                                        
-                                    <div className="search_color">
-                                        <div className="search-box_color">
-                                            <input type="text" placeholder="Add Color..." />
+
+                            {/* Add Color Box */}
+                            <div className="colorBox_chContainer">
+                                <h1>Color:</h1>
+                                <div className="addcolor_container">
+                                    {addColor.map((colorB, index) => (
+                                        <div className="Card_boxColor" key={index}>
+                                            {colorB}
+                                            <span className="spanCancelBox" onClick={() => handleTagDelete(index)}>×</span>
                                         </div>
-                                        <div className="icon_add">
-                                            <BiPlus id="icon_add_product"/>
-                                            <p>Color</p>
-                                        </div>
-                                    </div>
+                                    ))}
                                 </div>
-                                
+                                <div className="addcolorContent">
+                                    <input className="inputBoxaddcolor" type="text" value={colorInput} onChange={handleInputChange} onKeyPress={handleKeyPress}
+                                        placeholder="Write your color..." />
+                                    <a className="btn_addcolorbox" onClick={handleEnterClick}>
+                                        Enter
+                                    </a>
+                                </div>
                             </div>
+                            {/* End Add Color Box */}
                         </div>
-                        
+
                         <div className="input-img">
                             <div className="image">
                                 <label htmlFor="img">
-                                {(image && image.length > 0) ? <img src={URL.createObjectURL(image[0])}/>:<p>Choose image</p>}
+                                    {(image && image.length > 0) ? <img src={URL.createObjectURL(image[0])} /> : <p>Choose image</p>}
                                 </label>
                                 <input
                                     type="file"
@@ -168,25 +199,25 @@ const Post = () => {
                                     <input type="file" id="gallery" multiple onChange={handleImageUpload} />
                                     {images.map((image, index) => (
                                         <div key={index}>
-                                        <img src={URL.createObjectURL(image)} alt={`Image ${index}`} />
+                                            <img src={URL.createObjectURL(image)} alt={`Image ${index}`} />
                                             <button onClick={() => setImages(images.filter((_, i) => i !== index))}>
                                                 Remove
                                             </button>
                                         </div>
                                     ))}
-                                    { (images && images.length > 0) ? 
-                                        <label htmlFor="gallery" className="add-more">Add</label>:
+                                    {(images && images.length > 0) ?
+                                        <label htmlFor="gallery" className="add-more">Add</label> :
                                         <label htmlFor="gallery" className="add-gallery">Choose gallery</label>
                                     }
                                 </div>
                             </div>
                         </div>
                         <div className="submit1">
-                            <button type="submit" onClick={() => handleEditProduct(product.id)}>Post</button>
+                            <button type="submit">Post</button>
                         </div>
                     </form>
                 </div>
-                
+
             </section>
         </>
     )
