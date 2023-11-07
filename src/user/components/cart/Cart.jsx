@@ -9,9 +9,9 @@ import './cart.css';
 
 const Cart = () => {
   const [products, setProducts] = useState([
-    { productID: 1, productName: 'Product 1', productType: "clothes", description: 'This is product 1', color: "colB", price: 10, images: [acer], size: "m"},
-    { productID: 2, productName: 'Product 2', productType: "clothes", description: 'This is product 2', color: "colW", price: 20, images: [acer], size: "l" },
-    { productID: 3, productName: 'Product 3', productType: "clothes", description: 'This is product 3', color: "colBlue", price: 30, images: [acer], size: "xl" },
+    { productID: 1, productName: 'Product 1', productType: "clothes", description: 'This is product 1', colorName: "black", price: 10, images: [acer], size: "m"},
+    { productID: 2, productName: 'Product 2', productType: "clothes", description: 'This is product 2', colorName: "red", price: 20, images: [acer], size: "l" },
+    { productID: 3, productName: 'Product 3', productType: "clothes", description: 'This is product 3', colorName: "blue", price: 30, images: [acer], size: "xl" },
   ]);
 
   const [price, setPrice] = useState(0);
@@ -65,8 +65,8 @@ const Cart = () => {
     const selectedProducts = products.map((product) => ({
       productID: product.productID,
       productName: product.productName,
-      productType: product.productType,
-      color: product.color,
+      type: product.productType,
+      color: product.colorName,
       price: product.price,
       size: product.size,
       productCounts: productCounts[product.productID] || 0,

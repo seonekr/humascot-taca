@@ -9,7 +9,11 @@ import "./bill.css";
 const Bill = () => {
   // Orders
   const [orders, setOrders] = useState([
-    { orderID: 1, userID: 2, products: [{ productID: 1, productName: "pro1", productType: "clothes",amount: 2, price: 10,size: "m",},{productID: 2, productName: "pro1", productType: "clothes",amount: 2, price: 10,size: "m", }],orderDate: "10/12/2023", status: "pending", payment: "Bcel One",delivery: "Houngaloun",},
+    { orderID: 1, userID: 2,
+      products: [
+        { productID: 1, productName: "pro1", productType: "clothes",amount: 2, price: 10,size: "m",},
+        {productID: 2, productName: "pro1", productType: "clothes",amount: 2, price: 10,size: "m", }],
+      orderDate: "10/12/2023", status: "pending", payment: "Bcel One",delivery: "Houngaloun",},
     { orderID: 2,
       userID: 1,
       products: [
