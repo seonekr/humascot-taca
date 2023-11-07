@@ -85,7 +85,7 @@ const EditProduct = () => {
                 <div className="boxcontainerSpan_Box"></div>
                 <div className="box_container_product">
                     <div className="box_text">
-                        <h2>Edit Product</h2>
+                        <h2>Update Product</h2>
                     </div>
                     
                     <form onSubmit={handleSubmit} className="edit-product-form">
