@@ -7,46 +7,65 @@
     width: 20%;
 }
 
-#post .post-form {
+.box_container_product{
     width: 96%;
     margin-top: 6.5rem;
     margin-right: 1rem;
-    padding: 2.5rem 2.5rem 2.5rem 0;
-    display: flex;
+    padding: 1rem 2.5rem 2.5rem 2.5rem;
+    flex-direction: column;
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
 }
+.box_text h2{
+    padding: 20px 0;
+}
 
-#post .post-form .input-box {
+#post .edit-product-form {
+    margin-right: 1rem;
+    padding: 1rem 2.5rem 2.5rem 2.5rem;
+    display: flex;
+}
+
+#post .edit-product-form .input-box {
     width: 80%;
     display: grid;
-    gap: 2rem;
+    gap: 3rem;
     padding: 0 2rem;
 }
 
-#post .post-form .input-box .box:last-child {
+#post .edit-product-form .input-box .box:last-child {
     display: grid;
 }
 
-#post .post-form .input-box .box textarea {
+#post .edit-product-form .input-box .box textarea {
     resize: none;
     overflow: auto;
+    margin-top: 0.5rem;
     padding: 1rem 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
 }
 
-#post .post-form .input-box .box textarea:focus {
+#post .edit-product-form .input-box .box textarea:focus {
     outline: none;
 }
 
-#post .post-form .input-box .box input {
+#post .edit-product-form .input-box .box input {
     border: 1px solid #ccc;
-    margin-top: 0.2rem;
+    margin-top: 0.4rem;
     padding: 0.2rem 1rem;
-    border-radius: 4px;
-    font-size: 1.2rem;
+    border-radius: 5px;
+    font-size: 1rem;
 }
+/* ------------ Add color Box ------------ */
+.colorBox_chContainer{
+
+}
+/* ------------End Add color Box ------------ */
+
+
 
 /* input image */
-#post .post-form .input-img {
+#post .edit-product-form .input-img {
     width: 800px;
     margin-top: 2rem;
 }
@@ -56,12 +75,13 @@
     display: grid;
     height: 25vh;
     border: 1px solid #ccc;
+    border-radius: 5px;
     align-items: center;
     overflow: hidden;
     color: #fff;
 }
 
-#post .post-form .input-img .image label p {
+#post .edit-product-form .input-img .image label p {
     display: grid;
     background-color: #3498DB;
     border-radius: 4px;
@@ -71,35 +91,37 @@
     margin: auto;
 }
 
-#post .post-form .input-img .image img {
+#post .edit-product-form .input-img .image img {
     width: 100%;
     height: 30vh;
     cursor: pointer;
     object-fit: contain;
 }
 
-#post .post-form .input-img .image #img {
+#post .edit-product-form .input-img .image #img {
     display: none;
 }
 
 /* Gallery */
-#post .post-form .input-img .gallery {
+#post .edit-product-form .input-img .gallery {
     margin-top: 1rem;
+    color: #444;
 }
 
-#post .post-form .input-img .gallery .gallery-box {
+#post .edit-product-form .input-img .gallery .gallery-box {
     /* width: 100%; */
     margin-top: 1rem;
     height: 25vh;
     resize: vertical;
     display: flex;
     border: 1px solid #ccc;
+    border-radius: 5px;
     color: #fff;
     align-items: center;
     overflow: hidden;
 }
 
-#post .post-form .input-img .gallery .gallery-box img {
+#post .edit-product-form .input-img .gallery .gallery-box img {
     width: 100%;
     height: 20vh;
     cursor: pointer;
@@ -107,7 +129,7 @@
 }
 
 /* Add gallery button */
-#post .post-form .input-img .gallery .gallery-box .add-gallery {
+#post .edit-product-form .input-img .gallery .gallery-box .add-gallery {
     background-color: #3498DB;
     border-radius: 4px;
     margin: auto;
@@ -115,28 +137,115 @@
     cursor: pointer;
 }
 
-#post .post-form .input-img .gallery .gallery-box .add-more {
+#post .edit-product-form .input-img .gallery .gallery-box .add-more {
     cursor: pointer;
 }
 
-#post .post-form .input-img .gallery #gallery {
+#post .edit-product-form .input-img .gallery #gallery {
     display: none;
 }
 
-/* Submit button */
-#post .post-form .submit {
-    margin-top: -1.5rem;
-    position: absolute;
-    right: 3rem;
+.box_color_product{
+    width: 100;
+}
+.box_size_product{
+    margin-top: 8rem;
+}
+.color_box{
+    width: 100%;
+    height: 165px;
+    margin-top: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 20px 20px 20px 20px;
+}.box_choose_color_post{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
 }
 
-#post .post-form .submit button {
+.choose{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.size_box{
+    width: 100%;
+    height: 165px;
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;padding: 20px 20px 20px 20px;
+}
+.box_size_color{
+    width: 60px;
+    height: 28px;
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    
+}
+.color_choose{
+    display: flex;
+    gap: 1rem;
+}
+.choose_size{
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin-left: 0.2rem;
+    justify-content: center;
+}
+
+/* Search add color */
+.search_color_post{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 5rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.search_color_post input{
+    padding: 0 12px;
+}
+
+.icon_add_post{
+    display: flex;
+    gap: 0.3rem;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: #3498DB;
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+    padding: 3px 8px;
+    font-size: 16px;
+}
+
+/* Submit button */
+#post .edit-product-form .submit1 {
+    margin-top: -1.5rem;
+    position: absolute;
+    font-size: 18px;
+    right: 7rem;
+}
+
+#post .edit-product-form .submit1 button {
     background-color: #3498DB;
     color: #fff;
     border-radius: 5px;
-    font-size: 1.3rem;
-    margin-left: -4.5rem;
-    padding: 0.5rem 3rem;
+    font-size: 1rem;
+    padding: 0.5rem 1.8rem;
     cursor: pointer;
     border: none;
 }
+
+
+
+/*============ Color ==========*/
+

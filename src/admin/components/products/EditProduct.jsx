@@ -1,9 +1,7 @@
 import { useState } from "react";
 import AdminMenu from "../adminMenu/AdminMenu";
 import './editproduct.css'
-import { FaAngleLeft } from "react-icons/fa";
 import { BiPlus } from "react-icons/bi";
-import { Link } from "react-router-dom";
 
 const EditProduct = () => {
     const [image, setImage] = useState([])
@@ -11,7 +9,6 @@ const EditProduct = () => {
     const [productName, setProductName] = useState('');
     const [productType, setProductType] = useState('');
     const [price, setPrice] = useState('');
-    const [stock, setStock] = useState('');
     const [details, setDetails] = useState('');
 
 
@@ -23,7 +20,6 @@ const EditProduct = () => {
             "Product name": productName,
             "Product type": productType,
             "Product price": price,
-            "Product stock": stock,
             "Product details": details,
             "Image": image,
             "Gallery": images
@@ -32,7 +28,6 @@ const EditProduct = () => {
         setProductName('');
         setProductType('');
         setPrice('');
-        setStock('');
         setDetails('')
         setImage([]);
         setImages([]);
@@ -53,11 +48,7 @@ const EditProduct = () => {
         const value = e.target.value
         setPrice(value)
     };
-    // handle Product price
-    const handleProductStock = (e) => {
-        const value = e.target.value
-        setStock(value)
-    };
+    
     // handle Product details
     const handleProductDetails = (e) => {
         const value = e.target.value
@@ -91,14 +82,10 @@ const EditProduct = () => {
             <section id="post">
                 <div className="boxcontainerSpan_Box"></div>
                 <div className="box_container_product">
-                    <div className='container_add_admin'> 
-                        <Link to="/admin/product/" className='box_guopIconbAck'>
-                            <FaAngleLeft id='box_icon_Back' />
-                            <p>Back</p>
-                        </Link>
-                        <h2>Edit Product</h2>
-                        <div></div>
+                    <div className="box_text">
+                        <h2>Update Product</h2>
                     </div>
+                    
                     <form onSubmit={handleSubmit} className="edit-product-form">
 
                         <div className="input-box">
@@ -132,16 +119,7 @@ const EditProduct = () => {
                                     onChange={handleProductPrice}
                                 />
                             </div>
-                            <div className="box">
-                                <label htmlFor="stock">Stock</label>
-                                <input
-                                    type="text"
-                                    id="stock"
-                                    placeholder="Stock"
-                                    value={stock}
-                                    onChange={handleProductStock}
-                                />
-                            </div>
+                            
                             <div>
                                 <div className="box">
                                     <label htmlFor="details">Details</label>
@@ -152,15 +130,10 @@ const EditProduct = () => {
                             <div className="box_color_product">
                                 <h3>Color:</h3>
                                 <div className="color_box">
-                                    <div className="color_choose">
-                                        <div className="box_choose_color">
-                                            <div className="choose_color">
-                                                <div className="choose"></div>
-                                                <p>Red</p>
-                                            </div>
-                                        </div>
+                                    <div className="choose_color">
+                                        <p>Red</p>
                                     </div>
-                                    
+                                        
                                     <div className="search_color">
                                         <div className="search-box_color">
                                             <input type="text" placeholder="Add Color..." />
@@ -206,7 +179,7 @@ const EditProduct = () => {
                             </div>
                         </div>
                         <div className="submit1">
-                            <button type="submit">Post</button>
+                            <button type="submit">Update</button>
                         </div>
                     </form>
                 </div>

@@ -62,15 +62,11 @@ const AdminMenu = () => {
                 <img src={Logo1} alt="" />
               </span>
             </Link>
-            <form className="search">
-              <div className="search-box">
-                <input type="text" placeholder="Search ..." />
-                <button type="submit">
-                  <IoSearchOutline />
-                </button>
-              </div>
-            </form>
-            <div className="userAdminImage"><img src={user} alt="Logo_Profile" /></div>
+            
+            <div className="userAdminImage">
+              <img src={user} alt="Logo_Profile" />
+            </div>
+
           </div>
         </div>
       </section>
