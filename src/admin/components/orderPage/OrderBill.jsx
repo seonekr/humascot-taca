@@ -73,7 +73,7 @@ const OrderBill = () => {
                                         </div>
                                         <Link to="#" className='btn_edit_product'>
                                             <MdOutlineEdit id='icon_edit_delete'/>
-                                            <p>Edit</p>
+                                            <p>Update</p>
                                         </Link>
                                     </div>
                                 </div>

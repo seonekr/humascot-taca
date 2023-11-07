@@ -27,7 +27,7 @@ const OrderPage = () => {
                 price: 10,
               },
             ],
-            orderDate: "10/12/2023",
+            orderDate: "10/11/2023",
             status: "pending",
             payment: "Bcel One",
             delivery: "Houngaloun",
@@ -44,17 +44,17 @@ const OrderPage = () => {
               },
               {
                 productID: 2,
-                productName: "Samsung2",
-                amount: 2,
-                price: 10,
-              },
-              { productID: 2,
                 productName: "Samsung3",
                 amount: 2,
                 price: 10,
               },
+              { productID: 2,
+                productName: "Samsung4",
+                amount: 2,
+                price: 10,
+              },
             ],
-            orderDate: "10/12/2023",
+            orderDate: "7/11/2023",
             status: "pending",
             payment: "Bcel One",
             delivery: "Anousit",
@@ -111,7 +111,7 @@ const OrderPage = () => {
                                 <div className='box_order_text'>
                                     <p>No: {order.orderID}</p>
                                     <div className='container_chat_name'>
-                                        {order.products.slice(0, 2).map((product, index) => (
+                                        {order.products.slice(0, 1).map((product, index) => (
                                             <span key={product.productID}>
                                                 {product.productName}
                                                 {index === 0 && order.products.length > 1
@@ -120,8 +120,6 @@ const OrderPage = () => {
                                             </span>
                                         ))}
                                     </div>
-                                </div>
-                                <div className='box_container_time'>
                                     <p>{order.orderDate}</p>
                                 </div>
                                 <div className='container_order_icon'>
@@ -135,29 +133,34 @@ const OrderPage = () => {
                             </form>
                         </div>
                     ))}
-                    <form className='box_users_order'>
-                        <Link to="#" className='box_order_text'>
-                            <div className='container_chat_name'>
-                                <p>NO: 1</p>
-                                <p>ID: 1</p>
-                                <h4>Samsung</h4>
-                            </div>
-                        </Link>
-                        <div className='box_container_time'>
-                            <p>Time: </p>
-                            <p>01/19/2023</p>
-                            <p>8:00 PM</p>
+                    {filteredOrders.map((order) => (
+                        <div key={order.orderID}>
+                            <form className='box_users_order' onClick={() => handleOrder(order.orderID)}>
+                                <div className='box_order_text'>
+                                    <p>No: {order.orderID}</p>
+                                    <div className='container_chat_name'>
+                                        {order.products.slice(0, 3).map((product, index) => (
+                                            <span key={product.productID}>
+                                                {product.productName}
+                                                {index === 0 && order.products.length > 1
+                                                ? ", "
+                                                : " ..."}
+                                            </span>
+                                        ))}
+                                    </div>
+                                    <p>{order.orderDate}</p>
+                                </div>
+                                <div className='container_order_icon'>
+                                    <Link to="/admin/OrderWrong" className='btn_paid'>
+                                        Paid
+                                    </Link>
+                                    <Link to="/admin/orderbill" className='btn_view'>
+                                        View
+                                    </Link>
+                                </div>
+                            </form>
                         </div>
-                        <div className='container_order_icon'>
-                            <Link to="/admin/OrderWrong" className='btn_paid'>
-                                Paid
-                            </Link>
-                            <Link to="/admin/orderbill" className='btn_view'>
-                                View
-                            </Link>
-                        </div>
-                    </form>
-
+                    ))}
                     <div className='box_next_order'>
                         <button className='box_prev_next_order'>
                             <AiOutlineLeft id="box_prev_next_icon" />
