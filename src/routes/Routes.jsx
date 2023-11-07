@@ -27,7 +27,6 @@ import MenagerUser from "../admin/components/menagerUser/MenagerUser";
 import OrderPage from "../admin/components/orderPage/OrderPage";
 import OrderBill from "../admin/components/orderPage/OrderBill"
 import OrderWrong from "../admin/components/orderPage/OrderWrong";
-import LoginAdmin from "../admin/components/registeradmin/LoginAdmin"
 import MenagerAdmin from "../admin/components/menagerAdmin/MenagerAdmin";
 import Product from "../admin/components/products/Product";
 import EditAdmin from "../admin/components/addAdmin/EditAdmin";
@@ -73,7 +72,7 @@ const Links = () => {
                  <Route exact path="/admin/orderbill/" Component={OrderBill}/>
                  <Route exact path="/admin/orderwrong/" Component={OrderWrong}/>
                  <Route exact path="/admin/menageradmin/" Component={MenagerAdmin}/>
-                 <Route exact path="/admin/" Component={LoginAdmin}/>
+                 
                  <Route exact path="/admin/product/" Component={Product}/>
                  <Route exact path="/admin/editadmin/" Component={EditAdmin}/>
                  <Route exact path="/admin/adduser/" Component={AddUser}/>

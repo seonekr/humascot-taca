@@ -36,7 +36,7 @@ const MenagerUser = () => {
                         </Link>
                         <div className='container_admin_icon'>
                             
-                            <Link to="/admin/editadmin/" className='btn_edit'>
+                            <Link to="/editadmin/" className='btn_edit'>
                                 <MdOutlineEdit id='icon_edit_delete'/>
                             </Link>
                             <button className='btn_delete'>
@@ -54,7 +54,7 @@ const MenagerUser = () => {
                         </Link>
                         <div className='container_admin_icon'>
                             
-                            <Link to="/admin/editadmin/" className='btn_edit'>
+                            <Link to="/editadmin/" className='btn_edit'>
                                 <MdOutlineEdit id='icon_edit_delete'/>
                             </Link>
                             <button className='btn_delete'>
@@ -72,7 +72,7 @@ const MenagerUser = () => {
                         </Link>
                         <div className='container_admin_icon'>
                             
-                            <Link to="/admin/editadmin/" className='btn_edit'>
+                            <Link to="/editadmin/" className='btn_edit'>
                                 <MdOutlineEdit id='icon_edit_delete'/>
                             </Link>
                             <button className='btn_delete'>
@@ -90,7 +90,7 @@ const MenagerUser = () => {
                         </Link>
                         <div className='container_admin_icon'>
                             
-                            <Link to="/admin/editadmin/" className='btn_edit'>
+                            <Link to="/editadmin/" className='btn_edit'>
                                 <MdOutlineEdit id='icon_edit_delete'/>
                             </Link>
                             <button className='btn_delete'>
@@ -108,7 +108,7 @@ const MenagerUser = () => {
                         </Link>
                         <div className='container_admin_icon'>
                             
-                            <Link to="/admin/editadmin/" className='btn_edit'>
+                            <Link to="/editadmin/" className='btn_edit'>
                                 <MdOutlineEdit id='icon_edit_delete'/>
                             </Link>
                             <button className='btn_delete'>

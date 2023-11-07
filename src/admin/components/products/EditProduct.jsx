@@ -1,22 +1,22 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import AdminMenu from "../adminMenu/AdminMenu";
 import './editproduct.css'
 import { BiPlus } from "react-icons/bi";
 
-const EditProduct = () => {
-    const [image, setImage] = useState([])
+const EditProduct = (product) => {
+    const [image, setImage] = useState([]);
     const [images, setImages] = useState([]);
-    const [productName, setProductName] = useState('');
-    const [productType, setProductType] = useState('');
-    const [price, setPrice] = useState('');
-    const [details, setDetails] = useState('');
+    const [productName, setProductName] = useState("productName");
+    const [productType, setProductType] = useState("productType");
+    const [price, setPrice] = useState("product.price");
+    const [details, setDetails] = useState("product.details");
 
 
     // Hanle submit
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        console.log('Form Data:', { // Here you can insert informatio to database
+        console.log('Form Data', { // Here you can insert informatio to database
             "Product name": productName,
             "Product type": productType,
             "Product price": price,
@@ -48,7 +48,7 @@ const EditProduct = () => {
         const value = e.target.value
         setPrice(value)
     };
-    
+
     // handle Product details
     const handleProductDetails = (e) => {
         const value = e.target.value
@@ -76,10 +76,25 @@ const EditProduct = () => {
       setImages([...images, ...uploadedImages]);
     };
 
+    // Update......
+    
+    const handleUpdate = () => {
+        const editProduct = {
+        id:product.id,
+        productName,
+        productType,
+        price,
+        details
+      };
+    };
+
+    
+
     return(
         <>
             <AdminMenu/>
             <section id="post">
+                
                 <div className="boxcontainerSpan_Box"></div>
                 <div className="box_container_product">
                     <div className="box_text">
@@ -87,7 +102,7 @@ const EditProduct = () => {
                     </div>
                     
                     <form onSubmit={handleSubmit} className="edit-product-form">
-
+                        
                         <div className="input-box">
                             <div className="box">
                                 <label htmlFor="productName">Product name</label>
@@ -179,7 +194,7 @@ const EditProduct = () => {
                             </div>
                         </div>
                         <div className="submit1">
-                            <button type="submit">Update</button>
+                            <button type="submit" onClick={handleUpdate}>Update</button>
                         </div>
                     </form>
                 </div>
