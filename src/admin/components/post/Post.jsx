@@ -86,7 +86,7 @@ const Post = () => {
                 <div className="boxcontainerSpan_Box"></div>
                 <div className="box_container_product">
                     <div className="box_text">
-                        <h2>Update Product</h2>
+                        <h2>Post Product</h2>
                     </div>
                     
                     <form onSubmit={handleSubmit} className="edit-product-form">
@@ -182,7 +182,7 @@ const Post = () => {
                             </div>
                         </div>
                         <div className="submit1">
-                            <button type="submit" onClick={() => handleEditProduct(product.id)}>Update</button>
+                            <button type="submit" onClick={() => handleEditProduct(product.id)}>Post</button>
                         </div>
                     </form>
                 </div>
