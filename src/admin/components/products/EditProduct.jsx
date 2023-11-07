@@ -1,7 +1,9 @@
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AdminMenu from "../adminMenu/AdminMenu";
 import './editproduct.css'
 import { BiPlus } from "react-icons/bi";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 
 const EditProduct = () => {
     const [image, setImage] = useState([])
@@ -76,10 +78,31 @@ const EditProduct = () => {
       setImages([...images, ...uploadedImages]);
     };
 
+    // Update......
+
+    const {id} = useParams();
+    const [values, setValues] = useState({
+        id: id,
+        productName: '',
+        productType: '',
+        price: '',
+        details: ''
+    })
+
+    useEffect(()=> {
+        axios.get('http://localhost:5173/admin/product/'+id)
+        .then(res => {
+            setValues({...values, productName: res.product.productName, productType: res.product.productType, price: res.product.price, details: res.product.details})
+
+        })
+        .catch(err => console.log(err))
+    }, [])
+
     return(
         <>
             <AdminMenu/>
             <section id="post">
+                
                 <div className="boxcontainerSpan_Box"></div>
                 <div className="box_container_product">
                     <div className="box_text">
@@ -87,7 +110,7 @@ const EditProduct = () => {
                     </div>
                     
                     <form onSubmit={handleSubmit} className="edit-product-form">
-
+                        
                         <div className="input-box">
                             <div className="box">
                                 <label htmlFor="productName">Product name</label>
@@ -95,7 +118,7 @@ const EditProduct = () => {
                                     type="text"
                                     id="productName"
                                     placeholder="Name"
-                                    value={productName}
+                                    value={values.productName}
                                     onChange={handleProductName}
                                 />
                             </div>
@@ -105,7 +128,7 @@ const EditProduct = () => {
                                     type="text"
                                     id="productType"
                                     placeholder="Type"
-                                    value={productType}
+                                    value={values.productType}
                                     onChange={handleProductType}
                                 />
                             </div>
@@ -115,7 +138,7 @@ const EditProduct = () => {
                                     type="text"
                                     id="price"
                                     placeholder="Price"
-                                    value={price}
+                                    value={values.price}
                                     onChange={handleProductPrice}
                                 />
                             </div>
@@ -123,7 +146,7 @@ const EditProduct = () => {
                             <div>
                                 <div className="box">
                                     <label htmlFor="details">Details</label>
-                                    <textarea id="details" rows="5" value={details} onChange={handleProductDetails}></textarea>
+                                    <textarea id="details" rows="5" value={values.details} onChange={handleProductDetails}></textarea>
                                 </div>
                             </div>
                             
@@ -179,7 +202,7 @@ const EditProduct = () => {
                             </div>
                         </div>
                         <div className="submit1">
-                            <button type="submit">Update</button>
+                            <button type="submit" onClick={() => handleEditProduct(product.id)}>Update</button>
                         </div>
                     </form>
                 </div>
