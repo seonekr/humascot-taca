@@ -1,7 +1,7 @@
 /*---------- Footer For PC ----------*/
 .footerBox {
     width: 100%;
-    margin-top: 25rem;
+    margin-top: 7rem;
     box-shadow: -10px -0.5px 4px rgba(0, 0, 0, 0.1);
 }   
 
@@ -101,6 +101,7 @@
 @media screen and (max-width: 420px) {
     .footerBox {
         display: none;
+
     }
 
     .menubar {

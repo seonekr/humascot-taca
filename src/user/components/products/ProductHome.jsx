@@ -88,7 +88,7 @@ const ProductHome = () => {
                             <div className='img'>
                                 <img src={product.images[0]} alt="image" />
                             </div>
-                            <ul className="txtOFproduct">
+                            <ul className="txtOFproduct2">
                                 <li>
                                     <input
                                         className="name"
