@@ -84,14 +84,10 @@ const EditProduct = () => {
             <section id="post">
                 <div className="boxcontainerSpan_Box"></div>
                 <div className="box_container_product">
-                    <div className='container_add_admin'> 
-                        <Link to="/admin/product/" className='box_guopIconbAck'>
-                            <FaAngleLeft id='box_icon_Back' />
-                            <p>Back</p>
-                        </Link>
+                    <div className="box_text">
                         <h2>Edit Product</h2>
-                        <div></div>
                     </div>
+                    
                     <form onSubmit={handleSubmit} className="edit-product-form">
 
                         <div className="input-box">
@@ -190,7 +186,7 @@ const EditProduct = () => {
                             </div>
                         </div>
                         <div className="submit1">
-                            <button type="submit">Post</button>
+                            <button type="submit">Update</button>
                         </div>
                     </form>
                 </div>

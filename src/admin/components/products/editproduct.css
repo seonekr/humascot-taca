@@ -15,6 +15,9 @@
     flex-direction: column;
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
 }
+.box_text h2{
+    padding: 20px 0;
+}
 
 #post .edit-product-form {
     margin-right: 1rem;
@@ -227,6 +230,7 @@
 #post .edit-product-form .submit1 {
     margin-top: -1.5rem;
     position: absolute;
+    font-size: 18px;
     right: 7rem;
 }
 
