@@ -1,6 +1,7 @@
 import { useState } from "react";
 import AdminMenu from "../adminMenu/AdminMenu";
 import './post.css'
+
 const Post = () => {
     const [image, setImage] = useState([])
     const [images, setImages] = useState([]);
@@ -8,6 +9,33 @@ const Post = () => {
     const [productType, setProductType] = useState('');
     const [price, setPrice] = useState('');
     const [details, setDetails] = useState('');
+
+    //Add Color Box
+    const [tags, setTags] = useState([]);
+    const [tagInput, setTagInput] = useState("");
+
+    const handleInputChange = (e) => {
+        setTagInput(e.target.value);
+    };
+
+    const handleEnterClick = () => {
+        if (tagInput.trim() !== "") {
+            setTags([...tags, tagInput]);
+            setTagInput("");
+        }
+    };
+
+    const handleKeyPress = (e) => {
+        if (e.key === "Enter") {
+            handleEnterClick();
+        }
+    };
+
+    const handleTagDelete = (index) => {
+        const newTags = tags.filter((_, i) => i !== index);
+        setTags(newTags);
+        
+    };
 
 
     // Hanle submit
@@ -20,15 +48,17 @@ const Post = () => {
             "Product price": price,
             "Product details": details,
             "Image": image,
-            "Gallery": images
+            "Gallery": images,
+            "TagInput": tagInput
         });
 
         setProductName('');
         setProductType('');
-        setPrice('');
+        setPrice('');6
         setDetails('')
         setImage([]);
         setImages([]);
+        setTagInput([]);
     };
 
     // handle Product name
@@ -57,25 +87,25 @@ const Post = () => {
         const file = e.target.files[0];
 
         if (file) {
-          const reader = new FileReader();
+            const reader = new FileReader();
 
-          reader.onloadend = () => {
-            setImage([file]);
-          };
+            reader.onloadend = () => {
+                setImage([file]);
+            };
 
-          reader.readAsDataURL(file);
+            reader.readAsDataURL(file);
         }
     };
 
     // image handle gallery
     const handleImageUpload = (e) => {
-      const uploadedImages = Array.from(e.target.files);
-      setImages([...images, ...uploadedImages]);
+        const uploadedImages = Array.from(e.target.files);
+        setImages([...images, ...uploadedImages]);
     };
 
-    return(
+    return (
         <>
-            <AdminMenu/>
+            <AdminMenu />
             <section id="post">
                 <div className="boxcontainerSpan_Box"></div>
                 <form onSubmit={handleSubmit} className="post-form">
@@ -110,15 +140,43 @@ const Post = () => {
                                 onChange={handleProductPrice}
                             />
                         </div>
-                        <div className="box">
-                            <label htmlFor="details">Details</label>
-                            <textarea id="details" rows="10" value={details} onChange={handleProductDetails}></textarea>
+                        <div>
+                            <div className="box">
+                                <label htmlFor="details">Details</label>
+                                <textarea id="details" rows="10" value={details} onChange={handleProductDetails}></textarea>
+                            </div>
                         </div>
+
+                        {/* Add Color Box */}
+                        <div className="colorBox_chContainer">
+                            <h1>Custom Tags Generator</h1>
+                            <div className="tag-container">
+                                {tags.map((tag, index) => (
+                                    <div className="tag" key={index}>
+                                        {tag}
+                                        <button onClick={() => handleTagDelete(index)}>×</button>
+                                    </div>
+                                ))}
+                            </div>
+                            <input
+                                type="text"
+                                value={tagInput}
+                                onChange={handleInputChange}
+                                onKeyPress={handleKeyPress}
+                                placeholder="Enter a tag"
+                            />
+                            <button onClick={handleEnterClick}>
+                                Enter
+                            </button>
+                        </div>
+                        {/* End Add Color Box */}
+
                     </div>
+
                     <div className="input-img">
                         <div className="image">
                             <label htmlFor="img">
-                            {(image && image.length > 0) ? <img src={URL.createObjectURL(image[0])}/>:<p>choose image</p>}
+                                {(image && image.length > 0) ? <img src={URL.createObjectURL(image[0])} /> : <p>choose image</p>}
                             </label>
                             <input
                                 type="file"
@@ -132,14 +190,14 @@ const Post = () => {
                                 <input type="file" id="gallery" multiple onChange={handleImageUpload} />
                                 {images.map((image, index) => (
                                     <div key={index}>
-                                    <img src={URL.createObjectURL(image)} alt={`Image ${index}`} />
+                                        <img src={URL.createObjectURL(image)} alt={`Image ${index}`} />
                                         <button onClick={() => setImages(images.filter((_, i) => i !== index))}>
                                             Remove
                                         </button>
                                     </div>
                                 ))}
-                                { (images && images.length > 0) ? 
-                                    <label htmlFor="gallery" className="add-more">Add</label>:
+                                {(images && images.length > 0) ?
+                                    <label htmlFor="gallery" className="add-more">Add</label> :
                                     <label htmlFor="gallery" className="add-gallery">choose gallery</label>
                                 }
                             </div>
