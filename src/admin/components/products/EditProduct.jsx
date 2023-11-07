@@ -11,7 +11,6 @@ const EditProduct = () => {
     const [productName, setProductName] = useState('');
     const [productType, setProductType] = useState('');
     const [price, setPrice] = useState('');
-    const [stock, setStock] = useState('');
     const [details, setDetails] = useState('');
 
 
@@ -23,7 +22,6 @@ const EditProduct = () => {
             "Product name": productName,
             "Product type": productType,
             "Product price": price,
-            "Product stock": stock,
             "Product details": details,
             "Image": image,
             "Gallery": images
@@ -32,7 +30,6 @@ const EditProduct = () => {
         setProductName('');
         setProductType('');
         setPrice('');
-        setStock('');
         setDetails('')
         setImage([]);
         setImages([]);
@@ -53,11 +50,7 @@ const EditProduct = () => {
         const value = e.target.value
         setPrice(value)
     };
-    // handle Product price
-    const handleProductStock = (e) => {
-        const value = e.target.value
-        setStock(value)
-    };
+    
     // handle Product details
     const handleProductDetails = (e) => {
         const value = e.target.value
@@ -132,16 +125,7 @@ const EditProduct = () => {
                                     onChange={handleProductPrice}
                                 />
                             </div>
-                            <div className="box">
-                                <label htmlFor="stock">Stock</label>
-                                <input
-                                    type="text"
-                                    id="stock"
-                                    placeholder="Stock"
-                                    value={stock}
-                                    onChange={handleProductStock}
-                                />
-                            </div>
+                            
                             <div>
                                 <div className="box">
                                     <label htmlFor="details">Details</label>

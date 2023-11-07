@@ -4,6 +4,7 @@ import { FaAngleLeft } from "react-icons/fa6";
 import AdminMenu from '../adminMenu/AdminMenu';
 import { Link } from "react-router-dom";
 import { ImCheckmark } from 'react-icons/im';
+import { MdOutlineEdit } from 'react-icons/md';
 
 const OrderBill = () => {
     return (
@@ -55,19 +56,25 @@ const OrderBill = () => {
                                         <h3>TOTAL:</h3>
                                         <p>$100.00</p>
                                     </div>
-                                    <div className="box_place-on">
-                                        <p>Place on: 15/09/2023</p>
-                                        <p>Payment method: Bcel One</p>
-                                        <div className='box_filter_status'>
-                                            <p>Status: </p>
-                                            <form>
-                                                <select className='statusFilter'>
-                                                    <option className='listOption_status' value="Something">Pending</option>
-                                                    <option className='listOption_status' value="Something">Completed</option>
-                                                </select>
-                                            </form>
+                                    <div className='container_btn_edit'>
+                                        <div className="box_place-on">
+                                            <p>Place on: 15/09/2023</p>
+                                            <p>Payment method: Bcel One</p>
+                                            <div className='box_filter_status'>
+                                                <p>Status: </p>
+                                                <form>
+                                                    <select className='statusFilter'>
+                                                        <option className='listOption_status' value="Something">Pending</option>
+                                                        <option className='listOption_status' value="Something">Completed</option>
+                                                    </select>
+                                                </form>
+                                            </div>
+                                            <p>Delivery by: Anousit</p>
                                         </div>
-                                        <p>Delivery by: Anousit</p>
+                                        <Link to="#" className='btn_edit_product'>
+                                            <MdOutlineEdit id='icon_edit_delete'/>
+                                            <p>Edit</p>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>

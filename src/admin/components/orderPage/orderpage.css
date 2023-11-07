@@ -27,9 +27,10 @@
 /* ============ box_users_chat =========== */
 
 .box_users_order{
-    width: 100%;
+    width: 95%;
     height: 100px;
     display: flex;
+    margin: auto;
     justify-content: space-between;
     margin-top: 1rem;
     border-radius: 5px;
@@ -44,14 +45,11 @@
 
 .box_order_text{
     display: flex;
-    gap: 1.5rem;
-    align-items: center;
+    gap: 0.5rem;
+    flex-direction: column;
 }
 
-.box_order_text img{
-    width: 100px;
-    height: 87px;
-}
+
 
 .container_order_icon{
     display: flex;
@@ -160,34 +158,6 @@
     justify-content: center;
 }
 
-/* input search box */
 
-/* .search-box_order {
-    display: flex;
-    width: 100%;
-    padding: 10px 30px 10px 0;
-}
-
-
-
-.search-box_order input {
-    width: 700px;
-    height: 45px;
-    border: 1px solid #ccc;
-    background: #FFF;
-    padding: 0 1rem;
-    border-radius: 5px 0 0 5px;
-}
-
-.search-box_order button {
-    background: #0E64D2;
-    color: #FFF;
-    width: 80px;
-    height: 45px;
-    border: 1px solid #ccc;
-    font-size: 1.7rem;
-    cursor: pointer;
-    border-radius: 0 5px 5px 0;
-} */
 
 /* ================ Responsive ==================*/
