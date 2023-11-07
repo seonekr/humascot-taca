@@ -1,4 +1,4 @@
-.category_container {
+.category_container2 {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -6,7 +6,7 @@
     gap: 4rem;
 }
 
-.category_container .box-category button {
+.category_container2 .box-category button {
     border: none;
     background: none;
     cursor: pointer;
@@ -29,13 +29,18 @@
 
 
 @media screen and (max-width: 420px) {
-    .category_container {
-        gap: 10px;
-        padding: 10px;
+    .category_container2 {
+        gap: 5px;
+    margin: 5rem 0 2rem 0;
+    padding: 10px;
     }
 
     .box-category {
-        width: 100%;
+        width: 30%;
+        height: auto;
     }
 
+    .box-category img {
+        width: 50%;
+    }
 }
