@@ -3,13 +3,13 @@ import AdminMenu from "../adminMenu/AdminMenu";
 import './editproduct.css'
 import { BiPlus } from "react-icons/bi";
 
-const EditProduct = (product) => {
+const EditProduct = () => {
     const [image, setImage] = useState([]);
     const [images, setImages] = useState([]);
-    const [productName, setProductName] = useState("productName");
-    const [productType, setProductType] = useState("productType");
-    const [price, setPrice] = useState("product.price");
-    const [details, setDetails] = useState("product.details");
+    const [productName, setProductName] = useState("");
+    const [productType, setProductType] = useState("");
+    const [price, setPrice] = useState("");
+    const [details, setDetails] = useState("");
 
 
     // Hanle submit
