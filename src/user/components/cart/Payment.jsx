@@ -1,4 +1,3 @@
-import { FaAngleLeft } from "react-icons/fa6";
 import { FiPlus } from "react-icons/fi";
 import "./payment.css";
 import qrcode from "../../../img/QRCODE.png";

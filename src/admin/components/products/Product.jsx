@@ -7,17 +7,18 @@ import { BiPlus } from 'react-icons/bi';
 import { IoSearchOutline } from 'react-icons/io5';
 import { MdOutlineEdit } from 'react-icons/md';
 import { AiOutlineDelete, AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
+import { useNavigate } from "react-router-dom";
 
 const Product = () => {
     const [products, setProducts] = useState([
-        { productID: 1, productName: 'Product 1', description: 'This is product 1', price: 10, productType: "clothes", images: [image1] },
-        { productID: 2, productName: 'Product 2', description: 'This is product 1', price: 11, productType: "clothes", images: [image1] },
-        { productID: 3, productName: 'Product 3', description: 'This is product 1', price: 12, productType: "clothes", images: [image1] },
-        { productID: 4, productName: 'Product 4', description: 'This is product 1', price: 10, productType: "clothes", images: [image1] },
-        { productID: 5, productName: 'Product 5', description: 'This is product 1', price: 11, productType: "clothes", images: [image1] },
-        { productID: 6, productName: 'Product 6', description: 'This is product 1', price: 12, productType: "clothes", images: [image1] },
-        { productID: 7, productName: 'Product 7', description: 'This is product 1', price: 10, productType: "clothes", images: [image1] },
-        { productID: 8, productName: 'Product 8', description: 'This is product 1', price: 11, productType: "clothes", images: [image1] },
+        { productID: 1, productName: 'Product 1', description: 'This is product 1', price: 10, productType: "clothes", images: [image1], colors: [{colorID: 1, colorName: "black"}, {colorID: 2, colorName: "blue"}, {colorID: 3, colorName: "red"}, {colorID: 4, colorName: "green"}]},
+        { productID: 2, productName: 'Product 2', description: 'This is product 1', price: 11, productType: "clothes", images: [image1], colors: [{colorID: 1, colorName: "black"}, {colorID: 2, colorName: "blue"}, {colorID: 3, colorName: "red"}, {colorID: 4, colorName: "green"}]},
+        { productID: 3, productName: 'Product 3', description: 'This is product 1', price: 12, productType: "clothes", images: [image1], colors: [{colorID: 1, colorName: "black"}, {colorID: 2, colorName: "blue"}, {colorID: 3, colorName: "red"}, {colorID: 4, colorName: "green"}]},
+        { productID: 4, productName: 'Product 4', description: 'This is product 1', price: 10, productType: "clothes", images: [image1], colors: [{colorID: 1, colorName: "black"}, {colorID: 2, colorName: "blue"}, {colorID: 3, colorName: "red"}, {colorID: 4, colorName: "green"}]},
+        { productID: 5, productName: 'Product 5', description: 'This is product 1', price: 11, productType: "clothes", images: [image1], colors: [{colorID: 1, colorName: "black"}, {colorID: 2, colorName: "blue"}, {colorID: 3, colorName: "red"}, {colorID: 4, colorName: "green"}]},
+        { productID: 6, productName: 'Product 6', description: 'This is product 1', price: 12, productType: "clothes", images: [image1], colors: [{colorID: 1, colorName: "black"}, {colorID: 2, colorName: "blue"}, {colorID: 3, colorName: "red"}, {colorID: 4, colorName: "green"}]},
+        { productID: 7, productName: 'Product 7', description: 'This is product 1', price: 10, productType: "clothes", images: [image1], colors: [{colorID: 1, colorName: "black"}, {colorID: 2, colorName: "blue"}, {colorID: 3, colorName: "red"}, {colorID: 4, colorName: "green"}]},
+        { productID: 8, productName: 'Product 8', description: 'This is product 1', price: 11, productType: "clothes", images: [image1], colors: [{colorID: 1, colorName: "black"}, {colorID: 2, colorName: "blue"}, {colorID: 3, colorName: "red"}, {colorID: 4, colorName: "green"}]},
     ]);
 
     const [price, setPrice] = useState("");
@@ -50,11 +51,20 @@ const Product = () => {
         const priceMatch = priceFilter !== "" ? product.price === parseInt(priceFilter) : true;
         return priceMatch && nameMatch;
     });
+
     // Delete
     const handleDelete = (productID) => {
         const updatedProducts = products.filter((product) => product.productID !== productID);
         setProducts(updatedProducts);
     };
+
+    // Send ID product for update
+    const navigate = useNavigate();
+    const [sendProductID, setSendProductID] = useState('');
+    // Update products
+    const handleUpdate = (sendProductID) => {
+        navigate('/post/', { state: { sendProductID: sendProductID } });
+    }
 
 
     return (
@@ -127,7 +137,7 @@ const Product = () => {
                                         <button className="btn_icon_delete_user" onClick={() => handleDelete(product.productID)}>
                                             <AiOutlineDelete id="btn_icon_edit"/>
                                         </button>
-                                        <div className="btn_icon_edit_user">
+                                        <div className="btn_icon_edit_user" onClick={() => handleUpdate(product.productID)}>
                                             <MdOutlineEdit id="btn_icon_edit"/>
                                         </div>
                                         

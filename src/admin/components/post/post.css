@@ -32,6 +32,10 @@
     gap: 3rem;
     padding: 0 2rem;
 }
+/* Hidden product ID */
+#post .edit-product-form .input-box .id {
+    display: none;
+}
 
 #post .edit-product-form .input-box .box:last-child {
     display: grid;

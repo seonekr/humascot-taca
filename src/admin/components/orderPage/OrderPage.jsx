@@ -146,54 +146,54 @@ const OrderPage = () => {
         <>
             <AdminMenu />
             <section id='menager'>
-                <div className='container_box_orderpage'>
-                    <h2>Order</h2>
-                    {orders.map((order) => (
-                        <div key={order.orderID}>
-                            <form className='box_users_order'>
-                                <div className='box_order_text'>
-                                    <p>No: {order.orderID}</p>
-                                    <div className='container_chat_name'>
-                                        {order.products.slice(0, 2).map((product, index) => (
-                                            <span key={product.productID}>
-                                                {product.productName}
-                                                {index === 0 && order.products.length > 1
-                                                ? ", "
-                                                : " ..."}
-                                            </span>
-                                        ))}
-                                    </div>
-                                </div>
-                                <div className='box_container_time'>
-                                    <p>{order.orderDate}</p>
-                                </div>
-                                <div className='container_order_icon'>
-                                    <div className='btn_pending'>
-                                        Pending
-                                    </div>
-                                    <button className='btn_view' onClick={() => handleOrder(order.orderID)}>
-                                        View
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                    ))}
-                    <div className='box_next_order'>
-                      <button className='box_prev_next_order'>
-                        <AiOutlineLeft id="box_prev_next_icon" />
-                        <p>Prev</p>
-                      </button>
-                      <div className='box_num_order'>
-                        <p className='num_admin'>1</p>
-                        <p className='num_admin'>2</p>
-                        <p className='num_admin'>3</p>
+              <div className='container_box_orderpage'>
+                  <h2>Order</h2>
+                  {orders.map((order) => (
+                      <div key={order.orderID}>
+                          <form className='box_users_order'>
+                              <div className='box_order_text'>
+                                  <p>No: {order.orderID}</p>
+                                  <div className='container_chat_name'>
+                                      {order.products.slice(0, 2).map((product, index) => (
+                                          <span key={product.productID}>
+                                              {product.productName}
+                                              {index === 0 && order.products.length > 1
+                                              ? ", "
+                                              : " ..."}
+                                          </span>
+                                      ))}
+                                  </div>
+                              </div>
+                              <div className='box_container_time'>
+                                  <p>{order.orderDate}</p>
+                              </div>
+                              <div className='container_order_icon'>
+                                  <div className='btn_pending'>
+                                      Pending
+                                  </div>
+                                  <button className='btn_view' onClick={() => handleOrder(order.orderID)}>
+                                      View
+                                  </button>
+                              </div>
+                          </form>
                       </div>
-                      <button className='box_prev_nexts_order'>
-                        <p>Next</p>
-                        <AiOutlineRight id="box_prev_next_icon" />
-                      </button>
+                  ))}
+                  <div className='box_next_order'>
+                    <button className='box_prev_next_order'>
+                      <AiOutlineLeft id="box_prev_next_icon" />
+                      <p>Prev</p>
+                    </button>
+                    <div className='box_num_order'>
+                      <p className='num_admin'>1</p>
+                      <p className='num_admin'>2</p>
+                      <p className='num_admin'>3</p>
                     </div>
-                </div>
+                    <button className='box_prev_nexts_order'>
+                      <p>Next</p>
+                      <AiOutlineRight id="box_prev_next_icon" />
+                    </button>
+                  </div>
+              </div>
             </section>
         </>
     )
