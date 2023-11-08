@@ -1,48 +1,33 @@
-import React, { useState } from "react";
-import "./login.css";
-import "boxicons";
-import { Link, useNavigate } from "react-router-dom";
-import { AiOutlineClose } from "react-icons/ai";
-import google from "../../../img/google.png";
-import axios from "axios";
+
+import React, { useState } from 'react';
+import './login.css';
+import 'boxicons';
+import { Link } from 'react-router-dom';
+import { AiOutlineClose } from "react-icons/ai"
+import google from '../../../img/google.png';
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-
-  const navigate = useNavigate();
+  
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleEmail = (e) => {
     const value = e.target.value;
-    setEmail(value);
+    setEmail(value); 
   };
 
   const handlePassword = (e) => {
-    const value = e.target.value;
-    setPassword(value);
+    const value = e.target.value
+    setPassword(value)
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault(); // Prevent the default form submission behavsior
-    axios
-      .post("http://localhost:3001/login", {
-        email: email,
-        password: password,
-      })
-      .then((res) => {
-        console.log(res);
-        if (res.data.Status === "Success") {
-          localStorage.setItem("token", res.data.Token);
-          localStorage.setItem("id", res.data.id);
-          navigate("/");
-        } else {
-          setError(res.data.Error);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    e.preventDefault(); // Prevent the default form submission behavsior 
+    // Handle form submission logic here
+    console.log('Form submitted');
+    console.log('Email:', email);
+    console.log('Password:', password);
+
   };
 
   return (
@@ -75,15 +60,9 @@ const Login = () => {
             Forgot Password?
           </Link>
 
-          <div className="loginbtn_login">
-            <Link
-              to="#"
-              type="submit"
-              className="login_btn"
-              onClick={handleSubmit}
-            >
-              Login
-            </Link>
+          <div className='loginbtn_login'>
+            <Link to="#" type="submit" className="login_btn" >Login</Link>
+
           </div>
 
           <p>
@@ -91,16 +70,17 @@ const Login = () => {
           </p>
 
           <p>Or</p>
-          <div className="googlebtn_btn">
-            <Link to="#" className="google_btn">
+          <div className='googlebtn_btn'>
+            <Link to="#" className="google_btn" >
               <img src={google} alt="img" />
               <p>Login with Google</p>
             </Link>
           </div>
+
         </div>
       </form>
     </section>
-  );
-};
+  )
+}
 
 export default Login;

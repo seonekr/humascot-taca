@@ -1,63 +1,27 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* ============ box_menager =========== */
-
-.box_menager{
-    width: 90%;
-    height: 100vh;
-    margin: auto;
-    display: flex;
-    background: #FFF;
-    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
-}
-
-.container_dashboard{
-    width: 235px;
-    height: 100vh;
-    background: #FFF;
-    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
-}
-
-/* ============ box_taca_dashboard =========== */
-
-.taca_dashboard{
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 15px 20px 20px 45px;
-}
-
-.taca_dashboard p{
-    font-size: 18px;
-    font-weight: 500;
-}
-#dashboard_icon{
-    width: 30px;
-    height: 30px;
-}
-
-/* ============ container_body_user =========== */
-.container_body_user{
+/* ============ container_body_adminuser =========== */
+.container_body_adminuser {
     width: 100%;
-    height: 100vh;
+    z-index: 999;
+    padding: 88px 20px 20px 255px;
 }
 
-
-.container_box_users{
-    width: 1100px;
-    height: 85.5vh;
+.container_box_adminusers {
+    width: 100%;
+    height: auto;
     margin: auto;
     margin-top: 1rem;
-    padding: 30px 50px 20px 50px;
+    padding: 30px 20px 20px 20px;
     background: #FFF;
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
 }
 
-.box_search_user{
+.box_search_user {
     width: 1126px;
     height: 90px;
     display: flex;
@@ -65,107 +29,106 @@
     padding: 0 40px 0 0;
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
 }
-.box_search_user img{
+
+.box_search_user img {
     width: 55px;
     height: 55px;
 }
 
-
-
-.box_users{
+.box_users {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.input_wrapper{
-    margin: auto;
-    background-color: #F5F6F2;
-    width: 600px;
+/*====== input search box ========*/
+
+.search-box_menageruser {
+    display: flex;
+    width: 100%;
+    padding: 10px 30px 10px 0;
+}
+
+
+
+.search-box_menageruser input {
+    width: 500px;
     height: 45px;
-    border-radius: 30px;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 0 15px;
+    border: 1px solid #ccc;
+    background: #FFF;
+    padding: 0 1rem;
+    border-radius: 5px 0 0 5px;
 }
 
-.box_filter{
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-}
-#filter_icon{
-    width: 20px;
-    height: 20px;
+.search-box_menageruser button {
+    background: #0E64D2;
+    color: #FFF;
+    width: 70px;
+    height: 45px;
+    border: 1px solid #ccc;
+    font-size: 1.7rem;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
 }
 
-.btn_adduser{
-    width: 129px;
-    height: 35px;
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    justify-content: center;
-    border-radius: 5px;
-    background-color: #35B869;
-    color: #FFF;
-}
-#icon_plus{
-    width: 18px;
-    height: 18px;
-    color: #FFF;
-}
 
 /* ============ box_users_user =========== */
 
-.box_users_user{
-    width: 1000px;
+.box_users_user {
+    width: 94%;
     height: 90px;
     display: flex;
+    margin: auto;
     align-items: center;
     justify-content: space-between;
     margin-top: 1rem;
     border-radius: 5px;
-    padding: 20px 20px 20px 30px;
+    padding: 20px 30px 20px 30px;
     background: #FFF;
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
 }
 
-.box_user_text{
+.box_user_text {
     display: flex;
     gap: 1.5rem;
     align-items: center;
 }
 
-.box_user_text img{
+.box_user_text img {
     width: 70px;
     height: 70px;
 }
 
-.container_user_icon{
+.container_user_icon {
     display: flex;
     gap: 1rem;
     align-items: center;
 }
-#icon_edit_delete{
+
+#icon_edit_delete {
     width: 25px;
     height: 25px;
     color: #FFF;
 }
-.btn_edit_user{
+
+.btn_edit_user {
     width: 40px;
     height: 40px;
     display: flex;
+    cursor: pointer;
+    border: none;
     align-items: center;
     justify-content: center;
     background: #27A7EF;
     border-radius: 8px;
 }
-.btn_delete_user{
+
+.btn_delete_user {
     width: 40px;
     height: 40px;
     display: flex;
+    cursor: pointer;
+    border: none;
     align-items: center;
     justify-content: center;
     background: #FA442C;
@@ -176,43 +139,51 @@
 /* ============ box_next_user =========== */
 
 
-.box_next_user{
+.box_next_user {
     display: flex;
     gap: 1rem;
+    cursor: pointer;
+    border: none;
     align-items: center;
     justify-content: center;
     margin-top: 3rem;
     bottom: 0;
 }
-.box_prev_next_user{
+
+.box_prev_next_user {
     width: 80px;
     height: 40px;
     display: flex;
     gap: 0.3rem;
     color: #FFF;
+    cursor: pointer;
+    border: none;
     border-radius: 6px;
     align-items: center;
     justify-content: center;
     background: #FA442C;
 }
-.box_prev_nexts_user{
+
+.box_prev_nexts_user {
     width: 80px;
     height: 40px;
     display: flex;
     gap: 0.3rem;
     color: #FFF;
+    cursor: pointer;
+    border: none;
     border-radius: 6px;
     align-items: center;
     justify-content: center;
     background: #27A7EF;
 }
 
-#box_prev_next_icon{
+#box_prev_next_icon {
     width: 22px;
     height: 22px;
 }
 
-.num{
+.num {
     width: 70px;
     height: 40px;
     border-radius: 6px;
@@ -221,10 +192,12 @@
     justify-content: center;
     border: 1px solid #444;
 }
-.box_next_user p{
+
+.box_next_user p {
     font-size: 18px;
 }
-.box_num_user{
+
+.box_num_user {
     display: flex;
     gap: 0.5rem;
     align-items: center;
@@ -234,7 +207,4 @@
 
 /* ================ Responsive ==================*/
 
-@media screen and (max-width: 1024px){
-   
-}
-
+@media screen and (max-width: 1024px) {}

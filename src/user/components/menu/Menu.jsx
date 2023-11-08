@@ -39,7 +39,7 @@ const Menu = () => {
                         </div>
                     </div>
                 </div>
-                <hr />
+                <hr className="hrfoo"/>
                 <p className="lastFooter">
                     Copyright &#169;
                     TACA 2023
@@ -59,7 +59,7 @@ const Menu = () => {
                     <span><box-icon name='task' color='#888888' ></box-icon></span><span>Order</span>
                 </Link>
                 <Link to="/chatuser" className="box-menu">
-                    <span><box-icon name='chat' color='#888888' ></box-icon></span><span>Chat</span>
+                    <span><box-icon name='chat' color='#888888' ></box-icon></span><span>Contact</span>
                 </Link>
             </div>
         </section>

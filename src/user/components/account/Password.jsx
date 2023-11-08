@@ -1,13 +1,14 @@
 import "./account.css"
-import { FaArrowLeft } from "react-icons/fa6";
+import { FaAngleLeft } from "react-icons/fa6";
 import React, { useState } from 'react';
 import Menu from "../menu/Menu";
+import Header from "../header/Header";
 import { Link } from "react-router-dom";
 
 const Password = () => {
 
-    const[password, setPassword] = useState('');
-    const[oldPassword, setOldPassword] = useState('');
+    const [password, setPassword] = useState('');
+    const [oldPassword, setOldPassword] = useState('');
 
     const oldPass = "1234"; // old password to check
 
@@ -18,12 +19,12 @@ const Password = () => {
         setPassword('')
         setOldPassword('')
 
-        if(oldPassword != oldPass ){
+        if (oldPassword != oldPass) {
             console.log('Old password incorrect please try again')
-        }else{
+        } else {
             console.log('Form Data:', { // Here you can update password to database 
-            oldPassword: "Success",
-        });
+                oldPassword: "Success",
+            });
         }
 
     };
@@ -38,22 +39,19 @@ const Password = () => {
         setOldPassword(value);
     };
 
-    return(
+    return (
         <>
-            <section id="header-account">
-                <div className="account-navbar">
-                    <div className="header-box"><Link to="/account"><FaArrowLeft/></Link></div>
-                    <div className="header-box middle">Password</div>
-                    <div className="header-box"></div>
-                </div>
-            </section>
+            <Header />
             <section id="account">
+                <div className="account_navbarr">
+                    <div className="header_boxBack"><Link to="/account" className='guopIconbAck'><FaAngleLeft className='iconnBack' />Back</Link></div>
+                </div>
                 <form onSubmit={handleSubmit} className="personal-info">
                     <div className="contact-info">
                         <div className="contact">
                             <label htmlFor="password">New password:</label>
-                            <input 
-                                type="password" 
+                            <input
+                                type="password"
                                 id="password"
                                 value={password}
                                 onChange={handlePassword}
@@ -61,8 +59,8 @@ const Password = () => {
                         </div>
                         <div className="contact">
                             <label htmlFor="oldPassword">Old password:</label>
-                            <input 
-                                type="password" 
+                            <input
+                                type="password"
                                 id="oldPassword"
                                 value={oldPassword}
                                 required
@@ -74,10 +72,10 @@ const Password = () => {
                         <div className="save">
                             <button type="submit" disabled={!password}>Done</button> {/* The button will show when user input information */}
                         </div>
-                    </div> 
+                    </div>
                 </form>
             </section>
-            <Menu/>
+            <Menu />
         </>
     )
 };

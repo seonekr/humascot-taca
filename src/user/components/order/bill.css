@@ -4,10 +4,6 @@
     margin: 6rem auto 0 auto;
 }
 
-.account-navbar {
-    padding-bottom: 2rem;
-}
-
 /* bill no: id: name: */
 .guopoidHead{
     display: grid;
@@ -31,17 +27,33 @@
 
 .billGopBox{
     display: grid; 
-    width: 80%;
+    width: 100%;
     margin: auto;
-    grid-template-columns: 1fr 1fr 1fr;
     padding: 30px 0;
   
 }
-.detial{
-    display: grid;
-    justify-content: center;
-    gap: 1.25rem;
+
+
+.billGopBox table {
+    width: 100%;
 }
+
+.billGopBox table tr {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0.5rem 0;
+}
+
+.billGopBox table tr th {
+    width: 15%;
+    text-align: center;
+}
+.billGopBox table tr td {
+    width: 15%;
+    text-align: center;
+}
+
 .titlePrice{
     padding: 2rem;
     display: flex;

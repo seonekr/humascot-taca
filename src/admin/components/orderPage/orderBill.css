@@ -1,181 +1,104 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* ============ box_menager =========== */
-
-.box_menager_orderpaid{
-    width: 90%;
-    height: 100vh;
-    margin: auto;
-    display: flex;
-    background: #FFF;
-    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
-}
-
-.container_dashboard{
-    width: 235px;
-    height: 100vh;
-    background: #FFF;
-    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
-}
-
-/* ============ box_taca_dashboard =========== */
-
-.taca_dashboard{
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 15px 20px 20px 45px;
-}
-
-.taca_dashboard p{
-    font-size: 18px;
-    font-weight: 500;
-}
-#dashboard_icon{
-    width: 30px;
-    height: 30px;
-}
-
-/* ============ container_body_orderpaid =========== */
-
-.container_body_orderpaid{
-    width: 1126px;
-    height: auto;
-}
-
-
-.container_box_orderpaid{
-    width: 1100px;
-    height: 85.5vh;
-    margin: auto;
-    margin-top: 0.5rem;
-    padding: 30px 100px 30px 100px;
-    background: #FFF;
-    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
-}
-
-/* ============ input_wrapper_orderpaid =========== */
-
-
-
-
-.box_search{
-    width: 1000px;
-    height: 90px;
-    display: flex;
-    align-items: center;
-    padding: 0 40px 0 0;
-    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
-}
-.box_search img{
-    width: 50px;
-    height: 50px;
-}
-
-
-.input_wrapper_orderpaid{
-    margin: auto;
-    background-color: #F5F6F2;
-    width: 600px;
-    height: 45px;
-    border-radius: 30px;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 0 15px;
-}
-
-
-
 /* Bill */
-#orderbill .bill-detial {
-    margin-top: 1rem;
+#abill {
+    position: absolute;
+    width: 75%;
+    margin: 6rem auto 0 auto;
+    left: 20%;
 }
-.orderbill_detial{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
 
 /* bill no: id: name: */
-#orderbill .bill-detial .id,
-#orderbill .bill-detial .detial {
-    border-bottom: 1px solid #eee;
-    margin-bottom: 1rem;
+.aguopoidHead{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }
-.box_lineCheck{
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 100%;
-    background: rgb(75, 239, 94);
-}
-#lineCheck_icon{
-    width: 30px;
-    height: 30px;
-    color: #FFF;
-    
-}
-#orderbill .bill-detial h2 {
+.aiconnboxx{
     text-align: center;
-    margin-top: -1.5rem;
+    font-size: 45px;
+    color: #347FFF;
 }
-#orderbill .bill-detial .id span {
-    display: flex;
+.abill-detial{
+    padding: 25px 40px ;
+    background: #FFF;
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.15);
 }
-#orderbill .bill-detial .id span p {
-    padding: 0.5rem;
-    font-size: 1.3rem;
+.aidf{
+    display: grid;
+    gap: 1rem;
+    padding-bottom: 1rem;
 }
 
-/* bill detial */
-#orderbill .bill-detial .detial span {
+.abillGopBox{
+    display: grid; 
+    width: 100%;
+    margin: auto;
+    padding: 30px 0;
+  
+}
+
+
+.abillGopBox table {
+    width: 100%;
+}
+
+.abillGopBox table tr {
+    width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 1rem 0;
-    font-size: 1.2rem;
-}
-#orderbill .bill-detial .detial span h3 {
-    font-size: 1.2rem;
+    margin: 0.5rem 0;
 }
 
-/* bill palce on */
-#orderbill .bill-detial .place-on span {
+.abillGopBox table tr th {
+    width: 15%;
+    text-align: center;
+}
+.abillGopBox table tr td {
+    width: 15%;
+    text-align: center;
+}
+
+.atitlePrice{
+    padding: 2rem;
     display: flex;
-    padding: 0.5rem 0;
-}
-#orderbill .bill-detial .place-on span p:last-child {
-    padding-left: 0.5rem;
+    justify-content: space-between;
 }
 
-/* Responsive */
-@media only screen and (max-width: 768px) {
-    #orderbill .bill-detial {
-        margin-top: 4rem;
-    }
-
-    #orderbill .bill-detial .id span p {
-        padding: 0.2rem;
-        font-size: 1rem;
-    }
-
-    #orderbill .bill-detial .detial span {
-        padding: 0.8rem 0;
-        font-size: 1rem;
-    }
-
-    #orderbill .bill-detial .detial span h3 {
-        font-size: 1rem;
-    }
-
-    #orderbill .bill-detial .place-on span p:last-child {
-        padding-left: 0.2rem;
-    }
+.aplace-on{
+    display: grid;
+    gap: 1rem;
+    padding: 0 2rem;
 }
+
+/* update status */
+.aplace-on form {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.aplace-on form select {
+    width: 15%;
+}
+.aplace-on form select:focus{
+    outline: none !important;
+}
+.aplace-on form button {
+    background-color: #347FFF;
+    padding: 0.3rem 1rem;
+    border-radius: 4px;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* ================ Responsive ==================*/
+/* For smartphones with a maximum width of 480px */
+/* @media only screen and (max-width: 480px) {
+    .box_guopoidHead{
+        padding: 0;
+    }
+    
+    .box_icon_Check {
+        display: flex;
+        margin-left: 4rem;
+    }
+} */

@@ -1,118 +1,253 @@
-import React from 'react'
-import "./orderBill.css"
-import { AiFillDashboard,AiOutlineUser,AiOutlineSetting,AiFillProfile,AiOutlineDelete,AiOutlineLeft,AiOutlineRight } from 'react-icons/ai';
-import { FaBook,FaSearch } from 'react-icons/fa';
-import { TbUserCog } from 'react-icons/tb';
-import { RiMessage2Line } from 'react-icons/ri';
-import { PiCheckFatFill } from 'react-icons/pi';
-import { BiLogOut } from 'react-icons/bi';
-import { Link } from 'react-router-dom';
-// import people from '../../img/people.png';
+import React, {useState} from 'react'
+import "./orderBill.css";
+import AdminMenu from '../adminMenu/AdminMenu';
+import { useLocation } from 'react-router-dom';
 
-const OrderPaid = () => {
-  return (
-    <>
-        <section id='menager'>
-            <div className='box_menager_orderpaid'>
-                <div className='container_dashboard'>
-                    <div className='taca_dashboard'>
-                        <h1>TACA</h1>
-                    </div>
-                    <div className='taca_dashboard'>
-                        <Link to="#" className='box_dashboard_icon'>
-                            <AiFillDashboard id="dashboard_icon"/>
-                        </Link>
-                        <p>Dashboard</p>
-                    </div>
-                    <div className='taca_dashboard'>
-                        <Link to="#" className='box_product_icon'>
-                            <AiFillProfile id="dashboard_icon"/>
-                        </Link>
-                        <p>Product</p>
-                    </div>
-                    <div className='taca_dashboard'>
-                        <Link to="#" className='box_order_icon'>
-                            <FaBook id="dashboard_icon"/>
-                        </Link>
-                        <p>Orders</p>
-                    </div>
-                    <div className='taca_dashboard'>
-                        <Link to="#" className='box_users_icon'>
-                            <AiOutlineUser id="dashboard_icon"/>
-                        </Link>
-                        <p>Users</p>
-                    </div>
-                    <div className='taca_dashboard'>
-                        <Link to="#" className='box_admin_icon'>
-                            <TbUserCog id="dashboard_icon"/>
-                        </Link>
-                        <p>Admins</p>
-                    </div>
-                    <div className='taca_dashboard'>
-                        <Link to="#" className='box_message_icon'>
-                            <RiMessage2Line id="dashboard_icon"/>
-                        </Link>
-                        <p>Messages</p>
-                    </div>
-                    <div className='taca_dashboard'>
-                        <Link to="#" className='box_setting_icon'>
-                            <AiOutlineSetting id="dashboard_icon"/>
-                        </Link>
-                        <p>Settings</p>
-                    </div>
-                    <div className='taca_dashboard'>
-                        <Link to="#" className='box_logout_icon'>
-                            <BiLogOut id="dashboard_icon"/>
-                        </Link>
-                        <p>Log Out</p>
-                    </div>
-                </div>
+const OrderBill = () => {
 
-                <div className='container_body_orderpaid'>
-                    <div className='box_search'>
-                        <div className='input_wrapper_orderpaid'>
-                            <FaSearch id="search-icon" />
-                            <input placeholder='Search.' />
+    const [orders, setOrders] = useState([
+        {
+          orderID: 1,
+          userID: 2,
+          products: [
+            {
+              productID: 1,
+              productName: "pro1",
+              productType: "clothes",
+              amount: 2,
+              color: "colW",
+              price: 10,
+              size: "m",
+            },
+            {
+              productID: 2,
+              productName: "pro1",
+              productType: "clothes",
+              amount: 2,
+              color: "colB",
+              price: 10,
+              size: "m",
+            },
+          ],
+          orderDate: "10/12/2023",
+          status: "pending",
+          payment: "Bcel One",
+          delivery: "Houngaloun",
+        },
+        {
+          orderID: 2,
+          userID: 1,
+          products: [
+            {
+              productID: 1,
+              productName: "pro1",
+              productType: "clothes",
+              amount: 2,
+              price: 10,
+              color: "colB",
+              size: "m",
+            },
+            {
+              productID: 2,
+              productName: "pro2",
+              productType: "clothes",
+              amount: 2,
+              price: 10,
+              color: "colW",
+              size: "l",
+            },
+    
+            {
+              productID: 3,
+              productName: "pro3",
+              productType: "clothes",
+              amount: 2,
+              price: 10,
+              color: "colBlue",
+              size: "xl",
+            },
+          ],
+          orderDate: "10/12/2023",
+          status: "pending",
+          payment: "Bcel One",
+          delivery: "Anousit",
+        },
+        {
+          orderID: 3,
+          userID: 1,
+          products: [
+            {
+              productID: 1,
+              productName: "pro1",
+              productType: "clothes",
+              amount: 2,
+              price: 10,
+              color: "colB",
+              size: "m",
+            },
+            {
+              productID: 2,
+              productName: "pro1",
+              productType: "clothes",
+              amount: 2,
+              price: 10,
+              color: "colBlue",
+              size: "m",
+            },
+          ],
+          orderDate: "10/12/2023",
+          status: "pending",
+          payment: "Bcel One",
+          delivery: "Houngaloun",
+        },
+        {
+          orderID: 4,
+          userID: 3,
+          products: [
+            {
+              productID: 1,
+              productName: "pro1",
+              productType: "clothes",
+              amount: 2,
+              price: 10,
+              color: "colB",
+              size: "m",
+            },
+            {
+              productID: 2,
+              productName: "pro1",
+              productType: "clothes",
+              amount: 2,
+              price: 10,
+              color: "colBlue",
+              size: "m",
+            },
+          ],
+          orderDate: "10/12/2023",
+          status: "pending",
+          payment: "Bcel One",
+          delivery: "Anousit",
+        },
+    ]);
+
+    // users
+    const [users, setUsers] = useState([
+        { userID: 1, name: "John Doe", email: "john@gmail.com" },
+        { userID: 2, name: "Sam", email: "sam@gmail.com" },
+        { userID: 3, name: "Will", email: "wil@gmail.com" },
+    ]);
+
+    // Get order ID
+    const location = useLocation();
+    const { id } = location.state || {};
+    const [getId, setGetId] = useState(id);
+
+    const filteredOrders = orders
+        .filter((order) => order.orderID === getId) // Filter orders by orderID
+        .map((order) => {
+        const user = users.find((user) => user.userID === order.userID); // Find user details for the order
+
+        // Calculate total price
+        const totalPrice = order.products.reduce((total, product) => {
+            return total + product.price * product.amount;
+        }, 0);
+
+        return {
+            orderID: order.orderID,
+            userID: order.userID,
+            userName: user.name,
+            products: order.products,
+            orderDate: order.orderDate,
+            status: order.status,
+            payment: order.payment,
+            delivery: order.delivery,
+            totalPrice: totalPrice,
+        };
+    });
+
+    // Completion
+    let statusDelivery = ''
+    if(filteredOrders){
+      filteredOrders.forEach((order) => (
+        statusDelivery = order.status
+      ))
+    }
+    const [status, setStatus] = useState(statusDelivery)
+
+    // Handle status
+    const handleStatus = (e) => {
+      setStatus(e.target.value);
+    };
+
+    // Handle submit
+    const handleSubmit = (e) => {
+      e.preventDefault();
+
+      console.log(status)
+    }
+
+    return (
+        <>
+            <AdminMenu />
+            <section id="abill">
+                {filteredOrders.map((order) => (
+                  <div className="abill-detial" key={order.orderID}>
+                    <div className="aguopoidHead">
+                        <div className="aidf">
+                        <p>OrderID: {order.orderID}</p>
+                        <p>UserID: {order.userID}</p>
+                        <p>Name: {order.userName}</p>
                         </div>
-                        <img src='https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Photos.png' alt='img'></img>
                     </div>
-                    <div className='container_box_orderpaid'>
-                        
-                        <section id="orderbill">
-                            <div className="bill-detial">
-                                <div className='orderbill_detial'>
-                                    <div className="id">
-                                        <span><p>NO:</p><p>15</p></span>
-                                        <span><p>ID:</p><p>4</p></span>
-                                        <span><p>Name:</p><p>Acer</p></span>
-                                    </div>
-                                    <div className='box_lineCheck'>
-                                        <PiCheckFatFill id="lineCheck_icon"/>
-                                    </div>
-                                    <div></div>
-                                </div>
-                                <h2>Products</h2>
-                                <div className="detial">
-                                    <span><h3>Product name</h3><h3>Price</h3><h3>Amount</h3></span>
-                                    <span><p>name...</p><p>$15.00</p><p>5</p></span>
-                                    <span><p>name...</p><p>$15.00</p><p>5</p></span>
-                                    <span><p>name...</p><p>$15.00</p><p>5</p></span>
-                                </div>
-                                <div className="place-on">
-                                    <span><p>Place on:</p><p>15/09/2023</p></span>
-                                    <span><p>Payment method:</p><p>Bcel One</p></span>
-                                    <span><p>Status:</p><p>completed</p></span>
-                                    <span><p>Delivery by:</p><p>Anousit</p></span>
-                                </div>
-                            </div>
-                        </section>
-                        
+                    <hr />
+                    <div className="abillGopBox">
+                        <table>
+                        <thead>
+                            <tr>
+                            <th>Product Name</th>
+                            <th>Product Type</th>
+                            <th>Price</th>
+                            <th>Amount</th>
+                            <th>Color</th>
+                            <th>Size</th>
+                            </tr>
+                        </thead>
+                        {order.products.map((product) => (
+                            <tbody key={product.productID}>
+                            <tr>
+                                <td>{product.productName}</td>
+                                <td>{product.productType}</td>
+                                <td>${product.price}</td>
+                                <td>{product.amount}</td>
+                                <td>{product.color}</td>
+                                <td>{product.size}</td>
+                            </tr>
+                            </tbody>
+                        ))}
+                        </table>
                     </div>
-                </div>
-            </div>
-        </section>
-    </>
-  )
+                    <hr />
+                    <div className="atitlePrice">
+                        <p>Total:</p>
+                        <p>${order.totalPrice}</p>
+                    </div>
+                    <div className="aplace-on">
+                        <p>Place on: {order.orderDate}</p>
+                        <p>Payment method: {order.payment}</p>
+                        <form onSubmit={handleSubmit}>
+                            <select value={status} onChange={handleStatus}>
+                                <option value="pending">Pending</option>
+                                <option value="completed">Completed</option>
+                            </select>
+                            <button type='submit'>Confirm</button>
+                        </form>
+                        <p>Delivery: {order.delivery}</p>
+                    </div>
+                  </div>
+                ))}
+            </section>
+        </>
+    )
 }
 
-export default OrderPaid
+export default OrderBill

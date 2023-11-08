@@ -1,21 +1,30 @@
 import "./productHome.css";
 import dress from "../../../img/dress.png";
-import productImage from "../../../img/productImage.png";
 import image1 from "../../../img/image1.png";
-import { Link } from "react-router-dom";
+import acer from '../../../img/acer.png';
+import productImage from "../../../img/productImage.png";
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
+
+
 const ProductHome = () => {
     const [products, setProducts] = useState([
-        { id: 1, name: 'Product 1', description: 'This is product 1', price: 12, category: "clothes", images: [dress] },
-        { id: 2, name: 'Product 2', description: 'This is product 2', price: 20, category: "clothes", images: [dress] },
-        { id: 3, name: 'Product 3', description: 'This is product 3', price: 30, category: "electronich device", images: [dress] },
-        { id: 4, name: 'Product 1', description: 'This is product 1', price: 10, category: "electronich device", images: [dress] },
-        { id: 5, name: 'Product 2', description: 'This is product 2', price: 20, category: "cosmetics", images: [dress] },
-        { id: 6, name: 'Product 3', description: 'This is product 3', price: 30, category: "cosmetics", images: [dress] },
-      ]);
+        { productID: 1, productName: "pro1", productType: "clothes", price: 10, description: "desc for this product", images: [acer] },
+        { productID: 2, productName: "pro2", productType: "clothes", price: 10, description: "desc for this product", images: [dress] },
+        { productID: 3, productName: "pro3", productType: "clothes", price: 10, description: "desc for this product", images: [acer] },
+        { productID: 4, productName: "pro4", productType: "clothes", price: 10, description: "desc for this product", images: [dress] },
+        { productID: 5, productName: "pro5", productType: "clothes", price: 10, description: "desc for this product", images: [image1] },
+        { productID: 6, productName: "pro6", productType: "clothes", price: 10, description: "desc for this product", images: [image1] },
+        { productID: 7, productName: "pro7", productType: "clothes", price: 10, description: "desc for this product", images: [productImage] },
+        { productID: 8, productName: "pro8", productType: "clothes", price: 10, description: "desc for this product", images: [acer] },
+        { productID: 9, productName: "pro9", productType: "clothes", price: 10, description: "desc for this product", images: [productImage] },
+        { productID: 10, productName: "pro10", productType: "clothes", price: 10, description: "desc for this product", images: [acer] },
+        { productID: 11, productName: "pro11", productType: "clothes", price: 10, description: "desc for this product", images: [productImage] }
+    ]);
 
     const [price, setPrice] = useState("");
     const [priceFilter, setPriceFilter] = useState("");
+    const [displayCount, setDisplayCount] = useState(12);
 
     // Handle inputChange
     const handleInputChange = (e, index, field) => {
@@ -30,67 +39,89 @@ const ProductHome = () => {
         return peiceMatch;
     });
 
-    // Handle filter by category
+    // Handle filter by price
     const handleFilter = (price) => {
-        setPriceFilter(price); // Please change this to category
+        setPriceFilter(price);
     };
 
-    // Handle select by category
+    // Handle select by price
     const handleSelectChange = (e) => {
-        setPrice(e.target.value); // Please change this to category
-        handleFilter(e.target.value); // Please change this to category
+        setPrice(e.target.value);
+        handleFilter(e.target.value);
     };
+
+    // Read more
+    const displayedProducts = filteredProducts.slice(0, displayCount);
+    const handleViewMore = () => {
+        setDisplayCount(displayCount + 4);
+    };
+
+    // Get send ID
+    const navigate = useNavigate();
+
+    // Handle product
+    const handleProduct = (sendProductID) => {
+        navigate('/product_search/productdetails/', { state: { sendProductID: sendProductID } });
+    }
 
     return (
         <section id="product">
             <div className="productHead_content">
                 <h1 className="htxthead"><span className="spennofStyle"></span>Product</h1>
-                <form>
-                    <select className="filter_priceProduct" value={price} onChange={handleSelectChange}>
-                        <option value="">Price</option>
-                        <option value="10">$10</option>
-                        <option value="20">$20</option>
-                        <option value="30">$30</option>
-                    </select>
-                </form>
+                <div className="categoryBoxfiler">
+                    <form>
+                        <select className="filter_priceProduct" value={price} onChange={handleSelectChange}>
+                            <option value="">Price</option>
+                            <option value="10">$10</option>
+                            <option value="20">$20</option>
+                            <option value="30">$30</option>
+                        </select>
+                    </form>
+                    <box-icon name='filter'></box-icon>
+                </div>
             </div>
 
-            <form className="product-area">
-                {filteredProducts.map((product, index) => (
+            <div className="product-area">
+                {displayedProducts.map((product, index) => (
                     <div className="box-product" key={index}>
-                        <Link to="/product_search/"><img src={product.images[0]} alt="image" /></Link>
-                        <ul className="txtOFproduct">
-                            <li>
-                                <input
-                                    className="name"
-                                    type="text"
-                                    value={product.name}
-                                    onChange={handleInputChange}
-                                />
-                            </li>
-                            <li >
-                                <input
-                                    className="priceProduct"
-                                    type="text"
-                                    value={product.price}
-                                    onChange={(e) => handleInputChange(e, index, "price")}
-                                />
-                            </li>
-                            <li className="">
-                                <input
-                                    className="desc"
-                                    type="text"
-                                    value={product.description}
-                                    onChange={(e) => handleInputChange(e, index, "description")}
-                                />
-                            </li>
-                        </ul>
+                        <div onClick={() => handleProduct(product.productID)}>
+                            <div className='img'>
+                                <img src={product.images[0]} alt="image" />
+                            </div>
+                            <ul className="txtOFproduct2">
+                                <li>
+                                    <input
+                                        className="name"
+                                        type="text"
+                                        value={product.productName}
+                                        onChange={handleInputChange}
+                                    />
+                                </li>
+                                <li>
+                                    <input
+                                        className="price"
+                                        type="text"
+                                        value={product.price}
+                                        onChange={(e) => handleInputChange(e, index, "price")}
+                                    />
+                                </li>
+                                <li>
+                                    <input
+                                        className="desc"
+                                        type="text"
+                                        value={product.description}
+                                        onChange={(e) => handleInputChange(e, index, "description")}
+                                    />
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 ))}
-            </form>
+            </div>
 
-            <button className="btnViewProduct">View More</button>
+            <button className="btnViewProduct" onClick={handleViewMore}>View More</button>
         </section>
     )
 }
+
 export default ProductHome;

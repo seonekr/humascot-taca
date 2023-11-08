@@ -13,6 +13,7 @@ body {
     overflow: hidden;
     margin: auto;
     margin-left: 15%;
+    position: relative;
 }
 
 /* manage and target */
