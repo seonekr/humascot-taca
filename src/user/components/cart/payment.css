@@ -1,6 +1,7 @@
 /*payment page*/
 #payment {
     margin-top: 5rem;
+    margin-bottom: 15rem;
     width: 100%;
 }
 
@@ -9,16 +10,15 @@
     height: 110vh;
 }
 
-.guopBoxPayment,
-.account-navbar {
+.guopBoxPayment {
     margin: auto;
     background-color: #fff;
 }
 
-.account-navbar {
+.header_box{
     padding-top: 1rem;
+    text-align: center;
 }
-
 #payment .adress-payment {
     display: grid;
 }
@@ -38,7 +38,7 @@
 /* Address title */
 #payment .adress-payment .box p {
     width: 80%;
-    padding: 1rem 0.3rem;
+    padding: 1.5rem 0.3rem;
     margin: 0 auto;
     font-family: "saysettha ot";
     color: #1589FF;
@@ -50,10 +50,27 @@
     font-size: 1.3rem;
     width: 80%;
     margin: 0 auto;
+    color: #fff;
     text-align: center;
-    border-radius: 4px;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
+    border-radius: 4px 4px 0 0;
+    padding: 5px 0;
+    cursor: pointer;
+}
+.detailsProductInPayMentBox h3{
+    text-align: center;
+    padding-bottom: 10px;
+}
+.detailsProductInPayMentBox ul{
+    list-style: none;
+    width: 80%;
+    margin: auto;
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+}
+
+.detailsProduct_li{
+    display: grid;
+    gap: 8px;
 }
 
 /* payment method */
