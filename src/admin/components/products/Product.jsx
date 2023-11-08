@@ -10,19 +10,19 @@ import { AiOutlineDelete, AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 
 const Product = () => {
     const [products, setProducts] = useState([
-        { productID: 1, productName: 'Product 1', description: 'This is product 1', price: 10, category: "clothes", images: [image1] },
-        { productID: 2, productName: 'Product 2', description: 'This is product 1', price: 11, category: "clothes", images: [image1] },
-        { productID: 3, productName: 'Product 3', description: 'This is product 1', price: 12, category: "clothes", images: [image1] },
-        { productID: 4, productName: 'Product 4', description: 'This is product 1', price: 10, category: "clothes", images: [image1] },
-        { productID: 5, productName: 'Product 5', description: 'This is product 1', price: 11, category: "clothes", images: [image1] },
-        { productID: 6, productName: 'Product 6', description: 'This is product 1', price: 12, category: "clothes", images: [image1] },
-        { productID: 7, productName: 'Product 7', description: 'This is product 1', price: 10, category: "clothes", images: [image1] },
-        { productID: 8, productName: 'Product 8', description: 'This is product 1', price: 11, category: "clothes", images: [image1] },
+        { productID: 1, productName: 'Product 1', description: 'This is product 1', price: 10, productType: "clothes", images: [image1] },
+        { productID: 2, productName: 'Product 2', description: 'This is product 1', price: 11, productType: "clothes", images: [image1] },
+        { productID: 3, productName: 'Product 3', description: 'This is product 1', price: 12, productType: "clothes", images: [image1] },
+        { productID: 4, productName: 'Product 4', description: 'This is product 1', price: 10, productType: "clothes", images: [image1] },
+        { productID: 5, productName: 'Product 5', description: 'This is product 1', price: 11, productType: "clothes", images: [image1] },
+        { productID: 6, productName: 'Product 6', description: 'This is product 1', price: 12, productType: "clothes", images: [image1] },
+        { productID: 7, productName: 'Product 7', description: 'This is product 1', price: 10, productType: "clothes", images: [image1] },
+        { productID: 8, productName: 'Product 8', description: 'This is product 1', price: 11, productType: "clothes", images: [image1] },
     ]);
 
-    const [searchTerm, setSearchTerm] = useState("");
     const [price, setPrice] = useState("");
     const [priceFilter, setPriceFilter] = useState("");
+    const [searchTerm, setSearchTerm] = useState("");
 
     // Handle inputChange
     const handleInputChange = (e, index, field) => {
@@ -47,8 +47,8 @@ const Product = () => {
     // Filter products based on search term and price range
     const filteredProducts = products.filter((product) => {
         const nameMatch = product.productName.toLowerCase().includes(searchTerm.toLowerCase());
-        const peiceMatch = priceFilter !== "" ? product.price === parseInt(priceFilter) : true;
-        return peiceMatch, nameMatch;
+        const priceMatch = priceFilter !== "" ? product.price === parseInt(priceFilter) : true;
+        return priceMatch && nameMatch;
     });
     // Delete
     const handleDelete = (productID) => {
@@ -93,9 +93,9 @@ const Product = () => {
                         </div>
                     </div>
 
-                    <form className="product-area">
+                    <div className="product-area">
                         {filteredProducts.map((product, index) => (
-                            <div className="box-product" key={ product.productID}>
+                            <div className="box-product" key={ index }>
                                 <div><img src={product.images[0]} alt="image" /></div>
                                 <ul className="txtOFproduct">
                                     <li>
@@ -135,7 +135,7 @@ const Product = () => {
                                 </ul>
                             </div>
                         ))}
-                    </form>
+                    </div>
                     <div className='box_container_next_product'>
                         <button className='box_prev_left_product'>
                             <AiOutlineLeft id="box_icon_left_right_product" />
