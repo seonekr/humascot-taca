@@ -10,14 +10,14 @@ import { AiOutlineDelete, AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 
 const Product = () => {
     const [products, setProducts] = useState([
-        { id: 1, name: 'Product 1', description: 'This is product 1', price: 10, category: "clothes", images: [image1] },
-        { id: 2, name: 'Product 2', description: 'This is product 1', price: 11, category: "clothes", images: [image1] },
-        { id: 3, name: 'Product 3', description: 'This is product 1', price: 12, category: "clothes", images: [image1] },
-        { id: 4, name: 'Product 4', description: 'This is product 1', price: 10, category: "clothes", images: [image1] },
-        { id: 5, name: 'Product 5', description: 'This is product 1', price: 11, category: "clothes", images: [image1] },
-        { id: 6, name: 'Product 6', description: 'This is product 1', price: 12, category: "clothes", images: [image1] },
-        { id: 7, name: 'Product 7', description: 'This is product 1', price: 10, category: "clothes", images: [image1] },
-        { id: 8, name: 'Product 8', description: 'This is product 1', price: 11, category: "clothes", images: [image1] },
+        { productID: 1, productName: 'Product 1', description: 'This is product 1', price: 10, category: "clothes", images: [image1] },
+        { productID: 2, productName: 'Product 2', description: 'This is product 1', price: 11, category: "clothes", images: [image1] },
+        { productID: 3, productName: 'Product 3', description: 'This is product 1', price: 12, category: "clothes", images: [image1] },
+        { productID: 4, productName: 'Product 4', description: 'This is product 1', price: 10, category: "clothes", images: [image1] },
+        { productID: 5, productName: 'Product 5', description: 'This is product 1', price: 11, category: "clothes", images: [image1] },
+        { productID: 6, productName: 'Product 6', description: 'This is product 1', price: 12, category: "clothes", images: [image1] },
+        { productID: 7, productName: 'Product 7', description: 'This is product 1', price: 10, category: "clothes", images: [image1] },
+        { productID: 8, productName: 'Product 8', description: 'This is product 1', price: 11, category: "clothes", images: [image1] },
     ]);
 
     const [searchTerm, setSearchTerm] = useState("");
@@ -51,8 +51,8 @@ const Product = () => {
 
     // Delete
 
-    const handleDelete = (productId) => {
-        const updatedProducts = products.filter((product) => product.id !== productId);
+    const handleDelete = (productID) => {
+        const updatedProducts = products.filter((product) => product.productID !== productID);
         setProducts(updatedProducts);
     };
 
@@ -95,14 +95,14 @@ const Product = () => {
 
                     <form className="product-area">
                         {filteredProducts.map((product, index) => (
-                            <div className="box-product" key={ product.id}>
-                                <Link to="#"><img src={product.images[0]} alt="image" /></Link>
+                            <div className="box-product" key={ product.productID}>
+                                <div><img src={product.images[0]} alt="image" /></div>
                                 <ul className="txtOFproduct">
                                     <li>
                                         <input
                                             className="name"
                                             type="text"
-                                            value={product.name}
+                                            value={product.productName}
                                             onChange={handleInputChange}
                                         />
                                     </li>
@@ -124,16 +124,15 @@ const Product = () => {
                                     </li>
                                     <div className="box_btn_edit_delete">
 
-                                        <button className="btn_icon_delete_user" onClick={() => handleDelete(product.id)}>
+                                        <button className="btn_icon_delete_user" onClick={() => handleDelete(product.productID)}>
                                             <AiOutlineDelete id="btn_icon_edit"/>
                                         </button>
-                                        <Link to="/editproduct/" className="btn_icon_edit_user">
+                                        <div className="btn_icon_edit_user">
                                             <MdOutlineEdit id="btn_icon_edit"/>
-                                        </Link>
+                                        </div>
                                         
                                     </div>
                                 </ul>
-                                
                             </div>
                         ))}
                     </form>
