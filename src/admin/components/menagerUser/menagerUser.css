@@ -93,7 +93,10 @@
     gap: 1.5rem;
     align-items: center;
 }
-
+.container_chat_name{
+    display: grid;
+    gap: 0.5rem;
+}
 .box_user_text img {
     width: 70px;
     height: 70px;
