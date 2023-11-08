@@ -191,59 +191,59 @@ const OrderBill = () => {
             <AdminMenu />
             <section id="abill">
                 {filteredOrders.map((order) => (
-                    <div className="abill-detial" key={order.orderID}>
-                      <div className="aguopoidHead">
-                          <div className="aidf">
-                          <p>OrderID: {order.orderID}</p>
-                          <p>UserID: {order.userID}</p>
-                          <p>Name: {order.userName}</p>
-                          </div>
-                      </div>
-                      <hr />
-                      <div className="abillGopBox">
-                          <table>
-                          <thead>
-                              <tr>
-                              <th>Product Name</th>
-                              <th>Product Type</th>
-                              <th>Price</th>
-                              <th>Amount</th>
-                              <th>Color</th>
-                              <th>Size</th>
-                              </tr>
-                          </thead>
-                          {order.products.map((product) => (
-                              <tbody key={product.productID}>
-                              <tr>
-                                  <td>{product.productName}</td>
-                                  <td>{product.productType}</td>
-                                  <td>${product.price}</td>
-                                  <td>{product.amount}</td>
-                                  <td>{product.color}</td>
-                                  <td>{product.size}</td>
-                              </tr>
-                              </tbody>
-                          ))}
-                          </table>
-                      </div>
-                      <hr />
-                      <div className="atitlePrice">
-                          <p>Total:</p>
-                          <p>${order.totalPrice}</p>
-                      </div>
-                      <div className="aplace-on">
-                          <p>Place on: {order.orderDate}</p>
-                          <p>Payment method: {order.payment}</p>
-                          <form onSubmit={handleSubmit}>
-                              <select value={status} onChange={handleStatus}>
-                                  <option value="pending">Pending</option>
-                                  <option value="completed">Completed</option>
-                              </select>
-                              <button type='submit'>Confirm</button>
-                          </form>
-                          <p>Delivery: {order.delivery}</p>
-                      </div>
+                  <div className="abill-detial" key={order.orderID}>
+                    <div className="aguopoidHead">
+                        <div className="aidf">
+                        <p>OrderID: {order.orderID}</p>
+                        <p>UserID: {order.userID}</p>
+                        <p>Name: {order.userName}</p>
+                        </div>
                     </div>
+                    <hr />
+                    <div className="abillGopBox">
+                        <table>
+                        <thead>
+                            <tr>
+                            <th>Product Name</th>
+                            <th>Product Type</th>
+                            <th>Price</th>
+                            <th>Amount</th>
+                            <th>Color</th>
+                            <th>Size</th>
+                            </tr>
+                        </thead>
+                        {order.products.map((product) => (
+                            <tbody key={product.productID}>
+                            <tr>
+                                <td>{product.productName}</td>
+                                <td>{product.productType}</td>
+                                <td>${product.price}</td>
+                                <td>{product.amount}</td>
+                                <td>{product.color}</td>
+                                <td>{product.size}</td>
+                            </tr>
+                            </tbody>
+                        ))}
+                        </table>
+                    </div>
+                    <hr />
+                    <div className="atitlePrice">
+                        <p>Total:</p>
+                        <p>${order.totalPrice}</p>
+                    </div>
+                    <div className="aplace-on">
+                        <p>Place on: {order.orderDate}</p>
+                        <p>Payment method: {order.payment}</p>
+                        <form onSubmit={handleSubmit}>
+                            <select value={status} onChange={handleStatus}>
+                                <option value="pending">Pending</option>
+                                <option value="completed">Completed</option>
+                            </select>
+                            <button type='submit'>Confirm</button>
+                        </form>
+                        <p>Delivery: {order.delivery}</p>
+                    </div>
+                  </div>
                 ))}
             </section>
         </>

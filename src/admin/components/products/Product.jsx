@@ -51,7 +51,7 @@ const Product = () => {
 
     // Delete
 
-    const handleDelete = (productID) => {
+    const handleDelete = (productId) => {
         const updatedProducts = products.filter((product) => product.productID !== productID);
         setProducts(updatedProducts);
     };
@@ -124,7 +124,7 @@ const Product = () => {
                                     </li>
                                     <div className="box_btn_edit_delete">
 
-                                        <button className="btn_icon_delete_user" onClick={() => handleDelete(product.productID)}>
+                                        <button className="btn_icon_delete_user" onClick={() => handleDelete(product.id)}>
                                             <AiOutlineDelete id="btn_icon_edit"/>
                                         </button>
                                         <div className="btn_icon_edit_user">
