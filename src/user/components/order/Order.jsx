@@ -175,6 +175,7 @@ const Order = () => {
       <Header />
       <section id="container_order_item">
         <div className="container_order_all">
+          <h2>Order</h2>
           {filteredOrders.map((order) => (
             <div key={order.orderID}>
               <div
