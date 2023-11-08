@@ -1,37 +1,33 @@
 /* Bill */
-#bill {
-    width: 80%;
+#abill {
+    position: absolute;
+    width: 75%;
     margin: 6rem auto 0 auto;
-    padding-top: 2rem;
-    padding-left: 7rem;
-}
-
-.account-navbar {
-    padding-bottom: 2rem;
+    left: 20%;
 }
 
 /* bill no: id: name: */
-.guopoidHead{
+.aguopoidHead{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
-.iconnboxx{
+.aiconnboxx{
     text-align: center;
     font-size: 45px;
     color: #347FFF;
 }
-.bill-detial{
+.abill-detial{
     padding: 25px 40px ;
     background: #FFF;
     box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.15);
 }
-.idf{
+.aidf{
     display: grid;
     gap: 1rem;
     padding-bottom: 1rem;
 }
 
-.billGopBox{
+.abillGopBox{
     display: grid; 
     width: 100%;
     margin: auto;
@@ -40,35 +36,58 @@
 }
 
 
-.billGopBox table {
+.abillGopBox table {
     width: 100%;
 }
 
-.billGopBox table tr {
+.abillGopBox table tr {
     width: 100%;
     display: flex;
     justify-content: space-between;
     margin: 0.5rem 0;
 }
 
-.billGopBox table tr th {
+.abillGopBox table tr th {
     width: 15%;
     text-align: center;
 }
-.billGopBox table tr td {
+.abillGopBox table tr td {
     width: 15%;
     text-align: center;
 }
 
-.titlePrice{
+.atitlePrice{
     padding: 2rem;
     display: flex;
     justify-content: space-between;
 }
-.place-on{
+
+.aplace-on{
     display: grid;
     gap: 1rem;
     padding: 0 2rem;
+}
+
+/* update status */
+.aplace-on form {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.aplace-on form select {
+    width: 15%;
+}
+.aplace-on form select:focus{
+    outline: none !important;
+}
+.aplace-on form button {
+    background-color: #347FFF;
+    padding: 0.3rem 1rem;
+    border-radius: 4px;
+    border: none;
+    color: white;
+    cursor: pointer;
 }
 
 /* ================ Responsive ==================*/

@@ -4,10 +4,6 @@
     margin: 6rem auto 0 auto;
 }
 
-.account-navbar {
-    padding-bottom: 2rem;
-}
-
 /* bill no: id: name: */
 .guopoidHead{
     display: grid;

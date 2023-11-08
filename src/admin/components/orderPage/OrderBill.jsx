@@ -1,10 +1,6 @@
 import React, {useState} from 'react'
 import "./orderBill.css";
-import { FaAngleLeft } from "react-icons/fa6";
 import AdminMenu from '../adminMenu/AdminMenu';
-import { Link } from "react-router-dom";
-import { ImCheckmark } from 'react-icons/im';
-import { MdOutlineEdit } from 'react-icons/md';
 import { useLocation } from 'react-router-dom';
 
 const OrderBill = () => {
@@ -19,6 +15,7 @@ const OrderBill = () => {
               productName: "pro1",
               productType: "clothes",
               amount: 2,
+              color: "colW",
               price: 10,
               size: "m",
             },
@@ -27,6 +24,7 @@ const OrderBill = () => {
               productName: "pro1",
               productType: "clothes",
               amount: 2,
+              color: "colB",
               price: 10,
               size: "m",
             },
@@ -132,9 +130,6 @@ const OrderBill = () => {
         },
     ]);
 
-    // Completion
-    const [status, setStatus] = useState('pending')
-
     // users
     const [users, setUsers] = useState([
         { userID: 1, name: "John Doe", email: "john@gmail.com" },
@@ -144,7 +139,7 @@ const OrderBill = () => {
 
     // Get order ID
     const location = useLocation();
-    const { id } = location.state;
+    const { id } = location.state || {};
     const [getId, setGetId] = useState(id);
 
     const filteredOrders = orders
@@ -170,63 +165,84 @@ const OrderBill = () => {
         };
     });
 
+    // Completion
+    let statusDelivery = ''
+    if(filteredOrders){
+      filteredOrders.forEach((order) => (
+        statusDelivery = order.status
+      ))
+    }
+    const [status, setStatus] = useState(statusDelivery)
+
+    // Handle status
+    const handleStatus = (e) => {
+      setStatus(e.target.value);
+    };
+
+    // Handle submit
+    const handleSubmit = (e) => {
+      e.preventDefault();
+
+      console.log(status)
+    }
+
     return (
         <>
             <AdminMenu />
-            <section id="bill">
+            <section id="abill">
                 {filteredOrders.map((order) => (
-                    <div className="bill-detial" key={order.orderID}>
-                    <div className="guopoidHead">
-                        <div className="idf">
-                        <p>OrderID: {order.orderID}</p>
-                        <p>UserID: {order.userID}</p>
-                        <p>Name: {order.userName}</p>
-                        </div>
-                    </div>
-                    <hr />
-                    <div className="billGopBox">
-                        <table>
-                        <thead>
-                            <tr>
-                            <th>Product Name</th>
-                            <th>Product Type</th>
-                            <th>Price</th>
-                            <th>Amount</th>
-                            <th>Color</th>
-                            <th>Size</th>
-                            </tr>
-                        </thead>
-                        {order.products.map((product) => (
-                            <tbody key={product.productID}>
-                            <tr>
-                                <td>{product.productName}</td>
-                                <td>{product.productType}</td>
-                                <td>${product.price}</td>
-                                <td>{product.amount}</td>
-                                <td>{product.color}</td>
-                                <td>{product.size}</td>
-                            </tr>
-                            </tbody>
-                        ))}
-                        </table>
-                    </div>
-                    <hr />
-                    <div className="titlePrice">
-                        <p>Total:</p>
-                        <p>${order.totalPrice}</p>
-                    </div>
-                    <div className="place-on">
-                        <p>Place on: {order.orderDate}</p>
-                        <p>Payment method: {order.payment}</p>
-                        <form>
-                            <select value={status}>
-                                <option value="pending">Pending</option>
-                                <option value="completed">Completed</option>
-                            </select>
-                        </form>
-                        <p>Status: {order.status}</p>
-                        <p>Delivery: {order.delivery}</p>
-                    </div>
+                    <div className="abill-detial" key={order.orderID}>
+                      <div className="aguopoidHead">
+                          <div className="aidf">
+                          <p>OrderID: {order.orderID}</p>
+                          <p>UserID: {order.userID}</p>
+                          <p>Name: {order.userName}</p>
+                          </div>
+                      </div>
+                      <hr />
+                      <div className="abillGopBox">
+                          <table>
+                          <thead>
+                              <tr>
+                              <th>Product Name</th>
+                              <th>Product Type</th>
+                              <th>Price</th>
+                              <th>Amount</th>
+                              <th>Color</th>
+                              <th>Size</th>
+                              </tr>
+                          </thead>
+                          {order.products.map((product) => (
+                              <tbody key={product.productID}>
+                              <tr>
+                                  <td>{product.productName}</td>
+                                  <td>{product.productType}</td>
+                                  <td>${product.price}</td>
+                                  <td>{product.amount}</td>
+                                  <td>{product.color}</td>
+                                  <td>{product.size}</td>
+                              </tr>
+                              </tbody>
+                          ))}
+                          </table>
+                      </div>
+                      <hr />
+                      <div className="atitlePrice">
+                          <p>Total:</p>
+                          <p>${order.totalPrice}</p>
+                      </div>
+                      <div className="aplace-on">
+                          <p>Place on: {order.orderDate}</p>
+                          <p>Payment method: {order.payment}</p>
+                          <form onSubmit={handleSubmit}>
+                              <select value={status} onChange={handleStatus}>
+                                  <option value="pending">Pending</option>
+                                  <option value="completed">Completed</option>
+                              </select>
+                              <button type='submit'>Confirm</button>
+                          </form>
+                          <p>Delivery: {order.delivery}</p>
+                      </div>
                     </div>
                 ))}
             </section>
