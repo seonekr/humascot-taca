@@ -33,9 +33,9 @@ const Product = () => {
 
     // Filter products based on search term and price range
     const filteredProducts = products.filter((product) => {
-        
+        const nameMatch = product.productName.toLowerCase().includes(searchTerm.toLowerCase());
         const peiceMatch = priceFilter !== "" ? product.price === parseInt(priceFilter) : true;
-        return peiceMatch;
+        return peiceMatch, nameMatch;
     });
 
     // Handle filter by price
@@ -51,7 +51,7 @@ const Product = () => {
 
     // Delete
 
-    const handleDelete = (productId) => {
+    const handleDelete = (productID) => {
         const updatedProducts = products.filter((product) => product.productID !== productID);
         setProducts(updatedProducts);
     };
