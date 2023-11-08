@@ -11,9 +11,34 @@ import { MdOutlineSell } from "react-icons/md";
 import user from "../../../img/user.png";
 import Logo1 from '../../../img/Logo1.png'
 import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const AdminMenu = () => {
   const navigate = useNavigate();
+  var isLoggedin = false; //For check login or not
+  const [account, setAccount] = useState("");
+
+  useEffect(() => {
+    const id = localStorage.getItem("id");
+
+    var requestOptions = {
+      method: "GET",
+      redirect: "follow",
+    };
+
+    fetch("http://localhost:3001/getAdmin/" + id, requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        if (result.Status === "Success") {
+          setAccount(result.Result[0].email);
+        }
+        console.log(account);
+        // console.log(result.Result[0].email)
+      })
+      .catch((error) => console.log("error", error));
+  }, []);
+
   const handleLogout = (event) => {
     event.preventDefault();
     localStorage.removeItem("token");
@@ -25,6 +50,7 @@ const AdminMenu = () => {
   return (
     <>
       <section id="dashboard">
+
         <div className="left">
           <div className="menu">
             <Link to="/dashboard/" className="link active">
@@ -66,7 +92,6 @@ const AdminMenu = () => {
             <div className="userAdminImage">
               <img src={user} alt="Logo_Profile" />
             </div>
-
           </div>
         </div>
       </section>
