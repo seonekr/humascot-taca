@@ -50,7 +50,6 @@ const Product = () => {
     };
 
     // Delete
-
     const handleDelete = (productID) => {
         const updatedProducts = products.filter((product) => product.productID !== productID);
         setProducts(updatedProducts);
