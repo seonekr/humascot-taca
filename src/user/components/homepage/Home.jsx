@@ -7,7 +7,6 @@ import Menu from "../menu/Menu";
 import "./home.css"
 
 const Home = () => {
-
   return (
     <div className='containerHomeBox'>
         <Header/>

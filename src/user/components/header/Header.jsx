@@ -1,9 +1,16 @@
 import "./header.css";
-import { FaStore, FaMagnifyingGlass, FaCartShopping, FaRegUser } from "react-icons/fa6";
-import { Link } from "react-router-dom";
-import Logo1 from '../../../img/Logo1.png'
+import {
+  FaStore,
+  FaMagnifyingGlass,
+  FaCartShopping,
+  FaRegUser,
+} from "react-icons/fa6";
+import { Link, useNavigate } from "react-router-dom";
+import Logo1 from "../../../img/Logo1.png";
+import { useEffect, useState } from "react";
 
 const Header = () => {
+
     return (
         <>
             <section id="header">

@@ -59,12 +59,14 @@ const Links = () => {
                 <Route exact path="/addadmin/" Component={AddAdmin}/>
                 <Route exact path="/message/" Component={Message}/>
 
+
                 {/*==== phukeo ==== */}
-                <Route exact path="/product_search/" Component={Product_search}/>
-                <Route exact path="/product_search/productdetails/" Component={ProductDetails}/>
-                <Route exact path="/login/" Component={Login}/>
-                <Route exact path="/register/" Component={Register}/>
-                <Route exact path="/cart/" Component={Cart}/>
+
+                <Route exact path="/product_search" Component={Product_search}/>
+                <Route exact path="/product_search/productdetails" Component={ProductDetails}/>
+                <Route exact path="/login" Component={Login}/>
+                <Route exact path="/register" Component={Register}/>
+                <Route exact path="/cart" Component={Cart}/>
 
                  {/* Admin routes */}
                  <Route exact path="/menageruser/" Component={MenagerUser}/>

@@ -192,7 +192,7 @@ app.post("/login", jsonParser, (req, res) => {
             const token = jwt.sign({ email: result[0].email }, secret, {
               expiresIn: "1d",
             });
-            return res.json({ Status: "Success", Token: token });
+            return res.json({ Status: "Success", Token: token, id: result[0].id});
           } else {
             return res.json({
               Status: "Error",
@@ -506,6 +506,6 @@ app.get("/countProduct", (req, res) => {
 });
 
 
-app.listen(3001, () => {
-  console.log("Web server listening on port 3001");
+app.listen(5000, () => {
+  console.log("Web server listening on port 5000");
 });
