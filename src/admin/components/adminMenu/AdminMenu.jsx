@@ -27,27 +27,27 @@ const AdminMenu = () => {
       <section id="dashboard">
         <div className="left">
           <div className="menu">
-            <Link to="/dashboard/" className="link active">
+            <Link to="/admin/dashboard/" className="link active">
               <RxDashboard />
               <p>Dashboard</p>
             </Link>
-            <Link to="/product/" className="link">
+            <Link to="/admin/product/" className="link">
               <IoDocumentText />
               <p>Products</p>
             </Link>
-            <Link to="/orderpage/" className="link">
+            <Link to="/admin/orderpage/" className="link">
               <MdOutlineSell />
               <p>Orders</p>
             </Link>
-            <Link to="/menageruser/" className="link">
+            <Link to="/admin/menageruser/" className="link">
               <BiUser />
               <p>User</p>
             </Link>
-            <Link to="/menagerAdmin/" className="link">
+            <Link to="/admin/menagerAdmin/" className="link">
               <LiaUserCogSolid />
               <p>Admin</p>
             </Link>
-            <Link to="/message/" className="link">
+            <Link to="/admin/message/" className="link">
               <BiMessageDetail />
               <p>Message</p>
             </Link>
@@ -57,7 +57,7 @@ const AdminMenu = () => {
             </Link>
           </div>
           <div className="right">
-            <Link to="/dashboard/" className="logo">
+            <Link to="/admin/dashboard/" className="logo">
               <span>
                 <img src={Logo1} alt="" />
               </span>

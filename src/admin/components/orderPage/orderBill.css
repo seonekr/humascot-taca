@@ -1,167 +1,79 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Bill */
+#bill {
+    width: 80%;
+    margin: 6rem auto 0 auto;
+    padding-top: 2rem;
+    padding-left: 7rem;
 }
 
-/* ============ container_body =========== */
-.container_body {
-    width: 100%;
-    height: auto;
-    position: relative;
-    z-index: 999;
+.account-navbar {
+    padding-bottom: 2rem;
 }
-
-.group_lisblecackk {
-    width: 90%;
-    margin: auto;
-    padding: 2rem 0;
-}
-
-.container_box_orderBill {
-    height: auto;
-    margin: auto;
-    margin-top: 1rem;
-    padding: 1rem;
-    background: #FFF;
-    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
-}
-
-.content_box_orderBill {
-    padding-top: 5rem;
-    padding-left: 15rem;
-}
-
-.box_icon_Check_wrong {
-    margin: auto;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background-color: #fc1707;
-}
-
-#icon_MdClose {
-    width: 30px;
-    height: 30px;
-    color: #FFF;
-}
-
 
 /* bill no: id: name: */
-
-.box_guopoidHead {
-    width: 100%;
-    padding: 0 7rem;
-    display: flex;
-    align-items: center;
+.guopoidHead{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }
-
-.iconnboxx {
+.iconnboxx{
     text-align: center;
     font-size: 45px;
     color: #347FFF;
 }
-
-.idf {
+.bill-detial{
+    padding: 25px 40px ;
+    background: #FFF;
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.15);
+}
+.idf{
     display: grid;
     gap: 1rem;
     padding-bottom: 1rem;
 }
 
-.box_icon_Check {
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background-color: #06d151;
+.billGopBox{
+    display: grid; 
+    width: 100%;
     margin: auto;
+    padding: 30px 0;
+  
 }
 
-#icon_ImCheckmark {
-    width: 30px;
-    height: 30px;
-    color: #FFF;
+
+.billGopBox table {
+    width: 100%;
 }
 
-.box_bill_product {
-    padding: 0 9rem 0 9rem;
+.billGopBox table tr {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0.5rem 0;
 }
 
-.bill_product_name h2 {
+.billGopBox table tr th {
+    width: 15%;
     text-align: center;
-    padding: 20px 0;
+}
+.billGopBox table tr td {
+    width: 15%;
+    text-align: center;
 }
 
-
-.order_billGopBox {
+.titlePrice{
+    padding: 2rem;
     display: flex;
     justify-content: space-between;
-    grid-template-columns: 1fr 1fr 1fr;
-    padding: 0 0 20px;
 }
-
-.detial {
-    display: grid;
-    justify-content: center;
-    gap: 1.25rem;
-}
-
-
-.box_titlePrice {
-    display: flex;
-    padding: 1rem 0;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.box_place-on {
+.place-on{
     display: grid;
     gap: 1rem;
-}
-
-.container_btn_edit{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.btn_edit_product{
-    padding: 5px 15px;
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-    justify-content: center;
-    border-radius: 5px;
-    color: #FFF;
-    font-size: 16px;
-    background: #27A7EF;
-}
-#icon_edit_delete{
-    width: 25px;
-    height: 25px;
-    color: #FFF;
-}
-
-
-/* ========= Filter Status ============*/
-
-.box_filter_status{
-    display: flex;
-    align-items: center;
-}
-.statusFilter{
-    padding: 4px 10px;
-    font-size: 16px;
-    border: none;
+    padding: 0 2rem;
 }
 
 /* ================ Responsive ==================*/
 /* For smartphones with a maximum width of 480px */
-@media only screen and (max-width: 480px) {
+/* @media only screen and (max-width: 480px) {
     .box_guopoidHead{
         padding: 0;
     }
@@ -170,4 +82,4 @@
         display: flex;
         margin-left: 4rem;
     }
-}
+} */
