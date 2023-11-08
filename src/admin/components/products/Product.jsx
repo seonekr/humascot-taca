@@ -31,12 +31,7 @@ const Product = () => {
         setProducts(updatedProducts);
     }
 
-    // Filter products based on search term and price range
-    const filteredProducts = products.filter((product) => {
-        const nameMatch = product.productName.toLowerCase().includes(searchTerm.toLowerCase());
-        const peiceMatch = priceFilter !== "" ? product.price === parseInt(priceFilter) : true;
-        return peiceMatch, nameMatch;
-    });
+    
 
     // Handle filter by price
     const handleFilter = (price) => {
@@ -49,6 +44,12 @@ const Product = () => {
         handleFilter(e.target.value);
     };
 
+    // Filter products based on search term and price range
+    const filteredProducts = products.filter((product) => {
+        const nameMatch = product.productName.toLowerCase().includes(searchTerm.toLowerCase());
+        const peiceMatch = priceFilter !== "" ? product.price === parseInt(priceFilter) : true;
+        return peiceMatch, nameMatch;
+    });
     // Delete
     const handleDelete = (productID) => {
         const updatedProducts = products.filter((product) => product.productID !== productID);
@@ -123,7 +124,7 @@ const Product = () => {
                                     </li>
                                     <div className="box_btn_edit_delete">
 
-                                        <button className="btn_icon_delete_user" onClick={() => handleDelete(product.id)}>
+                                        <button className="btn_icon_delete_user" onClick={() => handleDelete(product.productID)}>
                                             <AiOutlineDelete id="btn_icon_edit"/>
                                         </button>
                                         <div className="btn_icon_edit_user">
