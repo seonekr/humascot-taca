@@ -90,19 +90,7 @@ const Payment = () => {
       <Header />
       <section id="payment">
         <div className="guopBoxPayment">
-          <div className="account-navbar">
-            <div className="header-box">
-              <Link
-                to="/product_search/productdetails/"
-                className="guopIconbAck"
-              >
-                <FaAngleLeft className="iconnBack" />
-                Back
-              </Link>
-            </div>
-            <div className="header-box">Payment</div>
-            <div className="header-box"></div>
-          </div>
+          <div className="header_box"><h3>Payment</h3></div>
           <form onSubmit={handleSubmit}>
             <div className="adress-payment">
               <div className="box">
@@ -117,10 +105,11 @@ const Payment = () => {
               </div>
               {/* procuts */}
               {products.length > 0 ? (
-                <div>
+                <div className="detailsProductInPayMentBox">
+                  <h3>Details</h3>
                   <ul>
                     {products.map((product) => (
-                      <li key={product.productID}>
+                      <li className="detailsProduct_li" key={product.productID}>
                         <div>Product ID: {product.productID}</div>
                         <div>Product Name: {product.productName}</div>
                         <div>Size: {product.size}</div>
