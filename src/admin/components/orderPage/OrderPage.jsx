@@ -1,7 +1,6 @@
 import React from 'react'
 import "./orderpage.css"
 import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
-
 import { Link } from 'react-router-dom';
 import AdminMenu from '../adminMenu/AdminMenu';
 import { useState } from "react";

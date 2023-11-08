@@ -7,6 +7,7 @@ import AdminMenu from '../adminMenu/AdminMenu';
 import users from '../../../img/users.png'
 
 const MenagerUser = () => {
+    
   return (
     <>
         <section id='menager'>
@@ -25,79 +26,18 @@ const MenagerUser = () => {
                         </form>
                     </div>
                     <div className='box_users_user'>
-                        <Link to="#" className='box_user_text'>
+                        <div className='box_user_text'>
                             <img src={users} alt='img'></img>
                             <div className='container_chat_name'>
                                 <h4>Sompong</h4>
                                 <p>New message...</p>
                             </div>
-                        </Link>
+                        </div>
                         <div className='container_user_icon'>
                             <button className='btn_delete_user'>
                                 <AiOutlineDelete id='icon_edit_delete'/>
                             </button>
                         </div>
-                        
-                    </div>
-                    <div className='box_users_user'>
-                        <Link to="#" className='box_user_text'>
-                            <img src={users} alt='img'></img>
-                            <div className='container_chat_name'>
-                                <h4>Sompong</h4>
-                                <p>New message...</p>
-                            </div>
-                        </Link>
-                        <div className='container_user_icon'>
-                            <button className='btn_delete_user'>
-                                <AiOutlineDelete id='icon_edit_delete'/>
-                            </button>
-                        </div>
-                        
-                    </div>
-                    <div className='box_users_user'>
-                        <Link to="#" className='box_user_text'>
-                            <img src={users} alt='img'></img>
-                            <div className='container_chat_name'>
-                                <h4>Sompong</h4>
-                                <p>New message...</p>
-                            </div>
-                        </Link>
-                        <div className='container_user_icon'>
-                            <button className='btn_delete_user'>
-                                <AiOutlineDelete id='icon_edit_delete'/>
-                            </button>
-                        </div>
-                        
-                    </div>
-                    <div className='box_users_user'>
-                        <Link to="#" className='box_user_text'>
-                            <img src={users} alt='img'></img>
-                            <div className='container_chat_name'>
-                                <h4>Sompong</h4>
-                                <p>New message...</p>
-                            </div>
-                        </Link>
-                        <div className='container_user_icon'>
-                            <button className='btn_delete_user'>
-                                <AiOutlineDelete id='icon_edit_delete'/>
-                            </button>
-                        </div>
-                        
-                    </div>
-                    <div className='box_users_user'>
-                        <Link to="#" className='box_user_text'>
-                            <img src={users} alt='img'></img>
-                            <div className='container_chat_name'>
-                                <h4>Sompong</h4>
-                                <p>New message...</p>
-                            </div>
-                        </Link>
-                        <div className='container_user_icon'>
-                            <button className='btn_delete_user'>
-                                <AiOutlineDelete id='icon_edit_delete'/>
-                            </button>
-                        </div>
-                        
                     </div>
                     
                     <div className='box_next_user'>
