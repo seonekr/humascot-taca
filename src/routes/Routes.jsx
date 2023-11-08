@@ -25,14 +25,12 @@ import Product_search from "../user/components/products/Product_search";
 import ProductDetails from "../user/components/products/ProductDetails";
 import MenagerUser from "../admin/components/menagerUser/MenagerUser";
 import OrderPage from "../admin/components/orderPage/OrderPage";
-import OrderBill from "../admin/components/orderPage/OrderBill"
-import OrderWrong from "../admin/components/orderPage/OrderWrong";
+import OrderBill from "../admin/components/orderPage/OrderBill";
 import MenagerAdmin from "../admin/components/menagerAdmin/MenagerAdmin";
 import Product from "../admin/components/products/Product";
 import EditAdmin from "../admin/components/addAdmin/EditAdmin";
 import AddUser from "../admin/components/addUser/AddUser";
 import EditUser from "../admin/components/addUser/EditUser"
-import EditProduct from "../admin/components/products/EditProduct";
 
 
 const Links = () => {
@@ -72,13 +70,11 @@ const Links = () => {
                  <Route exact path="/menageruser/" Component={MenagerUser}/>
                  <Route exact path="/orderpage/" Component={OrderPage}/>
                  <Route exact path="/orderbill/" Component={OrderBill}/>
-                 <Route exact path="/orderwrong/" Component={OrderWrong}/>
                  <Route exact path="/menageradmin/" Component={MenagerAdmin}/>
                  <Route exact path="/product/" Component={Product}/>
                  <Route exact path="/editadmin/" Component={EditAdmin}/>
                  <Route exact path="/adduser/" Component={AddUser}/>
                  <Route exact path="/edituser/" Component={EditUser}/>
-                 <Route exact path="/editproduct/" Component={EditProduct}/>
             </Routes>
         </Router>
     );
