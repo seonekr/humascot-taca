@@ -9,17 +9,17 @@ import { useNavigate } from 'react-router-dom';
 
 const ProductHome = () => {
     const [products, setProducts] = useState([
-        {productID: 1, productName: "pro1", productType: "clothes", price: 10, description: "desc for this product", images: [acer]},
-        {productID: 2, productName: "pro2", productType: "clothes", price: 10, description: "desc for this product", images: [dress]},
-        {productID: 3, productName: "pro3", productType: "clothes", price: 10, description: "desc for this product", images: [acer]},
-        {productID: 4, productName: "pro4", productType: "clothes", price: 10, description: "desc for this product", images: [dress]},
-        {productID: 5, productName: "pro5", productType: "clothes", price: 10, description: "desc for this product", images: [image1]},
-        {productID: 6, productName: "pro6", productType: "clothes", price: 10, description: "desc for this product", images: [image1]},
-        {productID: 7, productName: "pro7", productType: "clothes", price: 10, description: "desc for this product", images: [productImage]},
-        {productID: 8, productName: "pro8", productType: "clothes", price: 10, description: "desc for this product", images: [acer]},
-        {productID: 9, productName: "pro9", productType: "clothes", price: 10, description: "desc for this product", images: [productImage]},
-        {productID: 10, productName: "pro10", productType: "clothes", price: 10, description: "desc for this product", images: [acer]},
-        {productID: 11, productName: "pro11", productType: "clothes", price: 10, description: "desc for this product", images: [productImage]}
+        { productID: 1, productName: "pro1", productType: "clothes", price: 10, description: "desc for this product", images: [acer] },
+        { productID: 2, productName: "pro2", productType: "clothes", price: 10, description: "desc for this product", images: [dress] },
+        { productID: 3, productName: "pro3", productType: "clothes", price: 10, description: "desc for this product", images: [acer] },
+        { productID: 4, productName: "pro4", productType: "clothes", price: 10, description: "desc for this product", images: [dress] },
+        { productID: 5, productName: "pro5", productType: "clothes", price: 10, description: "desc for this product", images: [image1] },
+        { productID: 6, productName: "pro6", productType: "clothes", price: 10, description: "desc for this product", images: [image1] },
+        { productID: 7, productName: "pro7", productType: "clothes", price: 10, description: "desc for this product", images: [productImage] },
+        { productID: 8, productName: "pro8", productType: "clothes", price: 10, description: "desc for this product", images: [acer] },
+        { productID: 9, productName: "pro9", productType: "clothes", price: 10, description: "desc for this product", images: [productImage] },
+        { productID: 10, productName: "pro10", productType: "clothes", price: 10, description: "desc for this product", images: [acer] },
+        { productID: 11, productName: "pro11", productType: "clothes", price: 10, description: "desc for this product", images: [productImage] }
     ]);
 
     const [price, setPrice] = useState("");
@@ -61,7 +61,7 @@ const ProductHome = () => {
 
     // Handle product
     const handleProduct = (sendProductID) => {
-        navigate('/product_search/productdetails/', { state: { sendProductID : sendProductID } });
+        navigate('/product_search/productdetails/', { state: { sendProductID: sendProductID } });
     }
 
     return (
@@ -99,18 +99,18 @@ const ProductHome = () => {
                                 </li>
                                 <li>
                                     <input
-                                        className="desc"
-                                        type="text"
-                                        value={product.description}
-                                        onChange={(e) => handleInputChange(e, index, "description")}
-                                    />
-                                </li>
-                                <li>
-                                    <input
                                         className="price"
                                         type="text"
                                         value={product.price}
                                         onChange={(e) => handleInputChange(e, index, "price")}
+                                    />
+                                </li>
+                                <li>
+                                    <input
+                                        className="desc"
+                                        type="text"
+                                        value={product.description}
+                                        onChange={(e) => handleInputChange(e, index, "description")}
                                     />
                                 </li>
                             </ul>

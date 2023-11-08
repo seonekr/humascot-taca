@@ -63,7 +63,7 @@ input:focus {
     align-items: center;
     justify-content: space-between;
     padding: 3rem 0;
-    margin-top: 2rem;
+    margin-top: 3rem;
 }
 
 .container_product .categoryFilter:first-child {
@@ -157,22 +157,36 @@ input:focus {
 
 /* ================== Responsive ==============*/
 
-@media screen and (max-width: 821px) {
-    .container_home {
-        width: 85%;
-        margin: auto;
+@media screen and (min-width: 1537px) and (max-width: 1950px) {
+    .contentImageProducts {
+        width: 80%;
+        margin: 0 auto;
     }
+   
+}
 
+@media screen and (min-width: 768px) and  (max-width: 1025px){
+    .container_home {
+        width: 80%;
+        margin: 0 auto;
+    }
     .contentImageProducts {
         grid-template-columns: 1fr 1fr 1fr;
     }
 
     .group_itemBox {
-        padding: 1rem 0;
+        padding: 0;
     }
 
-    .group_itemBox img {
-        height: 15vh;
+    .group_itemBox .img {
+        display: flex;
+        width: 200px;
+        height: 170px;
+        align-items: center;
+        overflow: hidden;
+    }
+    .group_itemBox .img img{
+        padding: 15px;
     }
 
     .container_product {
@@ -180,6 +194,7 @@ input:focus {
     }
 
     .container_head_search {
+        width: 70%;
         margin-top: 5rem;
         top: 10px;
     }
@@ -225,10 +240,12 @@ input:focus {
         display: block;
         width: 100%;
         overflow: hidden;
+        padding: 3rem 0 2rem 0;
     }
 
     .container_product h3 {
         font-size: 20px;
+        padding-bottom: 1.5rem;
     }
 
     .cetegory_form label {
@@ -238,10 +255,6 @@ input:focus {
     .boxfilterseach {
         display: inline;
         gap: 0;
-    }
-
-    .categoryFilter {
-        padding: 5px 10px;
     }
 
     

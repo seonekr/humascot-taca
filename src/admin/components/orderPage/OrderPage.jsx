@@ -138,7 +138,7 @@ const OrderPage = () => {
 
     const handleOrder = (id) => {
         setId(id);
-        navigate("/admin/orderbill/", { state: { id: id } });
+        navigate("/orderbill/", { state: { id: id } });
     };
 
 
@@ -171,28 +171,27 @@ const OrderPage = () => {
                                     <div className='btn_pending'>
                                         Pending
                                     </div>
-                                    <div className='btn_view' onClick={() => handleOrder(order.orderID)}>
+                                    <button className='btn_view' onClick={() => handleOrder(order.orderID)}>
                                         View
-                                    </div>
+                                    </button>
                                 </div>
                             </form>
                         </div>
                     ))}
                     <div className='box_next_order'>
-                        <button className='box_prev_next_order'>
-                            <AiOutlineLeft id="box_prev_next_icon" />
-                            <p>Prev</p>
-                        </button>
-
-                        <div className='box_num_order'>
-                            <p className='num_admin'>1</p>
-                            <p className='num_admin'>2</p>
-                            <p className='num_admin'>3</p>
-                        </div>
-                        <button className='box_prev_nexts_order'>
-                            <p>Next</p>
-                            <AiOutlineRight id="box_prev_next_icon" />
-                        </button>
+                      <button className='box_prev_next_order'>
+                        <AiOutlineLeft id="box_prev_next_icon" />
+                        <p>Prev</p>
+                      </button>
+                      <div className='box_num_order'>
+                        <p className='num_admin'>1</p>
+                        <p className='num_admin'>2</p>
+                        <p className='num_admin'>3</p>
+                      </div>
+                      <button className='box_prev_nexts_order'>
+                        <p>Next</p>
+                        <AiOutlineRight id="box_prev_next_icon" />
+                      </button>
                     </div>
                 </div>
             </section>
