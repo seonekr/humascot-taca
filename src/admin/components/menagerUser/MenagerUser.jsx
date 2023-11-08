@@ -16,12 +16,14 @@ const MenagerUser = () => {
         { userID: 6, userName:"Sompong", message:"New Message...",images: [users] },
     ]);
 
-   
+
     // Delete
     const handleDelete = (userID) => {
-      const updatedUser = user.filter((users) => users.userID !== userID);
-      setUser(updatedUser);
+        const updatedUser = user.filter((users) => users.userID !== userID);
+        setUser(updatedUser);
     };
+
+    
 
   return (
     <>
@@ -36,7 +38,7 @@ const MenagerUser = () => {
                                 <input 
                                     type="text" 
                                     placeholder="Search ..." 
-                                   
+                                    
                                 />
                                 <button type="submit">
                                 <IoSearchOutline />
@@ -45,7 +47,7 @@ const MenagerUser = () => {
                         </form>
                     </div>
                     {user.map((users) => (
-                        <div key={users.userName}>
+                        <div key={users.userID}>
                             <form className='box_users_user'>
                                 <div className='box_user_text'>
                                     <img src={users.images} alt='image'></img>

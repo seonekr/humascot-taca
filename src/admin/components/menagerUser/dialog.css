@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container_dialog{
+    width: 15%;
+    height: 15%;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    background-color: aqua;
+    position: absolute;
+    top: 30%;
+    left: 80%;
+}
+.btn_ok_on{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+.btn_ok{
+    padding: 6px 20px;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    background: red;
+    
+}
+.btn_on{
+    padding: 6px 20px;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    background: blue;
+}

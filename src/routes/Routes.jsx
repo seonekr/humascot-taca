@@ -30,7 +30,8 @@ import MenagerAdmin from "../admin/components/menagerAdmin/MenagerAdmin";
 import Product from "../admin/components/products/Product";
 import EditAdmin from "../admin/components/addAdmin/EditAdmin";
 import AddUser from "../admin/components/addUser/AddUser";
-import EditUser from "../admin/components/addUser/EditUser"
+import EditUser from "../admin/components/addUser/EditUser";
+import Dialog from "../admin/components/menagerUser/Dialog";
 
 
 const Links = () => {
@@ -75,6 +76,7 @@ const Links = () => {
                  <Route exact path="/editadmin/" Component={EditAdmin}/>
                  <Route exact path="/adduser/" Component={AddUser}/>
                  <Route exact path="/edituser/" Component={EditUser}/>
+                 <Route exact path="/dialog/" Component={Dialog}/>
             </Routes>
         </Router>
     );
