@@ -14,14 +14,6 @@ import { Link } from "react-router-dom";
 
 const AdminMenu = () => {
 
-  const handleLogout = (event) => {
-    event.preventDefault();
-    localStorage.removeItem("token");
-    localStorage.removeItem("id");
-    // window.location = "/humascot-taca/admin";
-    navigate("/");
-  };
-
   return (
     <>
       <section id="dashboard">
@@ -52,7 +44,7 @@ const AdminMenu = () => {
               <BiMessageDetail />
               <p>Message</p>
             </Link>
-            <Link to="/" className="link" onClick={handleLogout}>
+            <Link to="/" className="link">
               <IoLogOutOutline />
               <p>Log Out</p>
             </Link>
