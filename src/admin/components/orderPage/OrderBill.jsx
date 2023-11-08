@@ -174,8 +174,8 @@ const OrderBill = () => {
         <>
             <AdminMenu />
             <section id="bill">
-                {filteredOrders.map((order) => (
-                    <div className="bill-detial" key={order.orderID}>
+              {filteredOrders.map((order) => (
+                  <div className="bill-detial" key={order.orderID}>
                     <div className="guopoidHead">
                         <div className="idf">
                         <p>OrderID: {order.orderID}</p>
@@ -185,7 +185,7 @@ const OrderBill = () => {
                     </div>
                     <hr />
                     <div className="billGopBox">
-                        <table>
+                      <table>
                         <thead>
                             <tr>
                             <th>Product Name</th>
@@ -198,40 +198,42 @@ const OrderBill = () => {
                         </thead>
                         {order.products.map((product) => (
                             <tbody key={product.productID}>
-                            <tr>
+                              <tr>
                                 <td>{product.productName}</td>
                                 <td>{product.productType}</td>
                                 <td>${product.price}</td>
                                 <td>{product.amount}</td>
                                 <td>{product.color}</td>
                                 <td>{product.size}</td>
-                            </tr>
+                              </tr>
                             </tbody>
                         ))}
-                        </table>
+                      </table>
                     </div>
                     <hr />
                     <div className="titlePrice">
-                        <p>Total:</p>
-                        <p>${order.totalPrice}</p>
+                      <h3>Total:</h3>
+                      <p>${order.totalPrice}</p>
                     </div>
                     <div className="place-on">
-                        <p>Place on: {order.orderDate}</p>
-                        <p>Payment method: {order.payment}</p>
-                        <form>
-                            <select value={status}>
-                                <option value="pending">Pending</option>
-                                <option value="completed">Completed</option>
-                            </select>
-                        </form>
-                        <p>Status: {order.status}</p>
-                        <p>Delivery: {order.delivery}</p>
+                      <p>Place on: {order.orderDate}</p>
+                      <p>Payment method: {order.payment}</p>
+                      <form className='box_filter_pending'>
+                        <select value={status}>
+                          <option value="pending">Pending</option>
+                          <option value="completed">Completed</option>
+                        </select>
+                      </form>
+                      <p>Status: {order.status}</p>
+                      <p>Delivery: {order.delivery}</p>
                     </div>
-                    </div>
-                ))}
+                  </div>
+              ))}
+              
             </section>
         </>
     )
 }
 
-export default OrderBill
+
+export default OrderBill;
