@@ -1,7 +1,6 @@
 import React from 'react'
 import "./orderpage.css"
 import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
-import { Link } from 'react-router-dom';
 import AdminMenu from '../adminMenu/AdminMenu';
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -131,7 +130,7 @@ const OrderPage = () => {
         },
     ]);
 
-    // Get order ID
+    // send order ID
     const [id, setId] = useState();
     const navigate = useNavigate();
 
@@ -152,16 +151,15 @@ const OrderPage = () => {
                           <form className='box_users_order'>
                               <div className='box_order_text'>
                                   <p>No: {order.orderID}</p>
-                                  <div className='container_chat_name'>
+                                  <dv>
                                       {order.products.slice(0, 2).map((product, index) => (
                                           <span key={product.productID}>
                                               {product.productName}
                                               {index === 0 && order.products.length > 1
-                                              ? ", "
-                                              : " ..."}
+                                              ? ", " : " ..."}
                                           </span>
                                       ))}
-                                  </div>
+                                  </dv>
                               </div>
                               <div className='box_container_time'>
                                   <p>{order.orderDate}</p>

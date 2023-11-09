@@ -32,11 +32,11 @@ const AdminMenu = () => {
               <MdOutlineSell />
               <p>Orders</p>
             </Link>
-            <Link to="/menageruser/" className="link">
+            <Link to="/users/" className="link">
               <BiUser />
               <p>User</p>
             </Link>
-            <Link to="/menagerAdmin/" className="link">
+            <Link to="/admins/" className="link">
               <LiaUserCogSolid />
               <p>Admin</p>
             </Link>

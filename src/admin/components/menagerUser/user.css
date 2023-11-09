@@ -1,0 +1,77 @@
+#user {
+    position: absolute;
+    width: 80%;
+    top: 15%;
+    left: 16%;
+    border: 1px solid #ccc;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+}
+
+#user .back {
+    display: flex;
+    justify-content: space-between;
+}
+
+#user .back .link-back {
+    display: flex;
+    align-items: center;
+}
+
+#user .back div {
+    display: flex;
+    align-items: center;
+}
+
+/* User information */
+#user .userInfo {
+display: flex;
+align-items: center;
+justify-content: space-evenly;
+}
+
+#user .userInfo .info {
+    width: 30%;
+}
+
+#user .userInfo .info div {
+    margin: 1rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+#user .userInfo .img {
+    width: 25%;
+    border: 1px solid #ccc;
+    padding: 1rem;
+}
+
+#user .userInfo .img img {
+    width: 100%;
+}
+/* Del user and update  */
+#user .userInfo .info .del-update {
+    /* width: 50%; */
+    border: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    justify-content: space-evenly;
+}
+
+#user .userInfo .info .del,
+#user .userInfo .info .update {
+    display: flex;
+    width: max-content;
+    padding: 0.5rem 2.8rem;
+    align-items: center;
+    font-size: 1.3rem;
+    color: #fff;
+    background-color: #FF2B21;
+    cursor: pointer;
+}
+#user .userInfo .info .upd {
+    background-color: #1B70FB;
+}

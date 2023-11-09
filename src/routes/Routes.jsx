@@ -23,15 +23,17 @@ import Register from "../user/components/login_register/Register";
 import Order from "../user/components/order/Order";
 import Product_search from "../user/components/products/Product_search";
 import ProductDetails from "../user/components/products/ProductDetails";
-import MenagerUser from "../admin/components/menagerUser/MenagerUser";
 import OrderPage from "../admin/components/orderPage/OrderPage";
 import OrderBill from "../admin/components/orderPage/OrderBill";
-import MenagerAdmin from "../admin/components/menagerAdmin/MenagerAdmin";
+import Admins from "../admin/components/menagerAdmin/Admins";
 import Product from "../admin/components/products/Product";
 import EditAdmin from "../admin/components/addAdmin/EditAdmin";
-import AddUser from "../admin/components/addUser/AddUser";
-import EditUser from "../admin/components/addUser/EditUser";
 import Dialog from "../admin/components/menagerUser/Dialog";
+
+// ===============================
+import Users from "../admin/components/menagerUser/users";
+import User from "../admin/components/menagerUser/User";
+import Admin from "../admin/components/menagerAdmin/admin";
 
 
 const Links = () => {
@@ -60,7 +62,6 @@ const Links = () => {
 
 
                 {/*==== phukeo ==== */}
-
                 <Route exact path="/product_search" Component={Product_search}/>
                 <Route exact path="/product_search/productdetails" Component={ProductDetails}/>
                 <Route exact path="/login" Component={Login}/>
@@ -68,15 +69,15 @@ const Links = () => {
                 <Route exact path="/cart" Component={Cart}/>
 
                  {/* Admin routes */}
-                 <Route exact path="/menageruser/" Component={MenagerUser}/>
+                 <Route exact path="/users/" Component={Users}/>
                  <Route exact path="/orderpage/" Component={OrderPage}/>
                  <Route exact path="/orderbill/" Component={OrderBill}/>
-                 <Route exact path="/menageradmin/" Component={MenagerAdmin}/>
                  <Route exact path="/product/" Component={Product}/>
                  <Route exact path="/editadmin/" Component={EditAdmin}/>
-                 <Route exact path="/adduser/" Component={AddUser}/>
-                 <Route exact path="/edituser/" Component={EditUser}/>
                  <Route exact path="/dialog/" Component={Dialog}/>
+                 <Route exact path="/users/user/" Component={User}/>
+                 <Route exact path="/admins/" Component={Admins}/>
+                 <Route exact path="/admins/admin/" Component={Admin}/>
             </Routes>
         </Router>
     );

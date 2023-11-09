@@ -1,28 +1,28 @@
 import React from 'react'
-import "./menagerUser.css"
+import "./users.css"
 import { AiOutlineDelete,AiOutlineLeft,AiOutlineRight } from 'react-icons/ai';
 import { IoSearchOutline } from 'react-icons/io5';
 import AdminMenu from '../adminMenu/AdminMenu';
-import users from '../../../img/users.png'
+import user from '../../../img/users.png'
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const MenagerUser = () => {
-    const [user, setUser] = useState([
-        { userID: 1, userName:"Sompong", message:"New Message...",images: [users] },
-        { userID: 2, userName:"Anoupha", message:"New Message...",images: [users] },
-        { userID: 3, userName:"Sengphachan",message:"New Message...", images: [users] },
-        { userID: 4, userName:"Khammun", message:"New Message...",images: [users] },
-        { userID: 5, userName:"Sompong", message:"New Message...",images: [users] },
-        { userID: 6, userName:"Sompong", message:"New Message...",images: [users] },
+const Users = () => {
+    const [users, setUsers] = useState([
+        { userID: 1, userName:"Sompong", email: "sompong@gmail.com", phone: "02099887676", password: "******", confirmPassword: "******", images: [user] },
+        { userID: 2, userName:"Anoupha", email: "anoupha@gmail.com", phone: "02099887676", password: "******", confirmPassword: "******", images: [user] },
+        { userID: 3, userName:"Sengphachan",email: "sengphachan@gmail.com", phone: "02099887676", password: "******", confirmPassword: "******", images: [user] },
+        { userID: 4, userName:"Khammun", email: "khammun@gmail.com", phone: "02099887676", password: "******", confirmPassword: "******", images: [user] },
     ]);
 
+    const navigate = useNavigate();
+    // send ID of user
+    const [id, setId] = useState();
 
-    // Delete
-    const handleDelete = (userID) => {
-        const updatedUser = user.filter((users) => users.userID !== userID);
-        setUser(updatedUser);
-    };
-
+    const handleUserID = (id) => {
+        setId(id);
+        navigate("/users/user/", { state: { id: id } });
+    }
     
 
   return (
@@ -38,7 +38,6 @@ const MenagerUser = () => {
                                 <input 
                                     type="text" 
                                     placeholder="Search ..." 
-                                    
                                 />
                                 <button type="submit">
                                 <IoSearchOutline />
@@ -46,22 +45,17 @@ const MenagerUser = () => {
                             </div>
                         </form>
                     </div>
-                    {user.map((users) => (
-                        <div key={users.userID}>
-                            <form className='box_users_user'>
+                    {users.map((user) => (
+                        <div key={user.userID}>
+                            <div className='box_users_user' onClick={() => handleUserID(user.userID)}>
                                 <div className='box_user_text'>
-                                    <img src={users.images} alt='image'></img>
+                                    <img src={user.images} alt='image'></img>
                                     <div className='container_chat_name'>
-                                        <h4>{users.userName}</h4>
-                                        <p>{users.message}</p>
+                                        <h4>{user.userName}</h4>
+                                        <p>{user.email}</p>
                                     </div>
                                 </div>
-                                <div className='container_user_icon'>
-                                    <button className='btn_delete_user' onClick={() => handleDelete(users.userID)}>
-                                        <AiOutlineDelete id='icon_edit_delete'/>
-                                    </button>
-                                </div>
-                            </form>
+                            </div>
                         </div>
                     ))}
 
@@ -88,4 +82,4 @@ const MenagerUser = () => {
   )
 }
 
-export default MenagerUser
+export default Users
