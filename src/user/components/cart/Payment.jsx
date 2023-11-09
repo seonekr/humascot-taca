@@ -113,7 +113,6 @@ const Payment = () => {
                         <div>Product Name: {product.productName}</div>
                         <div>Size: {product.size}</div>
                         <div>Color: {product.color}</div>
-                        <div>Type: {product.type}</div>
                         <div>Price: {product.price}</div>
                         <div>Product Counts: {product.productCounts}</div>
                         <div>
@@ -136,7 +135,6 @@ const Payment = () => {
                         <div>Product Name: {product.productName}</div>
                         <div>Size: {product.size}</div>
                         <div>Color: {product.color}</div>
-                        <div>Type: {product.type}</div>
                         <div>Price: {product.price}</div>
                         <div>Product Counts: {product.productCounts}</div>
                       </li>

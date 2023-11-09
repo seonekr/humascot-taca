@@ -205,7 +205,6 @@ const OrderBill = () => {
                         <thead>
                             <tr>
                             <th>Product Name</th>
-                            <th>Product Type</th>
                             <th>Price</th>
                             <th>Amount</th>
                             <th>Color</th>
@@ -216,7 +215,6 @@ const OrderBill = () => {
                             <tbody key={product.productID}>
                             <tr>
                                 <td>{product.productName}</td>
-                                <td>{product.productType}</td>
                                 <td>${product.price}</td>
                                 <td>{product.amount}</td>
                                 <td>{product.color}</td>
