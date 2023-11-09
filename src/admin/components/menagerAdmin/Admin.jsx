@@ -1,7 +1,7 @@
 import AdminMenu from '../adminMenu/AdminMenu';
 import user from '../../../img/users.png'
 import { FaAngleLeft } from "react-icons/fa";
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { MdOutlineEdit } from 'react-icons/md';
 import { AiOutlineDelete } from 'react-icons/ai';
 import { useState } from 'react';
@@ -27,6 +27,15 @@ const Admin = () => {
     const handleDelete = (adminID) => {
         const updatedAdmin = admins.filter((admin) => admin.adminID !== adminID);
         setAdmins(updatedAdmin);
+    };
+
+    // Update
+    const navigate = useNavigate();
+    // send ID of admin
+    const [sendAdminId, setSendAdminId] = useState();
+    const handleUpdate = (sendAdminId) => {
+        setSendAdminId(sendAdminId);
+        navigate("/addadmin/", { state: { sendAdminId: sendAdminId } });
     };
 
     return(
@@ -55,7 +64,7 @@ const Admin = () => {
                                 <div className='del' onClick={() => handleDelete(admin.adminID)}>
                                     <AiOutlineDelete/>
                                 </div>
-                                <div className='update upd' >
+                                <div className='update upd' onClick={() => handleUpdate(admin.adminID)}>
                                     <MdOutlineEdit/>
                                 </div>
                             </div>

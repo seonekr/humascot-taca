@@ -13,8 +13,6 @@ import Chatroom from "../user/components/contact/Chatroom";
 import Bill from "../user/components/order/Bill";
 import Dashboard from "../admin/Dashboard";
 import Post from "../admin/components/post/Post";
-import AddAdmin from "../admin/components/addAdmin/AddAdmin";
-import Message from "../admin/components/messages/Message";
 import Categories from "../user/components/categories/Categories";
 
 /* ========= Phukeo ========= */
@@ -27,13 +25,13 @@ import OrderPage from "../admin/components/orderPage/OrderPage";
 import OrderBill from "../admin/components/orderPage/OrderBill";
 import Admins from "../admin/components/menagerAdmin/Admins";
 import Product from "../admin/components/products/Product";
-import EditAdmin from "../admin/components/addAdmin/EditAdmin";
 import Dialog from "../admin/components/menagerUser/Dialog";
 
 // ===============================
 import Users from "../admin/components/menagerUser/users";
 import User from "../admin/components/menagerUser/User";
 import Admin from "../admin/components/menagerAdmin/admin";
+import AddAdmin from "../admin/components/menagerAdmin/AddAdmin";
 
 
 const Links = () => {
@@ -54,13 +52,6 @@ const Links = () => {
                 <Route exact path="/categories/" Component={Categories}/>
                 <Route exact path="/cart/successfulBuy/" Component={SuccessfulBuy}/>
 
-                {/* Admin routes */}
-                <Route exact path="/dashboard/" Component={Dashboard}/>
-                <Route exact path="/post/" Component={Post}/>
-                <Route exact path="/addadmin/" Component={AddAdmin}/>
-                <Route exact path="/message/" Component={Message}/>
-
-
                 {/*==== phukeo ==== */}
                 <Route exact path="/product_search" Component={Product_search}/>
                 <Route exact path="/product_search/productdetails" Component={ProductDetails}/>
@@ -68,16 +59,18 @@ const Links = () => {
                 <Route exact path="/register" Component={Register}/>
                 <Route exact path="/cart" Component={Cart}/>
 
-                 {/* Admin routes */}
-                 <Route exact path="/users/" Component={Users}/>
-                 <Route exact path="/orderpage/" Component={OrderPage}/>
-                 <Route exact path="/orderbill/" Component={OrderBill}/>
-                 <Route exact path="/product/" Component={Product}/>
-                 <Route exact path="/editadmin/" Component={EditAdmin}/>
-                 <Route exact path="/dialog/" Component={Dialog}/>
-                 <Route exact path="/users/user/" Component={User}/>
-                 <Route exact path="/admins/" Component={Admins}/>
-                 <Route exact path="/admins/admin/" Component={Admin}/>
+                {/* Admin routes */}
+                <Route exact path="/dashboard/" Component={Dashboard}/>
+                <Route exact path="/post/" Component={Post}/>
+                <Route exact path="/users/" Component={Users}/>
+                <Route exact path="/orderpage/" Component={OrderPage}/>
+                <Route exact path="/orderbill/" Component={OrderBill}/>
+                <Route exact path="/product/" Component={Product}/>
+                <Route exact path="/dialog/" Component={Dialog}/>
+                <Route exact path="/users/user/" Component={User}/>
+                <Route exact path="/admins/" Component={Admins}/>
+                <Route exact path="/admins/admin/" Component={Admin}/>
+                <Route exact path="/addadmin/" Component={AddAdmin}/>
             </Routes>
         </Router>
     );

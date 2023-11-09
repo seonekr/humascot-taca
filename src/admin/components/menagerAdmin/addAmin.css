@@ -65,11 +65,11 @@
 /* Add min image */
 #addAmin form .imageAdmin {
     width: 100%;
-    height: 65vh;
     display: grid;
     justify-content: center;
 }
 #addAmin form .imageAdmin .image {
+    margin-top: 5rem;
     border-radius: 5px;
     border: 1px solid #d3cdcd;
     text-align: center;
@@ -94,20 +94,19 @@
 }
 
 /* Submit button */
-#addAmin form .imageAdmin .submit {
-    display: grid;
+#addAmin form .submit {
+    position: absolute;
+    left: 68%;
     align-items: center;
     justify-content: center;
 }
-#addAmin form .imageAdmin .submit button {
-    width: fit-content;
-    height: fit-content;
-    padding: 0.6rem 2rem;
+
+#addAmin form .submit button {
+    padding: 0.5rem 3.5rem;
     border-radius: 4px;
     color: #fff;
-    font-size: 16px;
+    font-size: 1.2rem;
     background-color: #3498DB;
-    margin-bottom: 1rem;
     cursor: pointer;
     border: none;
 }

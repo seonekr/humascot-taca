@@ -5,7 +5,7 @@ import { IoSearchOutline } from 'react-icons/io5';
 import user from '../../../img/users.png'
 import AdminMenu from '../adminMenu/AdminMenu';
 import users from '../../../img/users.png'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 const Admins = () => {
@@ -32,7 +32,8 @@ const Admins = () => {
             <div className='container_body_adminuser'>
                 <div className='container_box_users'>
                     <div className='box_users'>
-                        <h2>Admin</h2>
+                        <Link to="/addadmin/">Add +</Link>
+                        <div>Admin</div>
                         <form className="search">
                             <div className="search-box_menageruser">
                                 <input type="text" placeholder="Search ..." />

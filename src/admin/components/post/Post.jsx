@@ -80,17 +80,32 @@ const Post = () => {
     // Hanle submit
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        console.log('Form Data:', { // Here you can insert informatio to database
-            "Product name": productName,
-            "Product type": productType,
-            "Product price": price,
-            "Product details": details,
-            "Color": addColor,
-            "Image": image,
-            "Gallery": images,
-            "productID": id
-        });
+        
+        if (e.nativeEvent.submitter.classList.contains("update")) { // this for update product
+            console.log("Update")
+            console.log('Form Data:', { // Here you can insert information to database
+                "Product name": productName,
+                "Product type": productType,
+                "Product price": price,
+                "Product details": details,
+                "Color": addColor,
+                "Image": image,
+                "Gallery": images,
+                "productID": id
+            });
+          } else { //this for post product
+            console.log("Post")
+            console.log('Form Data:', { // Here you can insert information to database
+                "Product name": productName,
+                "Product type": productType,
+                "Product price": price,
+                "Product details": details,
+                "Color": addColor,
+                "Image": image,
+                "Gallery": images,
+                "productID": id
+            });
+          }
 
         setProductName('');
         setProductType('');
@@ -361,7 +376,7 @@ const Post = () => {
                                             </div>
                                         </div>
                                         <div className="submit1">
-                                            <button type="submit">Post</button>
+                                            <button type="submit" className="update">Update</button>
                                         </div>
                                     </div>
                                 ))}
