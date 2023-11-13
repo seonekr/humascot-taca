@@ -15,6 +15,9 @@ const Admins = () => {
         { adminID: 2, adminName:"Anoupha", email: "anoupha@gmail.com", phone: "02099887676", password: "******", confirmPassword: "******", images: [user] },
         { adminID: 3, adminName:"Sengphachan",email: "sengphachan@gmail.com", phone: "02099887676", password: "******", confirmPassword: "******", images: [user] },
         { adminID: 4, adminName:"Khammun", email: "khammun@gmail.com", phone: "02099887676", password: "******", confirmPassword: "******", images: [user] },
+        { adminID: 5, adminName:"Khammun", email: "khammun@gmail.com", phone: "02099887676", password: "******", confirmPassword: "******", images: [user] },
+        { adminID: 6, adminName:"Khammun", email: "khammun@gmail.com", phone: "02099887676", password: "******", confirmPassword: "******", images: [user] },
+        { adminID: 7, adminName:"Khammun", email: "khammun@gmail.com", phone: "02099887676", password: "******", confirmPassword: "******", images: [user] },
     ]);
     const [searchTerm, setSearchTerm] = useState("");
     const navigate = useNavigate();
@@ -27,10 +30,19 @@ const Admins = () => {
     }
 
      // Filter user based on search 
-     const filteredadmin = admins.filter((admin) => {
+    const filteredadmin = admins.filter((admin) => {
         const nameMatch = admin.adminName.toLowerCase().includes(searchTerm.toLowerCase());
         return nameMatch;
     });
+
+    // prev next button user in react
+    const [currentPage, setCurrentPage] = useState(1) 
+    const recordsPerPage = 4
+    const lastIndex = currentPage * recordsPerPage;
+    const firstIndex = lastIndex - recordsPerPage;
+    const records = filteredadmin.slice(firstIndex, lastIndex);
+    const npage = Math.ceil(filteredadmin.length / recordsPerPage)
+    const numbers = [...Array(npage + 1).keys()].slice(1) 
 
   return (
     <>
@@ -61,7 +73,7 @@ const Admins = () => {
                         </form>
                     </div>
 
-                    {filteredadmin.map((admin) => (
+                    {filteredadmin && records.map((admin) => (
                         <div key={admin.adminID}>
                             <div className='box_users_admin' onClick={() => handleUserID(admin.adminID)}>
                                 <div className='box_admin_text'>
@@ -76,17 +88,24 @@ const Admins = () => {
                     ))}
 
                     <div className='box_next_admin'>
-                        <button className='box_prev_next_admin'>
+                        <button className='box_prev_next_admin' onClick={prePage}>
                             <AiOutlineLeft id="box_prev_next_icon"/>
                             <p>Prev</p>
                         </button>
+
                         <div className='box_num_admin'>
-                            <p className='num_admin'>1</p>
-                            <p className='num_admin'>2</p>
-                            <p className='num_admin'>3</p>
+                            {
+                                numbers.map((n, i) => (
+                                    <div className={`page-link ${currentPage === n? 'active' : ''}`} key={i}>
+                                        <div className='num_admin'>
+                                            <p onClick={()=> changeCPage(n)} >{n}</p>
+                                        </div> 
+                                    </div>
+                                ))
+                            }
                         </div>
                         
-                        <button className='box_prev_nexts_admin'>
+                        <button className='box_prev_nexts_admin' onClick={nextPage}>
                             <p>Next</p>
                             <AiOutlineRight id="box_prev_next_icon"/>
                         </button>
@@ -96,6 +115,19 @@ const Admins = () => {
         </section>
     </>
   )
+  function prePage() {
+    if(currentPage !== 1) {
+        setCurrentPage(currentPage - 1)
+    }
+  }
+  function nextPage() {
+    if(currentPage !== npage) {
+        setCurrentPage(currentPage + 1)
+    }
+  }
+  function changeCPage(userID) {
+    setCurrentPage(userID)
+  }
 }
 
-export default Admins
+export default Admins;

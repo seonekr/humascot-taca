@@ -123,6 +123,7 @@
     justify-content: center;
     background: #FA442C;
 }
+
 .box_prev_nexts_admin{
     width: 80px;
     height: 40px;
@@ -138,12 +139,12 @@
 }
 
 #box_prev_next_icon{
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
 }
 
 .num_admin{
-    width: 70px;
+    width: 60px;
     height: 40px;
     border-radius: 6px;
     display: flex;
@@ -152,7 +153,7 @@
     border: 1px solid #444;
 }
 .box_next_admin p{
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .box_num_admin{
