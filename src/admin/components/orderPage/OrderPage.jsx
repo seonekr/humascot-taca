@@ -281,7 +281,7 @@ const OrderPage = () => {
 
     // prev next button user in react
     const [currentPage, setCurrentPage] = useState(1) 
-    const recordsPerPage = 3
+    const recordsPerPage = 4
     const lastIndex = currentPage * recordsPerPage;
     const firstIndex = lastIndex - recordsPerPage;
     const records = orders.slice(firstIndex, lastIndex);
