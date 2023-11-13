@@ -15,7 +15,7 @@ const Admins = () => {
         { adminID: 3, adminName:"Sengphachan",email: "sengphachan@gmail.com", phone: "02099887676", password: "******", confirmPassword: "******", images: [user] },
         { adminID: 4, adminName:"Khammun", email: "khammun@gmail.com", phone: "02099887676", password: "******", confirmPassword: "******", images: [user] },
     ]);
-
+    const [searchTerm, setSearchTerm] = useState("");
     const navigate = useNavigate();
     // send ID of admin
     const [id, setId] = useState();
@@ -24,6 +24,12 @@ const Admins = () => {
         setId(id);
         navigate("/admins/admin/", { state: { id: id } });
     }
+
+     // Filter user based on search 
+     const filteredadmin = admins.filter((admin) => {
+        const nameMatch = admin.adminName.toLowerCase().includes(searchTerm.toLowerCase());
+        return nameMatch;
+    });
 
   return (
     <>
@@ -36,7 +42,12 @@ const Admins = () => {
                         <div>Admin</div>
                         <form className="search">
                             <div className="search-box_menageruser">
-                                <input type="text" placeholder="Search ..." />
+                                <input 
+                                    type="text" 
+                                    placeholder="Search ..." 
+                                    value={searchTerm}
+                                    onChange={(e) => setSearchTerm(e.target.value)}
+                                    />
                                 <button type="submit">
                                 <IoSearchOutline />
                                 </button>
@@ -44,7 +55,7 @@ const Admins = () => {
                         </form>
                     </div>
 
-                    {admins.map((admin) => (
+                    {filteredadmin.map((admin) => (
                         <div key={admin.adminID}>
                             <div className='box_users_admin' onClick={() => handleUserID(admin.adminID)}>
                                 <div className='box_admin_text'>

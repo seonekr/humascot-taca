@@ -5,15 +5,18 @@
 }
 
 .container_dialog{
-    width: 15%;
+    width: 25%;
     height: 15%;
     display: grid;
     align-items: center;
     justify-content: center;
-    background-color: aqua;
+    background-color: #e5e3e3;
+    border-radius: 5px;
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.15);
     position: absolute;
-    top: 30%;
-    left: 80%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 .btn_ok_on{
     display: flex;

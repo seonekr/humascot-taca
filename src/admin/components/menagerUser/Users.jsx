@@ -14,6 +14,7 @@ const Users = () => {
         { userID: 3, userName:"Sengphachan",email: "sengphachan@gmail.com", phone: "02099887676", password: "******", confirmPassword: "******", images: [user] },
         { userID: 4, userName:"Khammun", email: "khammun@gmail.com", phone: "02099887676", password: "******", confirmPassword: "******", images: [user] },
     ]);
+    const [searchTerm, setSearchTerm] = useState("");
 
     const navigate = useNavigate();
     // send ID of user
@@ -23,6 +24,11 @@ const Users = () => {
         setId(id);
         navigate("/users/user/", { state: { id: id } });
     }
+    // Filter user based on search 
+    const filtereduser = users.filter((user) => {
+        const nameMatch = user.userName.toLowerCase().includes(searchTerm.toLowerCase());
+        return nameMatch;
+    });
     
 
   return (
@@ -38,6 +44,8 @@ const Users = () => {
                                 <input 
                                     type="text" 
                                     placeholder="Search ..." 
+                                    value={searchTerm}
+                                    onChange={(e) => setSearchTerm(e.target.value)}
                                 />
                                 <button type="submit">
                                 <IoSearchOutline />
@@ -45,7 +53,7 @@ const Users = () => {
                             </div>
                         </form>
                     </div>
-                    {users.map((user) => (
+                    {filtereduser.map((user) => (
                         <div key={user.userID}>
                             <div className='box_users_user' onClick={() => handleUserID(user.userID)}>
                                 <div className='box_user_text'>

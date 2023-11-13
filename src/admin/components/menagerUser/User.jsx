@@ -5,6 +5,7 @@ import { FaAngleLeft } from "react-icons/fa";
 import { Link, useLocation } from 'react-router-dom';
 import { AiOutlineDelete } from 'react-icons/ai';
 import { useState } from 'react';
+import Dialog from './Dialog';
 
 const User = () => {
     const [users, setUsers] = useState([
@@ -13,6 +14,11 @@ const User = () => {
         { userID: 3, userName:"Sengphachan",email: "sengphachan@gmail.com", phone: "02099887676", password: "******", confirmPassword: "******", images: [user] },
         { userID: 4, userName:"Khammun", email: "khammun@gmail.com", phone: "02099887676", password: "******", confirmPassword: "******", images: [user] },
     ]);
+
+    const [dialog, setDialog] = useState({
+        message:'',
+        isLoading:false
+    })
 
     // Get user ID
     const location = useLocation();
@@ -25,9 +31,20 @@ const User = () => {
 
     // Delete
     const handleDelete = (userID) => {
-        const updatedUser = users.filter((user) => user.userID !== userID);
-        setUsers(updatedUser);
+        setDialog({
+            message:'Are you sure you want to delete?',
+            isLoading:true
+        })
+        
     };
+
+    const areUSuredelete = (choose) => {
+        if(choose) {
+
+        }else{
+            
+        }
+    }
 
     return(
         <>
@@ -61,6 +78,7 @@ const User = () => {
                     </div>
                 ))}
             </section>
+            { dialog.isLoading && <Dialog onDialog={areUSuredelete} message={dialog.message}/>}
         </>
     )
 }

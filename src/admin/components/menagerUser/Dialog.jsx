@@ -1,14 +1,14 @@
 import React from 'react';
 import './dialog.css';
 
-const Dialog = () => {
+const Dialog = ({message, onDialog}) => {
   return (
     <div className='container_dialog'>
-        <h3>Message</h3>
+        <h3>{message}</h3>
         <div className='btn_ok_on'>
-            <button className='btn_ok'>OK</button>
-            <button className='btn_on'>NO</button>
-        </div>
+            <button onClick={()=>onDialog(true)} className='btn_ok'>OK</button>
+            <button onClick={()=>onDialog(false)} className='btn_on'>NO</button>
+        </div> 
 
     </div>
   )
