@@ -4,7 +4,7 @@ import user from '../../../img/users.png'
 import { FaAngleLeft } from "react-icons/fa";
 import { Link, useLocation } from 'react-router-dom';
 import { AiOutlineDelete } from 'react-icons/ai';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import Dialog from './Dialog';
 
 const User = () => {
@@ -15,10 +15,18 @@ const User = () => {
         { userID: 4, userName:"Khammun", email: "khammun@gmail.com", phone: "02099887676", password: "******", confirmPassword: "******", images: [user] },
     ]);
 
+    // Dialog 
     const [dialog, setDialog] = useState({
         message:'',
         isLoading:false
     })
+    const iduserRef = useRef();
+    const handleDialog = (message, isLoading) => {
+        setDialog({
+            message,
+            isLoading,
+        })
+    }
 
     // Get user ID
     const location = useLocation();
@@ -31,18 +39,16 @@ const User = () => {
 
     // Delete
     const handleDelete = (userID) => {
-        setDialog({
-            message:'Are you sure you want to delete?',
-            isLoading:true
-        })
-        
+        handleDialog('Are you sure you want to delete?',true);
+        iduserRef.current = userID;
     };
 
     const areUSuredelete = (choose) => {
         if(choose) {
-
+            setUsers(users.filter((user) => user.userID !== iduserRef.current));
+            handleDialog("",false)
         }else{
-            
+            handleDialog("",false)
         }
     }
 
