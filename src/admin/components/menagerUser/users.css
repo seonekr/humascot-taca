@@ -161,8 +161,8 @@
     display: flex;
     gap: 0.3rem;
     color: #FFF;
-    cursor: pointer;
     border: none;
+    cursor: pointer;
     border-radius: 6px;
     align-items: center;
     justify-content: center;
@@ -184,25 +184,26 @@
 }
 
 #box_prev_next_icon {
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
 }
 
-.num {
-    width: 70px;
+.num_users {
+    width: 60px;
     height: 40px;
     border-radius: 6px;
     display: flex;
+    cursor: pointer;
     align-items: center;
     justify-content: center;
-    border: 1px solid #444;
+    border: 1px solid #ccc;
 }
 
 .box_next_user p {
-    font-size: 18px;
+    font-size: 16px;
 }
 
-.box_num_user {
+.box_num_users {
     display: flex;
     gap: 0.5rem;
     align-items: center;
