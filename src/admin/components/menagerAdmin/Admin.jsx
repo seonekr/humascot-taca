@@ -5,7 +5,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { MdOutlineEdit } from 'react-icons/md';
 import { AiOutlineDelete } from 'react-icons/ai';
 import { useState, useRef} from 'react';
-import Dialog from '../menagerUser/Dialog';
+import Dialog from "../menagerUser/Dialog";
 
 const Admin = () => {
     const [admins, setAdmins] = useState([

@@ -6,6 +6,7 @@ import user from '../../../img/users.png'
 import AdminMenu from '../adminMenu/AdminMenu';
 import users from '../../../img/users.png'
 import { Link, useNavigate } from 'react-router-dom';
+import { BiPlus } from 'react-icons/bi';
 
 
 const Admins = () => {
@@ -38,8 +39,13 @@ const Admins = () => {
             <div className='container_body_adminuser'>
                 <div className='container_box_users'>
                     <div className='box_users'>
-                        <Link to="/addadmin/">Add +</Link>
-                        <div>Admin</div>
+                        <div className='box_add_admin'>
+                            <Link to="/addadmin/" className='btn_addadmin'>
+                                <BiPlus id="icon_add_admin"/>
+                                Add Admin
+                            </Link>
+                        </div>
+                        
                         <form className="search">
                             <div className="search-box_menageruser">
                                 <input 

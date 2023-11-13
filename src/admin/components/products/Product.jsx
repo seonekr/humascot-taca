@@ -1,13 +1,14 @@
 import "./product.css";
 import image1 from "../../../img/image1.png";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import AdminMenu from "../adminMenu/AdminMenu";
 import { BiPlus } from 'react-icons/bi';
 import { IoSearchOutline } from 'react-icons/io5';
 import { MdOutlineEdit } from 'react-icons/md';
 import { AiOutlineDelete, AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 import { useNavigate } from "react-router-dom";
+import Dialog from "../menagerUser/Dialog";
 
 const Product = () => {
     const [products, setProducts] = useState([
@@ -24,6 +25,20 @@ const Product = () => {
     const [price, setPrice] = useState("");
     const [priceFilter, setPriceFilter] = useState("");
     const [searchTerm, setSearchTerm] = useState("");
+
+    // Dialog 
+    const [dialog, setDialog] = useState({
+        message:'',
+        isLoading:false
+    })
+    const idproductRef = useRef();
+    const handleDialog = (message, isLoading) => {
+        setDialog({
+            message,
+            isLoading,
+        })
+    }
+
 
     // Handle inputChange
     const handleInputChange = (e, index, field) => {
@@ -54,9 +69,17 @@ const Product = () => {
 
     // Delete
     const handleDelete = (productID) => {
-        const updatedProducts = products.filter((product) => product.productID !== productID);
-        setProducts(updatedProducts);
+        handleDialog('Are you sure you want to delete?',true);
+        idproductRef.current = productID;
     };
+    const areUSuredelete = (choose) => {
+        if(choose) {
+            setProducts(products.filter((product) => product.productID !== idproductRef.current));
+            handleDialog("",false)
+        }else{
+            handleDialog("",false)
+        }
+    }
 
     // Send ID product for update
     const navigate = useNavigate();
@@ -134,7 +157,7 @@ const Product = () => {
                                     </li>
                                     <div className="box_btn_edit_delete">
 
-                                        <button className="btn_icon_delete_user" onClick={() => handleDelete(product.productID)}>
+                                        <button onDialog={areUSuredelete} className="btn_icon_delete_user" onClick={() => handleDelete(product.productID)}>
                                             <AiOutlineDelete id="btn_icon_edit"/>
                                         </button>
                                         <div className="btn_icon_edit_user" onClick={() => handleUpdate(product.productID)}>
@@ -165,6 +188,7 @@ const Product = () => {
                 </div>
                     
             </section>
+            { dialog.isLoading && <Dialog onDialog={areUSuredelete} message={dialog.message}/>}
         </>
         
     )
