@@ -13,7 +13,7 @@ a{
 /* ============== body box_container =============*/
 .box_container{
   width: 800px;
-  height: 720px;
+  height: 700px;
   position: relative;
   border-radius: 1em;
   display: grid;
@@ -97,7 +97,6 @@ a{
   border-radius: 10px;
   font-size: 18px;
   border: 1px solid rgba(0, 0, 0, 0.40);
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
 }
 
 .input_form1{
@@ -114,11 +113,12 @@ a{
   align-items: center;
   justify-content: center;
   gap: 1rem;
+  margin-top: 5px;
   padding: 20px 15px;
   border-radius: 10px;
   margin-left: 1rem;
   border: 1px solid rgba(0, 0, 0, 0.40);
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -141,7 +141,7 @@ a{
 .signup_btn{
   width: 450px;
   height: 58px;
-  margin: 1rem;
+  margin-top: 2px;
   background: #FA442C;
   color: #FFF;
   border-radius: 10px;
@@ -150,10 +150,9 @@ a{
   align-items: center;
   border: 1px;
   font-size: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
 }
-.signup_btn:hover{
-  color: #FFF;
+.box_already{
+  padding: 5px 0;
 }
 
 

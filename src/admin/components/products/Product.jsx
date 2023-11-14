@@ -20,6 +20,7 @@ const Product = () => {
         { productID: 6, productName: 'Product 6', description: 'This is product 1', price: 12, productType: "clothes", images: [image1], colors: [{colorID: 1, colorName: "black"}, {colorID: 2, colorName: "blue"}, {colorID: 3, colorName: "red"}, {colorID: 4, colorName: "green"}]},
         { productID: 7, productName: 'Product 7', description: 'This is product 1', price: 10, productType: "clothes", images: [image1], colors: [{colorID: 1, colorName: "black"}, {colorID: 2, colorName: "blue"}, {colorID: 3, colorName: "red"}, {colorID: 4, colorName: "green"}]},
         { productID: 8, productName: 'Product 8', description: 'This is product 1', price: 11, productType: "clothes", images: [image1], colors: [{colorID: 1, colorName: "black"}, {colorID: 2, colorName: "blue"}, {colorID: 3, colorName: "red"}, {colorID: 4, colorName: "green"}]},
+        { productID: 9, productName: 'Product 9', description: 'This is product 1', price: 11, productType: "clothes", images: [image1], colors: [{colorID: 1, colorName: "black"}, {colorID: 2, colorName: "blue"}, {colorID: 3, colorName: "red"}, {colorID: 4, colorName: "green"}]},
     ]);
 
     const [price, setPrice] = useState("");
@@ -66,6 +67,15 @@ const Product = () => {
         const priceMatch = priceFilter !== "" ? product.price === parseInt(priceFilter) : true;
         return priceMatch && nameMatch;
     });
+
+    // prev next button user in react
+    const [currentPage, setCurrentPage] = useState(1) 
+    const recordsPerPage = 6
+    const lastIndex = currentPage * recordsPerPage;
+    const firstIndex = lastIndex - recordsPerPage;
+    const records = filteredProducts.slice(firstIndex, lastIndex);
+    const npage = Math.ceil(filteredProducts.length / recordsPerPage)
+    const numbers = [...Array(npage + 1).keys()].slice(1)
 
     // Delete
     const handleDelete = (productID) => {
@@ -127,7 +137,7 @@ const Product = () => {
                     </div>
 
                     <div className="product-area">
-                        {filteredProducts.map((product, index) => (
+                        {filteredProducts && records.map((product, index) => (
                             <div className="box-product" key={ index }>
                                 <div><img src={product.images[0]} alt="image" /></div>
                                 <ul className="txtOFproduct">
@@ -170,17 +180,24 @@ const Product = () => {
                         ))}
                     </div>
                     <div className='box_container_next_product'>
-                        <button className='box_prev_left_product'>
+                        <button className='box_prev_left_product' onClick={prePage}>
                             <AiOutlineLeft id="box_icon_left_right_product" />
                             <p>Prev</p>
                         </button>
 
                         <div className='box_num_product'>
-                            <p className='num_admin_product'>1</p>
-                            <p className='num_admin_product'>2</p>
-                            <p className='num_admin_product'>3</p>
+                            {
+                                numbers.map((n, i) => (
+                                    <div className={`page-link ${currentPage === n? 'active' : ''}`} key={i}>
+                                        <div className='num_admin_product'>
+                                            <p onClick={()=> changeCPage(n)} >{n}</p>
+                                        </div> 
+                                    </div>
+                                ))
+                            }
                         </div>
-                        <button className='box_prev_right_product'>
+
+                        <button className='box_prev_right_product' onClick={nextPage}>
                             <p>Next</p>
                             <AiOutlineRight id="box_icon_left_right_product" />
                         </button>
@@ -192,6 +209,19 @@ const Product = () => {
         </>
         
     )
+    function prePage() {
+        if(currentPage !== 1) {
+            setCurrentPage(currentPage - 1)
+        }
+      }
+      function nextPage() {
+        if(currentPage !== npage) {
+            setCurrentPage(currentPage + 1)
+        }
+      }
+      function changeCPage(userID) {
+        setCurrentPage(userID)
+      }
 }
 
 export default Product;
