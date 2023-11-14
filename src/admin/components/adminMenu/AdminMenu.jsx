@@ -40,10 +40,6 @@ const AdminMenu = () => {
               <LiaUserCogSolid />
               <p>Admin</p>
             </Link>
-            <Link to="/message/" className="link">
-              <BiMessageDetail />
-              <p>Message</p>
-            </Link>
             <Link to="/" className="link">
               <IoLogOutOutline />
               <p>Log Out</p>
@@ -56,9 +52,9 @@ const AdminMenu = () => {
               </span>
             </Link>
             
-            <div className="userAdminImage">
+            <Link to="/admins/" className="userAdminImage">
               <img src={user} alt="Logo_Profile" />
-            </div>
+            </Link>
           </div>
         </div>
       </section>
