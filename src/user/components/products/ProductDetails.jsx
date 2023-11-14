@@ -841,7 +841,7 @@ function ProductDetails() {
           </div>
         ))}
         <div className="description_container">
-            
+            <img src={dress} alt="" />
         </div>
       </div>
       <Menu />

@@ -364,49 +364,16 @@ body {
 .description_container{
     background-color: #999;
     width: 80%;
-    height: 50vh;
+    height: auto;
     margin: auto;
+    overflow: hidden;
 }
 
-/* ----------- Footer ---------------- */
-
-.footer_boxx {
-    display: none;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 30px;
-    position: fixed;
-    bottom: 0;
+.description_container img{
     width: 100%;
-    height: 70px;
-    border-radius: 10px 10px 0px 0px;
-    background: #FFF;
-    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
+    object-fit: cover;
 }
 
-.btn_foot a {
-    padding: 13px 30px;
-    border-radius: 7px;
-}
-
-.Buy_Now a {
-    background-color: #FF4F16;
-    color: #FFF;
-
-}
-
-.Buy_Now a:hover {
-    color: #FFF;
-
-}
-
-.Add_To_Cart a {
-    border-radius: 7px;
-    color: #FF4F16;
-    border: 1px solid #FF4F16;
-}
-
-/* ----------- END Footer ---------------- */
 
 
 /* ----------- Media Screen ---------------- */
