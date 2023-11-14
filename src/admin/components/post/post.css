@@ -68,10 +68,15 @@
     margin-top: 2rem;
 }
 
+.box_description{
+    padding: 15px 0 ;
+}
+
 .image {
     width: 100%;
     display: grid;
     height: 25vh;
+    margin-top: 1rem;
     border: 1px solid #ccc;
     border-radius: 5px;
     align-items: center;
@@ -311,3 +316,4 @@
     margin: 1rem 0;
     cursor: pointer;
 }
+

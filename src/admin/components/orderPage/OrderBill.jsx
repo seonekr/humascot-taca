@@ -188,6 +188,8 @@ const OrderBill = () => {
     console.log(status)
   }
 
+
+
   return (
     <>
       <AdminMenu />
@@ -248,7 +250,7 @@ const OrderBill = () => {
                   <option value="pending">Pending</option>
                   <option value="completed">Completed</option>
                 </select>
-                <button type='submit'>Confirm</button>
+                <button type='submit' >Confirm</button>
               </form>
               <p>Delivery: {order.delivery}</p>
             </div>

@@ -181,16 +181,7 @@ const Post = () => {
                         </div>
 
                         <div className="input-img">
-                            <div className="image">
-                                <label htmlFor="img">
-                                    {(image && image.length > 0) ? <img src={URL.createObjectURL(image[0])} /> : <p>Choose image</p>}
-                                </label>
-                                <input
-                                    type="file"
-                                    id="img"
-                                    onChange={handleImage}
-                                />
-                            </div>
+                            
                             <div className="gallery">
                                 <h3>Image gallery</h3>
                                 <div className="gallery-box">
@@ -209,6 +200,21 @@ const Post = () => {
                                     }
                                 </div>
                             </div>
+                            <div className="box_description">
+                                <h3>Description image</h3>
+                                <div className="image">
+                                    <label htmlFor="img">
+                                        {(image && image.length > 0) ? <img src={URL.createObjectURL(image[0])} /> : <p>Choose image</p>}
+                                    </label>
+                                    <input
+                                        type="file"
+                                        id="img"
+                                        onChange={handleImage}
+                                    />
+                                </div>
+                            </div>
+                            
+                            
                         </div>
                         <div className="submit1">
                             <button type="submit">Post</button>
