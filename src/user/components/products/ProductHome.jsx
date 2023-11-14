@@ -26,6 +26,7 @@ const ProductHome = () => {
 const [filteredProducts, setFilteredProducts] = useState(products);
 const [selectedFilter, setSelectedFilter] = useState('default');
 const [displayCount, setDisplayCount] = useState(8);
+const [showButton, setShowButton] = useState(true);
 
 
 // Handle inputChange
@@ -79,11 +80,12 @@ const [displayCount, setDisplayCount] = useState(8);
     };
     
 
-// Read more
-const displayedProducts = filteredProducts.slice(0, displayCount);
-const handleViewMore = () => {
-    setDisplayCount(displayCount + 4);
-};
+    const displayedProducts = filteredProducts.slice(0, displayCount);
+    // Read more
+    const handleViewMore = () => {
+        setDisplayCount(products.length);
+        setShowButton(false);
+    };
 
 // Get send ID
 const navigate = useNavigate();
@@ -92,7 +94,6 @@ const navigate = useNavigate();
 const handleProduct = (sendProductID) => {
     navigate('/product_search/productdetails/', { state: { sendProductID: sendProductID } });
 }
-
     return (
         <section id="product">
             <div className="productHead_content">
@@ -149,8 +150,7 @@ const handleProduct = (sendProductID) => {
                     </div>
                 ))}
             </div>
-
-            <button className="btnViewProduct" onClick={handleViewMore}>View More</button>
+            {showButton && (<button className="btnViewProduct" onClick={handleViewMore}>View More</button>)}
         </section>
     )
 }
