@@ -62,7 +62,7 @@ input:focus {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 3rem 0;
+    padding: 3rem 0rem;
     margin-top: 3rem;
 }
 
@@ -85,7 +85,7 @@ input:focus {
     /*Is price filter*/
     cursor: pointer;
     font-size: 15px;
-    padding: 7px 30px;
+    padding: 7px 10px;
     border-radius: 5px;
 }
 
@@ -145,8 +145,8 @@ input:focus {
 
 .boxfilterseach {
     display: flex;
+    flex-direction: column;
     gap: 10px;
-    align-items: center;
 }
 
 .btn_more {
@@ -162,14 +162,15 @@ input:focus {
         width: 80%;
         margin: 0 auto;
     }
-   
+
 }
 
-@media screen and (min-width: 768px) and  (max-width: 1025px){
+@media screen and (min-width: 768px) and (max-width: 1025px) {
     .container_home {
         width: 80%;
         margin: 0 auto;
     }
+
     .contentImageProducts {
         grid-template-columns: 1fr 1fr 1fr;
     }
@@ -185,7 +186,8 @@ input:focus {
         align-items: center;
         overflow: hidden;
     }
-    .group_itemBox .img img{
+
+    .group_itemBox .img img {
         padding: 15px;
     }
 
@@ -257,7 +259,7 @@ input:focus {
         gap: 0;
     }
 
-    
+
 
     .btn_more {
         margin-bottom: 5rem;

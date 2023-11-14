@@ -123,7 +123,7 @@ const Product_search = () => {
                         <form className='boxfilterseach'>
                             <label htmlFor="">Select Filter</label>
                             <select className="categoryFilter" value={selectedFilter} onChange={handleFilterChange}>
-                                <option value="default">all</option>
+                                <option value="default">All Product</option>
                                 <option value="higherPrice">Higher Price</option>
                                 <option value="lowerPrice">Lower Price</option>
                                 <option value="newProducts">New Products</option>
