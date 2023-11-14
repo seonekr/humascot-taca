@@ -88,6 +88,7 @@ const Product_search = () => {
             const sortedProducts = [...products].sort((a, b) => b.productID - a.productID);
             setFilteredProducts(sortedProducts);
         };
+        
 
     // Read more
     const displayedProducts = filteredProducts.slice(0, displayCount);
