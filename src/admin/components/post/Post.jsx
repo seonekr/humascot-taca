@@ -47,7 +47,7 @@ const Post = () => {
             "Product price": price,
             "Product details": details,
             "Color": addColor,
-            "Image": image,
+            "ImageDescroption": image,
             "Gallery": images
 
         });
