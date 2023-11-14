@@ -7,6 +7,7 @@ import { IoIosArrowBack } from "react-icons/io";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import dress from "../../../img/dress.png";
 import image1 from "../../../img/image1.png";
+import description from "../../../img/detailproduct.jpg";
 import acer from "../../../img/acer.png";
 import productImage from "../../../img/productImage.png";
 
@@ -841,7 +842,7 @@ function ProductDetails() {
           </div>
         ))}
         <div className="description_container">
-            
+            <img src={description} alt="" />
         </div>
       </div>
       <Menu />
