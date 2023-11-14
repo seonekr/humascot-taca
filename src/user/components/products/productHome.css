@@ -104,6 +104,9 @@ a {
 }
 
 
+
+
+
 @media screen and (min-width: 1537px) and (max-width: 1950px) {
     .product-area {
         width: 80%;
@@ -148,6 +151,7 @@ a {
     #product .box-product .img img {
         padding: 20px;
     }
+    
 }
 
 @media screen and (max-width: 420px) {
@@ -185,7 +189,7 @@ a {
     .btnViewProduct {
         margin-bottom: 10rem;
     }
-}
 
+}
 
 @media screen and (max-width: 376px) {}

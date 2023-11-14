@@ -124,7 +124,7 @@ const Product_search = () => {
                 <div className="content_itemBox">
                     <div className='container_product'>
                         <h3 className="htxthead"><span className="spennofStyle"></span>Product</h3>
-                        <form className='boxfilterseach'>
+                        <form className='box_Filterseach_home'>
                             <label>Select Filter</label>
                             <select className="categoryFilter" value={selectedFilter} onChange={handleFilterChange}>
                                 <option value="default">All Product</option>

@@ -99,7 +99,7 @@ const handleProduct = (sendProductID) => {
             <div className="productHead_content">
                 <h1 className="htxthead"><span className="spennofStyle"></span>Product</h1>
                 <div className="categoryBoxfiler">
-                    <form>
+                    <form className='boxfilterseach'>
                         <label>Select Filter</label>
                         <select className="filter_priceProduct" value={selectedFilter} onChange={handleFilterChange}>
                             <option value="default">All Product</option>
