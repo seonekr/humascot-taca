@@ -115,7 +115,7 @@ const Product_search = () => {
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                     />
-                    <FaSearch id="search-icon" onClick={handleSearch} />
+                    <FaSearch className='onlacksearch' id="search-icon" onClick={handleSearch} />
 
                 </div>
                 <div className="content_itemBox">
