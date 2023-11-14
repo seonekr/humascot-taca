@@ -21,6 +21,7 @@ const Admins = () => {
     ]);
     const [searchTerm, setSearchTerm] = useState("");
     const navigate = useNavigate();
+
     // send ID of admin
     const [id, setId] = useState();
 

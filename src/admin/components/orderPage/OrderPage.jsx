@@ -4,6 +4,7 @@ import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 import AdminMenu from '../adminMenu/AdminMenu';
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { IoSearchOutline } from 'react-icons/io5';
 
 const OrderPage = () => {
     //OrderPage
@@ -270,6 +271,8 @@ const OrderPage = () => {
         },
     ]);
 
+    const [searchTerm, setSearchTerm] = useState("");
+
     // send order ID
     const [id, setId] = useState();
     const navigate = useNavigate();
@@ -279,13 +282,19 @@ const OrderPage = () => {
         navigate("/orderbill/", { state: { id: id } });
     };
 
+    //Search orderID 
+    const filteredorder = orders.filter((order) => {
+      const nameMatch = order.orderID;
+      return nameMatch;
+    });
+
     // prev next button user in react
     const [currentPage, setCurrentPage] = useState(1) 
     const recordsPerPage = 4
     const lastIndex = currentPage * recordsPerPage;
     const firstIndex = lastIndex - recordsPerPage;
-    const records = orders.slice(firstIndex, lastIndex);
-    const npage = Math.ceil(orders.length / recordsPerPage)
+    const records = filteredorder.slice(firstIndex, lastIndex);
+    const npage = Math.ceil(filteredorder.length / recordsPerPage)
     const numbers = [...Array(npage + 1).keys()].slice(1) 
 
 
@@ -294,59 +303,74 @@ const OrderPage = () => {
             <AdminMenu />
             <section id='menager'>
               <div className='container_box_orderpage'>
+                <div className='box_head_search'>
                   <h2>Order</h2>
-                  {records.map((order) => (
-                      <div key={order.orderID}>
-                          <form className='box_users_order'>
-                              <div className='box_order_text'>
-                                  <p>No: {order.orderID}</p>
-                                  <dv>
-                                      {order.products.slice(0, 2).map((product, index) => (
-                                          <span key={product.productID}>
-                                              {product.productName}
-                                              {index === 0 && order.products.length > 1
-                                              ? ", " : " ..."}
-                                          </span>
-                                      ))}
-                                  </dv>
-                              </div>
-                              <div className='box_container_time'>
-                                  <p>{order.orderDate}</p>
-                              </div>
-                              <div className='container_order_icon'>
-                                  <div className='btn_pending'>
-                                      Pending
-                                  </div>
-                                  <button className='btn_view' onClick={() => handleOrder(order.orderID)}>
-                                      View
-                                  </button>
-                              </div>
-                          </form>
-                      </div>
-                  ))}
-                  <div className='box_next_order'>
-                    <button className='box_prev_next_order' onClick={prePage}>
-                      <AiOutlineLeft id="box_prev_next_icon" />
-                      <p>Prev</p>
-                    </button>
-
-                    <div className='box_num_order'>
-                      {
-                        numbers.map((n, i) => (
-                          <div className={`page-link ${currentPage === n? 'active' : ''}`} key={i}>
-                              <div className='num_admin'>
-                                  <p onClick={()=> changeCPage(n)} >{n}</p>
-                              </div> 
-                          </div>
-                        ))
-                      }
+                  <form className="search">
+                    <div className="search-box_menageruser">
+                        <input 
+                          type="text" 
+                          placeholder="Search ..." 
+                          value={searchTerm}
+                          onChange={(e) => setSearchTerm(e.target.value)}
+                          />
+                        <button type="submit">
+                        <IoSearchOutline />
+                        </button>
                     </div>
-                    
-                    <button className='box_prev_nexts_order' onClick={nextPage}>
-                      <p>Next</p>
-                      <AiOutlineRight id="box_prev_next_icon" />
-                    </button>
+                  </form>
+                </div>
+                
+                {records.map((order) => (
+                    <div key={order.orderID}>
+                        <form className='box_users_order'>
+                            <div className='box_order_text'>
+                              <p>No: {order.orderID}</p>
+                              <div>
+                                  {order.products.slice(0, 2).map((product, index) => (
+                                      <span key={product.productID}>
+                                          {product.productName}
+                                          {index === 0 && order.products.length > 1
+                                          ? ", " : " ..."}
+                                      </span>
+                                  ))}
+                              </div>
+                            </div>
+                            <div className='box_container_time'>
+                                <p>{order.orderDate}</p>
+                            </div>
+                            <div className='container_order_icon'>
+                                <div className='btn_pending'>
+                                    Pending
+                                </div>
+                                <button className='btn_view' onClick={() => handleOrder(order.orderID)}>
+                                    View
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                ))}
+                <div className='box_next_order'>
+                  <button className='box_prev_next_order' onClick={prePage}>
+                    <AiOutlineLeft id="box_prev_next_icon" />
+                    <p>Prev</p>
+                  </button>
+                  <div className='box_num_order'>
+                    {
+                      numbers.map((n, i) => (
+                        <div className={`page-link ${currentPage === n? 'active' : ''}`} key={i}>
+                            <div className='num_admin'>
+                                <p onClick={()=> changeCPage(n)} >{n}</p>
+                            </div> 
+                        </div>
+                      ))
+                    }
                   </div>
+                  
+                  <button className='box_prev_nexts_order' onClick={nextPage}>
+                    <p>Next</p>
+                    <AiOutlineRight id="box_prev_next_icon" />
+                  </button>
+                </div>
               </div>
             </section>
         </>
