@@ -8,10 +8,6 @@ import { useNavigate } from 'react-router-dom';
 
 
 const ProductHome = () => {
-    // const [selectedPriceRange, setSelectedPriceRange] = useState('');
-
-    // const [products, setProducts] = useState();
-      
 
       const [selectedPriceRange, setSelectedPriceRange] = useState('');
       const [originalProducts, setOriginalProducts] = useState(
@@ -127,47 +123,32 @@ const ProductHome = () => {
         setProducts(updatedProducts);
     }
 
-    // Filter products based on search term and price range
-    // const filteredProducts = products.filter((product) => {
-    //     const peiceMatch = priceFilter !== "" ? product.price === parseInt(priceFilter) : true;
-    //     return peiceMatch;
-    // });
-
-    // Handle filter by price
-    // const handleFilter = (price) => {
-    //     setPriceFilter(price);
-    // };
-
     // Handle select by price
     const handleSelectChange = (event) => {
         const selectedValue = event.target.value;
-      
+    
         // Filter products based on the selected price range
         let filteredProducts;
-      
-        if (selectedValue === 'all') {
-          filteredProducts = originalProducts;
-        } else if (selectedValue === '10-20') {
-          filteredProducts = filterProductsByPrice(10, 20);
-        } else if (selectedValue === '20-30') {
-          filteredProducts = filterProductsByPrice(20, 30);
-        } else if (selectedValue === '30-40') {
-          filteredProducts = filterProductsByPrice(30, 40);
-        } else if (selectedValue === 'higher price') {
-          filteredProducts = filterProductsByPrice(100, 1000); // Adjust the upper limit accordingly
+    
+        if (selectedValue === 'higher price') {
+          filteredProducts = filterProductsByPrice(100, 1000);
         } else if (selectedValue === 'lower price') {
-          filteredProducts = filterProductsByPrice(0, 10); // Adjust the lower limit accordingly
+          filteredProducts = filterProductsByPrice(0, 10);
+        } else {
+          // Reset to display all products
+          filteredProducts = filterProductsByPrice;
         }
-      
+    
         // Update the state with the filtered products
         setProducts(filteredProducts);
       };
-      
+    
       const filterProductsByPrice = (minPrice, maxPrice) => {
         return originalProducts.filter(
           (product) => product.price >= minPrice && product.price <= maxPrice
         );
       };
+    
 
     // Read more
     const displayedProducts = products.slice(0, displayCount);
@@ -190,10 +171,7 @@ const ProductHome = () => {
                 <div className="categoryBoxfiler">
                     <form>
                     <select className="filter_priceProduct" value={selectedPriceRange} onChange={handleSelectChange}>
-                        <option value="all">All</option>
-                        <option value="10-20">10 to 20</option>
-                        <option value="20-30">20 to 30</option>
-                        <option value="30-40">30 to 40</option>
+                        <option value="">All</option>
                         <option value="higher price">Higher Price</option>
                         <option value="lower price">Lower Price</option>
                     </select>
