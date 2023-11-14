@@ -31,6 +31,7 @@ const Categories = () => {
     const [selectedFilter, setSelectedFilter] = useState('default');
     const [searchTerm, setSearchTerm] = useState('');
     const [displayCount, setDisplayCount] = useState(8);
+    const [showButton, setShowButton] = useState(true);
 
     // Function to handle search by product name
     const handleSearch = () => {
@@ -91,11 +92,12 @@ const Categories = () => {
         };
         
 
-    // Read more
     const displayedProducts = filteredProducts.slice(0, displayCount);
-    const handleViewMore = () => {
-        setDisplayCount(displayCount + 4);
-    };
+        // Read more
+        const handleViewMore = () => {
+            setDisplayCount(products.length);
+            setShowButton(false);
+        };
 
     // Get send ID
     const navigate = useNavigate();
@@ -171,9 +173,7 @@ const Categories = () => {
                     </div>
                 </div>
                 <div className='btn_more'>
-                    <button className="loadmore_btn_more" onClick={handleViewMore}>
-                        View More
-                    </button>
+                    {showButton && (<button className="btnViewProduct" onClick={handleViewMore}>View More</button>)}
                 </div>
             </div>
             <Menu />
