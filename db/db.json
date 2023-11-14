@@ -1,131 +1,21 @@
 {
   "products": [
-    {
-      "productID": 1,
-      "productName": "pro1",
-      "productType": "clothes",
-      "price": 10,
-      "description": "desc for this product",
-      "images": "../src/img/acer.png",
-      "colors": [
-        {
-          "colorID": 1,
-          "colorName": "black"
-        },
-        {
-          "colorID": 2,
-          "colorName": "blue"
-        },
-        {
-          "colorID": 3,
-          "colorName": "red"
-        },
-        {
-          "colorID": 4,
-          "colorName": "green"
-        }
-      ]
-    },
-    {
-      "productID": 2,
-      "productName": "pro2",
-      "productType": "clothes",
-      "price": 10,
-      "description": "desc for this product",
-      "images": "../src/img/acer.png",
-      "colors": [
-        {
-          "colorID": 1,
-          "colorName": "black"
-        },
-        {
-          "colorID": 2,
-          "colorName": "blue"
-        },
-        {
-          "colorID": 3,
-          "colorName": "red"
-        },
-        {
-          "colorID": 4,
-          "colorName": "green"
-        }
-      ]
-    },
-    {
-      "productID": 3,
-      "productName": "pro3",
-      "productType": "clothes",
-      "price": 10,
-      "description": "desc for this product",
-      "images": "../src/img/acer.png",
-      "colors": [
-        {
-          "colorID": 1,
-          "colorName": "black"
-        },
-        {
-          "colorID": 2,
-          "colorName": "blue"
-        },
-        {
-          "colorID": 3,
-          "colorName": "red"
-        },
-        {
-          "colorID": 4,
-          "colorName": "green"
-        }
-      ]
-    },
-    {
-      "productID": 4,
-      "productName": "pro4",
-      "productType": "clothes",
-      "price": 10,
-      "description": "desc for this product",
-      "images": "../src/img/acer.png",
-      "colors": [
-        {
-          "colorID": 1,
-          "colorName": "black"
-        },
-        {
-          "colorID": 2,
-          "colorName": "blue"
-        },
-        {
-          "colorID": 3,
-          "colorName": "red"
-        },
-        {
-          "colorID": 4,
-          "colorName": "green"
-        }
-      ]
-    }
+    
   ],
-  "cart": [
+  "post": [
     {
-      "productID": 2,
-      "color": "black",
-      "size": "m",
-      "quantity": 1,
+      "name": "vision2023",
+      "description": "qwer",
+      "price": "4",
+      "image": {},
+      "colors": [
+        "red"
+      ],
+      "images": [
+        {},
+        {}
+      ],
       "id": 1
-    },
-    {
-      "productID": 2,
-      "color": "green",
-      "size": "m",
-      "quantity": 1,
-      "id": 2
-    },
-    {
-      "productID": 3,
-      "color": "blue",
-      "size": "xl",
-      "quantity": 4,
-      "id": 3
     }
   ]
 }
