@@ -51,6 +51,14 @@ input:focus {
     outline: none;
 }
 
+.onlacksearch {
+    cursor: pointer;
+}
+
+.onlacksearch:hover{
+    color: red;
+}
+
 #search-icon {
     width: 25px;
     height: 25px;
@@ -145,8 +153,8 @@ input:focus {
 
 .boxfilterseach {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    align-items: center;
+    gap: 20px;
 }
 
 .btn_more {
