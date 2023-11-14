@@ -55,10 +55,6 @@ input:focus {
     cursor: pointer;
 }
 
-.onlacksearch:hover{
-    color: red;
-}
-
 #search-icon {
     width: 25px;
     height: 25px;
