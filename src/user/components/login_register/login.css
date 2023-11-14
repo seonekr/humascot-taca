@@ -71,7 +71,6 @@ a{
     height: 58px;
     margin: auto;
     border: 1px solid rgba(0, 0, 0, 0.40);
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.10);
     border-radius: 10px;
 }
 .input_form{
@@ -80,9 +79,11 @@ a{
 
 
 .forgot_password{
-    margin-top: 1rem;
     font-size: 18px;
+    margin-top: 10px;
 }
+
+
 .google_btn img{
     width: 30px;
     height: 30px;
@@ -106,7 +107,6 @@ a{
     height: 58px;
     border-radius: 10px;
     border: 1px solid rgba(0, 0, 0, 0.40);
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.10);
 }
 
 
@@ -123,7 +123,6 @@ a{
     border-radius: 10px;
     margin-right: 1rem;
     border: 1px solid rgba(0, 0, 0, 0.40);
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.10);
 }
 
 /* ============= Button Login ===============*/
@@ -137,6 +136,7 @@ a{
 .login_btn{
     width: 450px;
     height: 58px;
+    margin-top: -2rem;
     background: #FA442C;
     color: #ffffff;
     border-radius: 10px;
@@ -145,7 +145,6 @@ a{
     align-items: center;
     border: 1px;
     font-size: 18px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.20);
 }
 .login_btn:hover{
     color: #FFF;

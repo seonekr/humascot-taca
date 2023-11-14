@@ -64,10 +64,9 @@ const Login = () => {
 
           </div>
 
-          <p>
+          <p className='box_dont'>
             Don't have an account? <Link to="/register">Signup</Link>
           </p>
-
           <p>Or</p>
           <div className='googlebtn_btn'>
             <Link to="#" className="google_btn" >
