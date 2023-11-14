@@ -4,7 +4,8 @@ import user from '../../../img/users.png'
 import { FaAngleLeft } from "react-icons/fa";
 import { Link, useLocation } from 'react-router-dom';
 import { AiOutlineDelete } from 'react-icons/ai';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+import Dialog from './Dialog';
 
 const User = () => {
     const [users, setUsers] = useState([
@@ -13,6 +14,19 @@ const User = () => {
         { userID: 3, userName:"Sengphachan",email: "sengphachan@gmail.com", phone: "02099887676", password: "******", confirmPassword: "******", images: [user] },
         { userID: 4, userName:"Khammun", email: "khammun@gmail.com", phone: "02099887676", password: "******", confirmPassword: "******", images: [user] },
     ]);
+
+    // Dialog 
+    const [dialog, setDialog] = useState({
+        message:'',
+        isLoading:false
+    })
+    const iduserRef = useRef();
+    const handleDialog = (message, isLoading) => {
+        setDialog({
+            message,
+            isLoading,
+        })
+    }
 
     // Get user ID
     const location = useLocation();
@@ -25,9 +39,18 @@ const User = () => {
 
     // Delete
     const handleDelete = (userID) => {
-        const updatedUser = users.filter((user) => user.userID !== userID);
-        setUsers(updatedUser);
+        handleDialog('Are you sure you want to delete?',true);
+        iduserRef.current = userID;
     };
+
+    const areUSuredelete = (choose) => {
+        if(choose) {
+            setUsers(users.filter((user) => user.userID !== iduserRef.current));
+            handleDialog("",false)
+        }else{
+            handleDialog("",false)
+        }
+    }
 
     return(
         <>
@@ -35,7 +58,7 @@ const User = () => {
             <section id='user'>
                 <div className="back">
                     <Link to="/users/" className='link-back'>
-                        <FaAngleLeft/>
+                        <FaAngleLeft id='icon_back_user'/>
                         Back
                     </Link>
                     <div>
@@ -61,6 +84,7 @@ const User = () => {
                     </div>
                 ))}
             </section>
+            { dialog.isLoading && <Dialog onDialog={areUSuredelete} message={dialog.message}/>}
         </>
     )
 }

@@ -4,7 +4,8 @@ import { FaAngleLeft } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { MdOutlineEdit } from 'react-icons/md';
 import { AiOutlineDelete } from 'react-icons/ai';
-import { useState } from 'react';
+import { useState, useRef} from 'react';
+import Dialog from "../menagerUser/Dialog";
 
 const Admin = () => {
     const [admins, setAdmins] = useState([
@@ -13,6 +14,19 @@ const Admin = () => {
         { adminID: 3, adminName:"Sengphachan",email: "sengphachan@gmail.com", phone: "02099887676", password: "******", confirmPassword: "******", images: [user] },
         { adminID: 4, adminName:"Khammun", email: "khammun@gmail.com", phone: "02099887676", password: "******", confirmPassword: "******", images: [user] },
     ]);
+
+    // Dialog 
+    const [dialog, setDialog] = useState({
+        message:'',
+        isLoading:false
+    })
+    const idadminRef = useRef();
+    const handleDialog = (message, isLoading) => {
+        setDialog({
+            message,
+            isLoading,
+        })
+    }
 
     // Get user ID
     const location = useLocation();
@@ -25,9 +39,18 @@ const Admin = () => {
 
     // Delete
     const handleDelete = (adminID) => {
-        const updatedAdmin = admins.filter((admin) => admin.adminID !== adminID);
-        setAdmins(updatedAdmin);
+        handleDialog('Are you sure you want to delete?',true);
+        idadminRef.current = adminID;
     };
+
+    const areUSuredelete = (choose) => {
+        if(choose) {
+            setAdmins(admins.filter((admin) => admin.adminID !== idadminRef.current));
+            handleDialog("",false)
+        }else{
+            handleDialog("",false)
+        }
+    }
 
     // Update
     const navigate = useNavigate();
@@ -61,7 +84,7 @@ const Admin = () => {
                             <div>Password: {admin.password}</div>
                             <div>Password: {admin.confirmPassword}</div>
                             <div className='del-update'>
-                                <div className='del' onClick={() => handleDelete(admin.adminID)}>
+                                <div onDialog={areUSuredelete} className='del' onClick={() => handleDelete(admin.adminID)}>
                                     <AiOutlineDelete/>
                                 </div>
                                 <div className='update upd' onClick={() => handleUpdate(admin.adminID)}>
@@ -74,7 +97,9 @@ const Admin = () => {
                         </div>
                     </div>
                 ))}
+                
             </section>
+            { dialog.isLoading && <Dialog onDialog={areUSuredelete} message={dialog.message}/>}
         </>
     )
 }
