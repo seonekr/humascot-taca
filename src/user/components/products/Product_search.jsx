@@ -14,47 +14,80 @@ import { useNavigate } from 'react-router-dom';
 const Product_search = () => {
     const [products, setProducts] = useState([
         { productID: 1, productName: "pro1", productType: "clothes", price: 10, description: "desc for this product", images: [acer] },
-        { productID: 2, productName: "pro2", productType: "clothes", price: 10, description: "desc for this product", images: [dress] },
-        { productID: 3, productName: "pro3", productType: "clothes", price: 10, description: "desc for this product", images: [acer] },
-        { productID: 4, productName: "pro4", productType: "clothes", price: 10, description: "desc for this product", images: [dress] },
-        { productID: 5, productName: "pro5", productType: "clothes", price: 10, description: "desc for this product", images: [image1] },
-        { productID: 6, productName: "pro6", productType: "clothes", price: 10, description: "desc for this product", images: [image1] },
-        { productID: 7, productName: "pro7", productType: "clothes", price: 10, description: "desc for this product", images: [productImage] },
-        { productID: 8, productName: "pro8", productType: "clothes", price: 10, description: "desc for this product", images: [acer] },
-        { productID: 9, productName: "pro9", productType: "clothes", price: 10, description: "desc for this product", images: [productImage] },
-        { productID: 10, productName: "pro10", productType: "clothes", price: 10, description: "desc for this product", images: [acer] },
-        { productID: 11, productName: "pro11", productType: "clothes", price: 10, description: "desc for this product", images: [productImage] }
-
+        { productID: 2, productName: "pro2", productType: "clothes", price: 30, description: "desc for this product", images: [dress] },
+        { productID: 3, productName: "pro3", productType: "clothes", price: 20, description: "desc for this product", images: [acer] },
+        { productID: 4, productName: "pro4", productType: "clothes", price: 50, description: "desc for this product", images: [dress] },
+        { productID: 5, productName: "pro5", productType: "clothes", price: 60, description: "desc for this product", images: [image1] },
+        { productID: 6, productName: "pro6", productType: "clothes", price: 100, description: "desc for this product", images: [image1] },
+        { productID: 7, productName: "pro7", productType: "clothes", price: 150, description: "desc for this product", images: [productImage] },
+        { productID: 8, productName: "pro8", productType: "clothes", price: 120, description: "desc for this product", images: [acer] },
+        { productID: 9, productName: "pro9", productType: "clothes", price: 110, description: "desc for this product", images: [productImage] },
+        { productID: 10, productName: "pro10", productType: "clothes", price: 70, description: "desc for this product", images: [acer] },
+        { productID: 11, productName: "pro11", productType: "clothes", price: 40, description: "desc for this product", images: [productImage] }
     ]);
 
-    const [searchTerm, setSearchTerm] = useState("");
-    const [minPrice, setMinPrice] = useState("");
-    const [maxPrice, setMaxPrice] = useState("");
+    const [filteredProducts, setFilteredProducts] = useState(products);
+    const [selectedFilter, setSelectedFilter] = useState('default');
+    const [searchTerm, setSearchTerm] = useState('');
     const [displayCount, setDisplayCount] = useState(8);
 
-    // Filter products based on search term and price range
-    const filteredProducts = products.filter((product) => {
-        const nameMatch = product.productName.toLowerCase().includes(searchTerm.toLowerCase());
-        const minPriceMatch = minPrice !== "" ? product.price <= minPrice : true;
-        const maxPriceMatch = maxPrice !== "" ? product.price >= maxPrice : true;
-        return nameMatch && minPriceMatch && maxPriceMatch;
-    });
+    // Function to handle search by product name
+    const handleSearch = () => {
+        const filtered = products.filter((product) =>
+            product.productName.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+        setFilteredProducts(filtered);
+    };
 
     // Handle inputChange
-    const handleInputChange = (e, index, field) => {
-        const updatedProducts = [...products];
-        updatedProducts[index][field] = e.target.value;
-        setProducts(updatedProducts);
-    }
-
-    // Handle select by price
-    const handleMaxChange = (e) => {
-        setMaxPrice(e.target.value);
-    };
-    // Handle select by peice
-    const handleMinChange = (e) => {
-        setMinPrice(e.target.value);
-    };
+        // Function to handle the filter change
+        const handleFilterChange = (event) => {
+            const selectedValue = event.target.value;
+            setSelectedFilter(selectedValue);
+    
+            switch (selectedValue) {
+                case 'higherPrice':
+                    filterByHigherPrice();
+                    break;
+                case 'lowerPrice':
+                    filterByLowerPrice();
+                    break;
+                case 'newProducts':
+                    filterByNewProducts();
+                    break;
+                case 'popularProducts':
+                    filterByPopularProducts();
+                    break;
+                default:
+                    setFilteredProducts(products);
+            }
+        };
+    
+        // Function to filter products by higher price
+        const filterByHigherPrice = () => {
+            const sortedProducts = [...products].sort((a, b) => b.price - a.price);
+            setFilteredProducts(sortedProducts);
+        };
+    
+        // Function to filter products by lower price
+        const filterByLowerPrice = () => {
+            const sortedProducts = [...products].sort((a, b) => a.price - b.price);
+            setFilteredProducts(sortedProducts);
+        };
+    
+        // Function to filter products by new products (assuming newer products have higher productID)
+        const filterByNewProducts = () => {
+            const sortedProducts = [...products].sort((a, b) => b.productID - a.productID);
+            setFilteredProducts(sortedProducts);
+        };
+    
+        // Function to filter products by popularity (you can customize the popularity criteria)
+        const filterByPopularProducts = () => {
+            // Implement your popularity criteria here
+            // For simplicity, let's assume popularity is based on productID
+            const sortedProducts = [...products].sort((a, b) => b.productID - a.productID);
+            setFilteredProducts(sortedProducts);
+        };
 
     // Read more
     const displayedProducts = filteredProducts.slice(0, displayCount);
@@ -63,7 +96,6 @@ const Product_search = () => {
     };
 
     // Get send ID
-    const [sendProductID, setSendProductID] = useState();
     const navigate = useNavigate();
 
     // Handle product
@@ -76,29 +108,26 @@ const Product_search = () => {
             <Header />
             <div className='container_home'>
                 <div className='container_head_search'>
-                    <FaSearch id="search-icon" />
                     <input
                         type="text"
                         placeholder="Search products"
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                     />
+                    <FaSearch id="search-icon" onClick={handleSearch} />
+
                 </div>
                 <div className="content_itemBox">
                     <div className='container_product'>
                         <h3 className="htxthead"><span className="spennofStyle"></span>Product</h3>
                         <form className='boxfilterseach'>
-                            <select className="categoryFilter" value={maxPrice} onChange={handleMaxChange}>
-                                <option className="listOption" value="">Over price</option>
-                                <option className="listOption" value="10">$10</option>
-                                <option className="listOption" value="20">$20</option>
-                                <option className="listOption" value="30">$30</option>
-                            </select>
-                            <select className="categoryFilter" value={minPrice} onChange={handleMinChange}>
-                                <option className="listOption" value="">lower price</option>
-                                <option className="listOption" value="10">$10</option>
-                                <option className="listOption" value="20">$20</option>
-                                <option className="listOption" value="30">$30</option>
+                            <label htmlFor="">Select Filter</label>
+                            <select className="categoryFilter" value={selectedFilter} onChange={handleFilterChange}>
+                                <option value="default">all</option>
+                                <option value="higherPrice">Higher Price</option>
+                                <option value="lowerPrice">Lower Price</option>
+                                <option value="newProducts">New Products</option>
+                                <option value="popularProducts">Popular Products</option>
                             </select>
                         </form>
                     </div>
