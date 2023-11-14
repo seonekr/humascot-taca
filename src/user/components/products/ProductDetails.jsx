@@ -28,33 +28,6 @@ function ProductDetails() {
         },
         {
           src: image1
-        },
-        {
-          src: dress
-        },
-        {
-          src: acer
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: dress
-        },
-        {
-          src: acer
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: dress
         }
       ],
       colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
@@ -689,7 +662,6 @@ function ProductDetails() {
                     {
                       product.images.map((image, index) => (
                         <div key={index} className="myslides" style={{ display: (index + 1) === slideIndex ? "block" : "none" }}>
-                          <div className='numbertext'>{index + 1} / {product.images.length}</div>
                           <img src={image.src} alt="" />
                         </div>
                       ))
