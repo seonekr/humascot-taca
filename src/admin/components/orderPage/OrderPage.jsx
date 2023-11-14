@@ -271,7 +271,7 @@ const OrderPage = () => {
         },
     ]);
 
-    const [searchTerm, setSearchTerm] = useState("");
+    const [searchTerm, setSearchTerm] = useState('');
 
     // send order ID
     const [id, setId] = useState();
@@ -282,10 +282,11 @@ const OrderPage = () => {
         navigate("/orderbill/", { state: { id: id } });
     };
 
+
     //Search orderID 
-    const filteredorder = orders.filter((order) => {
-      const nameMatch = order.orderID;
-      return nameMatch;
+     const filteredOrder = orders.filter((order) => {
+      const idMatch = searchTerm !== "" ? order.orderID == parseInt(searchTerm): true;
+      return idMatch;
     });
 
     // prev next button user in react
@@ -293,8 +294,8 @@ const OrderPage = () => {
     const recordsPerPage = 4
     const lastIndex = currentPage * recordsPerPage;
     const firstIndex = lastIndex - recordsPerPage;
-    const records = filteredorder.slice(firstIndex, lastIndex);
-    const npage = Math.ceil(filteredorder.length / recordsPerPage)
+    const records = filteredOrder.slice(firstIndex, lastIndex)
+    const npage = Math.ceil(filteredOrder.length / recordsPerPage)
     const numbers = [...Array(npage + 1).keys()].slice(1) 
 
 
@@ -349,6 +350,7 @@ const OrderPage = () => {
                         </form>
                     </div>
                 ))}
+
                 <div className='box_next_order'>
                   <button className='box_prev_next_order' onClick={prePage}>
                     <AiOutlineLeft id="box_prev_next_icon" />
