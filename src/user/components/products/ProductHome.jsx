@@ -98,15 +98,15 @@ const handleProduct = (sendProductID) => {
             <div className="productHead_content">
                 <h1 className="htxthead"><span className="spennofStyle"></span>Product</h1>
                 <div className="categoryBoxfiler">
-                  <label htmlFor="">Select Filter</label>
                     <form>
-                      <select className="filter_priceProduct" value={selectedFilter} onChange={handleFilterChange}>
-                        <option value="default">All Product</option>
-                        <option value="higherPrice">Higher Price</option>
-                        <option value="lowerPrice">Lower Price</option>
-                        <option value="newProducts">New Products</option>
-                        <option value="popularProducts">Popular Products</option>
-                      </select>
+                        <label>Select Filter</label>
+                        <select className="filter_priceProduct" value={selectedFilter} onChange={handleFilterChange}>
+                            <option value="default">All Product</option>
+                            <option value="higherPrice">Higher Price</option>
+                            <option value="lowerPrice">Lower Price</option>
+                            <option value="newProducts">New Products</option>
+                            <option value="popularProducts">Popular Products</option>
+                        </select>
                     </form>
                     <box-icon name='filter'></box-icon>
                 </div>
