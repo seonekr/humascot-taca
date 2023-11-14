@@ -127,5 +127,21 @@
       "quantity": 4,
       "id": 3
     }
+  ],
+  "post": [
+    {
+      "name": "vision2023",
+      "description": "qwer",
+      "price": "4",
+      "image": {},
+      "colors": [
+        "red"
+      ],
+      "images": [
+        {},
+        {}
+      ],
+      "id": 1
+    }
   ]
 }

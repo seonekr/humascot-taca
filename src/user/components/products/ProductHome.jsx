@@ -9,7 +9,6 @@ const ProductHome = () => {
     const [priceFilter, setPriceFilter] = useState("");
     const [displayCount, setDisplayCount] = useState(12);
 
-
     // Fetch data
     useEffect(() => {
       fetch('http://localhost:3000/products')
@@ -18,49 +17,42 @@ const ProductHome = () => {
       .catch(error => console.log(error));
     }, []);
 
+    // Handle inputChange
+    const handleInputChange = (e, index, field) => {
+      const updatedProducts = [...products];
+      updatedProducts[index][field] = e.target.value;
+      setProducts(updatedProducts);
+    };
 
-     // Handle inputChange
-  const handleInputChange = (e, index, field) => {
-    const updatedProducts = [...products];
-    updatedProducts[index][field] = e.target.value;
-    setProducts(updatedProducts);
-  };
+    // Filter products based on search term and price range
+    const filteredProducts = products?.filter(product => {
+      const priceMatch = priceFilter !== "" ? product.price === parseInt(priceFilter) : true;
+      return priceMatch;
+    });
 
-  // Filter products based on search term and price range
-  const filteredProducts = products?.filter(product => {
-    const priceMatch = priceFilter !== "" ? product.price === parseInt(priceFilter) : true;
-    return priceMatch;
-  });
+    // Handle filter by price
+    const handleFilter = price => {
+      setPriceFilter(price);
+    };
 
-  // Handle filter by price
-  const handleFilter = price => {
-    setPriceFilter(price);
-  };
+    // Handle select by price
+    const handleSelectChange = e => {
+      setPrice(e.target.value);
+      handleFilter(e.target.value);
+    };
 
-  // Handle select by price
-  const handleSelectChange = e => {
-    setPrice(e.target.value);
-    handleFilter(e.target.value);
-  };
+    // Read more
+    const displayedProducts = filteredProducts?.slice(0, displayCount);
+    const handleViewMore = () => {
+      setDisplayCount(displayCount + 4);
+    };
 
-  // Handle search term
-  const handleSearchTermChange = e => {
-    setSearchTerm(e.target.value);
-  };
-
-  // Read more
-  const displayedProducts = filteredProducts?.slice(0, displayCount);
-  const handleViewMore = () => {
-    setDisplayCount(displayCount + 4);
-  };
-
-  // Get send ID
-  const navigate = useNavigate();
-
-  // Handle product
-  const handleProduct = sendProductID => {
-    navigate('/product_search/productdetails/', { state: { sendProductID: sendProductID } });
-  };
+    // Get send ID
+    const navigate = useNavigate();
+    // Handle product
+    const handleProduct = sendProductID => {
+      navigate('/product_search/productdetails/', { state: { sendProductID: sendProductID } });
+    };
 
     return (
         <section id="product">

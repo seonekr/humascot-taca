@@ -10,8 +10,9 @@ import { IoIosArrowBack } from "react-icons/io";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 
 function ProductDetails() {
-  const [slides, setSlides] = useState([acer1, acer2, acer3]);
+  // const [slides, setSlides] = useState([acer1, acer2, acer3]);
   const [products, setProducts] = useState(null)
+  const [product, setProduct] = useState(null);
   const [color, setColor] = useState(null);
 
   // Get productID
@@ -21,23 +22,27 @@ function ProductDetails() {
   // Fetch product
   useEffect(() => {
     fetch('http://localhost:3000/products')
-    .then(res => {
-      return res.json();
-    })
+    .then(res => res.json())
     .then(data => {
-      setProducts(data)
+      setProducts(data);
       const product = data.find(product => product.productID === sendProductID);
+      setProduct(product);
       if (product) {
         const color = product.colors.find(color => color.colorID === 1);
         if (color) {
           setColor(color.colorName);
         }
       }
-    })
+    });
   }, []);
 
-  const [activeSlide, setActiveSlide] = useState(0);
-  const [direction, setDirection] = useState("right");
+  // Filter products based on search term and price range
+  // const filteredProducts = products?.filter(product => {
+  //   return product.productID == sendProductID;
+  // });
+
+  // const [activeSlide, setActiveSlide] = useState(0);
+  // const [direction, setDirection] = useState("right");
 
   // Checked sizes
   const [size, setSize] = useState("m");
@@ -48,22 +53,22 @@ function ProductDetails() {
     setSize(id);
   };
 
-  const handlePrevSlide = () => {
-    setDirection("left");
-    setActiveSlide(activeSlide === 0 ? slides.length - 1 : activeSlide - 1);
-  };
+  // const handlePrevSlide = () => {
+  //   setDirection("left");
+  //   setActiveSlide(activeSlide === 0 ? slides.length - 1 : activeSlide - 1);
+  // };
 
-  const handleNextSlide = () => {
-    setDirection("right");
-    setActiveSlide(activeSlide === slides.length - 1 ? 0 : activeSlide + 1);
-  };
+  // const handleNextSlide = () => {
+  //   setDirection("right");
+  //   setActiveSlide(activeSlide === slides.length - 1 ? 0 : activeSlide + 1);
+  // };
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      handleNextSlide();
-    }, 4000);
-    return () => clearInterval(interval);
-  }, [activeSlide]);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     handleNextSlide();
+  //   }, 4000);
+  //   return () => clearInterval(interval);
+  // }, [activeSlide]);
 
   /*============== minus_plus ============= */
   const [productCounts, setProductCounts] = useState(1);
@@ -113,6 +118,34 @@ function ProductDetails() {
     });
   };
 
+  // Get send ID
+  const navigate = useNavigate();
+
+  // Buy now function
+  const handleBuyNow = (e) => {
+    e.preventDefault()
+    // Submit the information to the cart
+
+    // Find the product with the matching productID
+  const product = products.find(product => product.productID === sendProductID);
+
+  if (product) {
+    // Submit the information to the cart
+    const buyNow = {
+      productID: sendProductID,
+      productName: product.productName, // Access the productName from the product object
+      color: color,
+      size: size,
+      quantity: productCounts
+    };
+
+    console.log(buyNow);
+          // Handle product
+    // navigate('/cart/payment/', { state: { sendProduct: buyNow } });
+  }
+
+  };
+
   return (
     <>
       <Header />
@@ -121,25 +154,10 @@ function ProductDetails() {
           <IoIosArrowBack id="icons_back" />
           <p>Back</p>
         </Link>
-        {products  && 
-        products.filter(product => product.productID === sendProductID)
-        .map((product) => (
-            <div className="boxProduct_deteils" key={product.productID}>
+        {product && (
+            <div className="boxProduct_deteils">
               <div className="slider">
-                <div
-                  className={`slide ${direction}`}
-                  style={{ backgroundImage: `url(${slides[activeSlide]})` }}
-                ></div>
-                <div className="navigation but1">
-                  <div className="nav-btn " onClick={handlePrevSlide}>
-                    &#8249;
-                  </div>
-                </div>
-                <div className="navigation but2">
-                  <div className="nav-btn " onClick={handleNextSlide}>
-                    &#8250;
-                  </div>
-                </div>
+                <img src={product.images} alt={product.productName} />
               </div>
 
               <form>
@@ -262,6 +280,7 @@ function ProductDetails() {
                       type="submit"
                       className="echbtn btnBut"
                       name="buyNow"
+                      onClick={handleBuyNow}
                     >
                       Buy Now
                     </button>
@@ -277,7 +296,7 @@ function ProductDetails() {
                 </div>
               </form>
             </div>
-          ))
+          )
         }
       </div>
       <Menu />
