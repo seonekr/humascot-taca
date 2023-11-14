@@ -13,31 +13,30 @@ import { useNavigate } from 'react-router-dom';
 
 const Product_search = () => {
     const [products, setProducts] = useState([
-        { productID: 1, productName: "pro1", productType: "clothes", price: 10, description: "desc for this product", images: [acer] },
-        { productID: 2, productName: "pro2", productType: "clothes", price: 10, description: "desc for this product", images: [dress] },
-        { productID: 3, productName: "pro3", productType: "clothes", price: 10, description: "desc for this product", images: [acer] },
-        { productID: 4, productName: "pro4", productType: "clothes", price: 10, description: "desc for this product", images: [dress] },
-        { productID: 5, productName: "pro5", productType: "clothes", price: 10, description: "desc for this product", images: [image1] },
-        { productID: 6, productName: "pro6", productType: "clothes", price: 10, description: "desc for this product", images: [image1] },
+        { productID: 1, productName: "pro1", productType: "clothes", price: 5, description: "desc for this product", images: [acer] },
+        { productID: 2, productName: "pro2", productType: "clothes", price: 40, description: "desc for this product", images: [dress] },
+        { productID: 3, productName: "pro3", productType: "clothes", price: 15, description: "desc for this product", images: [acer] },
+        { productID: 4, productName: "pro4", productType: "clothes", price: 20, description: "desc for this product", images: [dress] },
+        { productID: 5, productName: "pro5", productType: "clothes", price: 50, description: "desc for this product", images: [image1] },
+        { productID: 6, productName: "pro6", productType: "clothes", price: 70, description: "desc for this product", images: [image1] },
         { productID: 7, productName: "pro7", productType: "clothes", price: 10, description: "desc for this product", images: [productImage] },
-        { productID: 8, productName: "pro8", productType: "clothes", price: 10, description: "desc for this product", images: [acer] },
+        { productID: 8, productName: "pro8", productType: "clothes", price: 30, description: "desc for this product", images: [acer] },
         { productID: 9, productName: "pro9", productType: "clothes", price: 10, description: "desc for this product", images: [productImage] },
         { productID: 10, productName: "pro10", productType: "clothes", price: 10, description: "desc for this product", images: [acer] },
-        { productID: 11, productName: "pro11", productType: "clothes", price: 10, description: "desc for this product", images: [productImage] }
+        { productID: 11, productName: "pro11", productType: "clothes", price: 30, description: "desc for this product", images: [productImage] }
 
     ]);
+    const [selectedPriceRange, setSelectedPriceRange] = useState('');
 
     const [searchTerm, setSearchTerm] = useState("");
     const [minPrice, setMinPrice] = useState("");
-    const [maxPrice, setMaxPrice] = useState("");
     const [displayCount, setDisplayCount] = useState(8);
 
     // Filter products based on search term and price range
     const filteredProducts = products.filter((product) => {
         const nameMatch = product.productName.toLowerCase().includes(searchTerm.toLowerCase());
         const minPriceMatch = minPrice !== "" ? product.price <= minPrice : true;
-        const maxPriceMatch = maxPrice !== "" ? product.price >= maxPrice : true;
-        return nameMatch && minPriceMatch && maxPriceMatch;
+        return nameMatch && minPriceMatch;
     });
 
     // Handle inputChange
@@ -47,10 +46,6 @@ const Product_search = () => {
         setProducts(updatedProducts);
     }
 
-    // Handle select by price
-    const handleMaxChange = (e) => {
-        setMaxPrice(e.target.value);
-    };
     // Handle select by peice
     const handleMinChange = (e) => {
         setMinPrice(e.target.value);
@@ -71,6 +66,27 @@ const Product_search = () => {
         navigate('/product_search/productdetails/', { state: { sendProductID: sendProductID } });
     }
 
+    // Handle select by price
+    const handleSelectChange = (event) => {
+        const selectedValue = event.target.value;
+      
+        // Filter products based on the selected price range
+        let filteredProducts;
+      
+        if (selectedValue === 'all') {
+          filteredProducts = originalProducts;
+        } else if (selectedValue === '5-30') {
+          filteredProducts = filterProductsByPrice(5, 30);
+        } else if (selectedValue === '30-100') {
+          filteredProducts = filterProductsByPrice(30, 100);
+        } else if (selectedValue === 'favor') {
+          filteredProducts = filterProductsByPrice(favor);
+        }
+      
+        // Update the state with the filtered products
+        setProducts(filteredProducts);
+      };
+
     return (
         <>
             <Header />
@@ -88,17 +104,12 @@ const Product_search = () => {
                     <div className='container_product'>
                         <h3 className="htxthead"><span className="spennofStyle"></span>Product</h3>
                         <form className='boxfilterseach'>
-                            <select className="categoryFilter" value={maxPrice} onChange={handleMaxChange}>
-                                <option className="listOption" value="">Over price</option>
-                                <option className="listOption" value="10">$10</option>
-                                <option className="listOption" value="20">$20</option>
-                                <option className="listOption" value="30">$30</option>
-                            </select>
-                            <select className="categoryFilter" value={minPrice} onChange={handleMinChange}>
-                                <option className="listOption" value="">lower price</option>
-                                <option className="listOption" value="10">$10</option>
-                                <option className="listOption" value="20">$20</option>
-                                <option className="listOption" value="30">$30</option>
+                            
+                            <select className="categoryFilter" value={selectedPriceRange} onChange={handleSelectChange}>
+                                <option value="">Search price</option>
+                                <option value="5-30">Lower price</option>
+                                <option value="30-100">Higher price</option>
+                                <option value="favor"></option>
                             </select>
                         </form>
                     </div>
