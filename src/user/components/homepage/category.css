@@ -66,18 +66,21 @@
     }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 431px) {
+    *{
+    }
     .category_container2 {
-        gap: 0;
+        gap: 4rem;
         margin: 4rem 0 2rem 0;
-        padding: 10px;
-        justify-content: space-between;
+        padding: 10px 5px 10px 5px;
+        justify-content: center;
     }
 
     .box-category {
-        width: 28%;
+        width: 30%;
         height: auto;
         overflow: hidden;
+        padding: 10px 5px 10px 5px;
     }
 
     .box-category img {
