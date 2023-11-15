@@ -1,18 +1,17 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: sans-serif;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
 
 /* ============== body box_container_login ============== */
-
-.box_container_login2{
+.box_container_login2 {
     width: 800px;
     height: 700px;
     position: relative;
@@ -28,14 +27,17 @@ a{
     background-color: #FFF;
     box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.10);
 }
-.box_cancel_login{
+
+.box_cancel_login {
     padding: 28px 0 0 42rem;
 }
-#icon_cancel_login{
+
+#icon_cancel_login {
     width: 30px;
     height: 30px;
 }
-.cover{
+
+.cover {
     width: 400px;
     height: 565px;
     position: relative;
@@ -48,16 +50,16 @@ a{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    
+
 }
 
-.container_login_form{
+.container_login_form {
     border: 1px solid #0E64D2;
 }
 
 
 
-.box_container_login_text{
+.box_container_login_text {
     color: rgba(0, 0, 0, 0.80);
     font-family: Poppins;
     font-size: 26px;
@@ -66,29 +68,31 @@ a{
     line-height: normal;
 }
 
-.input_form{
+.input_form {
     width: 450px;
     height: 58px;
     margin: auto;
     border: 1px solid rgba(0, 0, 0, 0.40);
     border-radius: 10px;
 }
-.input_form{
+
+.input_form {
     padding: 20px 15px;
-  }
+}
 
 
-.forgot_password{
+.forgot_password {
     font-size: 18px;
     margin-top: 10px;
 }
 
 
-.google_btn img{
+.google_btn img {
     width: 30px;
     height: 30px;
 }
-.google_btn p{
+
+.google_btn p {
     color: rgba(0, 0, 0, 0.60);
     font-family: Poppins;
     font-size: 14px;
@@ -97,12 +101,14 @@ a{
     line-height: normal;
     font-size: 18px;
 }
-.box_form{
+
+.box_form {
     display: grid;
     justify-content: center;
     gap: 1rem;
 }
-.box_form input{
+
+.box_form input {
     width: 450px;
     height: 58px;
     border-radius: 10px;
@@ -112,10 +118,10 @@ a{
 
 /* =============== Button Login with Google ============== */
 
-.google_btn{
+.google_btn {
     width: 450px;
     height: 58px;
-    display: flex; 
+    display: flex;
     align-items: center;
     justify-content: center;
     gap: 1rem;
@@ -127,13 +133,13 @@ a{
 
 /* ============= Button Login ===============*/
 
-.loginbtn_login{
+.loginbtn_login {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.login_btn{
+.login_btn {
     width: 450px;
     height: 58px;
     margin-top: -2rem;
@@ -146,77 +152,60 @@ a{
     border: 1px;
     font-size: 18px;
 }
-.login_btn:hover{
+
+.login_btn:hover {
     color: #FFF;
 }
+
 /*============== Responsive =====================*/
 
 
 @media screen and (max-width: 820px) {
-    .box_container_login{
-        width: 100%;
-        height: 650px;
+    .box_container_login2 {
+        width: 700px;
+        height: 700px;
     }
-    .box_cancel_login{
+    .box_cancel_login {
         padding: 28px 0 0 32rem;
     }
-    
+
+    .selete_loginBoxContainer {
+        padding: 30PX;
+    }
+
 }
+
 @media screen and (max-width: 431px) {
-    .box_container_login{
-        width: 350px;
-        height: 600px;
+    .box_container_login2 {
+        width: 100%;
+        height: 700px;
+        margin: auto;
     }
-    .box_cancel_login{
-        display: none;
+    .box_cancel_login {
+        padding: 10px;
+        top: 0;
+        right: 0;
+        position: absolute;
     }
-    .input_form{
+    .input_form {
         width: 300px;
         height: 48px;
     }
-    .login_btn{
+
+    .login_btn {
         width: 300px;
         height: 48px;
     }
-    .google_btn{
+
+    .google_btn {
         width: 300px;
         height: 48px;
     }
 }
 
-@media screen and (max-width: 371px) {
-    .box_container_login{
-        width: 330px;
-        height: 620px;
+@media screen and (max-width: 376px) {
+    .box_container_login2 {
+       margin-top: 3rem;
     }
-    .input_form{
-        width: 280px;
-        height: 48px;
-    }
-    .login_btn{
-        width: 280px;
-        height: 48px;
-    }
-    .google_btn{
-        width: 280px;
-        height: 48px;
-    }
-}
-@media screen and (max-width: 321px) {
-    .box_container_login{
-        width: 290px;
-    }
-    .input_form{
-        width: 260px;
-        height: 48px;
-    }
-    .login_btn{
-        width: 260px;
-        height: 48px;
-    }
-    .google_btn{
-        width: 260px;
-        height: 48px;
-    }
-}
 
+}
