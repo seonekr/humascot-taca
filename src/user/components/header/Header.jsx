@@ -14,7 +14,7 @@ const Header = () => {
 
     const menuItems = [
         { label: 'Home', path: '/' },
-        { label: 'Products', path: '/product_search/' },
+        { label: 'Shop', path: '/product_search/' },
         { label: 'Orders', path: '/order/'},
         { label: 'Contact', path: '/contacts/' },
         { label: 'Login', path: '/login/' },
@@ -28,6 +28,7 @@ const Header = () => {
                         <ul className="headMenu">
                             <li><Link to="/"><img src={Logo1} alt="Logo" /></Link></li>
                             <div className="boxLiMenu">
+
                                 <div className="linkLi">
                                     {menuItems.map((menuItem) => (
                                         <Link key={menuItem.label} to={menuItem.path} className={`link ${location.pathname === menuItem.path ? 'active' : ''}`}>
@@ -37,10 +38,11 @@ const Header = () => {
                                     ))}
                                 </div>
                                 
+
                             </div>
                         </ul>
                         <ul className="ulHead_box">
-                            <li><Link to="/product_search/"><FaMagnifyingGlass className="head_colorr" /></Link></li>
+                            <li><Link to="/product_search"><FaMagnifyingGlass className="head_colorr" /></Link></li>
                             <li><Link to="/cart"><FaCartShopping className="head_colorr" /></Link></li>
                             <li><Link to="/account"><FaRegUser className="head_colorr" /></Link></li>
                         </ul>

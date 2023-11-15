@@ -40,6 +40,7 @@ const Login = () => {
         </div>
         <div className="cover">
           <h2 className="box_container_login_text">Login</h2>
+
           <input
             className="input_form"
             type="email"

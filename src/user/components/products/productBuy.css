@@ -50,6 +50,7 @@ body {
     gap: 0.5rem;
     color: #858080;
     align-items: center;
+    margin-bottom: 2rem;
 }
 
 .box_container_back_icons_back p {
@@ -528,6 +529,10 @@ body {
     }
     .product-page-img .slider_img {
         width: 100%;
+    }
+
+    .box_container_back_icons_back {
+        margin-bottom: 1rem;
     }
 }
 
