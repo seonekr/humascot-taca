@@ -62,15 +62,6 @@ const Product = () => {
     const npage = Math.ceil(filteredProducts.length / recordsPerPage)
     const numbers = [...Array(npage + 1).keys()].slice(1)
 
-
-    // const deleteProduct = (productId) => {
-    //     // Filter out the product with the specified ID
-    //     const updatedProducts = products.filter((product) => product.productID !== productId);
-        
-    //     // Update the state with the new array of products
-    //     setProducts(updatedProducts);
-    // };
-
     const [deleteProductId, setDeleteProductId] = useState(null);
   const [isConfirmationPopupOpen, setConfirmationPopupOpen] = useState(false);
 
@@ -218,7 +209,6 @@ const Product = () => {
                 </div>
                     
             </section>
-            {/* { dialog.isLoading && <Dialog onDialog={areUSuredelete} message={dialog.message}/>} */}
         </>
         
     )

@@ -158,6 +158,11 @@ const Post = () => {
                                 </div>
                             </div>
 
+                            <div className="popular">
+                                <label htmlFor="popular">Popular product</label>
+                                <input type="checkbox" id="popular"/>
+                            </div>
+
                             {/* Add Color Box */}
                             <div className="colorBox_chContainer">
                                 <h1>Color:</h1>
@@ -181,7 +186,6 @@ const Post = () => {
                         </div>
 
                         <div className="input-img">
-                            
                             <div className="gallery">
                                 <h3>Image gallery</h3>
                                 <div className="gallery-box">
@@ -212,9 +216,7 @@ const Post = () => {
                                         onChange={handleImage}
                                     />
                                 </div>
-                            </div>
-                            
-                            
+                            </div> 
                         </div>
                         <div className="submit1">
                             <button type="submit">Post</button>
