@@ -7,7 +7,6 @@ import {
 } from "react-icons/fa6";
 import { Link, useLocation } from "react-router-dom";
 import Logo1 from "../../../img/Logo1.png";
-import { useEffect, useState } from "react";
 
 const Header = () => {
 

@@ -38,6 +38,11 @@ a {
     margin: auto;
 }
 
+.box_Filterseach_home{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
 input {
     background-color: transparent;
@@ -92,11 +97,6 @@ input:focus {
     padding: 7px 10px;
     border-radius: 5px;
 }
-.box_Filterseach_home{
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-}
 
 .contentImageProducts {
     display: grid;
@@ -150,12 +150,6 @@ input:focus {
     cursor: pointer;
     margin: 3rem 0 2rem 0;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.10);
-}
-
-.boxfilterseach {
-    display: flex;
-    align-items: center;
-    gap: 20px;
 }
 
 .btn_more {
@@ -262,13 +256,6 @@ input:focus {
     .cetegory_form label {
         display: none;
     }
-
-    .boxfilterseach {
-        display: inline;
-        gap: 0;
-    }
-
-
 
     .btn_more {
         margin-bottom: 5rem;

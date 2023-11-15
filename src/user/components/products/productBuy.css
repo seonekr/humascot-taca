@@ -363,7 +363,7 @@ body {
 
 /* ------------------last Item------------------ */
 
-.description_container{
+.description_container {
     background-color: #999;
     width: 90%;
     height: auto;
@@ -371,7 +371,7 @@ body {
     overflow: hidden;
 }
 
-.description_container img{
+.description_container img {
     width: 100%;
     object-fit: cover;
 }
@@ -403,8 +403,8 @@ body {
     .echbtn {
         padding: 15px 30px;
     }
-    
-    .product_details{
+
+    .product_details {
         width: 100%;
         padding: 20px 0 0 0;
     }
@@ -456,15 +456,16 @@ body {
         margin: auto;
         overflow: hidden;
     }
-   
-    .product-page-img{
+
+    .product-page-img {
         width: 100%;
     }
-    
-    .description_container{
+
+    .description_container {
         width: 100%;
         height: 50vh;
     }
+
     .nav-btn {
         margin-top: -1rem;
     }
