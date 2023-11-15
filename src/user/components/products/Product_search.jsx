@@ -41,6 +41,8 @@ const Product_search = () => {
         setFilteredProducts(filtered);
     };
 
+    
+
     // Handle inputChange
         // Function to handle the filter change
         const handleFilterChange = (event) => {

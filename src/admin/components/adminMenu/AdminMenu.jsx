@@ -4,7 +4,7 @@ import {
   IoLogOutOutline,
   IoSearchOutline,
 } from "react-icons/io5";
-import { BiUser, BiMessageDetail } from "react-icons/bi";
+import { BiUser } from "react-icons/bi";
 import { LiaUserCogSolid } from "react-icons/lia";
 import { RxDashboard } from "react-icons/rx";
 import { MdOutlineSell } from "react-icons/md";
@@ -20,7 +20,7 @@ const AdminMenu = () => {
 
         <div className="left">
           <div className="menu">
-            <Link to="/dashboard/" className="link active">
+            <Link to="/dashboard/" className="link">
               <RxDashboard />
               <p>Dashboard</p>
             </Link>
@@ -36,6 +36,7 @@ const AdminMenu = () => {
               <BiUser />
               <p>User</p>
             </Link>
+            
             <Link to="/admins/" className="link">
               <LiaUserCogSolid />
               <p>Admin</p>

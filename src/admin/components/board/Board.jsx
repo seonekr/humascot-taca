@@ -7,32 +7,6 @@ import { useEffect } from "react";
 import axios from "axios";
 
 const Board = () => {
-  const navigate = useNavigate();
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    let config = {
-      method: "post",
-      maxBodyLength: Infinity,
-      url: "http://localhost:3001/authen",
-      headers: {
-        Authorization: "Bearer " + token,
-      },
-    };
-    axios
-      .request(config)
-      .then((response) => {
-        if (response.data.Status === "Success") {
-          console.log(JSON.stringify(response.data.Status));
-        } else {
-          navigate("/admin");
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
-
-
   return (
     <>
       <section>
@@ -46,20 +20,20 @@ const Board = () => {
                   <div className="menu-box one">
                     <div>
                       <IoDocumentText className="iconGad gone1" />
-                      <p>Porduct</p>
+                      <p>Porducts</p>
                     </div>
                     <h2>5</h2>
-                    <Link to="/" className="txtcol">
+                    <Link to="/product/" className="txtcol">
                       View More
                     </Link>
                   </div>
                   <div className="menu-box two">
                     <div>
                       <IoDocumentText className="iconGad gone2" />
-                      <p>Porduct</p>
+                      <p>Orders</p>
                     </div>
                     <h2>15</h2>
-                    <Link to="/" className="txtcol">
+                    <Link to="/orderpage/" className="txtcol">
                       <p>View More</p>
                     </Link>
                   </div>
@@ -69,7 +43,7 @@ const Board = () => {
                       <p>Porduct</p>
                     </div>
                     <h2>25</h2>
-                    <Link to="/" className="txtcol">
+                    <Link to="/product/" className="txtcol">
                       <p>View More</p>
                     </Link>
                   </div>
@@ -79,7 +53,7 @@ const Board = () => {
                       <p>Porduct</p>
                     </div>
                     <h2>15</h2>
-                    <Link to="/" className="txtcol">
+                    <Link to="/product/" className="txtcol">
                       <p>View More</p>
                     </Link>
                   </div>
