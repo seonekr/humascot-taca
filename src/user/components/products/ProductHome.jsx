@@ -598,7 +598,7 @@ const ProductHome = () => {
   const displayedProducts = filteredProducts.slice(0, displayCount);
   // Read more
   const handleViewMore = () => {
-    setDisplayCount(products.length);
+    setDisplayCount(30);
     setShowButton(false);
   };
 

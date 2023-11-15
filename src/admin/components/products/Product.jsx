@@ -26,6 +26,21 @@ const Product = () => {
     const [price, setPrice] = useState("");
     const [priceFilter, setPriceFilter] = useState("");
     const [searchTerm, setSearchTerm] = useState("");
+
+    // Dialog 
+    const [dialog, setDialog] = useState({
+        message:'',
+        isLoading:false
+    })
+    const idproductRef = useRef();
+    const handleDialog = (message, isLoading) => {
+        setDialog({
+            message,
+            isLoading,
+        })
+    }
+
+
     // Handle inputChange
     const handleInputChange = (e, index, field) => {
         const updatedProducts = [...products];
@@ -62,35 +77,23 @@ const Product = () => {
     const npage = Math.ceil(filteredProducts.length / recordsPerPage)
     const numbers = [...Array(npage + 1).keys()].slice(1)
 
-    const [deleteProductId, setDeleteProductId] = useState(null);
-  const [isConfirmationPopupOpen, setConfirmationPopupOpen] = useState(false);
-
-  const openConfirmationPopup = (productId) => {
-    setDeleteProductId(productId);
-    setConfirmationPopupOpen(true);
-  };
-
-  const closeConfirmationPopup = () => {
-    setDeleteProductId(null);
-    setConfirmationPopupOpen(false);
-  };
-
-  const deleteProduct = () => {
-    if (deleteProductId !== null) {
-      // Filter out the product with the specified ID
-      const updatedProducts = products.filter((product) => product.productID !== deleteProductId);
-      
-      // Update the state with the new array of products
-      setProducts(updatedProducts);
-
-      // Close the confirmation popup after deleting
-      closeConfirmationPopup();
+    // Delete
+    const handleDelete = (productID) => {
+        handleDialog('Are you sure you want to delete?',true);
+        idproductRef.current = productID;
+    };
+    const areUSuredelete = (choose) => {
+        if(choose) {
+            setProducts(products.filter((product) => product.productID !== idproductRef.current));
+            handleDialog("",false)
+        }else{
+            handleDialog("",false)
+        }
     }
-  };
-
 
     // Send ID product for update
     const navigate = useNavigate();
+    const [sendProductID, setSendProductID] = useState('');
     // Update products
     const handleUpdate = (sendProductID) => {
         navigate('/post/', { state: { sendProductID: sendProductID } });
@@ -164,7 +167,7 @@ const Product = () => {
                                     </li>
                                     <div className="box_btn_edit_delete">
 
-                                        <button className="btn_icon_delete_user" onClick={() => openConfirmationPopup(product.productID)}>
+                                        <button onDialog={areUSuredelete} className="btn_icon_delete_user" onClick={() => handleDelete(product.productID)}>
                                             <AiOutlineDelete id="btn_icon_edit"/>
                                         </button>
                                         <div className="btn_icon_edit_user" onClick={() => handleUpdate(product.productID)}>
@@ -175,13 +178,6 @@ const Product = () => {
                                 </ul>
                             </div>
                         ))}
-                        {isConfirmationPopupOpen && (
-                            <div className="confirmation-popup">
-                                <p>Are you sure you want to delete this product?</p>
-                                <button onClick={deleteProduct}>Yes</button>
-                                <button onClick={closeConfirmationPopup}>No</button>
-                            </div>
-                         )}
                     </div>
                     <div className='box_container_next_product'>
                         <button className='box_prev_left_product' onClick={prePage}>
@@ -209,6 +205,7 @@ const Product = () => {
                 </div>
                     
             </section>
+            { dialog.isLoading && <Dialog onDialog={areUSuredelete} message={dialog.message}/>}
         </>
         
     )
