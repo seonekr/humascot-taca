@@ -27,7 +27,7 @@ const Product = () => {
     const [priceFilter, setPriceFilter] = useState("");
     const [searchTerm, setSearchTerm] = useState("");
 
-    // Dialog 
+    // Dialog delete
     const [dialog, setDialog] = useState({
         message:'',
         isLoading:false
