@@ -659,7 +659,7 @@ const Categories = () => {
                 <span className="spennofStyle"></span>Categories
               </h3>
             </div>
-            <form className="boxfilterseach">
+            <form className="box_Filterseach_home">
               <label>Select Filter</label>
               <select
                 className="categoryFilter"
