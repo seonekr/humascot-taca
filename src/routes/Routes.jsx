@@ -8,8 +8,7 @@ import Payment from "../user/components/cart/Payment";
 import SuccessfulBuy from "../user/components/cart/SuccessfulBuy";
 import Cart from "../user/components/cart/Cart";
 import Address from "../user/components/cart/Address";
-import Chatuser from "../user/components/contact/Chatuser";
-import Chatroom from "../user/components/contact/Chatroom";
+import Contacts from "../user/components/contact/Contact";
 import Bill from "../user/components/order/Bill";
 import Dashboard from "../admin/Dashboard";
 import Post from "../admin/components/post/Post";
@@ -45,8 +44,7 @@ const Links = () => {
                 <Route exact path="/account/password/" Component={Password}/>
                 <Route exact path="/cart/payment/" Component={Payment}/>
                 <Route exact path="/cart/address/" Component={Address}/>
-                <Route exact path="/chatuser/" Component={Chatuser}/>
-                <Route exact path="/chatuser/chatroom/" Component={Chatroom}/>
+                <Route exact path="/contacts/" Component={Contacts}/>
                 <Route exact path="/order/" Component={Order}/>
                 <Route exact path="/order/bill/" Component={Bill}/>
                 <Route exact path="/categories/" Component={Categories}/>
