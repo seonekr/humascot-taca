@@ -26,7 +26,6 @@ const Product = () => {
     const [price, setPrice] = useState("");
     const [priceFilter, setPriceFilter] = useState("");
     const [searchTerm, setSearchTerm] = useState("");
-
     // Handle inputChange
     const handleInputChange = (e, index, field) => {
         const updatedProducts = [...products];

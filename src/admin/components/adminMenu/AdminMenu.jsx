@@ -11,6 +11,7 @@ import { MdOutlineSell } from "react-icons/md";
 import user from "../../../img/user.png";
 import Logo1 from '../../../img/Logo1.png'
 import { Link, useLocation  } from "react-router-dom";
+import Dialog from "../menagerUser/Dialog";
 
 const AdminMenu = () => {
   const location = useLocation();
@@ -19,10 +20,15 @@ const AdminMenu = () => {
     { label: 'Dashboard', path: '/dashboard/', icon: <RxDashboard /> },
     { label: 'Products', path: '/product/', icon: <IoDocumentText /> },
     { label: 'Orders', path: '/orderpage/', icon: <MdOutlineSell /> },
-    { label: 'User', path: '/users/',  icon: <BiUser />},
-    { label: 'Admin', path: '/admins/', icon: <LiaUserCogSolid /> },
+    { label: 'Users', path: '/users/',  icon: <BiUser />},
+    { label: 'Admins', path: '/admins/', icon: <LiaUserCogSolid /> },
     { label: 'Log Out', path: '/', icon: <IoLogOutOutline /> },
   ];
+
+  // Function Log Out
+ 
+
+ 
 
   return (
 

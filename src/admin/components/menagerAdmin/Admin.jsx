@@ -15,7 +15,7 @@ const Admin = () => {
         { adminID: 4, adminName:"Khammun", email: "khammun@gmail.com", phone: "02099887676", password: "******", confirmPassword: "******", images: [user] },
     ]);
 
-    // Dialog 
+    // Dialog delete
     const [dialog, setDialog] = useState({
         message:'',
         isLoading:false

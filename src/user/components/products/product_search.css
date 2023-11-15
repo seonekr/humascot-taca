@@ -38,6 +38,11 @@ a {
     margin: auto;
 }
 
+.box_Filterseach_home{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
 input {
     background-color: transparent;
