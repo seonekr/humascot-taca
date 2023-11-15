@@ -21,6 +21,15 @@ function ProductDetails() {
       description: "desc for this product",
       images: [
         {
+          src: productImage
+        },
+        {
+          src: image1
+        },
+        {
+          src: acer
+        },
+        {
           src: acer
         },
         {
@@ -28,6 +37,21 @@ function ProductDetails() {
         },
         {
           src: image1
+        },
+        {
+          src: dress
+        },
+        {
+          src: acer
+        },
+        {
+          src: productImage
+        },
+        {
+          src: image1
+        },
+        {
+          src: dress
         }
       ],
       colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
@@ -520,10 +544,7 @@ function ProductDetails() {
   const location = useLocation();
   const { sendProductID } = location.state;
   const [getId, setGetId] = useState(sendProductID);
-
-  // Buy now
   const [getProductID, setGetProductID] = useState(getId);
-  // const [totalPrice, setTotalPrice] = useState(0);
   const navigate = useNavigate();
 
   // Match productID
@@ -604,7 +625,7 @@ function ProductDetails() {
   }
 
   function showSlides(n) {
-    const currentProduct = products[0]; // Assuming there's only one product in the array
+    const currentProduct = filteredProducts[0]; // Assuming there's only one product in the array
 
     if (n > currentProduct.images.length) {
       setSlideIndex(1);
@@ -615,7 +636,7 @@ function ProductDetails() {
     }
   }
   // Render the current image
-  const currentImage = products[0].images[slideIndex - 1].src;
+  const currentImage = products[0].images[slideIndex - 1];
   //Drag
   function dragStart(e) {
     setStart(e.clientX)
@@ -685,7 +706,8 @@ function ProductDetails() {
               <div className="txtContentproduct">
                 <h1 className="txt_nameP">{product.productName}</h1>
                 <p className="money_txt">${product.price}</p>
-                <div className="startBox">
+                {/* Star Box */}
+                {/* <div className="startBox">
                   <div className="sartBox_icon">
                     <AiFillStar id="icon_stars" />
                     <AiFillStar id="icon_stars" />
@@ -697,7 +719,7 @@ function ProductDetails() {
                   <div>
                     <p>( 150 Reviews )</p>
                   </div>
-                </div>
+                </div> */}
                 <p className="txt_description">{product.description}</p>
 
                 <div className="hr">
@@ -809,7 +831,7 @@ function ProductDetails() {
           </div>
         ))}
         <div className="description_container">
-            <img src={description} alt="" />
+          <img src={description} alt="" />
         </div>
       </div>
       <Menu />
