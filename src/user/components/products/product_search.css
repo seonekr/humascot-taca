@@ -147,12 +147,6 @@ input:focus {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.10);
 }
 
-.boxfilterseach {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
 .btn_more {
     display: flex;
     justify-content: center;
@@ -257,13 +251,6 @@ input:focus {
     .cetegory_form label {
         display: none;
     }
-
-    .boxfilterseach {
-        display: inline;
-        gap: 0;
-    }
-
-
 
     .btn_more {
         margin-bottom: 5rem;
