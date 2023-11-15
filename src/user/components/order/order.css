@@ -68,15 +68,3 @@
         padding: 10px 20px;
     }
 }
-
-@media screen and (max-width: 430px) {
-
-    #container_order_item .container_order_all {
-        padding: 15px 10px;
-    }
-
-    #container_order_item .box_item_order {
-        padding: 10px 20px;
-    }
-
-}

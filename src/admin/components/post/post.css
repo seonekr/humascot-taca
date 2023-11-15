@@ -37,6 +37,19 @@
     display: none;
 }
 
+#post .edit-product-form .input-box .popular {
+    display: flex;
+    text-align: left;
+    justify-content: space-evenly;
+}
+#post .edit-product-form .input-box .popular label {
+    font-size: 1.3rem;
+    margin-left: -3rem;
+}
+#post .edit-product-form .input-box .popular input {
+    margin-left: -15rem;
+}
+
 #post .edit-product-form .input-box .box:last-child {
     display: grid;
 }

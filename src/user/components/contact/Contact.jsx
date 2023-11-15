@@ -1,9 +1,9 @@
 import React from 'react'
-import './chatuser.css'
+import './Contact.css'
 import Header from '../header/Header';
 import Menu from '../menu/Menu';
 
-const Chatuser = () => {
+const Contact = () => {
   return (
     <>
       <Header />
@@ -20,4 +20,4 @@ const Chatuser = () => {
   )
 }
 
-export default Chatuser
+export default Contact
