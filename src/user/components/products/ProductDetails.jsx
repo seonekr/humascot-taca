@@ -537,11 +537,6 @@ function ProductDetails() {
   const colorName = colID.colorName;
   const [color, setColor] = useState(colorName);
 
-  // Find the product with productID equal to getProductID
-  const productWithID = products.find(product => product.productID === getProductID);
-  // Accessing the src of the first image in the product with productID getProductID
-  const firstImageSrcOfProductID = productWithID.images[0].src;
-
   const handleRadioChange = (event) => {
     const { id } = event.target;
     setColor(id);

@@ -16,90 +16,529 @@ const Categories = () => {
     {
       productID: 1,
       productName: "pro1",
-      productType: "clothes",
+      productType: "electronich device",
       price: 10,
       description: "desc for this product",
-      images: [acer],
+      images: [
+        {
+          src: acer,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+      ],
+      colors: [
+        { colorID: 1, colorName: "black" },
+        { colorID: 2, colorName: "blue" },
+        { colorID: 3, colorName: "red" },
+        { colorID: 4, colorName: "green" },
+      ],
     },
     {
       productID: 2,
       productName: "pro2",
-      productType: "clothes",
-      price: 30,
+      productType: "electronich device",
+
+      price: 10,
       description: "desc for this product",
-      images: [dress],
+      images: [
+        {
+          src: dress,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: dress,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: dress,
+        },
+      ],
+      colors: [
+        { colorID: 1, colorName: "black" },
+        { colorID: 2, colorName: "blue" },
+        { colorID: 3, colorName: "red" },
+        { colorID: 4, colorName: "green" },
+      ],
     },
     {
       productID: 3,
       productName: "pro3",
-      productType: "clothes",
-      price: 20,
+      productType: "electronich device",
+      price: 10,
       description: "desc for this product",
-      images: [acer],
+      images: [
+        {
+          src: image1,
+        },
+        {
+          src: dress,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: dress,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: dress,
+        },
+      ],
+      colors: [
+        { colorID: 1, colorName: "black" },
+        { colorID: 2, colorName: "blue" },
+        { colorID: 3, colorName: "red" },
+        { colorID: 4, colorName: "green" },
+      ],
     },
     {
       productID: 4,
       productName: "pro4",
-      productType: "electronich device",
-      price: 50,
+      productType: "clothes",
+      price: 10,
       description: "desc for this product",
-      images: [dress],
+      images: [
+        {
+          src: dress,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: dress,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: dress,
+        },
+      ],
+      colors: [
+        { colorID: 1, colorName: "black" },
+        { colorID: 2, colorName: "blue" },
+        { colorID: 3, colorName: "red" },
+        { colorID: 4, colorName: "green" },
+      ],
     },
     {
       productID: 5,
       productName: "pro5",
-      productType: "electronich device",
-      price: 60,
+      productType: "clothes",
+      price: 10,
       description: "desc for this product",
-      images: [image1],
+      images: [
+        {
+          src: image1,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: dress,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: dress,
+        },
+      ],
+      colors: [
+        { colorID: 1, colorName: "black" },
+        { colorID: 2, colorName: "blue" },
+        { colorID: 3, colorName: "red" },
+        { colorID: 4, colorName: "green" },
+      ],
     },
     {
       productID: 6,
       productName: "pro6",
-      productType: "electronich device",
-      price: 100,
+      productType: "clothes",
+      price: 10,
       description: "desc for this product",
-      images: [image1],
+      images: [
+        {
+          src: image1,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: dress,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: dress,
+        },
+      ],
+      colors: [
+        { colorID: 1, colorName: "black" },
+        { colorID: 2, colorName: "blue" },
+        { colorID: 3, colorName: "red" },
+        { colorID: 4, colorName: "green" },
+      ],
     },
     {
       productID: 7,
       productName: "pro7",
-      productType: "electronich device",
-      price: 150,
+      productType: "clothes",
+      price: 10,
       description: "desc for this product",
-      images: [productImage],
+      images: [
+        {
+          src: image1,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: dress,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: dress,
+        },
+      ],
+      colors: [
+        { colorID: 1, colorName: "black" },
+        { colorID: 2, colorName: "blue" },
+        { colorID: 3, colorName: "red" },
+        { colorID: 4, colorName: "green" },
+      ],
     },
     {
       productID: 8,
       productName: "pro8",
-      productType: "electronich device",
-      price: 120,
+      productType: "clothes",
+      price: 10,
       description: "desc for this product",
-      images: [acer],
+      images: [
+        {
+          src: image1,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: dress,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: dress,
+        },
+      ],
+      colors: [
+        { colorID: 1, colorName: "black" },
+        { colorID: 2, colorName: "blue" },
+        { colorID: 3, colorName: "red" },
+        { colorID: 4, colorName: "green" },
+      ],
     },
     {
       productID: 9,
       productName: "pro9",
-      productType: "electronich device",
-      price: 160,
+      productType: "clothes",
+      price: 10,
       description: "desc for this product",
-      images: [productImage],
+      images: [
+        {
+          src: image1,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: dress,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: dress,
+        },
+      ],
+      colors: [
+        { colorID: 1, colorName: "black" },
+        { colorID: 2, colorName: "blue" },
+        { colorID: 3, colorName: "red" },
+        { colorID: 4, colorName: "green" },
+      ],
     },
     {
       productID: 10,
       productName: "pro10",
-      productType: "electronich device",
-      price: 170,
+      productType: "clothes",
+      price: 10,
       description: "desc for this product",
-      images: [acer],
+      images: [
+        {
+          src: image1,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: dress,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: dress,
+        },
+      ],
+      colors: [
+        { colorID: 1, colorName: "black" },
+        { colorID: 2, colorName: "blue" },
+        { colorID: 3, colorName: "red" },
+        { colorID: 4, colorName: "green" },
+      ],
     },
     {
       productID: 11,
       productName: "pro11",
       productType: "clothes",
-      price: 40,
+      price: 10,
       description: "desc for this product",
-      images: [productImage],
+      images: [
+        {
+          src: image1,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: dress,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: dress,
+        },
+      ],
+      colors: [
+        { colorID: 1, colorName: "red" },
+        { colorID: 2, colorName: "green" },
+      ],
     },
   ]);
 
@@ -243,7 +682,7 @@ const Categories = () => {
                   onClick={() => handleProduct(product.productID)}
                 >
                   <div className="img">
-                    <img src={product.images[0]} alt="img" />
+                    <img src={product.images[0].src} alt="img" />
                   </div>
                   <div className="txtOFproduct">
                     <h4>
@@ -277,7 +716,7 @@ const Categories = () => {
           </div>
         </div>
         <div className="btn_more">
-          {showButton && (
+          {showButton && categoriesProducts.length > displayCount && (
             <button className="btnViewProduct" onClick={handleViewMore}>
               View More
             </button>
