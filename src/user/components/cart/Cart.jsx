@@ -65,7 +65,6 @@ const Cart = () => {
     const selectedProducts = products.map((product) => ({
       productID: product.productID,
       productName: product.productName,
-      type: product.productType,
       color: product.colorName,
       price: product.price,
       size: product.size,

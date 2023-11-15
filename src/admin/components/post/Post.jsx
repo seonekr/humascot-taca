@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import AdminMenu from "../adminMenu/AdminMenu";
 import './post.css'
-import { BiPlus } from "react-icons/bi";
 
 const Post = () => {
     const [image, setImage] = useState([])
@@ -48,7 +47,7 @@ const Post = () => {
             "Product price": price,
             "Product details": details,
             "Color": addColor,
-            "Image": image,
+            "ImageDescroption": image,
             "Gallery": images
 
         });
@@ -58,7 +57,6 @@ const Post = () => {
         setPrice('');
         setDetails('')
         setImage([]);
-        setImages([]);
         setImages([]);
         
     };
@@ -160,6 +158,11 @@ const Post = () => {
                                 </div>
                             </div>
 
+                            <div className="popular">
+                                <label htmlFor="popular">Popular product</label>
+                                <input type="checkbox" id="popular"/>
+                            </div>
+
                             {/* Add Color Box */}
                             <div className="colorBox_chContainer">
                                 <h1>Color:</h1>
@@ -183,16 +186,6 @@ const Post = () => {
                         </div>
 
                         <div className="input-img">
-                            <div className="image">
-                                <label htmlFor="img">
-                                    {(image && image.length > 0) ? <img src={URL.createObjectURL(image[0])} /> : <p>Choose image</p>}
-                                </label>
-                                <input
-                                    type="file"
-                                    id="img"
-                                    onChange={handleImage}
-                                />
-                            </div>
                             <div className="gallery">
                                 <h3>Image gallery</h3>
                                 <div className="gallery-box">
@@ -211,6 +204,19 @@ const Post = () => {
                                     }
                                 </div>
                             </div>
+                            <div className="box_description">
+                                <h3>Description image</h3>
+                                <div className="image">
+                                    <label htmlFor="img">
+                                        {(image && image.length > 0) ? <img src={URL.createObjectURL(image[0])} /> : <p>Choose image</p>}
+                                    </label>
+                                    <input
+                                        type="file"
+                                        id="img"
+                                        onChange={handleImage}
+                                    />
+                                </div>
+                            </div> 
                         </div>
                         <div className="submit1">
                             <button type="submit">Post</button>

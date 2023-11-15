@@ -58,10 +58,12 @@ const Menu = () => {
                 <Link to="/order" className="box-menu">
                     <span><box-icon name='task' color='#888888' ></box-icon></span><span>Order</span>
                 </Link>
-                <Link to="/chatuser" className="box-menu">
+                <Link to="/contacts" className="box-menu">
                     <span><box-icon name='chat' color='#888888' ></box-icon></span><span>Contact</span>
                 </Link>
+
             </div>
+
         </section>
     )
 }

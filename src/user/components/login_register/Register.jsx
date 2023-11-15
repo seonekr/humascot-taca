@@ -108,13 +108,12 @@ const Register = () => {
           </Link>
         </form>
 
-        <div>
+        <div className='box_already'>
           <p>
             Already have an account? <Link to="/login">Login</Link>
           </p>
         </div>
         <p>Or</p>
-        <br />
         <Link to="#" className="google_btn">
           <img
             src={google}

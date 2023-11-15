@@ -1,29 +1,31 @@
 import "./product.css";
 import image1 from "../../../img/image1.png";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import AdminMenu from "../adminMenu/AdminMenu";
 import { BiPlus } from 'react-icons/bi';
 import { IoSearchOutline } from 'react-icons/io5';
 import { MdOutlineEdit } from 'react-icons/md';
 import { AiOutlineDelete, AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
+import { useNavigate } from "react-router-dom";
+import Dialog from "../menagerUser/Dialog";
 
 const Product = () => {
     const [products, setProducts] = useState([
-        { id: 1, name: 'Product 1', description: 'This is product 1', price: 10, category: "clothes", images: [image1] },
-        { id: 2, name: 'Product 2', description: 'This is product 1', price: 11, category: "clothes", images: [image1] },
-        { id: 3, name: 'Product 3', description: 'This is product 1', price: 12, category: "clothes", images: [image1] },
-        { id: 4, name: 'Product 4', description: 'This is product 1', price: 10, category: "clothes", images: [image1] },
-        { id: 5, name: 'Product 5', description: 'This is product 1', price: 11, category: "clothes", images: [image1] },
-        { id: 6, name: 'Product 6', description: 'This is product 1', price: 12, category: "clothes", images: [image1] },
-        { id: 7, name: 'Product 7', description: 'This is product 1', price: 10, category: "clothes", images: [image1] },
-        { id: 8, name: 'Product 8', description: 'This is product 1', price: 11, category: "clothes", images: [image1] },
+        { productID: 1, productName: 'Product 1', description: 'This is product 1', price: 10, productType: "clothes", images: [image1], colors: [{colorID: 1, colorName: "black"}, {colorID: 2, colorName: "blue"}, {colorID: 3, colorName: "red"}, {colorID: 4, colorName: "green"}]},
+        { productID: 2, productName: 'Product 2', description: 'This is product 1', price: 11, productType: "clothes", images: [image1], colors: [{colorID: 1, colorName: "black"}, {colorID: 2, colorName: "blue"}, {colorID: 3, colorName: "red"}, {colorID: 4, colorName: "green"}]},
+        { productID: 3, productName: 'Product 3', description: 'This is product 1', price: 12, productType: "clothes", images: [image1], colors: [{colorID: 1, colorName: "black"}, {colorID: 2, colorName: "blue"}, {colorID: 3, colorName: "red"}, {colorID: 4, colorName: "green"}]},
+        { productID: 4, productName: 'Product 4', description: 'This is product 1', price: 10, productType: "clothes", images: [image1], colors: [{colorID: 1, colorName: "black"}, {colorID: 2, colorName: "blue"}, {colorID: 3, colorName: "red"}, {colorID: 4, colorName: "green"}]},
+        { productID: 5, productName: 'Product 5', description: 'This is product 1', price: 11, productType: "clothes", images: [image1], colors: [{colorID: 1, colorName: "black"}, {colorID: 2, colorName: "blue"}, {colorID: 3, colorName: "red"}, {colorID: 4, colorName: "green"}]},
+        { productID: 6, productName: 'Product 6', description: 'This is product 1', price: 12, productType: "clothes", images: [image1], colors: [{colorID: 1, colorName: "black"}, {colorID: 2, colorName: "blue"}, {colorID: 3, colorName: "red"}, {colorID: 4, colorName: "green"}]},
+        { productID: 7, productName: 'Product 7', description: 'This is product 1', price: 10, productType: "clothes", images: [image1], colors: [{colorID: 1, colorName: "black"}, {colorID: 2, colorName: "blue"}, {colorID: 3, colorName: "red"}, {colorID: 4, colorName: "green"}]},
+        { productID: 8, productName: 'Product 8', description: 'This is product 1', price: 11, productType: "clothes", images: [image1], colors: [{colorID: 1, colorName: "black"}, {colorID: 2, colorName: "blue"}, {colorID: 3, colorName: "red"}, {colorID: 4, colorName: "green"}]},
+        { productID: 9, productName: 'Product 9', description: 'This is product 1', price: 11, productType: "clothes", images: [image1], colors: [{colorID: 1, colorName: "black"}, {colorID: 2, colorName: "blue"}, {colorID: 3, colorName: "red"}, {colorID: 4, colorName: "green"}]},
     ]);
 
-    const [searchTerm, setSearchTerm] = useState("");
     const [price, setPrice] = useState("");
     const [priceFilter, setPriceFilter] = useState("");
-
+    const [searchTerm, setSearchTerm] = useState("");
     // Handle inputChange
     const handleInputChange = (e, index, field) => {
         const updatedProducts = [...products];
@@ -31,12 +33,7 @@ const Product = () => {
         setProducts(updatedProducts);
     }
 
-    // Filter products based on search term and price range
-    const filteredProducts = products.filter((product) => {
-        
-        const peiceMatch = priceFilter !== "" ? product.price === parseInt(priceFilter) : true;
-        return peiceMatch;
-    });
+    
 
     // Handle filter by price
     const handleFilter = (price) => {
@@ -48,14 +45,56 @@ const Product = () => {
         setPrice(e.target.value);
         handleFilter(e.target.value);
     };
-    
 
-    // Delete
+    // Filter products based on search term and price range
+    const filteredProducts = products.filter((product) => {
+        const nameMatch = product.productName.toLowerCase().includes(searchTerm.toLowerCase());
+        const priceMatch = priceFilter !== "" ? product.price === parseInt(priceFilter) : true;
+        return priceMatch && nameMatch;
+    });
 
-    const handleDelete = (productId) => {
-        const updatedProducts = products.filter((product) => product.id !== productId);
-        setProducts(updatedProducts);
-    };
+    // prev next button user in react
+    const [currentPage, setCurrentPage] = useState(1) 
+    const recordsPerPage = 8
+    const lastIndex = currentPage * recordsPerPage;
+    const firstIndex = lastIndex - recordsPerPage;
+    const records = filteredProducts.slice(firstIndex, lastIndex);
+    const npage = Math.ceil(filteredProducts.length / recordsPerPage)
+    const numbers = [...Array(npage + 1).keys()].slice(1)
+
+    const [deleteProductId, setDeleteProductId] = useState(null);
+  const [isConfirmationPopupOpen, setConfirmationPopupOpen] = useState(false);
+
+  const openConfirmationPopup = (productId) => {
+    setDeleteProductId(productId);
+    setConfirmationPopupOpen(true);
+  };
+
+  const closeConfirmationPopup = () => {
+    setDeleteProductId(null);
+    setConfirmationPopupOpen(false);
+  };
+
+  const deleteProduct = () => {
+    if (deleteProductId !== null) {
+      // Filter out the product with the specified ID
+      const updatedProducts = products.filter((product) => product.productID !== deleteProductId);
+      
+      // Update the state with the new array of products
+      setProducts(updatedProducts);
+
+      // Close the confirmation popup after deleting
+      closeConfirmationPopup();
+    }
+  };
+
+
+    // Send ID product for update
+    const navigate = useNavigate();
+    // Update products
+    const handleUpdate = (sendProductID) => {
+        navigate('/post/', { state: { sendProductID: sendProductID } });
+    }
 
 
     return (
@@ -94,16 +133,16 @@ const Product = () => {
                         </div>
                     </div>
 
-                    <form className="product-area">
-                        {filteredProducts.map((product, index) => (
-                            <div className="box-product" key={ product.id}>
-                                <Link to="#"><img src={product.images[0]} alt="image" /></Link>
+                    <div className="product-area">
+                        {filteredProducts && records.map((product, index) => (
+                            <div className="box-product" key={ index }>
+                                <div><img src={product.images[0]} alt="image" /></div>
                                 <ul className="txtOFproduct">
                                     <li>
                                         <input
                                             className="name"
                                             type="text"
-                                            value={product.name}
+                                            value={product.productName}
                                             onChange={handleInputChange}
                                         />
                                     </li>
@@ -125,31 +164,44 @@ const Product = () => {
                                     </li>
                                     <div className="box_btn_edit_delete">
 
-                                        <button className="btn_icon_delete_user" onClick={() => handleDelete(product.id)}>
+                                        <button className="btn_icon_delete_user" onClick={() => openConfirmationPopup(product.productID)}>
                                             <AiOutlineDelete id="btn_icon_edit"/>
                                         </button>
-                                        <div className="btn_icon_edit_user" >
+                                        <div className="btn_icon_edit_user" onClick={() => handleUpdate(product.productID)}>
                                             <MdOutlineEdit id="btn_icon_edit"/>
                                         </div>
                                         
                                     </div>
                                 </ul>
-                                
                             </div>
                         ))}
-                    </form>
+                        {isConfirmationPopupOpen && (
+                            <div className="confirmation-popup">
+                                <p>Are you sure you want to delete this product?</p>
+                                <button onClick={deleteProduct}>Yes</button>
+                                <button onClick={closeConfirmationPopup}>No</button>
+                            </div>
+                         )}
+                    </div>
                     <div className='box_container_next_product'>
-                        <button className='box_prev_left_product'>
+                        <button className='box_prev_left_product' onClick={prePage}>
                             <AiOutlineLeft id="box_icon_left_right_product" />
                             <p>Prev</p>
                         </button>
 
                         <div className='box_num_product'>
-                            <p className='num_admin_product'>1</p>
-                            <p className='num_admin_product'>2</p>
-                            <p className='num_admin_product'>3</p>
+                            {
+                                numbers.map((n, i) => (
+                                    <div className={`page-link ${currentPage === n? 'active' : ''}`} key={i}>
+                                        <div className='num_admin_product'>
+                                            <p onClick={()=> changeCPage(n)} >{n}</p>
+                                        </div> 
+                                    </div>
+                                ))
+                            }
                         </div>
-                        <button className='box_prev_right_product'>
+
+                        <button className='box_prev_right_product' onClick={nextPage}>
                             <p>Next</p>
                             <AiOutlineRight id="box_icon_left_right_product" />
                         </button>
@@ -160,6 +212,19 @@ const Product = () => {
         </>
         
     )
+    function prePage() {
+        if(currentPage !== 1) {
+            setCurrentPage(currentPage - 1)
+        }
+      }
+      function nextPage() {
+        if(currentPage !== npage) {
+            setCurrentPage(currentPage + 1)
+        }
+      }
+      function changeCPage(userID) {
+        setCurrentPage(userID)
+      }
 }
 
 export default Product;

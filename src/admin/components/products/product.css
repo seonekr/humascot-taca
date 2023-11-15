@@ -138,7 +138,7 @@ a {
     border: none;
     align-items: center;
     justify-content: center;
-    background: #27A7EF;
+    background: #157DEC;
     border-radius: 8px;
 }
 
@@ -239,7 +239,7 @@ a {
 .search-box_product button {
     background: #0E64D2;
     color: #FFF;
-    width: 80px;
+    width: 100px;
     height: 45px;
     border: 1px solid #ccc;
     font-size: 1.7rem;

@@ -40,7 +40,7 @@ const Login = () => {
         </div>
         <div className="cover">
           <h2 className="box_container_login_text">Login</h2>
-         {/* <h3>{error && error}</h3> */}
+
           <input
             className="input_form"
             type="email"
@@ -65,10 +65,9 @@ const Login = () => {
 
           </div>
 
-          <p>
+          <p className='box_dont'>
             Don't have an account? <Link to="/register">Signup</Link>
           </p>
-
           <p>Or</p>
           <div className='googlebtn_btn'>
             <Link to="#" className="google_btn" >

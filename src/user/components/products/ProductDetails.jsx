@@ -1,20 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useLocation, useNavigate, Link } from "react-router-dom";
 import "./productBuy.css";
-import acer1 from "/acer1.jpg";
-import acer2 from "/acer2.jpg";
-import acer3 from "/acer3.jpg";
 import Menu from "../menu/Menu";
 import Header from "../header/Header";
 import { IoIosArrowBack } from "react-icons/io";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import dress from "../../../img/dress.png";
 import image1 from "../../../img/image1.png";
+import description from "../../../img/detailproduct.jpg";
 import acer from "../../../img/acer.png";
 import productImage from "../../../img/productImage.png";
 
 function ProductDetails() {
-  const [slides, setSlides] = useState([acer1, acer2, acer3]);
   const [products, setProducts] = useState([
     {
       productID: 1,
@@ -22,18 +19,89 @@ function ProductDetails() {
       productType: "clothes",
       price: 10,
       description: "desc for this product",
-      images: [acer],
-      colors: [{colorID: 1, colorName: "black"}, {colorID: 2, colorName: "blue"}, {colorID: 3, colorName: "red"}, {colorID: 4, colorName: "green"}]
+      images: [
+        {
+          src: productImage
+        },
+        {
+          src: image1
+        },
+        {
+          src: acer
+        },
+        {
+          src: acer
+        },
+        {
+          src: productImage
+        },
+        {
+          src: image1
+        },
+        {
+          src: dress
+        },
+        {
+          src: acer
+        },
+        {
+          src: productImage
+        },
+        {
+          src: image1
+        },
+        {
+          src: dress
+        }
+      ],
+      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
     },
     {
       productID: 2,
       productName: "pro2",
       productType: "clothes",
-      
+
       price: 10,
       description: "desc for this product",
-      images: [dress],
-      colors: [{colorID: 1, colorName: "black"}, {colorID: 2, colorName: "blue"}, {colorID: 3, colorName: "red"}, {colorID: 4, colorName: "green"}]
+      images: [
+        {
+          src: dress
+        },
+        {
+          src: productImage
+        },
+        {
+          src: image1
+        },
+        {
+          src: acer
+        },
+        {
+          src: acer
+        },
+        {
+          src: productImage
+        },
+        {
+          src: image1
+        },
+        {
+          src: dress
+        },
+        {
+          src: acer
+        },
+        {
+          src: productImage
+        },
+        {
+          src: image1
+        },
+        {
+          src: dress
+        }
+      ],
+      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
     },
     {
       productID: 3,
@@ -41,8 +109,39 @@ function ProductDetails() {
       productType: "clothes",
       price: 10,
       description: "desc for this product",
-      images: [acer],
-      colors: [{colorID: 1, colorName: "black"}, {colorID: 2, colorName: "blue"}, {colorID: 3, colorName: "red"}, {colorID: 4, colorName: "green"}]
+      images: [
+        {
+          src: image1
+        },
+        {
+          src: dress
+        },
+        {
+          src: acer
+        },
+        {
+          src: productImage
+        },
+        {
+          src: image1
+        },
+        {
+          src: dress
+        },
+        {
+          src: acer
+        },
+        {
+          src: productImage
+        },
+        {
+          src: image1
+        },
+        {
+          src: dress
+        }
+      ],
+      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
     },
     {
       productID: 4,
@@ -50,8 +149,45 @@ function ProductDetails() {
       productType: "clothes",
       price: 10,
       description: "desc for this product",
-      images: [dress],
-      colors: [{colorID: 1, colorName: "black"}, {colorID: 2, colorName: "blue"}, {colorID: 3, colorName: "red"}, {colorID: 4, colorName: "green"}]
+      images: [
+        {
+          src: dress
+        },
+        {
+          src: productImage
+        },
+        {
+          src: image1
+        },
+        {
+          src: acer
+        },
+        {
+          src: acer
+        },
+        {
+          src: productImage
+        },
+        {
+          src: image1
+        },
+        {
+          src: dress
+        },
+        {
+          src: acer
+        },
+        {
+          src: productImage
+        },
+        {
+          src: image1
+        },
+        {
+          src: dress
+        }
+      ],
+      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
     },
     {
       productID: 5,
@@ -59,8 +195,45 @@ function ProductDetails() {
       productType: "clothes",
       price: 10,
       description: "desc for this product",
-      images: [image1],
-      colors: [{colorID: 1, colorName: "black"}, {colorID: 2, colorName: "blue"}, {colorID: 3, colorName: "red"}, {colorID: 4, colorName: "green"}]
+      images: [
+        {
+          src: image1
+        },
+        {
+          src: productImage
+        },
+        {
+          src: image1
+        },
+        {
+          src: acer
+        },
+        {
+          src: acer
+        },
+        {
+          src: productImage
+        },
+        {
+          src: image1
+        },
+        {
+          src: dress
+        },
+        {
+          src: acer
+        },
+        {
+          src: productImage
+        },
+        {
+          src: image1
+        },
+        {
+          src: dress
+        }
+      ],
+      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
     },
     {
       productID: 6,
@@ -68,8 +241,45 @@ function ProductDetails() {
       productType: "clothes",
       price: 10,
       description: "desc for this product",
-      images: [image1],
-      colors: [{colorID: 1, colorName: "black"}, {colorID: 2, colorName: "blue"}, {colorID: 3, colorName: "red"}, {colorID: 4, colorName: "green"}]
+      images: [
+        {
+          src: image1
+        },
+        {
+          src: productImage
+        },
+        {
+          src: image1
+        },
+        {
+          src: acer
+        },
+        {
+          src: acer
+        },
+        {
+          src: productImage
+        },
+        {
+          src: image1
+        },
+        {
+          src: dress
+        },
+        {
+          src: acer
+        },
+        {
+          src: productImage
+        },
+        {
+          src: image1
+        },
+        {
+          src: dress
+        }
+      ],
+      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
     },
     {
       productID: 7,
@@ -77,8 +287,45 @@ function ProductDetails() {
       productType: "clothes",
       price: 10,
       description: "desc for this product",
-      images: [productImage],
-      colors: [{colorID: 1, colorName: "black"}, {colorID: 2, colorName: "blue"}, {colorID: 3, colorName: "red"}, {colorID: 4, colorName: "green"}]
+      images: [
+        {
+          src: image1
+        },
+        {
+          src: productImage
+        },
+        {
+          src: image1
+        },
+        {
+          src: acer
+        },
+        {
+          src: acer
+        },
+        {
+          src: productImage
+        },
+        {
+          src: image1
+        },
+        {
+          src: dress
+        },
+        {
+          src: acer
+        },
+        {
+          src: productImage
+        },
+        {
+          src: image1
+        },
+        {
+          src: dress
+        }
+      ],
+      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
     },
     {
       productID: 8,
@@ -86,8 +333,45 @@ function ProductDetails() {
       productType: "clothes",
       price: 10,
       description: "desc for this product",
-      images: [acer],
-      colors: [{colorID: 1, colorName: "black"}, {colorID: 2, colorName: "blue"}, {colorID: 3, colorName: "red"}, {colorID: 4, colorName: "green"}]
+      images: [
+        {
+          src: image1
+        },
+        {
+          src: productImage
+        },
+        {
+          src: image1
+        },
+        {
+          src: acer
+        },
+        {
+          src: acer
+        },
+        {
+          src: productImage
+        },
+        {
+          src: image1
+        },
+        {
+          src: dress
+        },
+        {
+          src: acer
+        },
+        {
+          src: productImage
+        },
+        {
+          src: image1
+        },
+        {
+          src: dress
+        }
+      ],
+      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
     },
     {
       productID: 9,
@@ -95,8 +379,45 @@ function ProductDetails() {
       productType: "clothes",
       price: 10,
       description: "desc for this product",
-      images: [productImage],
-      colors: [{colorID: 1, colorName: "black"}, {colorID: 2, colorName: "blue"}, {colorID: 3, colorName: "red"}, {colorID: 4, colorName: "green"}]
+      images: [
+        {
+          src: image1
+        },
+        {
+          src: productImage
+        },
+        {
+          src: image1
+        },
+        {
+          src: acer
+        },
+        {
+          src: acer
+        },
+        {
+          src: productImage
+        },
+        {
+          src: image1
+        },
+        {
+          src: dress
+        },
+        {
+          src: acer
+        },
+        {
+          src: productImage
+        },
+        {
+          src: image1
+        },
+        {
+          src: dress
+        }
+      ],
+      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
     },
     {
       productID: 10,
@@ -104,8 +425,45 @@ function ProductDetails() {
       productType: "clothes",
       price: 10,
       description: "desc for this product",
-      images: [acer],
-      colors: [{colorID: 1, colorName: "black"}, {colorID: 2, colorName: "blue"}, {colorID: 3, colorName: "red"}, {colorID: 4, colorName: "green"}]
+      images: [
+        {
+          src: image1
+        },
+        {
+          src: productImage
+        },
+        {
+          src: image1
+        },
+        {
+          src: acer
+        },
+        {
+          src: acer
+        },
+        {
+          src: productImage
+        },
+        {
+          src: image1
+        },
+        {
+          src: dress
+        },
+        {
+          src: acer
+        },
+        {
+          src: productImage
+        },
+        {
+          src: image1
+        },
+        {
+          src: dress
+        }
+      ],
+      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
     },
     {
       productID: 11,
@@ -113,12 +471,47 @@ function ProductDetails() {
       productType: "clothes",
       price: 10,
       description: "desc for this product",
-      images: [productImage],
-      colors: [{colorID: 1, colorName: "red"}, {colorID: 2, colorName: "green"}]
+      images: [
+        {
+          src: image1
+        },
+        {
+          src: productImage
+        },
+        {
+          src: image1
+        },
+        {
+          src: acer
+        },
+        {
+          src: acer
+        },
+        {
+          src: productImage
+        },
+        {
+          src: image1
+        },
+        {
+          src: dress
+        },
+        {
+          src: acer
+        },
+        {
+          src: productImage
+        },
+        {
+          src: image1
+        },
+        {
+          src: dress
+        }
+      ],
+      colors: [{ colorID: 1, colorName: "red" }, { colorID: 2, colorName: "green" }]
     },
   ]);
-  const [activeSlide, setActiveSlide] = useState(0);
-  const [direction, setDirection] = useState("right");
 
   // Checked sizes
   const [size, setSize] = useState("m");
@@ -129,22 +522,6 @@ function ProductDetails() {
     setSize(id);
   };
 
-  const handlePrevSlide = () => {
-    setDirection("left");
-    setActiveSlide(activeSlide === 0 ? slides.length - 1 : activeSlide - 1);
-  };
-
-  const handleNextSlide = () => {
-    setDirection("right");
-    setActiveSlide(activeSlide === slides.length - 1 ? 0 : activeSlide + 1);
-  };
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      handleNextSlide();
-    }, 4000);
-    return () => clearInterval(interval);
-  }, [activeSlide]);
 
   /*============== minus_plus ============= */
   const [productCounts, setProductCounts] = useState(1);
@@ -167,10 +544,7 @@ function ProductDetails() {
   const location = useLocation();
   const { sendProductID } = location.state;
   const [getId, setGetId] = useState(sendProductID);
-
-  // Buy now
   const [getProductID, setGetProductID] = useState(getId);
-  // const [totalPrice, setTotalPrice] = useState(0);
   const navigate = useNavigate();
 
   // Match productID
@@ -223,6 +597,69 @@ function ProductDetails() {
     }
   };
 
+  //Start image gallery
+  const [slideIndex, setSlideIndex] = useState(1)
+
+  const [width, setWidth] = useState(0)
+  const [start, setStart] = useState(0)
+  const [change, setChange] = useState(9)
+
+  const slideRef = useRef();
+
+  useEffect(() => {
+    if (!slideRef.current) return;
+    const scrollWidth = slideRef.current.scrollWidth;
+    const childrenElementCount = slideRef.current.childElementCount;
+    const width = scrollWidth / childrenElementCount;
+    setWidth(width)
+  }, [])
+
+  // const [slideIndex, setSlideIndex] = useState(1);
+
+  function plusSlides(n) {
+    showSlides(slideIndex + n);
+  }
+
+  function currentSlide(n) {
+    showSlides(n);
+  }
+
+  function showSlides(n) {
+    const currentProduct = filteredProducts[0]; // Assuming there's only one product in the array
+
+    if (n > currentProduct.images.length) {
+      setSlideIndex(1);
+    } else if (n < 1) {
+      setSlideIndex(currentProduct.images.length);
+    } else {
+      setSlideIndex(n);
+    }
+  }
+  // Render the current image
+  const currentImage = products[0].images[slideIndex - 1];
+  //Drag
+  function dragStart(e) {
+    setStart(e.clientX)
+  }
+  function dragOver(e) {
+    let touch = e.clientX;
+    setChange(start - touch);
+  }
+  function dragEnd(e) {
+    if (change > 0) {
+      slideRef.current.scrollLeft += width;
+    } else {
+      slideRef.current.scrollLeft -= width;
+    }
+  }
+
+  useEffect(() => {
+    if (!slideRef.current || !width) return;
+    let numOfThumb = Math.round(slideRef.current.offsetWidth / width);
+    slideRef.current.scrollLeft = slideIndex > numOfThumb ? (slideIndex - 1) * width : 0;
+  }, [width, slideIndex])
+  //End image gallery
+
   return (
     <>
       <Header />
@@ -235,27 +672,42 @@ function ProductDetails() {
         {filteredProducts.map((product) => (
           <div className="boxProduct_deteils" key={product.productID}>
             <div className="slider">
-              <div
-                className={`slide ${direction}`}
-                style={{ backgroundImage: `url(${slides[activeSlide]})` }}
-              ></div>
-              <div className="navigation but1">
-                <div className="nav-btn " onClick={handlePrevSlide}>
-                  &#8249;
-                </div>
-              </div>
-              <div className="navigation but2">
-                <div className="nav-btn " onClick={handleNextSlide}>
-                  &#8250;
-                </div>
-              </div>
+              <React.Fragment>
+                <section className='product_details'>
+                  <div className="product-page-img">
+                    {
+                      product.images.map((image, index) => (
+                        <div key={index} className="myslides" style={{ display: (index + 1) === slideIndex ? "block" : "none" }}>
+                          <img src={image.src} alt="" />
+                        </div>
+                      ))
+                    }
+
+                    <a className='prev' onClick={() => plusSlides(-1)}>&#10094;</a>
+                    <a className='next' onClick={() => plusSlides(1)}>&#10095;</a>
+
+                    <div className="slider_img" draggable={true} ref={slideRef}
+                      onDragStart={dragStart} onDragOver={dragOver} onDragEnd={dragEnd}>
+                      {
+                        product.images.map((image, index) => (
+                          <div key={index} className={`slider-box ${index + 1 === slideIndex && 'active'}`}
+                            onClick={() => setSlideIndex(index + 1)}>
+                            <img src={image.src} alt="" />
+                          </div>
+                        ))
+                      }
+                    </div>
+                  </div>
+                </section>
+              </React.Fragment>
             </div>
 
             <form onSubmit={handleSubmit}>
               <div className="txtContentproduct">
                 <h1 className="txt_nameP">{product.productName}</h1>
                 <p className="money_txt">${product.price}</p>
-                <div className="startBox">
+                {/* Star Box */}
+                {/* <div className="startBox">
                   <div className="sartBox_icon">
                     <AiFillStar id="icon_stars" />
                     <AiFillStar id="icon_stars" />
@@ -267,7 +719,7 @@ function ProductDetails() {
                   <div>
                     <p>( 150 Reviews )</p>
                   </div>
-                </div>
+                </div> */}
                 <p className="txt_description">{product.description}</p>
 
                 <div className="hr">
@@ -285,7 +737,7 @@ function ProductDetails() {
                         type="radio"
                         id={colors.colorName}
                         checked={colors.colorName === color}
-                        onChange={ handleRadioChange }
+                        onChange={handleRadioChange}
                       />
                     </div>
                   ))}
@@ -378,6 +830,9 @@ function ProductDetails() {
             </form>
           </div>
         ))}
+        <div className="description_container">
+          <img src={description} alt="" />
+        </div>
       </div>
       <Menu />
     </>

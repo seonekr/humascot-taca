@@ -5,11 +5,20 @@ import {
   FaCartShopping,
   FaRegUser,
 } from "react-icons/fa6";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Logo1 from "../../../img/Logo1.png";
-import { useEffect, useState } from "react";
 
 const Header = () => {
+
+    const location = useLocation();
+
+    const menuItems = [
+        { label: 'Home', path: '/' },
+        { label: 'Products', path: '/product_search/' },
+        { label: 'Orders', path: '/order/'},
+        { label: 'Contact', path: '/contacts/' },
+        { label: 'Login', path: '/login/' },
+    ];
 
     return (
         <>
@@ -19,11 +28,17 @@ const Header = () => {
                         <ul className="headMenu">
                             <li><Link to="/"><img src={Logo1} alt="Logo" /></Link></li>
                             <div className="boxLiMenu">
-                                <li><Link to="/" className="linkLi active">Home</Link></li>
-                                <li><Link to="/product_search" className="linkLi">Shop</Link></li>
-                                <li><Link to="/order" className="linkLi">Order</Link></li>
-                                <li><Link to="/chatuser" className="linkLi">Contact</Link></li>
-                                <li><Link to="/login" className="linkLi">Login</Link></li>
+
+                                <div className="linkLi">
+                                    {menuItems.map((menuItem) => (
+                                        <Link key={menuItem.label} to={menuItem.path} className={`link ${location.pathname === menuItem.path ? 'active' : ''}`}>
+                                        {menuItem.icon}
+                                        <p>{menuItem.label}</p>
+                                        </Link>
+                                    ))}
+                                </div>
+                                
+
                             </div>
                         </ul>
                         <ul className="ulHead_box">

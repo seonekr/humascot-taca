@@ -3,34 +3,322 @@ import { IoDocumentText } from "react-icons/io5";
 import { BsHandbagFill } from "react-icons/bs";
 import { TbShoppingCartStar } from "react-icons/tb";
 import { Link, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
+
 const Board = () => {
-  const navigate = useNavigate();
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    let config = {
-      method: "post",
-      maxBodyLength: Infinity,
-      url: "http://localhost:3001/authen",
-      headers: {
-        Authorization: "Bearer " + token,
-      },
-    };
-    axios
-      .request(config)
-      .then((response) => {
-        if (response.data.Status === "Success") {
-          console.log(JSON.stringify(response.data.Status));
-        } else {
-          navigate("/admin");
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
+
+  // All Product
+  const [products, setProducts] = useState([
+    { productID: 1, productName: 'Product 1', description: 'This is product 1', price: 10, productType: "clothes", colors: [{colorID: 1, colorName: "black"}, {colorID: 2, colorName: "blue"}, {colorID: 3, colorName: "red"}, {colorID: 4, colorName: "green"}]},
+    { productID: 2, productName: 'Product 2', description: 'This is product 1', price: 11, productType: "clothes", colors: [{colorID: 1, colorName: "black"}, {colorID: 2, colorName: "blue"}, {colorID: 3, colorName: "red"}, {colorID: 4, colorName: "green"}]},
+    { productID: 3, productName: 'Product 3', description: 'This is product 1', price: 12, productType: "clothes", colors: [{colorID: 1, colorName: "black"}, {colorID: 2, colorName: "blue"}, {colorID: 3, colorName: "red"}, {colorID: 4, colorName: "green"}]},
+    { productID: 4, productName: 'Product 4', description: 'This is product 1', price: 10, productType: "clothes", colors: [{colorID: 1, colorName: "black"}, {colorID: 2, colorName: "blue"}, {colorID: 3, colorName: "red"}, {colorID: 4, colorName: "green"}]},
+    { productID: 5, productName: 'Product 5', description: 'This is product 1', price: 11, productType: "clothes", colors: [{colorID: 1, colorName: "black"}, {colorID: 2, colorName: "blue"}, {colorID: 3, colorName: "red"}, {colorID: 4, colorName: "green"}]},
+    { productID: 6, productName: 'Product 6', description: 'This is product 1', price: 12, productType: "clothes", colors: [{colorID: 1, colorName: "black"}, {colorID: 2, colorName: "blue"}, {colorID: 3, colorName: "red"}, {colorID: 4, colorName: "green"}]},
+    { productID: 7, productName: 'Product 7', description: 'This is product 1', price: 10, productType: "clothes", colors: [{colorID: 1, colorName: "black"}, {colorID: 2, colorName: "blue"}, {colorID: 3, colorName: "red"}, {colorID: 4, colorName: "green"}]},
+    { productID: 8, productName: 'Product 8', description: 'This is product 1', price: 11, productType: "clothes", colors: [{colorID: 1, colorName: "black"}, {colorID: 2, colorName: "blue"}, {colorID: 3, colorName: "red"}, {colorID: 4, colorName: "green"}]},
+    { productID: 9, productName: 'Product 9', description: 'This is product 1', price: 11, productType: "clothes", colors: [{colorID: 1, colorName: "black"}, {colorID: 2, colorName: "blue"}, {colorID: 3, colorName: "red"}, {colorID: 4, colorName: "green"}]},
+    { productID: 10, productName: 'Product 9', description: 'This is product 1', price: 11, productType: "clothes", colors: [{colorID: 1, colorName: "black"}, {colorID: 2, colorName: "blue"}, {colorID: 3, colorName: "red"}, {colorID: 4, colorName: "green"}]},
+  ]);
+
+  // All Orders
+  const [orders, setOrders] = useState([
+    {
+      orderID: 1,
+      userID: 2,
+      products: [
+        {
+          productID: 1,
+          productName: "pro1",
+          productType: "clothes",
+          amount: 2,
+          price: 10,
+          size: "m",
+        },
+        {
+          productID: 2,
+          productName: "pro1",
+          productType: "clothes",
+          amount: 2,
+          price: 10,
+          size: "m",
+        },
+      ],
+      orderDate: "10/12/2023",
+      status: "pending",
+      payment: "Bcel One",
+      delivery: "Houngaloun",
+    },
+    {
+      orderID: 2,
+      userID: 1,
+      products: [
+        {
+          productID: 1,
+          productName: "pro1",
+          productType: "clothes",
+          amount: 2,
+          price: 10,
+          color: "colB",
+          size: "m",
+        },
+        {
+          productID: 2,
+          productName: "pro2",
+          productType: "clothes",
+          amount: 2,
+          price: 10,
+          color: "colW",
+          size: "l",
+        },
+
+        {
+          productID: 3,
+          productName: "pro3",
+          productType: "clothes",
+          amount: 2,
+          price: 10,
+          color: "colBlue",
+          size: "xl",
+        },
+      ],
+      orderDate: "10/12/2023",
+      status: "pending",
+      payment: "Bcel One",
+      delivery: "Anousit",
+    },
+    {
+      orderID: 3,
+      userID: 1,
+      products: [
+        {
+          productID: 1,
+          productName: "pro1",
+          productType: "clothes",
+          amount: 2,
+          price: 10,
+          color: "colB",
+          size: "m",
+        },
+        {
+          productID: 2,
+          productName: "pro1",
+          productType: "clothes",
+          amount: 2,
+          price: 10,
+          color: "colBlue",
+          size: "m",
+        },
+      ],
+      orderDate: "10/12/2023",
+      status: "pending",
+      payment: "Bcel One",
+      delivery: "Houngaloun",
+    },
+    {
+      orderID: 4,
+      userID: 3,
+      products: [
+        {
+          productID: 1,
+          productName: "pro1",
+          productType: "clothes",
+          amount: 2,
+          price: 10,
+          color: "colB",
+          size: "m",
+        },
+        {
+          productID: 2,
+          productName: "pro1",
+          productType: "clothes",
+          amount: 2,
+          price: 10,
+          color: "colBlue",
+          size: "m",
+        },
+      ],
+      orderDate: "10/12/2023",
+      status: "pending",
+      payment: "Bcel One",
+      delivery: "Anousit",
+    },
+    {
+      orderID: 5,
+      userID: 4,
+      products: [
+        {
+          productID: 1,
+          productName: "pro1",
+          productType: "clothes",
+          amount: 2,
+          price: 10,
+          color: "colB",
+          size: "m",
+        },
+        {
+          productID: 2,
+          productName: "pro1",
+          productType: "clothes",
+          amount: 2,
+          price: 10,
+          color: "colBlue",
+          size: "m",
+        },
+      ],
+      orderDate: "10/12/2023",
+      status: "pending",
+      payment: "Bcel One",
+      delivery: "Anousit",
+    },
+    {
+      orderID: 6,
+      userID: 5,
+      products: [
+        {
+          productID: 1,
+          productName: "pro1",
+          productType: "clothes",
+          amount: 2,
+          price: 10,
+          color: "colB",
+          size: "m",
+        },
+        {
+          productID: 2,
+          productName: "pro1",
+          productType: "clothes",
+          amount: 2,
+          price: 10,
+          color: "colBlue",
+          size: "m",
+        },
+      ],
+      orderDate: "10/12/2023",
+      status: "pending",
+      payment: "Bcel One",
+      delivery: "Anousit",
+    },
+    {
+      orderID: 7,
+      userID: 6,
+      products: [
+        {
+          productID: 1,
+          productName: "pro1",
+          productType: "clothes",
+          amount: 2,
+          price: 10,
+          color: "colB",
+          size: "m",
+        },
+        {
+          productID: 2,
+          productName: "pro1",
+          productType: "clothes",
+          amount: 2,
+          price: 10,
+          color: "colBlue",
+          size: "m",
+        },
+      ],
+      orderDate: "10/12/2023",
+      status: "pending",
+      payment: "Bcel One",
+      delivery: "Anousit",
+    },
+    {
+      orderID: 8,
+      userID: 7,
+      products: [
+        {
+          productID: 1,
+          productName: "pro1",
+          productType: "clothes",
+          amount: 2,
+          price: 10,
+          color: "colB",
+          size: "m",
+        },
+        {
+          productID: 2,
+          productName: "pro1",
+          productType: "clothes",
+          amount: 2,
+          price: 10,
+          color: "colBlue",
+          size: "m",
+        },
+      ],
+      orderDate: "10/12/2023",
+      status: "pending",
+      payment: "Bcel One",
+      delivery: "Anousit",
+    },
+    {
+      orderID: 9,
+      userID: 5,
+      products: [
+        {
+          productID: 1,
+          productName: "pro1",
+          productType: "clothes",
+          amount: 2,
+          price: 10,
+          color: "colB",
+          size: "m",
+        },
+        {
+          productID: 2,
+          productName: "pro1",
+          productType: "clothes",
+          amount: 2,
+          price: 10,
+          color: "colBlue",
+          size: "m",
+        },
+      ],
+      orderDate: "10/12/2023",
+      status: "pending",
+      payment: "Bcel One",
+      delivery: "Anousit",
+    },
+  ]);
+
+  // All Users
+  const [users, setUsers] = useState([
+    { userID: 1, userName:"Sompong", email: "sompong@gmail.com", phone: "02099887676", password: "******", confirmPassword: "******" },
+    { userID: 2, userName:"Anoupha", email: "anoupha@gmail.com", phone: "02099887676", password: "******", confirmPassword: "******" },
+    { userID: 3, userName:"Sengphachan",email: "sengphachan@gmail.com", phone: "02099887676", password: "******", confirmPassword: "******" },
+    { userID: 4, userName:"Khammun", email: "khammun@gmail.com", phone: "02099887676", password: "******", confirmPassword: "******" },
+    { userID: 5, userName:"Kham", email: "khammun@gmail.com", phone: "02099887676", password: "******", confirmPassword: "******" },
+    { userID: 6, userName:"Sam", email: "khammun@gmail.com", phone: "02099887676", password: "******", confirmPassword: "******" },
+  ]);
+
+  // All Admins
+  const [admins, setAdmins] = useState([
+    { adminID: 1, adminName:"Sompong", email: "sompong@gmail.com", phone: "02099887676", password: "******", confirmPassword: "******" },
+    { adminID: 2, adminName:"Anoupha", email: "anoupha@gmail.com", phone: "02099887676", password: "******", confirmPassword: "******" },
+    { adminID: 3, adminName:"Sengphachan",email: "sengphachan@gmail.com", phone: "02099887676", password: "******", confirmPassword: "******" },
+    { adminID: 4, adminName:"Khammun", email: "khammun@gmail.com", phone: "02099887676", password: "******", confirmPassword: "******" },
+    { adminID: 5, adminName:"Khammun", email: "khammun@gmail.com", phone: "02099887676", password: "******", confirmPassword: "******" },
+    { adminID: 6, adminName:"Khammun", email: "khammun@gmail.com", phone: "02099887676", password: "******", confirmPassword: "******" },
+    { adminID: 7, adminName:"Khammun", email: "khammun@gmail.com", phone: "02099887676", password: "******", confirmPassword: "******" },
+  ]);
+
+  // Count product
+  const countProducts = products.length;
+
+  // Count order
+  const countOrder = orders.length;
+
+  // Count users
+  const countUsers = users.length;
+
+  // Count Admins
+  const countAdmins = admins.length;
 
   return (
     <>
@@ -42,25 +330,45 @@ const Board = () => {
               <div className="containerBox_db">
                 <h3>Dashboard</h3>
                 <div className="contentBox_db">
-                  <div className='menu-box one'>
-                    <div><IoDocumentText className='iconGad gone1' /><p>Porduct</p></div>
-                    <h2>5</h2>
-                    <Link to="/product/" className='txtcol'>View More</Link>
+                  <div className="menu-box one">
+                    <div>
+                      <IoDocumentText className="iconGad gone1" />
+                      <p>Porducts</p>
+                    </div>
+                    <h2>{countProducts}</h2>
+                    <Link to="/product/" className="txtcol">
+                      View More
+                    </Link>
                   </div>
-                  <div className='menu-box two'>
-                    <div><IoDocumentText className='iconGad gone2' /><p>Admin</p></div>
-                    <h2>15</h2>
-                    <Link to="/menagerAdmin/" className='txtcol'><p>View More</p></Link>
+                  <div className="menu-box two">
+                    <div>
+                      <IoDocumentText className="iconGad gone2" />
+                      <p>Orders</p>
+                    </div>
+                    <h2>{countOrder}</h2>
+                    <Link to="/orderpage/" className="txtcol">
+                      <p>View More</p>
+                    </Link>
                   </div>
-                  <div className='menu-box three'>
-                    <div><IoDocumentText className='iconGad gone3' /><p>Order</p></div>
-                    <h2>25</h2>
-                    <Link to="/orderpage/" className='txtcol'><p>View More</p></Link>
+                  <div className="menu-box three">
+                    <div>
+                      <IoDocumentText className="iconGad gone3" />
+                      <p>Users</p>
+                    </div>
+                    <h2>{countUsers}</h2>
+                    <Link to="/users/" className="txtcol">
+                      <p>View More</p>
+                    </Link>
                   </div>
-                  <div className='menu-box four'>
-                    <div><IoDocumentText className='iconGad gone4' /><p>User</p></div>
-                    <h2>15</h2>
-                    <Link to="/menageruser/" className='txtcol'><p>View More</p></Link>
+                  <div className="menu-box four">
+                    <div>
+                      <IoDocumentText className="iconGad gone4" />
+                      <p>Admins</p>
+                    </div>
+                    <h2>{countAdmins}</h2>
+                    <Link to="/admins/" className="txtcol">
+                      <p>View More</p>
+                    </Link>
                   </div>
                 </div>
               </div>
