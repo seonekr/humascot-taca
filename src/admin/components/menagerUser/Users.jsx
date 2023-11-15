@@ -5,7 +5,8 @@ import { IoSearchOutline } from 'react-icons/io5';
 import AdminMenu from '../adminMenu/AdminMenu';
 import user from '../../../img/users.png'
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, NavLink } from 'react-router-dom';
+
 
 const Users = () => {
     const [users, setUsers] = useState([

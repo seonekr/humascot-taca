@@ -4,7 +4,7 @@ import {
   IoLogOutOutline,
   IoSearchOutline,
 } from "react-icons/io5";
-import { BiUser, BiMessageDetail } from "react-icons/bi";
+import { BiUser } from "react-icons/bi";
 import { LiaUserCogSolid } from "react-icons/lia";
 import { RxDashboard } from "react-icons/rx";
 import { MdOutlineSell } from "react-icons/md";
@@ -25,6 +25,8 @@ const AdminMenu = () => {
   ];
 
   return (
+
+    <>
     <section id="dashboard">
       <div className="left">
         <div className="menu">
@@ -34,6 +36,7 @@ const AdminMenu = () => {
               <p>{menuItem.label}</p>
             </Link>
           ))}
+
         </div>
         <div className="right">
           <Link to="/dashboard/" className="logo">
@@ -48,6 +51,8 @@ const AdminMenu = () => {
         </div>
       </div>
     </section>
+    </>
+    
   );
 };
 
