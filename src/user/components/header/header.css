@@ -39,6 +39,9 @@
 }
 
 .linkLi {
+    display: flex;
+    align-items: center;
+    gap: 1.8rem;
     font-size: 17px;
 }
 

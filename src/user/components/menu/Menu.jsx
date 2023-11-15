@@ -61,7 +61,9 @@ const Menu = () => {
                 <Link to="/chatuser" className="box-menu">
                     <span><box-icon name='chat' color='#888888' ></box-icon></span><span>Contact</span>
                 </Link>
+
             </div>
+
         </section>
     )
 }
