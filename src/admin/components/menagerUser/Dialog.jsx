@@ -14,4 +14,4 @@ const Dialog = ({message, onDialog}) => {
   )
 }
 
-export default Dialog
+export default Dialog;
