@@ -1,184 +1,292 @@
-import React from 'react'
+import React from "react";
 import dress from "../../../img/dress.png";
 import image1 from "../../../img/image1.png";
-import acer from '../../../img/acer.png';
+import acer from "../../../img/acer.png";
 import productImage from "../../../img/productImage.png";
-import { Link, useLocation } from 'react-router-dom';
-import Header from '../header/Header';
-import Menu from '../menu/Menu';
-import { FaSearch } from "react-icons/fa"
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useLocation } from "react-router-dom";
+import Header from "../header/Header";
+import Menu from "../menu/Menu";
+import { FaSearch } from "react-icons/fa";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./categories.css";
 
-
 const Categories = () => {
-    const [products, setProducts] = useState([
-        { productID: 1, productName: "pro1", productType: "clothes", price: 10, description: "desc for this product", images: [acer] },
-        { productID: 2, productName: "pro2", productType: "clothes", price: 30, description: "desc for this product", images: [dress] },
-        { productID: 3, productName: "pro3", productType: "clothes", price: 20, description: "desc for this product", images: [acer] },
-        { productID: 4, productName: "pro4", productType: "clothes", price: 50, description: "desc for this product", images: [dress] },
-        { productID: 5, productName: "pro5", productType: "clothes", price: 60, description: "desc for this product", images: [image1] },
-        { productID: 6, productName: "pro6", productType: "clothes", price: 100, description: "desc for this product", images: [image1] },
-        { productID: 7, productName: "pro7", productType: "clothes", price: 150, description: "desc for this product", images: [productImage] },
-        { productID: 8, productName: "pro8", productType: "clothes", price: 120, description: "desc for this product", images: [acer] },
-        { productID: 9, productName: "pro9", productType: "clothes", price: 110, description: "desc for this product", images: [productImage] },
-        { productID: 10, productName: "pro10", productType: "clothes", price: 70, description: "desc for this product", images: [acer] },
-        { productID: 11, productName: "pro11", productType: "clothes", price: 40, description: "desc for this product", images: [productImage] }
-    ]);
+  const [products, setProducts] = useState([
+    {
+      productID: 1,
+      productName: "pro1",
+      productType: "clothes",
+      price: 10,
+      description: "desc for this product",
+      images: [acer],
+    },
+    {
+      productID: 2,
+      productName: "pro2",
+      productType: "clothes",
+      price: 30,
+      description: "desc for this product",
+      images: [dress],
+    },
+    {
+      productID: 3,
+      productName: "pro3",
+      productType: "clothes",
+      price: 20,
+      description: "desc for this product",
+      images: [acer],
+    },
+    {
+      productID: 4,
+      productName: "pro4",
+      productType: "electronich device",
+      price: 50,
+      description: "desc for this product",
+      images: [dress],
+    },
+    {
+      productID: 5,
+      productName: "pro5",
+      productType: "electronich device",
+      price: 60,
+      description: "desc for this product",
+      images: [image1],
+    },
+    {
+      productID: 6,
+      productName: "pro6",
+      productType: "electronich device",
+      price: 100,
+      description: "desc for this product",
+      images: [image1],
+    },
+    {
+      productID: 7,
+      productName: "pro7",
+      productType: "electronich device",
+      price: 150,
+      description: "desc for this product",
+      images: [productImage],
+    },
+    {
+      productID: 8,
+      productName: "pro8",
+      productType: "electronich device",
+      price: 120,
+      description: "desc for this product",
+      images: [acer],
+    },
+    {
+      productID: 9,
+      productName: "pro9",
+      productType: "electronich device",
+      price: 160,
+      description: "desc for this product",
+      images: [productImage],
+    },
+    {
+      productID: 10,
+      productName: "pro10",
+      productType: "electronich device",
+      price: 170,
+      description: "desc for this product",
+      images: [acer],
+    },
+    {
+      productID: 11,
+      productName: "pro11",
+      productType: "clothes",
+      price: 40,
+      description: "desc for this product",
+      images: [productImage],
+    },
+  ]);
 
-    const [filteredProducts, setFilteredProducts] = useState(products);
-    const [selectedFilter, setSelectedFilter] = useState('default');
-    const [searchTerm, setSearchTerm] = useState('');
-    const [displayCount, setDisplayCount] = useState(8);
-    const [showButton, setShowButton] = useState(true);
+  const [filteredProducts, setFilteredProducts] = useState(products);
+  const [selectedFilter, setSelectedFilter] = useState("default");
+  const [searchTerm, setSearchTerm] = useState("");
+  const [displayCount, setDisplayCount] = useState(8);
+  const [showButton, setShowButton] = useState(true);
 
-    // Function to handle search by product name
-    const handleSearch = () => {
-        const filtered = products.filter((product) =>
-            product.productName.toLowerCase().includes(searchTerm.toLowerCase())
-        );
-        setFilteredProducts(filtered);
-    };
+  // Get send ID
+  const location = useLocation();
+  const { categorys } = location.state;
 
-    // Handle inputChange
-        // Function to handle the filter change
-        const handleFilterChange = (event) => {
-            const selectedValue = event.target.value;
-            setSelectedFilter(selectedValue);
-    
-            switch (selectedValue) {
-                case 'higherPrice':
-                    filterByHigherPrice();
-                    break;
-                case 'lowerPrice':
-                    filterByLowerPrice();
-                    break;
-                case 'newProducts':
-                    filterByNewProducts();
-                    break;
-                case 'popularProducts':
-                    filterByPopularProducts();
-                    break;
-                default:
-                    setFilteredProducts(products);
-            }
-        };
-    
-        // Function to filter products by higher price
-        const filterByHigherPrice = () => {
-            const sortedProducts = [...products].sort((a, b) => b.price - a.price);
-            setFilteredProducts(sortedProducts);
-        };
-    
-        // Function to filter products by lower price
-        const filterByLowerPrice = () => {
-            const sortedProducts = [...products].sort((a, b) => a.price - b.price);
-            setFilteredProducts(sortedProducts);
-        };
-    
-        // Function to filter products by new products (assuming newer products have higher productID)
-        const filterByNewProducts = () => {
-            const sortedProducts = [...products].sort((a, b) => b.productID - a.productID);
-            setFilteredProducts(sortedProducts);
-        };
-    
-        // Function to filter products by popularity (you can customize the popularity criteria)
-        const filterByPopularProducts = () => {
-            // Implement your popularity criteria here
-            // For simplicity, let's assume popularity is based on productID
-            const sortedProducts = [...products].sort((a, b) => b.productID - a.productID);
-            setFilteredProducts(sortedProducts);
-        };
-        
+  const categoriesProducts = filteredProducts.filter(
+    (product) => product.productType === categorys
+  );
 
-    const displayedProducts = filteredProducts.slice(0, displayCount);
-        // Read more
-        const handleViewMore = () => {
-            setDisplayCount(products.length);
-            setShowButton(false);
-        };
+  // Function to handle search by product name
+  const handleSearch = () => {
+    const filtered = products.filter((product) =>
+      product.productName.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredProducts(filtered);
+  };
 
-    // Get send ID
-    const navigate = useNavigate();
+  // Handle inputChange
+  // Function to handle the filter change
+  const handleFilterChange = (event) => {
+    const selectedValue = event.target.value;
+    setSelectedFilter(selectedValue);
 
-    // Handle product
-    const handleProduct = (sendProductID) => {
-        navigate('/product_search/productdetails/', { state: { sendProductID: sendProductID } });
+    switch (selectedValue) {
+      case "higherPrice":
+        filterByHigherPrice();
+        break;
+      case "lowerPrice":
+        filterByLowerPrice();
+        break;
+      case "newProducts":
+        filterByNewProducts();
+        break;
+      case "popularProducts":
+        filterByPopularProducts();
+        break;
+      default:
+        setFilteredProducts(products);
     }
+  };
 
-    return (
-        <>
-            <Header />
-            <div className='container_home'>
-                <div className='container_head_search'>
-                    <input
-                        type="text"
-                        placeholder="Search products"
-                        value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
-                    />
-                    <FaSearch id="search-icon" />
-                </div>
-                <div className="content_itemBox">
-                    <div className='container_product'>
-                        <div className='searchBycate'>
-                            <h3 className="htxthead"><span className="spennofStyle"></span>Categories</h3>
-                        </div>
-                        <form className='boxfilterseach'>
-                            <label>Select Filter</label>
-                            <select className="categoryFilter" value={selectedFilter} onChange={handleFilterChange}>
-                                <option value="default">All Product</option>
-                                <option value="higherPrice">Higher Price</option>
-                                <option value="lowerPrice">Lower Price</option>
-                                <option value="newProducts">New Products</option>
-                                <option value="popularProducts">Popular Products</option>
-                            </select>
-                        </form>
-                    </div>
-                    <div className='contentImageProducts'>
-                        {displayedProducts.map((product, index) => (
-                            <div key={index}>
-                                <div className='group_itemBox' onClick={() => handleProduct(product.productID)}>
-                                    <div className='img'>
-                                        <img src={product.images[0]} alt='img' />
-                                    </div>
-                                    <div className="txtOFproduct">
-                                        <h4>
-                                            <input
-                                                type="text"
-                                                value={product.productName}
-                                                onChange={(e) => handleInputChange(e, index, "name")}
-                                            />
-                                        </h4>
-                                        <p>
-                                            <input
-                                                className='priceProduct'
-                                                type="text"
-                                                value={product.price}
-                                                onChange={(e) => handleInputChange(e, index, "price")}
-                                            />
-                                        </p>
-                                        <p className='txtP_width'>
-                                            <input
-                                                type="text"
-                                                value={product.description}
-                                                onChange={(e) => handleInputChange(e, index, "description")}
-                                            />
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-                <div className='btn_more'>
-                    {showButton && (<button className="btnViewProduct" onClick={handleViewMore}>View More</button>)}
-                </div>
+  // Function to filter products by higher price
+  const filterByHigherPrice = () => {
+    const sortedProducts = [...products].sort((a, b) => b.price - a.price);
+    setFilteredProducts(sortedProducts);
+  };
+
+  // Function to filter products by lower price
+  const filterByLowerPrice = () => {
+    const sortedProducts = [...products].sort((a, b) => a.price - b.price);
+    setFilteredProducts(sortedProducts);
+  };
+
+  // Function to filter products by new products (assuming newer products have higher productID)
+  const filterByNewProducts = () => {
+    const sortedProducts = [...products].sort(
+      (a, b) => b.productID - a.productID
+    );
+    setFilteredProducts(sortedProducts);
+  };
+
+  // Function to filter products by popularity (you can customize the popularity criteria)
+  const filterByPopularProducts = () => {
+    // Implement your popularity criteria here
+    // For simplicity, let's assume popularity is based on productID
+    const sortedProducts = [...products].sort(
+      (a, b) => b.productID - a.productID
+    );
+    setFilteredProducts(sortedProducts);
+  };
+
+  const displayedProducts = categoriesProducts.slice(0, displayCount);
+  // Read more
+  const handleViewMore = () => {
+    setDisplayCount(products.length);
+    setShowButton(false);
+  };
+
+  // Get send ID
+  const navigate = useNavigate();
+
+  // Handle product
+  const handleProduct = (sendProductID) => {
+    navigate("/product_search/productdetails/", {
+      state: { sendProductID: sendProductID },
+    });
+  };
+
+  return (
+    <>
+      <Header />
+      <div className="container_home">
+        <div className="container_head_search">
+          <input
+            type="text"
+            placeholder="Search products"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+          <FaSearch
+            className="onlacksearch"
+            id="search-icon"
+            onClick={handleSearch}
+          />
+        </div>
+        <div className="content_itemBox">
+          <div className="container_product">
+            <div className="searchBycate">
+              <h3 className="htxthead">
+                <span className="spennofStyle"></span>Categories
+              </h3>
             </div>
-            <Menu />
-        </>
-    )
-}
+            <form className="boxfilterseach">
+              <label>Select Filter</label>
+              <select
+                className="categoryFilter"
+                value={selectedFilter}
+                onChange={handleFilterChange}
+              >
+                <option value="default">All Product</option>
+                <option value="higherPrice">Higher Price</option>
+                <option value="lowerPrice">Lower Price</option>
+                <option value="newProducts">New Products</option>
+                <option value="popularProducts">Popular Products</option>
+              </select>
+            </form>
+          </div>
+          <div className="contentImageProducts">
+            {displayedProducts.map((product, index) => (
+              <div key={index}>
+                <div
+                  className="group_itemBox"
+                  onClick={() => handleProduct(product.productID)}
+                >
+                  <div className="img">
+                    <img src={product.images[0]} alt="img" />
+                  </div>
+                  <div className="txtOFproduct">
+                    <h4>
+                      <input
+                        type="text"
+                        value={product.productName}
+                        onChange={(e) => handleInputChange(e, index, "name")}
+                      />
+                    </h4>
+                    <p>
+                      <input
+                        className="priceProduct"
+                        type="text"
+                        value={product.price}
+                        onChange={(e) => handleInputChange(e, index, "price")}
+                      />
+                    </p>
+                    <p className="txtP_width">
+                      <input
+                        type="text"
+                        value={product.description}
+                        onChange={(e) =>
+                          handleInputChange(e, index, "description")
+                        }
+                      />
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="btn_more">
+          {showButton && (
+            <button className="btnViewProduct" onClick={handleViewMore}>
+              View More
+            </button>
+          )}
+        </div>
+      </div>
+      <Menu />
+    </>
+  );
+};
 
-export default Categories
+export default Categories;
