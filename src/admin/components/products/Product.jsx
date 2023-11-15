@@ -545,7 +545,8 @@ const Product = () => {
       ]);
 
     
-    const [searchTerm, setSearchTerm] = useState("");
+      const [filteredProducts, setFilteredProducts] = useState(products);
+        const [searchTerm, setSearchTerm] = useState("");
     
     
 
@@ -554,8 +555,8 @@ const Product = () => {
     const recordsPerPage = 8
     const lastIndex = currentPage * recordsPerPage;
     const firstIndex = lastIndex - recordsPerPage;
-    const records = products.slice(firstIndex, lastIndex);
-    const npage = Math.ceil(products.length / recordsPerPage)
+    const records = filteredProducts.slice(firstIndex, lastIndex);
+    const npage = Math.ceil(filteredProducts.length / recordsPerPage)
     const numbers = [...Array(npage + 1).keys()].slice(1)
 
 
@@ -595,13 +596,12 @@ const Product = () => {
     }
 
     // Function to handle search by product name
-  const handleSearch = () => {
-    const filtered = products.filter((product) =>
-      product.productName.toLowerCase().includes(searchTerm.toLowerCase())
-      
-    );
-    setProducts(filtered);
-  };
+    const handleSearch = () => {
+        const filtered = products.filter((product) =>
+          product.productName.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+        setFilteredProducts(filtered);
+      };
 
   
 
@@ -617,7 +617,7 @@ const Product = () => {
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
                         />
-                        <button>
+                        <button >
                         <IoSearchOutline onClick={handleSearch}/>
                         </button>
                     </div>
