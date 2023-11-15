@@ -92,11 +92,6 @@ input:focus {
     padding: 7px 10px;
     border-radius: 5px;
 }
-.box_Filterseach_home{
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-}
 
 .contentImageProducts {
     display: grid;
