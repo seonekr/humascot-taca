@@ -546,47 +546,8 @@ const Product = () => {
 
     
     const [searchTerm, setSearchTerm] = useState("");
-
-    // Dialog delete
-    const [dialog, setDialog] = useState({
-        message:'',
-        isLoading:false
-    })
-    const idproductRef = useRef();
-    const handleDialog = (message, isLoading) => {
-        setDialog({
-            message,
-            isLoading,
-        })
-    }
-
-
-    // Handle inputChange
-    const handleInputChange = (e, index, field) => {
-        const updatedProducts = [...products];
-        updatedProducts[index][field] = e.target.value;
-        setProducts(updatedProducts);
-    }
-
     
-
-    // Handle filter by price
-    const handleFilter = (price) => {
-        setPriceFilter(price);
-    };
-
-    // Handle select by price
-    const handleSelectChange = (e) => {
-        setPrice(e.target.value);
-        handleFilter(e.target.value);
-    };
-
-    // Filter products based on search term and price range
-    const filteredProducts = products.filter((product) => {
-        const nameMatch = product.productName.toLowerCase().includes(searchTerm.toLowerCase());
-        const priceMatch = priceFilter !== "" ? product.price === parseInt(priceFilter) : true;
-        return priceMatch && nameMatch;
-    });
+    
 
     // prev next button user in react
     const [currentPage, setCurrentPage] = useState(1) 
@@ -597,19 +558,34 @@ const Product = () => {
     const npage = Math.ceil(products.length / recordsPerPage)
     const numbers = [...Array(npage + 1).keys()].slice(1)
 
-    // Delete
-    const handleDelete = (productID) => {
-        handleDialog('Are you sure you want to delete?',true);
-        idproductRef.current = productID;
+
+    // Delete product
+    const [deleteProductId, setDeleteProductId] = useState(null);
+    const [isConfirmationPopupOpen, setConfirmationPopupOpen] = useState(false);
+
+    const openConfirmationPopup = (productId) => {
+      setDeleteProductId(productId);
+      setConfirmationPopupOpen(true);
     };
-    const areUSuredelete = (choose) => {
-        if(choose) {
-            setProducts(products.filter((product) => product.productID !== idproductRef.current));
-            handleDialog("",false)
-        }else{
-            handleDialog("",false)
-        }
-    }
+
+    const closeConfirmationPopup = () => {
+      setDeleteProductId(null);
+      setConfirmationPopupOpen(false);
+    };
+
+    const deleteProduct = () => {
+      if (deleteProductId !== null) {
+        // Filter out the product with the specified ID
+        const updatedProducts = products.filter((product) => product.productID !== deleteProductId);
+        
+        // Update the state with the new array of products
+        setProducts(updatedProducts);
+
+        // Close the confirmation popup after deleting
+        closeConfirmationPopup();
+      }
+    };
+
 
     // Send ID product for update
     const navigate = useNavigate();
@@ -617,8 +593,6 @@ const Product = () => {
     const handleUpdate = (sendProductID) => {
         navigate('/post/', { state: { sendProductID: sendProductID } });
     }
-
-    
 
     // Function to handle search by product name
   const handleSearch = () => {
@@ -685,6 +659,16 @@ const Product = () => {
                                 </ul>
                             </div>
                         ))}
+                        {isConfirmationPopupOpen && (
+                            <div className="confirmation-popup">
+                                <p>Are you sure you want to delete?</p>
+                                <div className="btn_ok_on">
+                                    <button onClick={deleteProduct} className="btn_yes">Yes</button>
+                                    <button onClick={closeConfirmationPopup} className="btn_on">No</button>
+                                </div>
+                                
+                            </div>
+                        )}
                     </div>
                     <div className='box_container_next_product'>
                         <button className='box_prev_left_product' onClick={prePage}>
