@@ -14,7 +14,7 @@ const ProductHome = () => {
       productType: "clothes",
       price: 10,
       description: "desc for this product",
-      popular: "true",
+      popular: true,
       images: [
         {
           src: productImage
@@ -59,7 +59,7 @@ const ProductHome = () => {
 
       price: 10,
       description: "desc for this product",
-      popular: "true",
+      popular: true,
       images: [
         {
           src: dress
@@ -106,7 +106,7 @@ const ProductHome = () => {
       productType: "clothes",
       price: 10,
       description: "desc for this product",
-      popular: "true",
+      popular: true,
       images: [
         {
           src: image1
@@ -147,7 +147,7 @@ const ProductHome = () => {
       productType: "clothes",
       price: 10,
       description: "desc for this product",
-      popular: "true",
+      popular: true,
       images: [
         {
           src: dress
@@ -194,7 +194,7 @@ const ProductHome = () => {
       productType: "clothes",
       price: 10,
       description: "desc for this product",
-      popular: "true",
+      popular: true,
       images: [
         {
           src: image1
@@ -241,7 +241,7 @@ const ProductHome = () => {
       productType: "clothes",
       price: 10,
       description: "desc for this product",
-      popular: "true",
+      popular: true,
       images: [
         {
           src: image1
@@ -288,7 +288,7 @@ const ProductHome = () => {
       productType: "clothes",
       price: 10,
       description: "desc for this product",
-      popular: "true",
+      popular: true,
       images: [
         {
           src: image1
@@ -335,7 +335,7 @@ const ProductHome = () => {
       productType: "clothes",
       price: 10,
       description: "desc for this product",
-      popular: "true",
+      popular: true,
       images: [
         {
           src: image1
@@ -382,7 +382,7 @@ const ProductHome = () => {
       productType: "clothes",
       price: 10,
       description: "desc for this product",
-      popular: "true",
+      popular: true,
       images: [
         {
           src: image1
@@ -429,7 +429,7 @@ const ProductHome = () => {
       productType: "clothes",
       price: 10,
       description: "desc for this product",
-      popular: "true",
+      popular: true,
       images: [
         {
           src: image1
@@ -476,7 +476,7 @@ const ProductHome = () => {
       productType: "clothes",
       price: 10,
       description: "desc for this product",
-      popular: "true",
+      popular: true,
       images: [
         {
           src: image1
