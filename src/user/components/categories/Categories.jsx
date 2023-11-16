@@ -526,9 +526,10 @@ const Categories = () => {
 
   const [filteredProducts, setFilteredProducts] = useState(products);
   const [selectedFilter, setSelectedFilter] = useState("default");
-  const [searchTerm, setSearchTerm] = useState("");
   const [displayCount, setDisplayCount] = useState(8);
   const [showButton, setShowButton] = useState(true);
+
+  
 
   // Get send ID
   const location = useLocation();
@@ -539,7 +540,7 @@ const Categories = () => {
   );
 
   // Function to handle search by product name
-  const handleSearch = () => {
+  const handleSearch = (searchTerm) => {
     const filtered = products.filter((product) =>
       product.productName.toLowerCase().includes(searchTerm.toLowerCase())
     );
@@ -619,21 +620,8 @@ const Categories = () => {
 
   return (
     <>
-      <Header />
+      <Header handleSearch={handleSearch}/>
       <div className="container_home">
-        <div className="container_head_search">
-          <input
-            type="text"
-            placeholder="Search products"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-          <FaSearch
-            className="onlacksearch"
-            id="search-icon"
-            onClick={handleSearch}
-          />
-        </div>
         <div className="content_itemBox">
           <div className="container_product">
             <div className="searchBycate">

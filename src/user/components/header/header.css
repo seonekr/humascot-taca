@@ -22,20 +22,20 @@
 .boxLiMenu {
     display: flex;
     align-items: center;
+    font-size: 1.3rem;
 }
 
 .headMenu {
     gap: 1rem;
 }
 
-#header .navbar ul {
+#header .navbar {
     list-style-type: none;
     display: flex;
 }
 
-#header .navbar ul li {
-    width: 90%;
-    margin: 0 1rem;
+#header .navbar {
+    width: 100%;
 }
 
 .linkLi {
@@ -50,11 +50,12 @@
     transition: all 0.3s ease;
 }
 
-#header .navbar ul li a {
+#header .navbar a {
     text-decoration: none;
+    font-size: 1.3rem;
 }
 
-.linkLi:hover {
+.linkLi a:hover {
     color: #FF4F16;
 }
 
@@ -63,16 +64,54 @@
 }
 
 .ulHead_box {
-    gap: 1rem;
+    width: 55%;
+    gap: 3rem;
     font-size: 1.3rem;
+    display: flex;
+    justify-content: space-between;
 }
 
+/* Search bar */
+.ulHead_box form {
+    width: 100%;
+    display: flex;
+}
+
+.ulHead_box form input {
+    border: 1px solid #ccc;
+    padding: 0.4rem 1rem;
+    border-right: none;
+    border-radius: 7px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.ulHead_box form button {
+    background-color: #FF4F16;
+    border: 1px solid #ccc;
+    padding: 0 1rem;
+    border-radius: 7px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    color: #fff;
+    cursor: pointer;
+}
+
+.ulHead_box a {
+    font-size: 1.3rem;
+}
 .head_colorr {
-    color: #777;
+    color: #3a3a3a;
+    display: flex;
+    font-size: 1.4rem;
 }
 
 .head_colorr:hover {
     color: #FF4F16;
+}
+
+.head_colorr .login {
+    margin-left: 0.3rem;
+    font-size: 1.6rem;
 }
 
 /* Banner */

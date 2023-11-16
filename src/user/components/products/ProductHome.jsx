@@ -1,6 +1,7 @@
 import "./productHome.css";
 import dress from "../../../img/dress.png";
 import image1 from "../../../img/image1.png";
+import Header from "../header/Header";
 import acer from "../../../img/acer.png";
 import productImage from "../../../img/productImage.png";
 import { useState } from "react";
@@ -524,6 +525,13 @@ const ProductHome = () => {
   const [displayCount, setDisplayCount] = useState(8);
   const [showButton, setShowButton] = useState(true);
 
+  const handleSearch = (searchTerm) => {
+    const filtered = products.filter((product) =>
+      product.productName.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredProducts(filtered);
+  };
+
   // Handle inputChange
   // Function to handle the filter change
   const handleFilterChange = (event) => {
@@ -594,73 +602,76 @@ const ProductHome = () => {
     });
   };
   return (
-    <section id="product">
-      <div className="productHead_content">
-        <h1 className="htxthead">
-          <span className="spennofStyle"></span>Product
-        </h1>
-        <div className="categoryBoxfiler">
-          <form className="boxfilterseach">
-            <label>Select Filter</label>
-            <select
-              className="filter_priceProduct"
-              value={selectedFilter}
-              onChange={handleFilterChange}
-            >
-              <option value="default">All Product</option>
-              <option value="higherPrice">Higher Price</option>
-              <option value="lowerPrice">Lower Price</option>
-              <option value="newProducts">New Products</option>
-              <option value="popularProducts">Popular Products</option>
-            </select>
-          </form>
-          <box-icon name="filter"></box-icon>
-        </div>
-      </div>
-
-      <div className="product-area">
-        {displayedProducts.map((product, index) => (
-          <div className="box-product" key={index}>
-            <div onClick={() => handleProduct(product.productID)}>
-              <div className="img">
-                <img src={product.images[0].src} alt="image" />
-              </div>
-              <ul className="txtOFproduct2">
-                <li>
-                  <input
-                    className="name"
-                    type="text"
-                    value={product.productName}
-                    onChange={(e) => handleInputChange(e, index, "name")}
-                  />
-                </li>
-                <li>
-                  <input
-                    className="price"
-                    type="text"
-                    value={product.price}
-                    onChange={(e) => handleInputChange(e, index, "price")}
-                  />
-                </li>
-                <li>
-                  <input
-                    className="desc"
-                    type="text"
-                    value={product.description}
-                    onChange={(e) => handleInputChange(e, index, "description")}
-                  />
-                </li>
-              </ul>
-            </div>
+    <div>
+      <Header handleSearch={handleSearch}/>
+      <section id="product">
+        <div className="productHead_content">
+          <h1 className="htxthead">
+            <span className="spennofStyle"></span>Product
+          </h1>
+          <div className="categoryBoxfiler">
+            <form className="boxfilterseach">
+              <label>Select Filter</label>
+              <select
+                className="filter_priceProduct"
+                value={selectedFilter}
+                onChange={handleFilterChange}
+              >
+                <option value="default">All Product</option>
+                <option value="higherPrice">Higher Price</option>
+                <option value="lowerPrice">Lower Price</option>
+                <option value="newProducts">New Products</option>
+                <option value="popularProducts">Popular Products</option>
+              </select>
+            </form>
+            <box-icon name="filter"></box-icon>
           </div>
-        ))}
-      </div>
-      {showButton && filteredProducts.length > displayCount && (
-        <button className="btnViewProduct" onClick={handleViewMore}>
-          View More
-        </button>
-      )}
-    </section>
+        </div>
+
+        <div className="product-area">
+          {displayedProducts.map((product, index) => (
+            <div className="box-product" key={index}>
+              <div onClick={() => handleProduct(product.productID)}>
+                <div className="img">
+                  <img src={product.images[0].src} alt="image" />
+                </div>
+                <ul className="txtOFproduct2">
+                  <li>
+                    <input
+                      className="name"
+                      type="text"
+                      value={product.productName}
+                      onChange={(e) => handleInputChange(e, index, "name")}
+                    />
+                  </li>
+                  <li>
+                    <input
+                      className="price"
+                      type="text"
+                      value={product.price}
+                      onChange={(e) => handleInputChange(e, index, "price")}
+                    />
+                  </li>
+                  <li>
+                    <input
+                      className="desc"
+                      type="text"
+                      value={product.description}
+                      onChange={(e) => handleInputChange(e, index, "description")}
+                    />
+                  </li>
+                </ul>
+              </div>
+            </div>
+          ))}
+        </div>
+        {showButton && filteredProducts.length > displayCount && (
+          <button className="btnViewProduct" onClick={handleViewMore}>
+            View More
+          </button>
+        )}
+      </section>
+    </div>
   );
 };
 

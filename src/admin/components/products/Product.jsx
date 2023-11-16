@@ -4,14 +4,13 @@ import image1 from "../../../img/image1.png";
 import acer from "../../../img/acer.png";
 import productImage from "../../../img/productImage.png";
 import { Link } from "react-router-dom";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import AdminMenu from "../adminMenu/AdminMenu";
 import { BiPlus } from "react-icons/bi";
 import { IoSearchOutline } from "react-icons/io5";
 import { MdOutlineEdit } from "react-icons/md";
 import { AiOutlineDelete, AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
-import Dialog from "../menagerUser/Dialog";
 
 const Product = () => {
   const [products, setProducts] = useState([
