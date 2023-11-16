@@ -14,23 +14,43 @@ const ProductHome = () => {
       productType: "clothes",
       price: 10,
       description: "desc for this product",
+      popular: "true",
       images: [
         {
-          src: acer,
+          src: productImage
         },
         {
-          src: productImage,
+          src: image1
         },
         {
-          src: image1,
+          src: acer
         },
+        {
+          src: acer
+        },
+        {
+          src: productImage
+        },
+        {
+          src: image1
+        },
+        {
+          src: dress
+        },
+        {
+          src: acer
+        },
+        {
+          src: productImage
+        },
+        {
+          src: image1
+        },
+        {
+          src: dress
+        }
       ],
-      colors: [
-        { colorID: 1, colorName: "black" },
-        { colorID: 2, colorName: "blue" },
-        { colorID: 3, colorName: "red" },
-        { colorID: 4, colorName: "green" },
-      ],
+      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
     },
     {
       productID: 2,
@@ -39,50 +59,46 @@ const ProductHome = () => {
 
       price: 10,
       description: "desc for this product",
+      popular: "true",
       images: [
         {
-          src: dress,
+          src: dress
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: dress,
+          src: dress
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: dress,
-        },
+          src: dress
+        }
       ],
-      colors: [
-        { colorID: 1, colorName: "black" },
-        { colorID: 2, colorName: "blue" },
-        { colorID: 3, colorName: "red" },
-        { colorID: 4, colorName: "green" },
-      ],
+      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
     },
     {
       productID: 3,
@@ -90,44 +106,40 @@ const ProductHome = () => {
       productType: "clothes",
       price: 10,
       description: "desc for this product",
+      popular: "true",
       images: [
         {
-          src: image1,
+          src: image1
         },
         {
-          src: dress,
+          src: dress
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: dress,
+          src: dress
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: dress,
-        },
+          src: dress
+        }
       ],
-      colors: [
-        { colorID: 1, colorName: "black" },
-        { colorID: 2, colorName: "blue" },
-        { colorID: 3, colorName: "red" },
-        { colorID: 4, colorName: "green" },
-      ],
+      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
     },
     {
       productID: 4,
@@ -135,50 +147,46 @@ const ProductHome = () => {
       productType: "clothes",
       price: 10,
       description: "desc for this product",
+      popular: "true",
       images: [
         {
-          src: dress,
+          src: dress
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: dress,
+          src: dress
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: dress,
-        },
+          src: dress
+        }
       ],
-      colors: [
-        { colorID: 1, colorName: "black" },
-        { colorID: 2, colorName: "blue" },
-        { colorID: 3, colorName: "red" },
-        { colorID: 4, colorName: "green" },
-      ],
+      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
     },
     {
       productID: 5,
@@ -186,50 +194,46 @@ const ProductHome = () => {
       productType: "clothes",
       price: 10,
       description: "desc for this product",
+      popular: "true",
       images: [
         {
-          src: image1,
+          src: image1
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: dress,
+          src: dress
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: dress,
-        },
+          src: dress
+        }
       ],
-      colors: [
-        { colorID: 1, colorName: "black" },
-        { colorID: 2, colorName: "blue" },
-        { colorID: 3, colorName: "red" },
-        { colorID: 4, colorName: "green" },
-      ],
+      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
     },
     {
       productID: 6,
@@ -237,50 +241,46 @@ const ProductHome = () => {
       productType: "clothes",
       price: 10,
       description: "desc for this product",
+      popular: "true",
       images: [
         {
-          src: image1,
+          src: image1
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: dress,
+          src: dress
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: dress,
-        },
+          src: dress
+        }
       ],
-      colors: [
-        { colorID: 1, colorName: "black" },
-        { colorID: 2, colorName: "blue" },
-        { colorID: 3, colorName: "red" },
-        { colorID: 4, colorName: "green" },
-      ],
+      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
     },
     {
       productID: 7,
@@ -288,50 +288,46 @@ const ProductHome = () => {
       productType: "clothes",
       price: 10,
       description: "desc for this product",
+      popular: "true",
       images: [
         {
-          src: image1,
+          src: image1
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: dress,
+          src: dress
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: dress,
-        },
+          src: dress
+        }
       ],
-      colors: [
-        { colorID: 1, colorName: "black" },
-        { colorID: 2, colorName: "blue" },
-        { colorID: 3, colorName: "red" },
-        { colorID: 4, colorName: "green" },
-      ],
+      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
     },
     {
       productID: 8,
@@ -339,50 +335,46 @@ const ProductHome = () => {
       productType: "clothes",
       price: 10,
       description: "desc for this product",
+      popular: "true",
       images: [
         {
-          src: image1,
+          src: image1
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: dress,
+          src: dress
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: dress,
-        },
+          src: dress
+        }
       ],
-      colors: [
-        { colorID: 1, colorName: "black" },
-        { colorID: 2, colorName: "blue" },
-        { colorID: 3, colorName: "red" },
-        { colorID: 4, colorName: "green" },
-      ],
+      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
     },
     {
       productID: 9,
@@ -390,50 +382,46 @@ const ProductHome = () => {
       productType: "clothes",
       price: 10,
       description: "desc for this product",
+      popular: "true",
       images: [
         {
-          src: image1,
+          src: image1
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: dress,
+          src: dress
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: dress,
-        },
+          src: dress
+        }
       ],
-      colors: [
-        { colorID: 1, colorName: "black" },
-        { colorID: 2, colorName: "blue" },
-        { colorID: 3, colorName: "red" },
-        { colorID: 4, colorName: "green" },
-      ],
+      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
     },
     {
       productID: 10,
@@ -441,50 +429,46 @@ const ProductHome = () => {
       productType: "clothes",
       price: 10,
       description: "desc for this product",
+      popular: "true",
       images: [
         {
-          src: image1,
+          src: image1
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: dress,
+          src: dress
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: dress,
-        },
+          src: dress
+        }
       ],
-      colors: [
-        { colorID: 1, colorName: "black" },
-        { colorID: 2, colorName: "blue" },
-        { colorID: 3, colorName: "red" },
-        { colorID: 4, colorName: "green" },
-      ],
+      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
     },
     {
       productID: 11,
@@ -492,48 +476,46 @@ const ProductHome = () => {
       productType: "clothes",
       price: 10,
       description: "desc for this product",
+      popular: "true",
       images: [
         {
-          src: image1,
+          src: image1
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: dress,
+          src: dress
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: dress,
-        },
+          src: dress
+        }
       ],
-      colors: [
-        { colorID: 1, colorName: "red" },
-        { colorID: 2, colorName: "green" },
-      ],
+      colors: [{ colorID: 1, colorName: "red" }, { colorID: 2, colorName: "green" }]
     },
   ]);
 

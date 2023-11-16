@@ -9,6 +9,7 @@ const Post = () => {
     const [productType, setProductType] = useState('');
     const [price, setPrice] = useState('');
     const [details, setDetails] = useState('');
+    const [popular, setPopular] = useState(false);
 
     //Add Color Box
     const [addColor, setaddColor] = useState([]);
@@ -37,30 +38,6 @@ const Post = () => {
 
     };
 
-    // Hanle submit
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-        console.log('Form Data:', { // Here you can insert informatio to database
-            "Product name": productName,
-            "Product type": productType,
-            "Product price": price,
-            "Product details": details,
-            "Color": addColor,
-            "ImageDescroption": image,
-            "Gallery": images
-
-        });
-
-        setProductName('');
-        setProductType('');
-        setPrice('');
-        setDetails('')
-        setImage([]);
-        setImages([]);
-        
-    };
-
     // handle Product name
     const handleProductName = (e) => {
         const value = e.target.value
@@ -83,6 +60,12 @@ const Post = () => {
         setDetails(value)
     };
 
+    // Handle checked popular
+    const handlePopular = (event) => {
+        setPopular(event.target.checked);
+    };
+
+
     // image handle
     const handleImage = (e) => {
         const file = e.target.files[0];
@@ -102,6 +85,30 @@ const Post = () => {
     const handleImageUpload = (e) => {
         const uploadedImages = Array.from(e.target.files);
         setImages([...images, ...uploadedImages]);
+    };
+
+    // Hanle submit
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        console.log('Form Data:', { // Here you can insert informatio to database
+            "Product name": productName,
+            "Product type": productType,
+            "Product price": price,
+            "Product details": details,
+            "Color": addColor,
+            "Popular":  String(popular),
+            "ImageDescroption": image,
+            "Gallery": images
+        });
+
+        setProductName('');
+        setProductType('');
+        setPrice('');
+        setDetails('')
+        setImage([]);
+        setImages([]);
+        
     };
 
     // Update......
@@ -160,7 +167,12 @@ const Post = () => {
 
                             <div className="popular">
                                 <label htmlFor="popular">Popular product</label>
-                                <input type="checkbox" id="popular"/>
+                                <input
+                                    type="checkbox"
+                                    id="popular"
+                                    checked={popular}
+                                    onChange={handlePopular}
+                                />
                             </div>
 
                             {/* Add Color Box */}
