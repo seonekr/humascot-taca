@@ -4,8 +4,7 @@ import user from '../../../img/users.png'
 import { FaAngleLeft } from "react-icons/fa";
 import { Link, useLocation } from 'react-router-dom';
 import { AiOutlineDelete } from 'react-icons/ai';
-import { useState, useRef } from 'react';
-import Dialog from './Dialog';
+import { useState } from 'react';
 
 const User = () => {
     const [users, setUsers] = useState([
@@ -15,18 +14,7 @@ const User = () => {
         { userID: 4, userName:"Khammun", email: "khammun@gmail.com", phone: "02099887676", password: "******", confirmPassword: "******", images: [user] },
     ]);
 
-    // Dialog 
-    const [dialog, setDialog] = useState({
-        message:'',
-        isLoading:false
-    })
-    const iduserRef = useRef();
-    const handleDialog = (message, isLoading) => {
-        setDialog({
-            message,
-            isLoading,
-        })
-    }
+
 
     // Get user ID
     const location = useLocation();
@@ -37,20 +25,35 @@ const User = () => {
         (user) => user.userID === getId
     );
 
-    // Delete
-    const handleDelete = (userID) => {
-        handleDialog('Are you sure you want to delete?',true);
-        iduserRef.current = userID;
+    
+
+    // Delete Users
+    const [deleteUserId, setDeleteUserId] = useState(null);
+    const [isConfirmationPopupOpen, setConfirmationPopupOpen] = useState(false);
+
+    const openConfirmationPopup = (userID) => {
+        setDeleteUserId(userID);
+        setConfirmationPopupOpen(true);
     };
 
-    const areUSuredelete = (choose) => {
-        if(choose) {
-            setUsers(users.filter((user) => user.userID !== iduserRef.current));
-            handleDialog("",false)
-        }else{
-            handleDialog("",false)
+    const closeConfirmationPopup = () => {
+        setDeleteUserId(null);
+        setConfirmationPopupOpen(false);
+    };
+    const deleteUser = () => {
+        if (deleteUserId !== null) {
+          // Filter out the product with the specified ID
+          const updatedUsers = users.filter(
+            (user) => user.userID !== deleteUserId
+          );
+    
+          // Update the state with the new array of products
+          setUsers(updatedUsers);
+    
+          // Close the confirmation popup after deleting
+          closeConfirmationPopup();
         }
-    }
+    };
 
     return(
         <>
@@ -74,7 +77,7 @@ const User = () => {
                             <div>User Phone number: {user.phone}</div>
                             <div>Password: {user.password}</div>
                             <div>Password: {user.confirmPassword}</div>
-                            <div className='del' onClick={() => handleDelete(user.userID)}>
+                            <div className='del' onClick={() => openConfirmationPopup(user.userID)}>
                                 <AiOutlineDelete/>
                             </div>
                         </div>
@@ -84,7 +87,19 @@ const User = () => {
                     </div>
                 ))}
             </section>
-            { dialog.isLoading && <Dialog onDialog={areUSuredelete} message={dialog.message}/>}
+            {isConfirmationPopupOpen && (
+              <div className="confirmation-popup">
+                <p>Are you sure you want to delete?</p>
+                <div className="btn_ok_on">
+                  <button onClick={deleteUser} className="btn_yes">
+                    Yes
+                  </button>
+                  <button onClick={closeConfirmationPopup} className="btn_on">
+                    No
+                  </button>
+                </div>
+              </div>
+            )}
         </>
     )
 }
