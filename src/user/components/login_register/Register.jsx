@@ -116,6 +116,7 @@ const Register = () => {
             />
             <p>Login with Google</p>
           </Link>
+          <Link to="/alertSignup">Alarter page</Link>
         </div>
       </div>
     </div>
