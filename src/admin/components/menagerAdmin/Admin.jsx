@@ -4,11 +4,7 @@ import { Link } from 'react-router-dom';
 import { MdOutlineEdit } from 'react-icons/md';
 import { AiOutlineDelete } from 'react-icons/ai';
 
-
 const Admin = () => {
-
-   
-
     return(
         <>
             <AdminMenu/>
@@ -22,28 +18,27 @@ const Admin = () => {
                         Admin
                     </div>
                 </div>
-                    <div className="userInfo">
-                        <div className="info">
-                            <div>User ID: </div>
-                            <div>User Name: </div>
-                            <div>User Email: </div>
-                            <div>User Phone number: </div>
-                            <div>Password: </div>
-                            <div>Password: </div>
-                            <div className='del-update'>
-                                <div className='del' >
-                                    <AiOutlineDelete/>
-                                </div>
-                                <div className='update upd' >
-                                    <MdOutlineEdit/>
-                                </div>
+                <div className="userInfo">
+                    <div className="info">
+                        <div>User ID: </div>
+                        <div>User Name: </div>
+                        <div>User Email: </div>
+                        <div>User Phone number: </div>
+                        <div>Password: </div>
+                        <div>Password: </div>
+                        <div className='del-update'>
+                            <div className='del' >
+                                <AiOutlineDelete/>
+                            </div>
+                            <div className='update upd' >
+                                <MdOutlineEdit/>
                             </div>
                         </div>
-                        <div className="img">
-                            <img src='' alt="image" />
-                        </div>
                     </div>
-                
+                    <div className="img">
+                        <img src='' alt="image" />
+                    </div>
+                </div>
             </section>
 
               {/* <div className="confirmation-popup">

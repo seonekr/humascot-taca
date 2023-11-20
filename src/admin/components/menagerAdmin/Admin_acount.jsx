@@ -22,27 +22,27 @@ const Admin_acount = () => {
                         Your informations
                     </div>
                 </div>
-                    <div className="userInfo">
-                        <div className="info">
-                            <div>User ID: </div>
-                            <div>User Name: </div>
-                            <div>User Email: </div>
-                            <div>User Phone number: </div>
-                            <div>Password: </div>
-                            <div>Password: </div>
-                            <div className='del-update'>
-                                <div className='del' >
-                                    <AiOutlineDelete/>
-                                </div>
-                                <div className='update upd' >
-                                    <MdOutlineEdit/>
-                                </div>
+                <div className="userInfo">
+                    <div className="info">
+                        <div>User ID: </div>
+                        <div>User Name: </div>
+                        <div>User Email: </div>
+                        <div>User Phone number: </div>
+                        <div>Password: </div>
+                        <div>Password: </div>
+                        <div className='del-update'>
+                            <div className='del' >
+                                <AiOutlineDelete/>
+                            </div>
+                            <div className='update upd' >
+                                <MdOutlineEdit/>
                             </div>
                         </div>
-                        <div className="img">
-                            <img src='' alt="image" />
-                        </div>
                     </div>
+                    <div className="img">
+                        <img src='' alt="image" />
+                    </div>
+                </div>
                 
             </section>
 

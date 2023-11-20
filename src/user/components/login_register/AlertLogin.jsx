@@ -1,9 +1,11 @@
 
 import React, { useState } from 'react';
-import './login.css';
+import './AlertLogin.css';
 import 'boxicons';
 import { Link } from 'react-router-dom';
+import { IoMdAlert } from "react-icons/io";
 import { AiOutlineClose } from "react-icons/ai"
+import { MdOutlineCancel } from "react-icons/md";
 import google from '../../../img/google.png';
 
 const Login = () => {
@@ -39,6 +41,11 @@ const Login = () => {
               <AiOutlineClose id="icon_cancel_login" />
             </Link>
           </div>
+          <div className="boxAlartLogin">
+                <IoMdAlert className='iconAlert'/>
+                <p className='txtalert_p'>Email and password is wrong</p>
+                <MdOutlineCancel className='iconAlert_canCel'/>
+          </div>
           <input
             className="input_form"
             type="email"
@@ -73,9 +80,8 @@ const Login = () => {
               />
               <p>Login with Google</p>
             </Link>
-            <Link to="/alertLogin">Alarter page</Link>
+            <Link to="/login">Go Back</Link>
           </div>
-
         </div>
       </form>
     </section>
