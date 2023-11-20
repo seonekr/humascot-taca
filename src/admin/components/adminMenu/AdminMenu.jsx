@@ -63,7 +63,7 @@ const AdminMenu = () => {
               </span>
             </Link>
 
-            <Link to="/admins/" className="userAdminImage">
+            <Link to="/admins/admin" className="userAdminImage">
               <img src={user} alt="Logo_Profile" />
             </Link>
           </div>
