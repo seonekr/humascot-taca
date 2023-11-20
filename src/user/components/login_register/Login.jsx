@@ -27,12 +27,11 @@ const Login = () => {
     console.log('Form submitted');
     console.log('Email:', email);
     console.log('Password:', password);
-
   };
 
   return (
     <section>
-      <form className="box_container_login2">
+      <form className="box_container_login2" onClick={handleSubmit}>
         <div className="box_cancel_login">
           <Link to="/">
             <AiOutlineClose id="icon_cancel_login" />

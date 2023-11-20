@@ -14,8 +14,6 @@ const User = () => {
         { userID: 4, userName:"Khammun", email: "khammun@gmail.com", phone: "02099887676", password: "******", confirmPassword: "******", images: [user] },
     ]);
 
-
-
     // Get user ID
     const location = useLocation();
     const { id } = location.state || {};
@@ -24,8 +22,6 @@ const User = () => {
     const filtereUser = users.filter(
         (user) => user.userID === getId
     );
-
-    
 
     // Delete Users
     const [deleteUserId, setDeleteUserId] = useState(null);
@@ -42,12 +38,12 @@ const User = () => {
     };
     const deleteUser = () => {
         if (deleteUserId !== null) {
-          // Filter out the product with the specified ID
+          // Filter out the user with the specified ID
           const updatedUsers = users.filter(
             (user) => user.userID !== deleteUserId
           );
     
-          // Update the state with the new array of products
+          // Update the state with the new array of users
           setUsers(updatedUsers);
     
           // Close the confirmation popup after deleting
