@@ -21,7 +21,7 @@ const Contact = () => {
       redirect: "follow",
     };
 
-    fetch("http://localhost:5000/getCustomer/" + userID, requestOptions)
+    fetch(import.meta.env.VITE_API + "/getCustomer/" + userID, requestOptions)
       .then((response) => response.json())
       .then((result) => {
         if (result.Status === "Success") {
