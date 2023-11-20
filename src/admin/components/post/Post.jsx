@@ -228,7 +228,7 @@ const Post = () => {
                                   {(gallery && gallery.length > 0) ?
                                     <label htmlFor="gallery" className="add-more">+</label> :
                                     <label htmlFor="gallery" className="add-gallery">Choose gallery</label>
-                                  }
+                                }
                                 </div>
                             </div>
                             <div className="box_description">

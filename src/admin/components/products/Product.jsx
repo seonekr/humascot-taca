@@ -21,6 +21,7 @@ const Product = () => {
       price: 15,
       description: "desc for this product",
       popular: true,
+      descImage: image1,
       images: [
         {
           src: productImage,
@@ -71,6 +72,7 @@ const Product = () => {
       price: 10,
       description: "desc for this product",
       popular: true,
+      descImage: image1,
       images: [
         {
           src: dress,
@@ -123,6 +125,7 @@ const Product = () => {
       price: 10,
       description: "desc for this product",
       popular: true,
+      descImage: image1,
       images: [
         {
           src: image1,
@@ -169,6 +172,7 @@ const Product = () => {
       price: 10,
       description: "desc for this product",
       popular: true,
+      descImage: image1,
       images: [
         {
           src: dress,
@@ -221,6 +225,7 @@ const Product = () => {
       price: 10,
       description: "desc for this product",
       popular: true,
+      descImage: image1,
       images: [
         {
           src: image1,
@@ -273,6 +278,7 @@ const Product = () => {
       price: 10,
       description: "desc for this product",
       popular: true,
+      descImage: image1,
       images: [
         {
           src: image1,
@@ -325,6 +331,7 @@ const Product = () => {
       price: 10,
       description: "desc for this product",
       popular: true,
+      descImage: image1,
       images: [
         {
           src: image1,
@@ -377,6 +384,7 @@ const Product = () => {
       price: 10,
       description: "desc for this product",
       popular: true,
+      descImage: image1,
       images: [
         {
           src: image1,
@@ -429,6 +437,7 @@ const Product = () => {
       price: 10,
       description: "desc for this product",
       popular: true,
+      descImage: image1,
       images: [
         {
           src: image1,
@@ -481,6 +490,7 @@ const Product = () => {
       price: 10,
       description: "desc for this product",
       popular: true,
+      descImage: image1,
       images: [
         {
           src: image1,
@@ -533,6 +543,7 @@ const Product = () => {
       price: 10,
       description: "desc for this product",
       popular: true,
+      descImage: image1,
       images: [
         {
           src: image1,
@@ -577,174 +588,173 @@ const Product = () => {
       ],
     },
   ]);
-
   const [filteredProducts, setFilteredProducts] = useState(products);
   const [searchTerm, setSearchTerm] = useState("");
 
-  // prev next button user in react
-  const [currentPage, setCurrentPage] = useState(1);
-  const recordsPerPage = 8;
-  const lastIndex = currentPage * recordsPerPage;
-  const firstIndex = lastIndex - recordsPerPage;
-  const records = filteredProducts.slice(firstIndex, lastIndex);
-  const npage = Math.ceil(filteredProducts.length / recordsPerPage);
-  const numbers = [...Array(npage + 1).keys()].slice(1);
 
-  // Delete product
-  const [deleteProductId, setDeleteProductId] = useState(null);
-  const [isConfirmationPopupOpen, setConfirmationPopupOpen] = useState(false);
 
-  const openConfirmationPopup = (productId) => {
-    setDeleteProductId(productId);
-    setConfirmationPopupOpen(true);
-  };
+// prev next button user in react
+const [currentPage, setCurrentPage] = useState(1) 
+const recordsPerPage = 8
+const lastIndex = currentPage * recordsPerPage;
+const firstIndex = lastIndex - recordsPerPage;
+const records = filteredProducts.slice(firstIndex, lastIndex);
+const npage = Math.ceil(filteredProducts.length / recordsPerPage)
+const numbers = [...Array(npage + 1).keys()].slice(1)
 
-  const closeConfirmationPopup = () => {
-    setDeleteProductId(null);
-    setConfirmationPopupOpen(false);
-  };
 
-  const deleteProduct = () => {
-    if (deleteProductId !== null) {
-      // Filter out the product with the specified ID
-      const updatedProducts = products.filter(
-        (product) => product.productID !== deleteProductId
-      );
+// Delete product
+const [deleteProductId, setDeleteProductId] = useState(null);
+const [isConfirmationPopupOpen, setConfirmationPopupOpen] = useState(false);
 
-      // Update the state with the new array of products
-      setProducts(updatedProducts);
+const openConfirmationPopup = (productId) => {
+setDeleteProductId(productId);
+setConfirmationPopupOpen(true);
+};
 
-      // Close the confirmation popup after deleting
-      closeConfirmationPopup();
-    }
-  };
+const closeConfirmationPopup = () => {
+setDeleteProductId(null);
+setConfirmationPopupOpen(false);
+};
 
-  // Send ID product for update
-  const navigate = useNavigate();
-  // Update products
-  const handleUpdate = (sendProductID) => {
-    navigate("/updateproduct/", { state: { sendProductID: sendProductID } });
-  };
+const deleteProduct = () => {
+if (deleteProductId !== null) {
+  // Filter out the product with the specified ID
+  const updatedProducts = products.filter((product) => product.productID !== deleteProductId);
+  
+  // Update the state with the new array of products
+  setProducts(updatedProducts);
 
-  // Function to handle search by product name
-  const handleSearch = () => {
-    const filtered = products.filter((product) =>
-      product.productName.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    setFilteredProducts(filtered);
-  };
+  // Close the confirmation popup after deleting
+  closeConfirmationPopup();
+}
+};
 
-  return (
-    <>
-      <AdminMenu />
-      <section id="product_admin">
-        <div className="container_body_admin_product">
-          <div className="search-box_product">
-            <input
-              type="text"
-              placeholder="Search ..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-            <button>
-              <IoSearchOutline onClick={handleSearch} />
-            </button>
-          </div>
 
-          <div className="productHead_content">
-            <h1 className="htxthead">
-              <span className="spennofStyleadmin"></span>Product
-            </h1>
-            <div className="categoryBoxfiler">
-              <Link to="/post/" className="box_add_product">
-                <BiPlus id="icon_add_product" />
-                <p>Add Product</p>
-              </Link>
-            </div>
-          </div>
+// Send ID product for update
+const navigate = useNavigate();
+// Update products
+const handleUpdate = (sendProductID) => {
+  navigate('/post/', { state: { sendProductID: sendProductID } });
+}
 
-          <div className="product-area">
-            {records.map((product, index) => (
-              <div className="box-product" key={index}>
-                <div>
-                  <img src={product.images[0].src} alt="image" />
-                </div>
-                <ul className="txtOFproduct">
-                  <li>{product.productName}</li>
-                  <li>{product.description}</li>
-                  <li>{product.price}</li>
-                  <div className="box_btn_edit_delete">
-                    <button
-                      className="btn_icon_delete_user"
-                      onClick={() => openConfirmationPopup(product.productID)}
-                    >
-                      <AiOutlineDelete id="btn_icon_edit" />
-                    </button>
-                    <div
-                      className="btn_icon_edit_user"
-                      onClick={() => handleUpdate(product.productID)}
-                    >
-                      <MdOutlineEdit id="btn_icon_edit" />
-                    </div>
-                  </div>
-                </ul>
-              </div>
-            ))}
-            {isConfirmationPopupOpen && (
-              <div className="confirmation-popup">
-                <p>Are you sure you want to delete?</p>
-                <div className="btn_ok_on">
-                  <button onClick={deleteProduct} className="btn_yes">
-                    Yes
-                  </button>
-                  <button onClick={closeConfirmationPopup} className="btn_on">
-                    No
-                  </button>
-                </div>
-              </div>
-            )}
-          </div>
-          <div className="box_container_next_product">
-            <button className="box_prev_left_product" onClick={prePage}>
-              <AiOutlineLeft id="box_icon_left_right_product" />
-              <p>Prev</p>
-            </button>
-
-            <div className="box_num_product">
-              {numbers.map((n, i) => (
-                <div
-                  className={`page-link ${currentPage === n ? "active" : ""}`}
-                  key={i}
-                >
-                  <div className="num_admin_product">
-                    <p onClick={() => changeCPage(n)}>{n}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <button className="box_prev_right_product" onClick={nextPage}>
-              <p>Next</p>
-              <AiOutlineRight id="box_icon_left_right_product" />
-            </button>
-          </div>
-        </div>
-      </section>
-    </>
+// Function to handle search by product name
+const handleSearch = () => {
+  const filtered = products.filter((product) =>
+    product.productName.toLowerCase().includes(searchTerm.toLowerCase())
   );
-  function prePage() {
-    if (currentPage !== 1) {
-      setCurrentPage(currentPage - 1);
-    }
+  setFilteredProducts(filtered);
+};
+
+
+
+return (
+  <>
+      <AdminMenu/>
+      <section id="product_admin">
+          <div className="container_body_admin_product">
+              <div className="search-box_product">
+                  <input 
+                      type="text" 
+                      placeholder="Search ..." 
+                      value={searchTerm}
+                      onChange={(e) => setSearchTerm(e.target.value)}
+                  />
+                  <button >
+                  <IoSearchOutline onClick={handleSearch}/>
+                  </button>
+              </div>
+
+              <div className="productHead_content">
+                  <h1 className="htxthead"><span className="spennofStyleadmin"></span>Product</h1>
+                  <div className="categoryBoxfiler">
+                      <Link to="/post/" className="box_add_product">
+                          <BiPlus id="icon_add_product"/>
+                          <p>Add Product</p>
+                      </Link>
+                  </div>
+              </div>
+
+              <div className="product-area">
+                  {records.map((product, index) => (
+                      <div className="box-product" key={ index }>
+                          <div><img src={product.images[0].src} alt="image" /></div>
+                          <ul className="txtOFproduct">
+                              <li>
+                              {product.productName}
+                              </li>
+                              <li>
+                              {product.description}
+                              </li>
+                              <li>
+                              {product.price}
+                              </li>
+                              <div className="box_btn_edit_delete">
+
+                                  <button className="btn_icon_delete_user" onClick={() => openConfirmationPopup(product.productID)}>
+                                      <AiOutlineDelete id="btn_icon_edit"/>
+                                  </button>
+                                  <div className="btn_icon_edit_user" onClick={() => handleUpdate(product.productID)}>
+                                      <MdOutlineEdit id="btn_icon_edit"/>
+                                  </div>
+                                  
+                              </div>
+                          </ul>
+                      </div>
+                  ))}
+                  {isConfirmationPopupOpen && (
+                      <div className="confirmation-popup">
+                          <p>Are you sure you want to delete?</p>
+                          <div className="btn_ok_on">
+                              <button onClick={deleteProduct} className="btn_yes">Yes</button>
+                              <button onClick={closeConfirmationPopup} className="btn_on">No</button>
+                          </div>
+                          
+                      </div>
+                  )}
+              </div>
+              <div className='box_container_next_product'>
+                  <button className='box_prev_left_product' onClick={prePage}>
+                      <AiOutlineLeft id="box_icon_left_right_product" />
+                      <p>Prev</p>
+                  </button>
+
+                  <div className='box_num_product'>
+                      {
+                          numbers.map((n, i) => (
+                              <div className={`page-link ${currentPage === n? 'active' : ''}`} key={i}>
+                                  <div className='num_admin_product'>
+                                      <p onClick={()=> changeCPage(n)} >{n}</p>
+                                  </div> 
+                              </div>
+                          ))
+                      }
+                  </div>
+
+                  <button className='box_prev_right_product' onClick={nextPage}>
+                      <p>Next</p>
+                      <AiOutlineRight id="box_icon_left_right_product" />
+                  </button>
+              </div>
+          </div>
+              
+      </section>
+  </>
+  
+)
+function prePage() {
+  if(currentPage !== 1) {
+      setCurrentPage(currentPage - 1)
   }
-  function nextPage() {
-    if (currentPage !== npage) {
-      setCurrentPage(currentPage + 1);
-    }
+}
+function nextPage() {
+  if(currentPage !== npage) {
+      setCurrentPage(currentPage + 1)
   }
-  function changeCPage(userID) {
-    setCurrentPage(userID);
-  }
+}
+function changeCPage(userID) {
+  setCurrentPage(userID)
+}
 };
 
 export default Product;

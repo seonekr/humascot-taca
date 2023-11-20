@@ -28,6 +28,7 @@ const UpdateProduct = () => {
       price: 15,
       description: "desc for this product",
       popular: true,
+      descImage: image1,
       images: [
         {
           src: productImage,
@@ -78,6 +79,7 @@ const UpdateProduct = () => {
       price: 10,
       description: "desc for this product",
       popular: true,
+      descImage: image1,
       images: [
         {
           src: dress,
@@ -130,6 +132,7 @@ const UpdateProduct = () => {
       price: 10,
       description: "desc for this product",
       popular: true,
+      descImage: image1,
       images: [
         {
           src: image1,
@@ -176,6 +179,7 @@ const UpdateProduct = () => {
       price: 10,
       description: "desc for this product",
       popular: true,
+      descImage: image1,
       images: [
         {
           src: dress,
@@ -228,6 +232,7 @@ const UpdateProduct = () => {
       price: 10,
       description: "desc for this product",
       popular: true,
+      descImage: image1,
       images: [
         {
           src: image1,
@@ -280,6 +285,7 @@ const UpdateProduct = () => {
       price: 10,
       description: "desc for this product",
       popular: true,
+      descImage: image1,
       images: [
         {
           src: image1,
@@ -332,6 +338,7 @@ const UpdateProduct = () => {
       price: 10,
       description: "desc for this product",
       popular: true,
+      descImage: image1,
       images: [
         {
           src: image1,
@@ -384,6 +391,7 @@ const UpdateProduct = () => {
       price: 10,
       description: "desc for this product",
       popular: true,
+      descImage: image1,
       images: [
         {
           src: image1,
@@ -436,6 +444,7 @@ const UpdateProduct = () => {
       price: 10,
       description: "desc for this product",
       popular: true,
+      descImage: image1,
       images: [
         {
           src: image1,
@@ -488,6 +497,7 @@ const UpdateProduct = () => {
       price: 10,
       description: "desc for this product",
       popular: true,
+      descImage: image1,
       images: [
         {
           src: image1,
@@ -540,6 +550,7 @@ const UpdateProduct = () => {
       price: 10,
       description: "desc for this product",
       popular: true,
+      descImage: image1,
       images: [
         {
           src: image1,
@@ -585,17 +596,17 @@ const UpdateProduct = () => {
     },
   ]);
 
-//   Get product ID
-const location = useLocation();
-const { sendProductID } = location?.state || {};
-
+  //   Get product ID
+  const location = useLocation();
+  const { sendProductID } = location?.state || {};
 
   // Effect to fetch and set details of Product
   useEffect(() => {
-  
     // Find the product with the specified ID
-    const productToUpdate = products.find((product) => product.productID === parseInt(sendProductID));
-  
+    const productToUpdate = products.find(
+      (product) => product.productID === parseInt(sendProductID)
+    );
+
     if (productToUpdate) {
       // Set state variables with details of the found product
       setProductName(productToUpdate.productName);
@@ -605,6 +616,7 @@ const { sendProductID } = location?.state || {};
       setPopular(productToUpdate.popular);
       setAddColor(productToUpdate.colors.map((color) => color.colorName));
       setGallery(productToUpdate.images.slice(1)); // Exclude the first image
+      setMainImage(productToUpdate.descImage);
     }
   }, [products, sendProductID]); // Run this effect whenever the products array or sendProductID changes
 
