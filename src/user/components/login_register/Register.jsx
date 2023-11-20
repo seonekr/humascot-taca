@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
-import './register.css';
-import 'boxicons';
-import { Link } from 'react-router-dom';
-import google from '../../../img/google.png';
-import { AiOutlineClose } from "react-icons/ai"
+import React, { useState } from "react";
+import "./register.css";
+import "boxicons";
+import { Link } from "react-router-dom";
+import google from "../../../img/google.png";
+import { AiOutlineClose } from "react-icons/ai";
 
 const Register = () => {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const handleFirstNameChange = (e) => {
     setFirstName(e.target.value);
@@ -39,20 +39,36 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Perform form submission logic here
-    console.log('Form submitted!');
-    console.log('First Name:', firstName);
-    console.log('Last Name:', lastName);
-    console.log('Email:', email);
-    console.log('Phone Number:', phoneNumber);
-    console.log('Password:', password);
-    console.log('Confirm Password:', confirmPassword);
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+      email: email,
+      password: password,
+      fname: firstName,
+      lname: lastName,
+      tel: phoneNumber,
+    });
+
+    var requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow",
+    };
+
+    fetch("http://localhost:5000/register", requestOptions)
+      .then((response) => response.json())
+      .then((result) => console.log(result))
+      .catch((error) => console.log("error", error));
   };
 
   return (
     <div className="box_container">
-      <div className='box_cancel_register'>
-          <Link to="/"><AiOutlineClose id="icon_cancel_register"/></Link>
+      <div className="box_cancel_register">
+        <Link to="/">
+          <AiOutlineClose id="icon_cancel_register" />
+        </Link>
       </div>
 
       <div className="container_register">
@@ -103,22 +119,18 @@ const Register = () => {
             onChange={handleConfirmPasswordChange}
           />
           <Link to="/login" type="submit" className="signup_btn">
-
             Signup
           </Link>
         </form>
 
-        <div className='box_already'>
+        <div className="box_already">
           <p>
             Already have an account? <Link to="/login">Login</Link>
           </p>
         </div>
         <p>Or</p>
         <Link to="#" className="google_btn">
-          <img
-            src={google}
-            alt="img"
-          />
+          <img src={google} alt="img" />
           <p>Login with Google</p>
         </Link>
       </div>
