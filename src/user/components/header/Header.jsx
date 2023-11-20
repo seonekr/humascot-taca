@@ -7,35 +7,14 @@ import Logo1 from "../../../img/Logo1.png";
 
 const Header = ({ handleSearch }) => {
   // For authenticate user
-  const [userAccount, setUserAccount] = useState("");
-  const token = localStorage.getItem("token");
-  useEffect(() => {
-    var myHeaders = new Headers();
-    myHeaders.append("Authorization", "Bearer " + token);
-
-    var requestOptions = {
-      method: "POST",
-      headers: myHeaders,
-      redirect: "follow",
-    };
-
-    fetch(import.meta.env.VITE_API + "/authen", requestOptions)
-      .then((response) => response.json())
-      .then((result) => {
-        if (result.Status === "Success") {
-          setUserAccount(result.decoded.email);
-        }
-      })
-      .catch((error) => console.log("error", error));
-  }, []);
-
+  const userID = localStorage.getItem("userID");
   const location = useLocation();
 
   const menuItems = [
     { label: "Home", path: "/" },
     { label: "Shop", path: "/product_search" },
-    { label: "Orders", path: userAccount ? "/order" : "/login" },
-    { label: "Contact", path: userAccount ? "/contacts" : "/login" },
+    { label: "Orders", path: userID ? "/order" : "/login" },
+    { label: "Contact", path: userID ? "/contacts" : "/login" },
   ];
 
   const [searchTerm, setSearchTerm] = useState("");
@@ -90,7 +69,7 @@ const Header = ({ handleSearch }) => {
                 </button>
               </form>
               <div>
-                {userAccount ? (
+                {userID ? (
                   <Link to="/cart">
                     <FaCartShopping className="head_colorr" />
                   </Link>
@@ -100,7 +79,7 @@ const Header = ({ handleSearch }) => {
                   </Link>
                 )}
               </div>
-              {userAccount ? (
+              {userID ? (
                 <div>
                   <Link to="/account">
                     <FaRegUser className="head_colorr" />

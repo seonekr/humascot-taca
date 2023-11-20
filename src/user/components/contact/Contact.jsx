@@ -7,55 +7,29 @@ import axios from "axios";
 
 const Contact = () => {
   // For authenticate user
-  const [userAccount, setUserAccount] = useState("");
   const [userDetail, setUserDetail] = useState([]);
-  const token = localStorage.getItem("token");
-
-  const navitage = useNavigate();
-
-  // For authen users
-  useEffect(() => {
-    let config = {
-      method: "post",
-      maxBodyLength: Infinity,
-      url: import.meta.env.VITE_API + "/authen",
-      headers: {
-        Authorization: "Bearer " + token,
-      },
-    };
-
-    axios
-      .request(config)
-      .then((response) => {
-        if (response.data.Status === "Success") {
-          setUserAccount(response.data.decoded.id);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
+  const userID = localStorage.getItem("userID");
 
   // For get user by id
   useEffect(() => {
-    let config = {
-      method: "get",
-      maxBodyLength: Infinity,
-      url: "http://localhost:5000/getCustomer/" + userAccount,
-      headers: {
-        "Content-Type": "application/json",
-      },
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+      redirect: "follow",
     };
 
-    axios
-      .request(config)
-      .then((response) => {
-        setUserDetail(response.data.Result);
-        console.log(JSON.stringify(userDetail));
+    fetch("http://localhost:5000/getCustomer/" + userID, requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        if (result.Status === "Success") {
+          setUserDetail(result.Result[0]);
+          console.log(userDetail);
+        }
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch((error) => console.log("error", error));
   }, []);
 
   return (
@@ -63,9 +37,9 @@ const Contact = () => {
       <Header />
       <div className="contactBox_container">
         <div className="contact_content">
-          <h2>Phone: 020998878788</h2>
-          <h2>Email: humascot@gmail.com</h2>
-          <h2>Address: Asean mall</h2>
+          <h2>Phone: {userDetail.tel}</h2>
+          <h2>Email: {userDetail.email}</h2>
+          <h2>Address: {userDetail.address}</h2>
         </div>
       </div>
       <Menu />
