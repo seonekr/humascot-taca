@@ -192,7 +192,7 @@ const Post = () => {
 
                             {/* Add Color Box */}
                             <div className="colorBox_chContainer">
-                                <h1>Color:</h1>
+                                <h1>Color:</h1> 
                                 <div className="addcolor_container">
                                     {addColor.map((colorB, index) => (
                                         <div className="Card_boxColor" key={index}>
@@ -244,7 +244,6 @@ const Post = () => {
                                     />
                                 </div>
                             </div>
-                            
                         </div>
                         <div className="submit1">
                             <button type="submit" disabled={addColor == '' || gallery  == '' || image == ''}>Post</button>
