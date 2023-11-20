@@ -50,7 +50,7 @@ const Header = ({ handleSearch }) => {
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                   />
-                  <button type="submit"><FaMagnifyingGlass/></button>
+                  <button type="submit"><FaMagnifyingGlass className="iconSearch"/></button>
                 </form>
               <div><Link to="/cart"><FaCartShopping className="head_colorr" /></Link></div>
               <div><Link to="/account"><FaRegUser className="head_colorr" /></Link></div>
