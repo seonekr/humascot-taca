@@ -214,9 +214,10 @@ a {
 
     .input_form,
     .login_btn {
-        width: 100%;
-    }
+        width: 350px;
 
+    }
+ 
     .google_btn {
         width: 100%;
     }
@@ -234,8 +235,5 @@ a {
     .input_form,
     .login_btn {
         width: 90%;
-    }
-    .box_cancel_login{
-        padding: 0 10px;
     }
 }

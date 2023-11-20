@@ -32,14 +32,13 @@ const Login = () => {
   return (
     <section>
       <form className="box_container_login2">
-        <div className="box_cancel_login">
-          <Link to="/">
-            <AiOutlineClose id="icon_cancel_login" />
-          </Link>
-        </div>
         <div className="cover">
-          <h2 className="box_container_login_text">Login</h2>
-
+          <div className="box_cancel_login">
+            <h2 className="box_container_login_text">Login</h2>
+            <Link to="/">
+              <AiOutlineClose id="icon_cancel_login" />
+            </Link>
+          </div>
           <input
             className="input_form"
             type="email"
