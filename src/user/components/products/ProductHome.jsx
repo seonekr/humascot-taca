@@ -1,6 +1,7 @@
 import "./productHome.css";
 import dress from "../../../img/dress.png";
 import image1 from "../../../img/image1.png";
+import Header from "../header/Header";
 import acer from "../../../img/acer.png";
 import productImage from "../../../img/productImage.png";
 import { useState } from "react";
@@ -14,23 +15,43 @@ const ProductHome = () => {
       productType: "clothes",
       price: 10,
       description: "desc for this product",
+      popular: true,
       images: [
         {
-          src: acer,
+          src: productImage
         },
         {
-          src: productImage,
+          src: image1
         },
         {
-          src: image1,
+          src: acer
         },
+        {
+          src: acer
+        },
+        {
+          src: productImage
+        },
+        {
+          src: image1
+        },
+        {
+          src: dress
+        },
+        {
+          src: acer
+        },
+        {
+          src: productImage
+        },
+        {
+          src: image1
+        },
+        {
+          src: dress
+        }
       ],
-      colors: [
-        { colorID: 1, colorName: "black" },
-        { colorID: 2, colorName: "blue" },
-        { colorID: 3, colorName: "red" },
-        { colorID: 4, colorName: "green" },
-      ],
+      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
     },
     {
       productID: 2,
@@ -39,50 +60,46 @@ const ProductHome = () => {
 
       price: 10,
       description: "desc for this product",
+      popular: true,
       images: [
         {
-          src: dress,
+          src: dress
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: dress,
+          src: dress
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: dress,
-        },
+          src: dress
+        }
       ],
-      colors: [
-        { colorID: 1, colorName: "black" },
-        { colorID: 2, colorName: "blue" },
-        { colorID: 3, colorName: "red" },
-        { colorID: 4, colorName: "green" },
-      ],
+      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
     },
     {
       productID: 3,
@@ -90,44 +107,40 @@ const ProductHome = () => {
       productType: "clothes",
       price: 10,
       description: "desc for this product",
+      popular: true,
       images: [
         {
-          src: image1,
+          src: image1
         },
         {
-          src: dress,
+          src: dress
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: dress,
+          src: dress
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: dress,
-        },
+          src: dress
+        }
       ],
-      colors: [
-        { colorID: 1, colorName: "black" },
-        { colorID: 2, colorName: "blue" },
-        { colorID: 3, colorName: "red" },
-        { colorID: 4, colorName: "green" },
-      ],
+      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
     },
     {
       productID: 4,
@@ -135,50 +148,46 @@ const ProductHome = () => {
       productType: "clothes",
       price: 10,
       description: "desc for this product",
+      popular: true,
       images: [
         {
-          src: dress,
+          src: dress
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: dress,
+          src: dress
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: dress,
-        },
+          src: dress
+        }
       ],
-      colors: [
-        { colorID: 1, colorName: "black" },
-        { colorID: 2, colorName: "blue" },
-        { colorID: 3, colorName: "red" },
-        { colorID: 4, colorName: "green" },
-      ],
+      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
     },
     {
       productID: 5,
@@ -186,50 +195,46 @@ const ProductHome = () => {
       productType: "clothes",
       price: 10,
       description: "desc for this product",
+      popular: true,
       images: [
         {
-          src: image1,
+          src: image1
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: dress,
+          src: dress
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: dress,
-        },
+          src: dress
+        }
       ],
-      colors: [
-        { colorID: 1, colorName: "black" },
-        { colorID: 2, colorName: "blue" },
-        { colorID: 3, colorName: "red" },
-        { colorID: 4, colorName: "green" },
-      ],
+      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
     },
     {
       productID: 6,
@@ -237,50 +242,46 @@ const ProductHome = () => {
       productType: "clothes",
       price: 10,
       description: "desc for this product",
+      popular: true,
       images: [
         {
-          src: image1,
+          src: image1
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: dress,
+          src: dress
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: dress,
-        },
+          src: dress
+        }
       ],
-      colors: [
-        { colorID: 1, colorName: "black" },
-        { colorID: 2, colorName: "blue" },
-        { colorID: 3, colorName: "red" },
-        { colorID: 4, colorName: "green" },
-      ],
+      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
     },
     {
       productID: 7,
@@ -288,50 +289,46 @@ const ProductHome = () => {
       productType: "clothes",
       price: 10,
       description: "desc for this product",
+      popular: true,
       images: [
         {
-          src: image1,
+          src: image1
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: dress,
+          src: dress
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: dress,
-        },
+          src: dress
+        }
       ],
-      colors: [
-        { colorID: 1, colorName: "black" },
-        { colorID: 2, colorName: "blue" },
-        { colorID: 3, colorName: "red" },
-        { colorID: 4, colorName: "green" },
-      ],
+      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
     },
     {
       productID: 8,
@@ -339,50 +336,46 @@ const ProductHome = () => {
       productType: "clothes",
       price: 10,
       description: "desc for this product",
+      popular: true,
       images: [
         {
-          src: image1,
+          src: image1
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: dress,
+          src: dress
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: dress,
-        },
+          src: dress
+        }
       ],
-      colors: [
-        { colorID: 1, colorName: "black" },
-        { colorID: 2, colorName: "blue" },
-        { colorID: 3, colorName: "red" },
-        { colorID: 4, colorName: "green" },
-      ],
+      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
     },
     {
       productID: 9,
@@ -390,50 +383,46 @@ const ProductHome = () => {
       productType: "clothes",
       price: 10,
       description: "desc for this product",
+      popular: true,
       images: [
         {
-          src: image1,
+          src: image1
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: dress,
+          src: dress
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: dress,
-        },
+          src: dress
+        }
       ],
-      colors: [
-        { colorID: 1, colorName: "black" },
-        { colorID: 2, colorName: "blue" },
-        { colorID: 3, colorName: "red" },
-        { colorID: 4, colorName: "green" },
-      ],
+      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
     },
     {
       productID: 10,
@@ -441,50 +430,46 @@ const ProductHome = () => {
       productType: "clothes",
       price: 10,
       description: "desc for this product",
+      popular: true,
       images: [
         {
-          src: image1,
+          src: image1
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: dress,
+          src: dress
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: dress,
-        },
+          src: dress
+        }
       ],
-      colors: [
-        { colorID: 1, colorName: "black" },
-        { colorID: 2, colorName: "blue" },
-        { colorID: 3, colorName: "red" },
-        { colorID: 4, colorName: "green" },
-      ],
+      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
     },
     {
       productID: 11,
@@ -492,48 +477,46 @@ const ProductHome = () => {
       productType: "clothes",
       price: 10,
       description: "desc for this product",
+      popular: true,
       images: [
         {
-          src: image1,
+          src: image1
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: dress,
+          src: dress
         },
         {
-          src: acer,
+          src: acer
         },
         {
-          src: productImage,
+          src: productImage
         },
         {
-          src: image1,
+          src: image1
         },
         {
-          src: dress,
-        },
+          src: dress
+        }
       ],
-      colors: [
-        { colorID: 1, colorName: "red" },
-        { colorID: 2, colorName: "green" },
-      ],
+      colors: [{ colorID: 1, colorName: "red" }, { colorID: 2, colorName: "green" }]
     },
   ]);
 
@@ -541,6 +524,13 @@ const ProductHome = () => {
   const [selectedFilter, setSelectedFilter] = useState("default");
   const [displayCount, setDisplayCount] = useState(8);
   const [showButton, setShowButton] = useState(true);
+
+  const handleSearch = (searchTerm) => {
+    const filtered = products.filter((product) =>
+      product.productName.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredProducts(filtered);
+  };
 
   // Handle inputChange
   // Function to handle the filter change
@@ -598,7 +588,7 @@ const ProductHome = () => {
   const displayedProducts = filteredProducts.slice(0, displayCount);
   // Read more
   const handleViewMore = () => {
-    setDisplayCount(products.length);
+    setDisplayCount(30);
     setShowButton(false);
   };
 
@@ -612,73 +602,76 @@ const ProductHome = () => {
     });
   };
   return (
-    <section id="product">
-      <div className="productHead_content">
-        <h1 className="htxthead">
-          <span className="spennofStyle"></span>Product
-        </h1>
-        <div className="categoryBoxfiler">
-          <form className="boxfilterseach">
-            <label>Select Filter</label>
-            <select
-              className="filter_priceProduct"
-              value={selectedFilter}
-              onChange={handleFilterChange}
-            >
-              <option value="default">All Product</option>
-              <option value="higherPrice">Higher Price</option>
-              <option value="lowerPrice">Lower Price</option>
-              <option value="newProducts">New Products</option>
-              <option value="popularProducts">Popular Products</option>
-            </select>
-          </form>
-          <box-icon name="filter"></box-icon>
-        </div>
-      </div>
-
-      <div className="product-area">
-        {displayedProducts.map((product, index) => (
-          <div className="box-product" key={index}>
-            <div onClick={() => handleProduct(product.productID)}>
-              <div className="img">
-                <img src={product.images[0].src} alt="image" />
-              </div>
-              <ul className="txtOFproduct2">
-                <li>
-                  <input
-                    className="name"
-                    type="text"
-                    value={product.productName}
-                    onChange={(e) => handleInputChange(e, index, "name")}
-                  />
-                </li>
-                <li>
-                  <input
-                    className="price"
-                    type="text"
-                    value={product.price}
-                    onChange={(e) => handleInputChange(e, index, "price")}
-                  />
-                </li>
-                <li>
-                  <input
-                    className="desc"
-                    type="text"
-                    value={product.description}
-                    onChange={(e) => handleInputChange(e, index, "description")}
-                  />
-                </li>
-              </ul>
-            </div>
+    <div>
+      <Header handleSearch={handleSearch}/>
+      <section id="product">
+        <div className="productHead_content">
+          <h1 className="htxthead">
+            <span className="spennofStyle"></span>Product
+          </h1>
+          <div className="categoryBoxfiler">
+            <form className="boxfilterseach">
+              <label>Select Filter</label>
+              <select
+                className="filter_priceProduct"
+                value={selectedFilter}
+                onChange={handleFilterChange}
+              >
+                <option value="default">All Product</option>
+                <option value="higherPrice">Higher Price</option>
+                <option value="lowerPrice">Lower Price</option>
+                <option value="newProducts">New Products</option>
+                <option value="popularProducts">Popular Products</option>
+              </select>
+            </form>
+            <box-icon name="filter"></box-icon>
           </div>
-        ))}
-      </div>
-      {showButton && filteredProducts.length > displayCount && (
-        <button className="btnViewProduct" onClick={handleViewMore}>
-          View More
-        </button>
-      )}
-    </section>
+        </div>
+
+        <div className="product-area">
+          {displayedProducts.map((product, index) => (
+            <div className="box-product" key={index}>
+              <div onClick={() => handleProduct(product.productID)}>
+                <div className="img">
+                  <img src={product.images[0].src} alt="image" />
+                </div>
+                <ul className="txtOFproduct2">
+                  <li>
+                    <input
+                      className="name"
+                      type="text"
+                      value={product.productName}
+                      onChange={(e) => handleInputChange(e, index, "name")}
+                    />
+                  </li>
+                  <li>
+                    <input
+                      className="price"
+                      type="text"
+                      value={product.price}
+                      onChange={(e) => handleInputChange(e, index, "price")}
+                    />
+                  </li>
+                  <li>
+                    <input
+                      className="desc"
+                      type="text"
+                      value={product.description}
+                      onChange={(e) => handleInputChange(e, index, "description")}
+                    />
+                  </li>
+                </ul>
+              </div>
+            </div>
+          ))}
+        </div>
+        {showButton && filteredProducts.length > displayCount && (
+          <button className="btnViewProduct" onClick={handleViewMore}>
+            View More
+          </button>
+        )}
+      </section>
+    </div>
   );
 };
 

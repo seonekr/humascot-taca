@@ -144,6 +144,14 @@
     object-fit: cover;
 }
 
+#post .edit-product-form .input-img .gallery button {
+    background-color: #FA442C;
+    border: none;
+    padding: 0.2rem 0.3rem;
+    border-radius: 4px;
+    color: #fff;
+}
+
 /* Add gallery button */
 #post .edit-product-form .input-img .gallery .gallery-box .add-gallery {
     background-color: #3498DB;
@@ -154,7 +162,13 @@
 }
 
 #post .edit-product-form .input-img .gallery .gallery-box .add-more {
+    color: #3498DB;
     cursor: pointer;
+    font-size: 1.3rem;
+    margin-left: 1rem;
+    border: 1px solid #ccc;
+    padding: 0.3rem 0.7rem;
+    border-radius: 50%;
 }
 
 #post .edit-product-form .input-img .gallery #gallery {

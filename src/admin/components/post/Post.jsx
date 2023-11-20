@@ -1,14 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from 'react';
 import AdminMenu from "../adminMenu/AdminMenu";
 import './post.css'
 
 const Post = () => {
     const [image, setImage] = useState([])
-    const [images, setImages] = useState([]);
     const [productName, setProductName] = useState('');
     const [productType, setProductType] = useState('');
     const [price, setPrice] = useState('');
     const [details, setDetails] = useState('');
+    const [popular, setPopular] = useState(false);
+
+    // Add gallery
+    const [gallery, setGallery] = useState([]);
+
 
     //Add Color Box
     const [addColor, setaddColor] = useState([]);
@@ -34,7 +38,6 @@ const Post = () => {
     const handleTagDelete = (index) => {
         const newTags = addColor.filter((_, i) => i !== index);
         setaddColor(newTags);
-
     };
 
     // Hanle submit
@@ -46,9 +49,10 @@ const Post = () => {
             "Product type": productType,
             "Product price": price,
             "Product details": details,
+            "Popular": popular,
             "Color": addColor,
             "ImageDescroption": image,
-            "Gallery": images
+            "Gallery": gallery
 
         });
 
@@ -57,8 +61,13 @@ const Post = () => {
         setPrice('');
         setDetails('')
         setImage([]);
-        setImages([]);
+        setGallery([]);
         
+    };
+
+    // Handle checked popular
+    const handlePopular = (event) => {
+      setPopular(event.target.checked);
     };
 
     // handle Product name
@@ -98,11 +107,22 @@ const Post = () => {
         }
     };
 
-    // image handle gallery
+    // const [gallery, setGallery] = useState([]);
+    const fileInputRef = useRef(null);
+
     const handleImageUpload = (e) => {
-        const uploadedImages = Array.from(e.target.files);
-        setImages([...images, ...uploadedImages]);
+      const uploadedGallery = Array.from(e.target.files);
+      setGallery([...gallery, ...uploadedGallery]);
     };
+  
+    const handleImageDelete = (imageToDelete) => {
+      const newGallery = gallery.filter((image) => image !== imageToDelete);
+      setGallery(newGallery);
+  
+      // Reset the input field value to allow adding new images
+      fileInputRef.current.value = null;
+    };
+  
 
     // Update......
 
@@ -128,6 +148,7 @@ const Post = () => {
                                     placeholder="Name"
                                     value={productName}
                                     onChange={handleProductName}
+                                    required
                                 />
                             </div>
                             <div className="box">
@@ -138,6 +159,7 @@ const Post = () => {
                                     placeholder="Type"
                                     value={productType}
                                     onChange={handleProductType}
+                                    required
                                 />
                             </div>
                             <div className="box">
@@ -148,19 +170,24 @@ const Post = () => {
                                     placeholder="Price"
                                     value={price}
                                     onChange={handleProductPrice}
+                                    required
                                 />
                             </div>
 
                             <div>
                                 <div className="box">
                                     <label htmlFor="details">Details</label>
-                                    <textarea id="details" rows="5" value={details} onChange={handleProductDetails}></textarea>
+                                    <textarea id="details" rows="5" value={details} onChange={handleProductDetails} required></textarea>
                                 </div>
                             </div>
-
                             <div className="popular">
-                                <label htmlFor="popular">Popular product</label>
-                                <input type="checkbox" id="popular"/>
+                              <label htmlFor="popular">Popular product</label>
+                              <input
+                                type="checkbox"
+                                id="popular"
+                                checked={popular}
+                                onChange={handlePopular}
+                              />
                             </div>
 
                             {/* Add Color Box */}
@@ -175,7 +202,7 @@ const Post = () => {
                                     ))}
                                 </div>
                                 <div className="addcolorContent">
-                                    <input className="inputBoxaddcolor" type="text" value={colorInput} onChange={handleInputChange} onKeyPress={handleKeyPress}
+                                    <input className="inputBoxaddcolor" type="text" value={colorInput} onChange={handleInputChange} onKeyDown={handleKeyPress}
                                         placeholder="Write your color..." />
                                     <a className="btn_addcolorbox" onClick={handleEnterClick}>
                                         Enter
@@ -189,19 +216,19 @@ const Post = () => {
                             <div className="gallery">
                                 <h3>Image gallery</h3>
                                 <div className="gallery-box">
-                                    <input type="file" id="gallery" multiple onChange={handleImageUpload} />
-                                    {images.map((image, index) => (
-                                        <div key={index}>
-                                            <img src={URL.createObjectURL(image)} alt={`Image ${index}`} />
-                                            <button onClick={() => setImages(images.filter((_, i) => i !== index))}>
-                                                Remove
-                                            </button>
-                                        </div>
-                                    ))}
-                                    {(images && images.length > 0) ?
-                                        <label htmlFor="gallery" className="add-more">Add</label> :
-                                        <label htmlFor="gallery" className="add-gallery">Choose gallery</label>
-                                    }
+                                  <input type="file" id="gallery" multiple onChange={handleImageUpload} ref={fileInputRef} />
+                                  {gallery.map((image, index) => (
+                                    <div key={image.name /* Use a unique identifier for each image */}>
+                                      <img src={URL.createObjectURL(image)} alt={`Image ${index}`} />
+                                      <button onClick={() => handleImageDelete(image)}>
+                                        Remove
+                                      </button>
+                                    </div>
+                                  ))}
+                                  {(gallery && gallery.length > 0) ?
+                                    <label htmlFor="gallery" className="add-more">+</label> :
+                                    <label htmlFor="gallery" className="add-gallery">Choose gallery</label>
+                                  }
                                 </div>
                             </div>
                             <div className="box_description">
@@ -216,10 +243,10 @@ const Post = () => {
                                         onChange={handleImage}
                                     />
                                 </div>
-                            </div> 
+                            </div>
                         </div>
                         <div className="submit1">
-                            <button type="submit">Post</button>
+                            <button type="submit" disabled={addColor == '' || gallery  == '' || image == ''}>Post</button>
                         </div>
                     </form>
                 </div>

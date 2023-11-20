@@ -19,6 +19,7 @@ function ProductDetails() {
       productType: "clothes",
       price: 10,
       description: "desc for this product",
+      popular: true,
       images: [
         {
           src: productImage
@@ -63,6 +64,7 @@ function ProductDetails() {
 
       price: 10,
       description: "desc for this product",
+      popular: true,
       images: [
         {
           src: dress
@@ -109,6 +111,7 @@ function ProductDetails() {
       productType: "clothes",
       price: 10,
       description: "desc for this product",
+      popular: true,
       images: [
         {
           src: image1
@@ -149,6 +152,7 @@ function ProductDetails() {
       productType: "clothes",
       price: 10,
       description: "desc for this product",
+      popular: true,
       images: [
         {
           src: dress
@@ -195,6 +199,7 @@ function ProductDetails() {
       productType: "clothes",
       price: 10,
       description: "desc for this product",
+      popular: true,
       images: [
         {
           src: image1
@@ -241,6 +246,7 @@ function ProductDetails() {
       productType: "clothes",
       price: 10,
       description: "desc for this product",
+      popular: true,
       images: [
         {
           src: image1
@@ -287,6 +293,7 @@ function ProductDetails() {
       productType: "clothes",
       price: 10,
       description: "desc for this product",
+      popular: true,
       images: [
         {
           src: image1
@@ -333,6 +340,7 @@ function ProductDetails() {
       productType: "clothes",
       price: 10,
       description: "desc for this product",
+      popular: true,
       images: [
         {
           src: image1
@@ -379,6 +387,7 @@ function ProductDetails() {
       productType: "clothes",
       price: 10,
       description: "desc for this product",
+      popular: true,
       images: [
         {
           src: image1
@@ -425,6 +434,7 @@ function ProductDetails() {
       productType: "clothes",
       price: 10,
       description: "desc for this product",
+      popular: true,
       images: [
         {
           src: image1
@@ -471,6 +481,7 @@ function ProductDetails() {
       productType: "clothes",
       price: 10,
       description: "desc for this product",
+      popular: true,
       images: [
         {
           src: image1
@@ -542,18 +553,17 @@ function ProductDetails() {
 
   // Get send ID
   const location = useLocation();
-  const { sendProductID } = location.state;
-  const [getId, setGetId] = useState(sendProductID);
-  const [getProductID, setGetProductID] = useState(getId);
+  const { sendProductID } = location?.state || {};
+
   const navigate = useNavigate();
 
   // Match productID
   const filteredProducts = products.filter(
-    (product) => product.productID === getProductID
+    (product) => product.productID === sendProductID
   );
 
   // Checked colors
-  const proID = products.find(item => item.productID === getProductID);
+  const proID = products.find(item => item.productID === sendProductID);
   const colID = proID.colors.find(item => item.colorID === 1);
   const colorName = colID.colorName;
   const [color, setColor] = useState(colorName);
@@ -593,7 +603,7 @@ function ProductDetails() {
 
       console.log("Add to cart");
       console.log(addTocart);
-      console.log("ProductID:", getProductID); // this  productID
+      console.log("ProductID:", sendProductID); // this  productID
     }
   };
 
@@ -620,9 +630,9 @@ function ProductDetails() {
     showSlides(slideIndex + n);
   }
 
-  function currentSlide(n) {
-    showSlides(n);
-  }
+  // function currentSlide(n) {
+  //   showSlides(n);
+  // }
 
   function showSlides(n) {
     const currentProduct = filteredProducts[0]; // Assuming there's only one product in the array
