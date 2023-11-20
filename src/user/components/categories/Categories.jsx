@@ -6,7 +6,6 @@ import productImage from "../../../img/productImage.png";
 import { Link, useLocation } from "react-router-dom";
 import Header from "../header/Header";
 import Menu from "../menu/Menu";
-import { FaSearch } from "react-icons/fa";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./categories.css";
@@ -16,7 +15,7 @@ const Categories = () => {
     {
       productID: 1,
       productName: "pro1",
-      productType: "clothes",
+      productType: "electronich device",
       price: 10,
       description: "desc for this product",
       popular: true,
@@ -533,7 +532,7 @@ const Categories = () => {
 
   // Get send ID
   const location = useLocation();
-  const { categorys } = location.state;
+  const { categorys } = location.state || {};
 
   const categoriesProducts = filteredProducts.filter(
     (product) => product.productType === categorys

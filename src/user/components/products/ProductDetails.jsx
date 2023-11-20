@@ -553,7 +553,7 @@ function ProductDetails() {
 
   // Get send ID
   const location = useLocation();
-  const { sendProductID } = location.state;
+  const { sendProductID } = location?.state || {};
 
   const navigate = useNavigate();
 
