@@ -51,12 +51,11 @@ const Register = () => {
 
   return (
     <div className="box_container">
-      <div className='box_cancel_register'>
-          <Link to="/"><AiOutlineClose id="icon_cancel_register"/></Link>
-      </div>
-
       <div className="container_register">
-        <h2 className="text_register">Register</h2>
+        <div className='box_cancel_register'>
+          <h2 className="text_register">Register</h2>
+          <Link to="/"><AiOutlineClose id="icon_cancel_register" /></Link>
+        </div>
         <form onSubmit={handleSubmit} className="box_form_register">
           <div className="box_form1">
             <input
@@ -103,24 +102,21 @@ const Register = () => {
             onChange={handleConfirmPasswordChange}
           />
           <Link to="/login" type="submit" className="signup_btn">
-
             Signup
           </Link>
         </form>
 
         <div className='box_already'>
-          <p>
-            Already have an account? <Link to="/login">Login</Link>
-          </p>
+          <p>Already have an account? <Link to="/login" className='loginmoreLink'>Login</Link></p>
+          <p>Or</p>
+          <Link to="#" className="google_btn">
+            <img
+              src={google}
+              alt="img"
+            />
+            <p>Login with Google</p>
+          </Link>
         </div>
-        <p>Or</p>
-        <Link to="#" className="google_btn">
-          <img
-            src={google}
-            alt="img"
-          />
-          <p>Login with Google</p>
-        </Link>
       </div>
     </div>
   );
