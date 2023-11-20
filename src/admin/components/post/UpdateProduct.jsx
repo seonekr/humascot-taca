@@ -1,9 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import AdminMenu from "../adminMenu/AdminMenu";
-import dress from "../../../img/dress.png";
-import image1 from "../../../img/image1.png";
-import acer from "../../../img/acer.png";
-import productImage from "../../../img/productImage.png";
 import { useLocation } from "react-router-dom";
 
 import "./post.css";
@@ -20,581 +16,7 @@ const UpdateProduct = () => {
   const [mainImage, setMainImage] = useState(null);
   const fileInputRef = useRef(null);
 
-  const [products, setProducts] = useState([
-    {
-      productID: 1,
-      productName: "pro1",
-      productType: "clothes",
-      price: 15,
-      description: "desc for this product",
-      popular: true,
-      descImage: image1,
-      images: [
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-      ],
-      colors: [
-        { colorID: 1, colorName: "black" },
-        { colorID: 2, colorName: "blue" },
-        { colorID: 3, colorName: "red" },
-        { colorID: 4, colorName: "green" },
-      ],
-    },
-    {
-      productID: 2,
-      productName: "pro2",
-      productType: "clothes",
-
-      price: 10,
-      description: "desc for this product",
-      popular: true,
-      descImage: image1,
-      images: [
-        {
-          src: dress,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-      ],
-      colors: [
-        { colorID: 1, colorName: "black" },
-        { colorID: 2, colorName: "blue" },
-        { colorID: 3, colorName: "red" },
-        { colorID: 4, colorName: "green" },
-      ],
-    },
-    {
-      productID: 3,
-      productName: "pro3",
-      productType: "clothes",
-      price: 10,
-      description: "desc for this product",
-      popular: true,
-      descImage: image1,
-      images: [
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-      ],
-      colors: [
-        { colorID: 1, colorName: "black" },
-        { colorID: 2, colorName: "blue" },
-        { colorID: 3, colorName: "red" },
-        { colorID: 4, colorName: "green" },
-      ],
-    },
-    {
-      productID: 4,
-      productName: "pro4",
-      productType: "clothes",
-      price: 10,
-      description: "desc for this product",
-      popular: true,
-      descImage: image1,
-      images: [
-        {
-          src: dress,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-      ],
-      colors: [
-        { colorID: 1, colorName: "black" },
-        { colorID: 2, colorName: "blue" },
-        { colorID: 3, colorName: "red" },
-        { colorID: 4, colorName: "green" },
-      ],
-    },
-    {
-      productID: 5,
-      productName: "pro5",
-      productType: "clothes",
-      price: 10,
-      description: "desc for this product",
-      popular: true,
-      descImage: image1,
-      images: [
-        {
-          src: image1,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-      ],
-      colors: [
-        { colorID: 1, colorName: "black" },
-        { colorID: 2, colorName: "blue" },
-        { colorID: 3, colorName: "red" },
-        { colorID: 4, colorName: "green" },
-      ],
-    },
-    {
-      productID: 6,
-      productName: "pro6",
-      productType: "clothes",
-      price: 10,
-      description: "desc for this product",
-      popular: true,
-      descImage: image1,
-      images: [
-        {
-          src: image1,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-      ],
-      colors: [
-        { colorID: 1, colorName: "black" },
-        { colorID: 2, colorName: "blue" },
-        { colorID: 3, colorName: "red" },
-        { colorID: 4, colorName: "green" },
-      ],
-    },
-    {
-      productID: 7,
-      productName: "pro7",
-      productType: "clothes",
-      price: 10,
-      description: "desc for this product",
-      popular: true,
-      descImage: image1,
-      images: [
-        {
-          src: image1,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-      ],
-      colors: [
-        { colorID: 1, colorName: "black" },
-        { colorID: 2, colorName: "blue" },
-        { colorID: 3, colorName: "red" },
-        { colorID: 4, colorName: "green" },
-      ],
-    },
-    {
-      productID: 8,
-      productName: "pro8",
-      productType: "clothes",
-      price: 10,
-      description: "desc for this product",
-      popular: true,
-      descImage: image1,
-      images: [
-        {
-          src: image1,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-      ],
-      colors: [
-        { colorID: 1, colorName: "black" },
-        { colorID: 2, colorName: "blue" },
-        { colorID: 3, colorName: "red" },
-        { colorID: 4, colorName: "green" },
-      ],
-    },
-    {
-      productID: 9,
-      productName: "pro9",
-      productType: "clothes",
-      price: 10,
-      description: "desc for this product",
-      popular: true,
-      descImage: image1,
-      images: [
-        {
-          src: image1,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-      ],
-      colors: [
-        { colorID: 1, colorName: "black" },
-        { colorID: 2, colorName: "blue" },
-        { colorID: 3, colorName: "red" },
-        { colorID: 4, colorName: "green" },
-      ],
-    },
-    {
-      productID: 10,
-      productName: "pro10",
-      productType: "clothes",
-      price: 10,
-      description: "desc for this product",
-      popular: true,
-      descImage: image1,
-      images: [
-        {
-          src: image1,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-      ],
-      colors: [
-        { colorID: 1, colorName: "black" },
-        { colorID: 2, colorName: "blue" },
-        { colorID: 3, colorName: "red" },
-        { colorID: 4, colorName: "green" },
-      ],
-    },
-    {
-      productID: 11,
-      productName: "pro11",
-      productType: "clothes",
-      price: 10,
-      description: "desc for this product",
-      popular: true,
-      descImage: image1,
-      images: [
-        {
-          src: image1,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-      ],
-      colors: [
-        { colorID: 1, colorName: "red" },
-        { colorID: 2, colorName: "green" },
-      ],
-    },
-  ]);
+  const [products, setProducts] = useState([]);
 
   //   Get product ID
   const location = useLocation();
@@ -609,14 +31,14 @@ const UpdateProduct = () => {
 
     if (productToUpdate) {
       // Set state variables with details of the found product
-      setProductName(productToUpdate.productName);
-      setProductType(productToUpdate.productType);
-      setPrice(productToUpdate.price);
-      setDetails(productToUpdate.description);
-      setPopular(productToUpdate.popular);
-      setAddColor(productToUpdate.colors.map((color) => color.colorName));
-      setGallery(productToUpdate.images.slice(1)); // Exclude the first image
-      setMainImage(productToUpdate.descImage);
+      setProductName();
+      setProductType();
+      setPrice();
+      setDetails();
+      setPopular();
+      setAddColor(map(() => ''));
+    //   setGallery(productToUpdate.images.slice(1)); // Exclude the first image
+      setMainImage();
     }
   }, [products, sendProductID]); // Run this effect whenever the products array or sendProductID changes
 
@@ -625,21 +47,21 @@ const UpdateProduct = () => {
     e.preventDefault();
 
     // Log the form data to the console
-    console.log("Form Data:", {
-      productName,
-      productType,
-      price,
-      details,
-      popular,
-      colors: addColor,
-      gallery: gallery.map((image) =>
-        image instanceof File ? "File: " + image.name : "URL: " + image.src
-      ),
-      mainImage:
-        mainImage instanceof File
-          ? "File: " + mainImage.name
-          : "URL: " + mainImage,
-    });
+    // console.log("Form Data:", {
+    //   productName,
+    //   productType,
+    //   price,
+    //   details,
+    //   popular,
+    //   colors: addColor,
+    //   gallery: gallery.map((image) => // Make 
+    //     image instanceof File ? "File: " + image.name : "URL: " + image.src
+    //   ),
+    //   mainImage:
+    //     mainImage instanceof File
+    //       ? "File: " + mainImage.name
+    //       : "URL: " + mainImage,
+    // });
 
     // Reset form fields if needed
     setProductName("");
@@ -800,9 +222,10 @@ const UpdateProduct = () => {
               <div className="colorBox_chContainer">
                 <h1>Color:</h1>
                 <div className="addcolor_container">
-                  {addColor.map((colorB, index) => (
+                    {/* This is colors */}
+                  {addColor.map((color, index) => (
                     <div className="Card_boxColor" key={index}>
-                      {colorB}
+                      {color}
                       <span
                         className="spanCancelBox"
                         onClick={() => handleTagDelete(index)}
@@ -840,6 +263,7 @@ const UpdateProduct = () => {
                     onChange={handleImageUpload}
                     ref={fileInputRef}
                   />
+                  {/* This is gallery image */}
                   {gallery.map((image, index) => (
                     <div key={index}>
                       <img
@@ -858,6 +282,7 @@ const UpdateProduct = () => {
                       </button>
                     </div>
                   ))}
+
                   {gallery && gallery.length > 0 ? (
                     <label htmlFor="gallery" className="add-more">
                       +
@@ -867,12 +292,14 @@ const UpdateProduct = () => {
                       Choose gallery
                     </label>
                   )}
+
                 </div>
               </div>
               <div className="box_description">
                 <h3>Description image</h3>
                 <div className="image">
                   <label htmlFor="img">
+                    {/* This is description image */}
                     {mainImage ? (
                       <img src={mainImage} alt="Main Product" />
                     ) : (
