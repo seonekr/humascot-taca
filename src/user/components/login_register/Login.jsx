@@ -8,6 +8,7 @@ import google from "../../../img/google.png";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const handleEmail = (e) => {
@@ -26,8 +27,8 @@ const Login = () => {
     myHeaders.append("Content-Type", "application/json");
 
     var raw = JSON.stringify({
-      email: "customer02@gmail.com",
-      password: "1234",
+      email: email,
+      password: password,
     });
 
     var requestOptions = {
@@ -37,16 +38,18 @@ const Login = () => {
       redirect: "follow",
     };
 
-    fetch("http://54.180.193.34:5000/login", requestOptions)
+    fetch(import.meta.env.VITE_API + "/login", requestOptions)
       .then((response) => response.json())
       .then((result) => {
         if (result.Status === "Success") {
-          localStorage.setItem("token", result.token)
+          localStorage.setItem("token", result.token);
           if (result.urole === "Admin") {
             navigate("/dashboard");
           } else {
             navigate("/");
           }
+        } else {
+          setError(result.Error);
         }
       })
       .catch((error) => console.log("error", error));
@@ -62,7 +65,7 @@ const Login = () => {
         </div>
         <div className="cover">
           <h2 className="box_container_login_text">Login</h2>
-
+          <h3>{error && error}</h3>
           <input
             className="input_form"
             type="email"
