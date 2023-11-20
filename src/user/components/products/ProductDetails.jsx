@@ -17,45 +17,51 @@ function ProductDetails() {
       productID: 1,
       productName: "pro1",
       productType: "clothes",
-      price: 10,
+      price: 15,
       description: "desc for this product",
       popular: true,
+      descImage: image1,
       images: [
         {
-          src: productImage
+          src: productImage,
         },
         {
-          src: image1
+          src: image1,
         },
         {
-          src: acer
+          src: acer,
         },
         {
-          src: acer
+          src: acer,
         },
         {
-          src: productImage
+          src: productImage,
         },
         {
-          src: image1
+          src: image1,
         },
         {
-          src: dress
+          src: dress,
         },
         {
-          src: acer
+          src: acer,
         },
         {
-          src: productImage
+          src: productImage,
         },
         {
-          src: image1
+          src: image1,
         },
         {
-          src: dress
-        }
+          src: dress,
+        },
       ],
-      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
+      colors: [
+        { colorID: 1, colorName: "black" },
+        { colorID: 2, colorName: "blue" },
+        { colorID: 3, colorName: "red" },
+        { colorID: 4, colorName: "green" },
+      ],
     },
     {
       productID: 2,
@@ -65,45 +71,51 @@ function ProductDetails() {
       price: 10,
       description: "desc for this product",
       popular: true,
+      descImage: image1,
       images: [
         {
-          src: dress
+          src: dress,
         },
         {
-          src: productImage
+          src: productImage,
         },
         {
-          src: image1
+          src: image1,
         },
         {
-          src: acer
+          src: acer,
         },
         {
-          src: acer
+          src: acer,
         },
         {
-          src: productImage
+          src: productImage,
         },
         {
-          src: image1
+          src: image1,
         },
         {
-          src: dress
+          src: dress,
         },
         {
-          src: acer
+          src: acer,
         },
         {
-          src: productImage
+          src: productImage,
         },
         {
-          src: image1
+          src: image1,
         },
         {
-          src: dress
-        }
+          src: dress,
+        },
       ],
-      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
+      colors: [
+        { colorID: 1, colorName: "black" },
+        { colorID: 2, colorName: "blue" },
+        { colorID: 3, colorName: "red" },
+        { colorID: 4, colorName: "green" },
+      ],
     },
     {
       productID: 3,
@@ -112,39 +124,45 @@ function ProductDetails() {
       price: 10,
       description: "desc for this product",
       popular: true,
+      descImage: image1,
       images: [
         {
-          src: image1
+          src: image1,
         },
         {
-          src: dress
+          src: dress,
         },
         {
-          src: acer
+          src: acer,
         },
         {
-          src: productImage
+          src: productImage,
         },
         {
-          src: image1
+          src: image1,
         },
         {
-          src: dress
+          src: dress,
         },
         {
-          src: acer
+          src: acer,
         },
         {
-          src: productImage
+          src: productImage,
         },
         {
-          src: image1
+          src: image1,
         },
         {
-          src: dress
-        }
+          src: dress,
+        },
       ],
-      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
+      colors: [
+        { colorID: 1, colorName: "black" },
+        { colorID: 2, colorName: "blue" },
+        { colorID: 3, colorName: "red" },
+        { colorID: 4, colorName: "green" },
+      ],
     },
     {
       productID: 4,
@@ -153,45 +171,51 @@ function ProductDetails() {
       price: 10,
       description: "desc for this product",
       popular: true,
+      descImage: image1,
       images: [
         {
-          src: dress
+          src: dress,
         },
         {
-          src: productImage
+          src: productImage,
         },
         {
-          src: image1
+          src: image1,
         },
         {
-          src: acer
+          src: acer,
         },
         {
-          src: acer
+          src: acer,
         },
         {
-          src: productImage
+          src: productImage,
         },
         {
-          src: image1
+          src: image1,
         },
         {
-          src: dress
+          src: dress,
         },
         {
-          src: acer
+          src: acer,
         },
         {
-          src: productImage
+          src: productImage,
         },
         {
-          src: image1
+          src: image1,
         },
         {
-          src: dress
-        }
+          src: dress,
+        },
       ],
-      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
+      colors: [
+        { colorID: 1, colorName: "black" },
+        { colorID: 2, colorName: "blue" },
+        { colorID: 3, colorName: "red" },
+        { colorID: 4, colorName: "green" },
+      ],
     },
     {
       productID: 5,
@@ -200,45 +224,51 @@ function ProductDetails() {
       price: 10,
       description: "desc for this product",
       popular: true,
+      descImage: image1,
       images: [
         {
-          src: image1
+          src: image1,
         },
         {
-          src: productImage
+          src: productImage,
         },
         {
-          src: image1
+          src: image1,
         },
         {
-          src: acer
+          src: acer,
         },
         {
-          src: acer
+          src: acer,
         },
         {
-          src: productImage
+          src: productImage,
         },
         {
-          src: image1
+          src: image1,
         },
         {
-          src: dress
+          src: dress,
         },
         {
-          src: acer
+          src: acer,
         },
         {
-          src: productImage
+          src: productImage,
         },
         {
-          src: image1
+          src: image1,
         },
         {
-          src: dress
-        }
+          src: dress,
+        },
       ],
-      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
+      colors: [
+        { colorID: 1, colorName: "black" },
+        { colorID: 2, colorName: "blue" },
+        { colorID: 3, colorName: "red" },
+        { colorID: 4, colorName: "green" },
+      ],
     },
     {
       productID: 6,
@@ -247,45 +277,51 @@ function ProductDetails() {
       price: 10,
       description: "desc for this product",
       popular: true,
+      descImage: image1,
       images: [
         {
-          src: image1
+          src: image1,
         },
         {
-          src: productImage
+          src: productImage,
         },
         {
-          src: image1
+          src: image1,
         },
         {
-          src: acer
+          src: acer,
         },
         {
-          src: acer
+          src: acer,
         },
         {
-          src: productImage
+          src: productImage,
         },
         {
-          src: image1
+          src: image1,
         },
         {
-          src: dress
+          src: dress,
         },
         {
-          src: acer
+          src: acer,
         },
         {
-          src: productImage
+          src: productImage,
         },
         {
-          src: image1
+          src: image1,
         },
         {
-          src: dress
-        }
+          src: dress,
+        },
       ],
-      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
+      colors: [
+        { colorID: 1, colorName: "black" },
+        { colorID: 2, colorName: "blue" },
+        { colorID: 3, colorName: "red" },
+        { colorID: 4, colorName: "green" },
+      ],
     },
     {
       productID: 7,
@@ -294,45 +330,51 @@ function ProductDetails() {
       price: 10,
       description: "desc for this product",
       popular: true,
+      descImage: image1,
       images: [
         {
-          src: image1
+          src: image1,
         },
         {
-          src: productImage
+          src: productImage,
         },
         {
-          src: image1
+          src: image1,
         },
         {
-          src: acer
+          src: acer,
         },
         {
-          src: acer
+          src: acer,
         },
         {
-          src: productImage
+          src: productImage,
         },
         {
-          src: image1
+          src: image1,
         },
         {
-          src: dress
+          src: dress,
         },
         {
-          src: acer
+          src: acer,
         },
         {
-          src: productImage
+          src: productImage,
         },
         {
-          src: image1
+          src: image1,
         },
         {
-          src: dress
-        }
+          src: dress,
+        },
       ],
-      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
+      colors: [
+        { colorID: 1, colorName: "black" },
+        { colorID: 2, colorName: "blue" },
+        { colorID: 3, colorName: "red" },
+        { colorID: 4, colorName: "green" },
+      ],
     },
     {
       productID: 8,
@@ -341,45 +383,51 @@ function ProductDetails() {
       price: 10,
       description: "desc for this product",
       popular: true,
+      descImage: image1,
       images: [
         {
-          src: image1
+          src: image1,
         },
         {
-          src: productImage
+          src: productImage,
         },
         {
-          src: image1
+          src: image1,
         },
         {
-          src: acer
+          src: acer,
         },
         {
-          src: acer
+          src: acer,
         },
         {
-          src: productImage
+          src: productImage,
         },
         {
-          src: image1
+          src: image1,
         },
         {
-          src: dress
+          src: dress,
         },
         {
-          src: acer
+          src: acer,
         },
         {
-          src: productImage
+          src: productImage,
         },
         {
-          src: image1
+          src: image1,
         },
         {
-          src: dress
-        }
+          src: dress,
+        },
       ],
-      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
+      colors: [
+        { colorID: 1, colorName: "black" },
+        { colorID: 2, colorName: "blue" },
+        { colorID: 3, colorName: "red" },
+        { colorID: 4, colorName: "green" },
+      ],
     },
     {
       productID: 9,
@@ -388,45 +436,51 @@ function ProductDetails() {
       price: 10,
       description: "desc for this product",
       popular: true,
+      descImage: image1,
       images: [
         {
-          src: image1
+          src: image1,
         },
         {
-          src: productImage
+          src: productImage,
         },
         {
-          src: image1
+          src: image1,
         },
         {
-          src: acer
+          src: acer,
         },
         {
-          src: acer
+          src: acer,
         },
         {
-          src: productImage
+          src: productImage,
         },
         {
-          src: image1
+          src: image1,
         },
         {
-          src: dress
+          src: dress,
         },
         {
-          src: acer
+          src: acer,
         },
         {
-          src: productImage
+          src: productImage,
         },
         {
-          src: image1
+          src: image1,
         },
         {
-          src: dress
-        }
+          src: dress,
+        },
       ],
-      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
+      colors: [
+        { colorID: 1, colorName: "black" },
+        { colorID: 2, colorName: "blue" },
+        { colorID: 3, colorName: "red" },
+        { colorID: 4, colorName: "green" },
+      ],
     },
     {
       productID: 10,
@@ -435,45 +489,51 @@ function ProductDetails() {
       price: 10,
       description: "desc for this product",
       popular: true,
+      descImage: image1,
       images: [
         {
-          src: image1
+          src: image1,
         },
         {
-          src: productImage
+          src: productImage,
         },
         {
-          src: image1
+          src: image1,
         },
         {
-          src: acer
+          src: acer,
         },
         {
-          src: acer
+          src: acer,
         },
         {
-          src: productImage
+          src: productImage,
         },
         {
-          src: image1
+          src: image1,
         },
         {
-          src: dress
+          src: dress,
         },
         {
-          src: acer
+          src: acer,
         },
         {
-          src: productImage
+          src: productImage,
         },
         {
-          src: image1
+          src: image1,
         },
         {
-          src: dress
-        }
+          src: dress,
+        },
       ],
-      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
+      colors: [
+        { colorID: 1, colorName: "black" },
+        { colorID: 2, colorName: "blue" },
+        { colorID: 3, colorName: "red" },
+        { colorID: 4, colorName: "green" },
+      ],
     },
     {
       productID: 11,
@@ -482,45 +542,49 @@ function ProductDetails() {
       price: 10,
       description: "desc for this product",
       popular: true,
+      descImage: image1,
       images: [
         {
-          src: image1
+          src: image1,
         },
         {
-          src: productImage
+          src: productImage,
         },
         {
-          src: image1
+          src: image1,
         },
         {
-          src: acer
+          src: acer,
         },
         {
-          src: acer
+          src: acer,
         },
         {
-          src: productImage
+          src: productImage,
         },
         {
-          src: image1
+          src: image1,
         },
         {
-          src: dress
+          src: dress,
         },
         {
-          src: acer
+          src: acer,
         },
         {
-          src: productImage
+          src: productImage,
         },
         {
-          src: image1
+          src: image1,
         },
         {
-          src: dress
-        }
+          src: dress,
+        },
       ],
-      colors: [{ colorID: 1, colorName: "red" }, { colorID: 2, colorName: "green" }]
+      colors: [
+        { colorID: 1, colorName: "red" },
+        { colorID: 2, colorName: "green" },
+      ],
     },
   ]);
 
@@ -645,8 +709,6 @@ function ProductDetails() {
       setSlideIndex(n);
     }
   }
-  // Render the current image
-  const currentImage = products[0].images[slideIndex - 1];
   //Drag
   function dragStart(e) {
     setStart(e.clientX)
@@ -680,7 +742,8 @@ function ProductDetails() {
           <p>Back</p>
         </Link>
         {filteredProducts.map((product) => (
-          <div className="boxProduct_deteils" key={product.productID}>
+        <div key={product.productID}>
+          <div className="boxProduct_deteils" >
             <div className="slider">
               <React.Fragment>
                 <section className='product_details'>
@@ -839,10 +902,12 @@ function ProductDetails() {
               </div>
             </form>
           </div>
-        ))}
         <div className="description_container">
-          <img src={description} alt="" />
+          <img src={product.descImage} alt="" />
         </div>
+
+        </div>
+        ))}
       </div>
       <Menu />
     </>

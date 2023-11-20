@@ -590,35 +590,34 @@ const Product = () => {
   const npage = Math.ceil(filteredProducts.length / recordsPerPage);
   const numbers = [...Array(npage + 1).keys()].slice(1);
 
-
   // Delete product
   const [deleteProductId, setDeleteProductId] = useState(null);
   const [isConfirmationPopupOpen, setConfirmationPopupOpen] = useState(false);
 
-  const openConfirmationPopup = (productID) => {
-      setDeleteProductId(productID);
-      setConfirmationPopupOpen(true);
+  const openConfirmationPopup = (productId) => {
+    setDeleteProductId(productId);
+    setConfirmationPopupOpen(true);
   };
 
   const closeConfirmationPopup = () => {
     setDeleteProductId(null);
-      setConfirmationPopupOpen(false);
+    setConfirmationPopupOpen(false);
   };
+
   const deleteProduct = () => {
     if (deleteProductId !== null) {
-      // Filter out the user with the specified ID
+      // Filter out the product with the specified ID
       const updatedProducts = products.filter(
         (product) => product.productID !== deleteProductId
       );
 
-      // Update the state with the new array of users
+      // Update the state with the new array of products
       setProducts(updatedProducts);
 
       // Close the confirmation popup after deleting
       closeConfirmationPopup();
     }
   };
-
 
   // Send ID product for update
   const navigate = useNavigate();
@@ -704,9 +703,6 @@ const Product = () => {
                 </div>
               </div>
             )}
-
-            
-            
           </div>
           <div className="box_container_next_product">
             <button className="box_prev_left_product" onClick={prePage}>
