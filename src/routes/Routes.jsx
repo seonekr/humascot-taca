@@ -24,7 +24,6 @@ import OrderPage from "../admin/components/orderPage/OrderPage";
 import OrderBill from "../admin/components/orderPage/OrderBill";
 import Admins from "../admin/components/menagerAdmin/Admins";
 import Product from "../admin/components/products/Product";
-import Dialog from "../admin/components/menagerUser/Dialog";
 
 // ===============================
 import Users from "../admin/components/menagerUser/users";
@@ -65,7 +64,6 @@ const Links = () => {
                 <Route exact path="/orderpage/" Component={OrderPage}/>
                 <Route exact path="/orderbill/" Component={OrderBill}/>
                 <Route exact path="/product/" Component={Product}/>
-                <Route exact path="/dialog/" Component={Dialog}/>
                 <Route exact path="/users/user/" Component={User}/>
                 <Route exact path="/admins/" Component={Admins}/>
                 <Route exact path="/admins/admin/" Component={Admin}/>

@@ -244,6 +244,7 @@ const Post = () => {
                                     />
                                 </div>
                             </div>
+                            
                         </div>
                         <div className="submit1">
                             <button type="submit" disabled={addColor == '' || gallery  == '' || image == ''}>Post</button>

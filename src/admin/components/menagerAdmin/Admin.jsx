@@ -4,8 +4,7 @@ import { FaAngleLeft } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { MdOutlineEdit } from 'react-icons/md';
 import { AiOutlineDelete } from 'react-icons/ai';
-import { useState, useRef} from 'react';
-import Dialog from "../menagerUser/Dialog";
+import { useState} from 'react';
 
 const Admin = () => {
     const [admins, setAdmins] = useState([
@@ -15,18 +14,6 @@ const Admin = () => {
         { adminID: 4, adminName:"Khammun", email: "khammun@gmail.com", phone: "02099887676", password: "******", confirmPassword: "******", images: [user] },
     ]);
 
-    // Dialog delete
-    const [dialog, setDialog] = useState({
-        message:'',
-        isLoading:false
-    })
-    const idadminRef = useRef();
-    const handleDialog = (message, isLoading) => {
-        setDialog({
-            message,
-            isLoading,
-        })
-    }
 
     // Get user ID
     const location = useLocation();
@@ -37,20 +24,34 @@ const Admin = () => {
         (admin) => admin.adminID === getId
     );
 
-    // Delete
-    const handleDelete = (adminID) => {
-        handleDialog('Are you sure you want to delete?',true);
-        idadminRef.current = adminID;
+
+    // Delete Admins
+    const [deleteAdminId, setDeleteAdminId] = useState(null);
+    const [isConfirmationPopupOpen, setConfirmationPopupOpen] = useState(false);
+
+    const openConfirmationPopup = (adminID) => {
+        setDeleteAdminId(adminID);
+        setConfirmationPopupOpen(true);
     };
 
-    const areUSuredelete = (choose) => {
-        if(choose) {
-            setAdmins(admins.filter((admin) => admin.adminID !== idadminRef.current));
-            handleDialog("",false)
-        }else{
-            handleDialog("",false)
+    const closeConfirmationPopup = () => {
+        setDeleteAdminId(null);
+        setConfirmationPopupOpen(false);
+    };
+    const deleteAdmin = () => {
+        if (deleteAdminId !== null) {
+          // Filter out the product with the specified ID
+          const updatedAdmins = admins.filter(
+            (admin) => admin.adminID !== deleteAdminId
+          );
+    
+          // Update the state with the new array of products
+          setAdmins(updatedAdmins);
+    
+          // Close the confirmation popup after deleting
+          closeConfirmationPopup();
         }
-    }
+    };
 
     // Update
     const navigate = useNavigate();
@@ -84,7 +85,7 @@ const Admin = () => {
                             <div>Password: {admin.password}</div>
                             <div>Password: {admin.confirmPassword}</div>
                             <div className='del-update'>
-                                <div onDialog={areUSuredelete} className='del' onClick={() => handleDelete(admin.adminID)}>
+                                <div className='del' onClick={() => openConfirmationPopup(admin.adminID)}>
                                     <AiOutlineDelete/>
                                 </div>
                                 <div className='update upd' onClick={() => handleUpdate(admin.adminID)}>
@@ -99,7 +100,19 @@ const Admin = () => {
                 ))}
                 
             </section>
-            { dialog.isLoading && <Dialog onDialog={areUSuredelete} message={dialog.message}/>}
+            {isConfirmationPopupOpen && (
+              <div className="confirmation-popup">
+                <p>Are you sure you want to delete?</p>
+                <div className="btn_ok_on">
+                  <button onClick={deleteAdmin} className="btn_yes">
+                    Yes
+                  </button>
+                  <button onClick={closeConfirmationPopup} className="btn_on">
+                    No
+                  </button>
+                </div>
+              </div>
+            )}
         </>
     )
 }
