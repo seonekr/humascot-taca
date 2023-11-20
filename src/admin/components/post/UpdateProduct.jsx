@@ -1,18 +1,25 @@
-import "./product.css";
+import React, { useState, useEffect, useRef } from "react";
+import AdminMenu from "../adminMenu/AdminMenu";
 import dress from "../../../img/dress.png";
 import image1 from "../../../img/image1.png";
 import acer from "../../../img/acer.png";
 import productImage from "../../../img/productImage.png";
-import { Link } from "react-router-dom";
-import { useState } from "react";
-import AdminMenu from "../adminMenu/AdminMenu";
-import { BiPlus } from "react-icons/bi";
-import { IoSearchOutline } from "react-icons/io5";
-import { MdOutlineEdit } from "react-icons/md";
-import { AiOutlineDelete, AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
-import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
-const Product = () => {
+import "./post.css";
+
+const UpdateProduct = () => {
+  const [productName, setProductName] = useState("");
+  const [productType, setProductType] = useState("");
+  const [price, setPrice] = useState("");
+  const [details, setDetails] = useState("");
+  const [popular, setPopular] = useState(false);
+  const [gallery, setGallery] = useState([]);
+  const [addColor, setAddColor] = useState([]);
+  const [colorInput, setColorInput] = useState("");
+  const [mainImage, setMainImage] = useState(null);
+  const fileInputRef = useRef(null);
+
   const [products, setProducts] = useState([
     {
       productID: 1,
@@ -578,173 +585,300 @@ const Product = () => {
     },
   ]);
 
-  const [filteredProducts, setFilteredProducts] = useState(products);
-  const [searchTerm, setSearchTerm] = useState("");
+//   Get product ID
+const location = useLocation();
+const { sendProductID } = location?.state || {};
 
-  // prev next button user in react
-  const [currentPage, setCurrentPage] = useState(1);
-  const recordsPerPage = 8;
-  const lastIndex = currentPage * recordsPerPage;
-  const firstIndex = lastIndex - recordsPerPage;
-  const records = filteredProducts.slice(firstIndex, lastIndex);
-  const npage = Math.ceil(filteredProducts.length / recordsPerPage);
-  const numbers = [...Array(npage + 1).keys()].slice(1);
 
-  // Delete product
-  const [deleteProductId, setDeleteProductId] = useState(null);
-  const [isConfirmationPopupOpen, setConfirmationPopupOpen] = useState(false);
+  // Effect to fetch and set details of Product
+  useEffect(() => {
+  
+    // Find the product with the specified ID
+    const productToUpdate = products.find((product) => product.productID === parseInt(sendProductID));
+  
+    if (productToUpdate) {
+      // Set state variables with details of the found product
+      setProductName(productToUpdate.productName);
+      setProductType(productToUpdate.productType);
+      setPrice(productToUpdate.price);
+      setDetails(productToUpdate.description);
+      setPopular(productToUpdate.popular);
+      setAddColor(productToUpdate.colors.map((color) => color.colorName));
+      setGallery(productToUpdate.images.slice(1)); // Exclude the first image
+    }
+  }, [products, sendProductID]); // Run this effect whenever the products array or sendProductID changes
 
-  const openConfirmationPopup = (productId) => {
-    setDeleteProductId(productId);
-    setConfirmationPopupOpen(true);
+  // Handle form submission
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Log the form data to the console
+    console.log("Form Data:", {
+      productName,
+      productType,
+      price,
+      details,
+      popular,
+      colors: addColor,
+      gallery: gallery.map((image) =>
+        image instanceof File ? "File: " + image.name : "URL: " + image.src
+      ),
+      mainImage:
+        mainImage instanceof File
+          ? "File: " + mainImage.name
+          : "URL: " + mainImage,
+    });
+
+    // Reset form fields if needed
+    setProductName("");
+    setProductType("");
+    setPrice("");
+    setDetails("");
+    setPopular(false);
+    setAddColor([]);
+    setGallery([]);
+    setMainImage(null);
   };
 
-  const closeConfirmationPopup = () => {
-    setDeleteProductId(null);
-    setConfirmationPopupOpen(false);
+  // Handle input change for color input
+  const handleInputChange = (e) => {
+    setColorInput(e.target.value);
   };
 
-  const deleteProduct = () => {
-    if (deleteProductId !== null) {
-      // Filter out the product with the specified ID
-      const updatedProducts = products.filter(
-        (product) => product.productID !== deleteProductId
-      );
-
-      // Update the state with the new array of products
-      setProducts(updatedProducts);
-
-      // Close the confirmation popup after deleting
-      closeConfirmationPopup();
+  // Handle key press for color input
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      handleEnterClick();
     }
   };
 
-  // Send ID product for update
-  const navigate = useNavigate();
-  // Update products
-  const handleUpdate = (sendProductID) => {
-    navigate("/updateproduct/", { state: { sendProductID: sendProductID } });
+  // Handle click for adding color
+  const handleEnterClick = () => {
+    if (colorInput.trim() !== "") {
+      setAddColor([...addColor, colorInput]);
+      setColorInput("");
+    }
   };
 
-  // Function to handle search by product name
-  const handleSearch = () => {
-    const filtered = products.filter((product) =>
-      product.productName.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    setFilteredProducts(filtered);
+  // Handle image selection for the main product image
+  const handleImage = (e) => {
+    const file = e.target.files[0];
+
+    if (file) {
+      setMainImage(URL.createObjectURL(file)); // Use createObjectURL directly
+    }
   };
+
+  const handleImageUpload = (e) => {
+    const uploadedGallery = Array.from(e.target.files);
+    setGallery([...gallery, ...uploadedGallery]);
+  };
+
+  // Handle click for removing color
+  const handleTagDelete = (index) => {
+    const newTags = addColor.filter((_, i) => i !== index);
+    setAddColor(newTags);
+  };
+
+  // Handle checked popular
+  const handlePopular = (event) => {
+    setPopular(event.target.checked);
+  };
+
+  // handle Product name
+  const handleProductName = (e) => {
+    const value = e.target.value;
+    setProductName(value);
+  };
+  // handle Product type
+  const handleProductType = (e) => {
+    const value = e.target.value;
+    setProductType(value);
+  };
+  // handle Product price
+  const handleProductPrice = (e) => {
+    const value = e.target.value;
+    setPrice(value);
+  };
+
+  // handle Product details
+  const handleProductDetails = (e) => {
+    const value = e.target.value;
+    setDetails(value);
+  };
+
+  // Handle click for removing image from the gallery
+  const handleImageDelete = (index) => {
+    const newGallery = [...gallery];
+    newGallery.splice(index, 1);
+    setGallery(newGallery);
+  };
+  // Update......
 
   return (
     <>
       <AdminMenu />
-      <section id="product_admin">
-        <div className="container_body_admin_product">
-          <div className="search-box_product">
-            <input
-              type="text"
-              placeholder="Search ..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-            <button>
-              <IoSearchOutline onClick={handleSearch} />
-            </button>
+      <section id="post">
+        <div className="boxcontainerSpan_Box"></div>
+        <div className="box_container_product">
+          <div className="box_text">
+            <h2>Update Product</h2>
           </div>
 
-          <div className="productHead_content">
-            <h1 className="htxthead">
-              <span className="spennofStyleadmin"></span>Product
-            </h1>
-            <div className="categoryBoxfiler">
-              <Link to="/post/" className="box_add_product">
-                <BiPlus id="icon_add_product" />
-                <p>Add Product</p>
-              </Link>
-            </div>
-          </div>
+          {/* The form to update the product */}
+          <form onSubmit={handleSubmit} className="edit-product-form">
+            <div className="input-box">
+              <div className="box">
+                <label htmlFor="productName">Product name</label>
+                <input
+                  type="text"
+                  id="productName"
+                  placeholder="Name"
+                  value={productName}
+                  onChange={handleProductName}
+                  required
+                />
+              </div>
+              <div className="box">
+                <label htmlFor="productType">Product type</label>
+                <input
+                  type="text"
+                  id="productType"
+                  placeholder="Type"
+                  value={productType}
+                  onChange={handleProductType}
+                  required
+                />
+              </div>
+              <div className="box">
+                <label htmlFor="price">Price</label>
+                <input
+                  type="text"
+                  id="price"
+                  placeholder="Price"
+                  value={price}
+                  onChange={handleProductPrice}
+                  required
+                />
+              </div>
 
-          <div className="product-area">
-            {records.map((product, index) => (
-              <div className="box-product" key={index}>
-                <div>
-                  <img src={product.images[0].src} alt="image" />
+              <div>
+                <div className="box">
+                  <label htmlFor="details">Details</label>
+                  <textarea
+                    id="details"
+                    rows="5"
+                    value={details}
+                    onChange={handleProductDetails}
+                    required
+                  ></textarea>
                 </div>
-                <ul className="txtOFproduct">
-                  <li>{product.productName}</li>
-                  <li>{product.description}</li>
-                  <li>{product.price}</li>
-                  <div className="box_btn_edit_delete">
-                    <button
-                      className="btn_icon_delete_user"
-                      onClick={() => openConfirmationPopup(product.productID)}
-                    >
-                      <AiOutlineDelete id="btn_icon_edit" />
-                    </button>
-                    <div
-                      className="btn_icon_edit_user"
-                      onClick={() => handleUpdate(product.productID)}
-                    >
-                      <MdOutlineEdit id="btn_icon_edit" />
+              </div>
+              <div className="popular">
+                <label htmlFor="popular">Popular product</label>
+                <input
+                  type="checkbox"
+                  id="popular"
+                  checked={popular}
+                  onChange={handlePopular}
+                />
+              </div>
+
+              {/* Add Color Box */}
+              <div className="colorBox_chContainer">
+                <h1>Color:</h1>
+                <div className="addcolor_container">
+                  {addColor.map((colorB, index) => (
+                    <div className="Card_boxColor" key={index}>
+                      {colorB}
+                      <span
+                        className="spanCancelBox"
+                        onClick={() => handleTagDelete(index)}
+                      >
+                        ×
+                      </span>
                     </div>
-                  </div>
-                </ul>
-              </div>
-            ))}
-            {isConfirmationPopupOpen && (
-              <div className="confirmation-popup">
-                <p>Are you sure you want to delete?</p>
-                <div className="btn_ok_on">
-                  <button onClick={deleteProduct} className="btn_yes">
-                    Yes
-                  </button>
-                  <button onClick={closeConfirmationPopup} className="btn_on">
-                    No
-                  </button>
+                  ))}
+                </div>
+                <div className="addcolorContent">
+                  <input
+                    className="inputBoxaddcolor"
+                    type="text"
+                    value={colorInput}
+                    onChange={handleInputChange}
+                    onKeyDown={handleKeyPress}
+                    placeholder="Write your color..."
+                  />
+                  <a className="btn_addcolorbox" onClick={handleEnterClick}>
+                    Enter
+                  </a>
                 </div>
               </div>
-            )}
-          </div>
-          <div className="box_container_next_product">
-            <button className="box_prev_left_product" onClick={prePage}>
-              <AiOutlineLeft id="box_icon_left_right_product" />
-              <p>Prev</p>
-            </button>
-
-            <div className="box_num_product">
-              {numbers.map((n, i) => (
-                <div
-                  className={`page-link ${currentPage === n ? "active" : ""}`}
-                  key={i}
-                >
-                  <div className="num_admin_product">
-                    <p onClick={() => changeCPage(n)}>{n}</p>
-                  </div>
-                </div>
-              ))}
+              {/* End Add Color Box */}
             </div>
 
-            <button className="box_prev_right_product" onClick={nextPage}>
-              <p>Next</p>
-              <AiOutlineRight id="box_icon_left_right_product" />
-            </button>
-          </div>
+            <div className="input-img">
+              <div className="gallery">
+                <h3>Image gallery</h3>
+                <div className="gallery-box">
+                  <input
+                    type="file"
+                    id="gallery"
+                    multiple
+                    onChange={handleImageUpload}
+                    ref={fileInputRef}
+                  />
+                  {gallery.map((image, index) => (
+                    <div key={index}>
+                      <img
+                        src={
+                          image instanceof File
+                            ? URL.createObjectURL(image)
+                            : image.src
+                        }
+                        alt={`Image ${index}`}
+                      />
+                      <button
+                        type="button"
+                        onClick={() => handleImageDelete(index)}
+                      >
+                        Remove
+                      </button>
+                    </div>
+                  ))}
+                  {gallery && gallery.length > 0 ? (
+                    <label htmlFor="gallery" className="add-more">
+                      +
+                    </label>
+                  ) : (
+                    <label htmlFor="gallery" className="add-gallery">
+                      Choose gallery
+                    </label>
+                  )}
+                </div>
+              </div>
+              <div className="box_description">
+                <h3>Description image</h3>
+                <div className="image">
+                  <label htmlFor="img">
+                    {mainImage ? (
+                      <img src={mainImage} alt="Main Product" />
+                    ) : (
+                      <p>Choose image</p>
+                    )}
+                  </label>
+                  <input type="file" id="img" onChange={handleImage} />
+                </div>
+              </div>
+            </div>
+            <div className="submit1">
+              <button type="submit">Update</button>
+            </div>
+          </form>
         </div>
       </section>
     </>
   );
-  function prePage() {
-    if (currentPage !== 1) {
-      setCurrentPage(currentPage - 1);
-    }
-  }
-  function nextPage() {
-    if (currentPage !== npage) {
-      setCurrentPage(currentPage + 1);
-    }
-  }
-  function changeCPage(userID) {
-    setCurrentPage(userID);
-  }
 };
 
-export default Product;
+export default UpdateProduct;
