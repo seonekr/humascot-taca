@@ -4,9 +4,11 @@ import Category from "./Category";
 import ProductHome from "../products/ProductHome";
 import Menu from "../menu/Menu";
 import "./home.css";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const token = localStorage.getItem("token");
+  const navigate = useNavigate();
 
   useEffect(() => {
     var myHeaders = new Headers();
@@ -22,9 +24,20 @@ const Home = () => {
       .then((response) => response.json())
       .then((result) => {
         if (result.Status === "Success") {
-          localStorage.setItem("userID", result.decoded.id);
+          console.log(result.decoded.urole);
+          if (result.decoded.urole === "Customer") {
+            localStorage.setItem("userID", result.decoded.id);
+            return;
+          } else {
+            localStorage.removeItem("token");
+            localStorage.removeItem("userID");
+            navigate("/");
+            return;
+          }
         } else {
           localStorage.removeItem("userID");
+          navigate("/");
+          return;
         }
       })
       .catch((error) => console.log("error", error));

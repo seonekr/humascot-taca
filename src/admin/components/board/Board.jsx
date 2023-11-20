@@ -4,7 +4,6 @@ import { BsHandbagFill } from "react-icons/bs";
 import { TbShoppingCartStar } from "react-icons/tb";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import axios from "axios";
 
 
 const Board = () => {

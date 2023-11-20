@@ -74,7 +74,7 @@ app.post("/admin/register", jsonParser, (req, res) => {
                 Status: "Error",
                 Error: "Errer in running sql when adding admin",
               });
-              
+
               // For delete the last register id when customers adding wrong
               const sql3 = "DELETE FROM register WHERE id = ?";
 
@@ -266,18 +266,26 @@ app.post("/login", jsonParser, (req, res) => {
           if (err) return res.json({ Error: "Password error" });
           if (response) {
             if (result[0].urole === "Admin") {
-              const token = jwt.sign({ id: result[0].id, email: result[0].email }, secret, {
-                expiresIn: "1d",
-              });
+              const token = jwt.sign(
+                { id: result[0].id, email: result[0].email, urole: "Admin" },
+                secret,
+                {
+                  expiresIn: "1d",
+                }
+              );
               return res.json({
                 Status: "Success",
                 urole: "Admin",
                 token: token,
               });
             } else {
-              const token = jwt.sign({ id: result[0].id, email: result[0].email }, secret, {
-                expiresIn: "1d",
-              });
+              const token = jwt.sign(
+                { id: result[0].id, email: result[0].email, urole: "Customer" },
+                secret,
+                {
+                  expiresIn: "1d",
+                }
+              );
               return res.json({
                 Status: "Success",
                 urole: "Customer",
