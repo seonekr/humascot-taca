@@ -203,10 +203,6 @@
 }
 
 @media screen and (max-width: 431px) {
-    .headMenu .logo1 img {
-        width: 5%;
-    }
-
     .headWithBox {
         padding: 0 10px;
     }
