@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { MdOutlineEdit } from "react-icons/md";
 import { AiOutlineDelete } from "react-icons/ai";
 import { useState, useEffect } from "react";
+import user from "../../../img/user.png";
 
 const Admin = () => {
   const [adminDetail, setAdminDetail] = useState([]);
@@ -13,27 +14,23 @@ const Admin = () => {
 
   // For get user by id
   useEffect(() => {
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-
     var requestOptions = {
       method: "GET",
-      headers: myHeaders,
       redirect: "follow",
     };
 
-    fetch(import.meta.env.VITE_API + "/getCustomer/" + id, requestOptions)
+    fetch("http://localhost:5000/getAdmin/" + id, requestOptions)
       .then((response) => response.json())
       .then((result) => {
         if (result.Status === "Success") {
-          setUserDetail(result.Result[0]);
-          console.log(userDetail);
-        }
+            setAdminDetail(result.Result[0]);
+            console.log(adminDetail);
+          }
       })
       .catch((error) => console.log("error", error));
   }, []);
 
-  const UserDelete = (id) => {
+  const AdminDelete = (id) => {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
@@ -61,12 +58,11 @@ const Admin = () => {
         </div>
         <div className="userInfo">
           <div className="info">
-            <div>User ID: </div>
-            <div>User Name: </div>
-            <div>User Email: </div>
-            <div>User Phone number: </div>
-            <div>Password: </div>
-            <div>Password: </div>
+            <div>User ID: {adminDetail.id}</div>
+            <div>User Name: {adminDetail.fname} {adminDetail.lname}</div>
+            <div>User Email: {adminDetail.email}</div>
+            <div>User Phone number: {adminDetail.tel}</div>
+            <div>Password: ********</div>
             <div className="del-update">
               <div className="del">
                 <AiOutlineDelete />
@@ -77,7 +73,11 @@ const Admin = () => {
             </div>
           </div>
           <div className="img">
-            <img src="" alt="image" />
+          {adminDetail.profile_image ? (
+              <img src={adminDetail.profile_image} alt="admin profile" />
+            ) : (
+              <img src={user} alt="admin profile" />
+            )}
           </div>
         </div>
       </section>
