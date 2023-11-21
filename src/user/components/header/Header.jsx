@@ -71,7 +71,7 @@ const Header = ({ handleSearch }) => {
                     <FaCartShopping className="head_colorr" />
                   </Link>
                 ) : (
-                  <Link to="/login">
+                  <Link to="/cart">
                     <FaCartShopping className="head_colorr" />
                   </Link>
                 )}
