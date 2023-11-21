@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './AlertSignup.css';
 import 'boxicons';
 import { Link } from 'react-router-dom';
 import { IoMdAlert } from "react-icons/io";
