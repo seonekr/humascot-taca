@@ -15,23 +15,10 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const AdminMenu = () => {
-  // const location = useLocation();
-
-  // const menuItems = [
-  //   { label: 'Dashboard', path: '/dashboard/', icon: <RxDashboard /> },
-  //   { label: 'Products', path: '/product/', icon: <IoDocumentText /> },
-  //   { label: 'Orders', path: '/orderpage/', icon: <MdOutlineSell /> },
-  //   { label: 'Users', path: '/users/',  icon: <BiUser />},
-  //   { label: 'Admins', path: '/admins/', icon: <LiaUserCogSolid /> },
-  //   { label: 'Log Out', path: '/', icon: <IoLogOutOutline /> },
-  // ];
-
-  // Are you sure you want to logout
   const [showConfirmation, setShowConfirmation] = useState(false);
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    // Perform logout logic here
     localStorage.removeItem("token");
     localStorage.removeItem("userID");
     console.log("Logged out")
@@ -52,12 +39,6 @@ const AdminMenu = () => {
       <section id="dashboard">
         <div className="left">
           <div className="menu">
-            {/* {menuItems.map((menuItem) => (
-              <Link key={menuItem.label} to={menuItem.path} className={`link ${location.pathname === menuItem.path ? 'active' : ''}`}>
-                {menuItem.icon}
-                <p>{menuItem.label}</p>
-              </Link>
-            ))} */}
 
             <NavLink to="/dashboard" className="link">
               <RxDashboard />
