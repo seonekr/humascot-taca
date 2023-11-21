@@ -194,7 +194,7 @@ const OrderBill = () => {
         {filteredOrders.map((order) => (
           <div className="abill-detial" key={order.orderID}>
             <div className='container_add_admin'>
-              <Link to="/orderpage/" className='box_guopIconbAck'>
+              <Link to="/orderpage" className='box_guopIconbAck'>
                 <FaAngleLeft id='box_icon_Back' />
                 <p>Back</p>
               </Link>

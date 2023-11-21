@@ -597,7 +597,7 @@ const ProductHome = () => {
 
   // Handle product
   const handleProduct = (sendProductID) => {
-    navigate("/product_search/productdetails/", {
+    navigate("/product_search/productdetails", {
       state: { sendProductID: sendProductID },
     });
   };

@@ -27,7 +27,7 @@ const Admins = () => {
                 <div className='container_box_users'>
                     <div className='box_users'>
                         <div className='box_add_admin'>
-                            <Link to="/addadmin/" className='btn_addadmin'>
+                            <Link to="/addadmin" className='btn_addadmin'>
                                 <BiPlus id="icon_add_admin"/>
                                 Add Admin
                             </Link>
@@ -48,7 +48,7 @@ const Admins = () => {
 
                     
                     <div className='box_users_admin' >
-                        <Link to='/admins/admin/' className='box_admin_text'>
+                        <Link to='/admins/admin' className='box_admin_text'>
                             <img src='' alt='img'></img>
                             <div className='container_chat_name'>
                                 <p>Name: Sompong</p>
@@ -57,7 +57,7 @@ const Admins = () => {
                         </Link>
                     </div>
                     <div className='box_users_admin' >
-                        <Link to='/admins/admin/' className='box_admin_text'>
+                        <Link to='/admins/admin' className='box_admin_text'>
                             <img src='' alt='img'></img>
                             <div className='container_chat_name'>
                                 <p>Name: Sompong</p>

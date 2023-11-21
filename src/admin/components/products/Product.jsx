@@ -43,7 +43,7 @@ const Product = () => {
               <span className="spennofStyleadmin"></span>Product
             </h1>
             <div className="categoryBoxfiler">
-              <Link to="/post/" className="box_add_product">
+              <Link to="/post" className="box_add_product">
                 <BiPlus id="icon_add_product" />
                 <p>Add Product</p>
               </Link>
@@ -64,7 +64,7 @@ const Product = () => {
                     className="btn_icon_delete_user" >
                     <AiOutlineDelete id="btn_icon_edit" />
                   </button>
-                  <Link to='/updateproduct/' className="btn_icon_edit_user">
+                  <Link to='/updateproduct' className="btn_icon_edit_user">
                     <MdOutlineEdit id="btn_icon_edit" />
                   </Link>
                 </div>
@@ -84,7 +84,7 @@ const Product = () => {
                     className="btn_icon_delete_user" >
                     <AiOutlineDelete id="btn_icon_edit" />
                   </button>
-                  <Link to='/updateproduct/' className="btn_icon_edit_user">
+                  <Link to='/updateproduct' className="btn_icon_edit_user">
                     <MdOutlineEdit id="btn_icon_edit" />
                   </Link>
                 </div>
@@ -103,7 +103,7 @@ const Product = () => {
                     className="btn_icon_delete_user" >
                     <AiOutlineDelete id="btn_icon_edit" />
                   </button>
-                  <Link to='/updateproduct/' className="btn_icon_edit_user">
+                  <Link to='/updateproduct' className="btn_icon_edit_user">
                     <MdOutlineEdit id="btn_icon_edit" />
                   </Link>
                 </div>
@@ -122,7 +122,7 @@ const Product = () => {
                     className="btn_icon_delete_user" >
                     <AiOutlineDelete id="btn_icon_edit" />
                   </button>
-                  <Link to='/updateproduct/' className="btn_icon_edit_user">
+                  <Link to='/updateproduct' className="btn_icon_edit_user">
                     <MdOutlineEdit id="btn_icon_edit" />
                   </Link>
                 </div>

@@ -170,7 +170,7 @@ const Bill = () => {
     <>
       <Header></Header>
       <section id="bill">
-        <Link to="/order/" className="box_container_back_icons_back">
+        <Link to="/order" className="box_container_back_icons_back">
           <IoIosArrowBack id="icons_back" />
           <p>Back</p>
         </Link>

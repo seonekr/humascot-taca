@@ -52,7 +52,7 @@ const OrderPage = () => {
                 <div className='btn_pending'>
                     Pending
                 </div>
-                <Link to='/orderbill/' className='btn_view' >
+                <Link to='/orderbill' className='btn_view' >
                     View
                 </Link>
             </div>
@@ -71,7 +71,7 @@ const OrderPage = () => {
                 <div className='btn_pending'>
                     Pending
                 </div>
-                <Link to='/orderbill/' className='btn_view' >
+                <Link to='/orderbill' className='btn_view' >
                     View
                 </Link>
             </div>

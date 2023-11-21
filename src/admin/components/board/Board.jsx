@@ -78,7 +78,7 @@ const Board = () => {
                       <p>Porducts</p>
                     </div>
                     <h2>{productCount}</h2>
-                    <Link to="/product/" className="txtcol">
+                    <Link to="/product" className="txtcol">
                       View More
                     </Link>
                   </div>
@@ -88,7 +88,7 @@ const Board = () => {
                       <p>Orders</p>
                     </div>
                     <h2>{orderCount}</h2>
-                    <Link to="/orderpage/" className="txtcol">
+                    <Link to="/orderpage" className="txtcol">
                       <p>View More</p>
                     </Link>
                   </div>
@@ -98,7 +98,7 @@ const Board = () => {
                       <p>Users</p>
                     </div>
                     <h2>{userAccount}</h2>
-                    <Link to="/users/" className="txtcol">
+                    <Link to="/users" className="txtcol">
                       <p>View More</p>
                     </Link>
                   </div>
@@ -108,7 +108,7 @@ const Board = () => {
                       <p>Admins</p>
                     </div>
                     <h2>{adminCount}</h2>
-                    <Link to="/admins/" className="txtcol">
+                    <Link to="/admins" className="txtcol">
                       <p>View More</p>
                     </Link>
                   </div>

@@ -40,7 +40,7 @@ const Users = () => {
                     </div>
                    
                     <div className='box_users_user' >
-                        <Link to='/users/user/' className='box_user_text'>
+                        <Link to='/users/user' className='box_user_text'>
                             <img src='' alt='image'></img>
                             <div className='container_chat_name'>
                                 <h4>Sompong</h4>
@@ -49,7 +49,7 @@ const Users = () => {
                         </Link>
                     </div>
                     <div className='box_users_user' >
-                        <Link to='/users/user/' className='box_user_text'>
+                        <Link to='/users/user' className='box_user_text'>
                             <img src='' alt='image'></img>
                             <div className='container_chat_name'>
                                 <h4>Sompong</h4>
