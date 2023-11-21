@@ -74,6 +74,8 @@ const Links = () => {
                 <Route exact path="/addadmin" Component={AddAdmin}/>
                 <Route exact path="/updateproduct" Component={UpdateProduct}/>
                 <Route exact path="/adminacount" Component={Admin_acount}/>
+                <Route exact path="/updateproduct" Component={UpdateProduct}/>
+
             </Routes>
         </Router>
     );

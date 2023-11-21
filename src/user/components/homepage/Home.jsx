@@ -24,11 +24,7 @@ const Home = () => {
       .then((response) => response.json())
       .then((result) => {
         if (result.Status === "Success") {
-          console.log(result.decoded.urole);
-          if (result.decoded.urole === "Customer") {
-            localStorage.setItem("userID", result.decoded.id);
-            return;
-          } else {
+          if (result.decoded.urole !== "Customer") {
             localStorage.removeItem("token");
             localStorage.removeItem("userID");
             navigate("/");
