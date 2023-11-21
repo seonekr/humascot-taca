@@ -27,6 +27,7 @@ body {
     padding: 10px 45px;
     font-size: 1.2rem;
     border-radius: 7px;
+    cursor: pointer;
     color: #737791;
     font-weight: 400;
 

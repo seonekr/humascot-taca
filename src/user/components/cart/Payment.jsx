@@ -127,7 +127,7 @@ const Payment = () => {
               )}
               {/* Procuts Cart */}
               {productsCart.length > 0 ? (
-                <div>
+                <div className="detailsProductInPayMentBox">
                   <ul>
                     {productsCart.map((product) => (
                       <li key={product.productID}>

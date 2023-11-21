@@ -9,63 +9,80 @@ import { LiaUserCogSolid } from "react-icons/lia";
 import { RxDashboard } from "react-icons/rx";
 import { MdOutlineSell } from "react-icons/md";
 import user from "../../../img/user.png";
-import Logo1 from "../../../img/Logo1.png";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import Dialog from "../menagerUser/Dialog";
+import Logo1 from '../../../img/Logo1.png'
+import { NavLink } from "react-router-dom";
+import { useState } from "react";
 
 const AdminMenu = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
+  // const location = useLocation();
 
-  const handleLogout = (event) => {
-    event.preventDefault();
-    localStorage.removeItem("token");
-    localStorage.removeItem("userID");
-    navigate("/");
+  // const menuItems = [
+  //   { label: 'Dashboard', path: '/dashboard/', icon: <RxDashboard /> },
+  //   { label: 'Products', path: '/product/', icon: <IoDocumentText /> },
+  //   { label: 'Orders', path: '/orderpage/', icon: <MdOutlineSell /> },
+  //   { label: 'Users', path: '/users/',  icon: <BiUser />},
+  //   { label: 'Admins', path: '/admins/', icon: <LiaUserCogSolid /> },
+  //   { label: 'Log Out', path: '/', icon: <IoLogOutOutline /> },
+  // ];
+
+
+  // Are you sure you want to logout
+  const [showConfirmation, setShowConfirmation] = useState(false);
+
+  const handleLogout = () => {
+    // Perform logout logic here
+    console.log('Log Out');
   };
 
-  const menuItems = [
-    { label: "Dashboard", path: "/dashboard/", icon: <RxDashboard /> },
-    { label: "Products", path: "/product/", icon: <IoDocumentText /> },
-    { label: "Orders", path: "/orderpage/", icon: <MdOutlineSell /> },
-    { label: "Users", path: "/users/", icon: <BiUser /> },
-    { label: "Admins", path: "/admins/", icon: <LiaUserCogSolid /> },
-  ];
+  const handleConfirmLogout = () => {
+    handleLogout();
+    setShowConfirmation(false);
+  };
 
-  // Function Log Out
+  const handleCancelLogout = () => {
+    setShowConfirmation(false);
+  };
 
   return (
     <>
       <section id="dashboard">
         <div className="left">
           <div className="menu">
-            {menuItems.map((menuItem) => (
-              <Link
-                key={menuItem.label}
-                to={menuItem.path}
-                className={`link ${
-                  location.pathname === menuItem.path ? "active" : ""
-                }`}
-              >
+            {/* {menuItems.map((menuItem) => (
+              <Link key={menuItem.label} to={menuItem.path} className={`link ${location.pathname === menuItem.path ? 'active' : ''}`}>
                 {menuItem.icon}
                 <p>{menuItem.label}</p>
               </Link>
-            ))}
-            <Link onClick={handleLogout} className="link">
-              <IoLogOutOutline />
-              <p>Log Out</p>
-            </Link>
+            ))} */}
+
+            <NavLink to="/dashboard/" className='link'><RxDashboard/><p>Dashboard</p></NavLink>
+            <NavLink to="/product/" className='link'><IoDocumentText/><p>Products</p></NavLink>
+            <NavLink to="/orderpage/" className='link'><MdOutlineSell/><p>Orders</p></NavLink>
+            <NavLink to="/users/" className='link'><BiUser/><p>Users</p></NavLink>
+            <NavLink to="/admins/" className='link'><LiaUserCogSolid/><p>Admins</p></NavLink>
+            <div onClick={() => setShowConfirmation(true)}  className='link'><IoLogOutOutline/><p>Log Out</p></div>
+            
+            
+            {showConfirmation  && (
+              <div className="confirmation-popup">
+                <p>Are you sure you want to logout?</p>
+                <div className="btn_ok_on">
+                  <button onClick={handleConfirmLogout} className="btn_yes">Yes</button>
+                  <button onClick={handleCancelLogout} className="btn_on">No</button>
+                </div>
+              </div>
+            )}
           </div>
           <div className="right">
-            <Link to="/dashboard/" className="logo">
+            <NavLink to="/dashboard/" className="logo">
               <span>
-                <img src={Logo1} alt="" />
+                <img src={Logo1} alt=""/>
               </span>
-            </Link>
+            </NavLink>
 
-            <Link to="/admins/admin" className="userAdminImage">
+            <NavLink to="/adminacount/" className="userAdminImage">
               <img src={user} alt="Logo_Profile" />
-            </Link>
+            </NavLink>
           </div>
         </div>
       </section>

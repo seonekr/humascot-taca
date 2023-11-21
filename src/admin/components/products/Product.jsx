@@ -623,7 +623,7 @@ const Product = () => {
   const navigate = useNavigate();
   // Update products
   const handleUpdate = (sendProductID) => {
-    navigate("/post/", { state: { sendProductID: sendProductID } });
+    navigate("/updateproduct/", { state: { sendProductID: sendProductID } });
   };
 
   // Function to handle search by product name

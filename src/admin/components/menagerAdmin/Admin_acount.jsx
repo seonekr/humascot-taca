@@ -4,18 +4,22 @@ import { Link } from 'react-router-dom';
 import { MdOutlineEdit } from 'react-icons/md';
 import { AiOutlineDelete } from 'react-icons/ai';
 
-const Admin = () => {
+
+const Admin_acount = () => {
+
+   
+
     return(
         <>
             <AdminMenu/>
-            <section id='user'>                                                                                                 
+            <section id='user'>
                 <div className="back">
                     <Link to="/admins/" className='link-back'>
                         <FaAngleLeft/>
                         Back
                     </Link>
                     <div>
-                        Admin
+                        Your informations
                     </div>
                 </div>
                 <div className="userInfo">
@@ -39,6 +43,7 @@ const Admin = () => {
                         <img src='' alt="image" />
                     </div>
                 </div>
+                
             </section>
 
               {/* <div className="confirmation-popup">
@@ -56,5 +61,4 @@ const Admin = () => {
     )
 }
 
-
-export default Admin;
+export default Admin_acount;

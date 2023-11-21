@@ -6,6 +6,7 @@ import { AiOutlineClose } from "react-icons/ai";
 import google from "../../../img/google.png";
 
 const Login = () => {
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -66,13 +67,13 @@ const Login = () => {
   return (
     <section>
       <form className="box_container_login2">
-        <div className="box_cancel_login">
-          <Link to="/">
-            <AiOutlineClose id="icon_cancel_login" />
-          </Link>
-        </div>
         <div className="cover">
-          <h2 className="box_container_login_text">Login</h2>
+          <div className="box_cancel_login">
+            <h2 className="box_container_login_text">Login</h2>
+            <Link to="/">
+              <AiOutlineClose id="icon_cancel_login" />
+            </Link>
+          </div>
           <h3>{error && error}</h3>
           <input
             className="input_form"
@@ -93,21 +94,23 @@ const Login = () => {
             Forgot Password?
           </Link>
 
-          <div className="loginbtn_login">
-            <Link onClick={handleSubmit} type="submit" className="login_btn">
-              Login
-            </Link>
+          <div className='loginbtn_login'>
+            <Link onClick={handleSubmit} type="submit" className="login_btn" >Login</Link>
           </div>
-
-          <p className="box_dont">
-            Don't have an account? <Link to="/register">Signup</Link>
-          </p>
-          <p>Or</p>
-          <div className="googlebtn_btn">
+          <div className='googlebtn_btn'>
+            <p className='box_dont'>
+              Don't have an account? <Link to="/register" className='loginmoreLink'>Signup</Link>
+            </p>
+            <p>Or</p>
             <Link to="#" className="google_btn">
-              <img src={google} alt="img" />
+              <img
+                src={google}
+                alt="img"
+              />
+
               <p>Login with Google</p>
             </Link>
+            <Link to="/alertLogin">Alarter page</Link>
           </div>
         </div>
       </form>

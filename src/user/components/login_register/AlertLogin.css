@@ -1,0 +1,25 @@
+.boxAlartLogin{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    background-color: rgb(240, 91, 46);
+    width: 100%;
+    height: auto;
+    padding: 0 20px;
+    border-radius: 7px;
+}
+
+.iconAlert{
+    font-size: 35px;
+    color: #fff;
+}
+
+.txtalert_p{
+    color: #fff;
+}
+.iconAlert_canCel{
+    color: #fff;
+    font-size: 35px;
+    cursor: pointer;
+}
