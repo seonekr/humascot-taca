@@ -180,13 +180,13 @@ app.post("/register", jsonParser, (req, res) => {
   const email = req.body.email;
   const urole = "Customer";
   const password = req.body.password;
-  const conPassword = req.body.conPassword;
+  const confirmPassword = req.body.confirmPassword;
   var reg_id = "";
   const fname = req.body.fname;
   const lname = req.body.lname;
   const tel = req.body.tel;
 
-  if (password === conPassword) {
+  if (password === confirmPassword) {
     bcrypt.hash(password, saltRounds, (err, hash) => {
       // For add register
       const sql1 = "INSERT INTO register (email, urole, password) VALUES (?)";

@@ -123,7 +123,7 @@ const Login = () => {
 
               <p>Login with Google</p>
             </Link>
-            <Link to="/alertLogin">Alarter page</Link>
+            {/* <Link to="/alertLogin">Alarter page</Link> */}
           </div>
         </div>
       </form>
