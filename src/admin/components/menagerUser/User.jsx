@@ -8,8 +8,6 @@ import user from "../../../img/user.png";
 
 const User = () => {
   const [userDetail, setUserDetail] = useState([]);
-  const [deleteUser, setDeleteUser] = useState(null);
-  const [isConfirmationPopupOpen, setConfirmationPopupOpen] = useState(false);
   const { id } = useParams();
 
   const navigate = useNavigate();
