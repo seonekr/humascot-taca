@@ -266,7 +266,7 @@ app.post("/login", jsonParser, (req, res) => {
           if (response) {
             if (result[0].urole === "Admin") {
               const token = jwt.sign(
-                { id: result[0].id, email: result[0].email, urole: "Admin" },
+                { email: result[0].email, urole: "Admin" },
                 secret,
                 {
                   expiresIn: "1d",
@@ -275,11 +275,12 @@ app.post("/login", jsonParser, (req, res) => {
               return res.json({
                 Status: "Success",
                 urole: "Admin",
+                userID: result[0].id,
                 token: token,
               });
             } else {
               const token = jwt.sign(
-                { id: result[0].id, email: result[0].email, urole: "Customer" },
+                { email: result[0].email, urole: "Customer" },
                 secret,
                 {
                   expiresIn: "1d",
@@ -288,6 +289,7 @@ app.post("/login", jsonParser, (req, res) => {
               return res.json({
                 Status: "Success",
                 urole: "Customer",
+                userID: result[0].id,
                 token: token,
               });
             }

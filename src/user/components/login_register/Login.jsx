@@ -42,11 +42,19 @@ const Login = () => {
       .then((response) => response.json())
       .then((result) => {
         if (result.Status === "Success") {
-          localStorage.setItem("token", result.token);
+          const token = result.token;
+          const userID = result.userID;
           if (result.urole === "Admin") {
+            localStorage.setItem("token", token);
+            localStorage.setItem("userID", userID);
             navigate("/dashboard");
-          } else {
+          } else if (result.urole === "Customer") {
+            localStorage.setItem("token", token);
+            localStorage.setItem("userID", userID);
             navigate("/");
+          } else {
+            setError(result.Error);
+            navigate("/login");
           }
         } else {
           setError(result.Error);

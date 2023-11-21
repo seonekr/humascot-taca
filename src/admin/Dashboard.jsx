@@ -22,10 +22,7 @@ const Dashboard = () => {
       .then((result) => {
         if (result.Status === "Success") {
           console.log(result.decoded.urole);
-          if (result.decoded.urole === "Admin") {
-            localStorage.setItem("userID", result.decoded.id);
-            return;
-          } else {
+          if (result.decoded.urole !== "Admin") {
             navigate("/login");
             return;
           }
