@@ -43,8 +43,6 @@ const AdminMenu = () => {
     setShowConfirmation(false);
   };
 
-
-  
   return (
     <>
       <section id="dashboard">
@@ -88,9 +86,7 @@ const AdminMenu = () => {
           </div>
         </div>
       </section>
-
     </>
-    
   );
 };
 
