@@ -4,8 +4,20 @@ import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 import AdminMenu from '../adminMenu/AdminMenu';
 import { IoSearchOutline } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 const OrderPage = () => {
+  const [orders, setOrders] = useState([]);
+
+   // prev next button user in react
+   const [currentPage, setCurrentPage] = useState(1);
+   const recordsPerPage = 8;
+   const lastIndex = currentPage * recordsPerPage;
+   const firstIndex = lastIndex - recordsPerPage;
+   const records = orders.slice(firstIndex, lastIndex);
+   const npage = Math.ceil(orders.length / recordsPerPage);
+   const numbers = [...Array(npage + 1).keys()].slice(1);
+
   return (
     <>
       <AdminMenu />
@@ -26,51 +38,88 @@ const OrderPage = () => {
             </form>
           </div>
           
-          <div>
-            <form className='box_users_order'>
-              <div className='box_order_text'>
-                <p>No: 1</p>
-                <div>
-                    <p>Name: Samsung</p>
+          <form className='box_users_order'>
+            <div className='box_order_text'>
+              <p>No: 1</p>
+              <div>
+                  <p>Name: Samsung</p>
+              </div>
+            </div>
+            <div className='box_container_time'>
+                <p>20/11/2023</p>
+            </div>
+            <div className='container_order_icon'>
+                <div className='btn_pending'>
+                    Pending
                 </div>
+                <Link to='/orderbill' className='btn_view' >
+                    View
+                </Link>
+            </div>
+          </form>
+          <form className='box_users_order'>
+            <div className='box_order_text'>
+              <p>No: 1</p>
+              <div>
+                  <p>Name: Samsung</p>
               </div>
-              <div className='box_container_time'>
-                  <p>20/11/2023</p>
-              </div>
-              <div className='container_order_icon'>
-                  <div className='btn_pending'>
-                      Pending
-                  </div>
-                  <Link to='/orderbill/' className='btn_view' >
-                      View
-                  </Link>
-              </div>
-            </form>
-          </div>
+            </div>
+            <div className='box_container_time'>
+                <p>20/11/2023</p>
+            </div>
+            <div className='container_order_icon'>
+                <div className='btn_pending'>
+                    Pending
+                </div>
+                <Link to='/orderbill' className='btn_view' >
+                    View
+                </Link>
+            </div>
+          </form>
+          
 
-          <div className='box_next_order'>
-            <button className='box_prev_next_order' >
-              <AiOutlineLeft id="box_prev_next_icon"/>
+          <div className="box_container_next_product">
+            <button className="box_prev_left_product" onClick={prePage}>
+              <AiOutlineLeft id="box_icon_left_right_product" />
               <p>Prev</p>
             </button>
-            <div className='box_num_order'>
-              <div className='num_admin'>
-                <p>1</p>
-              </div> 
-              <div className='num_admin'>
-                <p>2</p>
-              </div> 
+
+            <div className="box_num_product">
+              {numbers.map((n, i) => (
+                <div
+                  className={`page-link ${currentPage === n ? "active" : ""}`}
+                  key={i}
+                >
+                  <div className="num_admin_product">
+                    <p onClick={() => changeCPage(n)}>{n}</p>
+                  </div>
+                </div>
+              ))}
             </div>
-            
-            <button className='box_prev_nexts_order' >
+
+            <button className="box_prev_right_product" onClick={nextPage}>
               <p>Next</p>
-              <AiOutlineRight id="box_prev_next_icon" />
+              <AiOutlineRight id="box_icon_left_right_product" />
             </button>
           </div>
+
         </div>
       </section>
     </>
   )
+  function prePage() {
+    if (currentPage !== 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  }
+  function nextPage() {
+    if (currentPage !== npage) {
+      setCurrentPage(currentPage + 1);
+    }
+  }
+  function changeCPage(userID) {
+    setCurrentPage(userID);
+  }
 }
 
 export default OrderPage

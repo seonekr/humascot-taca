@@ -39,7 +39,6 @@ const AdminMenu = () => {
       <section id="dashboard">
         <div className="left">
           <div className="menu">
-
             <NavLink to="/dashboard" className="link">
               <RxDashboard />
               <p>Dashboard</p>
@@ -64,7 +63,6 @@ const AdminMenu = () => {
               <IoLogOutOutline />
               <p>Log Out</p>
             </div>
-
             {showConfirmation && (
               <div className="confirmation-popup">
                 <p>Are you sure you want to logout?</p>

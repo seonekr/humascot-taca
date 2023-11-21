@@ -10,7 +10,7 @@ const Admin = () => {
             <AdminMenu/>
             <section id='user'>                                                                                                 
                 <div className="back">
-                    <Link to="/admins/" className='link-back'>
+                    <Link to="/admins" className='link-back'>
                         <FaAngleLeft/>
                         Back
                     </Link>

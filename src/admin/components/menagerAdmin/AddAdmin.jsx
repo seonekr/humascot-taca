@@ -124,7 +124,7 @@ const AddAdmin = () => {
                 {!sendAdminId ? (
                     <div className='box_addAdmin'>
                         <div className='container_add_admin'> 
-                            <Link to="/admins/" className='box_guopIconbAck'>
+                            <Link to="/admins" className='box_guopIconbAck'>
                                 <FaAngleLeft id='box_icon_Back' />
                                 <p>Back</p>
                             </Link>
@@ -211,7 +211,7 @@ const AddAdmin = () => {
                         {filtereAdmin.map((admin) => (
                             <div className='box_addAdmin' key={admin.adminID}>
                                 <div className='container_add_admin'> 
-                                    <Link to="/admins/" className='box_guopIconbAck'>
+                                    <Link to="/admins" className='box_guopIconbAck'>
                                         <FaAngleLeft id='box_icon_Back' />
                                         <p>Back</p>
                                     </Link>

@@ -737,7 +737,7 @@ function ProductDetails() {
       <Header />
 
       <div className="contentBody">
-        <Link to="/product_search/" className="box_container_back_icons_back">
+        <Link to="/product_search" className="box_container_back_icons_back">
           <IoIosArrowBack id="icons_back" />
           <p>Back</p>
         </Link>

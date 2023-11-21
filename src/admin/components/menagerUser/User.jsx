@@ -10,7 +10,7 @@ const User = () => {
             <AdminMenu/>
             <section id='user'>
                 <div className="back">
-                    <Link to="/users/" className='link-back'>
+                    <Link to="/users" className='link-back'>
                         <FaAngleLeft id='icon_back_user'/>
                         Back
                     </Link>

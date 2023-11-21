@@ -2,7 +2,7 @@ import "./menu.css"
 import 'boxicons'
 import { Link } from "react-router-dom";
 import QrdownloadApp from '../../../img/QrdownloadApp.png'
-import {FaCartShopping, FaRegUser } from "react-icons/fa6";
+import {FaCartShopping} from "react-icons/fa6";
 import { HiOutlineHome } from "react-icons/hi";
 import { BsShop, BsClipboardCheck  } from "react-icons/bs";
 const Menu = () => {
@@ -62,11 +62,6 @@ const Menu = () => {
                 <Link to="/cart" className="box-menu">
                     <span className="iconMenuSpan"><FaCartShopping/></span><span>Cart</span>
                 </Link>
-                <Link to="/account" className="box-menu">
-                    <span className="iconMenuSpan"><FaRegUser/></span><span>Account</span>
-                </Link>
-                
-
             </div>
 
         </section>
