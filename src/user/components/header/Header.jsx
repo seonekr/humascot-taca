@@ -12,9 +12,9 @@ const Header = ({ handleSearch }) => {
 
   const menuItems = [
     { label: "Home", path: "/" },
-    { label: "Shop", path: "/product_search" },
-    { label: "Orders", path: userID ? "/order" : "/login" },
-    { label: "Contact", path: userID ? "/contacts" : "/login" },
+    { label: "Shop", path: "/product_search/" },
+    { label: "Orders", path: "/order/" },
+    { label: "Contact", path: "/contacts/" },
   ];
 
   const [searchTerm, setSearchTerm] = useState("");

@@ -97,6 +97,7 @@ a {
 }
 
 .txtOFproduct {
+    width: 80%;
     display: flex;
     padding: 10px;
     flex-direction: column;
