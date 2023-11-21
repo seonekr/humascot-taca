@@ -1,16 +1,44 @@
 import AdminMenu from "../adminMenu/AdminMenu";
 import { FaAngleLeft } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { MdOutlineEdit } from "react-icons/md";
 import { AiOutlineDelete } from "react-icons/ai";
+import { useState, useEffect } from "react";
 
 const Admin_acount = () => {
+  const [userDetail, setUserDetail] = useState([]);
+  const userID = localStorage.getItem("userID");
+
+  const navigate = useNavigate();
+
+  // For get user by id
+  useEffect(() => {
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+      redirect: "follow",
+    };
+
+    fetch(import.meta.env.VITE_API + "/getAdmin/" + userID, requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        if (result.Status === "Success") {
+          setUserDetail(result.Result[0]);
+          console.log(userDetail);
+        }
+      })
+      .catch((error) => console.log("error", error));
+  }, []);
+
   return (
     <>
       <AdminMenu />
       <section id="user">
         <div className="back">
-          <Link to="/admins/" className="link-back">
+          <Link to="/admins" className="link-back">
             <FaAngleLeft />
             Back
           </Link>
@@ -18,12 +46,11 @@ const Admin_acount = () => {
         </div>
         <div className="userInfo">
           <div className="info">
-            <div>User ID: </div>
-            <div>User Name: </div>
-            <div>User Email: </div>
-            <div>User Phone number: </div>
-            <div>Password: </div>
-            <div>Password: </div>
+            <div>User ID: {userDetail.id}</div>
+            <div>User Name: {userDetail.fname} {userDetail.lname}</div>
+            <div>User Email: {userDetail.email}</div>
+            <div>User Phone number: {userDetail.tel}</div>
+            <div>Password: ********</div>
             <div className="del-update">
               <div className="del">
                 <AiOutlineDelete />
@@ -39,17 +66,6 @@ const Admin_acount = () => {
         </div>
       </section>
 
-      {/* <div className="confirmation-popup">
-                <p>Are you sure you want to delete?</p>
-                <div className="btn_ok_on">
-                  <button  className="btn_yes">
-                    Yes
-                  </button>
-                  <button  className="btn_on">
-                    No
-                  </button>
-                </div>
-              </div> */}
     </>
   );
 };
