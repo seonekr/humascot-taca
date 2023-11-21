@@ -40,17 +40,17 @@ const Links = () => {
         <Router>
             <Routes>
                 <Route exact path="/" Component={Home}/>
-                <Route exact path="/account/" Component={Account}/>
-                <Route exact path="/account/general/" Component={General}/>
-                <Route exact path="/account/contact/" Component={Contact}/>
-                <Route exact path="/account/password/" Component={Password}/>
-                <Route exact path="/cart/payment/" Component={Payment}/>
-                <Route exact path="/cart/address/" Component={Address}/>
-                <Route exact path="/contacts/" Component={Contacts}/>
-                <Route exact path="/order/" Component={Order}/>
-                <Route exact path="/order/bill/" Component={Bill}/>
-                <Route exact path="/categories/" Component={Categories}/>
-                <Route exact path="/cart/successfulBuy/" Component={SuccessfulBuy}/>
+                <Route exact path="/account" Component={Account}/>
+                <Route exact path="/account/general" Component={General}/>
+                <Route exact path="/account/contact" Component={Contact}/>
+                <Route exact path="/account/password" Component={Password}/>
+                <Route exact path="/cart/payment" Component={Payment}/>
+                <Route exact path="/cart/address" Component={Address}/>
+                <Route exact path="/contacts" Component={Contacts}/>
+                <Route exact path="/order" Component={Order}/>
+                <Route exact path="/order/bill" Component={Bill}/>
+                <Route exact path="/categories" Component={Categories}/>
+                <Route exact path="/cart/successfulBuy" Component={SuccessfulBuy}/>
 
                 {/*==== phukeo ==== */}
                 <Route exact path="/product_search" Component={Product_search}/>
@@ -62,17 +62,18 @@ const Links = () => {
                 <Route exact path="/alertSignup" Component={AlertSignup}/>
 
                 {/* Admin routes */}
-                <Route exact path="/dashboard/" Component={Dashboard}/>
-                <Route exact path="/post/" Component={Post}/>
-                <Route exact path="/users/" Component={Users}/>
-                <Route exact path="/orderpage/" Component={OrderPage}/>
-                <Route exact path="/orderbill/" Component={OrderBill}/>
-                <Route exact path="/product/" Component={Product}/>
-                <Route exact path="/users/user/" Component={User}/>
-                <Route exact path="/admins/" Component={Admins}/>
-                <Route exact path="/admins/admin/" Component={Admin}/>
-                <Route exact path="/addadmin/" Component={AddAdmin}/>
-                <Route exact path="/updateproduct/" Component={UpdateProduct}/>
+                <Route exact path="/dashboard" Component={Dashboard}/>
+                <Route exact path="/post" Component={Post}/>
+                <Route exact path="/users" Component={Users}/>
+                <Route exact path="/orderpage" Component={OrderPage}/>
+                <Route exact path="/orderbill" Component={OrderBill}/>
+                <Route exact path="/product" Component={Product}/>
+                <Route exact path="/users/user" Component={User}/>
+                <Route exact path="/admins" Component={Admins}/>
+                <Route exact path="/adminacount" Component={Admin_acount}/>
+                <Route exact path="/admins/admin" Component={Admin}/>
+                <Route exact path="/addadmin" Component={AddAdmin}/>
+                <Route exact path="/updateproduct" Component={UpdateProduct}/>
             </Routes>
         </Router>
     );
