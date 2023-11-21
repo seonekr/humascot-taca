@@ -350,7 +350,7 @@ app.put("/updateCustomer/:id", jsonParser, (req, res) => {
 
 app.get("/deleteCustomer/:id", (req, res) => {
   const id = req.params.id;
-  const sql = "DELETE FROM customers WHERE id = ?";
+  const sql = "DELETE FROM register WHERE id = ?";
 
   connection.query(sql, [id], (err, result) => {
     if (err)
