@@ -139,13 +139,9 @@ const OrderBill = () => {
     { userID: 3, name: "Will", email: "wil@gmail.com" },
   ]);
 
-  // Get order ID
-  const location = useLocation();
-  const { id } = location.state || {};
-  const [getId, setGetId] = useState(id);
 
   const filteredOrders = orders
-    .filter((order) => order.orderID === getId) // Filter orders by orderID
+    .filter((order) => order.orderID === 1) // Filter orders by orderID
     .map((order) => {
       const user = users.find((user) => user.userID === order.userID); // Find user details for the order
 

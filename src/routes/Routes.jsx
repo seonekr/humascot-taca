@@ -16,6 +16,8 @@ import Categories from "../user/components/categories/Categories";
 
 /* ========= Phukeo ========= */
 import Login from '../user/components/login_register/Login';
+import AlertLogin from '../user/components/login_register/AlertLogin';
+import AlertSignup from '../user/components/login_register/AlertSignup';
 import Register from "../user/components/login_register/Register";
 import Order from "../user/components/order/Order";
 import Product_search from "../user/components/products/Product_search";
@@ -24,14 +26,14 @@ import OrderPage from "../admin/components/orderPage/OrderPage";
 import OrderBill from "../admin/components/orderPage/OrderBill";
 import Admins from "../admin/components/menagerAdmin/Admins";
 import Product from "../admin/components/products/Product";
-import Dialog from "../admin/components/menagerUser/Dialog";
 
 // ===============================
 import Users from "../admin/components/menagerUser/users";
 import User from "../admin/components/menagerUser/User";
 import Admin from "../admin/components/menagerAdmin/admin";
 import AddAdmin from "../admin/components/menagerAdmin/AddAdmin";
-
+import UpdateProduct from "../admin/components/post/UpdateProduct";
+import Admin_acount from "../admin/components/menagerAdmin/Admin_acount";
 
 const Links = () => {
     return(
@@ -56,6 +58,8 @@ const Links = () => {
                 <Route exact path="/login" Component={Login}/>
                 <Route exact path="/register" Component={Register}/>
                 <Route exact path="/cart" Component={Cart}/>
+                <Route exact path="/alertLogin" Component={AlertLogin}/>
+                <Route exact path="/alertSignup" Component={AlertSignup}/>
 
                 {/* Admin routes */}
                 <Route exact path="/dashboard/" Component={Dashboard}/>
@@ -64,11 +68,11 @@ const Links = () => {
                 <Route exact path="/orderpage/" Component={OrderPage}/>
                 <Route exact path="/orderbill/" Component={OrderBill}/>
                 <Route exact path="/product/" Component={Product}/>
-                <Route exact path="/dialog/" Component={Dialog}/>
                 <Route exact path="/users/user/" Component={User}/>
                 <Route exact path="/admins/" Component={Admins}/>
                 <Route exact path="/admins/admin/" Component={Admin}/>
                 <Route exact path="/addadmin/" Component={AddAdmin}/>
+                <Route exact path="/updateproduct/" Component={UpdateProduct}/>
             </Routes>
         </Router>
     );

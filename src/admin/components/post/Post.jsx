@@ -3,15 +3,15 @@ import AdminMenu from "../adminMenu/AdminMenu";
 import './post.css'
 
 const Post = () => {
-    const [image, setImage] = useState([])
+    const [mainImage, setMainImage] = useState(null);
     const [productName, setProductName] = useState('');
     const [productType, setProductType] = useState('');
     const [price, setPrice] = useState('');
     const [details, setDetails] = useState('');
     const [popular, setPopular] = useState(false);
+    const [gallery, setGallery] = useState([]);
 
     // Add gallery
-    const [gallery, setGallery] = useState([]);
 
 
     //Add Color Box
@@ -51,7 +51,7 @@ const Post = () => {
             "Product details": details,
             "Popular": popular,
             "Color": addColor,
-            "ImageDescroption": image,
+            "ImageDescroption": mainImage,
             "Gallery": gallery
 
         });
@@ -60,7 +60,7 @@ const Post = () => {
         setProductType('');
         setPrice('');
         setDetails('')
-        setImage([]);
+        setMainImage([]);
         setGallery([]);
         
     };
@@ -100,7 +100,7 @@ const Post = () => {
             const reader = new FileReader();
 
             reader.onloadend = () => {
-                setImage([file]);
+                setMainImage([file]);
             };
 
             reader.readAsDataURL(file);
@@ -122,9 +122,7 @@ const Post = () => {
       // Reset the input field value to allow adding new images
       fileInputRef.current.value = null;
     };
-  
 
-    // Update......
 
     return (
         <>
@@ -192,11 +190,12 @@ const Post = () => {
 
                             {/* Add Color Box */}
                             <div className="colorBox_chContainer">
-                                <h1>Color:</h1>
+                                <h1>Color:</h1> 
                                 <div className="addcolor_container">
-                                    {addColor.map((colorB, index) => (
+                                    {/* This is colors */}
+                                    {addColor.map((color, index) => (
                                         <div className="Card_boxColor" key={index}>
-                                            {colorB}
+                                            {color}
                                             <span className="spanCancelBox" onClick={() => handleTagDelete(index)}>×</span>
                                         </div>
                                     ))}
@@ -217,9 +216,10 @@ const Post = () => {
                                 <h3>Image gallery</h3>
                                 <div className="gallery-box">
                                   <input type="file" id="gallery" multiple onChange={handleImageUpload} ref={fileInputRef} />
+                                  {/* This is gallery images */}
                                   {gallery.map((image, index) => (
                                     <div key={image.name /* Use a unique identifier for each image */}>
-                                      <img src={URL.createObjectURL(image)} alt={`Image ${index}`} />
+                                      <img src={URL.createObjectURL(image)} alt={`Image ${index}`} required/>
                                       <button onClick={() => handleImageDelete(image)}>
                                         Remove
                                       </button>
@@ -228,19 +228,20 @@ const Post = () => {
                                   {(gallery && gallery.length > 0) ?
                                     <label htmlFor="gallery" className="add-more">+</label> :
                                     <label htmlFor="gallery" className="add-gallery">Choose gallery</label>
-                                  }
+                                }
                                 </div>
                             </div>
                             <div className="box_description">
                                 <h3>Description image</h3>
                                 <div className="image">
                                     <label htmlFor="img">
-                                        {(image && image.length > 0) ? <img src={URL.createObjectURL(image[0])} /> : <p>Choose image</p>}
+                                        {(mainImage && mainImage.length > 0) ? <img src={URL.createObjectURL(mainImage[0])} /> : <p>Choose image</p>} {/** This is description image */}
                                     </label>
                                     <input
                                         type="file"
                                         id="img"
                                         onChange={handleImage}
+                                        required
                                     />
                                 </div>
                             </div>

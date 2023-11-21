@@ -31,11 +31,9 @@ const Header = ({ handleSearch }) => {
         <div className="navbar">
           <div className="headWithBox">
             <div className="headMenu">
-              <div>
-                <Link to="/">
-                  <img src={Logo1} alt="Logo" />
-                </Link>
-              </div>
+
+              <div className="logo1"><Link to="/"><img src={Logo1} alt="Logo" /></Link></div>
+
               <div className="boxLiMenu">
                 <div className="linkLi">
                   {menuItems.map((menuItem) => (
@@ -55,7 +53,8 @@ const Header = ({ handleSearch }) => {
             </div>
 
             <div className="ulHead_box">
-              <form onSubmit={handleSubmit}>
+
+              <form onSubmit={handleSubmit} className="searchBarForm">
                 {" "}
                 {/* Here is search bar */}
                 <input
@@ -64,11 +63,9 @@ const Header = ({ handleSearch }) => {
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
-                <button type="submit">
-                  <FaMagnifyingGlass />
-                </button>
+                <button type="submit"><FaMagnifyingGlass className="iconSearch" /></button>
               </form>
-              <div>
+              <div className="boxsearchContainer">
                 {userID ? (
                   <Link to="/cart">
                     <FaCartShopping className="head_colorr" />
@@ -93,6 +90,7 @@ const Header = ({ handleSearch }) => {
                   </Link>
                 </div>
               )}
+
             </div>
           </div>
         </div>
