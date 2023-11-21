@@ -26,27 +26,45 @@ const OrderPage = () => {
             </form>
           </div>
           
-          <div>
-            <form className='box_users_order'>
-              <div className='box_order_text'>
-                <p>No: 1</p>
-                <div>
-                    <p>Name: Samsung</p>
+          <form className='box_users_order'>
+            <div className='box_order_text'>
+              <p>No: 1</p>
+              <div>
+                  <p>Name: Samsung</p>
+              </div>
+            </div>
+            <div className='box_container_time'>
+                <p>20/11/2023</p>
+            </div>
+            <div className='container_order_icon'>
+                <div className='btn_pending'>
+                    Pending
                 </div>
+                <Link to='/orderbill/' className='btn_view' >
+                    View
+                </Link>
+            </div>
+          </form>
+          <form className='box_users_order'>
+            <div className='box_order_text'>
+              <p>No: 1</p>
+              <div>
+                  <p>Name: Samsung</p>
               </div>
-              <div className='box_container_time'>
-                  <p>20/11/2023</p>
-              </div>
-              <div className='container_order_icon'>
-                  <div className='btn_pending'>
-                      Pending
-                  </div>
-                  <Link to='/orderbill/' className='btn_view' >
-                      View
-                  </Link>
-              </div>
-            </form>
-          </div>
+            </div>
+            <div className='box_container_time'>
+                <p>20/11/2023</p>
+            </div>
+            <div className='container_order_icon'>
+                <div className='btn_pending'>
+                    Pending
+                </div>
+                <Link to='/orderbill/' className='btn_view' >
+                    View
+                </Link>
+            </div>
+          </form>
+          
 
           <div className='box_next_order'>
             <button className='box_prev_next_order' >
