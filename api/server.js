@@ -180,13 +180,13 @@ app.post("/register", jsonParser, (req, res) => {
   const email = req.body.email;
   const urole = "Customer";
   const password = req.body.password;
-  const conPassword = req.body.conPassword;
+  const confirmPassword = req.body.confirmPassword;
   var reg_id = "";
   const fname = req.body.fname;
   const lname = req.body.lname;
   const tel = req.body.tel;
 
-  if (password === conPassword) {
+  if (password === confirmPassword) {
     bcrypt.hash(password, saltRounds, (err, hash) => {
       // For add register
       const sql1 = "INSERT INTO register (email, urole, password) VALUES (?)";
@@ -266,7 +266,7 @@ app.post("/login", jsonParser, (req, res) => {
           if (response) {
             if (result[0].urole === "Admin") {
               const token = jwt.sign(
-                { id: result[0].id, email: result[0].email, urole: "Admin" },
+                { email: result[0].email, urole: "Admin" },
                 secret,
                 {
                   expiresIn: "1d",
@@ -275,11 +275,12 @@ app.post("/login", jsonParser, (req, res) => {
               return res.json({
                 Status: "Success",
                 urole: "Admin",
+                userID: result[0].id,
                 token: token,
               });
             } else {
               const token = jwt.sign(
-                { id: result[0].id, email: result[0].email, urole: "Customer" },
+                { email: result[0].email, urole: "Customer" },
                 secret,
                 {
                   expiresIn: "1d",
@@ -288,6 +289,7 @@ app.post("/login", jsonParser, (req, res) => {
               return res.json({
                 Status: "Success",
                 urole: "Customer",
+                userID: result[0].id,
                 token: token,
               });
             }

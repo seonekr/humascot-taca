@@ -4,9 +4,10 @@ import "boxicons";
 import { Link, useNavigate } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
 import google from "../../../img/google.png";
+import { IoMdAlert } from "react-icons/io";
+import { MdOutlineCancel } from "react-icons/md";
 
 const Login = () => {
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -43,11 +44,19 @@ const Login = () => {
       .then((response) => response.json())
       .then((result) => {
         if (result.Status === "Success") {
-          localStorage.setItem("token", result.token);
+          const token = result.token;
+          const userID = result.userID;
           if (result.urole === "Admin") {
+            localStorage.setItem("token", token);
+            localStorage.setItem("userID", userID);
             navigate("/dashboard");
-          } else {
+          } else if (result.urole === "Customer") {
+            localStorage.setItem("token", token);
+            localStorage.setItem("userID", userID);
             navigate("/");
+          } else {
+            setError(result.Error);
+            navigate("/login");
           }
         } else {
           setError(result.Error);
@@ -66,7 +75,17 @@ const Login = () => {
               <AiOutlineClose id="icon_cancel_login" />
             </Link>
           </div>
-          <h3>{error && error}</h3>
+          {error ? (
+            <div className="boxAlartLogin">
+            <IoMdAlert className="iconAlert" />
+            <p className="txtalert_p">{error && error}</p>
+            <MdOutlineCancel className="iconAlert_canCel" />
+          </div>
+          ) : (
+            <p></p>
+          )}
+
+          {/* <h3>{error && error}</h3> */}
           <input
             className="input_form"
             type="email"
@@ -86,23 +105,25 @@ const Login = () => {
             Forgot Password?
           </Link>
 
-          <div className='loginbtn_login'>
-            <Link onClick={handleSubmit} type="submit" className="login_btn" >Login</Link>
+          <div className="loginbtn_login">
+            <Link onClick={handleSubmit} type="submit" className="login_btn">
+              Login
+            </Link>
           </div>
-          <div className='googlebtn_btn'>
-            <p className='box_dont'>
-              Don't have an account? <Link to="/register" className='loginmoreLink'>Signup</Link>
+          <div className="googlebtn_btn">
+            <p className="box_dont">
+              Don't have an account?{" "}
+              <Link to="/register" className="loginmoreLink">
+                Signup
+              </Link>
             </p>
             <p>Or</p>
             <Link to="#" className="google_btn">
-              <img
-                src={google}
-                alt="img"
-              />
+              <img src={google} alt="img" />
 
               <p>Login with Google</p>
             </Link>
-            <Link to="/alertLogin">Alarter page</Link>
+            {/* <Link to="/alertLogin">Alarter page</Link> */}
           </div>
         </div>
       </form>
