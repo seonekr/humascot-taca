@@ -59,23 +59,23 @@ const AdminMenu = () => {
               </Link>
             ))} */}
 
-            <NavLink to="/dashboard/" className="link">
+            <NavLink to="/dashboard" className="link">
               <RxDashboard />
               <p>Dashboard</p>
             </NavLink>
-            <NavLink to="/product/" className="link">
+            <NavLink to="/product" className="link">
               <IoDocumentText />
               <p>Products</p>
             </NavLink>
-            <NavLink to="/orderpage/" className="link">
+            <NavLink to="/orderpage" className="link">
               <MdOutlineSell />
               <p>Orders</p>
             </NavLink>
-            <NavLink to="/users/" className="link">
+            <NavLink to="/users" className="link">
               <BiUser />
               <p>Users</p>
             </NavLink>
-            <NavLink to="/admins/" className="link">
+            <NavLink to="/admins" className="link">
               <LiaUserCogSolid />
               <p>Admins</p>
             </NavLink>
@@ -99,13 +99,13 @@ const AdminMenu = () => {
             )}
           </div>
           <div className="right">
-            <NavLink to="/dashboard/" className="logo">
+            <NavLink to="/dashboard" className="logo">
               <span>
                 <img src={Logo1} alt="" />
               </span>
             </NavLink>
 
-            <NavLink to="/adminacount/" className="userAdminImage">
+            <NavLink to="/adminacount" className="userAdminImage">
               <img src={user} alt="Logo_Profile" />
             </NavLink>
           </div>
