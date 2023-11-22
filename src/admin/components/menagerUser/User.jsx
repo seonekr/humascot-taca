@@ -94,10 +94,11 @@ const User = () => {
             <div>User Email: {userDetail.email}</div>
             <div>User Phone number: {userDetail.tel}</div>
             <div>Password: ********</div>
-            <div className="del">
-              <AiOutlineDelete
-                onClick={() => openConfirmationPopup(userDetail.reg_id)}
-              />
+            <div
+              className="del"
+              onClick={() => openConfirmationPopup(userDetail.reg_id)}
+            >
+              <AiOutlineDelete />
             </div>
           </div>
           <div className="img">
