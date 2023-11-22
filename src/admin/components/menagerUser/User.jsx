@@ -1,18 +1,20 @@
 import "./user.css";
 import AdminMenu from "../adminMenu/AdminMenu";
 import { FaAngleLeft } from "react-icons/fa";
-import { AiOutlineDelete } from 'react-icons/ai';
+import { AiOutlineDelete } from "react-icons/ai";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import user from "../../../img/user.png";
 
 const User = () => {
-  // Delete product
+  // Delete User
   const [deleteUserId, setDeleteUserId] = useState(null);
   const [isConfirmationPopupOpen, setConfirmationPopupOpen] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
-  const openConfirmationPopup = (userID) => {
-    setDeleteUserId(userID);
+  const openConfirmationPopup = (id) => {
+    setDeleteUserId(id);
     setConfirmationPopupOpen(true);
   };
 
@@ -21,14 +23,34 @@ const User = () => {
     setConfirmationPopupOpen(false);
   };
 
-  const deleteUsers = () => {
-    console.log('Successful')
+  const DeleteUsers = (id) => {
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+      redirect: "follow",
+    };
+
+    fetch("http://localhost:5000/deleteCustomer/" + id, requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        if (result.Status === "Success") {
+          setSuccess(result.Status);
+          navigate("/users");
+        } else {
+          setError(result.Error);
+        }
+      })
+      .catch((error) => console.log("error", error));
 
     closeConfirmationPopup();
   };
   const [userDetail, setUserDetail] = useState([]);
   const { id } = useParams();
   const navigate = useNavigate();
+
   // For get user by id
   useEffect(() => {
     var myHeaders = new Headers();
@@ -51,50 +73,39 @@ const User = () => {
       .catch((error) => console.log("error", error));
   }, []);
 
-  const UserDelete = (id) => {
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-
-    var requestOptions = {
-      method: "GET",
-      headers: myHeaders,
-      redirect: "follow",
-    };
-
-    fetch("http://localhost:5000/deleteCustomer/" + id, requestOptions)
-      .then((response) => response.json())
-      .then((result) => console.log(result))
-      .catch((error) => console.log("error", error));
-  };
-
-
   return (
     <>
       <AdminMenu />
-      <section id='user'>
+      <section id="user">
         <div className="back">
-          <Link to="/users" className='link-back'>
-            <FaAngleLeft id='icon_back_user' />
+          <Link to="/users" className="link-back">
+            <FaAngleLeft id="icon_back_user" />
             Back
           </Link>
-          <div>
-            User
-          </div>
+          <div>User</div>
         </div>
+        <h3>{error && error}</h3>
         <div className="userInfo">
           <div className="info">
-            <div>User ID: </div>
-            <div>User Name: </div>
-            <div>User Email: </div>
-            <div>User Phone number: </div>
-            <div>Password: </div>
-            <div>Password: </div>
-            <div className='del' >
-              <AiOutlineDelete onClick={() => openConfirmationPopup(user.userID)} />
+            <div>User ID: {userDetail.id}</div>
+            <div>
+              User Name: {userDetail.fname} {userDetail.lname}
+            </div>
+            <div>User Email: {userDetail.email}</div>
+            <div>User Phone number: {userDetail.tel}</div>
+            <div>Password: ********</div>
+            <div className="del">
+              <AiOutlineDelete
+                onClick={() => openConfirmationPopup(userDetail.reg_id)}
+              />
             </div>
           </div>
           <div className="img">
-            <img src='' alt="image" />
+            {userDetail.profile_image ? (
+              <img src={userDetail.profile_image} alt="admin profile" />
+            ) : (
+              <img src={user} alt="admin profile" />
+            )}
           </div>
         </div>
       </section>
@@ -103,7 +114,12 @@ const User = () => {
         <div className="confirmation-popup">
           <p>Are you sure you want to delete?</p>
           <div className="btn_ok_on">
-            <button onClick={deleteUsers} className="btn_yes">
+            <button
+              onClick={() => {
+                DeleteUsers(userDetail.reg_id);
+              }}
+              className="btn_yes"
+            >
               Yes
             </button>
             <button onClick={closeConfirmationPopup} className="btn_on">
