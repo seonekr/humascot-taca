@@ -53,10 +53,10 @@ const UpdateAdmin = () => {
                             />
                         </div>
                         <div className="del-update">
-                            <div className="update upd">
+                            <button type="submit" className="update upd">
                                 <MdOutlineEdit />
                                 Update
-                            </div>
+                            </button>
                         </div>
                     </div>
                     <div className="img">

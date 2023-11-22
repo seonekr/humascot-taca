@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 import user from "../../../img/user.png";
 
 const UpdateAdmin_Account = () => {
-    
+
 
     return (
         <>
@@ -53,10 +53,10 @@ const UpdateAdmin_Account = () => {
                             />
                         </div>
                         <div className="del-update">
-                            <div className="update upd">
+                            <button type="submit" className="update upd">
                                 <MdOutlineEdit />
                                 Update
-                            </div>
+                            </button>
                         </div>
                     </div>
                     <div className="img">
@@ -64,7 +64,7 @@ const UpdateAdmin_Account = () => {
                     </div>
                 </form>
             </section>
-           
+
         </>
     );
 };
