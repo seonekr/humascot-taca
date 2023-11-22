@@ -93,8 +93,8 @@ const AddAdmin = () => {
             <h2>Add Admin</h2>
             <div></div>
           </div>
-          <h3>{message && message}</h3>
-          <form>
+          {/* <h3>{message && message}</h3> */}
+          <form onSubmit={handleSubmit}>
             <div className="addAdminForm">
               <div className="add-box">
                 <label htmlFor="fname">First name</label>
@@ -148,7 +148,7 @@ const AddAdmin = () => {
                 </label>
               </div>
             </div>
-            <div className="submit" onClick={handleSubmit}>
+            <div className="submit" >
               <button type="submit">Add</button>
             </div>
           </form>
