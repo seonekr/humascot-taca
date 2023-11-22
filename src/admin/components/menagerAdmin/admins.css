@@ -164,5 +164,11 @@
     justify-content: center;
 }
 
+.iconcoloredite{
+    color: #FFF;
+}
 
+.update{
+    border: none;
+}
 /* ================ Responsive ==================*/
