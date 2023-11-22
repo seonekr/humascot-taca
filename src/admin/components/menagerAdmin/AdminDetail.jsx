@@ -93,11 +93,13 @@ const AdminDetail = () => {
             <div>User Phone number: {adminDetail.tel}</div>
             <div>Password: ********</div>
             <div className="del-update">
-              <div className="del" onClick={() => {openConfirmationPopup(adminDetail.reg_id)}}>
+              <div className="del" onClick={() => { openConfirmationPopup(adminDetail.reg_id) }}>
                 <AiOutlineDelete />
               </div>
               <div className="update upd">
-                <MdOutlineEdit />
+                <Link to="/updateAdmin">
+                  <MdOutlineEdit  className="iconcoloredite"/>
+                </Link>
               </div>
             </div>
           </div>

@@ -34,6 +34,8 @@ import AdminDetail from "../admin/components/menagerAdmin/AdminDetail";
 import AddAdmin from "../admin/components/menagerAdmin/AddAdmin";
 import UpdateProduct from "../admin/components/post/UpdateProduct";
 import Admin_acount from "../admin/components/menagerAdmin/Admin_acount";
+import UpdateAdmin from "../admin/components/menagerAdmin/UpdateAdmin";
+import UpdateAdmin_Account from "../admin/components/menagerAdmin/UpdateAdmin_Account";
 
 const Links = () => {
     return(
@@ -75,6 +77,7 @@ const Links = () => {
                 <Route exact path="/updateproduct" Component={UpdateProduct}/>
                 <Route exact path="/adminacount" Component={Admin_acount}/>
                 <Route exact path="/updateproduct" Component={UpdateProduct}/>
+                <Route exact path="/updateAdminAccount" Component={UpdateAdmin_Account}/>
 
             </Routes>
         </Router>
