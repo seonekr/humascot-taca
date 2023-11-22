@@ -30,7 +30,7 @@ import Product from "../admin/components/products/Product";
 // ===============================
 import Users from "../admin/components/menagerUser/Users";
 import User from "../admin/components/menagerUser/User";
-import Admin from "../admin/components/menagerAdmin/admin";
+import AdminDetail from "../admin/components/menagerAdmin/AdminDetail";
 import AddAdmin from "../admin/components/menagerAdmin/AddAdmin";
 import UpdateProduct from "../admin/components/post/UpdateProduct";
 import Admin_acount from "../admin/components/menagerAdmin/Admin_acount";
@@ -70,7 +70,7 @@ const Links = () => {
                 <Route exact path="/product" Component={Product}/>
                 <Route exact path="/users/user/:id" Component={User}/>
                 <Route exact path="/admins" Component={Admins}/>
-                <Route exact path="/admins/admin/:id" Component={Admin}/>
+                <Route exact path="/admins/AdminDetail/:id" Component={AdminDetail}/>
                 <Route exact path="/addadmin" Component={AddAdmin}/>
                 <Route exact path="/updateproduct" Component={UpdateProduct}/>
                 <Route exact path="/adminacount" Component={Admin_acount}/>

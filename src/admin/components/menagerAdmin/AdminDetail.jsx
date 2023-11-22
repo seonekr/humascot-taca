@@ -1,29 +1,30 @@
-import "./user.css";
 import AdminMenu from "../adminMenu/AdminMenu";
 import { FaAngleLeft } from "react-icons/fa";
-import { AiOutlineDelete } from "react-icons/ai";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { MdOutlineEdit } from "react-icons/md";
+import { AiOutlineDelete } from "react-icons/ai";
+import { useState, useEffect } from "react";
 import user from "../../../img/user.png";
 
-const User = () => {
+const AdminDetail = () => {
   // DFor delete User
-  const [deleteUserId, setDeleteUserId] = useState(null);
+  const [deleteAdminId, setDeleteAdminId] = useState(null);
   const [isConfirmationPopupOpen, setConfirmationPopupOpen] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
   const openConfirmationPopup = (id) => {
-    setDeleteUserId(id);
+    setDeleteAdminId(id);
     setConfirmationPopupOpen(true);
   };
 
   const closeConfirmationPopup = () => {
-    setDeleteUserId(null);
+    setDeleteAdminId(null);
     setConfirmationPopupOpen(false);
   };
 
-  const DeleteUser = (id) => {
+  const DeleteAdmin = (id) => {
+    // console.log("Deleted success!!" + id)
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
@@ -33,12 +34,12 @@ const User = () => {
       redirect: "follow",
     };
 
-    fetch("http://localhost:5000/deleteCustomer/" + id, requestOptions)
+    fetch("http://localhost:5000/deleteAdmin/" + id, requestOptions)
       .then((response) => response.json())
       .then((result) => {
         if (result.Status === "Success") {
           setSuccess(result.Status);
-          navigate("/users");
+          navigate("/admins");
         } else {
           setError(result.Error);
         }
@@ -49,26 +50,23 @@ const User = () => {
   };
 
   // For get user by id
-  const [userDetail, setUserDetail] = useState([]);
+  const [adminDetail, setAdminDetail] = useState([]);
   const { id } = useParams();
+
   const navigate = useNavigate();
 
   useEffect(() => {
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-
     var requestOptions = {
       method: "GET",
-      headers: myHeaders,
       redirect: "follow",
     };
 
-    fetch(import.meta.env.VITE_API + "/getCustomer/" + id, requestOptions)
+    fetch("http://localhost:5000/getAdmin/" + id, requestOptions)
       .then((response) => response.json())
       .then((result) => {
         if (result.Status === "Success") {
-          setUserDetail(result.Result[0]);
-          console.log(userDetail);
+          setAdminDetail(result.Result[0]);
+          console.log(adminDetail);
         }
       })
       .catch((error) => console.log("error", error));
@@ -79,32 +77,33 @@ const User = () => {
       <AdminMenu />
       <section id="user">
         <div className="back">
-          <Link to="/users" className="link-back">
-            <FaAngleLeft id="icon_back_user" />
+          <Link to="/admins" className="link-back">
+            <FaAngleLeft />
             Back
           </Link>
-          <div>User</div>
+          <div>Admin</div>
         </div>
-        <h3>{error && error}</h3>
         <div className="userInfo">
           <div className="info">
-            <div>User ID: {userDetail.id}</div>
+            <div>User ID: {adminDetail.id}</div>
             <div>
-              User Name: {userDetail.fname} {userDetail.lname}
+              User Name: {adminDetail.fname} {adminDetail.lname}
             </div>
-            <div>User Email: {userDetail.email}</div>
-            <div>User Phone number: {userDetail.tel}</div>
+            <div>User Email: {adminDetail.email}</div>
+            <div>User Phone number: {adminDetail.tel}</div>
             <div>Password: ********</div>
-            <div
-              className="del"
-              onClick={() => openConfirmationPopup(userDetail.reg_id)}
-            >
-              <AiOutlineDelete />
+            <div className="del-update">
+              <div className="del" onClick={() => {openConfirmationPopup(adminDetail.reg_id)}}>
+                <AiOutlineDelete />
+              </div>
+              <div className="update upd">
+                <MdOutlineEdit />
+              </div>
             </div>
           </div>
           <div className="img">
-            {userDetail.profile_image ? (
-              <img src={userDetail.profile_image} alt="admin profile" />
+            {adminDetail.profile_image ? (
+              <img src={adminDetail.profile_image} alt="admin profile" />
             ) : (
               <img src={user} alt="admin profile" />
             )}
@@ -118,7 +117,7 @@ const User = () => {
           <div className="btn_ok_on">
             <button
               onClick={() => {
-                DeleteUser(userDetail.reg_id);
+                DeleteAdmin(adminDetail.reg_id);
               }}
               className="btn_yes"
             >
@@ -134,4 +133,4 @@ const User = () => {
   );
 };
 
-export default User;
+export default AdminDetail;
