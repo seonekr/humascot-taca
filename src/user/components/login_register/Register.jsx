@@ -4,6 +4,8 @@ import "boxicons";
 import { Link, useNavigate } from "react-router-dom";
 import google from "../../../img/google.png";
 import { AiOutlineClose } from "react-icons/ai";
+import { IoMdAlert } from "react-icons/io";
+import { MdOutlineCancel } from "react-icons/md";
 
 const Register = () => {
   const [firstName, setFirstName] = useState("");
@@ -65,9 +67,9 @@ const Register = () => {
     fetch("http://localhost:5000/register", requestOptions)
       .then((response) => response.json())
       .then((result) => {
-        if (result.Status === "Success") {
-          setSuccessMsg(result.Status);
-          // console.log(successMsg);
+        if (result.Status === "Success12345") {
+          successMsg(result.Status);
+          console.log(successMsg);
           navigate("/register");
         } else {
           setErrorMsg(result.Error);
@@ -77,6 +79,13 @@ const Register = () => {
         }
       })
       .catch((error) => console.log("error", error));
+  };
+
+  const [isButtonClicked, setButtonClicked] = useState(true);
+
+  // Function to handle the button click and update the state
+  const handleButtonClick = () => {
+    setButtonClicked(false);
   };
 
   return (
@@ -89,9 +98,15 @@ const Register = () => {
           </Link>
         </div>
         {/* <h3>{successMsg ? errorMsg && error : successMsg && successMsg}</h3> */}
+        {errorMsg ? (
+          <div className="boxAlartLogin dcancel">
+            <IoMdAlert className="iconAlert" />
+            <p className="txtalert_p">{errorMsg}</p>
+          </div>
+        ) : (
+          <p></p>
+        )}
 
-        <h3>{errorMsg && errorMsg}</h3>
-        <h3>{successMsg && successMsg}</h3>
 
         <form className="box_form_register">
           <div className="box_form1">
@@ -158,7 +173,7 @@ const Register = () => {
           {/* <Link to="/alertSignup">Alarter page</Link> */}
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 
