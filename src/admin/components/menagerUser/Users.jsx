@@ -10,7 +10,7 @@ const Users = () => {
   const [users, setUsers] = useState([]);
   const [error, setError] = useState("");
 
-
+  
   const navigate = useNavigate();
 
   // prev next button user in react
@@ -22,7 +22,7 @@ const Users = () => {
   const npage = Math.ceil(users.length / recordsPerPage);
   const numbers = [...Array(npage + 1).keys()].slice(1);
 
-  useEffect(() => {
+  useEffect((event) => {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
@@ -67,7 +67,6 @@ const Users = () => {
                 </div>
               </form>
             </div>
-            
             {users.map((e) => {
               return (
                 <div

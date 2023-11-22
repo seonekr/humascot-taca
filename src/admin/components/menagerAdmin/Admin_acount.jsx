@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { MdOutlineEdit } from "react-icons/md";
 import { AiOutlineDelete } from "react-icons/ai";
 import { useState, useEffect } from "react";
+import user from "../../../img/user.png";
 
 const Admin_acount = () => {
   const [userDetail, setUserDetail] = useState([]);
@@ -61,7 +62,11 @@ const Admin_acount = () => {
             </div>
           </div>
           <div className="img">
-            <img src="" alt="image" />
+          {userDetail.profile_image ? (
+              <img src={userDetail.profile_image} alt="admin profile" />
+            ) : (
+              <img src={user} alt="admin profile" />
+            )}
           </div>
         </div>
       </section>

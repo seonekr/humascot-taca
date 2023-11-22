@@ -46,7 +46,7 @@ const Admins = () => {
   }, []);
 
   const AdminDetail = (id) => {
-    navigate("/admins/admin/" + id);
+    navigate("/admins/AdminDetail/" + id);
     console.log(id);
   };
 

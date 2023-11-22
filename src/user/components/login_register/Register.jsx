@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./register.css";
 import "boxicons";
 import { Link, useNavigate } from "react-router-dom";
 import google from "../../../img/google.png";
 import { AiOutlineClose } from "react-icons/ai";
+import { IoMdAlert } from "react-icons/io";
+import { MdOutlineCancel } from "react-icons/md";
 
 const Register = () => {
   const [firstName, setFirstName] = useState("");
@@ -14,6 +16,16 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [successMsg, setSuccessMsg] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
+  const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    // Check messages
+    if (successMsg === "Success") {
+      setMessage("Added Admin Successful!");
+    } else {
+      setMessage(errorMsg);
+    }
+  });
 
   const navigate = useNavigate();
 
@@ -67,16 +79,20 @@ const Register = () => {
       .then((result) => {
         if (result.Status === "Success") {
           setSuccessMsg(result.Status);
-          // console.log(successMsg);
           navigate("/register");
         } else {
           setErrorMsg(result.Error);
-          // console.log(result.Error);
-          console.log(errorMsg);
           navigate("/register");
         }
       })
       .catch((error) => console.log("error", error));
+  };
+
+  const [isButtonClicked, setButtonClicked] = useState(true);
+
+  // Function to handle the button click and update the state
+  const handleButtonClick = () => {
+    setButtonClicked(false);
   };
 
   return (
@@ -88,10 +104,15 @@ const Register = () => {
             <AiOutlineClose id="icon_cancel_register" />
           </Link>
         </div>
-        {/* <h3>{successMsg ? errorMsg && error : successMsg && successMsg}</h3> */}
-
-        <h3>{errorMsg && errorMsg}</h3>
-        <h3>{successMsg && successMsg}</h3>
+        {/* <h3>{message && message}</h3> */}
+        {message ? (
+          <div className="boxAlartLogin dcancel">
+            <IoMdAlert className="iconAlert" />
+            <p className="txtalert_p">{message && message}</p>
+          </div>
+        ) : (
+          <p></p>
+        )}
 
         <form className="box_form_register">
           <div className="box_form1">

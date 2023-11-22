@@ -30,61 +30,69 @@ app.post("/admin/register", jsonParser, (req, res) => {
   const fname = req.body.fname;
   const lname = req.body.lname;
   const tel = req.body.tel;
-  const department = req.body.department;
 
-  bcrypt.hash(password, saltRounds, (err, hash) => {
-    // For add register
-    const sql1 = "INSERT INTO register (email, urole, password) VALUES (?)";
-    const values1 = [email, urole, hash];
+  if (fname !== "" && lname !== "" && email !== "" && tel !== "") {
+    bcrypt.hash(password, saltRounds, (err, hash) => {
+      // For add register
+      const sql1 =
+        "INSERT INTO register (email, tel, urole, password) VALUES (?)";
+      const values1 = [email, tel, urole, hash];
 
-    connection.query(sql1, [values1], (err, result) => {
-      if (err) {
-        res.json({
-          Status: "Error",
-          Error: "Errer in running sql when adding register",
-        });
-        return;
-      } else {
-        // For select last user id
-        const sql = "SELECT * FROM register ORDER BY id DESC LIMIT 1";
-        connection.query(sql, (err, result) => {
-          if (err)
-            return res.json({
-              Status: "Error",
-              Error: "Errer in running query",
-            });
-          reg_id = result[0].id;
-
-          // For add admins
-          const sql2 =
-            "INSERT INTO admins (reg_id, email, fname, lname, tel, department) VALUES (?)";
-          const values2 = [reg_id, email, fname, lname, tel, department];
-          connection.query(sql2, [values2], (err, result) => {
-            if (err) {
-              res.json({
-                Status: "Error",
-                Error: "Errer in running sql when adding admin",
-              });
-
-              // For delete the last register id when customers adding wrong
-              const sql3 = "DELETE FROM register WHERE id = ?";
-
-              connection.query(sql3, [reg_id], (err, result) => {
-                if (err)
-                  return res.json({
-                    Status: "Error",
-                    Error: "Errer in running sql",
-                  });
-              });
-              return;
-            } else {
-              res.json({ Status: "Success" });
-            }
+      connection.query(sql1, [values1], (err, result) => {
+        if (err) {
+          res.json({
+            Status: "Error",
+            Error: err,
           });
-        });
-      }
+          return;
+        } else {
+          // For select last user id
+          const sql = "SELECT * FROM register ORDER BY id DESC LIMIT 1";
+          connection.query(sql, (err, result) => {
+            if (err)
+              return res.json({
+                Status: "Error",
+                Error: err,
+              });
+            reg_id = result[0].id;
+
+            // For add admins
+            const sql2 =
+              "INSERT INTO admins (reg_id, email, fname, lname, tel) VALUES (?)";
+            const values2 = [reg_id, email, fname, lname, tel];
+            connection.query(sql2, [values2], (err, result) => {
+              if (err) {
+                res.json({
+                  Status: "Error",
+                  Error: err,
+                });
+
+                // For delete the last register id when customers adding wrong
+                const sql3 = "DELETE FROM register WHERE id = ?";
+
+                connection.query(sql3, [reg_id], (err, result) => {
+                  if (err)
+                    return res.json({
+                      Status: "Error",
+                      Error: err,
+                    });
+                });
+                return;
+              } else {
+                res.json({ Status: "Success" });
+              }
+            });
+          });
+        }
+      });
     });
-  });
+  } else {
+    res.json({
+      Status: "Error",
+      Error: "Please fill all the blank!",
+    });
+    return;
+  }
 });
 
 app.post("/authen", jsonParser, (req, res) => {
@@ -127,32 +135,71 @@ app.get("/getAdmin/:id", (req, res) => {
   });
 });
 
+// app.put("/updateAdmin/:id", jsonParser, (req, res) => {
+//   const id = req.params.id;
+
+//   bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
+//     const sql =
+//       "UPDATE admins SET `email` = ?, `tel` = ?, `fname` = ?, `lname` = ?, `password` = ? WHERE id = ?";
+
+//     const values = [
+//       req.body.email,
+//       req.body.tel,
+//       req.body.fname,
+//       req.body.lname,
+//       hash,
+//     ];
+
+//     connection.query(sql, [...values, id], (err, data) => {
+//       if (err) res.json({ Status: "Error", Error: "Errer in running sql" });
+//       return res.json({ Status: "Success", data });
+//     });
+//   });
+// });
+
 app.put("/updateAdmin/:id", jsonParser, (req, res) => {
   const id = req.params.id;
+  const email = req.body.email;
+  const tel = req.body.tel;
+  const fname = req.body.fname;
+  const lname = req.body.lname;
+  const password = req.body.password;
 
-  bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
-    const sql =
-      "UPDATE admins SET `email` = ?, `tel` = ?, `fname` = ?, `lname` = ?, `department` = ?, `password` = ? WHERE id = ?";
+  bcrypt.hash(password, saltRounds, (err, hash) => {
+    const sql1 =
+      "UPDATE register SET `email` = ?, `tel` = ?, `password` = ? WHERE id = ?";
+    const sql2 =
+      "UPDATE admins SET `email` = ?, `tel` = ?, `fname` = ?, `lname` = ? WHERE reg_id = ?";
 
-    const values = [
-      req.body.email,
-      req.body.tel,
-      req.body.fname,
-      req.body.lname,
-      req.body.department,
-      hash,
-    ];
+    const values1 = [email, tel, hash];
+    const values2 = [email, tel, fname, lname];
 
-    connection.query(sql, [...values, id], (err, data) => {
-      if (err) res.json({ Status: "Error", Error: "Errer in running sql" });
-      return res.json({ Status: "Success", data });
+    connection.query(sql1, [...values1, id], (err, data) => {
+      if (err) {
+        res.json({ Status: "Error", Error: err });
+        return;
+      } else {
+        // For add admins
+        connection.query(sql2, [...values2, id], (err, data) => {
+          if (err) {
+            res.json({
+              Status: "Error",
+              Error: err,
+            });
+            return;
+          } else {
+            res.json({ Status: "Success" });
+            return;
+          }
+        });
+      }
     });
   });
 });
 
 app.get("/deleteAdmin/:id", (req, res) => {
   const id = req.params.id;
-  const sql = "DELETE FROM admins WHERE id = ?";
+  const sql = "DELETE FROM register WHERE id = ?";
 
   connection.query(sql, [id], (err, result) => {
     if (err)
@@ -186,64 +233,72 @@ app.post("/register", jsonParser, (req, res) => {
   const lname = req.body.lname;
   const tel = req.body.tel;
 
-  if (password === confirmPassword) {
-    bcrypt.hash(password, saltRounds, (err, hash) => {
-      // For add register
-      const sql1 = "INSERT INTO register (email, urole, password) VALUES (?)";
-      const values1 = [email, urole, hash];
+  if (fname !== "" && lname !== "" && email !== "" && tel !== "" && password !== "" && confirmPassword !== "") {
+    if (password === confirmPassword) {
+      bcrypt.hash(password, saltRounds, (err, hash) => {
+        const sql1 =
+        "INSERT INTO register (email, tel, urole, password) VALUES (?)";
+      const values1 = [email, tel, urole, hash];
 
-      connection.query(sql1, [values1], (err, result) => {
-        if (err) {
-          res.json({
-            Status: "Error",
-            Error: "Errer in running sql when adding register",
-          });
-          return;
-        } else {
-          // For select last user id
-          const sql = "SELECT * FROM register ORDER BY id DESC LIMIT 1";
-          connection.query(sql, (err, result) => {
-            if (err)
-              return res.json({
-                Status: "Error",
-                Error: "Errer in running query",
-              });
-            reg_id = result[0].id;
-
-            // For add Customer
-            const sql2 =
-              "INSERT INTO customers (reg_id, email, fname, lname, tel) VALUES (?)";
-            const values2 = [reg_id, email, fname, lname, tel];
-            connection.query(sql2, [values2], (err, result) => {
-              if (err) {
-                res.json({
-                  Status: "Error",
-                  Error: "Errer in running sql when adding admin",
-                });
-
-                // For delete the last register id when customers adding wrong
-                const sql3 = "DELETE FROM register WHERE id = ?";
-
-                connection.query(sql3, [reg_id], (err, result) => {
-                  if (err)
-                    return res.json({
-                      Status: "Error",
-                      Error: "Errer in running sql",
-                    });
-                });
-                return;
-              } else {
-                res.json({ Status: "Success" });
-              }
+        connection.query(sql1, [values1], (err, result) => {
+          if (err) {
+            res.json({
+              Status: "Error",
+              Error: err,
             });
-          });
-        }
+            return;
+          } else {
+            // For select last user id
+            const sql = "SELECT * FROM register ORDER BY id DESC LIMIT 1";
+            connection.query(sql, (err, result) => {
+              if (err)
+                return res.json({
+                  Status: "Error",
+                  Error: err,
+                });
+              reg_id = result[0].id;
+
+              // For add Customer
+              const sql2 =
+                "INSERT INTO customers (reg_id, email, fname, lname, tel) VALUES (?)";
+              const values2 = [reg_id, email, fname, lname, tel];
+              connection.query(sql2, [values2], (err, result) => {
+                if (err) {
+                  res.json({
+                    Status: "Error",
+                    Error: err,
+                  });
+
+                  // For delete the last register id when customers adding wrong
+                  const sql3 = "DELETE FROM register WHERE id = ?";
+
+                  connection.query(sql3, [reg_id], (err, result) => {
+                    if (err)
+                      return res.json({
+                        Status: "Error",
+                        Error: err,
+                      });
+                  });
+                  return;
+                } else {
+                  res.json({ Status: "Success" });
+                }
+              });
+            });
+          }
+        });
       });
-    });
+    } else {
+      res.json({
+        Status: "Error",
+        Error: "The Password doesn't match!",
+      });
+      return;
+    }
   } else {
     res.json({
       Status: "Error",
-      Error: "The Password doesn't match!",
+      Error: "Please fill all the blank!",
     });
     return;
   }
