@@ -509,21 +509,20 @@ app.get("/countCategory", (req, res) => {
 
 app.post("/addProduct", jsonParser, (req, res) => {
   const sql =
-    "INSERT INTO products (cat_id, name, price, size, color, descriptions, image) VALUES (?)";
+    "INSERT INTO products (cat_id, name, price, color, description, images) VALUES (?)";
   const values = [
     req.body.cat_id,
     req.body.name,
     req.body.price,
-    req.body.size,
     req.body.color,
-    req.body.descriptions,
-    req.body.image,
+    req.body.description,
+    req.body.images,
   ];
   connection.query(sql, [values], (err, result) => {
     if (err) {
       return res.json({
         Status: "Error",
-        Error: "Errer in running sql",
+        Error: err,
       });
     }
     return res.json({ Status: "Success" });
@@ -536,7 +535,7 @@ app.get("/allProducts", (req, res) => {
     if (err)
       return res.json({
         Status: "Error",
-        Error: "Errer in running sql",
+        Error: err,
       });
     return res.json({ Status: "Success", Result: result });
   });
