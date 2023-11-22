@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./register.css";
 import "boxicons";
 import { Link, useNavigate } from "react-router-dom";
@@ -16,6 +16,16 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [successMsg, setSuccessMsg] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
+  const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    // Check messages
+    if (successMsg === "Success") {
+      setMessage("Added Admin Successful!");
+    } else {
+      setMessage(errorMsg);
+    }
+  });
 
   const navigate = useNavigate();
 
@@ -67,14 +77,11 @@ const Register = () => {
     fetch("http://localhost:5000/register", requestOptions)
       .then((response) => response.json())
       .then((result) => {
-        if (result.Status === "Success12345") {
-          successMsg(result.Status);
-          console.log(successMsg);
+        if (result.Status === "Success") {
+          setSuccessMsg(result.Status);
           navigate("/register");
         } else {
           setErrorMsg(result.Error);
-          // console.log(result.Error);
-          console.log(errorMsg);
           navigate("/register");
         }
       })
@@ -97,16 +104,15 @@ const Register = () => {
             <AiOutlineClose id="icon_cancel_register" />
           </Link>
         </div>
-        {/* <h3>{successMsg ? errorMsg && error : successMsg && successMsg}</h3> */}
-        {errorMsg ? (
+        {/* <h3>{message && message}</h3> */}
+        {message ? (
           <div className="boxAlartLogin dcancel">
             <IoMdAlert className="iconAlert" />
-            <p className="txtalert_p">{errorMsg}</p>
+            <p className="txtalert_p">{message && message}</p>
           </div>
         ) : (
           <p></p>
         )}
-
 
         <form className="box_form_register">
           <div className="box_form1">
@@ -173,7 +179,7 @@ const Register = () => {
           {/* <Link to="/alertSignup">Alarter page</Link> */}
         </div>
       </div>
-    </div >
+    </div>
   );
 };
 
