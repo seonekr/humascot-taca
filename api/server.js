@@ -30,7 +30,6 @@ app.post("/admin/register", jsonParser, (req, res) => {
   const fname = req.body.fname;
   const lname = req.body.lname;
   const tel = req.body.tel;
-  const department = req.body.department;
 
   bcrypt.hash(password, saltRounds, (err, hash) => {
     // For add register
@@ -57,8 +56,8 @@ app.post("/admin/register", jsonParser, (req, res) => {
 
           // For add admins
           const sql2 =
-            "INSERT INTO admins (reg_id, email, fname, lname, tel, department) VALUES (?)";
-          const values2 = [reg_id, email, fname, lname, tel, department];
+            "INSERT INTO admins (reg_id, email, fname, lname, tel) VALUES (?)";
+          const values2 = [reg_id, email, fname, lname, tel];
           connection.query(sql2, [values2], (err, result) => {
             if (err) {
               res.json({
@@ -127,32 +126,73 @@ app.get("/getAdmin/:id", (req, res) => {
   });
 });
 
+// app.put("/updateAdmin/:id", jsonParser, (req, res) => {
+//   const id = req.params.id;
+
+//   bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
+//     const sql =
+//       "UPDATE admins SET `email` = ?, `tel` = ?, `fname` = ?, `lname` = ?, `password` = ? WHERE id = ?";
+
+//     const values = [
+//       req.body.email,
+//       req.body.tel,
+//       req.body.fname,
+//       req.body.lname,
+//       hash,
+//     ];
+
+//     connection.query(sql, [...values, id], (err, data) => {
+//       if (err) res.json({ Status: "Error", Error: "Errer in running sql" });
+//       return res.json({ Status: "Success", data });
+//     });
+//   });
+// });
+
 app.put("/updateAdmin/:id", jsonParser, (req, res) => {
   const id = req.params.id;
 
   bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
-    const sql =
-      "UPDATE admins SET `email` = ?, `tel` = ?, `fname` = ?, `lname` = ?, `department` = ?, `password` = ? WHERE id = ?";
+    // For add register
+    const sql1 =
+      "UPDATE register SET `email` = ?, `tel` = ?, `password` = ? WHERE id = ?";
+    const values1 = [req.body.email, req.body.tel, hash];
 
-    const values = [
-      req.body.email,
-      req.body.tel,
-      req.body.fname,
-      req.body.lname,
-      req.body.department,
-      hash,
-    ];
-
-    connection.query(sql, [...values, id], (err, data) => {
-      if (err) res.json({ Status: "Error", Error: "Errer in running sql" });
-      return res.json({ Status: "Success", data });
+    connection.query(sql1, [values1], (err, result) => {
+      if (err) {
+        res.json({
+          Status: "Error",
+          Error: "Errer in running sql when update register",
+        });
+        return;
+      } else {
+        // For add admins
+        const sql2 =
+          "UPDATE admins SET `email` = ?, `tel` = ?, `fname` = ?, `lname` = ? WHERE id = ?";
+        const values2 = [
+          req.body.email,
+          req.body.tel,
+          req.body.fname,
+          req.body.lname,
+        ];
+        connection.query(sql2, [values2], (err, result) => {
+          if (err) {
+            res.json({
+              Status: "Error",
+              Error: "Errer in running sql when adding admin",
+            });
+            return;
+          } else {
+            res.json({ Status: "Success" });
+          }
+        });
+      }
     });
   });
 });
 
 app.get("/deleteAdmin/:id", (req, res) => {
   const id = req.params.id;
-  const sql = "DELETE FROM admins WHERE id = ?";
+  const sql = "DELETE FROM register WHERE id = ?";
 
   connection.query(sql, [id], (err, result) => {
     if (err)
