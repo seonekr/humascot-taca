@@ -152,6 +152,7 @@ a {
     color: #ffffff;
     border-radius: 10px;
     display: flex;
+    cursor: pointer;
     justify-content: center;
     align-items: center;
     border: 1px;

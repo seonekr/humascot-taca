@@ -93,7 +93,7 @@ const Register = () => {
         <h3>{errorMsg && errorMsg}</h3>
         <h3>{successMsg && successMsg}</h3>
 
-        <form className="box_form_register">
+        <form className="box_form_register" onSubmit={handleSubmit}>
           <div className="box_form1">
             <input
               className="input_form1"
@@ -101,6 +101,7 @@ const Register = () => {
               placeholder="First name"
               value={firstName}
               onChange={handleFirstNameChange}
+              required
             />
             <input
               className="input_form1"
@@ -108,6 +109,7 @@ const Register = () => {
               placeholder="Last name"
               value={lastName}
               onChange={handleLastNameChange}
+              required
             />
           </div>
           <input
@@ -116,6 +118,7 @@ const Register = () => {
             placeholder="Enter Your Email"
             value={email}
             onChange={handleEmailChange}
+            required
           />
           <input
             className="input_form"
@@ -123,6 +126,7 @@ const Register = () => {
             placeholder="Enter Your Phone Number"
             value={phoneNumber}
             onChange={handlePhoneNumberChange}
+            required
           />
           <input
             className="input_form"
@@ -130,6 +134,7 @@ const Register = () => {
             placeholder="Enter Your Password"
             value={password}
             onChange={handlePasswordChange}
+            required
           />
           <input
             className="input_form"
@@ -137,10 +142,11 @@ const Register = () => {
             placeholder="Confirm Password"
             value={confirmPassword}
             onChange={handleConfirmPasswordChange}
+            required
           />
-          <Link onClick={handleSubmit} type="submit" className="signup_btn">
+          <button type="submit" className="signup_btn">
             Signup
-          </Link>
+          </button>
         </form>
 
         <div className="box_already">

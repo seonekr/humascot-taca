@@ -67,7 +67,7 @@ const Login = () => {
 
   return (
     <section>
-      <form className="box_container_login2">
+      <form className="box_container_login2" onSubmit={handleSubmit}>
         <div className="cover">
           <div className="box_cancel_login">
             <h2 className="box_container_login_text">Login</h2>
@@ -92,6 +92,7 @@ const Login = () => {
             placeholder="Enter Your Email"
             value={email}
             onChange={handleEmail}
+            required
           />
           <input
             className="input_form"
@@ -99,6 +100,7 @@ const Login = () => {
             placeholder="Enter Your Password"
             value={password}
             onChange={handlePassword}
+            required
           />
 
           <Link to="#" className="forgot_password">
@@ -106,9 +108,9 @@ const Login = () => {
           </Link>
 
           <div className="loginbtn_login">
-            <Link onClick={handleSubmit} type="submit" className="login_btn">
+            <button type="submit" className="login_btn">
               Login
-            </Link>
+            </button>
           </div>
           <div className="googlebtn_btn">
             <p className="box_dont">
