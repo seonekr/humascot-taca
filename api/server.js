@@ -30,6 +30,7 @@ app.post("/admin/register", jsonParser, (req, res) => {
   const fname = req.body.fname;
   const lname = req.body.lname;
   const tel = req.body.tel;
+  const profile_image = "profile.png";
 
   if (fname !== "" && lname !== "" && email !== "" && tel !== "") {
     bcrypt.hash(password, saltRounds, (err, hash) => {
@@ -58,8 +59,8 @@ app.post("/admin/register", jsonParser, (req, res) => {
 
             // For add admins
             const sql2 =
-              "INSERT INTO admins (reg_id, email, fname, lname, tel) VALUES (?)";
-            const values2 = [reg_id, email, fname, lname, tel];
+              "INSERT INTO admins (reg_id, email, fname, lname, tel, profile_image) VALUES (?)";
+            const values2 = [reg_id, email, fname, lname, tel, profile_image];
             connection.query(sql2, [values2], (err, result) => {
               if (err) {
                 res.json({
@@ -232,13 +233,21 @@ app.post("/register", jsonParser, (req, res) => {
   const fname = req.body.fname;
   const lname = req.body.lname;
   const tel = req.body.tel;
+  const profile_image = "profile.png";
 
-  if (fname !== "" && lname !== "" && email !== "" && tel !== "" && password !== "" && confirmPassword !== "") {
+  if (
+    fname !== "" &&
+    lname !== "" &&
+    email !== "" &&
+    tel !== "" &&
+    password !== "" &&
+    confirmPassword !== ""
+  ) {
     if (password === confirmPassword) {
       bcrypt.hash(password, saltRounds, (err, hash) => {
         const sql1 =
-        "INSERT INTO register (email, tel, urole, password) VALUES (?)";
-      const values1 = [email, tel, urole, hash];
+          "INSERT INTO register (email, tel, urole, password) VALUES (?)";
+        const values1 = [email, tel, urole, hash];
 
         connection.query(sql1, [values1], (err, result) => {
           if (err) {
@@ -260,8 +269,8 @@ app.post("/register", jsonParser, (req, res) => {
 
               // For add Customer
               const sql2 =
-                "INSERT INTO customers (reg_id, email, fname, lname, tel) VALUES (?)";
-              const values2 = [reg_id, email, fname, lname, tel];
+                "INSERT INTO customers (reg_id, email, fname, lname, tel, profile_image) VALUES (?)";
+              const values2 = [reg_id, email, fname, lname, tel, profile_image];
               connection.query(sql2, [values2], (err, result) => {
                 if (err) {
                   res.json({
