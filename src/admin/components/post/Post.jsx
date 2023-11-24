@@ -1,260 +1,328 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from "react";
+import { useDropzone } from "react-dropzone";
 import AdminMenu from "../adminMenu/AdminMenu";
-import './post.css'
+import "./post.css";
 
 const Post = () => {
-    const [mainImage, setMainImage] = useState(null);
-    const [productName, setProductName] = useState('');
-    const [productType, setProductType] = useState('');
-    const [price, setPrice] = useState('');
-    const [details, setDetails] = useState('');
-    const [popular, setPopular] = useState(false);
-    const [gallery, setGallery] = useState([]);
+  const [product, setProduct] = useState({
+    name: "",
+    productType: "",
+    description: "",
+    price: "",
+    mainImage: null,
+    images: [],
+    colors: [],
+    currentColor: "", // Track the currently entered color
+    popular: false,
+  });
 
-    // Add gallery
+  const onMainImageDrop = (acceptedFiles) => {
+    setProduct((prevProduct) => ({
+      ...prevProduct,
+      mainImage: acceptedFiles[0],
+    }));
+  };
+
+  const onImagesDrop = (acceptedFiles) => {
+    setProduct((prevProduct) => ({
+      ...prevProduct,
+      images: [...prevProduct.images, ...acceptedFiles],
+    }));
+  };
+
+  const handleColorInputChange = (e) => {
+    const { value } = e.target;
+    setProduct((prevProduct) => ({
+      ...prevProduct,
+      currentColor: value,
+    }));
+  };
+
+  const addColorInput = () => {
+    if (product.currentColor.trim() !== "") {
+      setProduct((prevProduct) => ({
+        ...prevProduct,
+        colors: [...prevProduct.colors, prevProduct.currentColor],
+        currentColor: "", // Reset the current color after adding
+      }));
+    }
+  };
+
+  const removeColorInput = (index) => {
+    if (product.colors.length > 1) {
+      setProduct((prevProduct) => {
+        const updatedColors = [...prevProduct.colors];
+        updatedColors.splice(index, 1);
+        return {
+          ...prevProduct,
+          colors: updatedColors,
+        };
+      });
+    }
+  };
+
+  const removeImage = (index) => {
+    setProduct((prevProduct) => {
+      const updatedImages = [...prevProduct.images];
+      updatedImages.splice(index, 1);
+      return {
+        ...prevProduct,
+        images: updatedImages,
+      };
+    });
+  };
+
+  const {
+    getRootProps: getMainImageRootProps,
+    getInputProps: getMainImageInputProps,
+  } = useDropzone({
+    onDrop: onMainImageDrop,
+    maxFiles: 1,
+  });
+
+  const {
+    getRootProps: getImagesRootProps,
+    getInputProps: getImagesInputProps,
+  } = useDropzone({
+    onDrop: onImagesDrop,
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setProduct((prevProduct) => ({
+      ...prevProduct,
+      [name]: value,
+    }));
+  };
+
+  const handleCheckboxChange = (e) => {
+    const { checked } = e.target;
+    setProduct((prevProduct) => ({
+      ...prevProduct,
+      popular: checked,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // ---> Post
+    // try {
+    //     const formData = new FormData();
+    //     formData.append('name', product.name);
+    //     formData.append('description', product.description);
+    //     formData.append('price', product.price);
+    //     formData.append('productType', product.productType);
+    //     formData.append('popular', product.popular ? 1 : 0);
+
+    //     // Append main image
+    //     if (product.mainImage) {
+    //       formData.append('mainImage', product.mainImage);
+    //     }
+
+    //     // Append other images
+    //     product.images.forEach((image, index) => {
+    //       formData.append(`images`, image);
+    //     });
+
+    //     // Append colors
+    //     formData.append('colors', JSON.stringify(product.colors));
+
+    //     const response = await axios.post('http://localhost:8081/api/products', formData, {
+    //       headers: {
+    //         'Content-Type': 'multipart/form-data',
+    //       },
+    //     });
+
+    //     console.log(response.data);
+    //   } catch (error) {
+    //     console.error('Error submitting form:', error);
+    //   }
 
 
-    //Add Color Box
-    const [addColor, setaddColor] = useState([]);
-    const [colorInput, setcolorInput] = useState("");
+    console.log("name", product.name);
+    console.log("description", product.description);
+    console.log("price", product.price);
+    console.log("productType", product.productType);
+    console.log("popular", product.popular ? 1 : 0);
+    if (product.mainImage) {
+      console.log("mainImage", product.mainImage);
+    }
+    product.images.forEach((image, index) => {
+      console.log(`images`, image);
+    });
+    console.log("colors", JSON.stringify(product.colors));
 
-    const handleInputChange = (e) => {
-        setcolorInput(e.target.value);
-    };
+  };
 
-    const handleEnterClick = () => {
-        if (colorInput.trim() !== "") {
-            setaddColor([...addColor, colorInput]);
-            setcolorInput("");
-        }
-    };
+  return (
+    <>
+      <AdminMenu />
+      <section id="post">
+        <div className="boxcontainerSpan_Box"></div>
+        <div className="box_container_product">
+          <div className="box_text">
+            <h2>Post Product</h2>
+          </div>
 
-    const handleKeyPress = (e) => {
-        if (e.key === "Enter") {
-            handleEnterClick();
-        }
-    };
+          <form onSubmit={handleSubmit} /*action="/api/products" method="post"*/ encType="multipart/form-data" className="edit-product-form">
+            <div className="input-box">
+              <div className="box">
+                <label htmlFor="productName">Product name</label>
+                <input
+                  type="text"
+                  id="productName"
+                  name="name"
+                  value={product.name}
+                  onChange={handleInputChange}
+                />
+              </div>
+              <div className="box">
+                <label htmlFor="productType">Product type</label>
+                <input
+                  type="text"
+                  id="productType"
+                  name="productType"
+                  value={product.productType}
+                  onChange={handleInputChange}
+                />
+              </div>
+              <div className="box">
+                <label htmlFor="price">Price</label>
+                <input
+                  type="text"
+                  id="price"
+                  name="price"
+                  value={product.price}
+                  onChange={handleInputChange}
+                />
+              </div>
 
-    const handleTagDelete = (index) => {
-        const newTags = addColor.filter((_, i) => i !== index);
-        setaddColor(newTags);
-    };
+              <div>
+                <div className="box">
+                  <label htmlFor="description">Details</label>
+                  <textarea
+                    id="description"
+                    rows="5"
+                    name="description"
+                    value={product.description}
+                    onChange={handleInputChange}
+                  ></textarea>
+                </div>
+              </div>
+              <div className="popular">
+                <label htmlFor="popular">Popular product</label>
+                <input
+                  type="checkbox"
+                  id="popular"
+                  name="popular"
+                  checked={product.popular}
+                  onChange={handleCheckboxChange}
+                />
+                {/* Hidden input for "popular" attribute */}
+                <input
+                  type="hidden"
+                  name="popular"
+                  value={product.popular ? 1 : 0}
+                />
+              </div>
 
-    // Hanle submit
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-        console.log('Form Data:', { // Here you can insert informatio to database
-            "Product name": productName,
-            "Product type": productType,
-            "Product price": price,
-            "Product details": details,
-            "Popular": popular,
-            "Color": addColor,
-            "ImageDescroption": mainImage,
-            "Gallery": gallery
-
-        });
-
-        setProductName('');
-        setProductType('');
-        setPrice('');
-        setDetails('')
-        setMainImage([]);
-        setGallery([]);
-        
-    };
-
-    // Handle checked popular
-    const handlePopular = (event) => {
-      setPopular(event.target.checked);
-    };
-
-    // handle Product name
-    const handleProductName = (e) => {
-        const value = e.target.value
-        setProductName(value)
-    };
-    // handle Product type
-    const handleProductType = (e) => {
-        const value = e.target.value
-        setProductType(value)
-    };
-    // handle Product price
-    const handleProductPrice = (e) => {
-        const value = e.target.value
-        setPrice(value)
-    };
-
-    // handle Product details
-    const handleProductDetails = (e) => {
-        const value = e.target.value
-        setDetails(value)
-    };
-
-    // image handle
-    const handleImage = (e) => {
-        const file = e.target.files[0];
-
-        if (file) {
-            const reader = new FileReader();
-
-            reader.onloadend = () => {
-                setMainImage([file]);
-            };
-
-            reader.readAsDataURL(file);
-        }
-    };
-
-    // const [gallery, setGallery] = useState([]);
-    const fileInputRef = useRef(null);
-
-    const handleImageUpload = (e) => {
-      const uploadedGallery = Array.from(e.target.files);
-      setGallery([...gallery, ...uploadedGallery]);
-    };
-  
-    const handleImageDelete = (imageToDelete) => {
-      const newGallery = gallery.filter((image) => image !== imageToDelete);
-      setGallery(newGallery);
-  
-      // Reset the input field value to allow adding new images
-      fileInputRef.current.value = null;
-    };
-
-
-    return (
-        <>
-            <AdminMenu />
-            <section id="post">
-
-                <div className="boxcontainerSpan_Box"></div>
-                <div className="box_container_product">
-                    <div className="box_text">
-                        <h2>Post Product</h2>
+              {/* Add Color Box */}
+              <div className="colorBox_chContainer">
+                <h1>Color:</h1>
+                <div className="addcolor_container">
+                  {product.colors.map((color, index) => (
+                    <div className="Card_boxColor" key={index}>
+                      <div
+                        style={{
+                          backgroundColor: color,
+                          width: "20px",
+                          height: "20px",
+                          borderRadius: "50%",
+                        }}
+                      ></div>
+                      {color}
+                      <span
+                        className="spanCancelBox"
+                        onClick={() => removeColorInput(index)}
+                      >
+                        ×
+                      </span>
                     </div>
-
-                    <form onSubmit={handleSubmit} className="edit-product-form">
-
-                        <div className="input-box">
-                            <div className="box">
-                                <label htmlFor="productName">Product name</label>
-                                <input
-                                    type="text"
-                                    id="productName"
-                                    placeholder="Name"
-                                    value={productName}
-                                    onChange={handleProductName}
-                                    required
-                                />
-                            </div>
-                            <div className="box">
-                                <label htmlFor="productType">Product type</label>
-                                <input
-                                    type="text"
-                                    id="productType"
-                                    placeholder="Type"
-                                    value={productType}
-                                    onChange={handleProductType}
-                                    required
-                                />
-                            </div>
-                            <div className="box">
-                                <label htmlFor="price">Price</label>
-                                <input
-                                    type="text"
-                                    id="price"
-                                    placeholder="Price"
-                                    value={price}
-                                    onChange={handleProductPrice}
-                                    required
-                                />
-                            </div>
-
-                            <div>
-                                <div className="box">
-                                    <label htmlFor="details">Details</label>
-                                    <textarea id="details" rows="5" value={details} onChange={handleProductDetails} required></textarea>
-                                </div>
-                            </div>
-                            <div className="popular">
-                              <label htmlFor="popular">Popular product</label>
-                              <input
-                                type="checkbox"
-                                id="popular"
-                                checked={popular}
-                                onChange={handlePopular}
-                              />
-                            </div>
-
-                            {/* Add Color Box */}
-                            <div className="colorBox_chContainer">
-                                <h1>Color:</h1> 
-                                <div className="addcolor_container">
-                                    {/* This is colors */}
-                                    {addColor.map((color, index) => (
-                                        <div className="Card_boxColor" key={index}>
-                                            {color}
-                                            <span className="spanCancelBox" onClick={() => handleTagDelete(index)}>×</span>
-                                        </div>
-                                    ))}
-                                </div>
-                                <div className="addcolorContent">
-                                    <input className="inputBoxaddcolor" type="text" value={colorInput} onChange={handleInputChange} onKeyDown={handleKeyPress}
-                                        placeholder="Write your color..." />
-                                    <a className="btn_addcolorbox" onClick={handleEnterClick}>
-                                        Enter
-                                    </a>
-                                </div>
-                            </div>
-                            {/* End Add Color Box */}
-                        </div>
-
-                        <div className="input-img">
-                            <div className="gallery">
-                                <h3>Image gallery</h3>
-                                <div className="gallery-box">
-                                  <input type="file" id="gallery" multiple onChange={handleImageUpload} ref={fileInputRef} />
-                                  {/* This is gallery images */}
-                                  {gallery.map((image, index) => (
-                                    <div key={image.name /* Use a unique identifier for each image */}>
-                                      <img src={URL.createObjectURL(image)} alt={`Image ${index}`} required/>
-                                      <button onClick={() => handleImageDelete(image)}>
-                                        Remove
-                                      </button>
-                                    </div>
-                                  ))}
-                                  {(gallery && gallery.length > 0) ?
-                                    <label htmlFor="gallery" className="add-more">+</label> :
-                                    <label htmlFor="gallery" className="add-gallery">Choose gallery</label>
-                                }
-                                </div>
-                            </div>
-                            <div className="box_description">
-                                <h3>Description image</h3>
-                                <div className="image">
-                                    <label htmlFor="img">
-                                        {(mainImage && mainImage.length > 0) ? <img src={URL.createObjectURL(mainImage[0])} /> : <p>Choose image</p>} {/** This is description image */}
-                                    </label>
-                                    <input
-                                        type="file"
-                                        id="img"
-                                        onChange={handleImage}
-                                        required
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                        <div className="submit1">
-                            <button type="submit" disabled={addColor == '' || gallery  == '' || image == ''}>Post</button>
-                        </div>
-                    </form>
+                  ))}
                 </div>
 
-            </section>
-        </>
-    )
-}
+                <div className="addcolorContent">
+                  <input
+                    className="inputBoxaddcolor"
+                    type="text"
+                    value={product.currentColor}
+                    onChange={handleColorInputChange}
+                    placeholder="Enter Color"
+                  />
+                  <div className="btn_addcolorbox" onClick={addColorInput}>
+                    Add
+                  </div>
+                </div>
+              </div>
+              {/* End Add Color Box */}
+            </div>
+
+            <div className="input-img">
+              <div className="gallery">
+                <h3>Image gallery</h3>
+                <div className="gallery-box">
+                  <input {...getImagesInputProps()} />
+                  {product.images.map((image, index) => (
+                    <div key={index} style={{ marginBottom: "10px" }}>
+                      <img
+                        src={URL.createObjectURL(image)}
+                        alt={`Image ${index + 1}`}
+                        style={{ maxWidth: "200px", maxHeight: "200px" }}
+                      />
+                      <button type="button" onClick={() => removeImage(index)}>
+                        Remove
+                      </button>
+                    </div>
+                  ))}
+                  {product.images && product.images.length > 0 ? (
+                    <div {...getImagesRootProps()} className="add-more">
+                      +
+                    </div>
+                  ) : (
+                    <div {...getImagesRootProps()} className="add-gallery">
+                      Choose gallery
+                    </div>
+                  )}
+                </div>
+              </div>
+              <div className="box_description">
+                <h3>Description image</h3>
+
+                <div className="image">
+                  <label>
+                    <div {...getMainImageRootProps()}>
+                      {product.mainImage && (
+                        <img
+                          src={URL.createObjectURL(product.mainImage)}
+                          alt="Main Preview"
+                        />
+                      )}
+                      <p>Choose image</p>
+                    </div>
+                  </label>
+                  <input {...getMainImageInputProps()} />
+                </div>
+              </div>
+            </div>
+            <div className="submit1">
+              <button type="submit">Post</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </>
+  );
+};
 
 export default Post;
