@@ -3,6 +3,7 @@ var cors = require("cors");
 var app = express();
 var bodyParser = require("body-parser");
 var jsonParser = bodyParser.json();
+const multer = require("multer");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 var jwt = require("jsonwebtoken");
@@ -18,6 +19,148 @@ const connection = mysql.createConnection({
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DATABASE,
+});
+
+const fileStorageEngine = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "../public/images");
+  },
+  filename: (req, file, cb) => {
+    const uniqueSuffix = Date.now();
+    cb(null, uniqueSuffix + file.originalname);
+  },
+});
+
+const upload = multer({ storage: fileStorageEngine });
+
+// For test upload image
+app.post("/single", upload.single("image"), (req, res) => {
+  const file_src = req.file.filename;
+
+  const sql = "INSERT INTO users_file (file_src) VALUES (?)";
+  const value = [file_src];
+
+  connection.query(sql, [value], (err, result) => {
+    if (err) {
+      res.json({
+        Status: "Error",
+        Error: err,
+      });
+      return;
+    } else {
+      res.json({
+        Status: "Success",
+        Success: result,
+      });
+      return;
+    }
+  });
+});
+app.post("/multiple", upload.array("images", 3), (req, res) => {
+  console.log(req.files);
+  res.send("Multiple File upload success");
+});
+
+// ==================== Authenticate user =====================
+app.post("/authen", jsonParser, (req, res) => {
+  try {
+    const token = req.headers.authorization.split(" ")[1];
+    var decoded = jwt.verify(token, secret);
+    res.json({ Status: "Success", decoded });
+  } catch (err) {
+    res.json({ Status: "Error", Error: err.message });
+  }
+});
+
+// ==================== Customer Management =====================
+
+app.post("/register", jsonParser, (req, res) => {
+  const email = req.body.email;
+  const urole = "Customer";
+  const password = req.body.password;
+  const confirmPassword = req.body.confirmPassword;
+  var reg_id = "";
+  const fname = req.body.fname;
+  const lname = req.body.lname;
+  const tel = req.body.tel;
+  const profile_image = "profile.png";
+
+  if (
+    fname !== "" &&
+    lname !== "" &&
+    email !== "" &&
+    tel !== "" &&
+    password !== "" &&
+    confirmPassword !== ""
+  ) {
+    if (password === confirmPassword) {
+      bcrypt.hash(password, saltRounds, (err, hash) => {
+        const sql1 =
+          "INSERT INTO register (email, tel, urole, password) VALUES (?)";
+        const values1 = [email, tel, urole, hash];
+
+        connection.query(sql1, [values1], (err, result) => {
+          if (err) {
+            res.json({
+              Status: "Error",
+              Error: err,
+            });
+            return;
+          } else {
+            // For select last user id
+            const sql = "SELECT * FROM register ORDER BY id DESC LIMIT 1";
+            connection.query(sql, (err, result) => {
+              if (err)
+                return res.json({
+                  Status: "Error",
+                  Error: err,
+                });
+              reg_id = result[0].id;
+
+              // For add Customer
+              const sql2 =
+                "INSERT INTO customers (reg_id, email, fname, lname, tel, profile_image) VALUES (?)";
+              const values2 = [reg_id, email, fname, lname, tel, profile_image];
+              connection.query(sql2, [values2], (err, result) => {
+                if (err) {
+                  res.json({
+                    Status: "Error",
+                    Error: err,
+                  });
+
+                  // For delete the last register id when customers adding wrong
+                  const sql3 = "DELETE FROM register WHERE id = ?";
+
+                  connection.query(sql3, [reg_id], (err, result) => {
+                    if (err)
+                      return res.json({
+                        Status: "Error",
+                        Error: err,
+                      });
+                  });
+                  return;
+                } else {
+                  res.json({ Status: "Success" });
+                }
+              });
+            });
+          }
+        });
+      });
+    } else {
+      res.json({
+        Status: "Error",
+        Error: "The Password doesn't match!",
+      });
+      return;
+    }
+  } else {
+    res.json({
+      Status: "Error",
+      Error: "Please fill all the blank!",
+    });
+    return;
+  }
 });
 
 // ==================== Admin Management =====================
@@ -93,16 +236,6 @@ app.post("/admin/register", jsonParser, (req, res) => {
       Error: "Please fill all the blank!",
     });
     return;
-  }
-});
-
-app.post("/authen", jsonParser, (req, res) => {
-  try {
-    const token = req.headers.authorization.split(" ")[1];
-    var decoded = jwt.verify(token, secret);
-    res.json({ Status: "Success", decoded });
-  } catch (err) {
-    res.json({ Status: "Error", Error: err.message });
   }
 });
 
@@ -222,97 +355,6 @@ app.get("/countAdmin", (req, res) => {
   });
 });
 
-// ==================== Customer Management =====================
-
-app.post("/register", jsonParser, (req, res) => {
-  const email = req.body.email;
-  const urole = "Customer";
-  const password = req.body.password;
-  const confirmPassword = req.body.confirmPassword;
-  var reg_id = "";
-  const fname = req.body.fname;
-  const lname = req.body.lname;
-  const tel = req.body.tel;
-  const profile_image = "profile.png";
-
-  if (
-    fname !== "" &&
-    lname !== "" &&
-    email !== "" &&
-    tel !== "" &&
-    password !== "" &&
-    confirmPassword !== ""
-  ) {
-    if (password === confirmPassword) {
-      bcrypt.hash(password, saltRounds, (err, hash) => {
-        const sql1 =
-          "INSERT INTO register (email, tel, urole, password) VALUES (?)";
-        const values1 = [email, tel, urole, hash];
-
-        connection.query(sql1, [values1], (err, result) => {
-          if (err) {
-            res.json({
-              Status: "Error",
-              Error: err,
-            });
-            return;
-          } else {
-            // For select last user id
-            const sql = "SELECT * FROM register ORDER BY id DESC LIMIT 1";
-            connection.query(sql, (err, result) => {
-              if (err)
-                return res.json({
-                  Status: "Error",
-                  Error: err,
-                });
-              reg_id = result[0].id;
-
-              // For add Customer
-              const sql2 =
-                "INSERT INTO customers (reg_id, email, fname, lname, tel, profile_image) VALUES (?)";
-              const values2 = [reg_id, email, fname, lname, tel, profile_image];
-              connection.query(sql2, [values2], (err, result) => {
-                if (err) {
-                  res.json({
-                    Status: "Error",
-                    Error: err,
-                  });
-
-                  // For delete the last register id when customers adding wrong
-                  const sql3 = "DELETE FROM register WHERE id = ?";
-
-                  connection.query(sql3, [reg_id], (err, result) => {
-                    if (err)
-                      return res.json({
-                        Status: "Error",
-                        Error: err,
-                      });
-                  });
-                  return;
-                } else {
-                  res.json({ Status: "Success" });
-                }
-              });
-            });
-          }
-        });
-      });
-    } else {
-      res.json({
-        Status: "Error",
-        Error: "The Password doesn't match!",
-      });
-      return;
-    }
-  } else {
-    res.json({
-      Status: "Error",
-      Error: "Please fill all the blank!",
-    });
-    return;
-  }
-});
-
 app.post("/login", jsonParser, (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
@@ -376,7 +418,9 @@ app.get("/allCustomers", (req, res) => {
   connection.query(sql, (err, result) => {
     if (err)
       return res.json({ Status: "Error", Error: "Errer in running sql" });
-    return res.json({ Status: "Success", Result: result });
+    else {
+      return res.json({ Status: "Success", Result: result });
+    }
   });
 });
 

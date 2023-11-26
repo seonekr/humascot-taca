@@ -28,7 +28,6 @@ const Admin_acount = () => {
       .then((result) => {
         if (result.Status === "Success") {
           setUserDetail(result.Result[0]);
-          console.log(userDetail);
         }
       })
       .catch((error) => console.log("error", error));
@@ -48,7 +47,9 @@ const Admin_acount = () => {
         <div className="userInfo">
           <div className="info">
             <div>User ID: {userDetail.id}</div>
-            <div>User Name: {userDetail.fname} {userDetail.lname}</div>
+            <div>
+              User Name: {userDetail.fname} {userDetail.lname}
+            </div>
             <div>User Email: {userDetail.email}</div>
             <div>User Phone number: {userDetail.tel}</div>
             <div>Password: ********</div>
@@ -62,15 +63,13 @@ const Admin_acount = () => {
             </div>
           </div>
           <div className="img">
-          {userDetail.profile_image ? (
-              <img src={userDetail.profile_image} alt="admin profile" />
-            ) : (
-              <img src={user} alt="admin profile" />
-            )}
+            <img
+              src={`../../../../public/images/${userDetail.profile_image}`}
+              alt="admin profile"
+            />
           </div>
         </div>
       </section>
-
     </>
   );
 };

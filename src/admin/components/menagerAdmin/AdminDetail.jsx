@@ -7,11 +7,13 @@ import { useState, useEffect } from "react";
 import user from "../../../img/user.png";
 
 const AdminDetail = () => {
-  // DFor delete User
+  const userID = localStorage.getItem("userID");
+  // For delete User
   const [deleteAdminId, setDeleteAdminId] = useState(null);
   const [isConfirmationPopupOpen, setConfirmationPopupOpen] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const [warning, setWarnung] = useState("");
 
   const openConfirmationPopup = (id) => {
     setDeleteAdminId(id);
@@ -24,6 +26,9 @@ const AdminDetail = () => {
   };
 
   const DeleteAdmin = (id) => {
+    if (id === userID) {
+      setWarnung();
+    }
     // console.log("Deleted success!!" + id)
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -93,22 +98,26 @@ const AdminDetail = () => {
             <div>User Phone number: {adminDetail.tel}</div>
             <div>Password: ********</div>
             <div className="del-update">
-              <div className="del" onClick={() => { openConfirmationPopup(adminDetail.reg_id) }}>
+              <div
+                className="del"
+                onClick={() => {
+                  openConfirmationPopup(adminDetail.reg_id);
+                }}
+              >
                 <AiOutlineDelete />
               </div>
               <div className="update upd">
                 <Link to="/updateAdmin">
-                  <MdOutlineEdit  className="iconcoloredite"/>
+                  <MdOutlineEdit className="iconcoloredite" />
                 </Link>
               </div>
             </div>
           </div>
           <div className="img">
-            {adminDetail.profile_image ? (
-              <img src={adminDetail.profile_image} alt="admin profile" />
-            ) : (
-              <img src={user} alt="admin profile" />
-            )}
+            <img
+              src={`../../../../public/images/${adminDetail.profile_image}`}
+              alt="admin profile"
+            />
           </div>
         </div>
       </section>

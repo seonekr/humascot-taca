@@ -8,20 +8,43 @@ import { BiUser } from "react-icons/bi";
 import { LiaUserCogSolid } from "react-icons/lia";
 import { RxDashboard } from "react-icons/rx";
 import { MdOutlineSell } from "react-icons/md";
-import user from "../../../img/user.png";
 import Logo1 from "../../../img/Logo1.png";
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const AdminMenu = () => {
   const [showConfirmation, setShowConfirmation] = useState(false);
+  const [userDetail, setUserDetail] = useState([]);
+  const userID = localStorage.getItem("userID");
+
   const navigate = useNavigate();
+
+  // For get user by id
+  useEffect(() => {
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+      redirect: "follow",
+    };
+
+    fetch(import.meta.env.VITE_API + "/getAdmin/" + userID, requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        if (result.Status === "Success") {
+          setUserDetail(result.Result[0]);
+        }
+      })
+      .catch((error) => console.log("error", error));
+  }, []);
 
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("userID");
-    console.log("Logged out")
+    console.log("Logged out");
     navigate("/");
   };
 
@@ -85,7 +108,10 @@ const AdminMenu = () => {
             </NavLink>
 
             <NavLink to="/adminacount" className="userAdminImage">
-              <img src={user} alt="Logo_Profile" />
+              <img
+                src={`../../../../public/images/${userDetail.profile_image}`}
+                alt="admin profile"
+              />
             </NavLink>
           </div>
         </div>
