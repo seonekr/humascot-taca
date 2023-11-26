@@ -55,6 +55,10 @@ const AdminDetail = () => {
     }
   };
 
+  const EditAdmin = (id) => {
+    navigate("/admin/edit/" + id);
+  };
+
   // For get user by id
   const [adminDetail, setAdminDetail] = useState([]);
   const { id } = useParams();
@@ -107,8 +111,11 @@ const AdminDetail = () => {
               >
                 <AiOutlineDelete />
               </div>
-              <div className="update upd">
-                <Link to="/updateAdmin">
+              <div
+                className="update upd"
+                onClick={() => EditAdmin(adminDetail.reg_id)}
+              >
+                <Link>
                   <MdOutlineEdit className="iconcoloredite" />
                 </Link>
               </div>

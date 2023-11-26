@@ -107,7 +107,7 @@ const AdminMenu = () => {
               </span>
             </NavLink>
 
-            <NavLink to="/adminacount" className="userAdminImage">
+            <NavLink to="/admin/acount" className="userAdminImage">
               <img
                 src={`../../../../public/images/${userDetail.profile_image}`}
                 alt="admin profile"

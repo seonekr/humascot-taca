@@ -45,7 +45,7 @@ const Admins = () => {
   }, []);
 
   const AdminDetail = (id) => {
-    navigate("/admins/AdminDetail/" + id);
+    navigate("/admin/detail/" + id);
     console.log(id);
   };
 
@@ -57,7 +57,7 @@ const Admins = () => {
           <div className="container_box_users">
             <div className="box_users">
               <div className="box_add_admin">
-                <Link to="/addadmin" className="btn_addadmin">
+                <Link to="/admin/register" className="btn_addadmin">
                   <BiPlus id="icon_add_admin" />
                   Add Admin
                 </Link>

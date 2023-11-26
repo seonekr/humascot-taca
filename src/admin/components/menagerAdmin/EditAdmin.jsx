@@ -6,7 +6,7 @@ import user from "../../../img/user.png";
 import { FaAngleLeft } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
-const AddAdmin = () => {
+const EditAdmin = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -66,10 +66,10 @@ const AddAdmin = () => {
       .then((result) => {
         if (result.Status === "Success") {
           setSuccessMsg(result.Status);
-          navigate("/admin/register");
+          navigate("/addadmin");
         } else {
           setErrorMsg(result.Error);
-          navigate("/admin/register");
+          navigate("/addadmin");
         }
       })
       .catch((error) => console.log("error", error));
@@ -153,4 +153,4 @@ const AddAdmin = () => {
   );
 };
 
-export default AddAdmin;
+export default EditAdmin;

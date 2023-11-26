@@ -45,7 +45,7 @@ const Users = () => {
   }, []);
 
   const UserDetail = (id) => {
-    navigate("/users/user/" + id);
+    navigate("/user/detail/" + id);
     console.log(id);
   };
 
