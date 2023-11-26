@@ -61,7 +61,65 @@ app.post("/multiple", upload.array("images", 3), (req, res) => {
   res.send("Multiple File upload success");
 });
 
-// ==================== Authenticate user =====================
+// ==================== Authentication and Authenticate user =====================
+app.post("/login", jsonParser, (req, res) => {
+  const email = req.body.email;
+  const password = req.body.password;
+  const sql = "SELECT * FROM register WHERE email = ?";
+  connection.query(sql, [email], (err, result) => {
+    if (err) {
+      return res.json({ Status: "Error", Error: "Errer in running sql" });
+    }
+    if (result.length > 0) {
+      bcrypt.compare(
+        password.toString(),
+        result[0].password,
+        (err, response) => {
+          if (err) return res.json({ Error: "Password error" });
+          if (response) {
+            if (result[0].urole === "Admin") {
+              const token = jwt.sign(
+                { email: result[0].email, urole: "Admin" },
+                secret,
+                {
+                  expiresIn: "1d",
+                }
+              );
+              return res.json({
+                Status: "Success",
+                urole: "Admin",
+                userID: result[0].id,
+                token: token,
+              });
+            } else {
+              const token = jwt.sign(
+                { email: result[0].email, urole: "Customer" },
+                secret,
+                {
+                  expiresIn: "1d",
+                }
+              );
+              return res.json({
+                Status: "Success",
+                urole: "Customer",
+                userID: result[0].id,
+                token: token,
+              });
+            }
+          } else {
+            return res.json({
+              Status: "Error",
+              Error: "Wrong Password",
+            });
+          }
+        }
+      );
+    } else {
+      return res.json({ Status: "Error", Error: "Wrong Email or Password" });
+    }
+  });
+});
+
 app.post("/authen", jsonParser, (req, res) => {
   try {
     const token = req.headers.authorization.split(" ")[1];
@@ -160,6 +218,73 @@ app.post("/register", jsonParser, (req, res) => {
     });
     return;
   }
+});
+
+app.get("/allCustomers", (req, res) => {
+  const sql = "SELECT * FROM customers";
+  connection.query(sql, (err, result) => {
+    if (err)
+      return res.json({ Status: "Error", Error: "Errer in running sql" });
+    else {
+      return res.json({ Status: "Success", Result: result });
+    }
+  });
+});
+
+app.get("/getCustomer/:id", (req, res) => {
+  const id = req.params.id;
+  const sql = "SELECT * FROM customers WHERE reg_id = ?";
+  connection.query(sql, [id], (err, result) => {
+    if (err)
+      return res.json({ Status: "Error", Error: "Errer in running sql" });
+    return res.json({ Status: "Success", Result: result });
+  });
+});
+
+app.put("/updateCustomer/:id", jsonParser, (req, res) => {
+  const id = req.params.id;
+
+  bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
+    const sql =
+      "UPDATE customers SET `email` = ?, `tel` = ?, `fname` = ?, `lname` = ?, `password` = ? WHERE id = ?";
+
+    const values = [
+      req.body.email,
+      req.body.tel,
+      req.body.fname,
+      req.body.lname,
+      hash,
+    ];
+
+    connection.query(sql, [...values, id], (err, data) => {
+      if (err) res.json({ Status: "Error", Error: "Errer in running sql" });
+      return res.json({ Status: "Success", data });
+    });
+  });
+});
+
+app.get("/deleteCustomer/:id", (req, res) => {
+  const id = req.params.id;
+  const sql = "DELETE FROM register WHERE id = ?";
+
+  connection.query(sql, [id], (err, result) => {
+    if (err)
+      return res.json({
+        Status: "Error",
+        Error: "Errer in running sql",
+      });
+    return res.json({ Status: "Success" });
+  });
+});
+
+app.get("/countCustomer", (req, res) => {
+  const sql = "SELECT count(id) as customers FROM customers";
+
+  connection.query(sql, (err, result) => {
+    if (err)
+      return res.json({ Status: "Error", Error: "Errer in running sql" });
+    return res.json({ result });
+  });
 });
 
 // ==================== Admin Management =====================
@@ -321,254 +446,19 @@ app.get("/countAdmin", (req, res) => {
   });
 });
 
-// ============== Test API ===============
-app.get("/lastUser", (req, res) => {
-  const sql = "SELECT * FROM users ORDER BY id DESC LIMIT 1";
-  connection.query(sql, (err, result) => {
-    if (err)
-      return res.json({ Status: "Error", Error: "Errer in running query" });
-
-    return res.json({ Status: "Success", Result: result[0].id });
-  });
-});
-
-// app.put("/updateAdmin/:id", jsonParser, (req, res) => {
-//   const id = req.params.id;
-
-//   bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
-//     const sql =
-//       "UPDATE admins SET `email` = ?, `tel` = ?, `fname` = ?, `lname` = ?, `password` = ? WHERE id = ?";
-
-//     const values = [
-//       req.body.email,
-//       req.body.tel,
-//       req.body.fname,
-//       req.body.lname,
-//       hash,
-//     ];
-
-//     connection.query(sql, [...values, id], (err, data) => {
-//       if (err) res.json({ Status: "Error", Error: "Errer in running sql" });
-//       return res.json({ Status: "Success", data });
-//     });
-//   });
-// });
-
-app.post("/login", jsonParser, (req, res) => {
-  const email = req.body.email;
-  const password = req.body.password;
-  const sql = "SELECT * FROM register WHERE email = ?";
-  connection.query(sql, [email], (err, result) => {
-    if (err) {
-      return res.json({ Status: "Error", Error: "Errer in running sql" });
-    }
-    if (result.length > 0) {
-      bcrypt.compare(
-        password.toString(),
-        result[0].password,
-        (err, response) => {
-          if (err) return res.json({ Error: "Password error" });
-          if (response) {
-            if (result[0].urole === "Admin") {
-              const token = jwt.sign(
-                { email: result[0].email, urole: "Admin" },
-                secret,
-                {
-                  expiresIn: "1d",
-                }
-              );
-              return res.json({
-                Status: "Success",
-                urole: "Admin",
-                userID: result[0].id,
-                token: token,
-              });
-            } else {
-              const token = jwt.sign(
-                { email: result[0].email, urole: "Customer" },
-                secret,
-                {
-                  expiresIn: "1d",
-                }
-              );
-              return res.json({
-                Status: "Success",
-                urole: "Customer",
-                userID: result[0].id,
-                token: token,
-              });
-            }
-          } else {
-            return res.json({
-              Status: "Error",
-              Error: "Wrong Password",
-            });
-          }
-        }
-      );
-    } else {
-      return res.json({ Status: "Error", Error: "Wrong Email or Password" });
-    }
-  });
-});
-
-app.get("/allCustomers", (req, res) => {
-  const sql = "SELECT * FROM customers";
-  connection.query(sql, (err, result) => {
-    if (err)
-      return res.json({ Status: "Error", Error: "Errer in running sql" });
-    else {
-      return res.json({ Status: "Success", Result: result });
-    }
-  });
-});
-
-app.get("/getCustomer/:id", (req, res) => {
-  const id = req.params.id;
-  const sql = "SELECT * FROM customers WHERE reg_id = ?";
-  connection.query(sql, [id], (err, result) => {
-    if (err)
-      return res.json({ Status: "Error", Error: "Errer in running sql" });
-    return res.json({ Status: "Success", Result: result });
-  });
-});
-
-app.put("/updateCustomer/:id", jsonParser, (req, res) => {
-  const id = req.params.id;
-
-  bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
-    const sql =
-      "UPDATE customers SET `email` = ?, `tel` = ?, `fname` = ?, `lname` = ?, `password` = ? WHERE id = ?";
-
-    const values = [
-      req.body.email,
-      req.body.tel,
-      req.body.fname,
-      req.body.lname,
-      hash,
-    ];
-
-    connection.query(sql, [...values, id], (err, data) => {
-      if (err) res.json({ Status: "Error", Error: "Errer in running sql" });
-      return res.json({ Status: "Success", data });
-    });
-  });
-});
-
-app.get("/deleteCustomer/:id", (req, res) => {
-  const id = req.params.id;
-  const sql = "DELETE FROM register WHERE id = ?";
-
-  connection.query(sql, [id], (err, result) => {
-    if (err)
-      return res.json({
-        Status: "Error",
-        Error: "Errer in running sql",
-      });
-    return res.json({ Status: "Success" });
-  });
-});
-
-app.get("/countCustomer", (req, res) => {
-  const sql = "SELECT count(id) as customers FROM customers";
-
-  connection.query(sql, (err, result) => {
-    if (err)
-      return res.json({ Status: "Error", Error: "Errer in running sql" });
-    return res.json({ result });
-  });
-});
-
-// ==================== Category Management =====================
-
-app.post("/addCategory", jsonParser, (req, res) => {
-  const sql = "INSERT INTO categories (name) VALUES (?)";
-  const values = [req.body.name];
-  connection.query(sql, [values], (err, result) => {
-    if (err) {
-      return res.json({
-        Status: "Error",
-        Error: "Errer in running sql",
-      });
-    }
-    return res.json({ Status: "Success" });
-  });
-});
-
-app.get("/allCategories", (req, res) => {
-  const sql = "SELECT * FROM categories";
-  connection.query(sql, (err, result) => {
-    if (err)
-      return res.json({
-        Status: "Error",
-        Error: "Errer in running sql",
-      });
-    return res.json({ Status: "Success", Result: result });
-  });
-});
-
-app.get("/getCategory/:id", (req, res) => {
-  const id = req.params.id;
-  const sql = "SELECT * FROM categories WHERE id = ?";
-  connection.query(sql, [id], (err, result) => {
-    if (err)
-      return res.json({
-        Status: "Error",
-        Error: "Errer in running sql",
-      });
-    return res.json({ Status: "Success", Result: result });
-  });
-});
-
-app.put("/updateCategory/:id", jsonParser, (req, res) => {
-  const id = req.params.id;
-
-  const sql = "UPDATE categories SET `name` = ? WHERE id = ?";
-
-  const values = [req.body.name];
-
-  connection.query(sql, [...values, id], (err, data) => {
-    if (err) res.json({ Status: "Error", Error: "Errer in running sql" });
-    return res.json({ Status: "Success", data });
-  });
-});
-
-app.get("/deleteCategory/:id", (req, res) => {
-  const id = req.params.id;
-  const sql = "DELETE FROM categories WHERE id = ?";
-
-  connection.query(sql, [id], (err, result) => {
-    if (err)
-      return res.json({
-        Status: "Error",
-        Error: "Errer in running sql",
-      });
-    return res.json({ Status: "Success" });
-  });
-});
-
-app.get("/countCategory", (req, res) => {
-  const sql = "SELECT count(id) as category FROM categories";
-
-  connection.query(sql, (err, result) => {
-    if (err)
-      return res.json({ Status: "Error", Error: "Errer in running sql" });
-    return res.json({ result });
-  });
-});
-
 // ==================== Product Management =====================
-
-app.post("/addProduct", jsonParser, (req, res) => {
+app.post("/addProduct", upload.single("image"), jsonParser, (req, res) => {
   const sql =
-    "INSERT INTO products (cat_id, name, price, color, description, images) VALUES (?)";
+    "INSERT INTO products (category, name, price, color, description, is_popular) VALUES (?)";
   const values = [
-    req.body.cat_id,
+    req.body.category,
     req.body.name,
     req.body.price,
     req.body.color,
     req.body.description,
-    req.body.images,
+    req.body.is_popular,
+    // req.file.filename,
+    // req.body.gallery,
   ];
   connection.query(sql, [values], (err, result) => {
     if (err) {
@@ -644,6 +534,117 @@ app.get("/deleteProduct/:id", (req, res) => {
 
 app.get("/countProduct", (req, res) => {
   const sql = "SELECT count(id) as products FROM products";
+
+  connection.query(sql, (err, result) => {
+    if (err)
+      return res.json({ Status: "Error", Error: "Errer in running sql" });
+    return res.json({ result });
+  });
+});
+
+// ============== Test API ===============
+app.get("/lastUser", (req, res) => {
+  const sql = "SELECT * FROM users ORDER BY id DESC LIMIT 1";
+  connection.query(sql, (err, result) => {
+    if (err)
+      return res.json({ Status: "Error", Error: "Errer in running query" });
+
+    return res.json({ Status: "Success", Result: result[0].id });
+  });
+});
+
+// app.put("/updateAdmin/:id", jsonParser, (req, res) => {
+//   const id = req.params.id;
+
+//   bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
+//     const sql =
+//       "UPDATE admins SET `email` = ?, `tel` = ?, `fname` = ?, `lname` = ?, `password` = ? WHERE id = ?";
+
+//     const values = [
+//       req.body.email,
+//       req.body.tel,
+//       req.body.fname,
+//       req.body.lname,
+//       hash,
+//     ];
+
+//     connection.query(sql, [...values, id], (err, data) => {
+//       if (err) res.json({ Status: "Error", Error: "Errer in running sql" });
+//       return res.json({ Status: "Success", data });
+//     });
+//   });
+// });
+
+// ==================== Category Management =====================
+
+app.post("/addCategory", jsonParser, (req, res) => {
+  const sql = "INSERT INTO categories (name) VALUES (?)";
+  const values = [req.body.name];
+  connection.query(sql, [values], (err, result) => {
+    if (err) {
+      return res.json({
+        Status: "Error",
+        Error: "Errer in running sql",
+      });
+    }
+    return res.json({ Status: "Success" });
+  });
+});
+
+app.get("/allCategories", (req, res) => {
+  const sql = "SELECT * FROM categories";
+  connection.query(sql, (err, result) => {
+    if (err)
+      return res.json({
+        Status: "Error",
+        Error: "Errer in running sql",
+      });
+    return res.json({ Status: "Success", Result: result });
+  });
+});
+
+app.get("/getCategory/:id", (req, res) => {
+  const id = req.params.id;
+  const sql = "SELECT * FROM categories WHERE id = ?";
+  connection.query(sql, [id], (err, result) => {
+    if (err)
+      return res.json({
+        Status: "Error",
+        Error: "Errer in running sql",
+      });
+    return res.json({ Status: "Success", Result: result });
+  });
+});
+
+app.put("/updateCategory/:id", jsonParser, (req, res) => {
+  const id = req.params.id;
+
+  const sql = "UPDATE categories SET `name` = ? WHERE id = ?";
+
+  const values = [req.body.name];
+
+  connection.query(sql, [...values, id], (err, data) => {
+    if (err) res.json({ Status: "Error", Error: "Errer in running sql" });
+    return res.json({ Status: "Success", data });
+  });
+});
+
+app.get("/deleteCategory/:id", (req, res) => {
+  const id = req.params.id;
+  const sql = "DELETE FROM categories WHERE id = ?";
+
+  connection.query(sql, [id], (err, result) => {
+    if (err)
+      return res.json({
+        Status: "Error",
+        Error: "Errer in running sql",
+      });
+    return res.json({ Status: "Success" });
+  });
+});
+
+app.get("/countCategory", (req, res) => {
+  const sql = "SELECT count(id) as category FROM categories";
 
   connection.query(sql, (err, result) => {
     if (err)

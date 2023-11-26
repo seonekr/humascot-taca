@@ -15,6 +15,8 @@ const AddAdmin = () => {
   const [errorMsg, setErrorMsg] = useState("");
   const [message, setMessage] = useState("");
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     // Check messages
     if (successMsg === "Success") {
@@ -23,8 +25,6 @@ const AddAdmin = () => {
       setMessage(errorMsg);
     }
   });
-
-  const navigate = useNavigate();
 
   const handleFirstNameChange = (e) => {
     setFirstName(e.target.value);
