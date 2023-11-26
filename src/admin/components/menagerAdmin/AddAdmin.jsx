@@ -11,9 +11,6 @@ const AddAdmin = () => {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [image, setImage] = useState("");
   const [successMsg, setSuccessMsg] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
   const [message, setMessage] = useState("");
@@ -52,8 +49,6 @@ const AddAdmin = () => {
 
     var raw = JSON.stringify({
       email: email,
-      password: email,
-      confirmPassword: confirmPassword,
       fname: firstName,
       lname: lastName,
       tel: phoneNumber,
@@ -93,7 +88,7 @@ const AddAdmin = () => {
             <h2>Add Admin</h2>
             <div></div>
           </div>
-          {/* <h3>{message && message}</h3> */}
+          <h3>{message && message}</h3>
           <form onSubmit={handleSubmit}>
             <div className="addAdminForm">
               <div className="add-box">
@@ -144,11 +139,11 @@ const AddAdmin = () => {
             <div className="imageAdmin">
               <div className="image">
                 <label htmlFor="adminImage">
-                  <img src={user} />
+                  <img src={"../../../../public/images/profile.png"} />
                 </label>
               </div>
             </div>
-            <div className="submit" >
+            <div className="submit">
               <button type="submit">Add</button>
             </div>
           </form>
