@@ -7,6 +7,7 @@ import { FaAngleLeft } from "react-icons/fa";
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 
 const EditAdmin = () => {
+  const { id } = useParams();
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -14,10 +15,6 @@ const EditAdmin = () => {
   const [successMsg, setSuccessMsg] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
   const [message, setMessage] = useState("");
-
-  // For get user by id
-  const [adminDetail, setAdminDetail] = useState([]);
-  const { id } = useParams();
 
   const navigate = useNavigate();
 
@@ -31,12 +28,14 @@ const EditAdmin = () => {
       .then((response) => response.json())
       .then((result) => {
         if (result.Status === "Success") {
-          setAdminDetail(result.Result[0]);
-          console.log(adminDetail);
+          setFirstName(result.Result[0].fname);
+          setLastName(result.Result[0].lname);
+          setEmail(result.Result[0].email);
+          setPhoneNumber(result.Result[0].tel);
         }
       })
       .catch((error) => console.log("error", error));
-  }, []);
+  }, [id]);
 
   useEffect(() => {
     // Check messages
@@ -47,39 +46,27 @@ const EditAdmin = () => {
     }
   });
 
-  const handleFirstNameChange = (e) => {
-    setFirstName(e.target.value);
-  };
-
-  const handleLastNameChange = (e) => {
-    setLastName(e.target.value);
-  };
-
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const handlePhoneNumberChange = (e) => {
-    setPhoneNumber(e.target.value);
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
+
     var raw = JSON.stringify({
       email: email,
+      tel: phoneNumber,
       fname: firstName,
       lname: lastName,
-      tel: phoneNumber,
+      password: "1234",
     });
+
     var requestOptions = {
-      method: "POST",
+      method: "PUT",
       headers: myHeaders,
       body: raw,
       redirect: "follow",
     };
-    fetch("http://localhost:5000/updateAdmin" + id, requestOptions)
+
+    fetch("http://localhost:5000/updateAdmin/" + id, requestOptions)
       .then((response) => response.json())
       .then((result) => {
         if (result.Status === "Success") {
@@ -87,7 +74,7 @@ const EditAdmin = () => {
           navigate("/admin/detail/" + id);
         } else {
           setErrorMsg(result.Error);
-          navigate("/addadmin");
+          navigate("/admin/edit/" + id);
         }
       })
       .catch((error) => console.log("error", error));
@@ -107,28 +94,28 @@ const EditAdmin = () => {
             <div></div>
           </div>
           <h3>{message && message}</h3>
-          <form onSubmit={handleSubmit}>
+          <form>
             <div className="addAdminForm">
               <div className="add-box">
-                <label htmlFor="fname">First name</label>
+                <label htmlFor="firstName">First name</label>
                 <input
                   type="text"
-                  id="fname"
-                  placeholder="Fist name"
-                  value={adminDetail.fname}
-                  onChange={handleFirstNameChange}
-                  required
+                  id="firstName"
+                  onChange={(e) => {
+                    setFirstName(e.target.value);
+                  }}
+                  value={firstName}
                 />
               </div>
               <div className="add-box">
-                <label htmlFor="lname">Last name</label>
+                <label htmlFor="lastName">Last name</label>
                 <input
                   type="text"
-                  id="lname"
-                  placeholder="last name"
-                  value={adminDetail.lname}
-                  onChange={handleLastNameChange}
-                  required
+                  id="lastName"
+                  onChange={(e) => {
+                    setLastName(e.target.value);
+                  }}
+                  value={lastName}
                 />
               </div>
               <div className="add-box">
@@ -136,21 +123,21 @@ const EditAdmin = () => {
                 <input
                   type="email"
                   id="email"
-                  placeholder="Email address"
-                  value={adminDetail.email}
-                  onChange={handleEmailChange}
-                  required
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
+                  value={email}
                 />
               </div>
               <div className="add-box">
-                <label htmlFor="phone">Phone</label>
+                <label htmlFor="phoneNumber">Phone</label>
                 <input
                   type="text"
-                  id="phone"
-                  placeholder="Phone number"
-                  value={adminDetail.tel}
-                  onChange={handlePhoneNumberChange}
-                  required
+                  id="phoneNumber"
+                  onChange={(e) => {
+                    setPhoneNumber(e.target.value);
+                  }}
+                  value={phoneNumber}
                 />
               </div>
             </div>
@@ -162,7 +149,9 @@ const EditAdmin = () => {
               </div>
             </div>
             <div className="submit">
-              <button type="submit">Add</button>
+              <button onClick={handleSubmit} type="submit">
+                Update
+              </button>
             </div>
           </form>
         </div>

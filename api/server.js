@@ -263,7 +263,7 @@ app.put("/updateAdmin/:id", jsonParser, (req, res) => {
   const fname = req.body.fname;
   const lname = req.body.lname;
   // const profile_image = req.body.profile_image;
-  // const password = req.body.password;
+  const password = req.body.password;
 
   bcrypt.hash(password, saltRounds, (err, hash) => {
     const sql1 =
