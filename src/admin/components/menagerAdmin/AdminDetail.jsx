@@ -26,32 +26,33 @@ const AdminDetail = () => {
   };
 
   const DeleteAdmin = (id) => {
-    if (id === userID) {
-      setWarnung();
+    if (id === Number(userID)) {
+      setWarnung("Can't delete current user login!");
+      console.log(warning);
+      closeConfirmationPopup();
+    } else {
+      console.log("Deleted");
+      // console.log("Deleted success!!" + id)
+      var myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+      var requestOptions = {
+        method: "GET",
+        headers: myHeaders,
+        redirect: "follow",
+      };
+      fetch("http://localhost:5000/deleteAdmin/" + id, requestOptions)
+        .then((response) => response.json())
+        .then((result) => {
+          if (result.Status === "Success") {
+            setSuccess(result.Status);
+            navigate("/admins");
+          } else {
+            setError(result.Error);
+          }
+        })
+        .catch((error) => console.log("error", error));
+      closeConfirmationPopup();
     }
-    // console.log("Deleted success!!" + id)
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-
-    var requestOptions = {
-      method: "GET",
-      headers: myHeaders,
-      redirect: "follow",
-    };
-
-    fetch("http://localhost:5000/deleteAdmin/" + id, requestOptions)
-      .then((response) => response.json())
-      .then((result) => {
-        if (result.Status === "Success") {
-          setSuccess(result.Status);
-          navigate("/admins");
-        } else {
-          setError(result.Error);
-        }
-      })
-      .catch((error) => console.log("error", error));
-
-    closeConfirmationPopup();
   };
 
   // For get user by id
