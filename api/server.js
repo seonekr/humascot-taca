@@ -73,7 +73,6 @@ app.post("/authen", jsonParser, (req, res) => {
 });
 
 // ==================== Customer Management =====================
-
 app.post("/register", jsonParser, (req, res) => {
   const email = req.body.email;
   const urole = "Customer";
@@ -164,7 +163,6 @@ app.post("/register", jsonParser, (req, res) => {
 });
 
 // ==================== Admin Management =====================
-
 app.post("/admin/register", jsonParser, (req, res) => {
   const email = req.body.email;
   const urole = "Admin";
@@ -248,17 +246,6 @@ app.get("/allAdmins", (req, res) => {
   });
 });
 
-// ============== Test API ===============
-app.get("/lastUser", (req, res) => {
-  const sql = "SELECT * FROM users ORDER BY id DESC LIMIT 1";
-  connection.query(sql, (err, result) => {
-    if (err)
-      return res.json({ Status: "Error", Error: "Errer in running query" });
-
-    return res.json({ Status: "Success", Result: result[0].id });
-  });
-});
-
 app.get("/getAdmin/:id", (req, res) => {
   const id = req.params.id;
   const sql = "SELECT * FROM admins WHERE reg_id = ?";
@@ -269,35 +256,14 @@ app.get("/getAdmin/:id", (req, res) => {
   });
 });
 
-// app.put("/updateAdmin/:id", jsonParser, (req, res) => {
-//   const id = req.params.id;
-
-//   bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
-//     const sql =
-//       "UPDATE admins SET `email` = ?, `tel` = ?, `fname` = ?, `lname` = ?, `password` = ? WHERE id = ?";
-
-//     const values = [
-//       req.body.email,
-//       req.body.tel,
-//       req.body.fname,
-//       req.body.lname,
-//       hash,
-//     ];
-
-//     connection.query(sql, [...values, id], (err, data) => {
-//       if (err) res.json({ Status: "Error", Error: "Errer in running sql" });
-//       return res.json({ Status: "Success", data });
-//     });
-//   });
-// });
-
 app.put("/updateAdmin/:id", jsonParser, (req, res) => {
   const id = req.params.id;
   const email = req.body.email;
   const tel = req.body.tel;
   const fname = req.body.fname;
   const lname = req.body.lname;
-  const password = req.body.password;
+  // const profile_image = req.body.profile_image;
+  // const password = req.body.password;
 
   bcrypt.hash(password, saltRounds, (err, hash) => {
     const sql1 =
@@ -354,6 +320,39 @@ app.get("/countAdmin", (req, res) => {
     return res.json({ result });
   });
 });
+
+// ============== Test API ===============
+app.get("/lastUser", (req, res) => {
+  const sql = "SELECT * FROM users ORDER BY id DESC LIMIT 1";
+  connection.query(sql, (err, result) => {
+    if (err)
+      return res.json({ Status: "Error", Error: "Errer in running query" });
+
+    return res.json({ Status: "Success", Result: result[0].id });
+  });
+});
+
+// app.put("/updateAdmin/:id", jsonParser, (req, res) => {
+//   const id = req.params.id;
+
+//   bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
+//     const sql =
+//       "UPDATE admins SET `email` = ?, `tel` = ?, `fname` = ?, `lname` = ?, `password` = ? WHERE id = ?";
+
+//     const values = [
+//       req.body.email,
+//       req.body.tel,
+//       req.body.fname,
+//       req.body.lname,
+//       hash,
+//     ];
+
+//     connection.query(sql, [...values, id], (err, data) => {
+//       if (err) res.json({ Status: "Error", Error: "Errer in running sql" });
+//       return res.json({ Status: "Success", data });
+//     });
+//   });
+// });
 
 app.post("/login", jsonParser, (req, res) => {
   const email = req.body.email;

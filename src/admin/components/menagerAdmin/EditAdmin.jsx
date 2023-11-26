@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import user from "../../../img/user.png";
 
 import { FaAngleLeft } from "react-icons/fa";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 
 const EditAdmin = () => {
   const [firstName, setFirstName] = useState("");
@@ -15,6 +15,29 @@ const EditAdmin = () => {
   const [errorMsg, setErrorMsg] = useState("");
   const [message, setMessage] = useState("");
 
+  // For get user by id
+  const [adminDetail, setAdminDetail] = useState([]);
+  const { id } = useParams();
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    var requestOptions = {
+      method: "GET",
+      redirect: "follow",
+    };
+
+    fetch("http://localhost:5000/getAdmin/" + id, requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        if (result.Status === "Success") {
+          setAdminDetail(result.Result[0]);
+          console.log(adminDetail);
+        }
+      })
+      .catch((error) => console.log("error", error));
+  }, []);
+
   useEffect(() => {
     // Check messages
     if (successMsg === "Success") {
@@ -23,8 +46,6 @@ const EditAdmin = () => {
       setMessage(errorMsg);
     }
   });
-
-  const navigate = useNavigate();
 
   const handleFirstNameChange = (e) => {
     setFirstName(e.target.value);
@@ -46,27 +67,24 @@ const EditAdmin = () => {
     e.preventDefault();
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
-
     var raw = JSON.stringify({
       email: email,
       fname: firstName,
       lname: lastName,
       tel: phoneNumber,
     });
-
     var requestOptions = {
       method: "POST",
       headers: myHeaders,
       body: raw,
       redirect: "follow",
     };
-
-    fetch("http://localhost:5000/admin/register", requestOptions)
+    fetch("http://localhost:5000/updateAdmin" + id, requestOptions)
       .then((response) => response.json())
       .then((result) => {
         if (result.Status === "Success") {
           setSuccessMsg(result.Status);
-          navigate("/addadmin");
+          navigate("/admin/detail/" + id);
         } else {
           setErrorMsg(result.Error);
           navigate("/addadmin");
@@ -85,7 +103,7 @@ const EditAdmin = () => {
               <FaAngleLeft id="box_icon_Back" />
               <p>Back</p>
             </Link>
-            <h2>Add Admin</h2>
+            <h2>Update Admin</h2>
             <div></div>
           </div>
           <h3>{message && message}</h3>
@@ -97,7 +115,7 @@ const EditAdmin = () => {
                   type="text"
                   id="fname"
                   placeholder="Fist name"
-                  value={firstName}
+                  value={adminDetail.fname}
                   onChange={handleFirstNameChange}
                   required
                 />
@@ -108,7 +126,7 @@ const EditAdmin = () => {
                   type="text"
                   id="lname"
                   placeholder="last name"
-                  value={lastName}
+                  value={adminDetail.lname}
                   onChange={handleLastNameChange}
                   required
                 />
@@ -119,7 +137,7 @@ const EditAdmin = () => {
                   type="email"
                   id="email"
                   placeholder="Email address"
-                  value={email}
+                  value={adminDetail.email}
                   onChange={handleEmailChange}
                   required
                 />
@@ -130,7 +148,7 @@ const EditAdmin = () => {
                   type="text"
                   id="phone"
                   placeholder="Phone number"
-                  value={phoneNumber}
+                  value={adminDetail.tel}
                   onChange={handlePhoneNumberChange}
                   required
                 />
