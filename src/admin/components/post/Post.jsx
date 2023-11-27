@@ -1,127 +1,159 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
+import { useDropzone } from "react-dropzone";
 import AdminMenu from "../adminMenu/AdminMenu";
 import "./post.css";
-import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Post = () => {
-  const [image, setImage] = useState("");
-  const [name, setName] = useState("");
-  const [category, setCategory] = useState("");
-  const [price, setPrice] = useState("");
-  const [description, setDescription] = useState("");
-  const [is_popular, setIs_popular] = useState(false);
-  //   const [gallery, setGallery] = useState([]);
+  const [product, setProduct] = useState({
+    name: "",
+    productType: "",
+    description: "",
+    price: "",
+    mainImage: null,
+    images: [],
+    colors: [],
+    currentColor: "", // Track the currently entered color
+    popular: false,
+  });
 
-  //Add Color Box
-  const [addColor, setaddColor] = useState([]);
-  const [colorInput, setcolorInput] = useState("");
+  const onMainImageDrop = (acceptedFiles) => {
+    setProduct((prevProduct) => ({
+      ...prevProduct,
+      mainImage: acceptedFiles[0],
+    }));
+  };
+
+  const onImagesDrop = (acceptedFiles) => {
+    setProduct((prevProduct) => ({
+      ...prevProduct,
+      images: [...prevProduct.images, ...acceptedFiles],
+    }));
+  };
+
+  const handleColorInputChange = (e) => {
+    const { value } = e.target;
+    setProduct((prevProduct) => ({
+      ...prevProduct,
+      currentColor: value,
+    }));
+  };
+
+  const addColorInput = () => {
+    if (product.currentColor.trim() !== "") {
+      setProduct((prevProduct) => ({
+        ...prevProduct,
+        colors: [...prevProduct.colors, prevProduct.currentColor],
+        currentColor: "", // Reset the current color after adding
+      }));
+    }
+  };
+
+  const removeColorInput = (index) => {
+    if (product.colors.length > 1) {
+      setProduct((prevProduct) => {
+        const updatedColors = [...prevProduct.colors];
+        updatedColors.splice(index, 1);
+        return {
+          ...prevProduct,
+          colors: updatedColors,
+        };
+      });
+    }
+  };
+
+  const removeImage = (index) => {
+    setProduct((prevProduct) => {
+      const updatedImages = [...prevProduct.images];
+      updatedImages.splice(index, 1);
+      return {
+        ...prevProduct,
+        images: updatedImages,
+      };
+    });
+  };
+
+  const {
+    getRootProps: getMainImageRootProps,
+    getInputProps: getMainImageInputProps,
+  } = useDropzone({
+    onDrop: onMainImageDrop,
+    maxFiles: 1,
+  });
+
+  const {
+    getRootProps: getImagesRootProps,
+    getInputProps: getImagesInputProps,
+  } = useDropzone({
+    onDrop: onImagesDrop,
+  });
 
   const handleInputChange = (e) => {
-    setcolorInput(e.target.value);
+    const { name, value } = e.target;
+    setProduct((prevProduct) => ({
+      ...prevProduct,
+      [name]: value,
+    }));
   };
 
-  const handleEnterClick = () => {
-    if (colorInput.trim() !== "") {
-      setaddColor([...addColor, colorInput]);
-      setcolorInput("");
-    }
+  const handleCheckboxChange = (e) => {
+    const { checked } = e.target;
+    setProduct((prevProduct) => ({
+      ...prevProduct,
+      popular: checked,
+    }));
   };
 
-  const handleKeyPress = (e) => {
-    if (e.key === "Enter") {
-      handleEnterClick();
-    }
-  };
-
-  const handleTagDelete = (index) => {
-    const newTags = addColor.filter((_, i) => i !== index);
-    setaddColor(newTags);
-  };
-
-  // Hanle submit
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
 
-    var raw = JSON.stringify({
-      category: "Electronic device",
-      name: "Xiaomi Wifi Amplifier Pro",
-      price: 80000,
-      color: "Black",
-      description: "uytgiyiitrfgyiu6yfughreghwertgfdgnjtui;lryktjdhb",
-      is_popular: 1,
-    });
+    // ---> Post
+    try {
+        const formData = new FormData();
+        formData.append('name', product.name);
+        formData.append('description', product.description);
+        formData.append('price', product.price);
+        formData.append('productType', product.productType);
+        formData.append('popular', product.popular ? 1 : 0);
 
-    var requestOptions = {
-      method: "POST",
-      headers: myHeaders,
-      body: raw,
-      redirect: "follow",
-    };
+        // Append main image
+        if (product.mainImage) {
+          formData.append('mainImage', product.mainImage);
+        }
 
-    fetch("http://localhost:5000/addProduct", requestOptions)
-      .then((response) => response.text())
-      .then((result) => console.log(result))
-      .catch((error) => console.log("error", error));
-  };
+        // Append other images
+        product.images.forEach((image, index) => {
+          formData.append(`images`, image);
+        });
 
-  // Handle checked popular
-  const handlePopular = (event) => {
-    setPopular(event.target.checked);
-  };
+        // Append colors
+        formData.append('colors', JSON.stringify(product.colors));
 
-  // handle Product name
-  const handleProductName = (e) => {
-    const value = e.target.value;
-    setProductName(value);
-  };
-  // handle Product type
-  const handleProductType = (e) => {
-    const value = e.target.value;
-    setProductType(value);
-  };
-  // handle Product price
-  const handleProductPrice = (e) => {
-    const value = e.target.value;
-    setPrice(value);
-  };
+        const response = await axios.post('http://localhost:5000/api/products', formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        });
 
-  // handle Product details
-  const handleProductDetails = (e) => {
-    const value = e.target.value;
-    setDetails(value);
-  };
+        console.log(response.data);
+      } catch (error) {
+        console.error('Error submitting form:', error);
+      }
 
-  // image handle
-  const handleImage = (e) => {
-    const file = e.target.files[0];
 
-    if (file) {
-      const reader = new FileReader();
-
-      reader.onloadend = () => {
-        setMainImage([file]);
-      };
-
-      reader.readAsDataURL(file);
+    console.log("name", product.name);
+    console.log("description", product.description);
+    console.log("price", product.price);
+    console.log("productType", product.productType);
+    console.log("popular", product.popular ? 1 : 0);
+    if (product.mainImage) {
+      console.log("mainImage", product.mainImage);
     }
-  };
+    product.images.forEach((image, index) => {
+      console.log(`images`, image);
+    });
+    console.log("colors", JSON.stringify(product.colors));
 
-  // const [gallery, setGallery] = useState([]);
-  const fileInputRef = useRef(null);
-
-  const handleImageUpload = (e) => {
-    const uploadedGallery = Array.from(e.target.files);
-    setGallery([...gallery, ...uploadedGallery]);
-  };
-
-  const handleImageDelete = (imageToDelete) => {
-    const newGallery = gallery.filter((image) => image !== imageToDelete);
-    setGallery(newGallery);
-
-    // Reset the input field value to allow adding new images
-    fileInputRef.current.value = null;
   };
 
   return (
@@ -134,17 +166,16 @@ const Post = () => {
             <h2>Post Product</h2>
           </div>
 
-          <form onSubmit={handleSubmit} className="edit-product-form">
+          <form onSubmit={handleSubmit} /*action="/api/products" method="post"*/ encType="multipart/form-data" className="edit-product-form">
             <div className="input-box">
               <div className="box">
                 <label htmlFor="productName">Product name</label>
                 <input
                   type="text"
                   id="productName"
-                  placeholder="Name"
-                  value={productName}
-                  onChange={handleProductName}
-                  required
+                  name="name"
+                  value={product.name}
+                  onChange={handleInputChange}
                 />
               </div>
               <div className="box">
@@ -152,10 +183,9 @@ const Post = () => {
                 <input
                   type="text"
                   id="productType"
-                  placeholder="Type"
-                  value={productType}
-                  onChange={handleProductType}
-                  required
+                  name="productType"
+                  value={product.productType}
+                  onChange={handleInputChange}
                 />
               </div>
               <div className="box">
@@ -163,22 +193,21 @@ const Post = () => {
                 <input
                   type="text"
                   id="price"
-                  placeholder="Price"
-                  value={price}
-                  onChange={handleProductPrice}
-                  required
+                  name="price"
+                  value={product.price}
+                  onChange={handleInputChange}
                 />
               </div>
 
               <div>
                 <div className="box">
-                  <label htmlFor="details">Details</label>
+                  <label htmlFor="description">Details</label>
                   <textarea
-                    id="details"
+                    id="description"
                     rows="5"
-                    value={details}
-                    onChange={handleProductDetails}
-                    required
+                    name="description"
+                    value={product.description}
+                    onChange={handleInputChange}
                   ></textarea>
                 </div>
               </div>
@@ -187,8 +216,15 @@ const Post = () => {
                 <input
                   type="checkbox"
                   id="popular"
-                  checked={popular}
-                  onChange={handlePopular}
+                  name="popular"
+                  checked={product.popular}
+                  onChange={handleCheckboxChange}
+                />
+                {/* Hidden input for "popular" attribute */}
+                <input
+                  type="hidden"
+                  name="popular"
+                  value={product.popular ? 1 : 0}
                 />
               </div>
 
@@ -196,31 +232,38 @@ const Post = () => {
               <div className="colorBox_chContainer">
                 <h1>Color:</h1>
                 <div className="addcolor_container">
-                  {/* This is colors */}
-                  {addColor.map((color, index) => (
+                  {product.colors.map((color, index) => (
                     <div className="Card_boxColor" key={index}>
+                      <div
+                        style={{
+                          backgroundColor: color,
+                          width: "20px",
+                          height: "20px",
+                          borderRadius: "50%",
+                        }}
+                      ></div>
                       {color}
                       <span
                         className="spanCancelBox"
-                        onClick={() => handleTagDelete(index)}
+                        onClick={() => removeColorInput(index)}
                       >
                         ×
                       </span>
                     </div>
                   ))}
                 </div>
+
                 <div className="addcolorContent">
                   <input
                     className="inputBoxaddcolor"
                     type="text"
-                    value={colorInput}
-                    onChange={handleInputChange}
-                    onKeyDown={handleKeyPress}
-                    placeholder="Write your color..."
+                    value={product.currentColor}
+                    onChange={handleColorInputChange}
+                    placeholder="Enter Color"
                   />
-                  <a className="btn_addcolorbox" onClick={handleEnterClick}>
-                    Enter
-                  </a>
+                  <div className="btn_addcolorbox" onClick={addColorInput}>
+                    Add
+                  </div>
                 </div>
               </div>
               {/* End Add Color Box */}
@@ -230,63 +273,51 @@ const Post = () => {
               <div className="gallery">
                 <h3>Image gallery</h3>
                 <div className="gallery-box">
-                  <input
-                    type="file"
-                    id="gallery"
-                    multiple
-                    onChange={handleImageUpload}
-                    ref={fileInputRef}
-                  />
-                  {/* This is gallery images */}
-                  {gallery.map((image, index) => (
-                    <div
-                      key={
-                        image.name /* Use a unique identifier for each image */
-                      }
-                    >
+                  <input {...getImagesInputProps()} />
+                  {product.images.map((image, index) => (
+                    <div key={index} style={{ marginBottom: "10px" }}>
                       <img
                         src={URL.createObjectURL(image)}
-                        alt={`Image ${index}`}
-                        required
+                        alt={`Image ${index + 1}`}
+                        style={{ maxWidth: "200px", maxHeight: "200px" }}
                       />
-                      <button onClick={() => handleImageDelete(image)}>
+                      <button type="button" onClick={() => removeImage(index)}>
                         Remove
                       </button>
                     </div>
                   ))}
-                  {gallery && gallery.length > 0 ? (
-                    <label htmlFor="gallery" className="add-more">
+                  {product.images && product.images.length > 0 ? (
+                    <div {...getImagesRootProps()} className="add-more">
                       +
-                    </label>
+                    </div>
                   ) : (
-                    <label htmlFor="gallery" className="add-gallery">
+                    <div {...getImagesRootProps()} className="add-gallery">
                       Choose gallery
-                    </label>
+                    </div>
                   )}
                 </div>
               </div>
               <div className="box_description">
                 <h3>Description image</h3>
+
                 <div className="image">
-                  <label htmlFor="img">
-                    {mainImage && mainImage.length > 0 ? (
-                      <img src={URL.createObjectURL(mainImage[0])} />
-                    ) : (
+                  <label>
+                    <div {...getMainImageRootProps()}>
+                      {product.mainImage && (
+                        <img
+                          src={URL.createObjectURL(product.mainImage)}
+                          alt="Main Preview"
+                        />
+                      )}
                       <p>Choose image</p>
-                    )}{" "}
-                    {/** This is description image */}
+                    </div>
                   </label>
-                  <input type="file" id="img" onChange={handleImage} required />
+                  <input {...getMainImageInputProps()} />
                 </div>
               </div>
             </div>
             <div className="submit1">
-              <button
-                type="submit"
-                disabled={addColor == "" || gallery == "" || image == ""}
-              >
-                Post
-              </button>
+              <button type="submit">Post</button>
             </div>
           </form>
         </div>
