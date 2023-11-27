@@ -61,7 +61,7 @@ const AddAdmin = () => {
       redirect: "follow",
     };
 
-    fetch("http://localhost:5000/admin/register", requestOptions)
+    fetch(import.meta.env.VITE_API + "/admin/register", requestOptions)
       .then((response) => response.json())
       .then((result) => {
         if (result.Status === "Success") {

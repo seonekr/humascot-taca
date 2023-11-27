@@ -129,7 +129,7 @@ const Post = () => {
         // Append colors
         formData.append('colors', JSON.stringify(product.colors));
 
-        const response = await axios.post('http://localhost:5000/addProduct', formData, {
+        const response = await axios.post(import.meta.env.VITE_API + "/addProduct", formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },

@@ -31,7 +31,7 @@ const Users = () => {
       redirect: "follow",
     };
 
-    fetch("http://localhost:5000/allCustomers", requestOptions)
+    fetch(import.meta.env.VITE_API + "/allCustomers", requestOptions)
       .then((response) => response.json())
       .then((result) => {
         if (result.Status === "Success") {

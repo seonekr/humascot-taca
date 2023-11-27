@@ -24,7 +24,7 @@ const Board = () => {
       redirect: "follow",
     };
 
-    fetch("http://localhost:5000/countAdmin", requestOptions)
+    fetch(import.meta.env.VITE_API + "/countAdmin", requestOptions)
       .then((response) => response.json())
       .then((result) => {
         setAdminCount(result.result[0].admins);

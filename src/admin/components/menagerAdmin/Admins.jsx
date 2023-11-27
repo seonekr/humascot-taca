@@ -32,7 +32,7 @@ const Admins = () => {
       redirect: "follow",
     };
 
-    fetch("http://localhost:5000/allAdmins", requestOptions)
+    fetch(import.meta.env.VITE_API + "/allAdmins", requestOptions)
       .then((response) => response.json())
       .then((result) => {
         if (result.Status === "Success") {

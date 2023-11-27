@@ -40,7 +40,7 @@ const AdminDetail = () => {
         headers: myHeaders,
         redirect: "follow",
       };
-      fetch("http://localhost:5000/deleteAdmin/" + id, requestOptions)
+      fetch(import.meta.env.VITE_API + "/deleteAdmin/" + id, requestOptions)
         .then((response) => response.json())
         .then((result) => {
           if (result.Status === "Success") {

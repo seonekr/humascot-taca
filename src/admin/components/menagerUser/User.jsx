@@ -33,7 +33,7 @@ const User = () => {
       redirect: "follow",
     };
 
-    fetch("http://localhost:5000/deleteCustomer/" + id, requestOptions)
+    fetch(import.meta.env.VITE_API + "/deleteCustomer/" + id, requestOptions)
       .then((response) => response.json())
       .then((result) => {
         if (result.Status === "Success") {

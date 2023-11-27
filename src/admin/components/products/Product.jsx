@@ -127,7 +127,7 @@ const Product = () => {
       redirect: "follow",
     };
 
-    fetch("http://localhost:5000/allProducts", requestOptions)
+    fetch(import.meta.env.VITE_API + "/allProducts", requestOptions)
       .then((response) => response.json())
       .then((result) => {
         if (result.Status === "Success") {
