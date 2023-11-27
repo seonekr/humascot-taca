@@ -20,6 +20,15 @@ const connection = mysql.createConnection({
   database: process.env.DB_DATABASE,
 });
 
+// Connect to the database
+connection.connect((err) => {
+  if (err) {
+    console.error('Error connecting to MySQL database:', err);
+  } else {
+    console.log('Connected to MySQL database');
+  }
+});
+
 // ==================== Admin Management =====================
 
 app.post("/admin/register", jsonParser, (req, res) => {
