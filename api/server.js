@@ -463,6 +463,7 @@ app.post("/addProduct2", upload.single("image"), jsonParser, (req, res) => {
   });
 });
 
+// Add product
 app.post(
   "/addProduct",
   upload.fields([
@@ -539,7 +540,7 @@ app.put("/updateProduct/:id", jsonParser, (req, res) => {
   const id = req.params.id;
 
   const sql =
-    "UPDATE products SET `cat_id` = ?, `name` = ?, `price` = ?, `size` = ?, `color` = ?, `descriptions` = ?, `image` = ? WHERE id = ?";
+    "UPDATE products_tb SET `cat_id` = ?, `name` = ?, `price` = ?, `size` = ?, `color` = ?, `descriptions` = ?, `image` = ? WHERE id = ?";
 
   const values = [
     req.body.cat_id,
@@ -572,7 +573,7 @@ app.get("/deleteProduct/:id", (req, res) => {
 });
 
 app.get("/countProduct", (req, res) => {
-  const sql = "SELECT count(id) as products FROM products";
+  const sql = "SELECT count(id) as products FROM products_tb";
 
   connection.query(sql, (err, result) => {
     if (err)

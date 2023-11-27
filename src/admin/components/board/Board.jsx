@@ -27,7 +27,7 @@ const Board = () => {
     fetch("http://localhost:5000/countAdmin", requestOptions)
       .then((response) => response.json())
       .then((result) => {
-        setAdminCount(result.result[0].admins)
+        setAdminCount(result.result[0].admins);
       })
       .catch((error) => console.log("error", error));
   }, []);
@@ -42,7 +42,7 @@ const Board = () => {
     fetch("http://localhost:5000/countCustomer", requestOptions)
       .then((response) => response.json())
       .then((result) => {
-        setUserAccount(result.result[0].customers)
+        setUserAccount(result.result[0].customers);
       })
       .catch((error) => console.log("error", error));
   }, []);
@@ -57,7 +57,7 @@ const Board = () => {
     fetch("http://localhost:5000/countProduct", requestOptions)
       .then((response) => response.json())
       .then((result) => {
-        setProductCount(result.result[0].products)
+        setProductCount(result.result[0].products);
       })
       .catch((error) => console.log("error", error));
   }, []);
@@ -72,23 +72,13 @@ const Board = () => {
               <div className="containerBox_db">
                 <h3>Dashboard</h3>
                 <div className="contentBox_db">
-                  <div className="menu-box one">
+                  <div className="menu-box four">
                     <div>
-                      <IoDocumentText className="iconGad gone1" />
-                      <p>Porducts</p>
+                      <IoDocumentText className="iconGad gone4" />
+                      <p>Admins</p>
                     </div>
-                    <h2>{productCount}</h2>
-                    <Link to="/product" className="txtcol">
-                      View More
-                    </Link>
-                  </div>
-                  <div className="menu-box two">
-                    <div>
-                      <IoDocumentText className="iconGad gone2" />
-                      <p>Orders</p>
-                    </div>
-                    <h2>{orderCount}</h2>
-                    <Link to="/orderpage" className="txtcol">
+                    <h2>{adminCount}</h2>
+                    <Link to="/admins" className="txtcol">
                       <p>View More</p>
                     </Link>
                   </div>
@@ -102,13 +92,23 @@ const Board = () => {
                       <p>View More</p>
                     </Link>
                   </div>
-                  <div className="menu-box four">
+                  <div className="menu-box one">
                     <div>
-                      <IoDocumentText className="iconGad gone4" />
-                      <p>Admins</p>
+                      <IoDocumentText className="iconGad gone1" />
+                      <p>Porducts</p>
                     </div>
-                    <h2>{adminCount}</h2>
-                    <Link to="/admins" className="txtcol">
+                    <h2>{productCount}</h2>
+                    <Link to="/products" className="txtcol">
+                      View More
+                    </Link>
+                  </div>
+                  <div className="menu-box two">
+                    <div>
+                      <IoDocumentText className="iconGad gone2" />
+                      <p>Orders</p>
+                    </div>
+                    <h2>{orderCount}</h2>
+                    <Link to="/orderpage" className="txtcol">
                       <p>View More</p>
                     </Link>
                   </div>
