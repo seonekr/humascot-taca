@@ -22,6 +22,15 @@ const connection = mysql.createConnection({
   database: process.env.DB_DATABASE,
 });
 
+// Connect to the database
+connection.connect((err) => {
+  if (err) {
+    console.error('Error connecting to MySQL database:', err);
+  } else {
+    console.log('Connected to MySQL database');
+  }
+});
+
 // Test
 // Middleware to handle file uploads
 const storage = multer.diskStorage({
