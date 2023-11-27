@@ -37,7 +37,6 @@ const Admins = () => {
       .then((result) => {
         if (result.Status === "Success") {
           setAdmins(result.Result);
-          console.log(admins);
         } else {
           setError(result.Error);
         }
@@ -46,7 +45,7 @@ const Admins = () => {
   }, []);
 
   const AdminDetail = (id) => {
-    navigate("/admins/AdminDetail/" + id);
+    navigate("/admin/detail/" + id);
     console.log(id);
   };
 
@@ -58,7 +57,7 @@ const Admins = () => {
           <div className="container_box_users">
             <div className="box_users">
               <div className="box_add_admin">
-                <Link to="/addadmin" className="btn_addadmin">
+                <Link to="/admin/register" className="btn_addadmin">
                   <BiPlus id="icon_add_admin" />
                   Add Admin
                 </Link>
@@ -84,11 +83,10 @@ const Admins = () => {
                   }}
                 >
                   <Link className="box_user_text">
-                    {e.profile_image ? (
-                      <img src={e.profile_image} alt="admin profile" />
-                    ) : (
-                      <img src={user} alt="admin profile" />
-                    )}
+                    <img
+                      src={`../../../../public/images/${e.profile_image}`}
+                      alt="admin profile"
+                    />
 
                     <div className="container_chat_name" key={e.reg_id}>
                       <p>

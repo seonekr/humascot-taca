@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes , Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "../user/components/homepage/Home";
 import Account from "../user/components/account/Account";
 import General from "../user/components/account/General";
@@ -15,9 +15,9 @@ import Post from "../admin/components/post/Post";
 import Categories from "../user/components/categories/Categories";
 
 /* ========= Phukeo ========= */
-import Login from '../user/components/login_register/Login';
-import AlertLogin from '../user/components/login_register/AlertLogin';
-import AlertSignup from '../user/components/login_register/AlertSignup';
+import Login from "../user/components/login_register/Login";
+import AlertLogin from "../user/components/login_register/AlertLogin";
+import AlertSignup from "../user/components/login_register/AlertSignup";
 import Register from "../user/components/login_register/Register";
 import Order from "../user/components/order/Order";
 import Product_search from "../user/components/products/Product_search";
@@ -32,56 +32,65 @@ import Users from "../admin/components/menagerUser/Users";
 import User from "../admin/components/menagerUser/User";
 import AdminDetail from "../admin/components/menagerAdmin/AdminDetail";
 import AddAdmin from "../admin/components/menagerAdmin/AddAdmin";
+import EditAdmin from "../admin/components/menagerAdmin/EditAdmin";
 import UpdateProduct from "../admin/components/post/UpdateProduct";
 import Admin_acount from "../admin/components/menagerAdmin/Admin_acount";
 import UpdateAdmin from "../admin/components/menagerAdmin/UpdateAdmin";
 import UpdateAdmin_Account from "../admin/components/menagerAdmin/UpdateAdmin_Account";
 
 const Links = () => {
-    return(
-        <Router>
-            <Routes>
-                <Route exact path="/" Component={Home}/>
-                <Route exact path="/account" Component={Account}/>
-                <Route exact path="/account/general" Component={General}/>
-                <Route exact path="/account/contact" Component={Contact}/>
-                <Route exact path="/account/password" Component={Password}/>
-                <Route exact path="/cart/payment" Component={Payment}/>
-                <Route exact path="/cart/address" Component={Address}/>
-                <Route exact path="/contacts" Component={Contacts}/>
-                <Route exact path="/order" Component={Order}/>
-                <Route exact path="/order/bill" Component={Bill}/>
-                <Route exact path="/categories" Component={Categories}/>
-                <Route exact path="/cart/successfulBuy" Component={SuccessfulBuy}/>
+  return (
+    <Router>
+      <Routes>
+        <Route exact path="/" Component={Home} />
+        <Route exact path="/account" Component={Account} />
+        <Route exact path="/account/general" Component={General} />
+        <Route exact path="/account/contact" Component={Contact} />
+        <Route exact path="/account/password" Component={Password} />
+        <Route exact path="/cart/payment" Component={Payment} />
+        <Route exact path="/cart/address" Component={Address} />
+        <Route exact path="/contacts" Component={Contacts} />
+        <Route exact path="/order" Component={Order} />
+        <Route exact path="/order/bill" Component={Bill} />
+        <Route exact path="/categories" Component={Categories} />
+        <Route exact path="/cart/successfulBuy" Component={SuccessfulBuy} />
 
-                {/*==== phukeo ==== */}
-                <Route exact path="/product_search" Component={Product_search}/>
-                <Route exact path="/product_search/productdetails" Component={ProductDetails}/>
-                <Route exact path="/login" Component={Login}/>
-                <Route exact path="/register" Component={Register}/>
-                <Route exact path="/cart" Component={Cart}/>
-                <Route exact path="/alertLogin" Component={AlertLogin}/>
-                <Route exact path="/alertSignup" Component={AlertSignup}/>
+        {/*==== phukeo ==== */}
+        <Route exact path="/product_search" Component={Product_search} />
+        <Route
+          exact
+          path="/product_search/productdetails"
+          Component={ProductDetails}
+        />
+        <Route exact path="/login" Component={Login} />
+        <Route exact path="/register" Component={Register} />
+        <Route exact path="/cart" Component={Cart} />
+        <Route exact path="/alertLogin" Component={AlertLogin} />
+        <Route exact path="/alertSignup" Component={AlertSignup} />
 
-                {/* Admin routes */}
-                <Route exact path="/dashboard" Component={Dashboard}/>
-                <Route exact path="/post" Component={Post}/>
-                <Route exact path="/users" Component={Users}/>
-                <Route exact path="/orderpage" Component={OrderPage}/>
-                <Route exact path="/orderbill" Component={OrderBill}/>
-                <Route exact path="/product" Component={Product}/>
-                <Route exact path="/users/user/:id" Component={User}/>
-                <Route exact path="/admins" Component={Admins}/>
-                <Route exact path="/admins/AdminDetail/:id" Component={AdminDetail}/>
-                <Route exact path="/addadmin" Component={AddAdmin}/>
-                <Route exact path="/updateproduct" Component={UpdateProduct}/>
-                <Route exact path="/adminacount" Component={Admin_acount}/>
-                <Route exact path="/updateproduct" Component={UpdateProduct}/>
-                <Route exact path="/updateAdminAccount" Component={UpdateAdmin_Account}/>
-
-            </Routes>
-        </Router>
-    );
+        {/* Admin routes */}
+        <Route exact path="/dashboard" Component={Dashboard} />
+        <Route exact path="/post" Component={Post} />
+        <Route exact path="/users" Component={Users} />
+        <Route exact path="/orderpage" Component={OrderPage} />
+        <Route exact path="/orderbill" Component={OrderBill} />
+        <Route exact path="/product" Component={Product} />
+        <Route exact path="/user/detail/:id" Component={User} />
+        <Route exact path="/admins" Component={Admins} />
+        <Route exact path="/admin/detail/:id" Component={AdminDetail} />
+        <Route exact path="/admin/edit/:id" Component={EditAdmin} />
+        <Route exact path="/admin/register" Component={AddAdmin} />
+        <Route exact path="/product/add" Component={UpdateProduct} />
+        <Route exact path="/admin/acount" Component={Admin_acount} />
+        <Route exact path="/updateproduct" Component={UpdateProduct} />
+        <Route
+          exact
+          path="/updateAdminAccount"
+          Component={UpdateAdmin_Account}
+        />
+      </Routes>
+    </Router>
+  );
 };
 
 export default Links;

@@ -10,7 +10,6 @@ const Users = () => {
   const [users, setUsers] = useState([]);
   const [error, setError] = useState("");
 
-  
   const navigate = useNavigate();
 
   // prev next button user in react
@@ -46,7 +45,7 @@ const Users = () => {
   }, []);
 
   const UserDetail = (id) => {
-    navigate("/users/user/" + id);
+    navigate("/user/detail/" + id);
     console.log(id);
   };
 
@@ -67,32 +66,40 @@ const Users = () => {
                 </div>
               </form>
             </div>
-            {users.map((e) => {
-              return (
-                <div
-                  className="box_users_user"
-                  key={e.reg_id}
-                  onClick={() => {
-                    UserDetail(e.reg_id);
-                  }}
-                >
-                  <Link className="box_user_text">
-                    {e.profile_image ? (
-                      <img src={e.profile_image} alt="admin profile" />
-                    ) : (
-                      <img src={user} alt="admin profile" />
-                    )}
-
-                    <div className="container_chat_name" key={e.reg_id}>
-                      <h4>
-                        {e.fname} {e.lname}
-                      </h4>
-                      <p>{e.email}</p>
-                    </div>
-                  </Link>
-                </div>
-              );
-            })}
+            {users.length >= 1 ? (
+              users.map((e) => {
+                return (
+                  <div
+                    className="box_users_user"
+                    key={e.reg_id}
+                    onClick={() => {
+                      UserDetail(e.reg_id);
+                    }}
+                  >
+                    <Link className="box_user_text">
+                      <img
+                        src={`../../../../public/images/${e.profile_image}`}
+                        alt="admin profile"
+                      />
+                      <div className="container_chat_name" key={e.reg_id}>
+                        <h4>
+                          {e.fname} {e.lname}
+                        </h4>
+                        <p>{e.email}</p>
+                      </div>
+                    </Link>
+                  </div>
+                );
+              })
+            ) : (
+              <div className="box_users_user">
+                <Link className="box_user_text">
+                  <div className="container_chat_name">
+                    <p>No Customer!</p>
+                  </div>
+                </Link>
+              </div>
+            )}
 
             <div className="box_container_next_product">
               <button className="box_prev_left_product" onClick={prePage}>

@@ -103,11 +103,10 @@ const User = () => {
             </div>
           </div>
           <div className="img">
-            {userDetail.profile_image ? (
-              <img src={userDetail.profile_image} alt="admin profile" />
-            ) : (
-              <img src={user} alt="admin profile" />
-            )}
+            <img
+              src={`../../../../public/images/${userDetail.profile_image}`}
+              alt="admin profile"
+            />
           </div>
         </div>
       </section>
