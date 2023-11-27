@@ -121,10 +121,7 @@ const Post = () => {
           formData.append('mainImage', product.mainImage);
         }
 
-        // Append other images
-        product.images.forEach((image, index) => {
-          formData.append(`images`, image);
-        });
+        formData.append('images', JSON.stringify(product.images));
 
         // Append colors
         formData.append('colors', JSON.stringify(product.colors));
@@ -135,7 +132,7 @@ const Post = () => {
           },
         });
 
-        console.log(response.data);
+        // console.log(response.data);
       } catch (error) {
         console.error('Error submitting form:', error);
       }
@@ -149,9 +146,10 @@ const Post = () => {
     if (product.mainImage) {
       console.log("mainImage", product.mainImage);
     }
-    product.images.forEach((image, index) => {
-      console.log(`images`, image);
-    });
+    // product.images.forEach((image, index) => {
+    //   console.log(`images`, image);
+    // });
+    console.log("images", JSON.stringify(product.images));
     console.log("colors", JSON.stringify(product.colors));
 
   };
