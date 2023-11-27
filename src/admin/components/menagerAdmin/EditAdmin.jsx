@@ -80,6 +80,17 @@ const EditAdmin = () => {
       .catch((error) => console.log("error", error));
   };
 
+   // Handle image selection for the main admin image
+   const [mainImage, setMainImage] = useState(null);
+
+   const handleImage = (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        setMainImage(URL.createObjectURL(file)); // Use createObjectURL directly
+      }
+    };
+ 
+
   return (
     <>
       <AdminMenu />
@@ -94,7 +105,7 @@ const EditAdmin = () => {
             <div></div>
           </div>
           <h3>{message && message}</h3>
-          <form>
+          <form >
             <div className="addAdminForm">
               <div className="add-box">
                 <label htmlFor="firstName">First name</label>
@@ -144,8 +155,14 @@ const EditAdmin = () => {
             <div className="imageAdmin">
               <div className="image">
                 <label htmlFor="adminImage">
-                  <img src={"../../../../public/images/profile.png"} />
+                  {/* <img src={"../../../../public/images/profile.png"} /> */}
+                    {mainImage ? (
+                      <img src={mainImage} alt="Main admin" />
+                    ) : (
+                      <p></p>
+                    )}
                 </label>
+                <input type="file" id="image" onChange={handleImage} />
               </div>
             </div>
             <div className="submit">
