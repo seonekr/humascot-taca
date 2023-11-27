@@ -439,7 +439,7 @@ app.get("/countAdmin", (req, res) => {
 });
 
 // ==================== Product Management =====================
-app.post("/addProduct", upload.single("image"), jsonParser, (req, res) => {
+app.post("/addProduct2", upload.single("image"), jsonParser, (req, res) => {
   const sql =
     "INSERT INTO products (category, name, price, color, description, is_popular) VALUES (?)";
   const values = [
@@ -464,7 +464,7 @@ app.post("/addProduct", upload.single("image"), jsonParser, (req, res) => {
 });
 
 app.post(
-  "/api/products",
+  "/addProduct",
   upload.fields([
     { name: "mainImage", maxCount: 1 },
     { name: "images", maxCount: 5 },
