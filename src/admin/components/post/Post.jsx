@@ -121,7 +121,10 @@ const Post = () => {
           formData.append('mainImage', product.mainImage);
         }
 
-        formData.append('images', JSON.stringify(product.images));
+        // Append other images
+        product.images.forEach((image, index) => {
+          formData.append(`images`, image);
+        });
 
         // Append colors
         formData.append('colors', JSON.stringify(product.colors));
@@ -132,11 +135,10 @@ const Post = () => {
           },
         });
 
-        // console.log(response.data);
+        console.log(response.data);
       } catch (error) {
         console.error('Error submitting form:', error);
       }
-
 
     console.log("name", product.name);
     console.log("description", product.description);
@@ -146,12 +148,10 @@ const Post = () => {
     if (product.mainImage) {
       console.log("mainImage", product.mainImage);
     }
-    // product.images.forEach((image, index) => {
-    //   console.log(`images`, image);
-    // });
-    console.log("images", JSON.stringify(product.images));
+    product.images.forEach((image, index) => {
+      console.log(`images`, image);
+    });
     console.log("colors", JSON.stringify(product.colors));
-
   };
 
   return (
@@ -164,7 +164,10 @@ const Post = () => {
             <h2>Post Product</h2>
           </div>
 
-          <form onSubmit={handleSubmit} /*action="/api/products" method="post"*/ encType="multipart/form-data" className="edit-product-form">
+          <form
+            onSubmit={handleSubmit} method="post" encType="multipart/form-data"
+            className="edit-product-form"
+          >
             <div className="input-box">
               <div className="box">
                 <label htmlFor="productName">Product name</label>

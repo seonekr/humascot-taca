@@ -5,6 +5,7 @@ var bodyParser = require("body-parser");
 var jsonParser = bodyParser.json();
 const multer = require("multer");
 const bcrypt = require("bcrypt");
+const path = require('path');
 const saltRounds = 10;
 var jwt = require("jsonwebtoken");
 const secret = "Humascot-TACA2023";
@@ -21,45 +22,36 @@ const connection = mysql.createConnection({
   database: process.env.DB_DATABASE,
 });
 
-const fileStorageEngine = multer.diskStorage({
+// Connect to the database
+connection.connect((err) => {
+  if (err) {
+    console.error('Error connecting to MySQL database:', err);
+  } else {
+    console.log('Connected to MySQL database');
+  }
+});
+
+// Middleware to handle file uploads
+const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "../public/images");
+    cb(null, '../public/images');
   },
   filename: (req, file, cb) => {
-    const uniqueSuffix = Date.now();
-    cb(null, uniqueSuffix + file.originalname);
+    const fileName = `${Date.now()}-${file.originalname}`;
+    cb(null, fileName);
   },
 });
 
-const upload = multer({ storage: fileStorageEngine });
-
-// For test upload image
-app.post("/single", upload.single("image"), (req, res) => {
-  const file_src = req.file.filename;
-
-  const sql = "INSERT INTO users_file (file_src) VALUES (?)";
-  const value = [file_src];
-
-  connection.query(sql, [value], (err, result) => {
-    if (err) {
-      res.json({
-        Status: "Error",
-        Error: err,
-      });
-      return;
-    } else {
-      res.json({
-        Status: "Success",
-        Success: result,
-      });
-      return;
-    }
-  });
+const upload = multer({
+  storage: storage,
 });
-app.post("/multiple", upload.array("images", 3), (req, res) => {
-  console.log(req.files);
-  res.send("Multiple File upload success");
-});
+
+// Middleware to serve uploaded files statically
+app.use('../public/images', express.static(path.join(__dirname, '../public/images')));
+
+// Middleware to parse JSON and urlencoded request bodies
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // ==================== Authentication and Authenticate user =====================
 app.post("/login", jsonParser, (req, res) => {
@@ -471,6 +463,53 @@ app.post("/addProduct", upload.single("image"), jsonParser, (req, res) => {
   });
 });
 
+app.post(
+  "/api/products",
+  upload.fields([
+    { name: "mainImage", maxCount: 1 },
+    { name: "images", maxCount: 5 },
+  ]),
+  (req, res) => {
+    const mainImage =
+      req.files && req.files["mainImage"] ? req.files["mainImage"][0] : null;
+    const otherImages =
+      req.files && req.files["images"] ? req.files["images"] : [];
+
+    const price = parseFloat(req.body.price);
+    const colors = req.body.colors ? JSON.parse(req.body.colors) : null;
+
+    const otherImagesPaths = otherImages.map(
+      (image) => `${image.filename}`
+    );
+    const mainImagePath = mainImage ? `${mainImage.filename}` : null;
+
+    const sql = `INSERT INTO products_tb (name, description, price, product_type, main_image_path, colors, other_images_path, popular) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`;
+
+    const values = [
+      req.body.name,
+      req.body.description,
+      isNaN(price) ? null : price,
+      req.body.productType,
+      mainImagePath,
+      colors ? JSON.stringify(colors) : null,
+      JSON.stringify(otherImagesPaths),
+      req.body.popular ? 1 : 0, // Convert boolean to 1 or 0 for MySQL
+    ];
+
+    connection.query(sql, values, (err, result) => {
+      if (err) {
+        console.error("Error inserting product:", err);
+        res
+          .status(500)
+          .json({ error: "Error inserting product into the database" });
+      } else {
+        console.log("Product inserted successfully");
+        res.status(201).json({ message: "Product inserted successfully" });
+      }
+    });
+  }
+);
+
 app.get("/allProducts", (req, res) => {
   const sql = "SELECT * FROM products";
   connection.query(sql, (err, result) => {
@@ -552,8 +591,6 @@ app.get("/lastUser", (req, res) => {
     return res.json({ Status: "Success", Result: result[0].id });
   });
 });
-
-
 
 // ==================== Cart Management =====================
 app.post("/addToCart", jsonParser, (req, res) => {
