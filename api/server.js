@@ -511,7 +511,7 @@ app.post(
 );
 
 app.get("/allProducts", (req, res) => {
-  const sql = "SELECT * FROM products";
+  const sql = "SELECT * FROM products_tb";
   connection.query(sql, (err, result) => {
     if (err)
       return res.json({
@@ -524,7 +524,7 @@ app.get("/allProducts", (req, res) => {
 
 app.get("/getProduct/:id", (req, res) => {
   const id = req.params.id;
-  const sql = "SELECT * FROM products WHERE id = ?";
+  const sql = "SELECT * FROM products_tb WHERE id = ?";
   connection.query(sql, [id], (err, result) => {
     if (err)
       return res.json({
@@ -559,7 +559,7 @@ app.put("/updateProduct/:id", jsonParser, (req, res) => {
 
 app.get("/deleteProduct/:id", (req, res) => {
   const id = req.params.id;
-  const sql = "DELETE FROM products WHERE id = ?";
+  const sql = "DELETE FROM products_tb WHERE id = ?";
 
   connection.query(sql, [id], (err, result) => {
     if (err)

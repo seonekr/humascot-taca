@@ -66,7 +66,7 @@ const AdminMenu = () => {
               <RxDashboard />
               <p>Dashboard</p>
             </NavLink>
-            <NavLink to="/product" className="link">
+            <NavLink to="/products" className="link">
               <IoDocumentText />
               <p>Products</p>
             </NavLink>
