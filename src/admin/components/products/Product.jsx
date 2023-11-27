@@ -114,10 +114,10 @@ const Product = () => {
   const [products2, setProducts2] = useState([]);
 
   useEffect((event) => {
-    Shoproducts();
+    Showproducts();
   }, []);
 
-  const Shoproducts = () => {
+  const Showproducts = () => {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
