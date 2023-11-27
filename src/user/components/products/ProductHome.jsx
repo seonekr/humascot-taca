@@ -4,521 +4,549 @@ import image1 from "../../../img/image1.png";
 import Header from "../header/Header";
 import acer from "../../../img/acer.png";
 import productImage from "../../../img/productImage.png";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const ProductHome = () => {
-  const [products, setProducts] = useState([
-    {
-      productID: 1,
-      productName: "pro1",
-      productType: "clothes",
-      price: 10,
-      description: "desc for this product",
-      popular: true,
-      images: [
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: acer
-        },
-        {
-          src: acer
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: dress
-        },
-        {
-          src: acer
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: dress
-        }
-      ],
-      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
-    },
-    {
-      productID: 2,
-      productName: "pro2",
-      productType: "clothes",
+  // const [products, setProducts] = useState([
+  //   {
+  //     productID: 1,
+  //     productName: "pro1",
+  //     productType: "clothes",
+  //     price: 10,
+  //     description: "desc for this product",
+  //     popular: true,
+  //     images: [
+  //       {
+  //         src: productImage
+  //       },
+  //       {
+  //         src: image1
+  //       },
+  //       {
+  //         src: acer
+  //       },
+  //       {
+  //         src: acer
+  //       },
+  //       {
+  //         src: productImage
+  //       },
+  //       {
+  //         src: image1
+  //       },
+  //       {
+  //         src: dress
+  //       },
+  //       {
+  //         src: acer
+  //       },
+  //       {
+  //         src: productImage
+  //       },
+  //       {
+  //         src: image1
+  //       },
+  //       {
+  //         src: dress
+  //       }
+  //     ],
+  //     colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
+  //   },
+  //   {
+  //     productID: 2,
+  //     productName: "pro2",
+  //     productType: "clothes",
 
-      price: 10,
-      description: "desc for this product",
-      popular: true,
-      images: [
-        {
-          src: dress
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: acer
-        },
-        {
-          src: acer
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: dress
-        },
-        {
-          src: acer
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: dress
+  //     price: 10,
+  //     description: "desc for this product",
+  //     popular: true,
+  //     images: [
+  //       {
+  //         src: dress
+  //       },
+  //       {
+  //         src: productImage
+  //       },
+  //       {
+  //         src: image1
+  //       },
+  //       {
+  //         src: acer
+  //       },
+  //       {
+  //         src: acer
+  //       },
+  //       {
+  //         src: productImage
+  //       },
+  //       {
+  //         src: image1
+  //       },
+  //       {
+  //         src: dress
+  //       },
+  //       {
+  //         src: acer
+  //       },
+  //       {
+  //         src: productImage
+  //       },
+  //       {
+  //         src: image1
+  //       },
+  //       {
+  //         src: dress
+  //       }
+  //     ],
+  //     colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
+  //   },
+  //   {
+  //     productID: 3,
+  //     productName: "pro3",
+  //     productType: "clothes",
+  //     price: 10,
+  //     description: "desc for this product",
+  //     popular: true,
+  //     images: [
+  //       {
+  //         src: image1
+  //       },
+  //       {
+  //         src: dress
+  //       },
+  //       {
+  //         src: acer
+  //       },
+  //       {
+  //         src: productImage
+  //       },
+  //       {
+  //         src: image1
+  //       },
+  //       {
+  //         src: dress
+  //       },
+  //       {
+  //         src: acer
+  //       },
+  //       {
+  //         src: productImage
+  //       },
+  //       {
+  //         src: image1
+  //       },
+  //       {
+  //         src: dress
+  //       }
+  //     ],
+  //     colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
+  //   },
+  //   {
+  //     productID: 4,
+  //     productName: "pro4",
+  //     productType: "clothes",
+  //     price: 10,
+  //     description: "desc for this product",
+  //     popular: true,
+  //     images: [
+  //       {
+  //         src: dress
+  //       },
+  //       {
+  //         src: productImage
+  //       },
+  //       {
+  //         src: image1
+  //       },
+  //       {
+  //         src: acer
+  //       },
+  //       {
+  //         src: acer
+  //       },
+  //       {
+  //         src: productImage
+  //       },
+  //       {
+  //         src: image1
+  //       },
+  //       {
+  //         src: dress
+  //       },
+  //       {
+  //         src: acer
+  //       },
+  //       {
+  //         src: productImage
+  //       },
+  //       {
+  //         src: image1
+  //       },
+  //       {
+  //         src: dress
+  //       }
+  //     ],
+  //     colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
+  //   },
+  //   {
+  //     productID: 5,
+  //     productName: "pro5",
+  //     productType: "clothes",
+  //     price: 10,
+  //     description: "desc for this product",
+  //     popular: true,
+  //     images: [
+  //       {
+  //         src: image1
+  //       },
+  //       {
+  //         src: productImage
+  //       },
+  //       {
+  //         src: image1
+  //       },
+  //       {
+  //         src: acer
+  //       },
+  //       {
+  //         src: acer
+  //       },
+  //       {
+  //         src: productImage
+  //       },
+  //       {
+  //         src: image1
+  //       },
+  //       {
+  //         src: dress
+  //       },
+  //       {
+  //         src: acer
+  //       },
+  //       {
+  //         src: productImage
+  //       },
+  //       {
+  //         src: image1
+  //       },
+  //       {
+  //         src: dress
+  //       }
+  //     ],
+  //     colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
+  //   },
+  //   {
+  //     productID: 6,
+  //     productName: "pro6",
+  //     productType: "clothes",
+  //     price: 10,
+  //     description: "desc for this product",
+  //     popular: true,
+  //     images: [
+  //       {
+  //         src: image1
+  //       },
+  //       {
+  //         src: productImage
+  //       },
+  //       {
+  //         src: image1
+  //       },
+  //       {
+  //         src: acer
+  //       },
+  //       {
+  //         src: acer
+  //       },
+  //       {
+  //         src: productImage
+  //       },
+  //       {
+  //         src: image1
+  //       },
+  //       {
+  //         src: dress
+  //       },
+  //       {
+  //         src: acer
+  //       },
+  //       {
+  //         src: productImage
+  //       },
+  //       {
+  //         src: image1
+  //       },
+  //       {
+  //         src: dress
+  //       }
+  //     ],
+  //     colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
+  //   },
+  //   {
+  //     productID: 7,
+  //     productName: "pro7",
+  //     productType: "clothes",
+  //     price: 10,
+  //     description: "desc for this product",
+  //     popular: true,
+  //     images: [
+  //       {
+  //         src: image1
+  //       },
+  //       {
+  //         src: productImage
+  //       },
+  //       {
+  //         src: image1
+  //       },
+  //       {
+  //         src: acer
+  //       },
+  //       {
+  //         src: acer
+  //       },
+  //       {
+  //         src: productImage
+  //       },
+  //       {
+  //         src: image1
+  //       },
+  //       {
+  //         src: dress
+  //       },
+  //       {
+  //         src: acer
+  //       },
+  //       {
+  //         src: productImage
+  //       },
+  //       {
+  //         src: image1
+  //       },
+  //       {
+  //         src: dress
+  //       }
+  //     ],
+  //     colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
+  //   },
+  //   {
+  //     productID: 8,
+  //     productName: "pro8",
+  //     productType: "clothes",
+  //     price: 10,
+  //     description: "desc for this product",
+  //     popular: true,
+  //     images: [
+  //       {
+  //         src: image1
+  //       },
+  //       {
+  //         src: productImage
+  //       },
+  //       {
+  //         src: image1
+  //       },
+  //       {
+  //         src: acer
+  //       },
+  //       {
+  //         src: acer
+  //       },
+  //       {
+  //         src: productImage
+  //       },
+  //       {
+  //         src: image1
+  //       },
+  //       {
+  //         src: dress
+  //       },
+  //       {
+  //         src: acer
+  //       },
+  //       {
+  //         src: productImage
+  //       },
+  //       {
+  //         src: image1
+  //       },
+  //       {
+  //         src: dress
+  //       }
+  //     ],
+  //     colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
+  //   },
+  //   {
+  //     productID: 9,
+  //     productName: "pro9",
+  //     productType: "clothes",
+  //     price: 10,
+  //     description: "desc for this product",
+  //     popular: true,
+  //     images: [
+  //       {
+  //         src: image1
+  //       },
+  //       {
+  //         src: productImage
+  //       },
+  //       {
+  //         src: image1
+  //       },
+  //       {
+  //         src: acer
+  //       },
+  //       {
+  //         src: acer
+  //       },
+  //       {
+  //         src: productImage
+  //       },
+  //       {
+  //         src: image1
+  //       },
+  //       {
+  //         src: dress
+  //       },
+  //       {
+  //         src: acer
+  //       },
+  //       {
+  //         src: productImage
+  //       },
+  //       {
+  //         src: image1
+  //       },
+  //       {
+  //         src: dress
+  //       }
+  //     ],
+  //     colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
+  //   },
+  //   {
+  //     productID: 10,
+  //     productName: "pro10",
+  //     productType: "clothes",
+  //     price: 10,
+  //     description: "desc for this product",
+  //     popular: true,
+  //     images: [
+  //       {
+  //         src: image1
+  //       },
+  //       {
+  //         src: productImage
+  //       },
+  //       {
+  //         src: image1
+  //       },
+  //       {
+  //         src: acer
+  //       },
+  //       {
+  //         src: acer
+  //       },
+  //       {
+  //         src: productImage
+  //       },
+  //       {
+  //         src: image1
+  //       },
+  //       {
+  //         src: dress
+  //       },
+  //       {
+  //         src: acer
+  //       },
+  //       {
+  //         src: productImage
+  //       },
+  //       {
+  //         src: image1
+  //       },
+  //       {
+  //         src: dress
+  //       }
+  //     ],
+  //     colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
+  //   },
+  //   {
+  //     productID: 11,
+  //     productName: "pro11",
+  //     productType: "clothes",
+  //     price: 10,
+  //     description: "desc for this product",
+  //     popular: true,
+  //     images: [
+  //       {
+  //         src: image1
+  //       },
+  //       {
+  //         src: productImage
+  //       },
+  //       {
+  //         src: image1
+  //       },
+  //       {
+  //         src: acer
+  //       },
+  //       {
+  //         src: acer
+  //       },
+  //       {
+  //         src: productImage
+  //       },
+  //       {
+  //         src: image1
+  //       },
+  //       {
+  //         src: dress
+  //       },
+  //       {
+  //         src: acer
+  //       },
+  //       {
+  //         src: productImage
+  //       },
+  //       {
+  //         src: image1
+  //       },
+  //       {
+  //         src: dress
+  //       }
+  //     ],
+  //     colors: [{ colorID: 1, colorName: "red" }, { colorID: 2, colorName: "green" }]
+  //   },
+  // ]);
+
+  const [products, setProducts] = useState([]);
+
+  useEffect((event) => {
+    Shoproducts();
+  }, []);
+
+  const Shoproducts = () => {
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+      redirect: "follow",
+    };
+
+    fetch("http://localhost:5000/allProducts", requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        if (result.Status === "Success") {
+          setProducts2(result.Result);
+        } else {
+          setError(result.Error);
         }
-      ],
-      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
-    },
-    {
-      productID: 3,
-      productName: "pro3",
-      productType: "clothes",
-      price: 10,
-      description: "desc for this product",
-      popular: true,
-      images: [
-        {
-          src: image1
-        },
-        {
-          src: dress
-        },
-        {
-          src: acer
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: dress
-        },
-        {
-          src: acer
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: dress
-        }
-      ],
-      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
-    },
-    {
-      productID: 4,
-      productName: "pro4",
-      productType: "clothes",
-      price: 10,
-      description: "desc for this product",
-      popular: true,
-      images: [
-        {
-          src: dress
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: acer
-        },
-        {
-          src: acer
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: dress
-        },
-        {
-          src: acer
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: dress
-        }
-      ],
-      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
-    },
-    {
-      productID: 5,
-      productName: "pro5",
-      productType: "clothes",
-      price: 10,
-      description: "desc for this product",
-      popular: true,
-      images: [
-        {
-          src: image1
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: acer
-        },
-        {
-          src: acer
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: dress
-        },
-        {
-          src: acer
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: dress
-        }
-      ],
-      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
-    },
-    {
-      productID: 6,
-      productName: "pro6",
-      productType: "clothes",
-      price: 10,
-      description: "desc for this product",
-      popular: true,
-      images: [
-        {
-          src: image1
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: acer
-        },
-        {
-          src: acer
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: dress
-        },
-        {
-          src: acer
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: dress
-        }
-      ],
-      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
-    },
-    {
-      productID: 7,
-      productName: "pro7",
-      productType: "clothes",
-      price: 10,
-      description: "desc for this product",
-      popular: true,
-      images: [
-        {
-          src: image1
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: acer
-        },
-        {
-          src: acer
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: dress
-        },
-        {
-          src: acer
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: dress
-        }
-      ],
-      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
-    },
-    {
-      productID: 8,
-      productName: "pro8",
-      productType: "clothes",
-      price: 10,
-      description: "desc for this product",
-      popular: true,
-      images: [
-        {
-          src: image1
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: acer
-        },
-        {
-          src: acer
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: dress
-        },
-        {
-          src: acer
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: dress
-        }
-      ],
-      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
-    },
-    {
-      productID: 9,
-      productName: "pro9",
-      productType: "clothes",
-      price: 10,
-      description: "desc for this product",
-      popular: true,
-      images: [
-        {
-          src: image1
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: acer
-        },
-        {
-          src: acer
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: dress
-        },
-        {
-          src: acer
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: dress
-        }
-      ],
-      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
-    },
-    {
-      productID: 10,
-      productName: "pro10",
-      productType: "clothes",
-      price: 10,
-      description: "desc for this product",
-      popular: true,
-      images: [
-        {
-          src: image1
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: acer
-        },
-        {
-          src: acer
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: dress
-        },
-        {
-          src: acer
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: dress
-        }
-      ],
-      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
-    },
-    {
-      productID: 11,
-      productName: "pro11",
-      productType: "clothes",
-      price: 10,
-      description: "desc for this product",
-      popular: true,
-      images: [
-        {
-          src: image1
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: acer
-        },
-        {
-          src: acer
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: dress
-        },
-        {
-          src: acer
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: dress
-        }
-      ],
-      colors: [{ colorID: 1, colorName: "red" }, { colorID: 2, colorName: "green" }]
-    },
-  ]);
+      })
+      .catch((error) => console.log("error", error));
+  };
 
   const [filteredProducts, setFilteredProducts] = useState(products);
   const [selectedFilter, setSelectedFilter] = useState("default");
@@ -603,7 +631,7 @@ const ProductHome = () => {
   };
   return (
     <div>
-      <Header handleSearch={handleSearch}/>
+      <Header handleSearch={handleSearch} />
       <section id="product">
         <div className="productHead_content">
           <h1 className="htxthead">
@@ -657,7 +685,9 @@ const ProductHome = () => {
                       className="desc"
                       type="text"
                       value={product.description}
-                      onChange={(e) => handleInputChange(e, index, "description")}
+                      onChange={(e) =>
+                        handleInputChange(e, index, "description")
+                      }
                     />
                   </li>
                 </ul>
