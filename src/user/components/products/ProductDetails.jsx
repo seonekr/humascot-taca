@@ -10,8 +10,6 @@ import { countBy } from "lodash";
 function ProductDetails() {
   const { id } = useParams();
   const [product, setProduct] = useState([]);
-  // const [colors, setColors] = useState([]);
-  // const [galleries, setGalleries] = useState([]);
 
   // For get user by id
   useEffect(() => {
@@ -58,7 +56,6 @@ function ProductDetails() {
   }
 
   function showSlides(n) {
-
     if (n > product.other_images_path.length) {
       setSlideIndex(1);
     } else if (n < 1) {
@@ -66,7 +63,6 @@ function ProductDetails() {
     } else {
       setSlideIndex(n);
     }
-    
   }
   //Drag
   function dragStart(e) {
@@ -105,11 +101,10 @@ function ProductDetails() {
             <div className="slider">
               <React.Fragment>
                 <section className="product_details">
-
                   {/* --------------------------------------------- */}
                   <div className="product-page-img">
                     {JSON.stringify(product.other_images_path)
-                      ? (JSON.parse(product.other_images_path).map(
+                      ? JSON.parse(product.other_images_path).map(
                           (image, index) => (
                             <div
                               key={index}
@@ -126,7 +121,7 @@ function ProductDetails() {
                               />
                             </div>
                           )
-                        ))
+                        )
                       : null}
 
                     <a className="prev" onClick={() => plusSlides(-1)}>
@@ -145,7 +140,7 @@ function ProductDetails() {
                       onDragEnd={dragEnd}
                     >
                       {JSON.stringify(product.other_images_path)
-                        ? (JSON.parse(product.other_images_path).map(
+                        ? JSON.parse(product.other_images_path).map(
                             (image, index) => (
                               <div
                                 key={index}
@@ -154,10 +149,13 @@ function ProductDetails() {
                                 }`}
                                 onClick={() => setSlideIndex(index + 1)}
                               >
-                                <img src={`../../../../public/images/${image}`} alt="" />
+                                <img
+                                  src={`../../../../public/images/${image}`}
+                                  alt=""
+                                />
                               </div>
                             )
-                          ))
+                          )
                         : null}
                     </div>
                   </div>
@@ -176,21 +174,25 @@ function ProductDetails() {
                 </div>
 
                 {/* Checked colors */}
-                {/* <div className="color_product">
-                  {JSON.stringify(product.other_images_path)
-                    ? JSON.parse(product.other_images_path).map((image) => (
-                        <img
-                          key={image}
-                          src={`../../../../public/images/${image}`}
-                          alt="Additional Image"
-                        />
-                      ))
-                    : console.log("No additional images")}
-                </div> */}
-
-                {/* New one */}
-
                 <div className="color_product">
+                  {JSON.stringify(product.colors)
+                    ? JSON.parse(product.colors).map((colors) => (
+                        <div>
+                          <label htmlFor={colors}>
+                            {colors}
+                          </label>
+                          <input
+                            className="echColor"
+                            type="radio"
+                            id={colors}
+                            checked={colors === colors}
+                          />
+                        </div>
+                      ))
+                    : null}
+                </div>
+
+                {/* <div className="color_product">
                   {JSON.stringify((colors) => (
                     <div key={colors.colorID}>
                       <label htmlFor={colors.colorName}>
@@ -205,7 +207,7 @@ function ProductDetails() {
                       />
                     </div>
                   ))}
-                </div>
+                </div> */}
 
                 {/* Checked sizes */}
                 <div className="size_product">
