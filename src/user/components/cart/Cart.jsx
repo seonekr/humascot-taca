@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import acer from '../../../img/acer.png';
 import Header from '../header/Header';
 import Menu from '../menu/Menu'
+import { AiOutlineDelete } from "react-icons/ai";
 
 import './cart.css';
 
@@ -92,7 +93,8 @@ const Cart = () => {
             {products.map((product, index) => (
               <div className='container_cart_item' key={index}>
                 <div className="box_item_image">
-                  <img src={product.images[0]} alt='img'></img>
+                  {/* <img src={product.images[0]} alt='img'></img> */}
+                  <img src='acer1.jpg' alt='img'></img>
                   <div className='box_item_text'>
                     <input
                       type="text"
@@ -113,17 +115,25 @@ const Cart = () => {
                     />
                   </div>
                 </div>
-                <div className='box_item_icon'>
-                  <div className="icon_minus_plus" onClick={() => decrementCount(product.productID)}>-</div>
-                  <span>
-                    <input
-                      type="text"
-                      value={productCounts[product.productID] || 0}
-                      onChange={() => { }}
-                    />
-                  </span>
-                  <div className="icon_minus_plus" onClick={() => incrementCount(product.productID)}>+</div>
+                <div className='box_icon_order'>
+
+                  <div className="btnicon_delete_order" >
+                    <AiOutlineDelete id="btnicon_delete" />
+                  </div>
+
+                  <div className='box_item_icon'>
+                    <div className="icon_minus_plus" onClick={() => decrementCount(product.productID)}>-</div>
+                    <span>
+                      <input
+                        type="text"
+                        value={productCounts[product.productID] || 0}
+                        onChange={() => { }}
+                      />
+                    </span>
+                    <div className="icon_minus_plus" onClick={() => incrementCount(product.productID)}>+</div>
+                  </div>
                 </div>
+                
               </div>
             ))}
           </div>
