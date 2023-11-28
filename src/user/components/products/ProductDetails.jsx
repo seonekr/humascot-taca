@@ -34,9 +34,71 @@ function ProductDetails() {
       .catch((error) => console.log("error", error));
   }, []);
 
-  // console.log(JSON.stringify(product.other_images_path))
-
   const handleSubmit = () => {};
+
+  //Start image gallery
+  const [slideIndex, setSlideIndex] = useState(1);
+
+  const [width, setWidth] = useState(0);
+  const [start, setStart] = useState(0);
+  const [change, setChange] = useState(9);
+
+  const slideRef = useRef();
+
+  useEffect(() => {
+    if (!slideRef.current) return;
+    const scrollWidth = slideRef.current.scrollWidth;
+    const childrenElementCount = slideRef.current.childElementCount;
+    const width = scrollWidth / childrenElementCount;
+    setWidth(width);
+  }, []);
+
+  // const [slideIndex, setSlideIndex] = useState(1);
+
+  function plusSlides(n) {
+    showSlides(slideIndex + n);
+  }
+
+  // function currentSlide(n) {
+  //   showSlides(n);
+  // }
+
+  function showSlides(n) {
+    
+    // const currentProduct = product; // Assuming there's only one product in the array
+    // console.log(n)
+    // console.log(product.other_images_path.length)
+    if (n > product.other_images_path.length) {
+      setSlideIndex(1);
+    } else if (n < 1) {
+      setSlideIndex(product.other_images_path.length);
+    } else {
+      setSlideIndex(n);
+    }
+    
+  }
+  //Drag
+  function dragStart(e) {
+    setStart(e.clientX);
+  }
+  function dragOver(e) {
+    let touch = e.clientX;
+    setChange(start - touch);
+  }
+  function dragEnd(e) {
+    if (change > 0) {
+      slideRef.current.scrollLeft += width;
+    } else {
+      slideRef.current.scrollLeft -= width;
+    }
+  }
+
+  useEffect(() => {
+    if (!slideRef.current || !width) return;
+    let numOfThumb = Math.round(slideRef.current.offsetWidth / width);
+    slideRef.current.scrollLeft =
+      slideIndex > numOfThumb ? (slideIndex - 1) * width : 0;
+  }, [width, slideIndex]);
 
   return (
     <>
@@ -93,6 +155,62 @@ function ProductDetails() {
                       ))}
                     </div>
                   </div> */}
+
+                  {/* --------------------------------------------- */}
+                  <div className="product-page-img">
+                    {JSON.stringify(product.other_images_path)
+                      ? (JSON.parse(product.other_images_path).map(
+                          (image, index) => (
+                            <div
+                              key={index}
+                              className="myslides"
+                              style={{
+                                display:
+                                  index + 1 === slideIndex ? "block" : "none",
+                              }}
+                            >
+                              <img
+                                key={image}
+                                src={`../../../../public/images/${image}`}
+                                alt="Additional Image"
+                              />
+                            </div>
+                          )
+                        ))
+                      : null}
+
+                    <a className="prev" onClick={() => plusSlides(-1)}>
+                      &#10094;
+                    </a>
+                    <a className="next" onClick={() => plusSlides(1)}>
+                      &#10095;
+                    </a>
+
+                    <div
+                      className="slider_img"
+                      draggable={true}
+                      ref={slideRef}
+                      onDragStart={dragStart}
+                      onDragOver={dragOver}
+                      onDragEnd={dragEnd}
+                    >
+                      {JSON.stringify(product.other_images_path)
+                        ? (JSON.parse(product.other_images_path).map(
+                            (image, index) => (
+                              <div
+                                key={index}
+                                className={`slider-box ${
+                                  index + 1 === slideIndex && "active"
+                                }`}
+                                onClick={() => setSlideIndex(index + 1)}
+                              >
+                                <img src={`../../../../public/images/${image}`} alt="" />
+                              </div>
+                            )
+                          ))
+                        : null}
+                    </div>
+                  </div>
                 </section>
               </React.Fragment>
             </div>
@@ -108,7 +226,7 @@ function ProductDetails() {
                 </div>
 
                 {/* Checked colors */}
-                <div className="color_product">
+                {/* <div className="color_product">
                   {JSON.stringify(product.other_images_path)
                     ? JSON.parse(product.other_images_path).map((image) => (
                         <img
@@ -118,8 +236,25 @@ function ProductDetails() {
                         />
                       ))
                     : console.log("No additional images")}
+                </div> */}
 
-                  {/* {console.log(JSON.stringify(product.other_images_path))} */}
+                {/* New one */}
+
+                <div className="color_product">
+                  {JSON.stringify((colors) => (
+                    <div key={colors.colorID}>
+                      <label htmlFor={colors.colorName}>
+                        {colors.colorName}
+                      </label>
+                      <input
+                        className="echColor"
+                        type="radio"
+                        id={colors.colorName}
+                        checked={colors.colorName === color}
+                        onChange={handleRadioChange}
+                      />
+                    </div>
+                  ))}
                 </div>
 
                 {/* Checked sizes */}
