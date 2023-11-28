@@ -57,11 +57,7 @@ const Links = () => {
 
         {/*==== phukeo ==== */}
         <Route exact path="/product_search" Component={Product_search} />
-        <Route
-          exact
-          path="/product_search/productdetails"
-          Component={ProductDetails}
-        />
+        <Route exact path="/productdetails/:id" Component={ProductDetails} />
         <Route exact path="/login" Component={Login} />
         <Route exact path="/register" Component={Register} />
         <Route exact path="/cart" Component={Cart} />

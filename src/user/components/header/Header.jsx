@@ -10,8 +10,6 @@ const Header = ({ handleSearch }) => {
   const userID = localStorage.getItem("userID");
   const location = useLocation();
 
-  console.log(userID);
-
   const menuItems = [
     { label: "Home", path: "/" },
     { label: "Shop", path: "/product_search" },
