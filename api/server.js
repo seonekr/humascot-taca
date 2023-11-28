@@ -3,6 +3,8 @@ var cors = require("cors");
 var app = express();
 var bodyParser = require("body-parser");
 var jsonParser = bodyParser.json();
+const multer = require("multer");
+const path = require('path');
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 var jwt = require("jsonwebtoken");
@@ -19,6 +21,113 @@ const connection = mysql.createConnection({
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DATABASE,
 });
+
+// Test
+// Middleware to handle file uploads
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "uploads/");
+  },
+  filename: (req, file, cb) => {
+    const fileName = `${Date.now()}-${file.originalname}`;
+    cb(null, fileName);
+  },
+});
+
+const upload = multer({
+  storage: storage,
+});
+
+// Middleware to serve uploaded files statically
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+
+// Middleware to parse JSON and urlencoded request bodies
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// Endpoint to fetch products
+app.get("/api/products", (req, res) => {
+  const sql = `SELECT
+    id,
+    name,
+    description,
+    price,
+    product_type,
+    main_image_path,
+    colors,
+    other_images_path,
+    popular
+    FROM products_tb;`;
+
+    connection.query(sql, (err, results) => {
+    if (err) {
+      console.error("Error fetching products:", err);
+      res
+        .status(500)
+        .json({ error: "Error fetching products from the database" });
+    } else {
+      // Modify the colors format before sending
+      const formattedResults = results.map((result) => {
+        return {
+          ...result,
+          colors: Array.isArray(result.colors)
+            ? result.colors
+            : JSON.parse(result.colors),
+        };
+      });
+
+      // console.log('Products fetched successfully:', formattedResults);
+      res.status(200).json(formattedResults);
+    }
+  });
+});
+
+// Route to handle product insertion
+app.post(
+  "/api/products",
+  upload.fields([
+    { name: "mainImage", maxCount: 1 },
+    { name: "images", maxCount: 5 },
+  ]),
+  (req, res) => {
+    const mainImage =
+      req.files && req.files["mainImage"] ? req.files["mainImage"][0] : null;
+    const otherImages =
+      req.files && req.files["images"] ? req.files["images"] : [];
+
+    const price = parseFloat(req.body.price);
+    const colors = req.body.colors ? JSON.parse(req.body.colors) : null;
+
+    const otherImagesPaths = otherImages.map(
+      (image) => `uploads/${image.filename}`
+    );
+
+    const sql = `INSERT INTO products_tb (name, description, price, product_type, main_image_path, colors, other_images_path, popular) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`;
+
+    const values = [
+      req.body.name,
+      req.body.description,
+      isNaN(price) ? null : price,
+      req.body.productType,
+      mainImage ? `uploads/${mainImage.filename}` : null,
+      colors ? JSON.stringify(colors) : null,
+      otherImagesPaths.length > 0 ? otherImagesPaths.join(", ") : null,
+      req.body.popular ? 1 : 0, // Convert boolean to 1 or 0 for MySQL
+    ];
+
+    connection.query(sql, values, (err, result) => {
+      if (err) {
+        console.error("Error inserting product:", err);
+        res
+          .status(500)
+          .json({ error: "Error inserting product into the database" });
+      } else {
+        console.log("Product inserted successfully");
+        res.status(201).json({ message: "Product inserted successfully" });
+      }
+    });
+  }
+);
 
 // ==================== Admin Management =====================
 
@@ -233,12 +342,19 @@ app.post("/register", jsonParser, (req, res) => {
   const lname = req.body.lname;
   const tel = req.body.tel;
 
-  if (fname !== "" && lname !== "" && email !== "" && tel !== "" && password !== "" && confirmPassword !== "") {
+  if (
+    fname !== "" &&
+    lname !== "" &&
+    email !== "" &&
+    tel !== "" &&
+    password !== "" &&
+    confirmPassword !== ""
+  ) {
     if (password === confirmPassword) {
       bcrypt.hash(password, saltRounds, (err, hash) => {
         const sql1 =
-        "INSERT INTO register (email, tel, urole, password) VALUES (?)";
-      const values1 = [email, tel, urole, hash];
+          "INSERT INTO register (email, tel, urole, password) VALUES (?)";
+        const values1 = [email, tel, urole, hash];
 
         connection.query(sql1, [values1], (err, result) => {
           if (err) {
