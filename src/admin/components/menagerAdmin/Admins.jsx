@@ -17,7 +17,7 @@ const Admins = () => {
 
   // Search admin
   const handleSearch = () => {
-    const filtered = admins.filter((admin) =>
+    const filtered = filteredAdmins.filter((admin) =>
     admin.fname.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setFilteredAdmins(filtered);
