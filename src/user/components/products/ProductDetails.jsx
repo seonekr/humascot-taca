@@ -53,21 +53,12 @@ function ProductDetails() {
     setWidth(width);
   }, []);
 
-  // const [slideIndex, setSlideIndex] = useState(1);
-
   function plusSlides(n) {
     showSlides(slideIndex + n);
   }
 
-  // function currentSlide(n) {
-  //   showSlides(n);
-  // }
-
   function showSlides(n) {
-    
-    // const currentProduct = product; // Assuming there's only one product in the array
-    // console.log(n)
-    // console.log(product.other_images_path.length)
+
     if (n > product.other_images_path.length) {
       setSlideIndex(1);
     } else if (n < 1) {
@@ -114,47 +105,6 @@ function ProductDetails() {
             <div className="slider">
               <React.Fragment>
                 <section className="product_details">
-                  {/* <div className="product-page-img">
-                    {product.images.map((image, index) => (
-                      <div
-                        key={index}
-                        className="myslides"
-                        style={{
-                          display: index + 1 === slideIndex ? "block" : "none",
-                        }}
-                      >
-                        <img src={image.src} alt="" />
-                      </div>
-                    ))}
-
-                    <a className="prev" onClick={() => plusSlides(-1)}>
-                      &#10094;
-                    </a>
-                    <a className="next" onClick={() => plusSlides(1)}>
-                      &#10095;
-                    </a>
-
-                    <div
-                      className="slider_img"
-                      draggable={true}
-                      ref={slideRef}
-                      onDragStart={dragStart}
-                      onDragOver={dragOver}
-                      onDragEnd={dragEnd}
-                    >
-                      {product.images.map((image, index) => (
-                        <div
-                          key={index}
-                          className={`slider-box ${
-                            index + 1 === slideIndex && "active"
-                          }`}
-                          onClick={() => setSlideIndex(index + 1)}
-                        >
-                          <img src={image.src} alt="" />
-                        </div>
-                      ))}
-                    </div>
-                  </div> */}
 
                   {/* --------------------------------------------- */}
                   <div className="product-page-img">
