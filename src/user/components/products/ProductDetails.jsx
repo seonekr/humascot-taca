@@ -10,6 +10,12 @@ import { countBy } from "lodash";
 function ProductDetails() {
   const { id } = useParams();
   const [product, setProduct] = useState([]);
+  const [color, setColor] = useState("");
+
+  const handleRadioChange = (event) => {
+    const {id} = event.target;
+    setColor(id)
+  }
 
   // For get user by id
   useEffect(() => {
@@ -176,16 +182,17 @@ function ProductDetails() {
                 {/* Checked colors */}
                 <div className="color_product">
                   {JSON.stringify(product.colors)
-                    ? JSON.parse(product.colors).map((colors) => (
-                        <div>
+                    ? JSON.parse(product.colors).map((colors, index) => (
+                        <div key={index}>
                           <label htmlFor={colors}>
                             {colors}
                           </label>
                           <input
                             className="echColor"
                             type="radio"
-                            id={colors}
-                            checked={colors === colors}
+                            id={index}
+                            checked={colors === color}
+                            onChange={handleRadioChange}
                           />
                         </div>
                       ))
@@ -243,7 +250,7 @@ function ProductDetails() {
           </div>
           <div className="description_container">
             <img
-              src={"../../../../public/images/" + product.main_image_path}
+              src={"../../../../public/images/1701068285422-dress.png"}
               alt=""
             />
           </div>
