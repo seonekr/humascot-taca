@@ -4,9 +4,10 @@ import { useState, useEffect } from "react";
 import user from "../../../img/user.png";
 
 import { FaAngleLeft } from "react-icons/fa";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 
-const AddAdmin = () => {
+const EditAdmin = () => {
+  const { id } = useParams();
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -18,6 +19,25 @@ const AddAdmin = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    var requestOptions = {
+      method: "GET",
+      redirect: "follow",
+    };
+
+    fetch("http://localhost:5000/getAdmin/" + id, requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        if (result.Status === "Success") {
+          setFirstName(result.Result[0].fname);
+          setLastName(result.Result[0].lname);
+          setEmail(result.Result[0].email);
+          setPhoneNumber(result.Result[0].tel);
+        }
+      })
+      .catch((error) => console.log("error", error));
+  }, [id]);
+
+  useEffect(() => {
     // Check messages
     if (successMsg === "Success") {
       setMessage("Added Admin Successful!");
@@ -26,22 +46,6 @@ const AddAdmin = () => {
     }
   });
 
-  const handleFirstNameChange = (e) => {
-    setFirstName(e.target.value);
-  };
-
-  const handleLastNameChange = (e) => {
-    setLastName(e.target.value);
-  };
-
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const handlePhoneNumberChange = (e) => {
-    setPhoneNumber(e.target.value);
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     var myHeaders = new Headers();
@@ -49,31 +53,43 @@ const AddAdmin = () => {
 
     var raw = JSON.stringify({
       email: email,
+      tel: phoneNumber,
       fname: firstName,
       lname: lastName,
-      tel: phoneNumber,
+      password: "1234",
     });
 
     var requestOptions = {
-      method: "POST",
+      method: "PUT",
       headers: myHeaders,
       body: raw,
       redirect: "follow",
     };
 
-    fetch("http://localhost:5000/admin/register", requestOptions)
+    fetch("http://localhost:5000/updateAdmin/" + id, requestOptions)
       .then((response) => response.json())
       .then((result) => {
         if (result.Status === "Success") {
           setSuccessMsg(result.Status);
-          navigate("/admin/register");
+          navigate("/admin/detail/" + id);
         } else {
           setErrorMsg(result.Error);
-          navigate("/admin/register");
+          navigate("/admin/edit/" + id);
         }
       })
       .catch((error) => console.log("error", error));
   };
+
+   // Handle image selection for the main admin image
+   const [mainImage, setMainImage] = useState(null);
+
+   const handleImage = (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        setMainImage(URL.createObjectURL(file)); // Use createObjectURL directly
+      }
+    };
+ 
 
   return (
     <>
@@ -85,32 +101,32 @@ const AddAdmin = () => {
               <FaAngleLeft id="box_icon_Back" />
               <p>Back</p>
             </Link>
-            <h2>Add Admin</h2>
+            <h2>Update Admin</h2>
             <div></div>
           </div>
           <h3>{message && message}</h3>
-          <form onSubmit={handleSubmit}>
+          <form >
             <div className="addAdminForm">
               <div className="add-box">
-                <label htmlFor="fname">First name</label>
+                <label htmlFor="firstName">First name</label>
                 <input
                   type="text"
-                  id="fname"
-                  placeholder="Fist name"
+                  id="firstName"
+                  onChange={(e) => {
+                    setFirstName(e.target.value);
+                  }}
                   value={firstName}
-                  onChange={handleFirstNameChange}
-                  required
                 />
               </div>
               <div className="add-box">
-                <label htmlFor="lname">Last name</label>
+                <label htmlFor="lastName">Last name</label>
                 <input
                   type="text"
-                  id="lname"
-                  placeholder="last name"
+                  id="lastName"
+                  onChange={(e) => {
+                    setLastName(e.target.value);
+                  }}
                   value={lastName}
-                  onChange={handleLastNameChange}
-                  required
                 />
               </div>
               <div className="add-box">
@@ -118,33 +134,41 @@ const AddAdmin = () => {
                 <input
                   type="email"
                   id="email"
-                  placeholder="Email address"
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
                   value={email}
-                  onChange={handleEmailChange}
-                  required
                 />
               </div>
               <div className="add-box">
-                <label htmlFor="phone">Phone</label>
+                <label htmlFor="phoneNumber">Phone</label>
                 <input
                   type="text"
-                  id="phone"
-                  placeholder="Phone number"
+                  id="phoneNumber"
+                  onChange={(e) => {
+                    setPhoneNumber(e.target.value);
+                  }}
                   value={phoneNumber}
-                  onChange={handlePhoneNumberChange}
-                  required
                 />
               </div>
             </div>
             <div className="imageAdmin">
               <div className="image">
                 <label htmlFor="adminImage">
-                  <img src={"../../../../public/images/profile.png"} />
+                  {/* <img src={"../../../../public/images/profile.png"} /> */}
+                    {mainImage ? (
+                      <img src={mainImage} alt="Main admin" />
+                    ) : (
+                      <p></p>
+                    )}
                 </label>
+                <input type="file" id="image" onChange={handleImage} />
               </div>
             </div>
             <div className="submit">
-              <button type="submit">Add</button>
+              <button onClick={handleSubmit} type="submit">
+                Update
+              </button>
             </div>
           </form>
         </div>
@@ -153,4 +177,4 @@ const AddAdmin = () => {
   );
 };
 
-export default AddAdmin;
+export default EditAdmin;

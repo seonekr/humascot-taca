@@ -5,7 +5,6 @@ import { IoSearchOutline } from "react-icons/io5";
 import AdminMenu from "../adminMenu/AdminMenu";
 import { Link, useNavigate } from "react-router-dom";
 import { BiPlus } from "react-icons/bi";
-import user from "../../../img/user.png";
 
 const Admins = () => {
   const [admins, setAdmins] = useState([]);
@@ -13,9 +12,20 @@ const Admins = () => {
 
   const navigate = useNavigate();
 
+  const [filteredAdmins, setFilteredAdmins] = useState(admins);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  // Search admin
+  const handleSearch = () => {
+    const filtered = filteredAdmins.filter((admin) =>
+    admin.fname.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredAdmins(filtered);
+  };
+
   // prev next button user in react
   const [currentPage, setCurrentPage] = useState(1);
-  const recordsPerPage = 8;
+  const recordsPerPage = 3;
   const lastIndex = currentPage * recordsPerPage;
   const firstIndex = lastIndex - recordsPerPage;
   const records = admins.slice(firstIndex, lastIndex);
@@ -37,7 +47,6 @@ const Admins = () => {
       .then((result) => {
         if (result.Status === "Success") {
           setAdmins(result.Result);
-          console.log(admins);
         } else {
           setError(result.Error);
         }
@@ -46,7 +55,7 @@ const Admins = () => {
   }, []);
 
   const AdminDetail = (id) => {
-    navigate("/admins/AdminDetail/" + id);
+    navigate("/admin/detail/" + id);
     console.log(id);
   };
 
@@ -58,7 +67,7 @@ const Admins = () => {
           <div className="container_box_users">
             <div className="box_users">
               <div className="box_add_admin">
-                <Link to="/addadmin" className="btn_addadmin">
+                <Link to="/admin/register" className="btn_addadmin">
                   <BiPlus id="icon_add_admin" />
                   Add Admin
                 </Link>
@@ -66,15 +75,20 @@ const Admins = () => {
 
               <form className="search">
                 <div className="search-box_menageruser">
-                  <input type="text" placeholder="Search ..." />
+                  <input 
+                    type="text" 
+                    placeholder="Search ..." 
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    />
                   <button type="submit">
-                    <IoSearchOutline />
+                    <IoSearchOutline onClick={handleSearch}/>
                   </button>
                 </div>
               </form>
             </div>
 
-            {admins.map((e) => {
+            {records.map((e) => {
               return (
                 <div
                   className="box_users_user"
@@ -84,11 +98,10 @@ const Admins = () => {
                   }}
                 >
                   <Link className="box_user_text">
-                    {e.profile_image ? (
-                      <img src={e.profile_image} alt="admin profile" />
-                    ) : (
-                      <img src={user} alt="admin profile" />
-                    )}
+                    <img
+                      src={`../../../../public/images/${e.profile_image}`}
+                      alt="admin profile"
+                    />
 
                     <div className="container_chat_name" key={e.reg_id}>
                       <p>

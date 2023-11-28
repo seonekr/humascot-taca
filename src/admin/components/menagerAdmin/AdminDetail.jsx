@@ -7,11 +7,13 @@ import { useState, useEffect } from "react";
 import user from "../../../img/user.png";
 
 const AdminDetail = () => {
-  // DFor delete User
+  const userID = localStorage.getItem("userID");
+  // For delete User
   const [deleteAdminId, setDeleteAdminId] = useState(null);
   const [isConfirmationPopupOpen, setConfirmationPopupOpen] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const [warning, setWarnung] = useState("");
 
   const openConfirmationPopup = (id) => {
     setDeleteAdminId(id);
@@ -24,29 +26,37 @@ const AdminDetail = () => {
   };
 
   const DeleteAdmin = (id) => {
-    // console.log("Deleted success!!" + id)
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
+    if (id === Number(userID)) {
+      setWarnung("Can't delete current user login!");
+      console.log(warning);
+      closeConfirmationPopup();
+    } else {
+      console.log("Deleted");
+      // console.log("Deleted success!!" + id)
+      var myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+      var requestOptions = {
+        method: "GET",
+        headers: myHeaders,
+        redirect: "follow",
+      };
+      fetch("http://localhost:5000/deleteAdmin/" + id, requestOptions)
+        .then((response) => response.json())
+        .then((result) => {
+          if (result.Status === "Success") {
+            setSuccess(result.Status);
+            navigate("/admins");
+          } else {
+            setError(result.Error);
+          }
+        })
+        .catch((error) => console.log("error", error));
+      closeConfirmationPopup();
+    }
+  };
 
-    var requestOptions = {
-      method: "GET",
-      headers: myHeaders,
-      redirect: "follow",
-    };
-
-    fetch("http://localhost:5000/deleteAdmin/" + id, requestOptions)
-      .then((response) => response.json())
-      .then((result) => {
-        if (result.Status === "Success") {
-          setSuccess(result.Status);
-          navigate("/admins");
-        } else {
-          setError(result.Error);
-        }
-      })
-      .catch((error) => console.log("error", error));
-
-    closeConfirmationPopup();
+  const EditAdmin = (id) => {
+    navigate("/admin/edit/" + id);
   };
 
   // For get user by id
@@ -93,20 +103,29 @@ const AdminDetail = () => {
             <div>User Phone number: {adminDetail.tel}</div>
             <div>Password: ********</div>
             <div className="del-update">
-              <div className="del" onClick={() => {openConfirmationPopup(adminDetail.reg_id)}}>
+              <div
+                className="del"
+                onClick={() => {
+                  openConfirmationPopup(adminDetail.reg_id);
+                }}
+              >
                 <AiOutlineDelete />
               </div>
-              <div className="update upd">
-                <MdOutlineEdit />
+              <div
+                className="update upd"
+                onClick={() => EditAdmin(adminDetail.reg_id)}
+              >
+                <Link>
+                  <MdOutlineEdit className="iconcoloredite" />
+                </Link>
               </div>
             </div>
           </div>
           <div className="img">
-            {adminDetail.profile_image ? (
-              <img src={adminDetail.profile_image} alt="admin profile" />
-            ) : (
-              <img src={user} alt="admin profile" />
-            )}
+            <img
+              src={`../../../../public/images/${adminDetail.profile_image}`}
+              alt="admin profile"
+            />
           </div>
         </div>
       </section>
