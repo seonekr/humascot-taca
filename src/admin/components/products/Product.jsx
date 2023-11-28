@@ -11,107 +11,7 @@ import { useNavigate } from "react-router-dom";
 const Product = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  //   {
-  //     productID: 1,
-  //     productName: "pro1",
-  //     productType: "clothes",
-  //     price: 15,
-  //     description: "desc for this product",
-  //     popular: true,
-  //     images: [
-  //       {
-  //         src: productImage,
-  //       },
-  //       {
-  //         src: image1,
-  //       },
-  //       {
-  //         src: acer,
-  //       },
-  //       {
-  //         src: acer,
-  //       },
-  //       {
-  //         src: productImage,
-  //       },
-  //       {
-  //         src: image1,
-  //       },
-  //       {
-  //         src: dress,
-  //       },
-  //       {
-  //         src: acer,
-  //       },
-  //       {
-  //         src: productImage,
-  //       },
-  //       {
-  //         src: image1,
-  //       },
-  //       {
-  //         src: dress,
-  //       },
-  //     ],
-  //     colors: [
-  //       { colorID: 1, colorName: "black" },
-  //       { colorID: 2, colorName: "blue" },
-  //       { colorID: 3, colorName: "red" },
-  //       { colorID: 4, colorName: "green" },
-  //     ],
-  //   },
-  //   {
-  //     productID: 1,
-  //     productName: "pro1",
-  //     productType: "clothes",
-  //     price: 15,
-  //     description: "desc for this product",
-  //     popular: true,
-  //     images: [
-  //       {
-  //         src: productImage,
-  //       },
-  //       {
-  //         src: image1,
-  //       },
-  //       {
-  //         src: acer,
-  //       },
-  //       {
-  //         src: acer,
-  //       },
-  //       {
-  //         src: productImage,
-  //       },
-  //       {
-  //         src: image1,
-  //       },
-  //       {
-  //         src: dress,
-  //       },
-  //       {
-  //         src: acer,
-  //       },
-  //       {
-  //         src: productImage,
-  //       },
-  //       {
-  //         src: image1,
-  //       },
-  //       {
-  //         src: dress,
-  //       },
-  //     ],
-  //     colors: [
-  //       { colorID: 1, colorName: "black" },
-  //       { colorID: 2, colorName: "blue" },
-  //       { colorID: 3, colorName: "red" },
-  //       { colorID: 4, colorName: "green" },
-  //     ],
-  //   },
-  // ]);
-
-  const [products2, setProducts2] = useState([]);
+  const [products, setProducts] = useState([]);
 
   useEffect((event) => {
     Showproducts();
@@ -131,7 +31,7 @@ const Product = () => {
       .then((response) => response.json())
       .then((result) => {
         if (result.Status === "Success") {
-          setProducts2(result.Result);
+          setProducts(result.Result);
         } else {
           setError(result.Error);
         }
@@ -139,7 +39,7 @@ const Product = () => {
       .catch((error) => console.log("error", error));
   };
 
-  const [filteredProducts, setFilteredProducts] = useState(products2);
+  const [filteredProducts, setFilteredProducts] = useState(products);
   const [searchTerm, setSearchTerm] = useState("");
 
   // prev next button user in react
@@ -195,7 +95,7 @@ const Product = () => {
   const navigate = useNavigate();
   // Update products
   const handleUpdate = (id) => {
-    navigate("/updateproduct/", { state: { id: id } });
+    navigate("/product/edit/"+id);
   };
 
   // Function to handle search by product name
@@ -280,7 +180,7 @@ const Product = () => {
           {/* The new once */}
 
           <div className="product-area">
-            {products2.map((product, index) => (
+            {products.map((product, index) => (
               <div className="box-product" key={index}>
                 <div>
                   <img

@@ -33,7 +33,7 @@ import User from "../admin/components/menagerUser/User";
 import AdminDetail from "../admin/components/menagerAdmin/AdminDetail";
 import AddAdmin from "../admin/components/menagerAdmin/AddAdmin";
 import EditAdmin from "../admin/components/menagerAdmin/EditAdmin";
-import UpdateProduct from "../admin/components/post/UpdateProduct";
+import EditProduct from "../admin/components/post/EditProduct";
 import Admin_acount from "../admin/components/menagerAdmin/Admin_acount";
 import UpdateAdmin from "../admin/components/menagerAdmin/UpdateAdmin";
 import UpdateAdmin_Account from "../admin/components/menagerAdmin/UpdateAdmin_Account";
@@ -67,18 +67,17 @@ const Links = () => {
         {/* Admin routes */}
         <Route exact path="/dashboard" Component={Dashboard} />
         <Route exact path="/post" Component={Post} />
+        <Route exact path="/products" Component={Product} />
+        <Route exact path="/product/edit/:id" Component={EditProduct} />
         <Route exact path="/users" Component={Users} />
         <Route exact path="/orderpage" Component={OrderPage} />
         <Route exact path="/orderbill" Component={OrderBill} />
-        <Route exact path="/products" Component={Product} />
         <Route exact path="/user/detail/:id" Component={User} />
         <Route exact path="/admins" Component={Admins} />
         <Route exact path="/admin/detail/:id" Component={AdminDetail} />
         <Route exact path="/admin/edit/:id" Component={EditAdmin} />
         <Route exact path="/admin/register" Component={AddAdmin} />
-        <Route exact path="/product/add" Component={UpdateProduct} />
         <Route exact path="/admin/acount" Component={Admin_acount} />
-        <Route exact path="/updateproduct/:id" Component={UpdateProduct} />
         <Route
           exact
           path="/updateAdminAccount"
