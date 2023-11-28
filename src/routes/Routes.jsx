@@ -83,11 +83,7 @@ const Links = () => {
         <Route exact path="/product/add" Component={UpdateProduct} />
         <Route exact path="/admin/acount" Component={Admin_acount} />
         <Route exact path="/updateproduct" Component={UpdateProduct} />
-        <Route
-          exact
-          path="/updateAdminAccount"
-          Component={UpdateAdmin_Account}
-        />
+        <Route exact path="/updateAdminAccount" Component={UpdateAdmin_Account} />
       </Routes>
     </Router>
   );
