@@ -1,18 +1,51 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import "./productBuy.css";
 import Menu from "../menu/Menu";
 import Header from "../header/Header";
 import { IoIosArrowBack } from "react-icons/io";
 
 function ProductDetails() {
+  // For authenticate user if user didn't login, So thay can't go to see the product details
+  const token = localStorage.getItem("token");
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", "Bearer " + token);
+
+    var requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      redirect: "follow",
+    };
+
+    fetch(import.meta.env.VITE_API + "/authen", requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        if (result.Status === "Success") {
+          if (result.decoded.urole !== "Customer") {
+            localStorage.removeItem("token");
+            localStorage.removeItem("userID");
+            navigate("/");
+            return;
+          }
+        } else {
+          localStorage.removeItem("userID");
+          navigate("/login");
+          return;
+        }
+      })
+      .catch((error) => console.log("error", error));
+  }, []);
+
   const { id } = useParams();
   const [product, setProduct] = useState([]);
   const allSizes = ["S", "M", "L", "XL"];
 
   // Prepare for Customer is order product
-  const [customerID, setCustomerID] = useState("");
-  const [productID, setProductID] = useState(id);
+  const customerID = localStorage.getItem("userID");
+  const productID = id;
   const [color, setColor] = useState("");
   const [size, setSize] = useState("");
   const [quantity, setQuantity] = useState(1);
@@ -27,13 +60,11 @@ function ProductDetails() {
     setSize(id);
   };
 
-
   console.log("Customer ID: " + customerID);
   console.log("Product ID: " + productID);
   console.log("Color: " + color);
   console.log("Size: " + size);
   console.log("Quantity: " + quantity);
-  
 
   // For get user by id
   useEffect(() => {
@@ -134,9 +165,6 @@ function ProductDetails() {
     slideRef.current.scrollLeft =
       slideIndex > numOfThumb ? (slideIndex - 1) * width : 0;
   }, [width, slideIndex]);
-  // ======================================================================>>
-  // ======================================================================>>
-  // ======================================================================>>
 
   return (
     <>
@@ -152,7 +180,7 @@ function ProductDetails() {
             <div className="slider">
               <React.Fragment>
                 <section className="product_details">
-                  <div className="product-page-img">
+                  {/* <div className="product-page-img">
                     <div className="myslides">
                       <img src="" alt="img" />
                     </div>
@@ -178,6 +206,57 @@ function ProductDetails() {
                       >
                         <img src="" alt="image" />
                       </div>
+                    </div>
+                  </div> */}
+
+                  <div className="product-page-img">
+                    {JSON.stringify(product.other_images_path)
+                      ? JSON.parse(product.other_images_path).map(
+                          (image, index) => (
+                            <div
+                              key={index}
+                              className="myslides"
+                              style={{
+                                display:
+                                  index + 1 === slideIndex ? "block" : "none",
+                              }}
+                            >
+                              <img
+                                key={image}
+                                src={`../../../../public/images/${image}`}
+                                alt="Additional Image"
+                              />
+                            </div>
+                          )
+                        )
+                      : null}
+
+                    <div
+                      className="slider_img"
+                      draggable={true}
+                      ref={slideRef}
+                      onDragStart={dragStart}
+                      onDragOver={dragOver}
+                      onDragEnd={dragEnd}
+                    >
+                      {JSON.stringify(product.other_images_path)
+                        ? JSON.parse(product.other_images_path).map(
+                            (image, index) => (
+                              <div
+                                key={index}
+                                className={`slider-box ${
+                                  index + 1 === slideIndex && "active"
+                                }`}
+                                onClick={() => setSlideIndex(index + 1)}
+                              >
+                                <img
+                                  src={`../../../../public/images/${image}`}
+                                  alt=""
+                                />
+                              </div>
+                            )
+                          )
+                        : null}
                     </div>
                   </div>
                 </section>
@@ -289,7 +368,10 @@ function ProductDetails() {
             </form>
           </div>
           <div className="description_container">
-            <img src="" alt="img" />
+            <img
+              src={"../../../../public/images/" + product.main_image_path}
+              alt="img"
+            />
           </div>
         </div>
       </div>
