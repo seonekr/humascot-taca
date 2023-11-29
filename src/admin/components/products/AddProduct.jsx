@@ -16,22 +16,6 @@ const AddProduct = () => {
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    // For alert message => 3
-    ShowMessage();
-  });
-
-  // For alert message => 2
-  const ShowMessage = () => {
-    if (successMsg === "Success") {
-      setMessage("Successful.");
-    } else if (errorMsg === "Error") {
-      setMessage("Something wrong!");
-    } else {
-      setMessage("Error!");
-    }
-  };
-
   const [product, setProduct] = useState({
     name: "",
     productType: "",
@@ -167,9 +151,10 @@ const AddProduct = () => {
       );
       if (response.data.Status === "Success") {
         setSuccessMsg(response.data.Status);
+        setErrorMsg("");
         navigate("/product/add");
       } else {
-        setErrorMsg(response.data.Status);
+        console.log(response.data.Status)
         navigate("/product/add");
       }
 
@@ -201,12 +186,7 @@ const AddProduct = () => {
           <div className="box_text">
             <h2>Add Product</h2>
           </div>
-          {/* // For alert message => 4 */}
-          {/* <h3>{message && message}</h3> */}
-          <Stack sx={{ width: '100%' }} spacing={2}>
-        {/* <Alert variant="outlined" severity="error">Error</Alert> */}
-        <Alert variant="outlined" severity="success">{message && message}</Alert>
-    </Stack>
+          <h3>{successMsg && successMsg}</h3>
           <form
             onSubmit={handleSubmit}
             method="post"

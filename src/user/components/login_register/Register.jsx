@@ -14,18 +14,12 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [successMsg, setSuccessMsg] = useState("");
-  const [errorMsg, setErrorMsg] = useState("");
-  const [message, setMessage] = useState("");
 
   // Kongchan
   const [errors, setErrors] = useState({});
   const [showSuccess, setShowSuccess] = useState(false);
 
   const navigate = useNavigate();
-
-  console.log("1" + successMsg);
-  console.log("2" + errorMsg);
-  console.log("3" + message);
 
   const handleFirstNameChange = (e) => {
     setFirstName(e.target.value);
@@ -115,11 +109,10 @@ const Register = () => {
       .then((result) => {
         if (result.Status === "Success") {
           setShowSuccess(true);
-          // setErrors({});
           setSuccessMsg(result.Status);
           navigate("/register");
         } else {
-          setErrorMsg(result.Error);
+          console.log(result.Error);
           setShowSuccess(false);
           navigate("/register");
         }
@@ -166,7 +159,7 @@ const Register = () => {
             <AiOutlineClose id="icon_cancel_register" />
           </Link>
         </div>
-        {/* {if(setSuccessMsg === "Success") : success ? error} */}
+        <h3>{successMsg && successMsg }</h3>
         
         {/* Display success message */}
         <form className="box_form_register">
