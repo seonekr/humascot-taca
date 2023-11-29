@@ -175,7 +175,7 @@ const Bill = () => {
           <p>Back</p>
         </Link>
         {filteredOrders.map((order) => (
-          <div className="bill-detial newspanBox" key={order.orderID}>
+          <div className="bill-detial_newspanBox" key={order.orderID}>
             <div className="guopoidHead">
               <div className="idf">
                 <p>OrderID: {order.orderID}</p>
@@ -185,6 +185,7 @@ const Bill = () => {
             </div>
             <hr />
             <div className="billGopBox">
+              <h3>Products</h3>
               <table>
                 <thead>
                   <tr>
@@ -221,6 +222,12 @@ const Bill = () => {
             </div>
           </div>
         ))}
+        <div className="box_back_shop">
+          <Link to='/product_search' className="btn_back_shop">
+            Go to Shop More
+          </Link>
+        </div>
+        
       </section>
       <Menu />
     </>

@@ -5,14 +5,13 @@ import acer from '../../../img/acer.png';
 import Header from '../header/Header';
 import Menu from '../menu/Menu'
 import { AiOutlineDelete } from "react-icons/ai";
-
 import './cart.css';
 
 const Cart = () => {
   const [products, setProducts] = useState([
-    { productID: 1, productName: 'Product 1', productType: "clothes", description: 'This is product 1', colorName: "black", price: 10, images: [acer], size: "m"},
-    { productID: 2, productName: 'Product 2', productType: "clothes", description: 'This is product 2', colorName: "red", price: 20, images: [acer], size: "l" },
-    { productID: 3, productName: 'Product 3', productType: "clothes", description: 'This is product 3', colorName: "blue", price: 30, images: [acer], size: "xl" },
+    { productID: 1, productName: 'Product 1', productType: "clothes", description: 'This is product1', colorName: "black", price: 10, images: [acer], size: "m"},
+    { productID: 2, productName: 'Product 2', productType: "clothes", description: 'This is product2', colorName: "red", price: 20, images: [acer], size: "l" },
+    { productID: 3, productName: 'Product 3', productType: "clothes", description: 'This is product3', colorName: "blue", price: 30, images: [acer], size: "xl" },
   ]);
 
   const [price, setPrice] = useState(0);
@@ -93,8 +92,7 @@ const Cart = () => {
             {products.map((product, index) => (
               <div className='container_cart_item' key={index}>
                 <div className="box_item_image">
-                  {/* <img src={product.images[0]} alt='img'></img> */}
-                  <img src='acer1.jpg' alt='img'></img>
+                  <img src={product.images} alt='img'></img>
                   <div className='box_item_text'>
                     <input
                       type="text"
@@ -113,6 +111,7 @@ const Cart = () => {
                       value={product.price}
                       onChange={(e) => handleInputChange(e, index, "price")}
                     />
+
                   </div>
                 </div>
                 <div className='box_icon_order'>

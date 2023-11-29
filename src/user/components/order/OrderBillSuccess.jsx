@@ -1,12 +1,14 @@
-import React from "react";
-import "./order.css";
+import { Link } from "react-router-dom";
 import Menu from "../menu/Menu";
 import Header from "../header/Header";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import Bill from "./Bill";
+import { useLocation } from "react-router-dom";
+import { IoIosArrowBack } from "react-icons/io";
+import "./bill.css";
 
-const Order = () => {
+
+const OrderBillSuccess = () => {
+
   // Orders
   const [orders, setOrders] = useState([
     {
@@ -134,12 +136,17 @@ const Order = () => {
   // users
   const [users, setUsers] = useState([
     { userID: 1, name: "John Doe", email: "john@gmail.com" },
-    { userID: 2, name: "SamVln", email: "sam@gmail.com" },
+    { userID: 2, name: "Sam", email: "sam@gmail.com" },
     { userID: 3, name: "Will", email: "wil@gmail.com" },
   ]);
 
+  // Get order ID
+  const location = useLocation();
+  const { id } = location.state;
+  const [getId, setGetId] = useState(id);
+
   const filteredOrders = orders
-    .filter((order) => order.userID === 1) // Filter orders by userID = 2 (Sam)
+    .filter((order) => order.orderID === getId) // Filter orders by userID = 2 (Sam)
     .map((order) => {
       const user = users.find((user) => user.userID === order.userID); // Find user details for the order
 
@@ -161,49 +168,72 @@ const Order = () => {
       };
     });
 
-  // Get order ID
-  const [id, setId] = useState();
-  const navigate = useNavigate();
-
-  const handleOrder = (id) => {
-    setId(id);
-    navigate("/order/bill", { state: { id: id } });
-  };
-
   return (
     <>
-      <Header />
-      <section id="container_order_item">
-        <div className="container_order_all">
-          <h2>Order</h2>
-          {filteredOrders.map((order) => (
-            <div key={order.orderID}>
-              <div
-                onClick={() => handleOrder(order.orderID)}
-                className="box_item_order"
-              >
-                <div className="box_item_order_text">
-                  <p>No: {order.orderID}</p>
-                  <p className="txtheadeproductorder">
-                    {order.products.slice(0, 2).map((product, index) => (
-                      <span key={product.productID}>
-                        {product.productName}
-                        {index === 0 && order.products.length > 1
-                          ? ", "
-                          : " ..."}
-                      </span>
-                    ))}
-                  </p>
-                  <p>{order.orderDate}</p>
-                </div>
+      <Header></Header>
+      <section id="bill">
+        <Link to="/order" className="box_container_back_icons_back">
+          <IoIosArrowBack id="icons_back" />
+          <p>Back</p>
+        </Link>
+        {filteredOrders.map((order) => (
+          <div className="bill-detial_newspanBox" key={order.orderID}>
+            <div className="guopoidHead">
+              <div className="idf">
+                <p>OrderID: {order.orderID}</p>
+                <p>UserID: {order.userID}</p>
+                <p>Name: {order.userName}</p>
               </div>
             </div>
-          ))}
+            <hr />
+            <div className="billGopBox">
+              <h3>Products</h3>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Product Name</th>
+                    <th>Price</th>
+                    <th>Amount</th>
+                    <th>Color</th>
+                    <th>Size</th>
+                  </tr>
+                </thead>
+                {order.products.map((product) => (
+                  <tbody key={product.productID}>
+                    <tr>
+                      <td>{product.productName}</td>
+                      <td>${product.price}</td>
+                      <td>{product.amount}</td>
+                      <td>{product.color}</td>
+                      <td>{product.size}</td>
+                    </tr>
+                  </tbody>
+                ))}
+              </table>
+            </div>
+            <hr />
+            <div className="titlePrice">
+              <p>Total:</p>
+              <p>${order.totalPrice}</p>
+            </div>
+            <div className="place-on">
+              <p>Place on: {order.orderDate}</p>
+              <p>Payment method: {order.payment}</p>
+              <p>Status: {order.status}</p>
+              <p>Delivery: {order.delivery}</p>
+            </div>
+          </div>
+        ))}
+        <div className="box_back_shop">
+          <Link to='/product_search' className="btn_back_shop">
+            Go to Shop More
+          </Link>
         </div>
+        
       </section>
       <Menu />
     </>
   );
 };
 
-export default Order;
+export default OrderBillSuccess;
