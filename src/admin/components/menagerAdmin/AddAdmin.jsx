@@ -48,6 +48,25 @@ const AddAdmin = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const validationErrors = {};
+
+    if (!firstName.trim()) {
+      validationErrors.firstName = "firstName is required"
+    }
+    if (!lastName.trim()) {
+      validationErrors.lastName = "lastName is required"
+    }
+    if (!email.trim()) {
+      validationErrors.email = "email is required"
+    }
+    if (!phoneNumber.trim()) {
+      validationErrors.phoneNumber = "phone number is required"
+    }
+    if (Object.keys(validationErrors).length > 0) {
+      setErrorMsg(validationErrors);
+      return;
+    }
+
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
@@ -92,7 +111,7 @@ const AddAdmin = () => {
             <h2>Add Admin</h2>
             <div></div>
           </div>
-          <h3>{message && message}</h3>
+          {/* <h3>{message && message}</h3> */}
           <form onSubmit={handleSubmit}>
             <div className="addAdminForm">
               <div className="add-box">
@@ -103,8 +122,8 @@ const AddAdmin = () => {
                   placeholder="Fist name"
                   value={firstName}
                   onChange={handleFirstNameChange}
-                  required
                 />
+                {errorMsg.firstName && <p className="error-message">{errorMsg.firstName}</p>}
               </div>
               <div className="add-box">
                 <label htmlFor="lname">Last name</label>
@@ -114,8 +133,8 @@ const AddAdmin = () => {
                   placeholder="last name"
                   value={lastName}
                   onChange={handleLastNameChange}
-                  required
                 />
+                {errorMsg.lastName && <p className="error-message">{errorMsg.lastName}</p>}
               </div>
               <div className="add-box">
                 <label htmlFor="email">Email</label>
@@ -125,8 +144,8 @@ const AddAdmin = () => {
                   placeholder="Email address"
                   value={email}
                   onChange={handleEmailChange}
-                  required
                 />
+                {errorMsg.email && <p className="error-message">{errorMsg.email}</p>}
               </div>
               <div className="add-box">
                 <label htmlFor="phone">Phone</label>
@@ -136,8 +155,8 @@ const AddAdmin = () => {
                   placeholder="Phone number"
                   value={phoneNumber}
                   onChange={handlePhoneNumberChange}
-                  required
                 />
+                {errorMsg.phoneNumber && <p className="error-message">{errorMsg.phoneNumber}</p>}
               </div>
             </div>
             <div className="imageAdmin">

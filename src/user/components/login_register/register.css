@@ -16,8 +16,7 @@ a {
 /* ============== body box_container =============*/
 .box_container {
   width: 700px;
-  height: 700px;
-  position: relative;
+  height: auto;
   border-radius: 1em;
   display: grid;
   text-align: center;
@@ -63,16 +62,7 @@ a {
 .box_form_register {
   display: grid;
   justify-content: center;
-  gap: 1rem;
-}
-
-.box_form input {
-  width: 450px;
-  height: 58px;
-  border-radius: 10px;
-  font-size: 18px;
-  border: 1px solid rgba(0, 0, 0, 0.40);
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+  gap: 1.5rem;
 }
 
 .input_form {
@@ -87,7 +77,7 @@ a {
 
 .box_form1 input {
   width: 220px;
-  height: 58px;
+  height: 50px;
   margin-top: 1rem;
   border-radius: 10px;
   font-size: 18px;
@@ -95,6 +85,12 @@ a {
 }
 
 .input_form1 {
+  width: 100%;
+  height: 50px;
+  margin-top: 1rem;
+  border-radius: 10px;
+  font-size: 18px;
+  border: 1px solid rgba(0, 0, 0, 0.40);
   padding: 20px 15px;
 }
 
@@ -103,7 +99,7 @@ a {
 
 .google_btn {
   width: 450px;
-  height: 58px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -134,7 +130,7 @@ a {
 /* ================= Button signup_btn ================= */
 .signup_btn {
   width: 450px;
-  height: 58px;
+  height: 50px;
   margin-top: 2px;
   background: #FA442C;
   color: #FFF;
@@ -144,6 +140,7 @@ a {
   align-items: center;
   border: 1px;
   font-size: 20px;
+  cursor: pointer;
 }
 
 .box_already {
@@ -152,9 +149,18 @@ a {
   padding: 20px 0;
 }
 
-.loginmoreLink{
+.loginmoreLink {
   color: #FA442C;
 }
+
+.error-message {
+  color: red;
+  position: absolute;
+}
+
+/* tersrt1 */
+
+
 
 /* ================= Responsive ================= */
 
@@ -214,12 +220,12 @@ a {
 
   .input_form1 {
     margin: auto;
-    width: 80%;
+    width: 95%;
   }
 
   .box_form1 input {
     margin: auto;
-    width: 80%;
+    width: 90%;
   }
 
   .signup_btn {

@@ -74,7 +74,7 @@ a {
 }
 
 .input_form {
-    width: 450px;
+    width: 100%;
     height: 58px;
     margin: auto;
     border: 1px solid rgba(0, 0, 0, 0.40);
@@ -195,11 +195,12 @@ a {
         overflow: hidden;
         padding: 10px;
         top: 35%;
+        margin: auto;
     }
 
     .input_form,
     .login_btn {
-        width: 600px;
+        width: 100%;
     }
 
     .cover {
@@ -217,15 +218,15 @@ a {
 
     .input_form,
     .login_btn {
-        width: 580px;
+        width: 100%;
     }
 
     .google_btn {
-        width: 580px;
+        width: 100%;
     }
 
     .cover {
-        width: 580px;
+        width: 100%;
     }
 
 }

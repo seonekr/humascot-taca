@@ -25,6 +25,19 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault(); // Prevent the default form submission behavsior
+    const validationErrors = {};
+
+    if (!email.trim()) {
+      validationErrors.email = "email is required"
+    }
+    if (!password.trim()) {
+      validationErrors.password = "password is required"
+    }
+
+    if (Object.keys(validationErrors).length > 0) {
+      setError(validationErrors);
+      return;
+    }
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
@@ -75,31 +88,38 @@ const Login = () => {
               <AiOutlineClose id="icon_cancel_login" />
             </Link>
           </div>
-          {error ? (
+          {/* {error ? (
             <div className="boxAlartLogin">
-            <IoMdAlert className="iconAlert" />
-            <p className="txtalert_p">{error && error}</p>
-            <MdOutlineCancel className="iconAlert_canCel" />
-          </div>
+              <IoMdAlert className="iconAlert" />
+              <p className="txtalert_p">{error && error}</p>
+              <MdOutlineCancel className="iconAlert_canCel" />
+            </div>
           ) : (
             <p></p>
-          )}
+          )} */}
 
           {/* <h3>{error && error}</h3> */}
-          <input
-            className="input_form"
-            type="email"
-            placeholder="Enter Your Email"
-            value={email}
-            onChange={handleEmail}
-          />
-          <input
-            className="input_form"
-            type="password"
-            placeholder="Enter Your Password"
-            value={password}
-            onChange={handlePassword}
-          />
+          <div>
+            <input
+              className="input_form"
+              type="email"
+              placeholder="Enter Your Email"
+              value={email}
+              onChange={handleEmail}
+            />
+            {error.email && <p className="error-message">{error.email}</p>}
+          </div>
+
+          <div>
+            <input
+              className="input_form"
+              type="password"
+              placeholder="Enter Your Password"
+              value={password}
+              onChange={handlePassword}
+            />
+            {error.password && <p className="error-message">{error.password}</p>}
+          </div>
 
           <Link to="#" className="forgot_password">
             Forgot Password?
