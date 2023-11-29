@@ -31,7 +31,7 @@ const Login = () => {
       validationErrors.email = "email is required"
     }
     if (!password.trim()) {
-      validationErrors.password = "email is required"
+      validationErrors.password = "password is required"
     }
 
     if (Object.keys(validationErrors).length > 0) {
