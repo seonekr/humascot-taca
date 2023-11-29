@@ -64,7 +64,7 @@ const Links = () => {
         <Route exact path="/cart" Component={Cart} />
         <Route exact path="/alertLogin" Component={AlertLogin} />
         <Route exact path="/alertSignup" Component={AlertSignup} />
-        <Route exact path="/orderBillSuccess" Component={OrderBillSuccess} />
+        <Route exact path="/orderbillsuccess" Component={OrderBillSuccess} />
 
         {/* Admin routes */}
         <Route exact path="/dashboard" Component={Dashboard} />

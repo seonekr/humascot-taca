@@ -40,15 +40,18 @@
     font-family: "saysettha ot";
     color: #1589FF;
     border: 1px solid #ccc;
+    border-radius: 0 0 5px 5px;
 }
 
 #payment .adress-payment .box .address {
-    background-color: #3498DB;
+    background-color: #FA442C;
     font-size: 1.3rem;
     width: 80%;
     margin: 0 auto;
     color: #fff;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 4px 4px 0 0;
     padding: 5px 0;
     cursor: pointer;
@@ -63,6 +66,7 @@
     margin: auto;
     border: 1px solid #ccc;
     padding: 10px 20px;
+    border-radius: 5px;
 }
 
 .detailsProduct_li{

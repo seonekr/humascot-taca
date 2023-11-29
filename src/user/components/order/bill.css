@@ -14,6 +14,24 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
+.box_iconSuccess{
+    margin: auto;
+}
+.icon_AiOutlineCheck{
+    width: 50px;
+    height: 50px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    background: #347FFF;
+}
+
+#icon_linecheck{
+    width: 25px;
+    height: 25px;
+    color: #FFF;
+}
 
 
 .iconnboxx {
@@ -81,7 +99,7 @@
 .btn_back_shop {
     background: #FA442C;
     border-radius: 5px;
-    padding: 0.5rem 1.5rem;
+    padding: 0.6rem 1.5rem;
     color: #fff;
     font-size: 1rem;
 }
