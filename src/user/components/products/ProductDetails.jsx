@@ -5,38 +5,76 @@ import Menu from "../menu/Menu";
 import Header from "../header/Header";
 import { IoIosArrowBack } from "react-icons/io";
 
-
 function ProductDetails() {
   const { id } = useParams();
   const [product, setProduct] = useState([]);
+  const allSizes = ["S", "M", "L", "XL"];
 
   // Prepare for Customer is order product
   const [customerID, setCustomerID] = useState("");
-  const [productID, setProductID] = useState("");
+  const [productID, setProductID] = useState(id);
   const [color, setColor] = useState("");
   const [size, setSize] = useState("");
-  const [quantity, setQuantity] = useState("");
+  const [quantity, setQuantity] = useState(1);
+
+  const handleColorChange = (event) => {
+    const { id } = event.target;
+    setColor(id);
+  };
+
+  const handleSizeChange = (event) => {
+    const { id } = event.target;
+    setSize(id);
+  };
+
+
+  console.log("Customer ID: " + customerID);
+  console.log("Product ID: " + productID);
+  console.log("Color: " + color);
+  console.log("Size: " + size);
+  console.log("Quantity: " + quantity);
   
 
+  // For get user by id
+  useEffect(() => {
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+      redirect: "follow",
+    };
+
+    fetch(import.meta.env.VITE_API + "/getProduct/" + id, requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        if (result.Status === "Success") {
+          setProduct(result.Result[0]);
+        }
+      })
+      .catch((error) => console.log("error", error));
+  }, []);
+
   // ======================================================================>>
   // ======================================================================>>
   // ======================================================================>>
 
-  const [productCounts, setProductCounts] = useState(1);
+  // const [productCounts, setProductCounts] = useState(1);
   const decrementValue = () => {
-    if (productCounts > 1) {
-      setProductCounts(productCounts - 1);
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
     }
   };
 
   const incrementValue = () => {
-    setProductCounts(productCounts + 1);
+    setQuantity(quantity + 1);
   };
 
   const handleChange = (event) => {
     const newValue = parseInt(event.target.value);
     if (!isNaN(newValue)) {
-      setProductCounts(newValue);
+      setQuantity(newValue);
     }
   };
 
@@ -59,7 +97,6 @@ function ProductDetails() {
     const width = scrollWidth / childrenElementCount;
     setWidth(width);
   }, []);
-
 
   function plusSlides(n) {
     showSlides(slideIndex + n);
@@ -136,9 +173,7 @@ function ProductDetails() {
                       onDragEnd={dragEnd}
                     >
                       <div
-                        className={`slider-box ${
-                           1 === slideIndex && "active"
-                        }`}
+                        className={`slider-box ${1 === slideIndex && "active"}`}
                         onClick={() => setSlideIndex(index + 1)}
                       >
                         <img src="" alt="image" />
@@ -151,8 +186,8 @@ function ProductDetails() {
 
             <form onSubmit={handleSubmit}>
               <div className="txtContentproduct">
-                <h1 className="txt_nameP">product.productName</h1>
-                <p className="money_txt">$product.price</p>
+                <h1 className="txt_nameP">{product.name}</h1>
+                <p className="money_txt">{product.price}</p>
                 {/* Star Box */}
                 {/* <div className="startBox">
                   <div className="sartBox_icon">
@@ -175,47 +210,49 @@ function ProductDetails() {
 
                 {/* Checked colors */}
                 <div className="color_product">
-                  <div>
-                    <label htmlFor="red">red</label>
-                    <input id="red" className="echColor" type="radio" />
-                  </div>
-                  <div>
-                    <label htmlFor="blue">blue</label>
-                    <input id="blue" className="echColor" type="radio" />
-                  </div>
-                  <div>
-                    <label htmlFor="black">black</label>
-                    <input id="black" className="echColor" type="radio" />
-                  </div>
+                  {JSON.stringify(product.colors)
+                    ? JSON.parse(product.colors).map((e, index) => (
+                        <div key={index}>
+                          <label htmlFor={e}>{e}</label>
+                          <input
+                            className="echColor"
+                            type="radio"
+                            id={e}
+                            checked={e === color}
+                            onChange={handleColorChange}
+                          />
+                        </div>
+                      ))
+                    : null}
                 </div>
 
                 {/* Checked sizes */}
+                {/* <div className="size_product">
+                  <p>Size:</p>
+                  <label htmlFor="s">S</label>
+                  <input type="radio" id="s" />
+                  <label htmlFor="m">M</label>
+                  <input type="radio" id="m" />
+                  <label htmlFor="l">L</label>
+                  <input type="radio" id="l" />
+                  <label htmlFor="xl">XL</label>
+                  <input type="radio" id="xl" />
+                </div> */}
+
                 <div className="size_product">
                   <p>Size:</p>
-                  <label
-                    htmlFor="s"
-                  >
-                    S
-                  </label>
-                  <input type="radio" id="s" />
-                  <label
-                    htmlFor="m"
-                  >
-                    M
-                  </label>
-                  <input type="radio" id="m" />
-                  <label
-                    htmlFor="l"
-                  >
-                    L
-                  </label>
-                  <input type="radio" id="l" />
-                  <label
-                    htmlFor="xl"
-                  >
-                    XL
-                  </label>
-                  <input type="radio" id="xl" />
+                  {allSizes.map((e, index) => (
+                    <div key={index}>
+                      <label htmlFor={e}>{e}</label>
+                      <input
+                        className="echColor"
+                        type="radio"
+                        id={e}
+                        checked={e === size}
+                        onChange={handleSizeChange}
+                      />
+                    </div>
+                  ))}
                 </div>
 
                 {/* Amount product */}
@@ -229,7 +266,7 @@ function ProductDetails() {
                   <span>
                     <input
                       type="text"
-                      value={productCounts}
+                      value={quantity}
                       onChange={handleChange}
                     />
                   </span>
