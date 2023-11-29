@@ -57,19 +57,6 @@ function ProductDetails() {
     setWidth(width);
   }, []);
 
-  function plusSlides(n) {
-    showSlides(slideIndex + n);
-  }
-
-  function showSlides(n) {
-    if (n > product.other_images_path.length) {
-      setSlideIndex(1);
-    } else if (n < 1) {
-      setSlideIndex(product.other_images_path.length);
-    } else {
-      setSlideIndex(n);
-    }
-  }
   //Drag
   function dragStart(e) {
     setStart(e.clientX);
@@ -129,13 +116,6 @@ function ProductDetails() {
                           )
                         )
                       : null}
-
-                    <a className="prev" onClick={() => plusSlides(-1)}>
-                      &#10094;
-                    </a>
-                    <a className="next" onClick={() => plusSlides(1)}>
-                      &#10095;
-                    </a>
 
                     <div
                       className="slider_img"
