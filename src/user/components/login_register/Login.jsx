@@ -98,7 +98,7 @@ const Login = () => {
             <p></p>
           )} */}
 
-          {/* <h3>{error && error}</h3> */}
+          <h3>{error && error}</h3>
           <div>
             <input
               className="input_form"

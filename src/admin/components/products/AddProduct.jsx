@@ -173,7 +173,7 @@ const AddProduct = () => {
         navigate("/product/add");
       }
 
-      console.log(response.data.Status);
+      // console.log(response.data.Status);
     } catch (error) {
       console.error("Error submitting form:", error);
     }
@@ -202,7 +202,11 @@ const AddProduct = () => {
             <h2>Add Product</h2>
           </div>
           {/* // For alert message => 4 */}
-          <h3>{message && message}</h3>
+          {/* <h3>{message && message}</h3> */}
+          <Stack sx={{ width: '100%' }} spacing={2}>
+        {/* <Alert variant="outlined" severity="error">Error</Alert> */}
+        <Alert variant="outlined" severity="success">{message && message}</Alert>
+    </Stack>
           <form
             onSubmit={handleSubmit}
             method="post"

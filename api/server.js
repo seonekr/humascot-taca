@@ -152,7 +152,7 @@ app.post("/register", jsonParser, (req, res) => {
           if (err) {
             res.json({
               Status: "Error",
-              Error: err,
+              Error: err.sqlMessage,
             });
             return;
           } else {
@@ -162,7 +162,7 @@ app.post("/register", jsonParser, (req, res) => {
               if (err)
                 return res.json({
                   Status: "Error",
-                  Error: err,
+                  Error: err.sqlMessage,
                 });
               reg_id = result[0].id;
 
@@ -184,7 +184,7 @@ app.post("/register", jsonParser, (req, res) => {
                     if (err)
                       return res.json({
                         Status: "Error",
-                        Error: err,
+                        Error: err.sqlMessage,
                       });
                   });
                   return;

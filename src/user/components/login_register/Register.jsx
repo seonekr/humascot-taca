@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import "./register.css";
 import { Link, useNavigate } from "react-router-dom";
@@ -16,10 +15,17 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [successMsg, setSuccessMsg] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
+  const [message, setMessage] = useState("");
+
+  // Kongchan
   const [errors, setErrors] = useState({});
   const [showSuccess, setShowSuccess] = useState(false);
 
   const navigate = useNavigate();
+
+  console.log("1" + successMsg);
+  console.log("2" + errorMsg);
+  console.log("3" + message);
 
   const handleFirstNameChange = (e) => {
     setFirstName(e.target.value);
@@ -60,7 +66,7 @@ const Register = () => {
     }
 
     if (!email.trim()) {
-      validationErrors.email = "email is required"
+      validationErrors.email = "email is required";
     }
 
     if (!phoneNumber.trim()) {
@@ -68,13 +74,13 @@ const Register = () => {
     }
 
     if (!password.trim()) {
-      validationErrors.password = "password is required"
+      validationErrors.password = "password is required";
     } else if (password.length < 5) {
-      validationErrors.password = "password should be at least 6 char"
+      validationErrors.password = "password should be at least 6 char";
     }
 
     if (confirmPassword !== password) {
-      validationErrors.confirmPassword = "password not matched"
+      validationErrors.confirmPassword = "password not matched";
     }
     // ... (your existing validation logic)
 
@@ -105,25 +111,21 @@ const Register = () => {
     };
 
     fetch("http://localhost:5000/register", requestOptions)
-
       .then((response) => response.json())
       .then((result) => {
         if (result.Status === "Success") {
-          setSuccessMsg(result.Status);
           setShowSuccess(true);
-          setErrors({});
+          // setErrors({});
+          setSuccessMsg(result.Status);
           navigate("/register");
-          alert("Registration successful!");
         } else {
           setErrorMsg(result.Error);
           setShowSuccess(false);
           navigate("/register");
-          alert("Registration have Error!");
         }
       })
       .catch((error) => console.log("error", error));
   };
-
 
   const [isActive, setIsActive] = useState(false);
 
@@ -164,7 +166,8 @@ const Register = () => {
             <AiOutlineClose id="icon_cancel_register" />
           </Link>
         </div>
-
+        {/* {if(setSuccessMsg === "Success") : success ? error} */}
+        
         {/* Display success message */}
         <form className="box_form_register">
           {/* Display validation errors */}
@@ -177,7 +180,9 @@ const Register = () => {
                 value={firstName}
                 onChange={handleFirstNameChange}
               />
-              {errors.firstName && <p className="error-message">{errors.firstName}</p>}
+              {errors.firstName && (
+                <p className="error-message">{errors.firstName}</p>
+              )}
             </div>
             <div>
               <input
@@ -187,7 +192,9 @@ const Register = () => {
                 value={lastName}
                 onChange={handleLastNameChange}
               />
-              {errors.lastName && <p className="error-message">{errors.lastName}</p>}
+              {errors.lastName && (
+                <p className="error-message">{errors.lastName}</p>
+              )}
             </div>
           </div>
           <div>
@@ -208,7 +215,9 @@ const Register = () => {
               value={phoneNumber}
               onChange={handlePhoneNumberChange}
             />
-            {errors.phoneNumber && <p className="error-message">{errors.phoneNumber}</p>}
+            {errors.phoneNumber && (
+              <p className="error-message">{errors.phoneNumber}</p>
+            )}
           </div>
           <div>
             <input
@@ -218,7 +227,9 @@ const Register = () => {
               value={password}
               onChange={handlePasswordChange}
             />
-            {errors.password && <p className="error-message">{errors.password}</p>}
+            {errors.password && (
+              <p className="error-message">{errors.password}</p>
+            )}
           </div>
 
           <div>
@@ -229,7 +240,9 @@ const Register = () => {
               value={confirmPassword}
               onChange={handleConfirmPasswordChange}
             />
-            {errors.confirmPassword && <p className="error-message">{errors.confirmPassword}</p>}
+            {errors.confirmPassword && (
+              <p className="error-message">{errors.confirmPassword}</p>
+            )}
           </div>
 
           <button onClick={handleSubmit} type="submit" className="signup_btn">
