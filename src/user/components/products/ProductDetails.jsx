@@ -1,23 +1,16 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useLocation, useNavigate, Link, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "./productBuy.css";
 import Menu from "../menu/Menu";
 import Header from "../header/Header";
 import { IoIosArrowBack } from "react-icons/io";
-import { objectOf } from "prop-types";
-import { countBy } from "lodash";
 
 function ProductDetails() {
   const { id } = useParams();
-  const [product, setProduct] = useState([]);
-  const [color, setColor] = useState("");
+  const [productCount, setProductCount] = useState(1);
+  const [product, setProduct] = useState("");
 
-  const handleRadioChange = (event) => {
-    const {id} = event.target;
-    setColor(id)
-  }
-
-  // For get user by id
+  // For get product by id
   useEffect(() => {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -38,11 +31,29 @@ function ProductDetails() {
       .catch((error) => console.log("error", error));
   }, []);
 
-  const handleSubmit = () => {};
+  const decrementValue = () => {
+    if (productCount > 1) {
+      setProductCount(productCount - 1);
+    }
+  };
 
-  //Start image gallery
+  const incrementValue = () => {
+    setProductCount(productCount + 1);
+  };
+
+  const handleChange = (event) => {
+    const newValue = parseInt(event.target.value);
+    if (!isNaN(newValue)) {
+      setProductCount(newValue);
+    }
+  };
+
+  // Handle submitted
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   const [slideIndex, setSlideIndex] = useState(1);
-
   const [width, setWidth] = useState(0);
   const [start, setStart] = useState(0);
   const [change, setChange] = useState(9);
@@ -62,10 +73,12 @@ function ProductDetails() {
   }
 
   function showSlides(n) {
-    if (n > product.other_images_path.length) {
+    const currentProduct = filteredProducts[0]; // Assuming there's only one product in the array
+
+    if (n > currentProduct.images.length) {
       setSlideIndex(1);
     } else if (n < 1) {
-      setSlideIndex(product.other_images_path.length);
+      setSlideIndex(currentProduct.images.length);
     } else {
       setSlideIndex(n);
     }
@@ -85,13 +98,15 @@ function ProductDetails() {
       slideRef.current.scrollLeft -= width;
     }
   }
-
   useEffect(() => {
     if (!slideRef.current || !width) return;
     let numOfThumb = Math.round(slideRef.current.offsetWidth / width);
     slideRef.current.scrollLeft =
       slideIndex > numOfThumb ? (slideIndex - 1) * width : 0;
   }, [width, slideIndex]);
+  // ======================================================================>>
+  // ======================================================================>>
+  // ======================================================================>>
 
   return (
     <>
@@ -102,33 +117,18 @@ function ProductDetails() {
           <IoIosArrowBack id="icons_back" />
           <p>Back</p>
         </Link>
-        <div key={product.id}>
+        <div>
           <div className="boxProduct_deteils">
             <div className="slider">
               <React.Fragment>
                 <section className="product_details">
-                  {/* --------------------------------------------- */}
                   <div className="product-page-img">
-                    {JSON.stringify(product.other_images_path)
-                      ? JSON.parse(product.other_images_path).map(
-                          (image, index) => (
-                            <div
-                              key={index}
-                              className="myslides"
-                              style={{
-                                display:
-                                  index + 1 === slideIndex ? "block" : "none",
-                              }}
-                            >
-                              <img
-                                key={image}
-                                src={`../../../../public/images/${image}`}
-                                alt="Additional Image"
-                              />
-                            </div>
-                          )
-                        )
-                      : null}
+                    <div className="myslides">
+                      <img
+                        src="../../../../public/images/1701068285416-acer.png"
+                        alt="img"
+                      />
+                    </div>
 
                     <a className="prev" onClick={() => plusSlides(-1)}>
                       &#10094;
@@ -145,24 +145,24 @@ function ProductDetails() {
                       onDragOver={dragOver}
                       onDragEnd={dragEnd}
                     >
-                      {JSON.stringify(product.other_images_path)
-                        ? JSON.parse(product.other_images_path).map(
-                            (image, index) => (
-                              <div
-                                key={index}
-                                className={`slider-box ${
-                                  index + 1 === slideIndex && "active"
-                                }`}
-                                onClick={() => setSlideIndex(index + 1)}
-                              >
-                                <img
-                                  src={`../../../../public/images/${image}`}
-                                  alt=""
-                                />
-                              </div>
-                            )
-                          )
-                        : null}
+                      <div
+                        className={`slider-box ${1 === slideIndex && "active"}`}
+                        onClick={() => setSlideIndex(index + 1)}
+                      >
+                        <img
+                          src="../../../../public/images/1701068285416-acer.png"
+                          alt="image"
+                        />
+                      </div>
+                      <div
+                        className={`slider-box ${1 === slideIndex && "active"}`}
+                        onClick={() => setSlideIndex(index + 1)}
+                      >
+                        <img
+                          src="../../../../public/images/1701068285416-acer.png"
+                          alt="image"
+                        />
+                      </div>
                     </div>
                   </div>
                 </section>
@@ -173,6 +173,20 @@ function ProductDetails() {
               <div className="txtContentproduct">
                 <h1 className="txt_nameP">{product.name}</h1>
                 <p className="money_txt">{product.price}</p>
+                {/* Star Box */}
+                {/* <div className="startBox">
+                  <div className="sartBox_icon">
+                    <AiFillStar id="icon_stars" />
+                    <AiFillStar id="icon_stars" />
+                    <AiFillStar id="icon_stars" />
+                    <AiFillStar id="icon_stars" />
+                    <AiOutlineStar id="icon_star" />
+                  </div>
+
+                  <div>
+                    <p>( 150 Reviews )</p>
+                  </div>
+                </div> */}
                 <p className="txt_description">{product.description}</p>
 
                 <div className="hr">
@@ -180,41 +194,31 @@ function ProductDetails() {
                 </div>
 
                 {/* Checked colors */}
+                {/* <div className="color_product">
+                  <div>
+                    <label htmlFor="red">red</label>
+                    <input id="red" className="echColor" type="radio" />
+                  </div>
+                  <div>
+                    <label htmlFor="blue">blue</label>
+                    <input id="blue" className="echColor" type="radio" />
+                  </div>
+                  <div>
+                    <label htmlFor="black">black</label>
+                    <input id="black" className="echColor" type="radio" />
+                  </div>
+                </div> */}
+
                 <div className="color_product">
                   {JSON.stringify(product.colors)
-                    ? JSON.parse(product.colors).map((colors, index) => (
+                    ? JSON.parse(product.colors).map((color, index) => (
                         <div key={index}>
-                          <label htmlFor={colors}>
-                            {colors}
-                          </label>
-                          <input
-                            className="echColor"
-                            type="radio"
-                            id={index}
-                            checked={colors === color}
-                            onChange={handleRadioChange}
-                          />
+                          <label htmlFor="red">{color}</label>
+                          <input id="index" className="echColor" type="radio" />
                         </div>
                       ))
                     : null}
                 </div>
-
-                {/* <div className="color_product">
-                  {JSON.stringify((colors) => (
-                    <div key={colors.colorID}>
-                      <label htmlFor={colors.colorName}>
-                        {colors.colorName}
-                      </label>
-                      <input
-                        className="echColor"
-                        type="radio"
-                        id={colors.colorName}
-                        checked={colors.colorName === color}
-                        onChange={handleRadioChange}
-                      />
-                    </div>
-                  ))}
-                </div> */}
 
                 {/* Checked sizes */}
                 <div className="size_product">
@@ -231,11 +235,25 @@ function ProductDetails() {
 
                 {/* Amount product */}
                 <div className="container_item_icon">
-                  <div className="container_minus_plus">-</div>
+                  <div
+                    className="container_minus_plus"
+                    onClick={decrementValue}
+                  >
+                    -
+                  </div>
                   <span>
-                    <input type="text" />
+                    <input
+                      type="text"
+                      value={productCount}
+                      onChange={handleChange}
+                    />
                   </span>
-                  <div className="container_minus_plus">+</div>
+                  <div
+                    className="container_minus_plus"
+                    onClick={incrementValue}
+                  >
+                    +
+                  </div>
                 </div>
                 <div className="Count_product">
                   <button type="submit" className="echbtn btnBut">
@@ -250,8 +268,8 @@ function ProductDetails() {
           </div>
           <div className="description_container">
             <img
-              src={"../../../../public/images/1701068285422-dress.png"}
-              alt=""
+              src="../../../../public/images/1701068285416-acer.png"
+              alt="img"
             />
           </div>
         </div>

@@ -18,13 +18,17 @@ const AddAdmin = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    ShowMessage()
+  });
+
+  const ShowMessage = () => {
     // Check messages
     if (successMsg === "Success") {
       setMessage("Added Admin Successful!");
     } else {
       setMessage(errorMsg);
     }
-  });
+  };
 
   const handleFirstNameChange = (e) => {
     setFirstName(e.target.value);

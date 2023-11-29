@@ -128,7 +128,7 @@ const Product = () => {
               <span className="spennofStyleadmin"></span>Product
             </h1>
             <div className="categoryBoxfiler">
-              <Link to="/post/" className="box_add_product">
+              <Link to="/product/add" className="box_add_product">
                 <BiPlus id="icon_add_product" />
                 <p>Add Product</p>
               </Link>

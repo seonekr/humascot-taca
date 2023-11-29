@@ -11,7 +11,7 @@ import Address from "../user/components/cart/Address";
 import Contacts from "../user/components/contact/Contact";
 import Bill from "../user/components/order/Bill";
 import Dashboard from "../admin/Dashboard";
-import Post from "../admin/components/post/Post";
+import AddProduct from "../admin/components/products/AddProduct";
 import Categories from "../user/components/categories/Categories";
 
 /* ========= Phukeo ========= */
@@ -26,6 +26,7 @@ import OrderPage from "../admin/components/orderPage/OrderPage";
 import OrderBill from "../admin/components/orderPage/OrderBill";
 import Admins from "../admin/components/menagerAdmin/Admins";
 import Product from "../admin/components/products/Product";
+import EditProduct from "../admin/components/products/Product";
 
 // ===============================
 import Users from "../admin/components/menagerUser/Users";
@@ -33,9 +34,8 @@ import User from "../admin/components/menagerUser/User";
 import AdminDetail from "../admin/components/menagerAdmin/AdminDetail";
 import AddAdmin from "../admin/components/menagerAdmin/AddAdmin";
 import EditAdmin from "../admin/components/menagerAdmin/EditAdmin";
-import EditProduct from "../admin/components/post/EditProduct";
+
 import Admin_acount from "../admin/components/menagerAdmin/Admin_acount";
-import UpdateAdmin from "../admin/components/menagerAdmin/UpdateAdmin";
 import UpdateAdmin_Account from "../admin/components/menagerAdmin/UpdateAdmin_Account";
 
 const Links = () => {
@@ -66,7 +66,7 @@ const Links = () => {
 
         {/* Admin routes */}
         <Route exact path="/dashboard" Component={Dashboard} />
-        <Route exact path="/post" Component={Post} />
+        <Route exact path="/product/add" Component={AddProduct} />
         <Route exact path="/products" Component={Product} />
         <Route exact path="/product/edit/:id" Component={EditProduct} />
         <Route exact path="/users" Component={Users} />

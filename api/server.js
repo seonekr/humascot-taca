@@ -499,14 +499,12 @@ app.post(
 
     connection.query(sql, values, (err, result) => {
       if (err) {
-        console.error("Error inserting product:", err);
-        res
-          .status(500)
-          .json({ error: "Error inserting product into the database" });
-      } else {
-        console.log("Product inserted successfully");
-        res.status(201).json({ message: "Product inserted successfully" });
+        return res.json({
+          Status: "Error",
+          Error: err,
+        });
       }
+      return res.json({ Status: "Success" });
     });
   }
 );
