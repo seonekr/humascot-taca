@@ -223,7 +223,11 @@ function ProductDetails() {
                             >
                               <img
                                 key={image}
-                                src={`../../../../public/images/${image}`}
+                                src={
+                                  import.meta.env.VITE_API +
+                                  "/uploads/images/" +
+                                  image
+                                }
                                 alt="Additional Image"
                               />
                             </div>
@@ -250,7 +254,11 @@ function ProductDetails() {
                                 onClick={() => setSlideIndex(index + 1)}
                               >
                                 <img
-                                  src={`../../../../public/images/${image}`}
+                                  src={
+                                    import.meta.env.VITE_API +
+                                    "/uploads/images/" +
+                                    image
+                                  }
                                   alt=""
                                 />
                               </div>
@@ -369,7 +377,11 @@ function ProductDetails() {
           </div>
           <div className="description_container">
             <img
-              src={"../../../../public/images/" + product.main_image_path}
+              src={
+                import.meta.env.VITE_API +
+                "/uploads/images/" +
+                product.main_image_path
+              }
               alt="img"
             />
           </div>

@@ -14,7 +14,6 @@ const Header = ({ handleSearch }) => {
     { label: "Home", path: "/" },
     { label: "Shop", path: "/product_search" },
     { label: "Orders", path: "/order" },
-    { label: "Contact", path: "/contacts" },
   ];
 
   const [searchTerm, setSearchTerm] = useState("");

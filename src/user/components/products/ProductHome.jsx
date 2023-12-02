@@ -85,7 +85,11 @@ const ProductHome = () => {
               <div onClick={() => handleProduct(product.id)}>
                 <div className="img">
                   <img
-                    src={"../../../../public/images/" + product.main_image_path}
+                    src={
+                      import.meta.env.VITE_API +
+                      "/uploads/images/" +
+                      product.main_image_path
+                    }
                     alt="image"
                   />
                 </div>

@@ -95,7 +95,7 @@ const Product = () => {
   const navigate = useNavigate();
   // Update products
   const handleUpdate = (id) => {
-    navigate("/product/edit/"+id);
+    navigate("/product/edit/" + id);
   };
 
   // Function to handle search by product name
@@ -184,7 +184,11 @@ const Product = () => {
               <div className="box-product" key={index}>
                 <div>
                   <img
-                    src={"../../../../public/images/" + product.main_image_path}
+                    src={
+                      import.meta.env.VITE_API +
+                      "/uploads/images/" +
+                      product.main_image_path
+                    }
                     alt="image"
                   />
                 </div>

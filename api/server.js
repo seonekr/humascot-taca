@@ -5,7 +5,7 @@ var bodyParser = require("body-parser");
 var jsonParser = bodyParser.json();
 const multer = require("multer");
 const bcrypt = require("bcrypt");
-const path = require('path');
+const path = require("path");
 const saltRounds = 10;
 var jwt = require("jsonwebtoken");
 const secret = "Humascot-TACA2023";
@@ -25,16 +25,16 @@ const connection = mysql.createConnection({
 // Connect to the database
 connection.connect((err) => {
   if (err) {
-    console.error('Error connecting to MySQL database:', err);
+    console.error("Error connecting to MySQL database:", err);
   } else {
-    console.log('Connected to MySQL database');
+    console.log("Connected to MySQL database");
   }
 });
 
 // Middleware to handle file uploads
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, '../public/images');
+    cb(null, "./uploads/images");
   },
   filename: (req, file, cb) => {
     const fileName = `${Date.now()}-${file.originalname}`;
@@ -47,7 +47,10 @@ const upload = multer({
 });
 
 // Middleware to serve uploaded files statically
-app.use('../public/images', express.static(path.join(__dirname, '../public/images')));
+app.use(
+  "/uploads/images",
+  express.static(path.join(__dirname, "/uploads/images"))
+);
 
 // Middleware to parse JSON and urlencoded request bodies
 app.use(express.json());
@@ -479,9 +482,7 @@ app.post(
     const price = parseFloat(req.body.price);
     const colors = req.body.colors ? JSON.parse(req.body.colors) : null;
 
-    const otherImagesPaths = otherImages.map(
-      (image) => `${image.filename}`
-    );
+    const otherImagesPaths = otherImages.map((image) => `${image.filename}`);
     const mainImagePath = mainImage ? `${mainImage.filename}` : null;
 
     const sql = `INSERT INTO products_tb (name, description, price, product_type, main_image_path, colors, other_images_path, popular) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`;
