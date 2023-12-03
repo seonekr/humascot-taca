@@ -87,7 +87,8 @@ function ProductDetails() {
       .catch((error) => console.log("error", error));
   }, []);
 
-  console.log(product.other_images_path);
+  console.log("gallery", product.gallery);
+  console.log("colors", product.colors);
 
   // ======================================================================>>
   // ======================================================================>>

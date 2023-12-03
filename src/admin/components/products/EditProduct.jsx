@@ -50,18 +50,19 @@ const AddProduct = () => {
             gallery: result.Result[0].gallery,
             colors: result.Result[0].colors,
           }));
-          console.log("name", product.name);
-          console.log("description", product.description);
-          console.log("price", product.price);
-          console.log("category", product.category);
-          console.log("is_popular", product.is_popular ? 1 : 0);
-          console.log("image", product.image);
-          console.log("gallery", product.gallery);
-          console.log("colors", product.colors);
         }
       })
       .catch((error) => console.log("error", error));
   }, []);
+
+  console.log("name", product.name);
+  console.log("description", product.description);
+  console.log("price", product.price);
+  console.log("category", product.category);
+  console.log("is_popular", product.is_popular ? 1 : 0);
+  console.log("image", product.image);
+  console.log("gallery", product.gallery);
+  console.log("colors", product.colors);
 
   const onImageDrop = (acceptedFiles) => {
     setProduct((prevProduct) => ({
