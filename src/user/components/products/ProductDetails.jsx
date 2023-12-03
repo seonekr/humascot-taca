@@ -202,13 +202,6 @@ function ProductDetails() {
       color != "" &&
       quantity != ""
     ) {
-      console.log("=> All order.");
-      console.log("Customer ID: " + customerID);
-      console.log("Product ID: " + productID);
-      console.log("Size: " + size);
-      console.log("Color: " + color);
-      console.log("Quantity: " + quantity);
-
       var myHeaders = new Headers();
       myHeaders.append("Content-Type", "application/json");
 
