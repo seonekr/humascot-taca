@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDropzone } from "react-dropzone";
 import AdminMenu from "../adminMenu/AdminMenu";
-import "./post.css";
+import "./product.css";
 import axios from "axios";
 
 const EditProduct = () => {
@@ -109,36 +109,40 @@ const EditProduct = () => {
 
     // ---> Post
     try {
-        const formData = new FormData();
-        formData.append('name', product.name);
-        formData.append('description', product.description);
-        formData.append('price', product.price);
-        formData.append('productType', product.productType);
-        formData.append('popular', product.popular ? 1 : 0);
+      const formData = new FormData();
+      formData.append("name", product.name);
+      formData.append("description", product.description);
+      formData.append("price", product.price);
+      formData.append("productType", product.productType);
+      formData.append("popular", product.popular ? 1 : 0);
 
-        // Append main image
-        if (product.mainImage) {
-          formData.append('mainImage', product.mainImage);
-        }
-
-        // Append other images
-        product.images.forEach((image, index) => {
-          formData.append(`images`, image);
-        });
-
-        // Append colors
-        formData.append('colors', JSON.stringify(product.colors));
-
-        const response = await axios.post(import.meta.env.VITE_API + "/addProduct", formData, {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          },
-        });
-
-        console.log(response.data);
-      } catch (error) {
-        console.error('Error submitting form:', error);
+      // Append main image
+      if (product.mainImage) {
+        formData.append("mainImage", product.mainImage);
       }
+
+      // Append other images
+      product.images.forEach((image, index) => {
+        formData.append(`images`, image);
+      });
+
+      // Append colors
+      formData.append("colors", JSON.stringify(product.colors));
+
+      const response = await axios.post(
+        import.meta.env.VITE_API + "/addProduct",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+
+      console.log(response.data);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
 
     console.log("name", product.name);
     console.log("description", product.description);
@@ -161,11 +165,13 @@ const EditProduct = () => {
         <div className="boxcontainerSpan_Box"></div>
         <div className="box_container_product">
           <div className="box_text">
-            <h2>Post Product</h2>
+            <h2>Edit Product</h2>
           </div>
 
           <form
-            onSubmit={handleSubmit} method="post" encType="multipart/form-data"
+            onSubmit={handleSubmit}
+            method="post"
+            encType="multipart/form-data"
             className="edit-product-form"
           >
             <div className="input-box">
