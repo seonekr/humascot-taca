@@ -60,12 +60,6 @@ function ProductDetails() {
     setSize(id);
   };
 
-  console.log("Customer ID: " + customerID);
-  console.log("Product ID: " + productID);
-  console.log("Color: " + color);
-  console.log("Size: " + size);
-  console.log("Quantity: " + quantity);
-
   // For get user by id
   useEffect(() => {
     var myHeaders = new Headers();
@@ -166,6 +160,29 @@ function ProductDetails() {
       slideIndex > numOfThumb ? (slideIndex - 1) * width : 0;
   }, [width, slideIndex]);
 
+  const handleBuyNow = () => {
+    navigate("/cart/payment");
+  };
+
+  const handleAddToCart = () => {
+    if (
+      customerID != "" &&
+      productID != "" &&
+      size != "" &&
+      color != "" &&
+      quantity != ""
+    ) {
+      console.log("=> All order.");
+      console.log("Customer ID: " + customerID);
+      console.log("Product ID: " + productID);
+      console.log("Size: " + size);
+      console.log("Color: " + color);
+      console.log("Quantity: " + quantity);
+    } else {
+      console.log("Please fill all the blank!");
+    }
+  };
+
   return (
     <>
       <Header />
@@ -180,35 +197,6 @@ function ProductDetails() {
             <div className="slider">
               <React.Fragment>
                 <section className="product_details">
-                  {/* <div className="product-page-img">
-                    <div className="myslides">
-                      <img src="" alt="img" />
-                    </div>
-
-                    <a className="prev" onClick={() => plusSlides(-1)}>
-                      &#10094;
-                    </a>
-                    <a className="next" onClick={() => plusSlides(1)}>
-                      &#10095;
-                    </a>
-
-                    <div
-                      className="slider_img"
-                      draggable={true}
-                      ref={slideRef}
-                      onDragStart={dragStart}
-                      onDragOver={dragOver}
-                      onDragEnd={dragEnd}
-                    >
-                      <div
-                        className={`slider-box ${1 === slideIndex && "active"}`}
-                        onClick={() => setSlideIndex(index + 1)}
-                      >
-                        <img src="" alt="image" />
-                      </div>
-                    </div>
-                  </div> */}
-
                   <div className="product-page-img">
                     {JSON.stringify(product.gallery)
                       ? JSON.parse(product.gallery).map((image, index) => (
@@ -271,20 +259,6 @@ function ProductDetails() {
               <div className="txtContentproduct">
                 <h1 className="txt_nameP">{product.name}</h1>
                 <p className="money_txt">{product.price}</p>
-                {/* Star Box */}
-                {/* <div className="startBox">
-                  <div className="sartBox_icon">
-                    <AiFillStar id="icon_stars" />
-                    <AiFillStar id="icon_stars" />
-                    <AiFillStar id="icon_stars" />
-                    <AiFillStar id="icon_stars" />
-                    <AiOutlineStar id="icon_star" />
-                  </div>
-
-                  <div>
-                    <p>( 150 Reviews )</p>
-                  </div>
-                </div> */}
                 <p className="txt_description">desc</p>
 
                 <div className="hr">
@@ -308,19 +282,6 @@ function ProductDetails() {
                       ))
                     : null}
                 </div>
-
-                {/* Checked sizes */}
-                {/* <div className="size_product">
-                  <p>Size:</p>
-                  <label htmlFor="s">S</label>
-                  <input type="radio" id="s" />
-                  <label htmlFor="m">M</label>
-                  <input type="radio" id="m" />
-                  <label htmlFor="l">L</label>
-                  <input type="radio" id="l" />
-                  <label htmlFor="xl">XL</label>
-                  <input type="radio" id="xl" />
-                </div> */}
 
                 <div className="size_product">
                   <p>Size:</p>
@@ -361,10 +322,18 @@ function ProductDetails() {
                   </div>
                 </div>
                 <div className="Count_product">
-                  <button type="submit" className="echbtn btnBut">
+                  <button
+                    type="submit"
+                    className="echbtn btnBut"
+                    onClick={handleBuyNow}
+                  >
                     Buy Now
                   </button>
-                  <button type="submit" className="echbtn btnAdd">
+                  <button
+                    type="submit"
+                    className="echbtn btnAdd"
+                    onClick={handleAddToCart}
+                  >
                     Add To Cart
                   </button>
                 </div>
