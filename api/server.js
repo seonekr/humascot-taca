@@ -585,7 +585,7 @@ app.put("/updateProduct/:id", jsonParser, (req, res) => {
 
 app.get("/deleteProduct/:id", (req, res) => {
   const id = req.params.id;
-  const sql = "DELETE FROM products_tb WHERE id = ?";
+  const sql = "DELETE FROM products WHERE id = ?";
 
   connection.query(sql, [id], (err, result) => {
     if (err)
