@@ -368,6 +368,27 @@ const AddProduct = () => {
                   ))} */}
 
                   {/* New one */}
+                  {/* {JSON.stringify(product.gallery)
+                    ? JSON.parse(product.gallery).map((image, index) => (
+                        <div key={index} style={{ marginBottom: "10px" }}>
+                          <img
+                            src={
+                              import.meta.env.VITE_API +
+                              "/uploads/images/" +
+                              image
+                            }
+                            alt={`Image ${index + 1}`}
+                            style={{ maxWidth: "200px", maxHeight: "200px" }}
+                          />
+                          <button
+                            type="button"
+                            onClick={() => removeImage(index)}
+                          >
+                            Remove
+                          </button>
+                        </div>
+                      ))
+                    : null} */}
 
                   {product.gallery && product.gallery.length > 0 ? (
                     <div {...getGalleryRootProps()} className="add-more">
