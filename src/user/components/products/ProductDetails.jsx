@@ -8,6 +8,7 @@ import { IoIosArrowBack } from "react-icons/io";
 function ProductDetails() {
   // For authenticate user if user didn't login, So thay can't go to see the product details
   const token = localStorage.getItem("token");
+  const accountID = localStorage.getItem("userID");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -41,10 +42,11 @@ function ProductDetails() {
 
   const { id } = useParams();
   const [product, setProduct] = useState([]);
+  const [customer, setCustomer] = useState("");
   const allSizes = ["S", "M", "L", "XL"];
 
   // Prepare for Customer is order product
-  const customerID = localStorage.getItem("userID");
+  const customerID = customer.id;
   const productID = id;
   const [color, setColor] = useState("");
   const [size, setSize] = useState("");
@@ -60,8 +62,13 @@ function ProductDetails() {
     setSize(id);
   };
 
-  // For get user by id
   useEffect(() => {
+    GetProductByID();
+    GetCustomerID();
+  }, []);
+
+  // For get product by id
+  const GetProductByID = () => {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
@@ -79,7 +86,30 @@ function ProductDetails() {
         }
       })
       .catch((error) => console.log("error", error));
-  }, []);
+  };
+  // For get customer by id
+  const GetCustomerID = () => {
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+      redirect: "follow",
+    };
+
+    fetch(
+      import.meta.env.VITE_API + "/getCustomer/" + accountID,
+      requestOptions
+    )
+      .then((response) => response.json())
+      .then((result) => {
+        if (result.Status === "Success") {
+          setCustomer(result.Result[0]);
+        }
+      })
+      .catch((error) => console.log("error", error));
+  };
 
   // ======================================================================>>
   // ======================================================================>>
@@ -178,6 +208,29 @@ function ProductDetails() {
       console.log("Size: " + size);
       console.log("Color: " + color);
       console.log("Quantity: " + quantity);
+
+      var myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+
+      var raw = JSON.stringify({
+        cust_id: customerID,
+        prod_id: productID,
+        size: size,
+        color: color,
+        quantity: quantity,
+      });
+
+      var requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: raw,
+        redirect: "follow",
+      };
+
+      fetch(import.meta.env.VITE_API + "/addToCart", requestOptions)
+        .then((response) => response.json())
+        .then((result) => console.log(result.Status))
+        .catch((error) => console.log("error", error));
     } else {
       console.log("Please fill all the blank!");
     }
@@ -259,7 +312,7 @@ function ProductDetails() {
               <div className="txtContentproduct">
                 <h1 className="txt_nameP">{product.name}</h1>
                 <p className="money_txt">{product.price}</p>
-                <p className="txt_description">desc</p>
+                <p className="txt_description">{product.description}</p>
 
                 <div className="hr">
                   <hr />

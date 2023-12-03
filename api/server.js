@@ -621,10 +621,10 @@ app.get("/lastUser", (req, res) => {
 // ==================== Cart Management =====================
 app.post("/addToCart", jsonParser, (req, res) => {
   const sql =
-    "INSERT INTO carts (product_id, customer_id, size, color, quantity) VALUES (?)";
+    "INSERT INTO carts (cust_id, prod_id, size, color, quantity) VALUES (?)";
   const values = [
-    req.body.product_id,
-    req.body.customer_id,
+    req.body.cust_id,
+    req.body.prod_id,
     req.body.size,
     req.body.color,
     req.body.quantity,
@@ -633,7 +633,7 @@ app.post("/addToCart", jsonParser, (req, res) => {
     if (err) {
       return res.json({
         Status: "Error",
-        Error: "Errer in running sql",
+        Error: err,
       });
     }
     return res.json({ Status: "Success" });
@@ -642,12 +642,12 @@ app.post("/addToCart", jsonParser, (req, res) => {
 
 app.get("/getProductsInCart/:id", (req, res) => {
   const id = req.params.id;
-  const sql = "SELECT * FROM carts WHERE customer_id = ?";
+  const sql = "SELECT * FROM carts WHERE cust_id = ?";
   connection.query(sql, [id], (err, result) => {
     if (err)
       return res.json({
         Status: "Error",
-        Error: "Errer in running sql",
+        Error: err,
       });
     return res.json({ Status: "Success", Result: result });
   });
@@ -661,18 +661,17 @@ app.get("/deleteProductInCart/:id", (req, res) => {
     if (err)
       return res.json({
         Status: "Error",
-        Error: "Errer in running sql",
+        Error: err,
       });
     return res.json({ Status: "Success" });
   });
 });
 
-app.get("/countProduct", (req, res) => {
-  const sql = "SELECT count(id) as products FROM products";
+app.get("/countProductInCart", (req, res) => {
+  const sql = "SELECT count(id) as products FROM carts";
 
   connection.query(sql, (err, result) => {
-    if (err)
-      return res.json({ Status: "Error", Error: "Errer in running sql" });
+    if (err) return res.json({ Status: "Error", Error: err });
     return res.json({ result });
   });
 });
