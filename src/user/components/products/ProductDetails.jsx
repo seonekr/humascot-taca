@@ -212,29 +212,27 @@ function ProductDetails() {
                   </div> */}
 
                   <div className="product-page-img">
-                    {JSON.stringify(product.other_images_path)
-                      ? JSON.parse(product.other_images_path).map(
-                          (image, index) => (
-                            <div
-                              key={index}
-                              className="myslides"
-                              style={{
-                                display:
-                                  index + 1 === slideIndex ? "block" : "none",
-                              }}
-                            >
-                              <img
-                                key={image}
-                                src={
-                                  import.meta.env.VITE_API +
-                                  "/uploads/images/" +
-                                  image
-                                }
-                                alt="Additional Image"
-                              />
-                            </div>
-                          )
-                        )
+                    {JSON.stringify(product.gallery)
+                      ? JSON.parse(product.gallery).map((image, index) => (
+                          <div
+                            key={index}
+                            className="myslides"
+                            style={{
+                              display:
+                                index + 1 === slideIndex ? "block" : "none",
+                            }}
+                          >
+                            <img
+                              key={image}
+                              src={
+                                import.meta.env.VITE_API +
+                                "/uploads/images/" +
+                                image
+                              }
+                              alt="Additional Image"
+                            />
+                          </div>
+                        ))
                       : null}
 
                     <div
@@ -245,27 +243,25 @@ function ProductDetails() {
                       onDragOver={dragOver}
                       onDragEnd={dragEnd}
                     >
-                      {JSON.stringify(product.other_images_path)
-                        ? JSON.parse(product.other_images_path).map(
-                            (image, index) => (
-                              <div
-                                key={index}
-                                className={`slider-box ${
-                                  index + 1 === slideIndex && "active"
-                                }`}
-                                onClick={() => setSlideIndex(index + 1)}
-                              >
-                                <img
-                                  src={
-                                    import.meta.env.VITE_API +
-                                    "/uploads/images/" +
-                                    image
-                                  }
-                                  alt=""
-                                />
-                              </div>
-                            )
-                          )
+                      {JSON.stringify(product.gallery)
+                        ? JSON.parse(product.gallery).map((image, index) => (
+                            <div
+                              key={index}
+                              className={`slider-box ${
+                                index + 1 === slideIndex && "active"
+                              }`}
+                              onClick={() => setSlideIndex(index + 1)}
+                            >
+                              <img
+                                src={
+                                  import.meta.env.VITE_API +
+                                  "/uploads/images/" +
+                                  image
+                                }
+                                alt=""
+                              />
+                            </div>
+                          ))
                         : null}
                     </div>
                   </div>
@@ -380,9 +376,7 @@ function ProductDetails() {
           <div className="description_container">
             <img
               src={
-                import.meta.env.VITE_API +
-                "/uploads/images/" +
-                product.main_image_path
+                import.meta.env.VITE_API + "/uploads/images/" + product.image
               }
               alt="img"
             />

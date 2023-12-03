@@ -155,7 +155,7 @@ const Product_search = () => {
                       src={
                         import.meta.env.VITE_API +
                         "/uploads/images/" +
-                        product.main_image_path
+                        product.image
                       }
                       alt="img"
                     />
