@@ -5,6 +5,7 @@ import user from "../../../img/user.png";
 import { MdOutlineEmail } from "react-icons/md";
 import { LuUser } from "react-icons/lu";
 import { FaAngleLeft } from "react-icons/fa";
+import { CiImageOn } from "react-icons/ci";
 import { FiPhone } from "react-icons/fi";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
@@ -182,6 +183,7 @@ const AddAdmin = () => {
               <div className="add-box">
                 <label htmlFor="adminImage" className="titlelabel">Profile image</label>
                 <div className="boxiconnandinput">
+                  <CiImageOn className="iconinput" />
                   <input type="file" />
                 </div>
               </div>
