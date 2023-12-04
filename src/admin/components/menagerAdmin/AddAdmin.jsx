@@ -123,7 +123,7 @@ const AddAdmin = () => {
               </div>
 
               <div className="add-box">
-                <label htmlFor="fname" className="titlelabel">First name</label>
+                <label htmlFor="fname" className="titlelabel">First name:</label>
                 <div className="boxiconnandinput">
                   <LuUser className="iconinput" />
                   <input
@@ -137,7 +137,7 @@ const AddAdmin = () => {
                 </div>
               </div>
               <div className="add-box">
-                <label htmlFor="lname" className="titlelabel">Last name</label>
+                <label htmlFor="lname" className="titlelabel">Last name:</label>
                 <div className="boxiconnandinput">
                   <LuUser className="iconinput" />
                   <input
@@ -152,7 +152,7 @@ const AddAdmin = () => {
               </div>
 
               <div className="add-box">
-                <label htmlFor="email" className="titlelabel">Email</label>
+                <label htmlFor="email" className="titlelabel">Email:</label>
                 <div className="boxiconnandinput">
                   <MdOutlineEmail className="iconinput" />
                   <input
@@ -166,7 +166,7 @@ const AddAdmin = () => {
                 </div>
               </div>
               <div className="add-box">
-                <label htmlFor="phone" className="titlelabel">Phone</label>
+                <label htmlFor="phone" className="titlelabel">Phone number:</label>
                 <div className="boxiconnandinput">
                   <FiPhone className="iconinput" />
                   <input
@@ -181,7 +181,7 @@ const AddAdmin = () => {
 
               </div>
               <div className="add-box">
-                <label htmlFor="adminImage" className="titlelabel">Profile image</label>
+                <label htmlFor="adminImage" className="titlelabel">Profile image:</label>
                 <div className="boxiconnandinput">
                   <CiImageOn className="iconinput" />
                   <input type="file" />
