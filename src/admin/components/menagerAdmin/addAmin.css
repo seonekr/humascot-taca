@@ -11,7 +11,7 @@
 .box_addAdmin {
     padding: 2rem;
     background: #FFF;
-    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 6px 0 rgba(67, 89, 113, 0.15);
     border-radius: 10px;
 }
 
@@ -31,7 +31,8 @@
     border-radius: 5px;
     margin: 1rem 0;
     color: #FFF;
-    background: #3498DB;
+    background: #ff7446;
+    box-shadow: 0 0.125rem 0.25rem 0 rgba(255, 165, 105, 0.4);
 }
 
 #box_icon_Back {
@@ -99,10 +100,10 @@
     border-radius: 4px;
     color: #fff;
     font-size: 1.2rem;
-    background-color: #3498DB;
+    background-color: #ff7446;
     cursor: pointer;
     border: none;
-    box-shadow: 0 0.125rem 0.25rem 0 rgba(105, 108, 255, 0.4);
+    box-shadow: 0 0.125rem 0.25rem 0 rgba(255, 165, 105, 0.4);
 }
 
 .error_message {
