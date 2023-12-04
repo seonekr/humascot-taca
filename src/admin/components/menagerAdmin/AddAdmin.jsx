@@ -2,8 +2,11 @@ import "./addAmin.css";
 import AdminMenu from "../adminMenu/AdminMenu";
 import { useState, useEffect } from "react";
 import user from "../../../img/user.png";
-
+import { MdOutlineEmail } from "react-icons/md";
+import { LuUser } from "react-icons/lu";
 import { FaAngleLeft } from "react-icons/fa";
+import { CiImageOn } from "react-icons/ci";
+import { FiPhone } from "react-icons/fi";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const AddAdmin = () => {
@@ -18,13 +21,17 @@ const AddAdmin = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    ShowMessage()
+  });
+
+  const ShowMessage = () => {
     // Check messages
     if (successMsg === "Success") {
       setMessage("Added Admin Successful!");
     } else {
       setMessage(errorMsg);
     }
-  });
+  };
 
   const handleFirstNameChange = (e) => {
     setFirstName(e.target.value);
@@ -44,6 +51,25 @@ const AddAdmin = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const validationErrors = {};
+
+    if (!firstName.trim()) {
+      validationErrors.firstName = "firstName is required"
+    }
+    if (!lastName.trim()) {
+      validationErrors.lastName = "lastName is required"
+    }
+    if (!email.trim()) {
+      validationErrors.email = "email is required"
+    }
+    if (!phoneNumber.trim()) {
+      validationErrors.phoneNumber = "phone number is required"
+    }
+    if (Object.keys(validationErrors).length > 0) {
+      setErrorMsg(validationErrors);
+      return;
+    }
+
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
@@ -61,7 +87,7 @@ const AddAdmin = () => {
       redirect: "follow",
     };
 
-    fetch("http://localhost:5000/admin/register", requestOptions)
+    fetch(import.meta.env.VITE_API + "/admin/register", requestOptions)
       .then((response) => response.json())
       .then((result) => {
         if (result.Status === "Success") {
@@ -79,72 +105,88 @@ const AddAdmin = () => {
     <>
       <AdminMenu />
       <section id="addAmin">
+        <div className="goback">
+          <Link to="/admins" className="box_guopIconbAck">
+            <FaAngleLeft id="box_icon_Back" />
+            <p>Back</p>
+          </Link>
+        </div>
         <div className="box_addAdmin">
-          <div className="container_add_admin">
-            <Link to="/admins" className="box_guopIconbAck">
-              <FaAngleLeft id="box_icon_Back" />
-              <p>Back</p>
-            </Link>
-            <h2>Add Admin</h2>
-            <div></div>
-          </div>
-          <h3>{message && message}</h3>
+          {/* <h3>{message && message}</h3> */}
           <form onSubmit={handleSubmit}>
             <div className="addAdminForm">
-              <div className="add-box">
-                <label htmlFor="fname">First name</label>
-                <input
-                  type="text"
-                  id="fname"
-                  placeholder="Fist name"
-                  value={firstName}
-                  onChange={handleFirstNameChange}
-                  required
-                />
+              <div className="boxhead_subminandtitle">
+                <h2 className="titleaddmin">Add Admin</h2>
+                <div className="submit">
+                  <button type="submit">Add</button>
+                </div>
               </div>
+
               <div className="add-box">
-                <label htmlFor="lname">Last name</label>
-                <input
-                  type="text"
-                  id="lname"
-                  placeholder="last name"
-                  value={lastName}
-                  onChange={handleLastNameChange}
-                  required
-                />
-              </div>
-              <div className="add-box">
-                <label htmlFor="email">Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  placeholder="Email address"
-                  value={email}
-                  onChange={handleEmailChange}
-                  required
-                />
+                <label htmlFor="fname" className="titlelabel">First name</label>
+                <div className="boxiconnandinput">
+                  <LuUser className="iconinput" />
+                  <input
+                    type="text"
+                    id="fname"
+                    placeholder="Fist name..."
+                    value={firstName}
+                    onChange={handleFirstNameChange}
+                  />
+                  {errorMsg.firstName && <p className="error_message">{errorMsg.firstName}</p>}
+                </div>
               </div>
               <div className="add-box">
-                <label htmlFor="phone">Phone</label>
-                <input
-                  type="text"
-                  id="phone"
-                  placeholder="Phone number"
-                  value={phoneNumber}
-                  onChange={handlePhoneNumberChange}
-                  required
-                />
+                <label htmlFor="lname" className="titlelabel">Last name</label>
+                <div className="boxiconnandinput">
+                  <LuUser className="iconinput" />
+                  <input
+                    type="text"
+                    id="lname"
+                    placeholder="Last name..."
+                    value={lastName}
+                    onChange={handleLastNameChange}
+                  />
+                  {errorMsg.lastName && <p className="error_message">{errorMsg.lastName}</p>}
+                </div>
               </div>
-            </div>
-            <div className="imageAdmin">
-              <div className="image">
-                <label htmlFor="adminImage">
-                  <img src={"../../../../public/images/profile.png"} />
-                </label>
+
+              <div className="add-box">
+                <label htmlFor="email" className="titlelabel">Email</label>
+                <div className="boxiconnandinput">
+                  <MdOutlineEmail className="iconinput" />
+                  <input
+                    type="email"
+                    id="email"
+                    placeholder="Email address..."
+                    value={email}
+                    onChange={handleEmailChange}
+                  />
+                  {errorMsg.email && <p className="error_message">{errorMsg.email}</p>}
+                </div>
               </div>
-            </div>
-            <div className="submit">
-              <button type="submit">Add</button>
+              <div className="add-box">
+                <label htmlFor="phone" className="titlelabel">Phone</label>
+                <div className="boxiconnandinput">
+                  <FiPhone className="iconinput" />
+                  <input
+                    type="text"
+                    id="phone"
+                    placeholder="Phone number..."
+                    value={phoneNumber}
+                    onChange={handlePhoneNumberChange}
+                  />
+                  {errorMsg.phoneNumber && <p className="error_message">{errorMsg.phoneNumber}</p>}
+                </div>
+
+              </div>
+              <div className="add-box">
+                <label htmlFor="adminImage" className="titlelabel">Profile image</label>
+                <div className="boxiconnandinput">
+                  <CiImageOn className="iconinput" />
+                  <input type="file" />
+                </div>
+              </div>
             </div>
           </form>
         </div>
