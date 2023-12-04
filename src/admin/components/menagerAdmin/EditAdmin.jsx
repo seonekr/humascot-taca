@@ -70,7 +70,7 @@ const EditAdmin = () => {
       redirect: "follow",
     };
 
-    fetch("http://localhost:5000/updateAdmin/" + id, requestOptions)
+    fetch(import.meta.env.VITE_API + "/updateAdmin/" + id, requestOptions)
       .then((response) => response.json())
       .then((result) => {
         if (result.Status === "Success") {
