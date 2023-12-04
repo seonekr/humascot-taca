@@ -125,7 +125,7 @@
     border: none;
     background: #FA442C;
     border-radius: 5px;
-    padding: 0.5rem 2rem;
+    padding: 0.5rem 2.5rem;
     color: #fff;
     font-size: 1rem;
 }
@@ -160,7 +160,7 @@
 
 .image_confirm_transfer label p {
     display: grid;
-    background-color: #3498DB;
+    background-color: #FA442C;
     border-radius: 4px;
     width: fit-content;
     padding: 0.5rem 1rem;

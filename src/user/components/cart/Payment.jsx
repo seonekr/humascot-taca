@@ -86,14 +86,17 @@ const Payment = () => {
 
 
   // Confirm transfer Choose image
- const [mainImage, setMainImage] = useState(null);
+  const [mainImage, setMainImage] = useState(null);
 
- const handleImage = (e) => {
+  const handleImage = (e) => {
     const file = e.target.files[0];
     if (file) {
       setMainImage(URL.createObjectURL(file)); // Use createObjectURL directly
     }
   };
+
+
+
 
   return (
     <>
@@ -218,7 +221,7 @@ const Payment = () => {
 
               <div className="save">
 
-                <button
+                <button 
                   type="submit"
                   disabled={
                     !selectedOption ||
