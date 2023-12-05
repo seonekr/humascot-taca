@@ -11,7 +11,7 @@
 .box_addAdmin {
     padding: 2rem;
     background: #FFF;
-    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 6px 0 rgba(67, 89, 113, 0.15);
     border-radius: 10px;
 }
 
@@ -31,7 +31,8 @@
     border-radius: 5px;
     margin: 1rem 0;
     color: #FFF;
-    background: #3498DB;
+    background: #ff7446;
+    box-shadow: 0 0.125rem 0.25rem 0 rgba(255, 165, 105, 0.4);
 }
 
 #box_icon_Back {
@@ -81,10 +82,20 @@
     padding: 1rem 0;
 }
 
-#addAmin form .addAdminForm .add-box input {
+#addAmin form .addAdminForm .add-box .input {
     width: 100%;
     font-size: 1rem;
     padding: 15px 35px;
+}
+
+#addAmin form .addAdminForm .add-box img {
+    width: 100%;
+}
+
+#addAmin form .addAdminForm .add-box .BorderinputThenImage {
+    border: 1px solid #d9dee3;
+    width: 30%;
+    border-radius: 7px;
 }
 
 /* Submit button */
@@ -94,15 +105,15 @@
     justify-content: space-between;
 }
 
-#addAmin form .submit button {
+#addAmin form .submit {
     padding: 0.5rem 3rem;
     border-radius: 4px;
     color: #fff;
     font-size: 1.2rem;
-    background-color: #3498DB;
+    background-color: #ff7446;
     cursor: pointer;
     border: none;
-    box-shadow: 0 0.125rem 0.25rem 0 rgba(105, 108, 255, 0.4);
+    box-shadow: 0 0.125rem 0.25rem 0 rgba(255, 165, 105, 0.4);
 }
 
 .error_message {
@@ -154,4 +165,29 @@
     border-radius: 5px;
     color: #FFF;
     font-size: 16px;
+}
+
+/* Del user and update  */
+.del-update {
+    display: flex;
+    justify-content: end;
+    gap: 3rem;
+}
+
+.del,
+.update {
+    display: flex;
+    width: max-content;
+    padding: 0.5rem 2.8rem;
+    align-items: center;
+    font-size: 1.3rem;
+    color: #fff;
+    background-color: #ff7446;
+    cursor: pointer;
+    border-radius: 7px;
+}
+
+.upd {
+    background-color: #1b71fbc0;
+    color: #fff;
 }

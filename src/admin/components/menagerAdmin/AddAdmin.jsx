@@ -117,8 +117,8 @@ const AddAdmin = () => {
             <div className="addAdminForm">
               <div className="boxhead_subminandtitle">
                 <h2 className="titleaddmin">Add Admin</h2>
-                <div className="submit">
-                  <button type="submit">Add</button>
+                <div>
+                  <button type="submit" className="submit">Add</button>
                 </div>
               </div>
 
@@ -129,6 +129,7 @@ const AddAdmin = () => {
                   <input
                     type="text"
                     id="fname"
+                    className="input"
                     placeholder="Fist name..."
                     value={firstName}
                     onChange={handleFirstNameChange}
@@ -143,6 +144,7 @@ const AddAdmin = () => {
                   <input
                     type="text"
                     id="lname"
+                    className="input"
                     placeholder="Last name..."
                     value={lastName}
                     onChange={handleLastNameChange}
@@ -158,6 +160,7 @@ const AddAdmin = () => {
                   <input
                     type="email"
                     id="email"
+                    className="input"
                     placeholder="Email address..."
                     value={email}
                     onChange={handleEmailChange}
@@ -172,6 +175,7 @@ const AddAdmin = () => {
                   <input
                     type="text"
                     id="phone"
+                    className="input"
                     placeholder="Phone number..."
                     value={phoneNumber}
                     onChange={handlePhoneNumberChange}
@@ -184,7 +188,7 @@ const AddAdmin = () => {
                 <label htmlFor="adminImage" className="titlelabel">Profile image:</label>
                 <div className="boxiconnandinput">
                   <CiImageOn className="iconinput" />
-                  <input type="file" />
+                  <input type="file" className="input"/>
                 </div>
               </div>
             </div>
