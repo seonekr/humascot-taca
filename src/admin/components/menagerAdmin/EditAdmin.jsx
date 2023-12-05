@@ -86,15 +86,7 @@ const EditAdmin = () => {
 
   // Handle image selection for the main admin image
   const [mainImage, setMainImage] = useState(null);
-<<<<<<< HEAD
 
-  const handleImage = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      setMainImage(URL.createObjectURL(file)); // Use createObjectURL directly
-    }
-  };
-=======
 
   const handleImage = (e) => {
     const file = e.target.files[0];
@@ -103,7 +95,7 @@ const EditAdmin = () => {
     }
   };
 
->>>>>>> 11b10267ab8761b44e3df0047dfaf4c1bdc8dce5
+
 
   return (
     <>

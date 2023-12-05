@@ -21,7 +21,7 @@ const AddAdmin = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    ShowMessage()
+    ShowMessage();
   });
 
   const ShowMessage = () => {
@@ -54,16 +54,16 @@ const AddAdmin = () => {
     const validationErrors = {};
 
     if (!firstName.trim()) {
-      validationErrors.firstName = "firstName is required"
+      validationErrors.firstName = "firstName is required";
     }
     if (!lastName.trim()) {
-      validationErrors.lastName = "lastName is required"
+      validationErrors.lastName = "lastName is required";
     }
     if (!email.trim()) {
-      validationErrors.email = "email is required"
+      validationErrors.email = "email is required";
     }
     if (!phoneNumber.trim()) {
-      validationErrors.phoneNumber = "phone number is required"
+      validationErrors.phoneNumber = "phone number is required";
     }
     if (Object.keys(validationErrors).length > 0) {
       setErrorMsg(validationErrors);
@@ -117,86 +117,99 @@ const AddAdmin = () => {
             <div className="addAdminForm">
               <div className="boxhead_subminandtitle">
                 <h2 className="titleaddmin">Add Admin</h2>
-<<<<<<< HEAD
+
                 <div>
-=======
-                <div >
->>>>>>> 11b10267ab8761b44e3df0047dfaf4c1bdc8dce5
-                  <button type="submit" className="submit">Add</button>
-                </div>
-              </div>
-
-              <div className="add-box">
-                <label htmlFor="fname" className="titlelabel">First name:</label>
-                <div className="boxiconnandinput">
-                  <LuUser className="iconinput" />
-                  <input
-                    type="text"
-                    id="fname"
-                    className="input"
-                    placeholder="Fist name..."
-                    value={firstName}
-                    className="input"
-                    onChange={handleFirstNameChange}
-                  />
-                  {errorMsg.firstName && <p className="error_message">{errorMsg.firstName}</p>}
-                </div>
-              </div>
-              <div className="add-box">
-                <label htmlFor="lname" className="titlelabel">Last name:</label>
-                <div className="boxiconnandinput">
-                  <LuUser className="iconinput" />
-                  <input
-                    type="text"
-                    className="input"
-                    id="lname"
-                    className="input"
-                    placeholder="Last name..."
-                    value={lastName}
-                    onChange={handleLastNameChange}
-                  />
-                  {errorMsg.lastName && <p className="error_message">{errorMsg.lastName}</p>}
-                </div>
-              </div>
-
-              <div className="add-box">
-                <label htmlFor="email" className="titlelabel">Email:</label>
-                <div className="boxiconnandinput">
-                  <MdOutlineEmail className="iconinput" />
-                  <input
-                    type="email"
-                    id="email"
-                    className="input"
-                    placeholder="Email address..."
-                    className="input"
-                    value={email}
-                    onChange={handleEmailChange}
-                  />
-                  {errorMsg.email && <p className="error_message">{errorMsg.email}</p>}
-                </div>
-              </div>
-              <div className="add-box">
-                <label htmlFor="phone" className="titlelabel">Phone number:</label>
-                <div className="boxiconnandinput">
-                  <FiPhone className="iconinput" />
-                  <input
-                    type="text"
-                    id="phone"
-                    className="input"
-                    placeholder="Phone number..."
-                    className="input"
-                    value={phoneNumber}
-                    onChange={handlePhoneNumberChange}
-                  />
-                  {errorMsg.phoneNumber && <p className="error_message">{errorMsg.phoneNumber}</p>}
+                    <button type="submit" className="submit">
+                      Add
+                    </button>
                 </div>
 
-              </div>
-              <div className="add-box">
-                <label htmlFor="adminImage" className="titlelabel">Profile image:</label>
-                <div className="boxiconnandinput">
-                  <CiImageOn className="iconinput" />
-                  <input type="file" className="input"/>
+                <div className="add-box">
+                  <label htmlFor="fname" className="titlelabel">
+                    First name:
+                  </label>
+                  <div className="boxiconnandinput">
+                    <LuUser className="iconinput" />
+                    <input
+                      type="text"
+                      id="fname"
+                      className="input"
+                      placeholder="Fist name..."
+                      value={firstName}
+
+                      onChange={handleFirstNameChange}
+                    />
+                    {errorMsg.firstName && (
+                      <p className="error_message">{errorMsg.firstName}</p>
+                    )}
+                  </div>
+                </div>
+                <div className="add-box">
+                  <label htmlFor="lname" className="titlelabel">
+                    Last name:
+                  </label>
+                  <div className="boxiconnandinput">
+                    <LuUser className="iconinput" />
+                    <input
+                      type="text"
+                      className="input"
+                      id="lname"
+                      placeholder="Last name..."
+                      value={lastName}
+                      onChange={handleLastNameChange}
+                    />
+                    {errorMsg.lastName && (
+                      <p className="error_message">{errorMsg.lastName}</p>
+                    )}
+                  </div>
+                </div>
+
+                <div className="add-box">
+                  <label htmlFor="email" className="titlelabel">
+                    Email:
+                  </label>
+                  <div className="boxiconnandinput">
+                    <MdOutlineEmail className="iconinput" />
+                    <input
+                      type="email"
+                      id="email"
+                      className="input"
+                      placeholder="Email address..."
+                      value={email}
+                      onChange={handleEmailChange}
+                    />
+                    {errorMsg.email && (
+                      <p className="error_message">{errorMsg.email}</p>
+                    )}
+                  </div>
+                </div>
+                <div className="add-box">
+                  <label htmlFor="phone" className="titlelabel">
+                    Phone number:
+                  </label>
+                  <div className="boxiconnandinput">
+                    <FiPhone className="iconinput" />
+                    <input
+                      type="text"
+                      id="phone"
+                      className="input"
+                      placeholder="Phone number..."
+                      value={phoneNumber}
+                      onChange={handlePhoneNumberChange}
+                    />
+                    {errorMsg.phoneNumber && (
+                      <p className="error_message">{errorMsg.phoneNumber}</p>
+                    )}
+                  </div>
+                </div>
+                <div className="add-box">
+                  <label htmlFor="adminImage" className="titlelabel">
+                    Profile image:
+                  </label>
+                  <div className="boxiconnandinput">
+                    <CiImageOn className="iconinput" />
+                    <input type="file" className="input" />
+                  </div>
                 </div>
               </div>
             </div>
