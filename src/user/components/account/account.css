@@ -12,7 +12,7 @@
 
 /* Account infofation */
 #account .personal-info {
-    width: 80%;
+    width: 60%;
     margin: auto;
     margin-top: 2rem;
 }
@@ -86,8 +86,8 @@
 /* Down here is logout button */
 #account .personal-info .about-account .logout {
     display: flex;
-    width: 13%;
-    padding: 0.3em 1.2rem;
+    width: 15%;
+    padding: 5px 15px;
     border: none !important;
     border-radius: 7px;
     background-color: #4395F7;
