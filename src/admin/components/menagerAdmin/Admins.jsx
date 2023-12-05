@@ -5,6 +5,7 @@ import { IoSearchOutline } from "react-icons/io5";
 import AdminMenu from "../adminMenu/AdminMenu";
 import { Link, useNavigate } from "react-router-dom";
 import { BiPlus } from "react-icons/bi";
+import user from "../../../img/user.png";
 
 const Admins = () => {
   const [admins, setAdmins] = useState([]);
@@ -12,20 +13,9 @@ const Admins = () => {
 
   const navigate = useNavigate();
 
-  const [filteredAdmins, setFilteredAdmins] = useState(admins);
-  const [searchTerm, setSearchTerm] = useState("");
-
-  // Search admin
-  const handleSearch = () => {
-    const filtered = filteredAdmins.filter((admin) =>
-    admin.fname.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    setFilteredAdmins(filtered);
-  };
-
   // prev next button user in react
   const [currentPage, setCurrentPage] = useState(1);
-  const recordsPerPage = 3;
+  const recordsPerPage = 8;
   const lastIndex = currentPage * recordsPerPage;
   const firstIndex = lastIndex - recordsPerPage;
   const records = admins.slice(firstIndex, lastIndex);
@@ -42,7 +32,7 @@ const Admins = () => {
       redirect: "follow",
     };
 
-    fetch("http://localhost:5000/allAdmins", requestOptions)
+    fetch(import.meta.env.VITE_API + "/allAdmins", requestOptions)
       .then((response) => response.json())
       .then((result) => {
         if (result.Status === "Success") {
@@ -75,20 +65,15 @@ const Admins = () => {
 
               <form className="search">
                 <div className="search-box_menageruser">
-                  <input 
-                    type="text" 
-                    placeholder="Search ..." 
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    />
+                  <input type="text" placeholder="Search ..." />
                   <button type="submit">
-                    <IoSearchOutline onClick={handleSearch}/>
+                    <IoSearchOutline />
                   </button>
                 </div>
               </form>
             </div>
 
-            {records.map((e) => {
+            {admins.map((e) => {
               return (
                 <div
                   className="box_users_user"
@@ -99,7 +84,11 @@ const Admins = () => {
                 >
                   <Link className="box_user_text">
                     <img
-                      src={`../../../../public/images/${e.profile_image}`}
+                      src={
+                        import.meta.env.VITE_API +
+                        "/uploads/images/" +
+                        e.profile_image
+                      }
                       alt="admin profile"
                     />
 

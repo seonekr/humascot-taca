@@ -1,10 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDropzone } from "react-dropzone";
+import { useNavigate } from "react-router-dom";
 import AdminMenu from "../adminMenu/AdminMenu";
-import "./post.css";
+import "./addProduct.css";
 import axios from "axios";
 
-const Post = () => {
+// For alert message => 1
+import Alert from "@mui/material/Alert";
+import Stack from "@mui/material/Stack";
+
+const AddProduct = () => {
+  const [successMsg, setSuccessMsg] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
+  const [message, setMessage] = useState("");
+
+  const navigate = useNavigate();
+
   const [product, setProduct] = useState({
     name: "",
     productType: "",
@@ -109,37 +120,48 @@ const Post = () => {
 
     // ---> Post
     try {
-        const formData = new FormData();
-        formData.append('name', product.name);
-        formData.append('description', product.description);
-        formData.append('price', product.price);
-        formData.append('productType', product.productType);
-        formData.append('popular', product.popular ? 1 : 0);
+      const formData = new FormData();
+      formData.append("name", product.name);
+      formData.append("description", product.description);
+      formData.append("price", product.price);
+      formData.append("productType", product.productType);
+      formData.append("popular", product.popular ? 1 : 0);
 
-        // Append main image
-        if (product.mainImage) {
-          formData.append('mainImage', product.mainImage);
-        }
-
-        // Append other images
-        product.images.forEach((image, index) => {
-          formData.append(`images`, image);
-        });
-
-        // Append colors
-        formData.append('colors', JSON.stringify(product.colors));
-
-        const response = await axios.post('http://localhost:5000/api/products', formData, {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          },
-        });
-
-        console.log(response.data);
-      } catch (error) {
-        console.error('Error submitting form:', error);
+      // Append main image
+      if (product.mainImage) {
+        formData.append("mainImage", product.mainImage);
       }
 
+      // Append other images
+      product.images.forEach((image, index) => {
+        formData.append(`images`, image);
+      });
+
+      // Append colors
+      formData.append("colors", JSON.stringify(product.colors));
+
+      const response = await axios.post(
+        import.meta.env.VITE_API + "/addProduct",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      if (response.data.Status === "Success") {
+        setSuccessMsg(response.data.Status);
+        setErrorMsg("");
+        navigate("/product/add");
+      } else {
+        console.log(response.data.Status)
+        navigate("/product/add");
+      }
+
+      // console.log(response.data.Status);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
 
     console.log("name", product.name);
     console.log("description", product.description);
@@ -153,7 +175,6 @@ const Post = () => {
       console.log(`images`, image);
     });
     console.log("colors", JSON.stringify(product.colors));
-
   };
 
   return (
@@ -163,10 +184,15 @@ const Post = () => {
         <div className="boxcontainerSpan_Box"></div>
         <div className="box_container_product">
           <div className="box_text">
-            <h2>Post Product</h2>
+            <h2>Add Product</h2>
           </div>
-
-          <form onSubmit={handleSubmit} /*action="/api/products" method="post"*/ encType="multipart/form-data" className="edit-product-form">
+          <h3>{successMsg && successMsg}</h3>
+          <form
+            onSubmit={handleSubmit}
+            method="post"
+            encType="multipart/form-data"
+            className="edit-product-form"
+          >
             <div className="input-box">
               <div className="box">
                 <label htmlFor="productName">Product name</label>
@@ -317,7 +343,7 @@ const Post = () => {
               </div>
             </div>
             <div className="submit1">
-              <button type="submit">Post</button>
+              <button type="submit">Submit</button>
             </div>
           </form>
         </div>
@@ -326,4 +352,4 @@ const Post = () => {
   );
 };
 
-export default Post;
+export default AddProduct;

@@ -31,7 +31,7 @@ const Users = () => {
       redirect: "follow",
     };
 
-    fetch("http://localhost:5000/allCustomers", requestOptions)
+    fetch(import.meta.env.VITE_API + "/allCustomers", requestOptions)
       .then((response) => response.json())
       .then((result) => {
         if (result.Status === "Success") {
@@ -78,7 +78,11 @@ const Users = () => {
                   >
                     <Link className="box_user_text">
                       <img
-                        src={`../../../../public/images/${e.profile_image}`}
+                        src={
+                          import.meta.env.VITE_API +
+                          "/uploads/images/" +
+                          e.profile_image
+                        }
                         alt="admin profile"
                       />
                       <div className="container_chat_name" key={e.reg_id}>

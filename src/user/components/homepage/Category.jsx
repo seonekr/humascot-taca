@@ -8,7 +8,7 @@ const Category = () => {
     const navigate = useNavigate();
 
     const handleCategoryChange = (newCategory) => {
-        navigate('/categories', { state: { categorys: newCategory } });
+        navigate('/');
     };
 
     return (

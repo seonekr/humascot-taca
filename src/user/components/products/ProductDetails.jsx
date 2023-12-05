@@ -1,682 +1,147 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useLocation, useNavigate, Link } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import "./productBuy.css";
 import Menu from "../menu/Menu";
 import Header from "../header/Header";
 import { IoIosArrowBack } from "react-icons/io";
-import { AiFillStar, AiOutlineStar } from "react-icons/ai";
-import dress from "../../../img/dress.png";
-import image1 from "../../../img/image1.png";
-import description from "../../../img/detailproduct.jpg";
-import acer from "../../../img/acer.png";
-import productImage from "../../../img/productImage.png";
 
 function ProductDetails() {
-  const [products, setProducts] = useState([
-    {
-      productID: 1,
-      productName: "pro1",
-      productType: "clothes",
-      price: 15,
-      description: "desc for this product",
-      popular: true,
-      descImage: image1,
-      images: [
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-      ],
-      colors: [
-        { colorID: 1, colorName: "black" },
-        { colorID: 2, colorName: "blue" },
-        { colorID: 3, colorName: "red" },
-        { colorID: 4, colorName: "green" },
-      ],
-    },
-    {
-      productID: 2,
-      productName: "pro2",
-      productType: "clothes",
+  // For authenticate user if user didn't login, So thay can't go to see the product details
+  const token = localStorage.getItem("token");
+  const accountID = localStorage.getItem("userID");
+  const navigate = useNavigate();
 
-      price: 10,
-      description: "desc for this product",
-      popular: true,
-      descImage: image1,
-      images: [
-        {
-          src: dress,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-      ],
-      colors: [
-        { colorID: 1, colorName: "black" },
-        { colorID: 2, colorName: "blue" },
-        { colorID: 3, colorName: "red" },
-        { colorID: 4, colorName: "green" },
-      ],
-    },
-    {
-      productID: 3,
-      productName: "pro3",
-      productType: "clothes",
-      price: 10,
-      description: "desc for this product",
-      popular: true,
-      descImage: image1,
-      images: [
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-      ],
-      colors: [
-        { colorID: 1, colorName: "black" },
-        { colorID: 2, colorName: "blue" },
-        { colorID: 3, colorName: "red" },
-        { colorID: 4, colorName: "green" },
-      ],
-    },
-    {
-      productID: 4,
-      productName: "pro4",
-      productType: "clothes",
-      price: 10,
-      description: "desc for this product",
-      popular: true,
-      descImage: image1,
-      images: [
-        {
-          src: dress,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-      ],
-      colors: [
-        { colorID: 1, colorName: "black" },
-        { colorID: 2, colorName: "blue" },
-        { colorID: 3, colorName: "red" },
-        { colorID: 4, colorName: "green" },
-      ],
-    },
-    {
-      productID: 5,
-      productName: "pro5",
-      productType: "clothes",
-      price: 10,
-      description: "desc for this product",
-      popular: true,
-      descImage: image1,
-      images: [
-        {
-          src: image1,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-      ],
-      colors: [
-        { colorID: 1, colorName: "black" },
-        { colorID: 2, colorName: "blue" },
-        { colorID: 3, colorName: "red" },
-        { colorID: 4, colorName: "green" },
-      ],
-    },
-    {
-      productID: 6,
-      productName: "pro6",
-      productType: "clothes",
-      price: 10,
-      description: "desc for this product",
-      popular: true,
-      descImage: image1,
-      images: [
-        {
-          src: image1,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-      ],
-      colors: [
-        { colorID: 1, colorName: "black" },
-        { colorID: 2, colorName: "blue" },
-        { colorID: 3, colorName: "red" },
-        { colorID: 4, colorName: "green" },
-      ],
-    },
-    {
-      productID: 7,
-      productName: "pro7",
-      productType: "clothes",
-      price: 10,
-      description: "desc for this product",
-      popular: true,
-      descImage: image1,
-      images: [
-        {
-          src: image1,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-      ],
-      colors: [
-        { colorID: 1, colorName: "black" },
-        { colorID: 2, colorName: "blue" },
-        { colorID: 3, colorName: "red" },
-        { colorID: 4, colorName: "green" },
-      ],
-    },
-    {
-      productID: 8,
-      productName: "pro8",
-      productType: "clothes",
-      price: 10,
-      description: "desc for this product",
-      popular: true,
-      descImage: image1,
-      images: [
-        {
-          src: image1,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-      ],
-      colors: [
-        { colorID: 1, colorName: "black" },
-        { colorID: 2, colorName: "blue" },
-        { colorID: 3, colorName: "red" },
-        { colorID: 4, colorName: "green" },
-      ],
-    },
-    {
-      productID: 9,
-      productName: "pro9",
-      productType: "clothes",
-      price: 10,
-      description: "desc for this product",
-      popular: true,
-      descImage: image1,
-      images: [
-        {
-          src: image1,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-      ],
-      colors: [
-        { colorID: 1, colorName: "black" },
-        { colorID: 2, colorName: "blue" },
-        { colorID: 3, colorName: "red" },
-        { colorID: 4, colorName: "green" },
-      ],
-    },
-    {
-      productID: 10,
-      productName: "pro10",
-      productType: "clothes",
-      price: 10,
-      description: "desc for this product",
-      popular: true,
-      descImage: image1,
-      images: [
-        {
-          src: image1,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-      ],
-      colors: [
-        { colorID: 1, colorName: "black" },
-        { colorID: 2, colorName: "blue" },
-        { colorID: 3, colorName: "red" },
-        { colorID: 4, colorName: "green" },
-      ],
-    },
-    {
-      productID: 11,
-      productName: "pro11",
-      productType: "clothes",
-      price: 10,
-      description: "desc for this product",
-      popular: true,
-      descImage: image1,
-      images: [
-        {
-          src: image1,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-      ],
-      colors: [
-        { colorID: 1, colorName: "red" },
-        { colorID: 2, colorName: "green" },
-      ],
-    },
-  ]);
+  useEffect(() => {
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", "Bearer " + token);
 
-  // Checked sizes
-  const [size, setSize] = useState("m");
+    var requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      redirect: "follow",
+    };
 
-  // Handle checked sizes
+    fetch(import.meta.env.VITE_API + "/authen", requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        if (result.Status === "Success") {
+          if (result.decoded.urole !== "Customer") {
+            localStorage.removeItem("token");
+            localStorage.removeItem("userID");
+            navigate("/");
+            return;
+          }
+        } else {
+          localStorage.removeItem("userID");
+          navigate("/login");
+          return;
+        }
+      })
+      .catch((error) => console.log("error", error));
+  }, []);
+
+  const { id } = useParams();
+  const [product, setProduct] = useState([]);
+  const [customer, setCustomer] = useState("");
+  const allSizes = ["S", "M", "L", "XL"];
+
+  // Prepare for Customer is order product
+  const customerID = customer.id;
+  const productID = id;
+  const [color, setColor] = useState("");
+  const [size, setSize] = useState("");
+  const [quantity, setQuantity] = useState(1);
+
+  const handleColorChange = (event) => {
+    const { id } = event.target;
+    setColor(id);
+  };
+
   const handleSizeChange = (event) => {
     const { id } = event.target;
     setSize(id);
   };
 
+  useEffect(() => {
+    GetProductByID();
+    GetCustomerID();
+  }, []);
 
-  /*============== minus_plus ============= */
-  const [productCounts, setProductCounts] = useState(1);
+  // For get product by id
+  const GetProductByID = () => {
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+      redirect: "follow",
+    };
+
+    fetch(import.meta.env.VITE_API + "/getProduct/" + id, requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        if (result.Status === "Success") {
+          setProduct(result.Result[0]);
+        }
+      })
+      .catch((error) => console.log("error", error));
+  };
+  // For get customer by id
+  const GetCustomerID = () => {
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+      redirect: "follow",
+    };
+
+    fetch(
+      import.meta.env.VITE_API + "/getCustomer/" + accountID,
+      requestOptions
+    )
+      .then((response) => response.json())
+      .then((result) => {
+        if (result.Status === "Success") {
+          setCustomer(result.Result[0]);
+        }
+      })
+      .catch((error) => console.log("error", error));
+  };
+
+  // ======================================================================>>
+  // ======================================================================>>
+  // ======================================================================>>
+
+  // const [productCounts, setProductCounts] = useState(1);
   const decrementValue = () => {
-    setProductCounts(productCounts - 1);
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
   };
 
   const incrementValue = () => {
-    setProductCounts(productCounts + 1);
+    setQuantity(quantity + 1);
   };
 
   const handleChange = (event) => {
     const newValue = parseInt(event.target.value);
     if (!isNaN(newValue)) {
-      setProductCounts(newValue);
+      setQuantity(newValue);
     }
-  };
-
-  // Get send ID
-  const location = useLocation();
-  const { sendProductID } = location?.state || {};
-
-  const navigate = useNavigate();
-
-  // Match productID
-  const filteredProducts = products.filter(
-    (product) => product.productID === sendProductID
-  );
-
-  // Checked colors
-  const proID = products.find(item => item.productID === sendProductID);
-  const colID = proID.colors.find(item => item.colorID === 1);
-  const colorName = colID.colorName;
-  const [color, setColor] = useState(colorName);
-
-  const handleRadioChange = (event) => {
-    const { id } = event.target;
-    setColor(id);
   };
 
   // Handle submitted
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    if (e.nativeEvent.submitter.classList.contains("btnBut")) {
-      const selectedProducts = filteredProducts.map((product) => ({
-        productID: product.productID,
-        productName: product.productName,
-        size: size,
-        color: color,
-        type: product.productType,
-        price: product.price,
-        productCounts: productCounts,
-      }));
-
-      navigate('/cart/payment/', {
-        state: {
-          products: selectedProducts,
-        },
-      });
-    } else {
-
-      const addTocart = {
-        size: size,
-        color: color,
-        productCounts: productCounts,
-      };
-
-      console.log("Add to cart");
-      console.log(addTocart);
-      console.log("ProductID:", sendProductID); // this  productID
-    }
   };
 
-  //Start image gallery
-  const [slideIndex, setSlideIndex] = useState(1)
-
-  const [width, setWidth] = useState(0)
-  const [start, setStart] = useState(0)
-  const [change, setChange] = useState(9)
+  const [slideIndex, setSlideIndex] = useState(1);
+  const [width, setWidth] = useState(0);
+  const [start, setStart] = useState(0);
+  const [change, setChange] = useState(9);
 
   const slideRef = useRef();
 
@@ -685,18 +150,12 @@ function ProductDetails() {
     const scrollWidth = slideRef.current.scrollWidth;
     const childrenElementCount = slideRef.current.childElementCount;
     const width = scrollWidth / childrenElementCount;
-    setWidth(width)
-  }, [])
-
-  // const [slideIndex, setSlideIndex] = useState(1);
+    setWidth(width);
+  }, []);
 
   function plusSlides(n) {
     showSlides(slideIndex + n);
   }
-
-  // function currentSlide(n) {
-  //   showSlides(n);
-  // }
 
   function showSlides(n) {
     const currentProduct = filteredProducts[0]; // Assuming there's only one product in the array
@@ -711,7 +170,7 @@ function ProductDetails() {
   }
   //Drag
   function dragStart(e) {
-    setStart(e.clientX)
+    setStart(e.clientX);
   }
   function dragOver(e) {
     let touch = e.clientX;
@@ -724,13 +183,51 @@ function ProductDetails() {
       slideRef.current.scrollLeft -= width;
     }
   }
-
   useEffect(() => {
     if (!slideRef.current || !width) return;
     let numOfThumb = Math.round(slideRef.current.offsetWidth / width);
-    slideRef.current.scrollLeft = slideIndex > numOfThumb ? (slideIndex - 1) * width : 0;
-  }, [width, slideIndex])
-  //End image gallery
+    slideRef.current.scrollLeft =
+      slideIndex > numOfThumb ? (slideIndex - 1) * width : 0;
+  }, [width, slideIndex]);
+
+  const handleBuyNow = () => {
+    navigate("/cart/payment");
+  };
+
+  const handleAddToCart = () => {
+    if (
+      customerID != "" &&
+      productID != "" &&
+      size != "" &&
+      color != "" &&
+      quantity != ""
+    ) {
+      var myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+
+      var raw = JSON.stringify({
+        cust_id: customerID,
+        prod_id: productID,
+        size: size,
+        color: color,
+        quantity: quantity,
+      });
+
+      var requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: raw,
+        redirect: "follow",
+      };
+
+      fetch(import.meta.env.VITE_API + "/addToCart", requestOptions)
+        .then((response) => response.json())
+        .then((result) => console.log(result.Status))
+        .catch((error) => console.log("error", error));
+    } else {
+      console.log("Please fill all the blank!");
+    }
+  };
 
   return (
     <>
@@ -741,34 +238,63 @@ function ProductDetails() {
           <IoIosArrowBack id="icons_back" />
           <p>Back</p>
         </Link>
-        {filteredProducts.map((product) => (
-        <div key={product.productID}>
-          <div className="boxProduct_deteils" >
+        <div>
+          <div className="boxProduct_deteils">
             <div className="slider">
               <React.Fragment>
-                <section className='product_details'>
+                <section className="product_details">
                   <div className="product-page-img">
-                    {
-                      product.images.map((image, index) => (
-                        <div key={index} className="myslides" style={{ display: (index + 1) === slideIndex ? "block" : "none" }}>
-                          <img src={image.src} alt="" />
-                        </div>
-                      ))
-                    }
-
-                    <a className='prev' onClick={() => plusSlides(-1)}>&#10094;</a>
-                    <a className='next' onClick={() => plusSlides(1)}>&#10095;</a>
-
-                    <div className="slider_img" draggable={true} ref={slideRef}
-                      onDragStart={dragStart} onDragOver={dragOver} onDragEnd={dragEnd}>
-                      {
-                        product.images.map((image, index) => (
-                          <div key={index} className={`slider-box ${index + 1 === slideIndex && 'active'}`}
-                            onClick={() => setSlideIndex(index + 1)}>
-                            <img src={image.src} alt="" />
+                    {JSON.stringify(product.gallery)
+                      ? JSON.parse(product.gallery).map((image, index) => (
+                          <div
+                            key={index}
+                            className="myslides"
+                            style={{
+                              display:
+                                index + 1 === slideIndex ? "block" : "none",
+                            }}
+                          >
+                            <img
+                              key={image}
+                              src={
+                                import.meta.env.VITE_API +
+                                "/uploads/images/" +
+                                image
+                              }
+                              alt="Additional Image"
+                            />
                           </div>
                         ))
-                      }
+                      : null}
+
+                    <div
+                      className="slider_img"
+                      draggable={true}
+                      ref={slideRef}
+                      onDragStart={dragStart}
+                      onDragOver={dragOver}
+                      onDragEnd={dragEnd}
+                    >
+                      {JSON.stringify(product.gallery)
+                        ? JSON.parse(product.gallery).map((image, index) => (
+                            <div
+                              key={index}
+                              className={`slider-box ${
+                                index + 1 === slideIndex && "active"
+                              }`}
+                              onClick={() => setSlideIndex(index + 1)}
+                            >
+                              <img
+                                src={
+                                  import.meta.env.VITE_API +
+                                  "/uploads/images/" +
+                                  image
+                                }
+                                alt=""
+                              />
+                            </div>
+                          ))
+                        : null}
                     </div>
                   </div>
                 </section>
@@ -777,96 +303,46 @@ function ProductDetails() {
 
             <form onSubmit={handleSubmit}>
               <div className="txtContentproduct">
-                <h1 className="txt_nameP">{product.productName}</h1>
-                <p className="money_txt">${product.price}</p>
-                {/* Star Box */}
-                {/* <div className="startBox">
-                  <div className="sartBox_icon">
-                    <AiFillStar id="icon_stars" />
-                    <AiFillStar id="icon_stars" />
-                    <AiFillStar id="icon_stars" />
-                    <AiFillStar id="icon_stars" />
-                    <AiOutlineStar id="icon_star" />
-                  </div>
-
-                  <div>
-                    <p>( 150 Reviews )</p>
-                  </div>
-                </div> */}
+                <h1 className="txt_nameP">{product.name}</h1>
+                <p className="money_txt">{product.price}</p>
                 <p className="txt_description">{product.description}</p>
 
                 <div className="hr">
                   <hr />
                 </div>
 
-
                 {/* Checked colors */}
                 <div className="color_product">
-                  {product.colors.map((colors) => (
-                    <div key={colors.colorID}>
-                      <label htmlFor={colors.colorName}>{colors.colorName}</label>
+                  {JSON.stringify(product.colors)
+                    ? JSON.parse(product.colors).map((e, index) => (
+                        <div key={index}>
+                          <label htmlFor={e}>{e}</label>
+                          <input
+                            className="echColor"
+                            type="radio"
+                            id={e}
+                            checked={e === color}
+                            onChange={handleColorChange}
+                          />
+                        </div>
+                      ))
+                    : null}
+                </div>
+
+                <div className="size_product">
+                  <p>Size:</p>
+                  {allSizes.map((e, index) => (
+                    <div key={index}>
+                      <label htmlFor={e}>{e}</label>
                       <input
                         className="echColor"
                         type="radio"
-                        id={colors.colorName}
-                        checked={colors.colorName === color}
-                        onChange={handleRadioChange}
+                        id={e}
+                        checked={e === size}
+                        onChange={handleSizeChange}
                       />
                     </div>
                   ))}
-                </div>
-
-                {/* Checked sizes */}
-                <div className="size_product">
-                  <p>Size:</p>
-                  <label
-                    htmlFor="s"
-                    className={`echSize ${size === "s" ? "active" : ""}`}
-                  >
-                    S
-                  </label>
-                  <input
-                    type="radio"
-                    id="s"
-                    checked={size === "s"}
-                    onChange={handleSizeChange}
-                  />
-                  <label
-                    htmlFor="m"
-                    className={`echSize ${size === "m" ? "active" : ""}`}
-                  >
-                    M
-                  </label>
-                  <input
-                    type="radio"
-                    id="m"
-                    checked={size === "m"}
-                    onChange={handleSizeChange}
-                  />
-                  <label
-                    htmlFor="l"
-                    className={`echSize ${size === "l" ? "active" : ""}`}
-                  >
-                    L
-                  </label>
-                  <input
-                    type="radio"
-                    id="l"
-                    checked={size === "l"}
-                    onChange={handleSizeChange}
-                  />
-                  <label
-                    htmlFor="xl"
-                    className={`echSize ${size === "xl" ? "active" : ""}`}
-                  >
-                    XL
-                  </label>
-                  <input
-                    type="radio"
-                    id="xl"
-                    checked={size === "xl"}
-                    onChange={handleSizeChange}
-                  />
                 </div>
 
                 {/* Amount product */}
@@ -880,7 +356,7 @@ function ProductDetails() {
                   <span>
                     <input
                       type="text"
-                      value={productCounts}
+                      value={quantity}
                       onChange={handleChange}
                     />
                   </span>
@@ -892,22 +368,33 @@ function ProductDetails() {
                   </div>
                 </div>
                 <div className="Count_product">
-                  <button type="submit" className="echbtn btnBut">
+                  <button
+                    type="submit"
+                    className="echbtn btnBut"
+                    onClick={handleBuyNow}
+                  >
                     Buy Now
                   </button>
-                  <button type="submit" className="echbtn btnAdd">
+                  <button
+                    type="submit"
+                    className="echbtn btnAdd"
+                    onClick={handleAddToCart}
+                  >
                     Add To Cart
                   </button>
                 </div>
               </div>
             </form>
           </div>
-        <div className="description_container">
-          <img src={product.descImage} alt="" />
+          <div className="description_container">
+            <img
+              src={
+                import.meta.env.VITE_API + "/uploads/images/" + product.image
+              }
+              alt="img"
+            />
+          </div>
         </div>
-
-        </div>
-        ))}
       </div>
       <Menu />
     </>

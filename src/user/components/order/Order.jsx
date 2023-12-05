@@ -167,7 +167,7 @@ const Order = () => {
 
   const handleOrder = (id) => {
     setId(id);
-    navigate("/order/bill", { state: { id: id } });
+    navigate("/order/bill/", { state: { id: id } });
   };
 
   return (

@@ -66,7 +66,7 @@ const AdminMenu = () => {
               <RxDashboard />
               <p>Dashboard</p>
             </NavLink>
-            <NavLink to="/product" className="link">
+            <NavLink to="/products" className="link">
               <IoDocumentText />
               <p>Products</p>
             </NavLink>
@@ -87,15 +87,17 @@ const AdminMenu = () => {
               <p>Log Out</p>
             </div>
             {showConfirmation && (
-              <div className="confirmation-popup">
-                <p>Are you sure you want to logout?</p>
-                <div className="btn_ok_on">
-                  <button onClick={handleConfirmLogout} className="btn_yes">
-                    Yes
-                  </button>
-                  <button onClick={handleCancelLogout} className="btn_on">
-                    No
-                  </button>
+              <div className="boxAlertDelete2">
+                <div className="confirmation-popup">
+                  <p>Do you want to Log out?</p>
+                  <div className="btn_ok_on">
+                    <button onClick={handleConfirmLogout} className="btn_yes">
+                      Yes
+                    </button>
+                    <button onClick={handleCancelLogout} className="btn_on">
+                      No
+                    </button>
+                  </div>
                 </div>
               </div>
             )}
@@ -109,7 +111,11 @@ const AdminMenu = () => {
 
             <NavLink to="/admin/acount" className="userAdminImage">
               <img
-                src={`../../../../public/images/${userDetail.profile_image}`}
+                src={
+                  import.meta.env.VITE_API +
+                  "/uploads/images/" +
+                  userDetail.profile_image
+                }
                 alt="admin profile"
               />
             </NavLink>
