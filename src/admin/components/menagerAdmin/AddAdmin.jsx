@@ -117,7 +117,11 @@ const AddAdmin = () => {
             <div className="addAdminForm">
               <div className="boxhead_subminandtitle">
                 <h2 className="titleaddmin">Add Admin</h2>
+<<<<<<< HEAD
                 <div>
+=======
+                <div >
+>>>>>>> 11b10267ab8761b44e3df0047dfaf4c1bdc8dce5
                   <button type="submit" className="submit">Add</button>
                 </div>
               </div>
@@ -132,6 +136,7 @@ const AddAdmin = () => {
                     className="input"
                     placeholder="Fist name..."
                     value={firstName}
+                    className="input"
                     onChange={handleFirstNameChange}
                   />
                   {errorMsg.firstName && <p className="error_message">{errorMsg.firstName}</p>}
@@ -143,6 +148,7 @@ const AddAdmin = () => {
                   <LuUser className="iconinput" />
                   <input
                     type="text"
+                    className="input"
                     id="lname"
                     className="input"
                     placeholder="Last name..."
@@ -162,6 +168,7 @@ const AddAdmin = () => {
                     id="email"
                     className="input"
                     placeholder="Email address..."
+                    className="input"
                     value={email}
                     onChange={handleEmailChange}
                   />
@@ -177,6 +184,7 @@ const AddAdmin = () => {
                     id="phone"
                     className="input"
                     placeholder="Phone number..."
+                    className="input"
                     value={phoneNumber}
                     onChange={handlePhoneNumberChange}
                   />

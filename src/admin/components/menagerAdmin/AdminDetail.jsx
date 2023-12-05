@@ -174,7 +174,11 @@ const AdminDetail = () => {
       </section>
 
       {isConfirmationPopupOpen && (
+<<<<<<< HEAD
         <div className="boxAlertDelete">
+=======
+        <div className="asd">
+>>>>>>> 11b10267ab8761b44e3df0047dfaf4c1bdc8dce5
           <div className="confirmation-popup">
             <div>
               <AiOutlineDelete className="iconndelete" />
