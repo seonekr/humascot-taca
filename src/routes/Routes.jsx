@@ -5,7 +5,6 @@ import General from "../user/components/account/General";
 import Contact from "../user/components/account/Contact";
 import Password from "../user/components/account/Password";
 import Payment from "../user/components/cart/Payment";
-import SuccessfulBuy from "../user/components/cart/SuccessfulBuy";
 import Cart from "../user/components/cart/Cart";
 import Address from "../user/components/cart/Address";
 import Contacts from "../user/components/contact/Contact";
@@ -54,7 +53,6 @@ const Links = () => {
         <Route exact path="/order" Component={Order} />
         <Route exact path="/order/bill" Component={Bill} />
         <Route exact path="/categories" Component={Categories} />
-        <Route exact path="/cart/successfulBuy" Component={SuccessfulBuy} />
 
         {/*==== phukeo ==== */}
         <Route exact path="/product_search" Component={Product_search} />

@@ -46,7 +46,7 @@ const OrderBillSuccess = () => {
                   <tr>
                     <td>product1</td>
                     <td>$20</td>
-                    <td>2</td>
+                    <td>5</td>
                     <td>red</td>
                     <td>L</td>
                   </tr>
@@ -55,7 +55,7 @@ const OrderBillSuccess = () => {
           </div>
           <hr />
           <div className="titlePrice">
-            <p>Total:</p>
+            <h4>TOTAL:</h4>
             <p>$20</p>
           </div>
           <div className="place-on">
