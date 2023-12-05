@@ -34,11 +34,11 @@ body {
 }
 
 #dashboard .left .menu .link:hover {
-    color: #FF4F16;
+    color: #ff7446;
 }
 
 #dashboard .left .menu .active {
-    background: #FF4F16;
+    background: #ff7446;
     color: #FFF;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.10);
 }
