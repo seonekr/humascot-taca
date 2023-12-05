@@ -117,8 +117,8 @@ const AddAdmin = () => {
             <div className="addAdminForm">
               <div className="boxhead_subminandtitle">
                 <h2 className="titleaddmin">Add Admin</h2>
-                <div className="submit">
-                  <button type="submit">Add</button>
+                <div >
+                  <button type="submit" className="submit">Add</button>
                 </div>
               </div>
 
@@ -131,6 +131,7 @@ const AddAdmin = () => {
                     id="fname"
                     placeholder="Fist name..."
                     value={firstName}
+                    className="input"
                     onChange={handleFirstNameChange}
                   />
                   {errorMsg.firstName && <p className="error_message">{errorMsg.firstName}</p>}
@@ -142,6 +143,7 @@ const AddAdmin = () => {
                   <LuUser className="iconinput" />
                   <input
                     type="text"
+                    className="input"
                     id="lname"
                     placeholder="Last name..."
                     value={lastName}
@@ -159,6 +161,7 @@ const AddAdmin = () => {
                     type="email"
                     id="email"
                     placeholder="Email address..."
+                    className="input"
                     value={email}
                     onChange={handleEmailChange}
                   />
@@ -173,6 +176,7 @@ const AddAdmin = () => {
                     type="text"
                     id="phone"
                     placeholder="Phone number..."
+                    className="input"
                     value={phoneNumber}
                     onChange={handlePhoneNumberChange}
                   />
@@ -184,7 +188,7 @@ const AddAdmin = () => {
                 <label htmlFor="adminImage" className="titlelabel">Profile image:</label>
                 <div className="boxiconnandinput">
                   <CiImageOn className="iconinput" />
-                  <input type="file" />
+                  <input type="file" className="input"/>
                 </div>
               </div>
             </div>
