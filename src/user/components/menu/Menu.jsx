@@ -27,7 +27,7 @@ const Menu = () => {
                         <p><Link to="/" className="txt_pFoot">Phone: 020 998878788</Link></p>
                         <p><Link to="/" className="txt_pFoot">Phone: 020 998878788</Link></p>
                         <p><Link to="/" className="txt_pFoot">Email: humascot@gmail.com</Link></p>
-                        <p><Link to="/" className="txt_pFoot">Address: Asean mall</Link></p>
+                        <p><Link to="/" className="txt_pFoot">Address: Asian mall</Link></p>
                     </div>
                     <div className="footconentBox3">
                         <h3 className="txt_footHead txh3">Download App</h3>

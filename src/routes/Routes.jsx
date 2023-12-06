@@ -26,6 +26,7 @@ import OrderBill from "../admin/components/orderPage/OrderBill";
 import Admins from "../admin/components/menagerAdmin/Admins";
 import Product from "../admin/components/products/Product";
 import EditProduct from "../admin/components/products/EditProduct";
+import OrderBillSuccess from "../user/components/order/OrderBillSuccess";
 
 // ===============================
 import Users from "../admin/components/menagerUser/Users";
@@ -61,6 +62,7 @@ const Links = () => {
         <Route exact path="/cart" Component={Cart} />
         <Route exact path="/alertLogin" Component={AlertLogin} />
         <Route exact path="/alertSignup" Component={AlertSignup} />
+        <Route exact path="/orderbillsuccess" Component={OrderBillSuccess} />
 
         {/* Admin routes */}
         <Route exact path="/dashboard" Component={Dashboard} />
