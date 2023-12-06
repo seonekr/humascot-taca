@@ -95,7 +95,7 @@ const AdminMenu = () => {
                       Yes
                     </button>
                     <button onClick={handleCancelLogout} className="btn_on">
-                      No
+                      <Nossssssss></Nossssssss>
                     </button>
                   </div>
                 </div>
@@ -103,22 +103,25 @@ const AdminMenu = () => {
             )}
           </div>
           <div className="right">
-            <NavLink to="/dashboard" className="logo">
-              <span>
-                <img src={Logo1} alt="" />
-              </span>
-            </NavLink>
-
-            <NavLink to="/admin/acount" className="userAdminImage">
-              <img
-                src={
-                  import.meta.env.VITE_API +
-                  "/uploads/images/" +
-                  userDetail.profile_image
-                }
-                alt="admin profile"
-              />
-            </NavLink>
+            <div>
+              <NavLink to="/dashboard" className="logo">
+                <span>
+                  <img src={Logo1} alt="" />
+                </span>
+              </NavLink>
+            </div>
+            <div className="boximage_admin">
+              <NavLink to="/admin/acount" className="userAdminImage">
+                <img
+                  src={
+                    import.meta.env.VITE_API +
+                    "/uploads/images/" +
+                    userDetail.profile_image
+                  }
+                  alt="admin profile"
+                />
+              </NavLink>
+            </div>
           </div>
         </div>
       </section>
