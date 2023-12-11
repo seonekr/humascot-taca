@@ -84,6 +84,15 @@ const Payment = () => {
 
   const totalPrice = totalProductPrice();
 
+  // Confirm transfer Choose image
+  const [mainImage, setMainImage] = useState(null);
+  const handleImage = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setMainImage(URL.createObjectURL(file)); // Use createObjectURL directly
+    }
+  };
+
   return (
     <>
       <Header />
@@ -189,6 +198,22 @@ const Payment = () => {
                   )}
                 </div>
               </div>
+                  
+              <div className="box_description">
+                <h3>Confirm transfer</h3>
+                <div className="image_confirm_transfer">
+                  <label htmlFor="img">
+                    {mainImage ? (
+                      <img src={mainImage} alt="Main Product" />
+                    ) : (
+                      <p>Choose image</p>
+                    )}
+                    <input type="file" id="img" onChange={handleImage}/>
+                  </label>
+                  
+                </div>
+              </div>
+
               <div className="save">
                 {/* <Link to="/cart/successfulBuy/"> */}
                 <button
