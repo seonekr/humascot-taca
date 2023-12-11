@@ -92,11 +92,34 @@
     width: 100%;
 }
 
+
 #addAmin form .addAdminForm .add-box .BorderinputThenImage {
     border: 1px solid #d9dee3;
     width: 30%;
+    height: 33vh;
     border-radius: 7px;
+    display: grid;
+    align-items: center;
+    overflow: hidden;
 }
+#addAmin form .addAdminForm .add-box .BorderinputThenImage label p {
+    display: grid;
+    background-color: #27A7EF;
+    border-radius: 4px;
+    width: fit-content;
+    padding: 0.4rem 0.9rem;
+    color: #FFF;
+    cursor: pointer;
+    margin: auto;
+}
+#addAmin form .addAdminForm .add-box .BorderinputThenImage input {
+    display: none;
+}
+#addAmin form .addAdminForm .add-box .BorderinputThenImage img {
+    width: 100%;
+    cursor: pointer;
+}
+
 
 /* Submit button */
 .boxhead_subminandtitle {

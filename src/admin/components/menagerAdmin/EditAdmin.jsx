@@ -87,7 +87,6 @@ const EditAdmin = () => {
   // Handle image selection for the main admin image
   const [mainImage, setMainImage] = useState(null);
 
-
   const handleImage = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -182,17 +181,22 @@ const EditAdmin = () => {
                 </div>
 
               </div>
+
               <div className="add-box">
                 <label htmlFor="adminImage" className="titlelabel">Profile image:</label>
-                <div className="BorderinputThenImage">
-                  <div className="input">
-                    <div className="imageAdmin">
-                      <img src={mainImage} alt="Main admin" />
-                      <input type="file" id="image" onChange={handleImage} />
-                    </div>
+                  <div className="BorderinputThenImage">
+                    <label htmlFor="img">
+                      {mainImage ? (
+                        <img src={mainImage} alt="Main Product" />
+                      ) : (
+                        <p>Choose image</p>
+                      )}
+                      <input type="file" id="img" onChange={handleImage}/>
+                    </label>
+                    
                   </div>
-                </div>
               </div>
+
             </div>
           </form>
         </div>
