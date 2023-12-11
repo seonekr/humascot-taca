@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import acer from "../../../img/acer.png";
 import Header from "../header/Header";
 import Menu from "../menu/Menu";
+import { AiOutlineDelete } from "react-icons/ai";
 
 import "./cart.css";
 
@@ -213,27 +214,35 @@ const Cart = () => {
                     <input type="text" value={product.color} />
                   </div>
                 </div>
-                <div className="box_item_icon">
-                  <div
-                    className="icon_minus_plus"
-                    onClick={() => decrementCount(product.id)}
-                  >
-                    -
+                <div className="box_icon_order">
+
+                  <div className="btnicon_delete_order" >
+                    <AiOutlineDelete id="btnicon_delete" />
                   </div>
-                  <span>
-                    <input
-                      type="text"
-                      value={productCounts[product.id] || 0}
-                      onChange={() => {}}
-                    />
-                  </span>
-                  <div
-                    className="icon_minus_plus"
-                    onClick={() => incrementCount(product.id)}
-                  >
-                    +
+
+                  <div className="box_item_icon">
+                    <div
+                      className="icon_minus_plus"
+                      onClick={() => decrementCount(product.id)}
+                    >
+                      -
+                    </div>
+                    <span>
+                      <input
+                        type="text"
+                        value={productCounts[product.id] || 0}
+                        onChange={() => {}}
+                      />
+                    </span>
+                    <div
+                      className="icon_minus_plus"
+                      onClick={() => incrementCount(product.id)}
+                    >
+                      +
+                    </div>
                   </div>
                 </div>
+               
               </div>
             ))}
           </div>
