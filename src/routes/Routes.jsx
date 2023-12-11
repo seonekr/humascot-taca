@@ -16,8 +16,6 @@ import Categories from "../user/components/categories/Categories";
 
 /* ========= Phukeo ========= */
 import Login from "../user/components/login_register/Login";
-import AlertLogin from "../user/components/login_register/AlertLogin";
-import AlertSignup from "../user/components/login_register/AlertSignup";
 import Register from "../user/components/login_register/Register";
 import Order from "../user/components/order/Order";
 import Product_search from "../user/components/products/Product_search";
@@ -61,8 +59,6 @@ const Links = () => {
         <Route exact path="/login" Component={Login} />
         <Route exact path="/register" Component={Register} />
         <Route exact path="/cart" Component={Cart} />
-        <Route exact path="/alertLogin" Component={AlertLogin} />
-        <Route exact path="/alertSignup" Component={AlertSignup} />
 
         {/* Admin routes */}
         <Route exact path="/dashboard" Component={Dashboard} />

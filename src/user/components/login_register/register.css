@@ -21,7 +21,7 @@ a {
   display: grid;
   text-align: center;
   justify-content: center;
-  margin: 0;
+  margin:  0;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -98,33 +98,7 @@ a {
 /* ================= Button Login with Google ================= */
 
 .google_btn {
-  width: 450px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
   margin-top: 5px;
-  padding: 20px 15px;
-  border-radius: 10px;
-  margin-left: 1rem;
-  border: 1px solid rgba(0, 0, 0, 0.40);
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
-
-
-.google_btn img {
-  width: 30px;
-  height: 30px;
-}
-
-.google_btn p {
-  color: rgba(0, 0, 0, 0.60);
-  font-family: Poppins;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
 }
 
 /* ================= Button signup_btn ================= */

@@ -92,21 +92,6 @@ a {
 }
 
 
-.google_btn img {
-    width: 30px;
-    height: 30px;
-}
-
-.google_btn p {
-    color: rgba(0, 0, 0, 0.60);
-    font-family: Poppins;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    font-size: 18px;
-}
-
 .box_form {
     display: grid;
     justify-content: center;
@@ -124,16 +109,9 @@ a {
 /* =============== Button Login with Google ============== */
 
 .google_btn {
-    width: 450px;
-    height: 58px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
-    padding: 20px 15px;
-    border-radius: 10px;
-    margin-right: 1rem;
-    border: 1px solid rgba(0, 0, 0, 0.40);
 }
 
 /* ============= Button Login ===============*/

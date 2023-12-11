@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import "./register.css";
 import { Link, useNavigate } from "react-router-dom";
 import { FaCheckCircle } from "react-icons/fa";
-import google from "../../../img/google.png";
 import { AiOutlineClose } from "react-icons/ai";
 
 const Register = () => {
@@ -228,11 +227,6 @@ const Register = () => {
                 Login
               </Link>
             </p>
-            <p>Or</p>
-            <Link to="#" className="google_btn">
-              <img src={google} alt="img" />
-              <p>Login with Google</p>
-            </Link>
           </div>
         </div>
       </div>
