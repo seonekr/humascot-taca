@@ -5,7 +5,7 @@ import { BiLogIn } from "react-icons/bi";
 import { Link, useLocation } from "react-router-dom";
 import Logo1 from "../../../img/Logo1.png";
 
-const Header = ({ handleSearch }) => {
+const Header = () => {
   // For authenticate user
   const userID = localStorage.getItem("userID");
   const location = useLocation();
@@ -16,12 +16,23 @@ const Header = ({ handleSearch }) => {
     { label: "Orders", path: "/order" },
   ];
 
+  const [products, setProducts] = useState([]);
+
+
   const [searchTerm, setSearchTerm] = useState("");
 
   // Search bar function
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    handleSearch(searchTerm);
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   handleSearch(searchTerm);
+  // };
+
+  // Function to handle search by product name
+  const handleSearch = () => {
+    const filtered = products.filter((product) =>
+      product.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredProducts(filtered);
   };
 
   return (
@@ -55,9 +66,11 @@ const Header = ({ handleSearch }) => {
             </div>
 
             <div className="ulHead_box">
-              <form onSubmit={handleSubmit} className="searchBarForm">
+
+              <form className="searchBarForm">
                 {" "}
                 {/* Here is search bar */}
+
                 <input
                   type="text"
                   placeholder="Search products..."
@@ -65,9 +78,10 @@ const Header = ({ handleSearch }) => {
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
                 <button type="submit">
-                  <FaMagnifyingGlass className="iconSearch" />
+                  <FaMagnifyingGlass className="iconSearch" onClick={handleSearch}/>
                 </button>
               </form>
+
               <div className="boxsearchContainer">
                 {userID ? (
                   <Link to="/cart">
