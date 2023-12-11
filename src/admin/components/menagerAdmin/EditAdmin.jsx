@@ -177,19 +177,23 @@ const EditAdmin = () => {
                     />
                   </div>
                 </div>
-
               </div>
+
               <div className="add-box">
                 <label htmlFor="adminImage" className="titlelabel">Profile image:</label>
-                <div className="BorderinputThenImage">
-                  <div className="input">
-                    <div className="imageAdmin">
-                      <img src={mainImage} alt="Main admin" />
-                      <input type="file" id="image" onChange={handleImage} />
-                    </div>
+                  <div className="BorderinputThenImage">
+                    <label htmlFor="img">
+                      {mainImage ? (
+                        <img src={mainImage} alt="Main Product" />
+                      ) : (
+                        <p>Choose image</p>
+                      )}
+                      <input type="file" id="img" onChange={handleImage}/>
+                    </label>
+                    
                   </div>
-                </div>
               </div>
+
             </div>
           </form>
         </div>
