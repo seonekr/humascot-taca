@@ -154,6 +154,33 @@ a {
     margin-top: 1rem;
 }
 
+/* btnicon_delete */
+.box_item_icon{
+margin-top: 6rem;
+margin-left: 1rem;
+font-size: 1.3rem;
+}
+
+#btnicon_delete{
+width: 18px;
+height: 18px;
+color: #FFF;
+}
+
+.btnicon_delete_order{
+width: 40px;
+height: 30px;
+display: flex;
+cursor: pointer;
+border: none;
+align-items: center;
+justify-content: center;
+background: #FA442C;
+border-radius: 8px;
+margin-left: 8rem;
+}
+
+
 /* cart empty */
 .cart {
     text-align: center;
