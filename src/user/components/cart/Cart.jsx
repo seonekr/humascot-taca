@@ -246,7 +246,7 @@ const Cart = () => {
             ))}
           </div>
         </div>
-        {/* {products.length > 0 ? ( */}
+        {products.length > 0 ? (
           <div className="box_item_total">
             <h1>Cart Total</h1>
             <div className="box_item_total_text">
@@ -286,9 +286,9 @@ const Cart = () => {
               </button>
             </div>
           </div>
-        {/* ) : (
+        ) : (
           <p className="cart">Your cart is empty</p>
-        )} */}
+        )}
       </form>
       <Menu />
     </>
