@@ -95,7 +95,7 @@ const AdminMenu = () => {
                       Yes
                     </button>
                     <button onClick={handleCancelLogout} className="btn_on">
-                      <Nossssssss></Nossssssss>
+                      No
                     </button>
                   </div>
                 </div>
