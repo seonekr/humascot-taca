@@ -12,9 +12,12 @@ const Users = () => {
 
   const navigate = useNavigate();
 
+  const [filteredUsers, setFilteredUsers] = useState(users);
+  const [searchTerm, setSearchTerm] = useState("");
+
   // prev next button user in react
   const [currentPage, setCurrentPage] = useState(1);
-  const recordsPerPage = 8;
+  const recordsPerPage = 4;
   const lastIndex = currentPage * recordsPerPage;
   const firstIndex = lastIndex - recordsPerPage;
   const records = users.slice(firstIndex, lastIndex);
@@ -49,6 +52,15 @@ const Users = () => {
     console.log(id);
   };
 
+
+   // Function to handle search by users name
+   const handleSearch = () => {
+    const filtered = users.filter((user) =>
+    user.fname.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredUsers(filtered);
+  };
+
   return (
     <>
       <section id="menager">
@@ -59,15 +71,21 @@ const Users = () => {
               <h2>Users</h2>
               <form className="search">
                 <div className="search-box_menageruser">
-                  <input type="text" placeholder="Search ..." />
-                  <button type="submit">
-                    <IoSearchOutline />
+                  <input 
+                    type="text" 
+                    placeholder="Search ..." 
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                  />
+
+                  <button>
+                    <IoSearchOutline onClick={handleSearch} />
                   </button>
                 </div>
               </form>
             </div>
-            {users.length >= 1 ? (
-              users.map((e) => {
+            {records.length >= 1 ? (
+              records.map((e) => {
                 return (
                   <div
                     className="box_users_user"
