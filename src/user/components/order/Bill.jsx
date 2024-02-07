@@ -20,14 +20,14 @@ const Bill = () => {
           productName: "깻잎",
           price: 8.500,
           amount: 5,
-          delivery: 2.500
+          // delivery: 2.500
         },
         {
           productID: 2,
           productName: "더덕무침",
           price: 7.500,
           amount: 5,
-          delivery: 3.500
+          // delivery: 3.500
         },
       ],
       orderDate: "10/12/2023",
@@ -44,14 +44,14 @@ const Bill = () => {
           productName: "멸치볶음",
           price: 9.250,
           amount: 5,
-          delivery: 2.500
+          // delivery: 2.500
         },
         {
           productID: 2,
           productName: "더덕무침",
           price: 7.500,
           amount: 5,
-          delivery: 3.500
+          // delivery: 3.500
         },
       ],
       orderDate: "10/12/2023",
@@ -119,8 +119,8 @@ const Bill = () => {
                     <th>Product Name</th>
                     <th>Price</th>
                     <th>Amount</th>
-                    <th>Discount/Accumulation</th>
-                    <th>delivery fee</th>
+                    {/* <th>Discount/Accumulation</th>
+                    <th>delivery fee</th> */}
                   </tr>
                 </thead>
                 {order.products.map((product) => (
@@ -129,8 +129,8 @@ const Bill = () => {
                       <td>{product.productName}</td>
                       <td>${product.price}</td>
                       <td>{product.amount}</td>
-                      <td></td>
-                      <td>${product.delivery}</td>
+                      {/* <td></td>
+                      <td>${product.delivery}</td> */}
                     </tr>
                   </tbody>
                 ))}

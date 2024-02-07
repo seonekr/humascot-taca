@@ -197,17 +197,10 @@ const Product_search = () => {
                   </div> 
                   <div className="txtOFproduct">
                     <h4>
-                      <input
-                        type="text"
-                        value={product.productName}
-                      />
+                      {product.productName}
                     </h4>
                     <p>
-                      <input
-                        className="priceProduct"
-                        type="text"
-                        value={product.price}
-                      />
+                      {product.price}
                     </p>
                     <p>Review: {product.review}</p>
                   </div>

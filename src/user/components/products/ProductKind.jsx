@@ -173,19 +173,8 @@ const Product_search = () => {
                     <FaCartShopping className="box_icon_search" />
                   </div> 
                   <div className="txtOFproduct">
-                    <h4>
-                      <input
-                        type="text"
-                        value={product.productName}
-                      />
-                    </h4>
-                    <p>
-                      <input
-                        className="priceProduct"
-                        type="text"
-                        value={product.price}
-                      />
-                    </p>
+                    <h4>{product.productName}</h4>
+                    <p>{product.price}</p>
                     <p>Review: {product.review}</p>
                   </div>
                 </div>
