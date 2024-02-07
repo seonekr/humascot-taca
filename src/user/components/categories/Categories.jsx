@@ -8,7 +8,7 @@ import Header from "../header/Header";
 import Menu from "../menu/Menu";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./categories.css";
+// import "./categories.css";
 
 const Categories = () => {
   const [products, setProducts] = useState([
