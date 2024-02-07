@@ -48,30 +48,7 @@ const Product_search = () => {
       popular: true,
       images: [ { src: 진미채볶음 }],
     }, 
-    {
-      productID: 5,
-      productName: "물김치",
-      price: 9.500,
-      review: 39,
-      popular: true,
-      images: [ { src: 물김치 }],
-    }, 
-    {
-      productID: 6,
-      productName: "참외장아찌",
-      price: 12.500,
-      review: 35,
-      popular: true,
-      images: [ { src: 참외장아찌 }],
-    }, 
-    {
-      productID: 7,
-      productName: "파김치.jgp",
-      price: 11.500,
-      review: 25,
-      popular: true,
-      images: [ { src: 파김치 }],
-    }, 
+    
   ]);
 
   const [filteredProducts, setFilteredProducts] = useState(products);
@@ -165,7 +142,7 @@ const Product_search = () => {
         <div className="content_itemBox">
           <div className="container_product">
             <h3 className="htxthead">
-              <span className="spennofStyle"></span>인기 반찬
+              <span className="spennofStyle"></span>실속3종 반찬
             </h3>
             <form className="box_Filterseach_home">
               <label>Select Filter</label>

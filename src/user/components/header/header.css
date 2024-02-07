@@ -24,6 +24,11 @@
     align-items: center;
     font-size: 1.3rem;
 }
+.logo1 img{
+    width: 40px;
+    height: 40px;
+}
+
 
 .headMenu {
     gap: 1rem;
@@ -197,6 +202,13 @@
 
     .ulHead_box form input {
         width: 100%;
+    }
+    .storename{
+        display: none;
+    }
+    .logo1 img{
+        width: 45px;
+        height: 45px;
     }
 }
 

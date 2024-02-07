@@ -5,598 +5,74 @@ import Menu from "../menu/Menu";
 import Header from "../header/Header";
 import { IoIosArrowBack } from "react-icons/io";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
-import dress from "../../../img/dress.png";
-import image1 from "../../../img/image1.png";
-import description from "../../../img/detailproduct.jpg";
-import acer from "../../../img/acer.png";
-import productImage from "../../../img/productImage.png";
+import 깻잎 from "../../../img/깻잎.jpg";
+import 더덕무침 from "../../../img/더덕무침.jpg";
+import 멸치볶음 from "../../../img/멸치볶음.jpg";
+import 진미채볶음 from "../../../img/진미채볶음.jpg";
+import 물김치 from "../../../img/물김치.jpg";
+import 참외장아찌 from "../../../img/참외장아찌.jpg";
+import 파김치 from "../../../img/파김치.jpg";
 
 function ProductDetails() {
   const [products, setProducts] = useState([
     {
       productID: 1,
-      productName: "pro1",
-      productType: "clothes",
-      price: 15,
-      description: "desc for this product",
+      productName: "깻잎",
+      price: 8.500,
+      review: 50,
       popular: true,
-      descImage: image1,
-      images: [
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-      ],
-      colors: [
-        { colorID: 1, colorName: "black" },
-        { colorID: 2, colorName: "blue" },
-        { colorID: 3, colorName: "red" },
-        { colorID: 4, colorName: "green" },
-      ],
+      images: [ { src: 깻잎 }],
     },
     {
       productID: 2,
-      productName: "pro2",
-      productType: "clothes",
-
-      price: 10,
-      description: "desc for this product",
+      productName: "더덕무침",
+      price: 7.520,
+      review: 45,
       popular: true,
-      descImage: image1,
-      images: [
-        {
-          src: dress,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-      ],
-      colors: [
-        { colorID: 1, colorName: "black" },
-        { colorID: 2, colorName: "blue" },
-        { colorID: 3, colorName: "red" },
-        { colorID: 4, colorName: "green" },
-      ],
+      images: [ { src: 더덕무침 }],
     },
     {
       productID: 3,
-      productName: "pro3",
-      productType: "clothes",
-      price: 10,
-      description: "desc for this product",
+      productName: "멸치볶음",
+      price: 9.250,
+      review: 30,
       popular: true,
-      descImage: image1,
-      images: [
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-      ],
-      colors: [
-        { colorID: 1, colorName: "black" },
-        { colorID: 2, colorName: "blue" },
-        { colorID: 3, colorName: "red" },
-        { colorID: 4, colorName: "green" },
-      ],
+      images: [ { src: 멸치볶음 }],
     },
     {
       productID: 4,
-      productName: "pro4",
-      productType: "clothes",
-      price: 10,
-      description: "desc for this product",
+      productName: "진미채볶음",
+      price: 8.500,
+      review: 29,
       popular: true,
-      descImage: image1,
-      images: [
-        {
-          src: dress,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-      ],
-      colors: [
-        { colorID: 1, colorName: "black" },
-        { colorID: 2, colorName: "blue" },
-        { colorID: 3, colorName: "red" },
-        { colorID: 4, colorName: "green" },
-      ],
-    },
+      images: [ { src: 진미채볶음 }],
+    }, 
     {
       productID: 5,
-      productName: "pro5",
-      productType: "clothes",
-      price: 10,
-      description: "desc for this product",
+      productName: "물김치",
+      price: 9.500,
+      review: 39,
       popular: true,
-      descImage: image1,
-      images: [
-        {
-          src: image1,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-      ],
-      colors: [
-        { colorID: 1, colorName: "black" },
-        { colorID: 2, colorName: "blue" },
-        { colorID: 3, colorName: "red" },
-        { colorID: 4, colorName: "green" },
-      ],
-    },
+      images: [ { src: 물김치 }],
+    }, 
     {
       productID: 6,
-      productName: "pro6",
-      productType: "clothes",
-      price: 10,
-      description: "desc for this product",
+      productName: "참외장아찌",
+      price: 12.500,
+      review: 35,
       popular: true,
-      descImage: image1,
-      images: [
-        {
-          src: image1,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-      ],
-      colors: [
-        { colorID: 1, colorName: "black" },
-        { colorID: 2, colorName: "blue" },
-        { colorID: 3, colorName: "red" },
-        { colorID: 4, colorName: "green" },
-      ],
-    },
+      images: [ { src: 참외장아찌 }],
+    }, 
     {
       productID: 7,
-      productName: "pro7",
-      productType: "clothes",
-      price: 10,
-      description: "desc for this product",
+      productName: "파김치.jgp",
+      price: 11.500,
+      review: 25,
       popular: true,
-      descImage: image1,
-      images: [
-        {
-          src: image1,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-      ],
-      colors: [
-        { colorID: 1, colorName: "black" },
-        { colorID: 2, colorName: "blue" },
-        { colorID: 3, colorName: "red" },
-        { colorID: 4, colorName: "green" },
-      ],
-    },
-    {
-      productID: 8,
-      productName: "pro8",
-      productType: "clothes",
-      price: 10,
-      description: "desc for this product",
-      popular: true,
-      descImage: image1,
-      images: [
-        {
-          src: image1,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-      ],
-      colors: [
-        { colorID: 1, colorName: "black" },
-        { colorID: 2, colorName: "blue" },
-        { colorID: 3, colorName: "red" },
-        { colorID: 4, colorName: "green" },
-      ],
-    },
-    {
-      productID: 9,
-      productName: "pro9",
-      productType: "clothes",
-      price: 10,
-      description: "desc for this product",
-      popular: true,
-      descImage: image1,
-      images: [
-        {
-          src: image1,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-      ],
-      colors: [
-        { colorID: 1, colorName: "black" },
-        { colorID: 2, colorName: "blue" },
-        { colorID: 3, colorName: "red" },
-        { colorID: 4, colorName: "green" },
-      ],
-    },
-    {
-      productID: 10,
-      productName: "pro10",
-      productType: "clothes",
-      price: 10,
-      description: "desc for this product",
-      popular: true,
-      descImage: image1,
-      images: [
-        {
-          src: image1,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-      ],
-      colors: [
-        { colorID: 1, colorName: "black" },
-        { colorID: 2, colorName: "blue" },
-        { colorID: 3, colorName: "red" },
-        { colorID: 4, colorName: "green" },
-      ],
-    },
-    {
-      productID: 11,
-      productName: "pro11",
-      productType: "clothes",
-      price: 10,
-      description: "desc for this product",
-      popular: true,
-      descImage: image1,
-      images: [
-        {
-          src: image1,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-        {
-          src: acer,
-        },
-        {
-          src: productImage,
-        },
-        {
-          src: image1,
-        },
-        {
-          src: dress,
-        },
-      ],
-      colors: [
-        { colorID: 1, colorName: "red" },
-        { colorID: 2, colorName: "green" },
-      ],
-    },
+      images: [ { src: 파김치 }],
+    }, 
+    
   ]);
-
-  // Checked sizes
-  const [size, setSize] = useState("m");
-
-  // Handle checked sizes
-  const handleSizeChange = (event) => {
-    const { id } = event.target;
-    setSize(id);
-  };
-
 
   /*============== minus_plus ============= */
   const [productCounts, setProductCounts] = useState(1);
@@ -626,16 +102,6 @@ function ProductDetails() {
     (product) => product.productID === sendProductID
   );
 
-  // Checked colors
-  const proID = products.find(item => item.productID === sendProductID);
-  const colID = proID.colors.find(item => item.colorID === 1);
-  const colorName = colID.colorName;
-  const [color, setColor] = useState(colorName);
-
-  const handleRadioChange = (event) => {
-    const { id } = event.target;
-    setColor(id);
-  };
 
   // Handle submitted
   const handleSubmit = (e) => {
@@ -645,11 +111,8 @@ function ProductDetails() {
       const selectedProducts = filteredProducts.map((product) => ({
         productID: product.productID,
         productName: product.productName,
-        size: size,
-        color: color,
-        type: product.productType,
         price: product.price,
-        productCounts: productCounts,
+        review: product.review,
       }));
 
       navigate('/cart/payment/', {
@@ -660,8 +123,6 @@ function ProductDetails() {
     } else {
 
       const addTocart = {
-        size: size,
-        color: color,
         productCounts: productCounts,
       };
 
@@ -756,10 +217,10 @@ function ProductDetails() {
                       ))
                     }
 
-                    <a className='prev' onClick={() => plusSlides(-1)}>&#10094;</a>
-                    <a className='next' onClick={() => plusSlides(1)}>&#10095;</a>
+                    {/* <a className='prev' onClick={() => plusSlides(-1)}>&#10094;</a>
+                    <a className='next' onClick={() => plusSlides(1)}>&#10095;</a> */}
 
-                    <div className="slider_img" draggable={true} ref={slideRef}
+                    {/* <div className="slider_img" draggable={true} ref={slideRef}
                       onDragStart={dragStart} onDragOver={dragOver} onDragEnd={dragEnd}>
                       {
                         product.images.map((image, index) => (
@@ -769,7 +230,7 @@ function ProductDetails() {
                           </div>
                         ))
                       }
-                    </div>
+                    </div> */}
                   </div>
                 </section>
               </React.Fragment>
@@ -793,80 +254,10 @@ function ProductDetails() {
                     <p>( 150 Reviews )</p>
                   </div>
                 </div> */}
-                <p className="txt_description">{product.description}</p>
+                <p className="txt_description">Review: {product.review}</p>
 
                 <div className="hr">
                   <hr />
-                </div>
-
-
-                {/* Checked colors */}
-                <div className="color_product">
-                  {product.colors.map((colors) => (
-                    <div key={colors.colorID}>
-                      <label htmlFor={colors.colorName}>{colors.colorName}</label>
-                      <input
-                        className="echColor"
-                        type="radio"
-                        id={colors.colorName}
-                        checked={colors.colorName === color}
-                        onChange={handleRadioChange}
-                      />
-                    </div>
-                  ))}
-                </div>
-
-                {/* Checked sizes */}
-                <div className="size_product">
-                  <p>Size:</p>
-                  <label
-                    htmlFor="s"
-                    className={`echSize ${size === "s" ? "active" : ""}`}
-                  >
-                    S
-                  </label>
-                  <input
-                    type="radio"
-                    id="s"
-                    checked={size === "s"}
-                    onChange={handleSizeChange}
-                  />
-                  <label
-                    htmlFor="m"
-                    className={`echSize ${size === "m" ? "active" : ""}`}
-                  >
-                    M
-                  </label>
-                  <input
-                    type="radio"
-                    id="m"
-                    checked={size === "m"}
-                    onChange={handleSizeChange}
-                  />
-                  <label
-                    htmlFor="l"
-                    className={`echSize ${size === "l" ? "active" : ""}`}
-                  >
-                    L
-                  </label>
-                  <input
-                    type="radio"
-                    id="l"
-                    checked={size === "l"}
-                    onChange={handleSizeChange}
-                  />
-                  <label
-                    htmlFor="xl"
-                    className={`echSize ${size === "xl" ? "active" : ""}`}
-                  >
-                    XL
-                  </label>
-                  <input
-                    type="radio"
-                    id="xl"
-                    checked={size === "xl"}
-                    onChange={handleSizeChange}
-                  />
                 </div>
 
                 {/* Amount product */}

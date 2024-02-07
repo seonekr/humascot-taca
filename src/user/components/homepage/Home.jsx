@@ -42,7 +42,6 @@ const Home = () => {
   return (
     <div className="containerHomeBox">
       <Banner />
-      <Category />
       <ProductHome />
       <Menu />
     </div>

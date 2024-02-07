@@ -16,7 +16,7 @@
 }
 
 .header_box{
-    padding-top: 1rem;
+    padding-top: 2rem;
     text-align: center;
 }
 #payment .adress-payment {
@@ -193,6 +193,15 @@
     .save {
         padding-top: 2rem;
     }
+    #payment .adress-payment .box .address {
+        margin-top: 1rem;
+    }
+    .detailsProductInPayMentBox{
+        margin-top: 0.8rem;
+    }
+    .header_box{
+        margin-top: -1rem;
+    }
 
 }
 
@@ -200,7 +209,7 @@
     #payment .adress-payment .box .qr {
         width: 70%;
     }
-  
+   
 }
 
 @media screen and (max-width: 376px) {

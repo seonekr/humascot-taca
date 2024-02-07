@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./banner.css";
-import banner1 from "../../../img/banner1.svg";
-import banner2 from "../../../img/banner2.svg";
-import banner3 from "../../../img/banner3.svg";
+import banner1 from "../../../img/banner1.png";
+import banner2 from "../../../img/banner2.png";
+import banner3 from "../../../img/banner3.png";
 
 const Banner = () => {
   const [slides, setSlides] = useState([banner1, banner2, banner3]);

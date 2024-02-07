@@ -3,7 +3,8 @@ import "./header.css";
 import { FaMagnifyingGlass, FaCartShopping, FaRegUser } from "react-icons/fa6";
 import { BiLogIn } from "react-icons/bi";
 import { Link, useLocation } from "react-router-dom";
-import Logo1 from "../../../img/Logo1.png";
+import Logo from "../../../img/Logo.png";
+import storename from "../../../img/storename.png";
 
 const Header = ({ handleSearch }) => {
   // For authenticate user
@@ -12,9 +13,8 @@ const Header = ({ handleSearch }) => {
 
   const menuItems = [
     { label: "Home", path: "/" },
-    { label: "Shop", path: "/product_search" },
+    { label: "Product", path: "/product_search" },
     { label: "Orders", path: "/order" },
-    { label: "Contact", path: "/contacts" },
   ];
 
   const [searchTerm, setSearchTerm] = useState("");
@@ -32,7 +32,8 @@ const Header = ({ handleSearch }) => {
           <div className="headWithBox">
             <div className="headMenu">
 
-              <div className="logo1"><Link to="/"><img src={Logo1} alt="Logo" /></Link></div>
+              <div className="storename"><div><img src={storename} alt="Logo" /></div></div>
+              <div className="logo1"><Link to="/"><img src={Logo} alt="Logo" /></Link></div>
 
               <div className="boxLiMenu">
                 <div className="linkLi">
@@ -65,31 +66,23 @@ const Header = ({ handleSearch }) => {
                 />
                 <button type="submit"><FaMagnifyingGlass className="iconSearch" /></button>
               </form>
+              
               <div className="boxsearchContainer">
-                {userID ? (
                   <Link to="/cart">
                     <FaCartShopping className="head_colorr" />
                   </Link>
-                ) : (
-                  <Link to="/cart">
-                    <FaCartShopping className="head_colorr" />
-                  </Link>
-                )}
               </div>
-              {userID ? (
                 <div>
                   <Link to="/account">
                     <FaRegUser className="head_colorr" />
                   </Link>
                 </div>
-              ) : (
                 <div>
                   <Link to="/login" className="head_colorr">
                     Login
                     <BiLogIn className="login" />
                   </Link>
                 </div>
-              )}
 
             </div>
           </div>

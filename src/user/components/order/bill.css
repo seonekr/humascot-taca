@@ -15,6 +15,9 @@
     font-size: 45px;
     color: #347FFF;
 }
+.logo_image{
+    display: none;
+}
 
 .idf {
     display: grid;
@@ -27,7 +30,6 @@
     width: 100%;
     margin: auto;
     padding: 30px 0;
-
 }
 
 .billGopBox table {
@@ -63,6 +65,8 @@
     padding: 0 2rem;
 }
 
+
+
 /* Responsive */
 @media only screen and (max-width: 768px) {
     #bill .bill-detial {
@@ -85,6 +89,11 @@
 
     #bill .bill-detial .place-on span p:last-child {
         padding-left: 0.2rem;
+    }
+    .logo_image{
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
 

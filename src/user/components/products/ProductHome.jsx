@@ -1,523 +1,48 @@
 import "./productHome.css";
-import dress from "../../../img/dress.png";
-import image1 from "../../../img/image1.png";
+import 깻잎 from "../../../img/깻잎.jpg";
+import 더덕무침 from "../../../img/더덕무침.jpg";
 import Header from "../header/Header";
-import acer from "../../../img/acer.png";
-import productImage from "../../../img/productImage.png";
+import 멸치볶음 from "../../../img/멸치볶음.jpg";
+import 진미채볶음 from "../../../img/진미채볶음.jpg";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { FaCartShopping } from "react-icons/fa6";
+import { FaRegHeart } from "react-icons/fa";
 
 const ProductHome = () => {
   const [products, setProducts] = useState([
     {
       productID: 1,
-      productName: "pro1",
-      productType: "clothes",
-      price: 10,
-      description: "desc for this product",
+      productName: "깻잎",
+      price: 8.500,
+      review: 50,
       popular: true,
-      images: [
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: acer
-        },
-        {
-          src: acer
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: dress
-        },
-        {
-          src: acer
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: dress
-        }
-      ],
-      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
+      images: [ { src: 깻잎 }],
     },
     {
       productID: 2,
-      productName: "pro2",
-      productType: "clothes",
-
-      price: 10,
-      description: "desc for this product",
+      productName: "더덕무침",
+      price: 7.520,
+      review: 45,
       popular: true,
-      images: [
-        {
-          src: dress
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: acer
-        },
-        {
-          src: acer
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: dress
-        },
-        {
-          src: acer
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: dress
-        }
-      ],
-      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
+      images: [ { src: 더덕무침 }],
     },
     {
       productID: 3,
-      productName: "pro3",
-      productType: "clothes",
-      price: 10,
-      description: "desc for this product",
+      productName: "멸치볶음",
+      price: 9.250,
+      review: 30,
       popular: true,
-      images: [
-        {
-          src: image1
-        },
-        {
-          src: dress
-        },
-        {
-          src: acer
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: dress
-        },
-        {
-          src: acer
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: dress
-        }
-      ],
-      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
+      images: [ { src: 멸치볶음 }],
     },
     {
       productID: 4,
-      productName: "pro4",
-      productType: "clothes",
-      price: 10,
-      description: "desc for this product",
+      productName: "진미채볶음",
+      price: 8.500,
+      review: 29,
       popular: true,
-      images: [
-        {
-          src: dress
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: acer
-        },
-        {
-          src: acer
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: dress
-        },
-        {
-          src: acer
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: dress
-        }
-      ],
-      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
-    },
-    {
-      productID: 5,
-      productName: "pro5",
-      productType: "clothes",
-      price: 10,
-      description: "desc for this product",
-      popular: true,
-      images: [
-        {
-          src: image1
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: acer
-        },
-        {
-          src: acer
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: dress
-        },
-        {
-          src: acer
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: dress
-        }
-      ],
-      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
-    },
-    {
-      productID: 6,
-      productName: "pro6",
-      productType: "clothes",
-      price: 10,
-      description: "desc for this product",
-      popular: true,
-      images: [
-        {
-          src: image1
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: acer
-        },
-        {
-          src: acer
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: dress
-        },
-        {
-          src: acer
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: dress
-        }
-      ],
-      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
-    },
-    {
-      productID: 7,
-      productName: "pro7",
-      productType: "clothes",
-      price: 10,
-      description: "desc for this product",
-      popular: true,
-      images: [
-        {
-          src: image1
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: acer
-        },
-        {
-          src: acer
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: dress
-        },
-        {
-          src: acer
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: dress
-        }
-      ],
-      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
-    },
-    {
-      productID: 8,
-      productName: "pro8",
-      productType: "clothes",
-      price: 10,
-      description: "desc for this product",
-      popular: true,
-      images: [
-        {
-          src: image1
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: acer
-        },
-        {
-          src: acer
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: dress
-        },
-        {
-          src: acer
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: dress
-        }
-      ],
-      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
-    },
-    {
-      productID: 9,
-      productName: "pro9",
-      productType: "clothes",
-      price: 10,
-      description: "desc for this product",
-      popular: true,
-      images: [
-        {
-          src: image1
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: acer
-        },
-        {
-          src: acer
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: dress
-        },
-        {
-          src: acer
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: dress
-        }
-      ],
-      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
-    },
-    {
-      productID: 10,
-      productName: "pro10",
-      productType: "clothes",
-      price: 10,
-      description: "desc for this product",
-      popular: true,
-      images: [
-        {
-          src: image1
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: acer
-        },
-        {
-          src: acer
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: dress
-        },
-        {
-          src: acer
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: dress
-        }
-      ],
-      colors: [{ colorID: 1, colorName: "black" }, { colorID: 2, colorName: "blue" }, { colorID: 3, colorName: "red" }, { colorID: 4, colorName: "green" }]
-    },
-    {
-      productID: 11,
-      productName: "pro11",
-      productType: "clothes",
-      price: 10,
-      description: "desc for this product",
-      popular: true,
-      images: [
-        {
-          src: image1
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: acer
-        },
-        {
-          src: acer
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: dress
-        },
-        {
-          src: acer
-        },
-        {
-          src: productImage
-        },
-        {
-          src: image1
-        },
-        {
-          src: dress
-        }
-      ],
-      colors: [{ colorID: 1, colorName: "red" }, { colorID: 2, colorName: "green" }]
-    },
+      images: [ { src: 진미채볶음 }],
+    }, 
   ]);
 
   const [filteredProducts, setFilteredProducts] = useState(products);
@@ -601,13 +126,15 @@ const ProductHome = () => {
       state: { sendProductID: sendProductID },
     });
   };
+
   return (
     <div>
       <Header handleSearch={handleSearch}/>
       <section id="product">
         <div className="productHead_content">
           <h1 className="htxthead">
-            <span className="spennofStyle"></span>Product
+            <span className="spennofStyle"></span>인기 반찬
+            
           </h1>
           <div className="categoryBoxfiler">
             <form className="boxfilterseach">
@@ -635,6 +162,11 @@ const ProductHome = () => {
                 <div className="img">
                   <img src={product.images[0].src} alt="image" />
                 </div>
+                
+                <div className="box_cart">
+                  <FaCartShopping className="box_icon_cart" />
+                </div>               
+
                 <ul className="txtOFproduct2">
                   <li>
                     <input
@@ -652,14 +184,7 @@ const ProductHome = () => {
                       onChange={(e) => handleInputChange(e, index, "price")}
                     />
                   </li>
-                  <li>
-                    <input
-                      className="desc"
-                      type="text"
-                      value={product.description}
-                      onChange={(e) => handleInputChange(e, index, "description")}
-                    />
-                  </li>
+                  <p>Review: {product.review}</p>
                 </ul>
               </div>
             </div>

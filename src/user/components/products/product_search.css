@@ -28,6 +28,23 @@ a {
     padding: 0.5rem 1rem;
     top: 70px;
 }
+.box_cart_search{
+    margin-left: 10.5rem;
+}
+.box_icon_search {
+    color: #3a3a3a;
+    display: flex;
+    font-size: 1.6rem;
+    margin-top: -1.3rem;
+    padding: 5px 5px;
+    border: 1px solid var(--gray);
+    border-radius: 10%;
+    background-color: #e9e5e5a1;
+}
+
+.box_icon_search:hover {
+    color: #FF4F16;
+}
 
 .container_head_search input {
     width: 100%;
@@ -203,6 +220,7 @@ input:focus {
         margin-top: 5rem;
         top: 10px;
     }
+    
 
 }
 
@@ -259,6 +277,10 @@ input:focus {
 
     .btn_more {
         margin-bottom: 5rem;
+    }
+    .box_cart_search{
+        margin-left: 8.5rem;
+        margin-top: 0.5rem;
     }
 
 }

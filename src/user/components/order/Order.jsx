@@ -15,11 +15,10 @@ const Order = () => {
       products: [
         {
           productID: 1,
-          productName: "pro1",
-          productType: "clothes",
-          amount: 2,
-          price: 10,
-          size: "m",
+          productName: "깻잎",
+          price: 8.500,
+          review: 50,
+          popular: true,
         },
         {
           productID: 2,
@@ -183,7 +182,7 @@ const Order = () => {
                 className="box_item_order"
               >
                 <div className="box_item_order_text">
-                  <p>No: {order.orderID}</p>
+                  <p>ID: {order.orderID}</p>
                   <p className="txtheadeproductorder">
                     {order.products.slice(0, 2).map((product, index) => (
                       <span key={product.productID}>

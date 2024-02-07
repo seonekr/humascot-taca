@@ -111,8 +111,6 @@ const Payment = () => {
                       <li className="detailsProduct_li" key={product.productID}>
                         <div>Product ID: {product.productID}</div>
                         <div>Product Name: {product.productName}</div>
-                        <div>Size: {product.size}</div>
-                        <div>Color: {product.color}</div>
                         <div>Price: {product.price}</div>
                         <div>Product Counts: {product.productCounts}</div>
                         <div>
@@ -133,14 +131,12 @@ const Payment = () => {
                       <li key={product.productID}>
                         <div>Product ID: {product.productID}</div>
                         <div>Product Name: {product.productName}</div>
-                        <div>Size: {product.size}</div>
-                        <div>Color: {product.color}</div>
                         <div>Price: {product.price}</div>
                         <div>Product Counts: {product.productCounts}</div>
                       </li>
                     ))}
                     <div>
-                          Have to pay: {totalPrice}
+                      Have to pay: {totalPrice}
                     </div>
                   </ul>
                 </div>

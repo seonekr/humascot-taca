@@ -22,10 +22,12 @@ const User = () => {
     };
 
     const deleteUsers = () => {
-        console.log('Successful')
-        
-        closeConfirmationPopup();
+      console.log('Successful')
+      
+      closeConfirmationPopup();
     };
+
+
     return(
         <>
             <AdminMenu/>
@@ -47,8 +49,10 @@ const User = () => {
                        <div>User Phone number: </div>
                        <div>Password: </div>
                        <div>Password: </div>
-                       <div className='del' >
-                           <AiOutlineDelete  onClick={() => openConfirmationPopup(user.userID)}/>
+                       <div className='del'
+                        onClick={() => openConfirmationPopup(user.userID)} 
+                       >
+                        <AiOutlineDelete  />
                        </div>
                     </div>
                     <div className="img">

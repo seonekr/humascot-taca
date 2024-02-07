@@ -4,68 +4,30 @@ import Header from "../header/Header";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
+import Logo from "../../../img/Logo.png";
+import storename from "../../../img/storename.png";
 
 import "./bill.css";
 const Bill = () => {
   // Orders
   const [orders, setOrders] = useState([
     {
-      orderID: 1,
-      userID: 2,
-      products: [
-        {
-          productID: 1,
-          productName: "pro1",
-          productType: "clothes",
-          amount: 2,
-          price: 10,
-          size: "m",
-        },
-        {
-          productID: 2,
-          productName: "pro1",
-          productType: "clothes",
-          amount: 2,
-          price: 10,
-          size: "m",
-        },
-      ],
-      orderDate: "10/12/2023",
-      status: "pending",
-      payment: "Bcel One",
-      delivery: "Houngaloun",
-    },
-    {
       orderID: 2,
       userID: 1,
       products: [
         {
           productID: 1,
-          productName: "pro1",
-          productType: "clothes",
-          amount: 2,
-          price: 10,
-          color: "colB",
-          size: "m",
+          productName: "깻잎",
+          price: 8.500,
+          amount: 5,
+          delivery: 2.500
         },
         {
           productID: 2,
-          productName: "pro2",
-          productType: "clothes",
-          amount: 2,
-          price: 10,
-          color: "colW",
-          size: "l",
-        },
-
-        {
-          productID: 3,
-          productName: "pro3",
-          productType: "clothes",
-          amount: 2,
-          price: 10,
-          color: "colBlue",
-          size: "xl",
+          productName: "더덕무침",
+          price: 7.500,
+          amount: 5,
+          delivery: 3.500
         },
       ],
       orderDate: "10/12/2023",
@@ -78,50 +40,18 @@ const Bill = () => {
       userID: 1,
       products: [
         {
-          productID: 1,
-          productName: "pro1",
-          productType: "clothes",
-          amount: 2,
-          price: 10,
-          color: "colB",
-          size: "m",
+          productID: 3,
+          productName: "멸치볶음",
+          price: 9.250,
+          amount: 5,
+          delivery: 2.500
         },
         {
           productID: 2,
-          productName: "pro1",
-          productType: "clothes",
-          amount: 2,
-          price: 10,
-          color: "colBlue",
-          size: "m",
-        },
-      ],
-      orderDate: "10/12/2023",
-      status: "pending",
-      payment: "Bcel One",
-      delivery: "Houngaloun",
-    },
-    {
-      orderID: 4,
-      userID: 3,
-      products: [
-        {
-          productID: 1,
-          productName: "pro1",
-          productType: "clothes",
-          amount: 2,
-          price: 10,
-          color: "colB",
-          size: "m",
-        },
-        {
-          productID: 2,
-          productName: "pro1",
-          productType: "clothes",
-          amount: 2,
-          price: 10,
-          color: "colBlue",
-          size: "m",
+          productName: "더덕무침",
+          price: 7.500,
+          amount: 5,
+          delivery: 3.500
         },
       ],
       orderDate: "10/12/2023",
@@ -129,14 +59,11 @@ const Bill = () => {
       payment: "Bcel One",
       delivery: "Anousit",
     },
+    
   ]);
 
   // users
-  const [users, setUsers] = useState([
-    { userID: 1, name: "John Doe", email: "john@gmail.com" },
-    { userID: 2, name: "Sam", email: "sam@gmail.com" },
-    { userID: 3, name: "Will", email: "wil@gmail.com" },
-  ]);
+  const [users, setUsers] = useState([]);
 
   // Get order ID
   const location = useLocation();
@@ -156,7 +83,6 @@ const Bill = () => {
       return {
         orderID: order.orderID,
         userID: order.userID,
-        userName: user.name,
         products: order.products,
         orderDate: order.orderDate,
         status: order.status,
@@ -176,11 +102,13 @@ const Bill = () => {
         </Link>
         {filteredOrders.map((order) => (
           <div className="bill-detial newspanBox" key={order.orderID}>
+            <div className="logo_image">
+              <div className="name_store"><div><img src={storename} alt="Logo" /></div></div>
+              <div className="logo_store"><Link to="/"><img src={Logo} alt="Logo" /></Link></div>
+            </div>
             <div className="guopoidHead">
               <div className="idf">
                 <p>OrderID: {order.orderID}</p>
-                <p>UserID: {order.userID}</p>
-                <p>Name: {order.userName}</p>
               </div>
             </div>
             <hr />
@@ -191,8 +119,8 @@ const Bill = () => {
                     <th>Product Name</th>
                     <th>Price</th>
                     <th>Amount</th>
-                    <th>Color</th>
-                    <th>Size</th>
+                    <th>Discount/Accumulation</th>
+                    <th>delivery fee</th>
                   </tr>
                 </thead>
                 {order.products.map((product) => (
@@ -201,8 +129,8 @@ const Bill = () => {
                       <td>{product.productName}</td>
                       <td>${product.price}</td>
                       <td>{product.amount}</td>
-                      <td>{product.color}</td>
-                      <td>{product.size}</td>
+                      <td></td>
+                      <td>${product.delivery}</td>
                     </tr>
                   </tbody>
                 ))}

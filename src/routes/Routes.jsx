@@ -10,11 +10,11 @@ import Cart from "../user/components/cart/Cart";
 import Address from "../user/components/cart/Address";
 import Contacts from "../user/components/contact/Contact";
 import Bill from "../user/components/order/Bill";
+import ProductKinds from "../user/components/products/ProductKind"
 import Dashboard from "../admin/Dashboard";
 import Post from "../admin/components/post/Post";
-import Categories from "../user/components/categories/Categories";
 
-/* ========= Phukeo ========= */
+/* ============================== */
 import Login from '../user/components/login_register/Login';
 import AlertLogin from '../user/components/login_register/AlertLogin';
 import AlertSignup from '../user/components/login_register/AlertSignup';
@@ -35,10 +35,12 @@ import AddAdmin from "../admin/components/menagerAdmin/AddAdmin";
 import UpdateProduct from "../admin/components/post/UpdateProduct";
 import Admin_acount from "../admin/components/menagerAdmin/Admin_acount";
 
+
 const Links = () => {
     return(
         <Router>
             <Routes>
+                {/*====================== */}
                 <Route exact path="/" Component={Home}/>
                 <Route exact path="/account" Component={Account}/>
                 <Route exact path="/account/general" Component={General}/>
@@ -49,10 +51,10 @@ const Links = () => {
                 <Route exact path="/contacts" Component={Contacts}/>
                 <Route exact path="/order" Component={Order}/>
                 <Route exact path="/order/bill" Component={Bill}/>
-                <Route exact path="/categories" Component={Categories}/>
                 <Route exact path="/cart/successfulBuy" Component={SuccessfulBuy}/>
+                <Route exact path="/productkinds" Component={ProductKinds}/>
 
-                {/*==== phukeo ==== */}
+                {/*====================== */}
                 <Route exact path="/product_search" Component={Product_search}/>
                 <Route exact path="/product_search/productdetails" Component={ProductDetails}/>
                 <Route exact path="/login" Component={Login}/>

@@ -363,6 +363,7 @@ body {
 
 .txtContentproduct {
     width: 80%;
+    margin-top: 2.5rem;
 }
 
 .description_container {
@@ -491,7 +492,7 @@ body {
         font-size: 18px;
         width: 95%;
         overflow: hidden;
-
+        
     }
     .product-page-img {
         width: 100%;
@@ -515,6 +516,7 @@ body {
         padding: 10px;
         width: 100%;
         margin: auto;
+        margin-top: -7rem;
         overflow: hidden;
     }
 
