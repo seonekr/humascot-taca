@@ -29,7 +29,7 @@ const Account = () => {
       .then((result) => {
         if (result.Status === "Success") {
           setUserDetail(result.Result[0]);
-          console.log(userDetail);
+          console.log(userDetail.profile_image);
         }
       })
       .catch((error) => console.log("error", error));
@@ -60,9 +60,21 @@ const Account = () => {
 
         <div className="personal-info">
           <div className="profile">
+            {/* <div className="box-image">
+              <span>{<img src={userDetail.profile_image} alt="" />}</span>
+            </div> */}
             <div className="box-image">
               <span>
-                <img src={user} alt="" />
+                {
+                  <img
+                    src={
+                      import.meta.env.VITE_API +
+                      "/uploads/images/" +
+                      userDetail.profile_image
+                    }
+                    alt=""
+                  />
+                }
               </span>
             </div>
             <span className="name">

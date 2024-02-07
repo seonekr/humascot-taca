@@ -7,6 +7,9 @@ import Logo from "../../../img/Logo.png";
 import storename from "../../../img/storename.png";
 
 const Header = ({ handleSearch }) => {
+
+  const [searchTerm, setSearchTerm] = useState("");
+
   // For authenticate user
   const userID = localStorage.getItem("userID");
   const location = useLocation();
@@ -17,7 +20,6 @@ const Header = ({ handleSearch }) => {
     { label: "Orders", path: "/order" },
   ];
 
-  const [searchTerm, setSearchTerm] = useState("");
 
   // Search bar function
   const handleSubmit = (e) => {
@@ -32,8 +34,7 @@ const Header = ({ handleSearch }) => {
           <div className="headWithBox">
             <div className="headMenu">
 
-              <div className="storename"><div><img src={storename} alt="Logo" /></div></div>
-              <div className="logo1"><Link to="/"><img src={Logo} alt="Logo" /></Link></div>
+              <div className="logo1"><Link to="/"><img src={Logo1} alt="Logo" /></Link></div>
 
               <div className="boxLiMenu">
                 <div className="linkLi">
@@ -56,18 +57,22 @@ const Header = ({ handleSearch }) => {
             <div className="ulHead_box">
 
               <form onSubmit={handleSubmit} className="searchBarForm">
-                {" "}
-                {/* Here is search bar */}
                 <input
                   type="text"
-                  placeholder="Search products ..........."
+                  placeholder="Search products..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
-                <button type="submit"><FaMagnifyingGlass className="iconSearch" /></button>
+                <button type="submit">
+                  <FaMagnifyingGlass className="iconSearch"/>
+                </button>
               </form>
-              
               <div className="boxsearchContainer">
+                {userID ? (
+                  <Link to="/cart">
+                    <FaCartShopping className="head_colorr" />
+                  </Link>
+                ) : (
                   <Link to="/cart">
                     <FaCartShopping className="head_colorr" />
                   </Link>
@@ -83,6 +88,7 @@ const Header = ({ handleSearch }) => {
                     <BiLogIn className="login" />
                   </Link>
                 </div>
+              )}
 
             </div>
           </div>

@@ -5,6 +5,9 @@ import Header from "../header/Header";
 import 멸치볶음 from "../../../img/멸치볶음.jpg";
 import 진미채볶음 from "../../../img/진미채볶음.jpg";
 import { useState } from "react";
+import acer from "../../../img/acer.png";
+import productImage from "../../../img/productImage.png";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaCartShopping } from "react-icons/fa6";
 import { FaRegHeart } from "react-icons/fa";
@@ -50,64 +53,41 @@ const ProductHome = () => {
   const [displayCount, setDisplayCount] = useState(8);
   const [showButton, setShowButton] = useState(true);
 
+  
+  // Function to handle search by product name
   const handleSearch = (searchTerm) => {
     const filtered = products.filter((product) =>
-      product.productName.toLowerCase().includes(searchTerm.toLowerCase())
+      product.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setFilteredProducts(filtered);
   };
 
-  // Handle inputChange
-  // Function to handle the filter change
-  const handleFilterChange = (event) => {
-    const selectedValue = event.target.value;
-    setSelectedFilter(selectedValue);
-    switch (selectedValue) {
-      case "higherPrice":
-        filterByHigherPrice();
-        break;
-      case "lowerPrice":
-        filterByLowerPrice();
-        break;
-      case "newProducts":
-        filterByNewProducts();
-        break;
-      case "popularProducts":
-        filterByPopularProducts();
-        break;
-      default:
-        setFilteredProducts(products);
-    }
-  };
 
-  // Function to filter products by higher price
-  const filterByHigherPrice = () => {
-    const sortedProducts = [...products].sort((a, b) => b.price - a.price);
-    setFilteredProducts(sortedProducts);
-  };
+  useEffect((event) => {
+    Showproducts();
+  }, []);
 
-  // Function to filter products by lower price
-  const filterByLowerPrice = () => {
-    const sortedProducts = [...products].sort((a, b) => a.price - b.price);
-    setFilteredProducts(sortedProducts);
-  };
+  const Showproducts = () => {
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
 
-  // Function to filter products by new products (assuming newer products have higher productID)
-  const filterByNewProducts = () => {
-    const sortedProducts = [...products].sort(
-      (a, b) => b.productID - a.productID
-    );
-    setFilteredProducts(sortedProducts);
-  };
+    var requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+      redirect: "follow",
+    };
 
-  // Function to filter products by popularity (you can customize the popularity criteria)
-  const filterByPopularProducts = () => {
-    // Implement your popularity criteria here
-    // For simplicity, let's assume popularity is based on productID
-    const sortedProducts = [...products].sort(
-      (a, b) => b.productID - a.productID
-    );
-    setFilteredProducts(sortedProducts);
+    fetch(import.meta.env.VITE_API + "/allProducts", requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        if (result.Status === "Success") {
+          setProducts(result.Result);
+          setFilteredProducts(result.Result);
+        } else {
+          setError(result.Error);
+        }
+      })
+      .catch((error) => console.log("error", error));
   };
 
   const displayedProducts = filteredProducts.slice(0, displayCount);
@@ -121,10 +101,8 @@ const ProductHome = () => {
   const navigate = useNavigate();
 
   // Handle product
-  const handleProduct = (sendProductID) => {
-    navigate("/product_search/productdetails", {
-      state: { sendProductID: sendProductID },
-    });
+  const handleProduct = (id) => {
+    navigate("/productdetails/" + id);
   };
 
   return (
@@ -139,11 +117,7 @@ const ProductHome = () => {
           <div className="categoryBoxfiler">
             <form className="boxfilterseach">
               <label>Select Filter</label>
-              <select
-                className="filter_priceProduct"
-                value={selectedFilter}
-                onChange={handleFilterChange}
-              >
+              <select className="filter_priceProduct">
                 <option value="default">All Product</option>
                 <option value="higherPrice">Higher Price</option>
                 <option value="lowerPrice">Lower Price</option>
@@ -158,9 +132,16 @@ const ProductHome = () => {
         <div className="product-area">
           {displayedProducts.map((product, index) => (
             <div className="box-product" key={index}>
-              <div onClick={() => handleProduct(product.productID)}>
+              <div onClick={() => handleProduct(product.id)}>
                 <div className="img">
-                  <img src={product.images[0].src} alt="image" />
+                  <img
+                    src={
+                      import.meta.env.VITE_API +
+                      "/uploads/images/" +
+                      product.image
+                    }
+                    alt="image"
+                  />
                 </div>
                 
                 <div className="box_cart">
@@ -172,7 +153,7 @@ const ProductHome = () => {
                     <input
                       className="name"
                       type="text"
-                      value={product.productName}
+                      value={product.name}
                       onChange={(e) => handleInputChange(e, index, "name")}
                     />
                   </li>
@@ -185,6 +166,16 @@ const ProductHome = () => {
                     />
                   </li>
                   <p>Review: {product.review}</p>
+                  <li>
+                    <input
+                      className="desc"
+                      type="text"
+                      value={product.description}
+                      onChange={(e) =>
+                        handleInputChange(e, index, "description")
+                      }
+                    />
+                  </li>
                 </ul>
               </div>
             </div>

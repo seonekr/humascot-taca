@@ -1,7 +1,10 @@
 import "./product.css";
+import dress from "../../../img/dress.png";
+import image1 from "../../../img/image1.png";
+import acer from "../../../img/acer.png";
 import productImage from "../../../img/productImage.png";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AdminMenu from "../adminMenu/AdminMenu";
 import { BiPlus } from "react-icons/bi";
 import { IoSearchOutline } from "react-icons/io5";
@@ -9,38 +12,626 @@ import { MdOutlineEdit } from "react-icons/md";
 import { AiOutlineDelete, AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 
 const Product = () => {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState([
+    {
+      productID: 1,
+      productName: "pro1",
+      productType: "clothes",
+      price: 15,
+      description: "desc for this product",
+      popular: true,
+      images: [
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: dress,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: dress,
+        },
+      ],
+      colors: [
+        { colorID: 1, colorName: "black" },
+        { colorID: 2, colorName: "blue" },
+        { colorID: 3, colorName: "red" },
+        { colorID: 4, colorName: "green" },
+      ],
+    },
+    {
+      productID: 2,
+      productName: "pro2",
+      productType: "clothes",
 
-   // Delete product
-   const [deleteProductId, setDeleteProductId] = useState(null);
-   const [isConfirmationPopupOpen, setConfirmationPopupOpen] = useState(false);
+      price: 10,
+      description: "desc for this product",
+      popular: true,
+      images: [
+        {
+          src: dress,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: dress,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: dress,
+        },
+      ],
+      colors: [
+        { colorID: 1, colorName: "black" },
+        { colorID: 2, colorName: "blue" },
+        { colorID: 3, colorName: "red" },
+        { colorID: 4, colorName: "green" },
+      ],
+    },
+    {
+      productID: 3,
+      productName: "pro3",
+      productType: "clothes",
+      price: 10,
+      description: "desc for this product",
+      popular: true,
+      images: [
+        {
+          src: image1,
+        },
+        {
+          src: dress,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: dress,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: dress,
+        },
+      ],
+      colors: [
+        { colorID: 1, colorName: "black" },
+        { colorID: 2, colorName: "blue" },
+        { colorID: 3, colorName: "red" },
+        { colorID: 4, colorName: "green" },
+      ],
+    },
+    {
+      productID: 4,
+      productName: "pro4",
+      productType: "clothes",
+      price: 10,
+      description: "desc for this product",
+      popular: true,
+      images: [
+        {
+          src: dress,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: dress,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: dress,
+        },
+      ],
+      colors: [
+        { colorID: 1, colorName: "black" },
+        { colorID: 2, colorName: "blue" },
+        { colorID: 3, colorName: "red" },
+        { colorID: 4, colorName: "green" },
+      ],
+    },
+    {
+      productID: 5,
+      productName: "pro5",
+      productType: "clothes",
+      price: 10,
+      description: "desc for this product",
+      popular: true,
+      images: [
+        {
+          src: image1,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: dress,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: dress,
+        },
+      ],
+      colors: [
+        { colorID: 1, colorName: "black" },
+        { colorID: 2, colorName: "blue" },
+        { colorID: 3, colorName: "red" },
+        { colorID: 4, colorName: "green" },
+      ],
+    },
+    {
+      productID: 6,
+      productName: "pro6",
+      productType: "clothes",
+      price: 10,
+      description: "desc for this product",
+      popular: true,
+      images: [
+        {
+          src: image1,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: dress,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: dress,
+        },
+      ],
+      colors: [
+        { colorID: 1, colorName: "black" },
+        { colorID: 2, colorName: "blue" },
+        { colorID: 3, colorName: "red" },
+        { colorID: 4, colorName: "green" },
+      ],
+    },
+    {
+      productID: 7,
+      productName: "pro7",
+      productType: "clothes",
+      price: 10,
+      description: "desc for this product",
+      popular: true,
+      images: [
+        {
+          src: image1,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: dress,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: dress,
+        },
+      ],
+      colors: [
+        { colorID: 1, colorName: "black" },
+        { colorID: 2, colorName: "blue" },
+        { colorID: 3, colorName: "red" },
+        { colorID: 4, colorName: "green" },
+      ],
+    },
+    {
+      productID: 8,
+      productName: "pro8",
+      productType: "clothes",
+      price: 10,
+      description: "desc for this product",
+      popular: true,
+      images: [
+        {
+          src: image1,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: dress,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: dress,
+        },
+      ],
+      colors: [
+        { colorID: 1, colorName: "black" },
+        { colorID: 2, colorName: "blue" },
+        { colorID: 3, colorName: "red" },
+        { colorID: 4, colorName: "green" },
+      ],
+    },
+    {
+      productID: 9,
+      productName: "pro9",
+      productType: "clothes",
+      price: 10,
+      description: "desc for this product",
+      popular: true,
+      images: [
+        {
+          src: image1,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: dress,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: dress,
+        },
+      ],
+      colors: [
+        { colorID: 1, colorName: "black" },
+        { colorID: 2, colorName: "blue" },
+        { colorID: 3, colorName: "red" },
+        { colorID: 4, colorName: "green" },
+      ],
+    },
+    {
+      productID: 10,
+      productName: "pro10",
+      productType: "clothes",
+      price: 10,
+      description: "desc for this product",
+      popular: true,
+      images: [
+        {
+          src: image1,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: dress,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: dress,
+        },
+      ],
+      colors: [
+        { colorID: 1, colorName: "black" },
+        { colorID: 2, colorName: "blue" },
+        { colorID: 3, colorName: "red" },
+        { colorID: 4, colorName: "green" },
+      ],
+    },
+    {
+      productID: 11,
+      productName: "pro11",
+      productType: "clothes",
+      price: 10,
+      description: "desc for this product",
+      popular: true,
+      images: [
+        {
+          src: image1,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: dress,
+        },
+        {
+          src: acer,
+        },
+        {
+          src: productImage,
+        },
+        {
+          src: image1,
+        },
+        {
+          src: dress,
+        },
+      ],
+      colors: [
+        { colorID: 1, colorName: "red" },
+        { colorID: 2, colorName: "green" },
+      ],
+    },
+  ]);
 
-   const openConfirmationPopup = (productID) => {
-    setDeleteProductId(productID);
-     setConfirmationPopupOpen(true);
-   };
-
-   const closeConfirmationPopup = () => {
-    setDeleteProductId(null);
-     setConfirmationPopupOpen(false);
-   };
-
-   const deleteProducts = () => {
-     console.log('Successful')
-     
-     closeConfirmationPopup();
-   };
+  const [filteredProducts, setFilteredProducts] = useState(products);
+  const [searchTerm, setSearchTerm] = useState("");
 
   // prev next button user in react
   const [currentPage, setCurrentPage] = useState(1);
   const recordsPerPage = 8;
   const lastIndex = currentPage * recordsPerPage;
   const firstIndex = lastIndex - recordsPerPage;
-  const records = products.slice(firstIndex, lastIndex);
-  const npage = Math.ceil(products.length / recordsPerPage);
+  const records = filteredProducts.slice(firstIndex, lastIndex);
+  const npage = Math.ceil(filteredProducts.length / recordsPerPage);
   const numbers = [...Array(npage + 1).keys()].slice(1);
 
- 
+   // Delete product
+   const [deleteProductId, setDeleteProductId] = useState(null);
+   const [isConfirmationPopupOpen, setConfirmationPopupOpen] = useState(false);
+
+  const openConfirmationPopup = (productId) => {
+    setDeleteProductId(productId);
+    setConfirmationPopupOpen(true);
+  };
+
+   const closeConfirmationPopup = () => {
+    setDeleteProductId(null);
+     setConfirmationPopupOpen(false);
+   };
+
+  const deleteProduct = () => {
+    if (deleteProductId !== null) {
+      // Filter out the product with the specified ID
+      const updatedProducts = products.filter(
+        (product) => product.productID !== deleteProductId
+      );
+
+      // Update the state with the new array of products
+      setProducts(updatedProducts);
+
+      // Close the confirmation popup after deleting
+      closeConfirmationPopup();
+    }
+  };
+
+  // Send ID product for update
+  const navigate = useNavigate();
+  // Update products
+  const handleUpdate = (sendProductID) => {
+    navigate("/updateproduct/", { state: { sendProductID: sendProductID } });
+  };
+
+  // Function to handle search by product name
+  const handleSearch = () => {
+    const filtered = products.filter((product) =>
+      product.productName.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredProducts(filtered);
+  };
 
   return (
     <>
@@ -59,10 +650,10 @@ const Product = () => {
 
           <div className="productHead_content">
             <h1 className="htxthead">
-              <span className="spennofStyleadmin"></span>Product
+              <span className="spennofStyleadmin"></span>Products
             </h1>
             <div className="categoryBoxfiler">
-              <Link to="/post" className="box_add_product">
+              <Link to="/post/" className="box_add_product">
                 <BiPlus id="icon_add_product" />
                 <p>Add Product</p>
               </Link>
@@ -70,89 +661,37 @@ const Product = () => {
           </div>
 
           <div className="product-area">
-            <div className="box-product" >
-              <div>
-                <img src={productImage} alt="image" />
-              </div>
-              <ul className="txtOFproduct">
-                <li>product.productName</li>
-                <li>product.description</li>
-                <li>product.price</li>
-                <div className="box_btn_edit_delete">
-                  <button
-                    className="btn_icon_delete_user" >
-                    <AiOutlineDelete id="btn_icon_edit" />
-                  </button>
-                  <Link to='/updateproduct' className="btn_icon_edit_user">
-                    <MdOutlineEdit id="btn_icon_edit" />
-                  </Link>
+            {records.map((product, index) => (
+              <div className="box-product" key={index}>
+                <div>
+                  <img src={product.images[0].src} alt="image" />
                 </div>
-              </ul>
-            </div>
-            
-            <div className="box-product" >
-              <div>
-                <img src={productImage} alt="image" />
+                <ul className="txtOFproduct">
+                  <li>{product.productName}</li>
+                  <li>{product.description}</li>
+                  <li>{product.price}</li>
+                  <div className="box_btn_edit_delete">
+                    <button
+                      className="btn_icon_delete_user"
+                      onClick={() => openConfirmationPopup(product.productID)}
+                    >
+                      <AiOutlineDelete id="btn_icon_edit" />
+                    </button>
+                    <div
+                      className="btn_icon_edit_user"
+                      onClick={() => handleUpdate(product.productID)}
+                    >
+                      <MdOutlineEdit id="btn_icon_edit" />
+                    </div>
+                  </div>
+                </ul>
               </div>
-              <ul className="txtOFproduct">
-                <li>product.productName</li>
-                <li>product.description</li>
-                <li>product.price</li>
-                <div className="box_btn_edit_delete">
-                  <button
-                    className="btn_icon_delete_user" >
-                    <AiOutlineDelete id="btn_icon_edit" />
-                  </button>
-                  <Link to='/updateproduct' className="btn_icon_edit_user">
-                    <MdOutlineEdit id="btn_icon_edit" />
-                  </Link>
-                </div>
-              </ul>
-            </div>
-            <div className="box-product" >
-              <div>
-                <img src={productImage} alt="image" />
-              </div>
-              <ul className="txtOFproduct">
-                <li>product.productName</li>
-                <li>product.description</li>
-                <li>product.price</li>
-                <div className="box_btn_edit_delete">
-                  <button
-                    className="btn_icon_delete_user" >
-                    <AiOutlineDelete id="btn_icon_edit" />
-                  </button>
-                  <Link to='/updateproduct' className="btn_icon_edit_user">
-                    <MdOutlineEdit id="btn_icon_edit" />
-                  </Link>
-                </div>
-              </ul>
-            </div>
-            <div className="box-product" >
-              <div>
-                <img src={productImage} alt="image" />
-              </div>
-              <ul className="txtOFproduct">
-                <li>product.productName</li>
-                <li>product.description</li>
-                <li>product.price</li>
-                <div className="box_btn_edit_delete">
-                  <button
-                    className="btn_icon_delete_user" >
-                    <AiOutlineDelete id="btn_icon_edit" onClick={() => openConfirmationPopup(product.productID)} />
-                  </button>
-                  <Link to='/updateproduct' className="btn_icon_edit_user">
-                    <MdOutlineEdit id="btn_icon_edit" />
-                  </Link>
-                </div>
-              </ul>
-            </div>
-          
+            ))}
             {isConfirmationPopupOpen && (
               <div className="confirmation-popup">
                 <p>Are you sure you want to delete?</p>
                 <div className="btn_ok_on">
-                  <button onClick={deleteProducts} className="btn_yes">
+                  <button onClick={deleteProduct} className="btn_yes">
                     Yes
                   </button>
                   <button onClick={closeConfirmationPopup} className="btn_on">
